@@ -4,7 +4,10 @@
   "operatorSlug": "arthurs-seat-eagle",
   "experienceType": "scenic-sightseeing",
   "duration": "under-2h",
-  "theme": ["family", "relaxed"],
+  "theme": [
+    "family",
+    "relaxed"
+  ],
   "audience": "families",
   "occasion": "general",
   "origin": "dromana",
@@ -14,19 +17,21 @@
   "priceHigh": 38,
   "durationHours": 1.5,
   "maxGroupSize": 50,
-  "departsFrom": "Dromana Terminal, Arthurs Seat State Park",
-  "languages": ["en"],
-  "bookingUrl": "https://www.arthursseat.com.au/book/",
-  "intro": "The Arthurs Seat Eagle gondola connects the Dromana foreshore to the 305-metre summit of Arthurs Seat in a 15-minute one-way ride, delivering panoramic views over Port Phillip Bay and the Peninsula hinterland along the way. The gondola system is fully accessible, with cabins that accommodate wheelchairs and prams, and there is no minimum age or fitness requirement. Return tickets are standard; one-way tickets are available for those who want to walk one leg.",
+  "departsFrom": "Base Station, 1085 Arthurs Seat Road, Dromana VIC 3936, or Summit Station, 795 Arthurs Seat Road, Arthurs Seat VIC 3936",
+  "languages": [
+    "en"
+  ],
+  "bookingUrl": "https://aseagle.com.au/tickets/",
+  "intro": "The Arthurs Seat Eagle gondola connects its Base Station on Arthurs Seat Road in Dromana to the 305-metre summit of Arthurs Seat in a 15-minute one-way ride, delivering panoramic views over Port Phillip Bay and the Peninsula hinterland along the way. Level boarding accommodates wheelchairs and prams that fit the 80cm cabin doorway; oversized equipment may not fit, and mobility scooters cannot enter the cabins. Return tickets are standard; one-way tickets are available for those who want to walk one leg.",
   "whatHappens": "Gondola cabins depart from the base terminal in Dromana on a continuous loop, climbing through the forested hillside of Arthurs Seat State Park before emerging to open views over Port Phillip Bay. The 15-minute ride delivers sightlines that on clear days extend across the water to Melbourne and the You Yangs on the far shore. At the summit, passengers can visit the Eagles Nest cafe, access a viewing platform, and connect to walking tracks through the surrounding state park. The gondola returns on a separate descending line, so there is no queue conflict between ascending and descending passengers. Total time including summit exploration is typically 1 to 1.5 hours, though guests can spend as long as they like at the top before returning.",
-  "whoSuits": "Families with children of any age, including infants in prams. Guests with limited mobility who want genuine Peninsula views without a physical hike. Visitors looking for a reliable, weather-resilient activity, since the enclosed cabins and the summit cafe make this viable on overcast or cool days when beach activities are less appealing. Also suits travellers who want a quick, high-impact Peninsula experience without a full-day commitment.",
+  "whoSuits": "Families with children of any age, including infants in prams that fit the cabin doorway. Guests with limited mobility whose equipment fits the cabins and who want Peninsula views without a physical hike; check the accessibility limits before booking. Visitors looking for a reliable, weather-resilient activity, since the enclosed cabins and the summit cafe make this viable on overcast or cool days when beach activities are less appealing. Also suits travellers who want a quick, high-impact Peninsula experience without a full-day commitment.",
   "whoDoesnt": "Guests with severe vertigo or a real fear of heights: the cabins are enclosed, but the climb to 305 metres over forested hillside is visible throughout. Those looking for physical challenge or adventure will find the gondola intentionally gentle and unhurried. Groups wanting a private or exclusive experience should note this is a public attraction with significant crowd volumes on summer weekends and school holiday periods.",
   "bookingIntelligence": "Advance booking is strongly recommended on weekends between November and April and during all Victorian school holiday periods, when queues at the base terminal can stretch to 30 to 45 minutes for walk-up tickets. Early morning departures before 10am offer the best views: sea haze builds through the day in summer and reduces visibility across the Bay. The summit cafe operates standard cafe hours but can be busy at midday on peak days. Gondola operations are suspended in high winds and during lightning alerts, so check conditions on the day if the forecast is unsettled.",
   "cancellationPolicy": "Gondola operations may be suspended in high wind or storm conditions; refunds or rescheduling apply in these cases.",
   "faq": [
     {
       "question": "Is the gondola accessible for wheelchairs and prams?",
-      "answer": "Yes, the gondola cabins are designed to accommodate standard wheelchairs and prams. The base terminal at Dromana and the summit terminal both have accessible facilities. The operator recommends calling ahead for groups with multiple wheelchairs to confirm loading logistics on the day."
+      "answer": "Gondolas provide level boarding for wheelchairs, walkers and prams. Doors open to 80cm, so oversized wheelchairs and double prams may not fit. Mobility scooters cannot enter the cabins; scooter parking is available at the Base Station. Both stations have ramped access and accessible facilities. Contact the operator before travelling if you need to confirm that your equipment will fit."
     },
     {
       "question": "What is at the summit once we arrive?",
@@ -44,5 +49,207 @@
     "license": "venue-media-kit"
   },
   "lastVerified": "2026-04-30",
-  "publishedAt": "2026-04-30"
+  "publishedAt": "2026-04-30",
+  "retiredSourceLinks": [
+    {
+      "field": "bookingUrl",
+      "url": "https://www.arthursseat.com.au/book/",
+      "verdict": "parked",
+      "disposition": "replaced",
+      "replacement": "https://aseagle.com.au/tickets/",
+      "checkedOn": "2026-09-13",
+      "note": "arthursseat.com.au answers 200 from a domain-for-sale lander ('This website is for sale!'), not the operator. The gondola operator's own booking page is aseagle.com.au/tickets/, fetched 200."
+    }
+  ],
+  "gallery": [
+    {
+      "src": "/images/visit-victoria/vv-167085-arthurs-seat-eagle.webp",
+      "alt": "Arthurs Seat Eagle gondolas pass a support tower above the bay as a pale band of light sits on the horizon",
+      "credit": "Courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Arthurs Seat Eagle Gondola Ride, Mornington Peninsula",
+      "depicts": "Arthurs Seat Eagle",
+      "depictionStatus": "actual",
+      "sourceUrl": "Victoria Content Hub asset 167085, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-167058-arthurs-seat-eagle.webp",
+      "alt": "A family looks out from inside an Arthurs Seat Eagle gondola over the bayside suburbs and Port Phillip below",
+      "credit": "Courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Arthurs Seat Eagle Gondola Ride, Mornington Peninsula",
+      "depicts": "Arthurs Seat Eagle",
+      "depictionStatus": "actual",
+      "sourceUrl": "Victoria Content Hub asset 167058, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-143811-arthurs-seat-cable-car.webp",
+      "alt": "Two Arthurs Seat Eagle gondolas glide on cables above gum trees, with Port Phillip and the coastline below",
+      "credit": "Peter Tarasiuk, courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Arthurs Seat Eagle Gondola Ride, Mornington Peninsula",
+      "depicts": "Arthurs Seat cable car",
+      "depictionStatus": "actual",
+      "creator": "Peter Tarasiuk",
+      "sourceUrl": "Victoria Content Hub asset 143811, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026). Embedded usage terms: \"All image usage must be for the positive promotion of Melbourne and Victoria. Images can only be used to promote the region the image has been taken in. All material supplied is owned by Visit Victoria or its respective partners and can not be on sold to Third Parties.\"",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-167077-arthurs-seat-eagle.webp",
+      "alt": "Visitors at a timber railing watch an Arthurs Seat Eagle gondola pass overhead, with the bay and coastal suburbs below",
+      "credit": "Courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Arthurs Seat Eagle Gondola Ride, Mornington Peninsula",
+      "depicts": "Arthurs Seat Eagle",
+      "depictionStatus": "actual",
+      "sourceUrl": "Victoria Content Hub asset 167077, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-167059-arthurs-seat-eagle.webp",
+      "alt": "View from Arthurs Seat over bushland and bayside suburbs curving around Port Phillip Bay under broken cloud",
+      "credit": "Courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Arthurs Seat Eagle Gondola Ride, Mornington Peninsula",
+      "depicts": "Arthurs Seat Eagle",
+      "depictionStatus": "actual",
+      "sourceUrl": "Victoria Content Hub asset 167059, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-167061-arthurs-seat-eagle.webp",
+      "alt": "Two blue Arthurs Seat Eagle gondolas glide on cables above gum trees, with the bay and a wide sky beyond",
+      "credit": "Courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Arthurs Seat Eagle Gondola Ride, Mornington Peninsula",
+      "depicts": "Arthurs Seat Eagle",
+      "depictionStatus": "actual",
+      "sourceUrl": "Victoria Content Hub asset 167061, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-167084-arthurs-seat-eagle.webp",
+      "alt": "An Arthurs Seat Eagle gondola descends over bushland towards the bayside suburbs and Port Phillip Bay at dusk",
+      "credit": "Courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Arthurs Seat Eagle Gondola Ride, Mornington Peninsula",
+      "depicts": "Arthurs Seat Eagle",
+      "depictionStatus": "actual",
+      "sourceUrl": "Victoria Content Hub asset 167084, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-147209-arthurs-seat-eagle.webp",
+      "alt": "Riders in an Arthurs Seat Eagle gondola above bushland, with the turquoise bay and coastline stretching behind",
+      "credit": "Craig Sillitoe Photography, courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Arthurs Seat Eagle Gondola Ride, Mornington Peninsula",
+      "depicts": "Arthurs Seat Eagle",
+      "depictionStatus": "actual",
+      "creator": "Craig Sillitoe Photography",
+      "sourceUrl": "Victoria Content Hub asset 147209, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-167075-arthurs-seat-eagle.webp",
+      "alt": "A family rides an Arthurs Seat Eagle gondola past a cable tower, high above the bay and the rooftops of the coast",
+      "credit": "Courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Arthurs Seat Eagle Gondola Ride, Mornington Peninsula",
+      "depicts": "Arthurs Seat Eagle",
+      "depictionStatus": "actual",
+      "sourceUrl": "Victoria Content Hub asset 167075, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    }
+  ],
+  "accessibility": "Gondolas provide level boarding for wheelchairs, walkers and prams. Doors open to 80cm, so oversized wheelchairs and double prams may not fit. Mobility scooters cannot enter the cabins; scooter parking is available at the Base Station. Both stations have ramped access and accessible facilities. Contact the operator before travelling if you need to confirm that your equipment will fit.",
+  "editorialProvenance": {
+    "method": "researched",
+    "reviewedOn": "2026-10-01",
+    "checkedBy": "desk",
+    "source": "Bounded desk review: station addresses and choice of starting station; level boarding, 80cm doorway and mobility-scooter exclusion. Official sources: https://aseagle.com.au/getting-here/ ; https://aseagle.com.au/accessibility/. Other record fields were not reverified by this review."
+  }
 }

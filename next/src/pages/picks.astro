@@ -3,71 +3,50 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import NewsletterBlock from '../components/NewsletterBlock.astro';
+import { routeSlug } from '../lib/editorial';
 
-const breadcrumbItems = [
-  { label: 'Home', href: '/' },
-  { label: 'Picks' },
-];
-
-// Pull the most recent weekend-picks entries to preview the curation.
-const allPicks = await getCollection('weekend-picks');
-const recent = allPicks
-  .sort((a, b) => (a.data.weekendStart < b.data.weekendStart ? 1 : -1))
-  .slice(0, 4);
+const recent = (await getCollection('articles', ({ data }) => data.status === 'published'))
+  .filter((entry) => entry.data.tags.includes('insider-picks'))
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime())
+  .slice(0, 12);
+const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Insider Picks' }];
 export const prerender = true;
 ---
 
 <BaseLayout
-  title="Peninsula Insider Picks | The weekend, curated"
-  description="Peninsula Insider Picks - a tight editorial shortlist of the weekend on the Mornington Peninsula. New each Sunday."
+  title="Insider Picks · Mornington Peninsula Recommendations"
+  description="Short selections of Mornington Peninsula places and experiences worth considering. New Insider Picks appear when a fresh selection is ready."
   section="home"
   canonical="https://peninsulainsider.com.au/picks/"
 >
   <Breadcrumbs items={breadcrumbItems} />
-
   <section class="legal">
     <div class="container">
       <div class="legal__header">
-        <p class="label label--accent">The weekend, curated</p>
-        <h1 class="legal__title">Peninsula Insider Picks</h1>
-        <p class="legal__updated">A tight editorial shortlist for the weekend ahead</p>
+        <p class="label label--accent">A short selection</p>
+        <h1 class="legal__title">Insider Picks</h1>
+        <p class="legal__updated">Places and experiences worth a closer look</p>
       </div>
-
       <div class="legal__body prose">
-        <p>Peninsula Insider Picks is a short, hand-picked list of what's worth your Saturday and Sunday on the Mornington Peninsula. Each weekend, the editor selects a small slate - markets, openings, dinners, walks, exhibitions - with a verdict on why each one made the cut.</p>
-
-        <p>Selectivity is the point. The list is short on purpose.</p>
-
-        <h2>This weekend</h2>
-        <p>The current weekend's Picks live on the <a href="/whats-on/"><strong>What's On</strong></a> page, where they sit alongside the wider event calendar.</p>
-
-        <h2>Get them in your inbox</h2>
-        <p><strong>Peninsula This Weekend</strong> is a recurring section inside <a href="/dispatch/"><strong>The Insider Note</strong></a>, delivered weekly.</p>
-
+        <p>Insider Picks is a short selection of places, experiences and discoveries, with a reason for each recommendation. A new edition appears when a fresh selection is ready. Each carries its publication date; check venue hours and booking details before making plans.</p>
         {recent.length > 0 && (
           <>
-            <h2>Recent weekends</h2>
+            <h2>Recent selections</h2>
             <ul>
               {recent.map((entry) => (
-                <li>
-                  <strong>{entry.data.weekendLabel}</strong>
-                  {entry.data.editorIntro && (
-                    <> &mdash; {entry.data.editorIntro}</>
-                  )}
-                </li>
+                <li><a href={`/journal/${routeSlug(entry)}/`}>{entry.data.title}</a> - {entry.data.dek}</li>
               ))}
             </ul>
           </>
         )}
-
+        <h2>Planning a particular weekend?</h2>
+        <p><a href="/whats-on/this-weekend/">Peninsula This Weekend</a> is the dated weekend edit. Use the <a href="/whats-on/">What's On calendar</a> to choose other dates and browse events.</p>
+        <h2>Go deeper</h2>
+        <p>The <a href="/journal/">Journal</a> is our library of guides and stories. <a href="/dispatch/">The Insider Note</a> is one occasional email with selected recommendations and reading, sent when there is something worth knowing.</p>
         <h2>How Picks are made</h2>
-        <p>Picks are editor-selected, grounded in research, local knowledge and what is actually on. Coverage is not bought or traded.</p>
+        <p>Picks are editor-selected, grounded in research and local information. Coverage is not bought or traded.</p>
       </div>
     </div>
   </section>
-
-  <NewsletterBlock
-    body="Thoughtful recommendations, seasonal discoveries, and what’s happening across the Mornington Peninsula."
-    sub="The Peninsula worth knowing. Weekly. What's on, where we'd go and what's worth knowing next."
-  />
+  <NewsletterBlock />
 </BaseLayout>

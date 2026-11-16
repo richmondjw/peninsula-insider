@@ -6,7 +6,7 @@
 
 This gate runs **after every live mutation** (see `ops/operating-surface.md` for which jobs are `mutating-live`). It runs in two modes:
 
-- **Automated** — `ops/scripts/post-publish-verify.mjs`. **Corrected 2026-08-27:** this was invoked from `deploy.yml`, which no longer exists. It is **not** called by `build-and-deploy.yml`, so it does not run automatically on a site deploy. Run it manually: `node ops/scripts/post-publish-verify.mjs <urls...>`
+- **Automated** — `build-and-deploy.yml` invokes `ops/scripts/post-publish-verify.mjs` after GitHub Pages deployment for the Mornington Racecourse Market listing. It checks the exact release SHA, the reviewed image and its disclosure, substantial rendered copy, the source link and the general page requirements. It retries while Pages propagates and retains the report as a workflow artifact. Extend this checked URL set as more event listings complete admission review.
 - **Manual** — for ad-hoc edits or when the automated gate is unavailable, complete the checklist below
 
 ## The gate

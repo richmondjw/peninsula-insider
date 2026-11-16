@@ -26,10 +26,11 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import SectionHero from '../components/SectionHero.astro';
 import NewsletterBlock from '../components/NewsletterBlock.astro';
 import CloudSyncIndicatorScript from '../components/CloudSyncIndicatorScript.astro';
-import { routeSlug, venueHref } from '../lib/editorial';
+import { routeSlug, venueHref, isListableVenue } from '../lib/editorial';
+import {publicPlanningCatalog} from '../lib/event-planning.mjs';
 
-const venues = await getCollection('venues');
-const events = await getCollection('events');
+const venues = (await getCollection('venues')).filter(isListableVenue);
+const events = publicPlanningCatalog(await getCollection('events'));
 const experiences = await getCollection('experiences');
 
 /**
@@ -178,10 +179,11 @@ export const prerender = true;
 </BaseLayout>
 
 <!-- SortableJS from CDN; lazy-loaded when the user has at least one item. -->
-<script
-  is:inline
-  define:vars={{ venueLookup, eventLookup, experienceLookup }}
->
+<script type="application/json" id="pi-itinerary-lookups" set:html={JSON.stringify({venueLookup,eventLookup,experienceLookup,eventCatalog:events}).replace(/</g,'\\u003c')}></script>
+<script>
+  import {projectSavedEvent,installSavedEventRefresh} from '../lib/event-planning.mjs';
+  const {venueLookup,eventLookup,experienceLookup,eventCatalog}=JSON.parse(document.getElementById('pi-itinerary-lookups')?.textContent||'{}');
+  installSavedEventRefresh(window,document,eventCatalog);
   /* /itinerary/ controller. Owns localStorage (pi:itinerary:v1), wires
      SortableJS for drag-and-drop, computes haversine estimates between
      consecutive stops, and supports share/import via URL params. */
@@ -219,6 +221,7 @@ export const prerender = true;
     }
 
     function hydrate(item) {
+      if(item.kind==='event'){const current=projectSavedEvent(item,eventCatalog);return {slug:item.slug,kind:item.kind,title:current.title||item.slug,href:current.href,hero:current.image_url||'',lat:current.lat,lng:current.lng,type:current.eventKind||'Event',price:'',eventStatus:current.eventStatus};}
       var lookup;
       if (item.kind === 'event') lookup = eventLookup;
       else if (item.kind === 'experience') lookup = experienceLookup;
@@ -295,9 +298,9 @@ export const prerender = true;
       var hero = data.hero
         ? '<div class="itinerary-item__hero" style="background-image:url(' + escapeHtml(data.hero) + ')"></div>'
         : '<div class="itinerary-item__hero itinerary-item__hero--empty"></div>';
-      var meta = [data.type, data.price].filter(Boolean).map(escapeHtml).join(' · ');
+      var meta = [data.type, data.price,data.eventStatus].filter(Boolean).map(escapeHtml).join(' · ');
       return ''
-        + '<li class="itinerary-item" data-itinerary-id="' + escapeHtml(item.kind + ':' + item.slug) + '">'
+        + '<li class="itinerary-item" data-planning-kind="' + escapeHtml(item.kind) + '" data-planning-slug="' + escapeHtml(item.slug) + '" data-itinerary-id="' + escapeHtml(item.kind + ':' + item.slug) + '">'
         +   '<span class="itinerary-item__handle" aria-hidden="true">≡</span>'
         +   '<a class="itinerary-item__link" href="' + escapeHtml(data.href) + '">'
         +     hero
@@ -536,7 +539,7 @@ export const prerender = true;
               dayId: String(it.dayId || ''),
               note: String(it.note || ''),
             };
-          }).filter(function (it) { return it.slug; });
+          }).filter(function (it) { return it.slug&&(it.kind!=='event'||projectSavedEvent(it,eventCatalog).eventAvailable); });
           var aiDays = Array.isArray(decoded.days) ? decoded.days.map(function (d) {
             return { id: String(d.id || ''), label: String(d.label || d.id || '') };
           }).filter(function (d) { return d.id; }) : [];
@@ -620,6 +623,7 @@ export const prerender = true;
           added++;
         });
         (saved.events || []).forEach(function (e) {
+          if(!projectSavedEvent(e,eventCatalog).eventAvailable)return;
           if (state.items.some(function (it) { return it.kind === 'event' && it.slug === e.slug; })) return;
           state.items.push({ kind: 'event', slug: e.slug, dayId: '', note: '' });
           added++;
@@ -632,17 +636,47 @@ export const prerender = true;
       });
     });
 
+    /* PI-024 trip-copy measurement.
+       Three events, one attempt id, and the success one fires only after the
+       clipboard write actually resolves. The old handler had no measurement
+       at all, so a copy that silently failed and a copy that worked were the
+       same (invisible) thing.
+
+       The share URL is NEVER part of a payload. It encodes the stops and the
+       reader's own day labels, which they typed into a prompt - those are
+       sensitive trip details by any reading. Only counts and the delivery
+       method travel. */
+    function trackTripCopy(name, attempt, extra) {
+      if (!window.piTrack) return;
+      var params = {
+        attempt_id: attempt,
+        surface: 'itinerary',
+        stop_count: state.items.length,
+        day_count: state.days.length,
+      };
+      if (extra) for (var k in extra) if (Object.prototype.hasOwnProperty.call(extra, k)) params[k] = extra[k];
+      window.piTrack(name, params, { component: 'ItineraryToolbar' });
+    }
+
     var shareBtn = document.querySelector('[data-itinerary-share]');
     if (shareBtn) shareBtn.addEventListener('click', function () {
       var url = buildShareUrl();
+      var attempt = window.piAnalytics ? window.piAnalytics.newId() : String(Date.now());
+      trackTripCopy('trip_copy_started', attempt, { method: 'clipboard' });
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(url).then(function () {
           shareBtn.textContent = 'Copied!';
           setTimeout(function () { shareBtn.textContent = 'Copy share link'; }, 2000);
+          trackTripCopy('trip_copy_succeeded', attempt, { method: 'clipboard' });
         }, function () {
+          // The clipboard refused. The reader now has to copy by hand out of
+          // a prompt, which we cannot observe, so this is a failure and not a
+          // quieter kind of success.
+          trackTripCopy('trip_copy_failed', attempt, { method: 'clipboard', reason: 'clipboard-rejected' });
           window.prompt('Copy this share link:', url);
         });
       } else {
+        trackTripCopy('trip_copy_failed', attempt, { method: 'prompt', reason: 'clipboard-unavailable' });
         window.prompt('Copy this share link:', url);
       }
     });

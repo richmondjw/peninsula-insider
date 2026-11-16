@@ -140,7 +140,18 @@ And format for Beehiiv API if credentials are configured.
 
 ## Hero Image Selection
 
-Pick from existing `/images/sourced/` inventory in the repo.
+`engine/hero_image.py` stamps the hero after writing: it prefers a licensed
+photograph of the lead pick itself (the record's verified gallery, mostly the
+Visit Victoria library) over a stand-in, and copies credit, licence and caption
+from the record. Do not hand-pick over it.
+
+When choosing an image by hand (newsletter, one-off features), look in the
+licensed library first:
+`node ops/scripts/visit-victoria/find-images.mjs "<venue slug or place>"`.
+Use a READY result exactly as given (src, alt, credit, caption). List SUGGEST
+results for approval; never reference them. Terms: `ops/records/visit-victoria/README.md`.
+
+Otherwise pick from existing `/images/sourced/` inventory in the repo.
 Match season and topic. Prefer images of:
 - The featured venue or location
 - Or a seasonally appropriate Peninsula scene

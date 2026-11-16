@@ -1,0 +1,26 @@
+{
+  "claimId": "venues/iluka-retreat/address-2026-10-03",
+  "claimClass": "address",
+  "subject": {
+    "type": "venues",
+    "slug": "iluka-retreat",
+    "field": "address"
+  },
+  "statement": "Iluka Retreat & Camp is at 20 Shoreham Road, Shoreham VIC 3916.",
+  "assertedBy": [
+    {
+      "type": "venues",
+      "slug": "iluka-retreat",
+      "field": "address"
+    },
+    {
+      "type": "data-facts",
+      "slug": "accommodation/iluka-retreat-camp",
+      "field": "address"
+    }
+  ],
+  "createdAt": "2026-10-03",
+  "supersedes": "venues/iluka-retreat/address",
+  "origin": "authored",
+  "note": "Corrected to the address published by the operator on its glamping page. The former Red Hill South claim remains as a retired historical record."
+}

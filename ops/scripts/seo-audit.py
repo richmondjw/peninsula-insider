@@ -73,7 +73,6 @@ URLS = [
     "https://peninsulainsider.com.au/eat/paringa-estate",
     "https://peninsulainsider.com.au/eat/phaedrus-estate",
     "https://peninsulainsider.com.au/eat/pho-rosebud",
-    "https://peninsulainsider.com.au/eat/pier-street-flinders",
     "https://peninsulainsider.com.au/eat/point-leo-wine-terrace",
     "https://peninsulainsider.com.au/eat/port-phillip-estate-restaurant",
     "https://peninsulainsider.com.au/eat/portsea-hotel",

@@ -1,0 +1,20 @@
+{
+  "claimId": "venues/jetty-road-brewery/trading-status",
+  "claimClass": "trading-status",
+  "subject": {
+    "type": "venues",
+    "slug": "jetty-road-brewery",
+    "field": "status"
+  },
+  "statement": "Jetty Road Brewery is trading at its Dromana taproom.",
+  "assertedBy": [
+    {
+      "type": "venues",
+      "slug": "jetty-road-brewery",
+      "field": "status"
+    }
+  ],
+  "createdAt": "2026-09-13",
+  "origin": "authored",
+  "note": "The record carries no status key at all, so active is supplied by the Zod default rather than asserted by an editor. That is true of 136 venues. Writing the claim down is what turns an assertion by omission into something a source can be attached to. Authored by hand for the PI-005 Stage 2 venue pilot. Sources were read on 2026-09-13; see ops/reports/claims/2026-09-13-pilot-venues.md."
+}

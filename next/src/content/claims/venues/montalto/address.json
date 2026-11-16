@@ -1,0 +1,20 @@
+{
+  "claimId": "venues/montalto/address",
+  "claimClass": "address",
+  "subject": {
+    "type": "venues",
+    "slug": "montalto",
+    "field": "address"
+  },
+  "statement": "Montalto Vineyard & Olive Grove is at 33 Shoreham Rd, Red Hill South VIC 3937.",
+  "assertedBy": [
+    {
+      "type": "venues",
+      "slug": "montalto",
+      "field": "address"
+    }
+  ],
+  "createdAt": "2026-09-14",
+  "origin": "authored",
+  "note": "The one venue in this pilot whose record carries a complete street address and whose operator publishes it back word for word. It is here as the control: a pilot made only of failures says nothing about whether the class can hold a healthy claim. Authored by hand for the PI-005 address and coordinates pilot. Sources were read on 2026-09-14; see ops/reports/claims/2026-09-14-pilot-address.md."
+}

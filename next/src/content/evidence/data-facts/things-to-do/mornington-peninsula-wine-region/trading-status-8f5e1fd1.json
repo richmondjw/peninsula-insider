@@ -1,0 +1,18 @@
+{
+  "evidenceId": "data-facts/things-to-do/mornington-peninsula-wine-region/trading-status-8f5e1fd1",
+  "claim": "data-facts/things-to-do/mornington-peninsula-wine-region/trading-status",
+  "stance": "supports",
+  "publisher": {
+    "kind": "regional-body"
+  },
+  "retrievedAt": "2026-09-13",
+  "expiresAt": "2026-12-12",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/data/facts/things-to-do.json",
+    "field": "entities[12].source",
+    "value": "https://morningtonpeninsulawine.com.au/region-and-history",
+    "dateField": "lastUpdated"
+  },
+  "url": "https://morningtonpeninsulawine.com.au/region-and-history"
+}

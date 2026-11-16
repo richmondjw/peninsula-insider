@@ -1,0 +1,20 @@
+{
+  "claimId": "data-facts/beaches/safety-beach/access-restriction",
+  "claimClass": "access-restriction",
+  "subject": {
+    "type": "data-facts",
+    "slug": "beaches/safety-beach",
+    "field": "entities[9].source"
+  },
+  "statement": "Safety Beach: access restriction as recorded in src/data/facts/beaches.json.",
+  "assertedBy": [
+    {
+      "type": "data-facts",
+      "slug": "beaches/safety-beach",
+      "field": "entities[9].source"
+    }
+  ],
+  "createdAt": "2026-04-22",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

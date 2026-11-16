@@ -1,0 +1,52 @@
+{
+  "observedAt": "2026-09-17T13:08:55.365Z",
+  "sampledUrls": 7,
+  "profile": "daily",
+  "interpretation": "Initial lab observations, not ranking evidence. Homepage LCP and restaurant-guide LCP are open performance findings.",
+  "lighthouse": [
+    {
+      "url": "https://peninsulainsider.com.au/",
+      "finalUrl": "https://peninsulainsider.com.au/",
+      "fetchedAt": "2026-09-17T13:08:12.566Z",
+      "categories": {
+        "performance": 0.59,
+        "accessibility": 0.99,
+        "best-practices": 1,
+        "seo": 1
+      },
+      "lcpMs": 21728.37000000001,
+      "cls": 0.000311
+    },
+    {
+      "url": "https://peninsulainsider.com.au/eat/",
+      "finalUrl": "https://peninsulainsider.com.au/eat/",
+      "fetchedAt": "2026-09-17T13:08:27.173Z",
+      "categories": {
+        "performance": 0.9,
+        "accessibility": 0.96,
+        "best-practices": 1,
+        "seo": 1
+      },
+      "lcpMs": 3564.426,
+      "cls": 0.000311
+    },
+    {
+      "url": "https://peninsulainsider.com.au/eat/best-restaurants/",
+      "finalUrl": "https://peninsulainsider.com.au/eat/best-restaurants/",
+      "fetchedAt": "2026-09-17T13:08:42.231Z",
+      "categories": {
+        "performance": 0.74,
+        "accessibility": 0.96,
+        "best-practices": 1,
+        "seo": 1
+      },
+      "lcpMs": 8892.970000000001,
+      "cls": 0
+    }
+  ],
+  "deployment": {
+    "sourceSha": "fa42f85075078e60181f3961e321c84d47d8023b",
+    "runId": "35165944073",
+    "generatedAt": "2026-09-17T00:21:24.589Z"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "evidenceId": "data-facts/wine/mornington-peninsula/regional-count-5b8a1824",
+  "claim": "data-facts/wine/mornington-peninsula/regional-count",
+  "stance": "supports",
+  "publisher": {
+    "kind": "regional-body"
+  },
+  "retrievedAt": "2026-09-13",
+  "expiresAt": "2027-09-13",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/data/facts/wine.json",
+    "field": "region.source",
+    "value": "https://morningtonpeninsulawine.com.au/region-and-history",
+    "dateField": "lastUpdated"
+  },
+  "url": "https://morningtonpeninsulawine.com.au/region-and-history"
+}

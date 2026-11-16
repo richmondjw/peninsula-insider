@@ -1,6 +1,6 @@
 ---
 title: "Peninsula This Weekend - 2 to 3 May"
-dek: "Red Hill Market is this Saturday. After that, stay south."
+dek: "A historical 2–3 May weekend plan, retained with a correction: the original Red Hill Community Market is temporarily closed."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-04-26
@@ -25,10 +25,12 @@ clusterLinks:
     href: "/journal/peninsula-hot-springs-vs-alba/"
 faq:
   - question: "What is the best thing to do on the Mornington Peninsula this weekend, 2–3 May?"
-    answer: "Red Hill Market on Saturday morning is the anchor - go before 10am, leave room for a cellar door or long lunch in the afternoon. If you are staying Saturday night, Allara Briggs Pattison performs at Peninsula Hot Springs in the evening, included with bathing. A clean two-move Saturday that works whether you are staying overnight or doing a long day trip."
+    answer: "This is a historical plan for 2–3 May 2026. The original Red Hill Community Market advice below was incorrect: its organiser says it is temporarily closed. Check current market organisers and event dates before travelling."
   - question: "Is Red Hill Market worth going to in May?"
-    answer: "Yes. The first Saturday of May is one of the better Red Hill Market days of the year - the long-weekend crowd has cleared, the produce stalls are still at full autumn strength, and the hinterland air has the first proper edge of winter in it. Go before 10am. Stay south afterwards."
+    answer: "No current visit date is confirmed for the original Red Hill Community Market. Its organiser says it is temporarily closed while seeking a new location. Hill & Ridge Community Market is a separate event at the reserve."
 ---
+
+**Correction, 23 September 2026:** This dated 2–3 May plan presented the original Red Hill Community Market as operating. Its organiser says the original market is temporarily closed while seeking a new location. Hill & Ridge Community Market is a separate event at the reserve. Do not use the market advice below for a future visit.
 
 _Peninsula This Weekend is a recurring section inside The Insider Note: the plan we'd actually make for the weekend ahead, the booking worth locking in, and the bit of weekend thinking we'd happily do for you._
 

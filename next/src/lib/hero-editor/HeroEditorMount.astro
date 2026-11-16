@@ -18,7 +18,7 @@
     position: fixed;
     left: 16px;
     bottom: 16px;
-    z-index: 10050;
+    z-index: var(--z-editor);
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
@@ -39,7 +39,7 @@
     position: fixed;
     top: 0;
     right: 0;
-    z-index: 10060;
+    z-index: calc(var(--z-editor) + 1);
     width: min(420px, 100vw);
     height: 100dvh;
     display: flex;

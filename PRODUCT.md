@@ -6,6 +6,8 @@
 
 web
 
+The eight public anchor pages follow [the anchor-page design rules](docs/ANCHOR-PAGE-DESIGN-RULES.md). Shared fonts, responsive heading scales, colours and controls are enforced across Home, Eat & Drink, Stay, Wine, Explore, Plans, What's On and Journal.
+
 ## Users
 
 Two related audiences. (1) Visitors and locals on the Mornington Peninsula using peninsulainsider.com.au to decide where to eat, drink, stay, and go, by season and mood, not a generic top-10 list. (2) Existing email subscribers who receive "The Insider Note" (renamed from "Field Notes" 2026-08-03), the weekly newsletter distilling that week's picks, currently issue No. VI.
@@ -35,7 +37,7 @@ Peninsula Insider is a complete, independent guide to the Mornington Peninsula, 
 - Name: Peninsula Insider (site), "The Insider Note" (the newsletter itself, masthead name locked per the standing brief, renamed from "Field Notes" 2026-08-03).
 - Voice: direct, locally verified, corrects itself in public, never a press-release voice.
 - Locked by James's standing brief and not to change without his sign-off: the masthead name, module order, palette, sign-off line, and reply prompt.
-- No em-dashes anywhere on any PI surface. No prices, ever.
+- No em-dashes anywhere on any PI surface. Event listings may display prices only with current verified source evidence and a bounded expiry; all other surfaces retain the no-price rule.
 
 ## Evidence on Hand
 
@@ -50,6 +52,19 @@ Peninsula Insider is a complete, independent guide to the Mornington Peninsula, 
 - Correct fast, in public, rather than quietly.
 - Independent: no pay-for-coverage, ever.
 - Design is the final gate on factual/image claims for the email; it comes back rather than shipping unsourced.
+
+Every published Journal article has an associated image. Image-bearing Journal cards and article heroes always render an available, credited image, with licensed context photography and original illustration as fallbacks. The source and built-image gates enforce this rule. See [Journal image policy](docs/JOURNAL-IMAGE-POLICY.md).
+
+## Editorial Illustration Rules
+
+Coastal Punch is the approved default for conceptual editorial illustrations, including generative heroes and fallback artwork. Read [the canonical illustration rules](docs/COASTAL-PUNCH-ILLUSTRATIONS.md) before design work. They define the fresh coastal palette, simplified exaggerated forms, separate generations per placement, 100-point rubric, truthful captions/rights and desktop/mobile acceptance checks.
+
+This approved illustration palette is scoped to artwork and necessary overlay styling. Preserve the existing site structure, typography, controls and factual venue photography. Older muted illustration guidance does not override this approval. Responsive source resolution must account for the entire cover crop and device pixel ratio, including tall planning heroes.
+
+## Reader and Agent Boundary
+
+
+Reader pages must contain reader-facing editorial content only. Agent retrieval instructions and machine directory links belong in `/agents/`, JSON, Markdown, `llms.txt`, or HTML head metadata. Do not add them to page bodies, shared navigation, footers, hidden elements, or accessibility labels. `next/scripts/assert-reader-boundary.mjs` scans every built reader HTML page and blocks the build and publish when this boundary is crossed.
 
 ## Accessibility & Inclusion
 

@@ -1,0 +1,20 @@
+/* Narrative and guide content keeps its existing semantics and CMS hooks. */
+body[data-v4] .editorial-article{--reading-size:1.25rem;--font-display:'Source Serif 4',Georgia,serif;--font-ui:Inter,Arial,sans-serif;--measure-prose:68ch}
+body[data-v4] .editorial-article .article-hero{background:#fff;padding:48px 0 36px;border:0}
+body[data-v4] .editorial-article .article-hero__frame{display:block}
+body[data-v4] .editorial-article .article-hero__head{max-width:900px;margin:0 auto 38px;text-align:center}
+body[data-v4] .editorial-article .article-hero__title{font:400 clamp(36px,4.5vw,64px)/1.08 'Source Serif 4',Georgia,serif;letter-spacing:-.025em;max-width:900px;margin:20px auto}
+body[data-v4] .editorial-article .article-hero__dek{font:400 clamp(19px,2vw,24px)/1.5 'Source Serif 4',Georgia,serif;max-width:760px;margin:20px auto;color:#454545}
+body[data-v4] .editorial-article .article-hero__meta,body[data-v4] .editorial-article .article-hero__byline{justify-content:center}
+body[data-v4] .editorial-article .article-hero__tags{justify-content:center}
+body[data-v4] .editorial-article .article-hero__figure{width:100%;margin:0;border-radius:0}
+body[data-v4] .editorial-article .article-hero__image{width:100%;height:auto;max-height:650px;aspect-ratio:2/1;object-fit:cover;border-radius:0}
+body[data-v4] .editorial-article .article-body__content{max-width:760px;margin-inline:auto;width:100%;min-width:0}
+body[data-v4] .editorial-article .prose{font-family:'Source Serif 4',Georgia,serif;font-size:var(--reading-size);line-height:1.8;max-width:100%;color:#282828}
+body[data-v4] .editorial-article .prose :is(p,li){font-size:inherit;line-height:inherit}
+body[data-v4] .editorial-article .prose :is(h2,h3){font-family:'Source Serif 4',Georgia,serif;font-weight:400;letter-spacing:-.02em;scroll-margin-top:calc(var(--masthead-h,160px) + 24px)}
+body[data-v4] .editorial-article .prose h2{font-size:34px}body[data-v4] .editorial-article .prose h3{font-size:27px}
+@media(min-width:1080px){body[data-v4] .editorial-article .article-body--hub{grid-template-columns:220px minmax(0,760px);justify-content:center;gap:70px}}
+@media(max-width:767px){body[data-v4] .editorial-article .article-hero{padding-top:28px}body[data-v4] .editorial-article .article-hero__image{aspect-ratio:4/3}body[data-v4] .editorial-article .prose h2{font-size:29px}}
+
+body[data-v4] .editorial-article .article-hero__title{color:#191919}

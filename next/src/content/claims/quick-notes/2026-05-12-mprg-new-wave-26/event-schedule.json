@@ -1,0 +1,20 @@
+{
+  "claimId": "quick-notes/2026-05-12-mprg-new-wave-26/event-schedule",
+  "claimClass": "event-schedule",
+  "subject": {
+    "type": "quick-notes",
+    "slug": "2026-05-12-mprg-new-wave-26",
+    "field": "sources"
+  },
+  "statement": "MPRG - New Wave 26 and Michael Vale exhibitions open today, 11am–4pm. Both close 31 May.",
+  "assertedBy": [
+    {
+      "type": "quick-notes",
+      "slug": "2026-05-12-mprg-new-wave-26",
+      "field": "sources"
+    }
+  ],
+  "createdAt": "2026-05-12",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

@@ -26,7 +26,7 @@ faq:
   - question: Where do I park?
     answer: 'Seasonal paid parking applies near the pier during peak season with 3-hour limits. Free parking is available further along the foreshore strip. The Rye Boat Ramp car park (127 trailer spaces) is 100m from the pier and absorbs overflow. On a Saturday in January, parking and pier are busy from 8am. Arrive by 7am for close-in access; in school holidays and Easter weekend, before 6:30am is sensible.'
   - question: Is Rye Pier good for snapper?
-    answer: 'Not really. The water depth is modest (4 to 5m at the outer end) and the bottom structure does not hold snapper the way the Schnapper Point reef does. Snapper are caught here occasionally, more reliably at night, but the pier''s real strengths are squid and whiting. For pier-based snapper, Mornington Pier or Portsea Pier are the right targets.'
+    answer: 'Not really. The water depth is modest (4 to 5m at the outer end) and the bottom structure does not hold snapper the way the Schnapper Point reef does. Snapper are caught here occasionally, more reliably at night, but the pier''s real strengths are squid and whiting. For pier-based snapper, Mornington Pier is a better current option; Portsea Pier is closed for maintenance and must not be used until Parks Victoria confirms reopening.'
   - question: When is the best time for squid at Rye Pier?
     answer: 'The autumn peak (April to June) is the most productive window of the year, with a secondary peak September to November. Within any season, dawn and dusk are the reliable triggers. The transition from daylight to darkness, the 30 minutes either side of sunset, is the highest-density window. Sessions running from dusk to 2100 cover the best of any night.'
   - question: Can I fish at night?
@@ -81,4 +81,4 @@ Port Phillip Bay at Rye does not generate surf or significant rip currents. The 
 
 ## What this location is not well-suited to
 
-Not the right pier for anglers chasing snapper specifically. The water depth is modest and the structure does not hold snapper the way Mornington or Portsea do. Not suitable for anglers seeking solitude on summer weekends; the foreshore precinct attracts swimmers, snorkellers, picnickers, and anglers simultaneously. For weekday or shoulder-season sessions, the pier is genuinely uncrowded.
+Not the right pier for anglers chasing snapper specifically. The water depth is modest and the structure does not hold snapper the way Mornington does. Portsea Pier remains closed for maintenance until Parks Victoria confirms reopening. Not suitable for anglers seeking solitude on summer weekends; the foreshore precinct attracts swimmers, snorkellers, picnickers, and anglers simultaneously. For weekday or shoulder-season sessions, the pier is genuinely uncrowded.

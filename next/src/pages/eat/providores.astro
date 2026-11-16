@@ -5,8 +5,9 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { buildBreadcrumbSchema, absUrl } from '../../lib/schema';
+import { isListableVenue } from '../../lib/editorial';
 
-const allVenues = await getCollection('venues');
+const allVenues = (await getCollection('venues')).filter(isListableVenue);
 const venues = allVenues.filter((v) => v.data.type === 'providore');
 
 const breadcrumbItems = [
@@ -45,7 +46,7 @@ export const prerender = true;
       <div class="venues__header">
         <div>
           <p class="label label--accent">Peninsula providores</p>
-          <h2 class="venues__title">{venues.length} providores on the Peninsula</h2>
+          <h2 class="venues__title">Providores on the Peninsula</h2>
           <p class="venues__sub">Cheesemongers, fishmongers, and farmgate stores, by what they sell.</p>
         </div>
         <a href="/eat/" class="venues__link">All dining venues →</a>

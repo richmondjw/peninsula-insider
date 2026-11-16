@@ -1,0 +1,14 @@
+{
+  "evidenceId": "venues/flinders-hotel/address-operator-2026-09-14",
+  "claim": "venues/flinders-hotel/address",
+  "stance": "supports",
+  "publisher": {
+    "kind": "venue-site",
+    "name": "Flinders Hotel"
+  },
+  "url": "https://www.flindershotel.com.au/",
+  "retrievedAt": "2026-09-14",
+  "expiresAt": "2027-03-13",
+  "note": "The operator publishes \"23 Cook St, Flinders VIC 3929\" and builds its own directions link by searching that string. Street and postcode agree with the record, so the record's locality stands and this row supports it. Two limits, recorded rather than glossed: the operator does not name Wood Street anywhere on this page, so the corner itself is unconfirmed by this source, and the record carries no street number, so a reader pasting the record's address into a map gets a junction rather than the door the operator names.",
+  "origin": "authored"
+}

@@ -1,0 +1,18 @@
+{
+  "evidenceId": "data-facts/beaches/mount-martha-beach/access-restriction-9cf8bb97",
+  "claim": "data-facts/beaches/mount-martha-beach/access-restriction",
+  "stance": "supports",
+  "publisher": {
+    "kind": "unknown"
+  },
+  "retrievedAt": "2026-04-22",
+  "expiresAt": "2026-05-22",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/data/facts/beaches.json",
+    "field": "entities[8].source",
+    "value": "https://www.melbourneplaygrounds.com.au/the-best-accessible-beaches",
+    "dateField": "lastUpdated"
+  },
+  "url": "https://www.melbourneplaygrounds.com.au/the-best-accessible-beaches"
+}

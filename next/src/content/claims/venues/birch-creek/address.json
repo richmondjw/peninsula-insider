@@ -1,0 +1,20 @@
+{
+  "claimId": "venues/birch-creek/address",
+  "claimClass": "address",
+  "subject": {
+    "type": "venues",
+    "slug": "birch-creek",
+    "field": "address"
+  },
+  "statement": "Birch Creek is in Dromana VIC.",
+  "assertedBy": [
+    {
+      "type": "venues",
+      "slug": "birch-creek",
+      "field": "address"
+    }
+  ],
+  "createdAt": "2026-09-14",
+  "origin": "authored",
+  "note": "The 2026-09-14 Red Hill claim was disputed because the operator site published no street address and a conflicting postcode. On 2026-10-01 the host-authored Riparide listing for The June identified Dromana and described the two adjoining Birch Creek cottages. The venue record now gives only that supported locality; the street address and exact coordinates remain unverified. The original negative evidence is retained and superseded. See ops/reports/claims/2026-09-14-pilot-address.md for the original pilot."
+}

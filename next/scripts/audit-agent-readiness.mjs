@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { validateFeedItemList } from './agent-feed-contract.mjs';
 
 /**
  * Post-build truth gate for the machine-readable and time-sensitive surfaces.
@@ -65,19 +66,7 @@ if (!existsSync(upcomingPath)) {
       `/whats-on/upcoming.json ItemList counts do not match events=${feed.events?.length ?? 'missing'}`,
     );
   }
-  for (const [index, event] of (feed.events ?? []).entries()) {
-    const listItem = feed.itemListElement?.[index];
-    if (
-      listItem?.['@type'] !== 'ListItem' ||
-      listItem?.position !== index + 1 ||
-      listItem?.item?.['@type'] !== 'Event' ||
-      listItem?.item?.url !== event.url ||
-      listItem?.item?.startDate !== event.startDate ||
-      listItem?.item?.endDate !== event.endDate
-    ) {
-      fail(`/whats-on/upcoming.json ItemList entry ${index + 1} disagrees with events payload`);
-    }
-  }
+  for (const failure of validateFeedItemList(feed)) fail(`/whats-on/upcoming.json ${failure}`);
   const weekendCount = (feed.events ?? []).filter((event) => event.thisWeekend).length;
   if (feed.thisWeekend?.count !== weekendCount) {
     fail(`/whats-on/upcoming.json thisWeekend.count=${feed.thisWeekend?.count}; actual=${weekendCount}`);

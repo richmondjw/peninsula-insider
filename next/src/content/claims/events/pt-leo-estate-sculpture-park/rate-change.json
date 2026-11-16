@@ -1,0 +1,20 @@
+{
+  "claimId": "events/pt-leo-estate-sculpture-park/rate-change",
+  "claimClass": "rate-change",
+  "subject": {
+    "type": "events",
+    "slug": "pt-leo-estate-sculpture-park",
+    "field": "freePaid"
+  },
+  "statement": "Entry to Pt. Leo Estate Sculpture Park is ticketed.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "pt-leo-estate-sculpture-park",
+      "field": "freePaid"
+    }
+  ],
+  "createdAt": "2026-05-04",
+  "origin": "migrated",
+  "note": "Migrated by scripts/migrate-event-claims.mjs (PI-005 Stage 2) from freePaid already on next/src/content/events/pt-leo-estate-sculpture-park.json. No editorial judgement was applied and no content record was changed."
+}

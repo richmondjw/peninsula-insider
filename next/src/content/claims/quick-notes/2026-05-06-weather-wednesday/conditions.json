@@ -1,0 +1,20 @@
+{
+  "claimId": "quick-notes/2026-05-06-weather-wednesday/conditions",
+  "claimClass": "conditions",
+  "subject": {
+    "type": "quick-notes",
+    "slug": "2026-05-06-weather-wednesday",
+    "field": "sources"
+  },
+  "statement": "Wednesday - dry through midday, then rain closes it. Use the morning.",
+  "assertedBy": [
+    {
+      "type": "quick-notes",
+      "slug": "2026-05-06-weather-wednesday",
+      "field": "sources"
+    }
+  ],
+  "createdAt": "2026-05-06",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

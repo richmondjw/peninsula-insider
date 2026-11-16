@@ -13,7 +13,7 @@
     },
     "glamping": {
       "label": "Tier 3 - Glamping / Unique Stays",
-      "properties": ["Peninsula Hot Springs Glamping & Eco Lodges", "Iluka Retreat & Camp", "Yurt Hideaway"]
+      "properties": ["Peninsula Hot Springs Glamping & Eco Lodges", "Iluka Retreat & Camp"]
     }
   },
   "properties": [
@@ -218,11 +218,11 @@
       "address": "150 Red Hill Road, Red Hill (villas); 64 Donaldsons Road, Red Hill (farmhouse)",
       "type": "Vineyard villa / winery accommodation",
       "rooms": 4,
-      "roomsNote": "4 villas + farmhouse (3 rooms; sleeps 6)",
+      "roomsNote": "4 villas; each sleeps 2 with a king-size bed. Farmhouse is separate accommodation.",
       "petFriendly": false,
       "pool": false,
-      "poolNote": "In-room spa bath in all villas; Villa 4 has private sauna",
-      "dining": ["Polperro Bistro (hatted) on-site"],
+      "poolNote": "Indoor spa in every villa. No outdoor baths in the vines.",
+      "dining": ["Polperro Restaurant and Cellar Door on-site; both closed Mondays and Tuesdays"],
       "views": "Vineyard views; Red Hill hinterland",
       "priceRange": "Mid-range tier, standard rooms",
       "priceConfidence": "medium",
@@ -230,7 +230,7 @@
       "bestFor": ["romantic couples", "wine lovers", "anniversary/special occasion"],
       "operatingStatus": "open",
       "confidence": "high",
-      "notes": "Continental breakfast in villa on arrival. Open fireplace in all villas. Private deck. Keypad entry. Formerly Kudos Villas."
+      "notes": "Four villas, each sleeping two with a king-size bed, indoor spa, open fireplace and vineyard views. Cooking facilities are a convection oven and microwave, both suitable for preparing meals; no hotplates. No outdoor baths. Accommodation booking: https://www.polperrowines.com.au/escape/. Villa facilities and Monday/Tuesday restaurant and cellar door closures corrected from Lauren, Farmhouse & Villa Reservations, supplied by James on 2026-09-07."
     },
     {
       "id": "F010",
@@ -289,18 +289,20 @@
       "id": "F013",
       "name": "Yurt Hideaway",
       "town": "Tootgarook",
-      "address": "1929 Point Nepean Road, Tootgarook (adjacent)",
+      "address": "Tootgarook VIC 3941",
       "type": "Glamping (yurt)",
       "rooms": 1,
-      "roomsNote": "Single yurt - exclusive property booking",
+      "roomsNote": "One yurt in the operator's published description; current stays unconfirmed",
       "petFriendly": false,
       "pool": false,
-      "dining": ["Self-catering - yurt with kitchen setup"],
-      "bestFor": ["romantic couples", "unique stay seekers"],
-      "operatingStatus": "open",
-      "confidence": "medium",
-      "notes": "800m walk to Capel Sound beach. 1hr from Melbourne. Described as 'romantic feel'.",
-      "needsVerify": ["pricing", "kitchen and bathroom details"]
+      "dining": ["Covered outdoor kitchenette described by the operator"],
+      "bestFor": [],
+      "operatingStatus": "availability-unverified",
+      "editorialStatus": "paused",
+      "availabilityCheckedOn": "2026-10-01",
+      "confidence": "low",
+      "notes": "Paused from current stay recommendations. The operator's booking page returned HTTP 503 on 1 October 2026; a recently indexed copy said bookings were closed until further notice. The former Airbnb listing returned HTTP 410 in a direct check. These responses do not establish permanent closure. Preserve the historic format record and recheck with the host before restoring active status.",
+      "needsVerify": ["whether stays are being accepted", "working booking and contact route", "current amenities and house rules"]
     },
     {
       "id": "F014",

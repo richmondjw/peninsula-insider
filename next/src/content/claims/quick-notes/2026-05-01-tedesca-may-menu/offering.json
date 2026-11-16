@@ -1,0 +1,24 @@
+{
+  "claimId": "quick-notes/2026-05-01-tedesca-may-menu/offering",
+  "claimClass": "offering",
+  "subject": {
+    "type": "quick-notes",
+    "slug": "2026-05-01-tedesca-may-menu",
+    "field": "sources"
+  },
+  "statement": "Tedesca's May menu is on - the asparagus is on Sunday",
+  "assertedBy": [
+    {
+      "type": "quick-notes",
+      "slug": "2026-05-01-tedesca-may-menu",
+      "field": "sources"
+    },
+    {
+      "type": "venues",
+      "slug": "tedesca-osteria"
+    }
+  ],
+  "createdAt": "2026-05-01",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

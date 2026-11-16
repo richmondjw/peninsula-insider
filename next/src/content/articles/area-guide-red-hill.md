@@ -5,10 +5,24 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-05-02
 heroImage:
-  src: "/images/sourced/place-red-hill-01.webp"
-  alt: "Rolling vineyard rows across Red Hill on the Mornington Peninsula"
-  credit: "Peninsula Insider"
-  license: "tmp-wikimedia"
+  src: "/images/visit-victoria/vv-26070118-jackalope-hotel.webp"
+  alt: "Two guests walk out of the black-framed entrance beside a red-brick building at Jackalope Hotel, with a dark sculpture in front"
+  credit: "Peter Foster, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Jackalope Hotel, Merricks North, Mornington Peninsula"
+  depicts: "Jackalope Hotel"
+  depictionStatus: "actual"
+  creator: "Peter Foster"
+  sourceUrl: "Victoria Content Hub asset 26070118, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "hub-guide"
 tags: ["red-hill", "area-guide", "planning"]
 relatedVenues: []
@@ -23,18 +37,18 @@ faq:
   - question: "What is Red Hill best known for?"
     answer: "Cool-climate wine, long lunches, and the Peninsula's most concentrated run of genuinely destination-worthy food addresses. If you care about where lunch is, you care about Red Hill."
   - question: "When is the best time to visit Red Hill?"
-    answer: "Autumn for vineyard colour and settled long-lunch weather, then spring for green hills and clearer daylight. The first-Saturday market mornings are the sharpest version of the place."
+    answer: "Autumn for vineyard colour and settled long-lunch weather, then spring for green hills and clearer daylight. Hill & Ridge Community Market takes place at Red Hill Recreation Reserve. Its published season runs from September to May, generally on the first Saturday of the month, with exceptions. Check the organiser’s calendar for your visit date and current hours."
   - question: "How far is Red Hill from Melbourne?"
     answer: "Usually around an hour to 80 minutes by car via EastLink and Peninsula Link, depending on whether you are heading to the village proper or further into the ridge roads."
 aiSummary:
   - "Red Hill is the Mornington Peninsula's primary food and wine destination - a basalt plateau at 100–300m elevation producing benchmark cool-climate Pinot Noir and Chardonnay."
-  - "The village itself is small (a general store, a monthly Saturday market, vineyard roads) but anchors the entire upper Peninsula's culinary geography."
+  - "The village itself is small (a general store, a seasonal community market, vineyard roads) but anchors the entire upper Peninsula's culinary geography."
   - "Best for: visitors building a trip around cellar doors and long lunches. The winery restaurant cluster - Ten Minutes by Tractor, Montalto, Paringa Estate, Principia - is the strongest such concentration in Victoria."
   - "Suits: couples, food and wine focused visitors, anyone with two nights and appetite. Not suited to: those wanting beach access close by (any coast is 20+ minutes from the ridge)."
-  - "Planning note: the first Saturday of each month market is the sharpest single entry point to the place. Book hatted restaurants 4–8 weeks ahead on weekends."
+  - "Planning note: Hill & Ridge Community Market takes place at Red Hill Recreation Reserve. Its published season runs from September to May, generally on the first Saturday of the month, with exceptions. Check the organiser’s calendar for your visit date and current hours. Book hatted restaurants 4–8 weeks ahead on weekends."
 ---
 
-Red Hill is where Peninsula weekends become expensive very quickly. Not because the place is cynical, but because it is concentrated. The winery restaurants are close enough together to make over-stacking feel feasible. People pile on tastings, add a market, squeeze in produce stops, then wonder why the day ends in logistical fatigue instead of pleasure.
+[Red Hill](/explore/places/red-hill/) is where Peninsula weekends become expensive very quickly. Not because the place is cynical, but because it is concentrated. The winery restaurants are close enough together to make over-stacking feel feasible. People pile on tastings, add a market, squeeze in produce stops, then wonder why the day ends in logistical fatigue instead of pleasure.
 
 Red Hill is at its best when you treat it like a precinct, not a scavenger hunt. Choose deliberately, leave air between bookings, and let lunch dominate. That is what the area is built for.
 
@@ -50,7 +64,7 @@ Red Hill rewards appetite and discipline in equal measure. Bring both.
 
 ## How to arrive and when to come
 
-Arrive with your first booking no earlier than mid-morning unless the market is on. The Red Hill Community Market, held on the first Saturday of the month, is one of the few reasons to start the day at speed. Even then, get there early, buy selectively, drink your coffee, and leave before it becomes a circular exercise in crowd management.
+Arrive with your first booking no earlier than mid-morning unless a market date is confirmed. The original Red Hill Community Market is temporarily closed. The separate Hill & Ridge Community Market takes place at Red Hill Recreation Reserve. Its published season runs from September to May, generally on the first Saturday of the month, with exceptions. Check the organiser’s calendar for your visit date and current hours.
 
 Autumn is the cleanest version of Red Hill: vines turning, roads dry, lunch terraces at full usefulness. Spring is close behind, with greener hills and slightly sharper air. Winter works well if your priorities are fireplaces, tasting rooms and heavier lunches. Summer is fine but not essential. This is not a beach town.
 
@@ -60,35 +74,35 @@ If you can stay overnight, do. Red Hill improves dramatically when lunch is not 
 
 ### If lunch is the point
 
-**Ten Minutes by Tractor** is the clearest expression of what Red Hill does at the top end. Refined without feeling imported, serious about wine because it should be, and worth building the day around. Give it room rather than sandwiching it between other major bookings.
+**[Ten Minutes by Tractor](/wine/ten-minutes-by-tractor/)** is the clearest expression of what Red Hill does at the top end. Refined without feeling imported, serious about wine because it should be, and worth building the day around. Give it room rather than sandwiching it between other major bookings.
 
 ### If you want the all-round estate
 
-**Montalto** is one of the most complete single-address plays in the district. Tasting, grounds, sculpture, a strong restaurant, and enough room to absorb a weekend crowd without collapsing into noise. If you only have one vineyard stop in you, this can carry the whole day.
+**[Montalto](/wine/montalto/)** is one of the most complete single-address plays in the district. Tasting, grounds, sculpture, a strong restaurant, and enough room to absorb a weekend crowd without collapsing into noise. If you only have one vineyard stop in you, this can carry the whole day.
 
 ### If you prefer focus over scale
 
-**Polperro** suits people who want one precise cellar-door-and-lunch move rather than a broader estate experience. The room is intimate, the wines are serious, and the atmosphere feels tuned to adults who came for the actual product.
+**[Polperro](/wine/polperro/)** suits people who want one precise cellar-door-and-lunch move rather than a broader estate experience. The room is intimate, the wines are serious, and the atmosphere feels tuned to adults who came for the actual product.
 
 ### The supporting cast that matters
 
-**Foxeys Hangout** is worth knowing for a looser tasting. **Paringa Estate** is a dependable answer if you want a benchmark producer. **Red Hill Bakery** is useful before the day gets formal. **Red Hill Cheese** and **Johnny Ripe** are the kind of supporting stops that work if you have not already over-programmed yourself.
+**[Foxeys Hangout](/wine/foxeys-hangout/)** is worth knowing for a looser tasting. **[Paringa Estate](/wine/paringa-estate/)** is a dependable answer if you want a benchmark producer. **Red Hill Cheese** and **Johnny Ripe** are the kind of supporting stops that work if you have not already over-programmed yourself. The Red Hill Baker's former village shop is closed; its sole current location is in [Balnarring](/explore/places/balnarring/).
 
 The basic rule: one major lunch, one meaningful cellar door, one or two incidental stops. More than that and quality drops faster than quantity rises.
 
 ## Stay
 
-**Lindenderry at Red Hill** is the easiest recommendation because it understands the brief: regional, comfortable, low-theatre, and close to the action without trying to outshine it.
+**[Lindenderry at Red Hill](/stay/lindenderry/)** is the easiest recommendation because it understands the brief: regional, comfortable, low-theatre, and close to the action without trying to outshine it.
 
-Private villas and vineyard cottages around Red Hill South, Merricks North and Main Ridge are often the better option if you are travelling with friends or want the evening to stay self-contained. Prioritise proximity over novelty. A beautiful house twenty minutes away is less useful than a good one that keeps you inside the region's orbit.
+Private villas and vineyard cottages around [Red Hill South](/explore/places/red-hill-south/), [Merricks North](/explore/places/merricks-north/) and [Main Ridge](/explore/places/main-ridge/) are often the better option if you are travelling with friends or want the evening to stay self-contained. Prioritise proximity over novelty. A beautiful house twenty minutes away is less useful than a good one that keeps you inside the region's orbit.
 
-Staying in Dromana to save money can make sense if you accept the trade. You get easier bay access and cheaper accommodation, but you lose the ability to let lunch run long without consequence.
+Staying in [Dromana](/explore/places/dromana/) to save money can make sense if you accept the trade. You get easier bay access and cheaper accommodation, but you lose the ability to let lunch run long without consequence.
 
 ## What to do
 
-### Build a Saturday around the market if it is on
+### Build a Saturday around a confirmed market date
 
-The Red Hill Community Market gives you producers, pace and a quick sense of the district's personality. It should set the day up, not consume it.
+Hill & Ridge Community Market can start a ridge day when its organiser confirms a date. Otherwise, start with a bakery or producer stop, then leave room for lunch and a cellar door.
 
 ### Taste with intent
 
@@ -96,7 +110,7 @@ This is not a region for a six-cellar-door crawl. Choose a producer whose wines 
 
 ### Use the roads properly
 
-The drive between Red Hill, Main Ridge and Merricks is part of the pleasure. Fern-lined gullies, vineyard openings, quick altitude shifts. These are not dead kilometres between reservations. Leave some daylight for them.
+The drive between Red Hill, Main Ridge and [Merricks](/explore/places/merricks/) is part of the pleasure. Fern-lined gullies, vineyard openings, quick altitude shifts. These are not dead kilometres between reservations. Leave some daylight for them.
 
 ### Shop for produce only if you will use it
 
@@ -106,7 +120,7 @@ A box of local apples or a tart from Johnny Ripe makes sense if you are staying 
 
 The cellar-door crawl. Red Hill is not the Yarra in party mode.
 
-Trying to do Red Hill, Flinders and Sorrento properly in a single day. You can drive it. You cannot experience it.
+Trying to do Red Hill, [Flinders](/explore/places/flinders/) and [Sorrento](/explore/places/sorrento/) properly in a single day. You can drive it. You cannot experience it.
 
 Late, heavy lunches if you still need to drive home to Melbourne. Stay over, or eat earlier.
 

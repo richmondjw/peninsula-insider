@@ -1,0 +1,18 @@
+{
+  "evidenceId": "data-facts/things-to-do/alba-thermal-springs-spa/trading-status-882c9d6c",
+  "claim": "data-facts/things-to-do/alba-thermal-springs-spa/trading-status",
+  "stance": "supports",
+  "publisher": {
+    "kind": "venue-site"
+  },
+  "retrievedAt": "2026-09-13",
+  "expiresAt": "2026-12-12",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/data/facts/things-to-do.json",
+    "field": "entities[1].source",
+    "value": "https://www.albathermalsprings.com.au",
+    "dateField": "lastUpdated"
+  },
+  "url": "https://www.albathermalsprings.com.au"
+}

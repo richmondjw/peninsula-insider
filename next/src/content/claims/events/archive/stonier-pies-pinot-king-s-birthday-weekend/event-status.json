@@ -1,0 +1,18 @@
+{
+  "claimId": "events/archive/stonier-pies-pinot-king-s-birthday-weekend/event-status",
+  "claimClass": "event-status",
+  "subject": {
+    "type": "events",
+    "slug": "archive/stonier-pies-pinot-king-s-birthday-weekend"
+  },
+  "statement": "Stonier Pies & Pinot (King's Birthday Weekend) is running as published.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "archive/stonier-pies-pinot-king-s-birthday-weekend"
+    }
+  ],
+  "createdAt": "2026-05-04",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

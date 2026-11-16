@@ -20,7 +20,6 @@
   "indoorOutdoor": "Indoor",
   "bookingUrl": "https://www.simpletix.com/e/rocky-road-festival-tasting-session-2026-tickets-270471",
   "ticketingUrl": "https://www.simpletix.com/e/rocky-road-festival-tasting-session-2026-tickets-270471",
-  "officialEventUrl": "https://www.mpchoc.com.au/events/rocky-road-festival-tasting-sessions/",
   "bookingRequired": "Yes",
   "freePaid": "Paid",
   "priceRange": "Ticketed, per person, plus booking fee",
@@ -46,7 +45,6 @@
     "website": "https://www.mpchoc.com.au",
     "facebook": "https://www.facebook.com/mpchoc"
   },
-  "primarySourceUrl": "https://www.mpchoc.com.au/events/rocky-road-festival-tasting-sessions/",
   "secondarySourceUrl": "https://www.simpletix.com/e/rocky-road-festival-tasting-session-2026-tickets-270471",
   "lastCheckedDate": "2026-05-04",
   "editorialPriority": 3,
@@ -69,5 +67,23 @@
     "alt": "Artisan produce and chocolate tasting on the Mornington Peninsula",
     "credit": "Peninsula Insider",
     "license": "other-licensed"
-  }
+  },
+  "retiredSourceLinks": [
+    {
+      "field": "officialEventUrl",
+      "url": "https://www.mpchoc.com.au/events/rocky-road-festival-tasting-sessions/",
+      "verdict": "dead",
+      "disposition": "gone",
+      "checkedOn": "2026-09-13",
+      "note": "404 on the operator's own live site. The event page was removed after the event."
+    },
+    {
+      "field": "primarySourceUrl",
+      "url": "https://www.mpchoc.com.au/events/rocky-road-festival-tasting-sessions/",
+      "verdict": "dead",
+      "disposition": "gone",
+      "checkedOn": "2026-09-13",
+      "note": "404 on the operator's own live site. The event page was removed after the event."
+    }
+  ]
 }

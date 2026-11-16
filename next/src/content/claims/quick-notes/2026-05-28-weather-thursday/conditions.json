@@ -1,0 +1,20 @@
+{
+  "claimId": "quick-notes/2026-05-28-weather-thursday/conditions",
+  "claimClass": "conditions",
+  "subject": {
+    "type": "quick-notes",
+    "slug": "2026-05-28-weather-thursday",
+    "field": "sources"
+  },
+  "statement": "Thursday - a workable window opens, 40% easing through the day, 16°C.",
+  "assertedBy": [
+    {
+      "type": "quick-notes",
+      "slug": "2026-05-28-weather-thursday",
+      "field": "sources"
+    }
+  ],
+  "createdAt": "2026-05-28",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

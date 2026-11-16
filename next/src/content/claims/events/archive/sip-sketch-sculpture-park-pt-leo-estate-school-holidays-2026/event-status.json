@@ -1,0 +1,18 @@
+{
+  "claimId": "events/archive/sip-sketch-sculpture-park-pt-leo-estate-school-holidays-2026/event-status",
+  "claimClass": "event-status",
+  "subject": {
+    "type": "events",
+    "slug": "archive/sip-sketch-sculpture-park-pt-leo-estate-school-holidays-2026"
+  },
+  "statement": "Sip & Sketch in the Sculpture Park at Pt. Leo Estate is running as published.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "archive/sip-sketch-sculpture-park-pt-leo-estate-school-holidays-2026"
+    }
+  ],
+  "createdAt": "2026-07-11",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

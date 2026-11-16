@@ -1,0 +1,28 @@
+{
+  "url": "https://peninsulainsider.com.au/explore/golf/",
+  "tier": "T1",
+  "assessedAt": "2026-10-12",
+  "programme": "peninsula-insider-page-quality-to-99",
+  "priorIndependentScore": 84.75,
+  "scoreStatus": "unchanged_pending_independent_post_release_regrade",
+  "sourceRevision": "a9b01fee8aa20d0aa8990be32865b2e5ff61ee05",
+  "triage": {
+    "finding": "The mixed-group and FAQ sections still stated precise travel and walking times without route-specific, date-bound evidence.",
+    "risk": "Visitors could treat variable estimates as reliable planning facts, especially during peak Peninsula traffic.",
+    "decision": "adapt",
+    "boundedChange": "Replace unsupported minute estimates with stable geographic guidance and an explicit instruction to check a live route for the chosen tee time."
+  },
+  "verification": {
+    "build": "passed: 1,022 pages; full repository build and gates",
+    "readerBoundary": "passed: 1,018 HTML pages",
+    "houseStyle": "passed",
+    "claimPatternSearch": "passed: no remaining numeric minute estimates in the Golf source",
+    "liveStatus": "pending merge and production verification"
+  },
+  "hardGatesStillOpen": [
+    "independent post-release 23-criterion regrade",
+    "direct screen-reader journey",
+    "complete all-venue factual and image-rights reconciliation",
+    "field Core Web Vitals evidence"
+  ]
+}

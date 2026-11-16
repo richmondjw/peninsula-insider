@@ -1,0 +1,18 @@
+{
+  "evidenceId": "data-facts/wine/ten-minutes-by-tractor/trading-status-73583ccf",
+  "claim": "data-facts/wine/ten-minutes-by-tractor/trading-status",
+  "stance": "supports",
+  "publisher": {
+    "kind": "venue-site"
+  },
+  "retrievedAt": "2026-09-13",
+  "expiresAt": "2026-12-12",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/data/facts/wine.json",
+    "field": "wineries[2].source",
+    "value": "https://www.tenminutesbytractor.com.au",
+    "dateField": "lastUpdated"
+  },
+  "url": "https://www.tenminutesbytractor.com.au"
+}

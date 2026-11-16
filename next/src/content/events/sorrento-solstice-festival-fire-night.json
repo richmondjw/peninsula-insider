@@ -48,7 +48,6 @@
     "instagram": "https://www.instagram.com/sorrentosolsticefestival/"
   },
   "primarySourceUrl": "https://sorrentosolstice.com.au",
-  "secondarySourceUrl": "https://www.mornpen.vic.gov.au/Events-Activities/Sorrento-Solstice-Festival",
   "lastCheckedDate": "2026-05-04",
   "visitorAppealScore": 5,
   "editorialPriority": 5,
@@ -67,5 +66,15 @@
     "ticketed"
   ],
   "place": "sorrento",
-  "nextOccurrence": "2026-06-20"
+  "nextOccurrence": "2026-06-20",
+  "retiredSourceLinks": [
+    {
+      "field": "secondarySourceUrl",
+      "url": "https://www.mornpen.vic.gov.au/Events-Activities/Sorrento-Solstice-Festival",
+      "verdict": "dead",
+      "disposition": "gone",
+      "checkedOn": "2026-09-13",
+      "note": "COUNCIL RESTRUCTURE, as above."
+    }
+  ]
 }

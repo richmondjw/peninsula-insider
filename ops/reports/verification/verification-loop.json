@@ -1,0 +1,1620 @@
+{
+  "ticket": "PI-006",
+  "stage": "report-only",
+  "mode": "report-only",
+  "asAt": "2026-09-13",
+  "generator": "next/scripts/run-verification-loop.mjs",
+  "writes": {
+    "contentRecords": "none, by construction: no module in the loop opens a content file for writing",
+    "externalSystems": "none: one HTTP GET per cited source URL and nothing else leaves the process"
+  },
+  "registry": {
+    "claims": 362,
+    "evidence": 429,
+    "byState": {
+      "unsupported": 236,
+      "supported": 126
+    },
+    "byConsequence": {
+      "high": 222,
+      "medium": 86,
+      "low": 54
+    }
+  },
+  "backlog": {
+    "expiredRows": 298,
+    "claimsWithExpiredEvidence": 236,
+    "unreachableSubjects": 234,
+    "unresearchableClaims": 50,
+    "byClaimClass": {
+      "event-status": 141,
+      "conditions": 69,
+      "booking": 38,
+      "access-restriction": 27,
+      "event-schedule": 18,
+      "trading-status": 4,
+      "offering": 1
+    },
+    "byAgeBand": {
+      "over 3 periods overdue": 216,
+      "1 to 3 periods overdue": 55,
+      "under 1 period overdue": 27
+    },
+    "byConsequence": {
+      "high": 237,
+      "medium": 60,
+      "low": 1
+    }
+  },
+  "blindSpots": [
+    {
+      "claimClass": "opening-hours",
+      "label": "When it is open",
+      "claims": 0,
+      "evidence": 0
+    },
+    {
+      "claimClass": "rate-change",
+      "label": "A rate moved",
+      "claims": 0,
+      "evidence": 0
+    },
+    {
+      "claimClass": "accessibility",
+      "label": "Access details",
+      "claims": 0,
+      "evidence": 0
+    }
+  ],
+  "worklist": {
+    "limit": 25,
+    "selected": 25,
+    "eligible": 127
+  },
+  "adjudication": {
+    "confirmed": 16,
+    "blocked": 6,
+    "unreachable": 1,
+    "inconclusive": 2
+  },
+  "sourceHealth": {
+    "ok": 18,
+    "blocked": 6,
+    "dead": 1
+  },
+  "refusals": [],
+  "proposedOps": [],
+  "verdictCounts": {},
+  "escalations": [
+    {
+      "kind": "blocked",
+      "claimId": "data-facts/beaches/balnarring-beach/access-restriction",
+      "claimClass": "access-restriction",
+      "consequence": "high",
+      "subject": "data-facts/beaches/balnarring-beach",
+      "source": "https://www.tripadvisor.com.au/",
+      "why": "the cited source answered and refused this client (HTTP 403)",
+      "quotes": [],
+      "proposedOps": [],
+      "question": "The cited source refuses automated clients, so this claim can never be checked this way. Accept manual re-checks, or cite a readable source?",
+      "defaultIfNoAnswer": "no change is made and the claim stays unsupported"
+    },
+    {
+      "kind": "unreachable",
+      "claimId": "events/emu-plains-market/event-status",
+      "claimClass": "event-status",
+      "consequence": "high",
+      "subject": "events/emu-plains-market",
+      "source": "https://www.mornpen.vic.gov.au/Events-Activities/Emu-Plains-Market-3",
+      "why": "the cited source could not be read (HTTP 404)",
+      "quotes": [],
+      "proposedOps": [],
+      "question": "The cited source cannot be reached. Replace the citation, or retire the claim?",
+      "defaultIfNoAnswer": "no change is made and the claim stays unsupported"
+    },
+    {
+      "kind": "inconclusive",
+      "claimId": "quick-notes/2026-09-13-weather-sunday/conditions",
+      "claimClass": "conditions",
+      "consequence": "high",
+      "subject": "quick-notes/2026-09-13-weather-sunday",
+      "source": "https://api.open-meteo.com/v1/forecast?latitude=-38.40&longitude=145.00&current=temperature_2m,apparent_temperature,precipitation,weather_code,wind_speed_10m,wind_direction_10m,is_day&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_probability_max,wind_speed_10m_max&timezone=Australia%2FMelbourne&forecast_days=3",
+      "why": "the citation resolves to application/json, which is a data endpoint rather than a page",
+      "quotes": [],
+      "proposedOps": [],
+      "question": "The citation is a data endpoint, not a page, so no prose check can ever reach a verdict on it. Cite a readable page, or move this claim class to a checker that reads the feed?",
+      "defaultIfNoAnswer": "no change is made and the claim stays unsupported"
+    },
+    {
+      "kind": "blocked",
+      "claimId": "species/australian-salmon/fishing-rule",
+      "claimClass": "fishing-rule",
+      "consequence": "high",
+      "subject": "species/australian-salmon",
+      "source": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide/catch-limits-and-closed-seasons/types-of-fish/marine-and-estuarine-scale-fish/australian-salmon",
+      "why": "the cited source answered and refused this client (HTTP 403)",
+      "quotes": [],
+      "proposedOps": [],
+      "question": "The cited source refuses automated clients, so this claim can never be checked this way. Accept manual re-checks, or cite a readable source?",
+      "defaultIfNoAnswer": "no change is made and the claim stays unsupported"
+    },
+    {
+      "kind": "blocked",
+      "claimId": "species/bream/fishing-rule",
+      "claimClass": "fishing-rule",
+      "consequence": "high",
+      "subject": "species/bream",
+      "source": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide/catch-limits-and-closed-seasons/types-of-fish/marine-and-estuarine-scale-fish/bream-all-species",
+      "why": "the cited source answered and refused this client (HTTP 403)",
+      "quotes": [],
+      "proposedOps": [],
+      "question": "The cited source refuses automated clients, so this claim can never be checked this way. Accept manual re-checks, or cite a readable source?",
+      "defaultIfNoAnswer": "no change is made and the claim stays unsupported"
+    },
+    {
+      "kind": "blocked",
+      "claimId": "species/flathead/fishing-rule",
+      "claimClass": "fishing-rule",
+      "consequence": "high",
+      "subject": "species/flathead",
+      "source": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide/catch-limits-and-closed-seasons/types-of-fish/marine-and-estuarine-scale-fish/flathead-all-species-except-dusky-flathead",
+      "why": "the cited source answered and refused this client (HTTP 403)",
+      "quotes": [],
+      "proposedOps": [],
+      "question": "The cited source refuses automated clients, so this claim can never be checked this way. Accept manual re-checks, or cite a readable source?",
+      "defaultIfNoAnswer": "no change is made and the claim stays unsupported"
+    },
+    {
+      "kind": "inconclusive",
+      "claimId": "events/foxeys-hangout-vegetable-feast-morning-sun-vineyard/event-status",
+      "claimClass": "event-status",
+      "consequence": "high",
+      "subject": "events/foxeys-hangout-vegetable-feast-morning-sun-vineyard",
+      "source": "https://www.instagram.com/foxeyshangout/",
+      "why": "the cited page does not name the subject, so it cannot confirm or contradict it (matched 2 of 6 identifying words)",
+      "quotes": [],
+      "proposedOps": [],
+      "question": "The cited source no longer identifies this subject. Repoint the citation, or retire the claim?",
+      "defaultIfNoAnswer": "no change is made and the claim stays unsupported"
+    },
+    {
+      "kind": "blocked",
+      "claimId": "species/garfish/fishing-rule",
+      "claimClass": "fishing-rule",
+      "consequence": "high",
+      "subject": "species/garfish",
+      "source": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide",
+      "why": "the cited source answered and refused this client (HTTP 403)",
+      "quotes": [],
+      "proposedOps": [],
+      "question": "The cited source refuses automated clients, so this claim can never be checked this way. Accept manual re-checks, or cite a readable source?",
+      "defaultIfNoAnswer": "no change is made and the claim stays unsupported"
+    },
+    {
+      "kind": "blocked",
+      "claimId": "data-facts/beaches/flinders-beach-western-port-north-end/access-restriction",
+      "claimClass": "access-restriction",
+      "consequence": "high",
+      "subject": "data-facts/beaches/flinders-beach-western-port-north-end",
+      "source": "https://www.petstock.com.au/blog/articles/summer-travel-our-dog-friendly-guide-to-the-mornington-peninsula",
+      "why": "the cited source answered and refused this client (HTTP 429)",
+      "quotes": [],
+      "proposedOps": [],
+      "question": "The cited source refuses automated clients, so this claim can never be checked this way. Accept manual re-checks, or cite a readable source?",
+      "defaultIfNoAnswer": "no change is made and the claim stays unsupported"
+    }
+  ],
+  "items": [
+    {
+      "claimId": "data-facts/beaches/mornington-peninsula-national-park/access-restriction",
+      "claimClass": "access-restriction",
+      "consequence": "high",
+      "riskScore": 9,
+      "state": "unsupported",
+      "overdueDays": 225,
+      "ageBand": "over 3 periods overdue",
+      "subject": "data-facts/beaches/mornington-peninsula-national-park",
+      "source": {
+        "url": "https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park/things-to-do/ocean-beaches",
+        "publisher": "gov"
+      },
+      "artifact": {
+        "url": "https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park/things-to-do/ocean-beaches",
+        "finalUrl": "https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park/things-to-do/ocean-beaches",
+        "status": 200,
+        "reachability": "ok",
+        "digest": "eeea6c774a524727",
+        "bytes": 86379,
+        "attempts": 1,
+        "note": null
+      },
+      "attempts": [
+        {
+          "url": "https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park/things-to-do/ocean-beaches",
+          "reachability": "ok",
+          "status": 200
+        }
+      ],
+      "adjudication": {
+        "outcome": "confirmed",
+        "confidence": "medium",
+        "code": null,
+        "why": "the cited authority page still carries the restriction",
+        "quotes": [
+          "Coasts This area has additional visitor advice This area has reported issues This area is closed Home &gt; Parks &gt; Mornington Peninsula National Park &gt; O",
+          "ure Finders Ocean Beach The toilet at Flinders Ocean Beach, Mushroom Reef is permanently closed. The nearest alternative public toilets are Flinders town centre",
+          "poison, to bait foxes in strategic locations. Short track sections may be closed to isolate works (secondary tracks only). Fox trapping and baiting will occur"
+        ],
+        "detail": null,
+        "identityScore": 1
+      },
+      "patch": {
+        "ops": [],
+        "refusals": []
+      },
+      "verdicts": [],
+      "proposedEvidence": [
+        {
+          "claim": "data-facts/beaches/mornington-peninsula-national-park/access-restriction",
+          "stance": "supports",
+          "url": "https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park/things-to-do/ocean-beaches",
+          "sourceDigest": "eeea6c774a524727",
+          "wouldCarryRetrievedAt": "2026-09-13",
+          "recorded": false,
+          "requiresHuman": true,
+          "note": "proposed by the report-only verification loop; accepting it is a human act"
+        }
+      ]
+    },
+    {
+      "claimId": "data-facts/beaches/accessible-beaches-beach-matting-program/access-restriction",
+      "claimClass": "access-restriction",
+      "consequence": "high",
+      "riskScore": 9,
+      "state": "unsupported",
+      "overdueDays": 114,
+      "ageBand": "over 3 periods overdue",
+      "subject": "data-facts/beaches/accessible-beaches-beach-matting-program",
+      "source": {
+        "url": "https://www.kiaorasafetybeach.com/explore",
+        "publisher": "unknown"
+      },
+      "artifact": {
+        "url": "https://www.kiaorasafetybeach.com/explore",
+        "finalUrl": "https://www.kiaorasafetybeach.com/explore",
+        "status": 200,
+        "reachability": "ok",
+        "digest": "3b4aadd2d14e0e24",
+        "bytes": 500000,
+        "attempts": 1,
+        "note": null
+      },
+      "attempts": [
+        {
+          "url": "https://www.kiaorasafetybeach.com/explore",
+          "reachability": "ok",
+          "status": 200
+        }
+      ],
+      "adjudication": {
+        "outcome": "confirmed",
+        "confidence": "low",
+        "code": null,
+        "why": "the cited page names the subject and carries no contradicting statement",
+        "quotes": [],
+        "detail": null,
+        "identityScore": 0.4
+      },
+      "patch": {
+        "ops": [],
+        "refusals": []
+      },
+      "verdicts": [],
+      "proposedEvidence": [
+        {
+          "claim": "data-facts/beaches/accessible-beaches-beach-matting-program/access-restriction",
+          "stance": "supports",
+          "url": "https://www.kiaorasafetybeach.com/explore",
+          "sourceDigest": "3b4aadd2d14e0e24",
+          "wouldCarryRetrievedAt": "2026-09-13",
+          "recorded": false,
+          "requiresHuman": true,
+          "note": "proposed by the report-only verification loop; accepting it is a human act"
+        }
+      ]
+    },
+    {
+      "claimId": "data-facts/beaches/balnarring-beach/access-restriction",
+      "claimClass": "access-restriction",
+      "consequence": "high",
+      "riskScore": 9,
+      "state": "unsupported",
+      "overdueDays": 114,
+      "ageBand": "over 3 periods overdue",
+      "subject": "data-facts/beaches/balnarring-beach",
+      "source": {
+        "url": "https://www.tripadvisor.com.au/",
+        "publisher": "unknown"
+      },
+      "artifact": {
+        "url": "https://www.tripadvisor.com.au/",
+        "finalUrl": "https://www.tripadvisor.com.au/",
+        "status": 403,
+        "reachability": "blocked",
+        "digest": "97d8d3a7968b836e",
+        "bytes": 781,
+        "attempts": 1,
+        "note": "HTTP 403"
+      },
+      "attempts": [
+        {
+          "url": "https://www.tripadvisor.com.au/",
+          "reachability": "blocked",
+          "status": 403
+        }
+      ],
+      "adjudication": {
+        "outcome": "blocked",
+        "confidence": "n/a",
+        "code": "blocked",
+        "why": "the cited source answered and refused this client (HTTP 403)",
+        "quotes": [],
+        "detail": null,
+        "identityScore": null
+      },
+      "patch": {
+        "ops": [],
+        "refusals": []
+      },
+      "verdicts": [],
+      "proposedEvidence": []
+    },
+    {
+      "claimId": "events/bass-flinders-gin-masterclass/event-status",
+      "claimClass": "event-status",
+      "consequence": "high",
+      "riskScore": 9,
+      "state": "unsupported",
+      "overdueDays": 102,
+      "ageBand": "over 3 periods overdue",
+      "subject": "events/bass-flinders-gin-masterclass",
+      "source": {
+        "url": "https://www.bassandflindersdistillery.com/pages/events",
+        "publisher": "unknown"
+      },
+      "artifact": {
+        "url": "https://www.bassandflindersdistillery.com/pages/events",
+        "finalUrl": "https://www.bassandflindersdistillery.com/pages/events",
+        "status": 200,
+        "reachability": "ok",
+        "digest": "12a9821512d72004",
+        "bytes": 201286,
+        "attempts": 1,
+        "note": null
+      },
+      "attempts": [
+        {
+          "url": "https://www.bassandflindersdistillery.com/pages/events",
+          "reachability": "ok",
+          "status": 200
+        }
+      ],
+      "adjudication": {
+        "outcome": "confirmed",
+        "confidence": "medium",
+        "code": null,
+        "why": "the cited page names the subject and carries no contradicting statement",
+        "quotes": [],
+        "detail": null,
+        "identityScore": 1
+      },
+      "patch": {
+        "ops": [],
+        "refusals": []
+      },
+      "verdicts": [],
+      "proposedEvidence": [
+        {
+          "claim": "events/bass-flinders-gin-masterclass/event-status",
+          "stance": "supports",
+          "url": "https://www.bassandflindersdistillery.com/pages/events",
+          "sourceDigest": "12a9821512d72004",
+          "wouldCarryRetrievedAt": "2026-09-13",
+          "recorded": false,
+          "requiresHuman": true,
+          "note": "proposed by the report-only verification loop; accepting it is a human act"
+        }
+      ]
+    },
+    {
+      "claimId": "events/crib-point-community-market/event-status",
+      "claimClass": "event-status",
+      "consequence": "high",
+      "riskScore": 9,
+      "state": "unsupported",
+      "overdueDays": 102,
+      "ageBand": "over 3 periods overdue",
+      "subject": "events/crib-point-community-market",
+      "source": {
+        "url": "https://peninsulakids.com.au/markets-3/",
+        "publisher": "unknown"
+      },
+      "artifact": {
+        "url": "https://peninsulakids.com.au/markets-3/",
+        "finalUrl": "https://peninsulakids.com.au/markets-3/",
+        "status": 200,
+        "reachability": "ok",
+        "digest": "d3af272b8265a52b",
+        "bytes": 260338,
+        "attempts": 1,
+        "note": null
+      },
+      "attempts": [
+        {
+          "url": "https://peninsulakids.com.au/markets-3/",
+          "reachability": "ok",
+          "status": 200
+        }
+      ],
+      "adjudication": {
+        "outcome": "confirmed",
+        "confidence": "medium",
+        "code": null,
+        "why": "the cited page names the subject and carries no contradicting statement",
+        "quotes": [],
+        "detail": null,
+        "identityScore": 1
+      },
+      "patch": {
+        "ops": [],
+        "refusals": []
+      },
+      "verdicts": [],
+      "proposedEvidence": [
+        {
+          "claim": "events/crib-point-community-market/event-status",
+          "stance": "supports",
+          "url": "https://peninsulakids.com.au/markets-3/",
+          "sourceDigest": "d3af272b8265a52b",
+          "wouldCarryRetrievedAt": "2026-09-13",
+          "recorded": false,
+          "requiresHuman": true,
+          "note": "proposed by the report-only verification loop; accepting it is a human act"
+        }
+      ]
+    },
+    {
+      "claimId": "events/emu-plains-market/event-status",
+      "claimClass": "event-status",
+      "consequence": "high",
+      "riskScore": 9,
+      "state": "unsupported",
+      "overdueDays": 102,
+      "ageBand": "over 3 periods overdue",
+      "subject": "events/emu-plains-market",
+      "source": {
+        "url": "https://www.mornpen.vic.gov.au/Events-Activities/Emu-Plains-Market-3",
+        "publisher": "gov"
+      },
+      "artifact": {
+        "url": "https://www.mornpen.vic.gov.au/Events-Activities/Emu-Plains-Market-3",
+        "finalUrl": "https://www.mornpen.vic.gov.au/Events-Activities/Emu-Plains-Market-3",
+        "status": 404,
+        "reachability": "dead",
+        "digest": "96a40b8d696014cf",
+        "bytes": 82596,
+        "attempts": 1,
+        "note": "HTTP 404"
+      },
+      "attempts": [
+        {
+          "url": "https://www.mornpen.vic.gov.au/Events-Activities/Emu-Plains-Market-3",
+          "reachability": "dead",
+          "status": 404
+        }
+      ],
+      "adjudication": {
+        "outcome": "unreachable",
+        "confidence": "n/a",
+        "code": "dead",
+        "why": "the cited source could not be read (HTTP 404)",
+        "quotes": [],
+        "detail": null,
+        "identityScore": null
+      },
+      "patch": {
+        "ops": [],
+        "refusals": []
+      },
+      "verdicts": [],
+      "proposedEvidence": []
+    },
+    {
+      "claimId": "quick-notes/2026-09-13-weather-sunday/conditions",
+      "claimClass": "conditions",
+      "consequence": "high",
+      "riskScore": 0.75,
+      "state": "supported",
+      "overdueDays": 0,
+      "ageBand": "current",
+      "subject": "quick-notes/2026-09-13-weather-sunday",
+      "source": {
+        "url": "https://api.open-meteo.com/v1/forecast?latitude=-38.40&longitude=145.00&current=temperature_2m,apparent_temperature,precipitation,weather_code,wind_speed_10m,wind_direction_10m,is_day&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_probability_max,wind_speed_10m_max&timezone=Australia%2FMelbourne&forecast_days=3",
+        "publisher": "gov"
+      },
+      "artifact": {
+        "url": "https://api.open-meteo.com/v1/forecast?latitude=-38.40&longitude=145.00&current=temperature_2m,apparent_temperature,precipitation,weather_code,wind_speed_10m,wind_direction_10m,is_day&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_probability_max,wind_speed_10m_max&timezone=Australia%2FMelbourne&forecast_days=3",
+        "finalUrl": "https://api.open-meteo.com/v1/forecast?latitude=-38.40&longitude=145.00&current=temperature_2m,apparent_temperature,precipitation,weather_code,wind_speed_10m,wind_direction_10m,is_day&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_probability_max,wind_speed_10m_max&timezone=Australia%2FMelbourne&forecast_days=3",
+        "status": 200,
+        "reachability": "ok",
+        "digest": "398401da4539b4a2",
+        "bytes": 1084,
+        "attempts": 1,
+        "note": null
+      },
+      "attempts": [
+        {
+          "url": "https://api.open-meteo.com/v1/forecast?latitude=-38.40&longitude=145.00&current=temperature_2m,apparent_temperature,precipitation,weather_code,wind_speed_10m,wind_direction_10m,is_day&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_probability_max,wind_speed_10m_max&timezone=Australia%2FMelbourne&forecast_days=3",
+          "reachability": "ok",
+          "status": 200
+        }
+      ],
+      "adjudication": {
+        "outcome": "inconclusive",
+        "confidence": "n/a",
+        "code": "data-endpoint",
+        "why": "the citation resolves to application/json, which is a data endpoint rather than a page",
+        "quotes": [],
+        "detail": null,
+        "identityScore": null
+      },
+      "patch": {
+        "ops": [],
+        "refusals": []
+      },
+      "verdicts": [],
+      "proposedEvidence": []
+    },
+    {
+      "claimId": "species/australian-salmon/fishing-rule",
+      "claimClass": "fishing-rule",
+      "consequence": "high",
+      "riskScore": 0.75,
+      "state": "supported",
+      "overdueDays": 0,
+      "ageBand": "current",
+      "subject": "species/australian-salmon",
+      "source": {
+        "url": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide/catch-limits-and-closed-seasons/types-of-fish/marine-and-estuarine-scale-fish/australian-salmon",
+        "publisher": "gov"
+      },
+      "artifact": {
+        "url": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide/catch-limits-and-closed-seasons/types-of-fish/marine-and-estuarine-scale-fish/australian-salmon",
+        "finalUrl": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide/catch-limits-and-closed-seasons/types-of-fish/marine-and-estuarine-scale-fish/australian-salmon",
+        "status": 403,
+        "reachability": "blocked",
+        "digest": "aeb18cad32893ef1",
+        "bytes": 6261,
+        "attempts": 1,
+        "note": "HTTP 403"
+      },
+      "attempts": [
+        {
+          "url": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide/catch-limits-and-closed-seasons/types-of-fish/marine-and-estuarine-scale-fish/australian-salmon",
+          "reachability": "blocked",
+          "status": 403
+        }
+      ],
+      "adjudication": {
+        "outcome": "blocked",
+        "confidence": "n/a",
+        "code": "blocked",
+        "why": "the cited source answered and refused this client (HTTP 403)",
+        "quotes": [],
+        "detail": null,
+        "identityScore": null
+      },
+      "patch": {
+        "ops": [],
+        "refusals": []
+      },
+      "verdicts": [],
+      "proposedEvidence": []
+    },
+    {
+      "claimId": "species/bream/fishing-rule",
+      "claimClass": "fishing-rule",
+      "consequence": "high",
+      "riskScore": 0.75,
+      "state": "supported",
+      "overdueDays": 0,
+      "ageBand": "current",
+      "subject": "species/bream",
+      "source": {
+        "url": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide/catch-limits-and-closed-seasons/types-of-fish/marine-and-estuarine-scale-fish/bream-all-species",
+        "publisher": "gov"
+      },
+      "artifact": {
+        "url": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide/catch-limits-and-closed-seasons/types-of-fish/marine-and-estuarine-scale-fish/bream-all-species",
+        "finalUrl": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide/catch-limits-and-closed-seasons/types-of-fish/marine-and-estuarine-scale-fish/bream-all-species",
+        "status": 403,
+        "reachability": "blocked",
+        "digest": "49a89000393fcfe4",
+        "bytes": 6261,
+        "attempts": 1,
+        "note": "HTTP 403"
+      },
+      "attempts": [
+        {
+          "url": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide/catch-limits-and-closed-seasons/types-of-fish/marine-and-estuarine-scale-fish/bream-all-species",
+          "reachability": "blocked",
+          "status": 403
+        }
+      ],
+      "adjudication": {
+        "outcome": "blocked",
+        "confidence": "n/a",
+        "code": "blocked",
+        "why": "the cited source answered and refused this client (HTTP 403)",
+        "quotes": [],
+        "detail": null,
+        "identityScore": null
+      },
+      "patch": {
+        "ops": [],
+        "refusals": []
+      },
+      "verdicts": [],
+      "proposedEvidence": []
+    },
+    {
+      "claimId": "species/flathead/fishing-rule",
+      "claimClass": "fishing-rule",
+      "consequence": "high",
+      "riskScore": 0.75,
+      "state": "supported",
+      "overdueDays": 0,
+      "ageBand": "current",
+      "subject": "species/flathead",
+      "source": {
+        "url": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide/catch-limits-and-closed-seasons/types-of-fish/marine-and-estuarine-scale-fish/flathead-all-species-except-dusky-flathead",
+        "publisher": "gov"
+      },
+      "artifact": {
+        "url": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide/catch-limits-and-closed-seasons/types-of-fish/marine-and-estuarine-scale-fish/flathead-all-species-except-dusky-flathead",
+        "finalUrl": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide/catch-limits-and-closed-seasons/types-of-fish/marine-and-estuarine-scale-fish/flathead-all-species-except-dusky-flathead",
+        "status": 403,
+        "reachability": "blocked",
+        "digest": "8fb0da805ec08093",
+        "bytes": 6357,
+        "attempts": 1,
+        "note": "HTTP 403"
+      },
+      "attempts": [
+        {
+          "url": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide/catch-limits-and-closed-seasons/types-of-fish/marine-and-estuarine-scale-fish/flathead-all-species-except-dusky-flathead",
+          "reachability": "blocked",
+          "status": 403
+        }
+      ],
+      "adjudication": {
+        "outcome": "blocked",
+        "confidence": "n/a",
+        "code": "blocked",
+        "why": "the cited source answered and refused this client (HTTP 403)",
+        "quotes": [],
+        "detail": null,
+        "identityScore": null
+      },
+      "patch": {
+        "ops": [],
+        "refusals": []
+      },
+      "verdicts": [],
+      "proposedEvidence": []
+    },
+    {
+      "claimId": "data-facts/things-to-do/alba-thermal-springs-spa/trading-status",
+      "claimClass": "trading-status",
+      "consequence": "medium",
+      "riskScore": 0.5,
+      "state": "supported",
+      "overdueDays": 0,
+      "ageBand": "current",
+      "subject": "data-facts/things-to-do/alba-thermal-springs-spa",
+      "source": {
+        "url": "https://www.albathermalsprings.com.au",
+        "publisher": "venue-site"
+      },
+      "artifact": {
+        "url": "https://www.albathermalsprings.com.au",
+        "finalUrl": "https://albathermalsprings.com.au/",
+        "status": 200,
+        "reachability": "ok",
+        "digest": "d03bf11d9fb32f61",
+        "bytes": 500000,
+        "attempts": 1,
+        "note": null
+      },
+      "attempts": [
+        {
+          "url": "https://www.albathermalsprings.com.au",
+          "reachability": "ok",
+          "status": 200
+        }
+      ],
+      "adjudication": {
+        "outcome": "confirmed",
+        "confidence": "medium",
+        "code": null,
+        "why": "the cited page names the subject and carries no contradicting statement",
+        "quotes": [],
+        "detail": null,
+        "identityScore": 0.75
+      },
+      "patch": {
+        "ops": [],
+        "refusals": []
+      },
+      "verdicts": [],
+      "proposedEvidence": [
+        {
+          "claim": "data-facts/things-to-do/alba-thermal-springs-spa/trading-status",
+          "stance": "supports",
+          "url": "https://www.albathermalsprings.com.au",
+          "sourceDigest": "d03bf11d9fb32f61",
+          "wouldCarryRetrievedAt": "2026-09-13",
+          "recorded": false,
+          "requiresHuman": true,
+          "note": "proposed by the report-only verification loop; accepting it is a human act"
+        }
+      ]
+    },
+    {
+      "claimId": "data-facts/things-to-do/arthurs-seat-eagle/trading-status",
+      "claimClass": "trading-status",
+      "consequence": "medium",
+      "riskScore": 0.5,
+      "state": "supported",
+      "overdueDays": 0,
+      "ageBand": "current",
+      "subject": "data-facts/things-to-do/arthurs-seat-eagle",
+      "source": {
+        "url": "https://www.aseagle.com.au",
+        "publisher": "unknown"
+      },
+      "artifact": {
+        "url": "https://www.aseagle.com.au",
+        "finalUrl": "https://aseagle.com.au/",
+        "status": 200,
+        "reachability": "ok",
+        "digest": "b9ce05bb20fe5b1d",
+        "bytes": 236459,
+        "attempts": 1,
+        "note": null
+      },
+      "attempts": [
+        {
+          "url": "https://www.aseagle.com.au",
+          "reachability": "ok",
+          "status": 200
+        }
+      ],
+      "adjudication": {
+        "outcome": "confirmed",
+        "confidence": "medium",
+        "code": null,
+        "why": "the cited page names the subject and carries no contradicting statement",
+        "quotes": [],
+        "detail": null,
+        "identityScore": 0.75
+      },
+      "patch": {
+        "ops": [],
+        "refusals": []
+      },
+      "verdicts": [],
+      "proposedEvidence": [
+        {
+          "claim": "data-facts/things-to-do/arthurs-seat-eagle/trading-status",
+          "stance": "supports",
+          "url": "https://www.aseagle.com.au",
+          "sourceDigest": "b9ce05bb20fe5b1d",
+          "wouldCarryRetrievedAt": "2026-09-13",
+          "recorded": false,
+          "requiresHuman": true,
+          "note": "proposed by the report-only verification loop; accepting it is a human act"
+        }
+      ]
+    },
+    {
+      "claimId": "data-facts/wine/mornington-peninsula/regional-count",
+      "claimClass": "regional-count",
+      "consequence": "low",
+      "riskScore": 0.25,
+      "state": "supported",
+      "overdueDays": 0,
+      "ageBand": "current",
+      "subject": "data-facts/wine/mornington-peninsula",
+      "source": {
+        "url": "https://morningtonpeninsulawine.com.au/region-and-history",
+        "publisher": "regional-body"
+      },
+      "artifact": {
+        "url": "https://morningtonpeninsulawine.com.au/region-and-history",
+        "finalUrl": "https://morningtonpeninsulawine.com.au/region-and-history",
+        "status": 200,
+        "reachability": "ok",
+        "digest": "c76fe2641366c3ac",
+        "bytes": 37283,
+        "attempts": 1,
+        "note": null
+      },
+      "attempts": [
+        {
+          "url": "https://morningtonpeninsulawine.com.au/region-and-history",
+          "reachability": "ok",
+          "status": 200
+        }
+      ],
+      "adjudication": {
+        "outcome": "confirmed",
+        "confidence": "medium",
+        "code": null,
+        "why": "the cited page names the subject and carries no contradicting statement",
+        "quotes": [],
+        "detail": null,
+        "identityScore": 1
+      },
+      "patch": {
+        "ops": [],
+        "refusals": []
+      },
+      "verdicts": [],
+      "proposedEvidence": [
+        {
+          "claim": "data-facts/wine/mornington-peninsula/regional-count",
+          "stance": "supports",
+          "url": "https://morningtonpeninsulawine.com.au/region-and-history",
+          "sourceDigest": "c76fe2641366c3ac",
+          "wouldCarryRetrievedAt": "2026-09-13",
+          "recorded": false,
+          "requiresHuman": true,
+          "note": "proposed by the report-only verification loop; accepting it is a human act"
+        }
+      ]
+    },
+    {
+      "claimId": "data-facts/beaches/bushrangers-bay/access-restriction",
+      "claimClass": "access-restriction",
+      "consequence": "high",
+      "riskScore": 9,
+      "state": "unsupported",
+      "overdueDays": 114,
+      "ageBand": "over 3 periods overdue",
+      "subject": "data-facts/beaches/bushrangers-bay",
+      "source": {
+        "url": "https://www.parks.vic.gov.au/places-to-see/sites/bushrangers-bay-walk",
+        "publisher": "gov"
+      },
+      "artifact": {
+        "url": "https://www.parks.vic.gov.au/places-to-see/sites/bushrangers-bay-walk",
+        "finalUrl": "https://www.parks.vic.gov.au/places-to-see/sites/bushrangers-bay-walk",
+        "status": 200,
+        "reachability": "ok",
+        "digest": "0ced0c1a0eda99c2",
+        "bytes": 81552,
+        "attempts": 1,
+        "note": null
+      },
+      "attempts": [
+        {
+          "url": "https://www.parks.vic.gov.au/places-to-see/sites/bushrangers-bay-walk",
+          "reachability": "ok",
+          "status": 200
+        }
+      ],
+      "adjudication": {
+        "outcome": "confirmed",
+        "confidence": "medium",
+        "code": null,
+        "why": "the cited authority page still carries the restriction",
+        "quotes": [
+          "Walking This area has additional visitor advice This area has reported issues This area is closed Home &gt; Mornington Peninsula National Park &gt; Sites &gt; B",
+          "ure Finders Ocean Beach The toilet at Flinders Ocean Beach, Mushroom Reef is permanently closed. The nearest alternative public toilets are Flinders town centre",
+          "poison, to bait foxes in strategic locations. Short track sections may be closed to isolate works (secondary tracks only). Fox trapping and baiting will occur"
+        ],
+        "detail": null,
+        "identityScore": 1
+      },
+      "patch": {
+        "ops": [],
+        "refusals": []
+      },
+      "verdicts": [],
+      "proposedEvidence": [
+        {
+          "claim": "data-facts/beaches/bushrangers-bay/access-restriction",
+          "stance": "supports",
+          "url": "https://www.parks.vic.gov.au/places-to-see/sites/bushrangers-bay-walk",
+          "sourceDigest": "0ced0c1a0eda99c2",
+          "wouldCarryRetrievedAt": "2026-09-13",
+          "recorded": false,
+          "requiresHuman": true,
+          "note": "proposed by the report-only verification loop; accepting it is a human act"
+        }
+      ]
+    },
+    {
+      "claimId": "data-facts/beaches/cape-schanck-boardwalk/access-restriction",
+      "claimClass": "access-restriction",
+      "consequence": "high",
+      "riskScore": 9,
+      "state": "unsupported",
+      "overdueDays": 114,
+      "ageBand": "over 3 periods overdue",
+      "subject": "data-facts/beaches/cape-schanck-boardwalk",
+      "source": {
+        "url": "https://www.parks.vic.gov.au/coc-listing?status=Closed+Areas",
+        "publisher": "gov"
+      },
+      "artifact": {
+        "url": "https://www.parks.vic.gov.au/coc-listing?status=Closed+Areas",
+        "finalUrl": "https://www.parks.vic.gov.au/coc-listing?status=Closed+Areas",
+        "status": 200,
+        "reachability": "ok",
+        "digest": "30f64e32431420c3",
+        "bytes": 414863,
+        "attempts": 1,
+        "note": null
+      },
+      "attempts": [
+        {
+          "url": "https://www.parks.vic.gov.au/coc-listing?status=Closed+Areas",
+          "reachability": "ok",
+          "status": 200
+        }
+      ],
+      "adjudication": {
+        "outcome": "confirmed",
+        "confidence": "medium",
+        "code": null,
+        "why": "the cited authority page still carries the restriction",
+        "quotes": [
+          "ronmental protection: Cobberas Track Macfarlane Flat Track Ingeegoodbee Track The tracks are likely to remain closed to motor vehicles until detailed site asses",
+          "on the 29 th of October 2026. Alpine National Park: road and track closures These roads and tracks are closed due to current weather conditions at alpine eleva",
+          "orth Track Twins Track Twins Jeep Track Mount Murray Track North Gunns Track These tracks will remain closed until seasonal closure openings on 29 October 2026."
+        ],
+        "detail": null,
+        "identityScore": 1
+      },
+      "patch": {
+        "ops": [],
+        "refusals": []
+      },
+      "verdicts": [],
+      "proposedEvidence": [
+        {
+          "claim": "data-facts/beaches/cape-schanck-boardwalk/access-restriction",
+          "stance": "supports",
+          "url": "https://www.parks.vic.gov.au/coc-listing?status=Closed+Areas",
+          "sourceDigest": "30f64e32431420c3",
+          "wouldCarryRetrievedAt": "2026-09-13",
+          "recorded": false,
+          "requiresHuman": true,
+          "note": "proposed by the report-only verification loop; accepting it is a human act"
+        }
+      ]
+    },
+    {
+      "claimId": "data-facts/beaches/dog-beaches-shire-standard-rule/access-restriction",
+      "claimClass": "access-restriction",
+      "consequence": "high",
+      "riskScore": 9,
+      "state": "unsupported",
+      "overdueDays": 114,
+      "ageBand": "over 3 periods overdue",
+      "subject": "data-facts/beaches/dog-beaches-shire-standard-rule",
+      "source": {
+        "url": "https://www.travelnuity.com/dog-friendly-mornington-peninsula/",
+        "publisher": "unknown"
+      },
+      "artifact": {
+        "url": "https://www.travelnuity.com/dog-friendly-mornington-peninsula/",
+        "finalUrl": "https://www.travelnuity.com/dog-friendly-mornington-peninsula/",
+        "status": 200,
+        "reachability": "ok",
+        "digest": "d74185c3af56c07d",
+        "bytes": 150136,
+        "attempts": 1,
+        "note": null
+      },
+      "attempts": [
+        {
+          "url": "https://www.travelnuity.com/dog-friendly-mornington-peninsula/",
+          "reachability": "ok",
+          "status": 200
+        }
+      ],
+      "adjudication": {
+        "outcome": "confirmed",
+        "confidence": "medium",
+        "code": null,
+        "why": "the cited page names the subject and carries no contradicting statement",
+        "quotes": [],
+        "detail": null,
+        "identityScore": 1
+      },
+      "patch": {
+        "ops": [],
+        "refusals": []
+      },
+      "verdicts": [],
+      "proposedEvidence": [
+        {
+          "claim": "data-facts/beaches/dog-beaches-shire-standard-rule/access-restriction",
+          "stance": "supports",
+          "url": "https://www.travelnuity.com/dog-friendly-mornington-peninsula/",
+          "sourceDigest": "d74185c3af56c07d",
+          "wouldCarryRetrievedAt": "2026-09-13",
+          "recorded": false,
+          "requiresHuman": true,
+          "note": "proposed by the report-only verification loop; accepting it is a human act"
+        }
+      ]
+    },
+    {
+      "claimId": "events/foxeys-hangout-vegetable-feast-morning-sun-vineyard/event-status",
+      "claimClass": "event-status",
+      "consequence": "high",
+      "riskScore": 9,
+      "state": "unsupported",
+      "overdueDays": 102,
+      "ageBand": "over 3 periods overdue",
+      "subject": "events/foxeys-hangout-vegetable-feast-morning-sun-vineyard",
+      "source": {
+        "url": "https://www.instagram.com/foxeyshangout/",
+        "publisher": "social"
+      },
+      "artifact": {
+        "url": "https://www.instagram.com/foxeyshangout/",
+        "finalUrl": "https://www.instagram.com/foxeyshangout/",
+        "status": 200,
+        "reachability": "ok",
+        "digest": "3549889cce2bf229",
+        "bytes": 500000,
+        "attempts": 1,
+        "note": null
+      },
+      "attempts": [
+        {
+          "url": "https://www.instagram.com/foxeyshangout/",
+          "reachability": "ok",
+          "status": 200
+        }
+      ],
+      "adjudication": {
+        "outcome": "inconclusive",
+        "confidence": "n/a",
+        "code": null,
+        "why": "the cited page does not name the subject, so it cannot confirm or contradict it (matched 2 of 6 identifying words)",
+        "quotes": [],
+        "detail": null,
+        "identityScore": 0.333
+      },
+      "patch": {
+        "ops": [],
+        "refusals": []
+      },
+      "verdicts": [],
+      "proposedEvidence": []
+    },
+    {
+      "claimId": "events/hastings-thursday-street-market/event-status",
+      "claimClass": "event-status",
+      "consequence": "high",
+      "riskScore": 9,
+      "state": "unsupported",
+      "overdueDays": 102,
+      "ageBand": "over 3 periods overdue",
+      "subject": "events/hastings-thursday-street-market",
+      "source": {
+        "url": "https://www.onlymelbourne.com.au/hastings-s-t-reet-market",
+        "publisher": "unknown"
+      },
+      "artifact": {
+        "url": "https://www.onlymelbourne.com.au/hastings-s-t-reet-market",
+        "finalUrl": "https://www.onlymelbourne.com.au/hastings-s-t-reet-market",
+        "status": 200,
+        "reachability": "ok",
+        "digest": "0a8ceb09d619ad99",
+        "bytes": 62370,
+        "attempts": 1,
+        "note": null
+      },
+      "attempts": [
+        {
+          "url": "https://www.onlymelbourne.com.au/hastings-s-t-reet-market",
+          "reachability": "ok",
+          "status": 200
+        }
+      ],
+      "adjudication": {
+        "outcome": "confirmed",
+        "confidence": "medium",
+        "code": null,
+        "why": "the cited page names the subject and carries no contradicting statement",
+        "quotes": [],
+        "detail": null,
+        "identityScore": 1
+      },
+      "patch": {
+        "ops": [],
+        "refusals": []
+      },
+      "verdicts": [],
+      "proposedEvidence": [
+        {
+          "claim": "events/hastings-thursday-street-market/event-status",
+          "stance": "supports",
+          "url": "https://www.onlymelbourne.com.au/hastings-s-t-reet-market",
+          "sourceDigest": "0a8ceb09d619ad99",
+          "wouldCarryRetrievedAt": "2026-09-13",
+          "recorded": false,
+          "requiresHuman": true,
+          "note": "proposed by the report-only verification loop; accepting it is a human act"
+        }
+      ]
+    },
+    {
+      "claimId": "events/heart-of-the-community-market-rosebud/event-status",
+      "claimClass": "event-status",
+      "consequence": "high",
+      "riskScore": 9,
+      "state": "unsupported",
+      "overdueDays": 102,
+      "ageBand": "over 3 periods overdue",
+      "subject": "events/heart-of-the-community-market-rosebud",
+      "source": {
+        "url": "https://peninsulakids.com.au/markets-3/",
+        "publisher": "unknown"
+      },
+      "artifact": {
+        "url": "https://peninsulakids.com.au/markets-3/",
+        "finalUrl": "https://peninsulakids.com.au/markets-3/",
+        "status": 200,
+        "reachability": "ok",
+        "digest": "d3af272b8265a52b",
+        "bytes": 260338,
+        "attempts": 1,
+        "note": null
+      },
+      "attempts": [
+        {
+          "url": "https://peninsulakids.com.au/markets-3/",
+          "reachability": "ok",
+          "status": 200
+        }
+      ],
+      "adjudication": {
+        "outcome": "confirmed",
+        "confidence": "medium",
+        "code": null,
+        "why": "the cited page names the subject and carries no contradicting statement",
+        "quotes": [],
+        "detail": null,
+        "identityScore": 0.833
+      },
+      "patch": {
+        "ops": [],
+        "refusals": []
+      },
+      "verdicts": [],
+      "proposedEvidence": [
+        {
+          "claim": "events/heart-of-the-community-market-rosebud/event-status",
+          "stance": "supports",
+          "url": "https://peninsulakids.com.au/markets-3/",
+          "sourceDigest": "d3af272b8265a52b",
+          "wouldCarryRetrievedAt": "2026-09-13",
+          "recorded": false,
+          "requiresHuman": true,
+          "note": "proposed by the report-only verification loop; accepting it is a human act"
+        }
+      ]
+    },
+    {
+      "claimId": "species/garfish/fishing-rule",
+      "claimClass": "fishing-rule",
+      "consequence": "high",
+      "riskScore": 0.75,
+      "state": "supported",
+      "overdueDays": 0,
+      "ageBand": "current",
+      "subject": "species/garfish",
+      "source": {
+        "url": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide",
+        "publisher": "gov"
+      },
+      "artifact": {
+        "url": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide",
+        "finalUrl": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide",
+        "status": 403,
+        "reachability": "blocked",
+        "digest": "c4590c91c34950e7",
+        "bytes": 5845,
+        "attempts": 1,
+        "note": "HTTP 403"
+      },
+      "attempts": [
+        {
+          "url": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide",
+          "reachability": "blocked",
+          "status": 403
+        }
+      ],
+      "adjudication": {
+        "outcome": "blocked",
+        "confidence": "n/a",
+        "code": "blocked",
+        "why": "the cited source answered and refused this client (HTTP 403)",
+        "quotes": [],
+        "detail": null,
+        "identityScore": null
+      },
+      "patch": {
+        "ops": [],
+        "refusals": []
+      },
+      "verdicts": [],
+      "proposedEvidence": []
+    },
+    {
+      "claimId": "data-facts/things-to-do/ashcombe-maze-lavender-gardens/trading-status",
+      "claimClass": "trading-status",
+      "consequence": "medium",
+      "riskScore": 0.5,
+      "state": "supported",
+      "overdueDays": 0,
+      "ageBand": "current",
+      "subject": "data-facts/things-to-do/ashcombe-maze-lavender-gardens",
+      "source": {
+        "url": "https://www.ashcombemaze.com.au",
+        "publisher": "venue-site"
+      },
+      "artifact": {
+        "url": "https://www.ashcombemaze.com.au",
+        "finalUrl": "https://ashcombemaze.com.au/",
+        "status": 200,
+        "reachability": "ok",
+        "digest": "d8409ce649e38a1e",
+        "bytes": 84899,
+        "attempts": 1,
+        "note": null
+      },
+      "attempts": [
+        {
+          "url": "https://www.ashcombemaze.com.au",
+          "reachability": "ok",
+          "status": 200
+        }
+      ],
+      "adjudication": {
+        "outcome": "confirmed",
+        "confidence": "medium",
+        "code": null,
+        "why": "the cited page names the subject and carries no contradicting statement",
+        "quotes": [],
+        "detail": null,
+        "identityScore": 0.8
+      },
+      "patch": {
+        "ops": [],
+        "refusals": []
+      },
+      "verdicts": [],
+      "proposedEvidence": [
+        {
+          "claim": "data-facts/things-to-do/ashcombe-maze-lavender-gardens/trading-status",
+          "stance": "supports",
+          "url": "https://www.ashcombemaze.com.au",
+          "sourceDigest": "d8409ce649e38a1e",
+          "wouldCarryRetrievedAt": "2026-09-13",
+          "recorded": false,
+          "requiresHuman": true,
+          "note": "proposed by the report-only verification loop; accepting it is a human act"
+        }
+      ]
+    },
+    {
+      "claimId": "data-facts/things-to-do/cape-schanck-lighthouse/trading-status",
+      "claimClass": "trading-status",
+      "consequence": "medium",
+      "riskScore": 0.5,
+      "state": "supported",
+      "overdueDays": 0,
+      "ageBand": "current",
+      "subject": "data-facts/things-to-do/cape-schanck-lighthouse",
+      "source": {
+        "url": "https://www.parks.vic.gov.au",
+        "publisher": "gov"
+      },
+      "artifact": {
+        "url": "https://www.parks.vic.gov.au",
+        "finalUrl": "https://www.parks.vic.gov.au/",
+        "status": 200,
+        "reachability": "ok",
+        "digest": "bc02ae8964f4c0c9",
+        "bytes": 109013,
+        "attempts": 1,
+        "note": null
+      },
+      "attempts": [
+        {
+          "url": "https://www.parks.vic.gov.au",
+          "reachability": "ok",
+          "status": 200
+        }
+      ],
+      "adjudication": {
+        "outcome": "confirmed",
+        "confidence": "low",
+        "code": null,
+        "why": "the cited page names the subject and carries no contradicting statement",
+        "quotes": [],
+        "detail": null,
+        "identityScore": 0.5
+      },
+      "patch": {
+        "ops": [],
+        "refusals": []
+      },
+      "verdicts": [],
+      "proposedEvidence": [
+        {
+          "claim": "data-facts/things-to-do/cape-schanck-lighthouse/trading-status",
+          "stance": "supports",
+          "url": "https://www.parks.vic.gov.au",
+          "sourceDigest": "bc02ae8964f4c0c9",
+          "wouldCarryRetrievedAt": "2026-09-13",
+          "recorded": false,
+          "requiresHuman": true,
+          "note": "proposed by the report-only verification loop; accepting it is a human act"
+        }
+      ]
+    },
+    {
+      "claimId": "data-facts/beaches/dog-beaches-year-round-off-leash/access-restriction",
+      "claimClass": "access-restriction",
+      "consequence": "high",
+      "riskScore": 9,
+      "state": "unsupported",
+      "overdueDays": 114,
+      "ageBand": "over 3 periods overdue",
+      "subject": "data-facts/beaches/dog-beaches-year-round-off-leash",
+      "source": {
+        "url": "https://www.visitmorningtonpeninsula.org/Stories/peninsulas-ultimate-doggy-destinations",
+        "publisher": "regional-body"
+      },
+      "artifact": {
+        "url": "https://www.visitmorningtonpeninsula.org/Stories/peninsulas-ultimate-doggy-destinations",
+        "finalUrl": "https://www.visitmorningtonpeninsula.org/Stories/peninsulas-ultimate-doggy-destinations",
+        "status": 200,
+        "reachability": "ok",
+        "digest": "fbcbb04359140e30",
+        "bytes": 136411,
+        "attempts": 1,
+        "note": null
+      },
+      "attempts": [
+        {
+          "url": "https://www.visitmorningtonpeninsula.org/Stories/peninsulas-ultimate-doggy-destinations",
+          "reachability": "ok",
+          "status": 200
+        }
+      ],
+      "adjudication": {
+        "outcome": "confirmed",
+        "confidence": "medium",
+        "code": null,
+        "why": "the cited authority page still carries the restriction",
+        "quotes": [
+          "of &lsquo;hundred steps&rsquo; * Please note Somers Beach also has restricted leash-free times. WALKS What dog doesn&rsquo;t love a walk? If you can combine a"
+        ],
+        "detail": null,
+        "identityScore": 1
+      },
+      "patch": {
+        "ops": [],
+        "refusals": []
+      },
+      "verdicts": [],
+      "proposedEvidence": [
+        {
+          "claim": "data-facts/beaches/dog-beaches-year-round-off-leash/access-restriction",
+          "stance": "supports",
+          "url": "https://www.visitmorningtonpeninsula.org/Stories/peninsulas-ultimate-doggy-destinations",
+          "sourceDigest": "fbcbb04359140e30",
+          "wouldCarryRetrievedAt": "2026-09-13",
+          "recorded": false,
+          "requiresHuman": true,
+          "note": "proposed by the report-only verification loop; accepting it is a human act"
+        }
+      ]
+    },
+    {
+      "claimId": "data-facts/beaches/flinders-beach-western-port-north-end/access-restriction",
+      "claimClass": "access-restriction",
+      "consequence": "high",
+      "riskScore": 9,
+      "state": "unsupported",
+      "overdueDays": 114,
+      "ageBand": "over 3 periods overdue",
+      "subject": "data-facts/beaches/flinders-beach-western-port-north-end",
+      "source": {
+        "url": "https://www.petstock.com.au/blog/articles/summer-travel-our-dog-friendly-guide-to-the-mornington-peninsula",
+        "publisher": "unknown"
+      },
+      "artifact": {
+        "url": "https://www.petstock.com.au/blog/articles/summer-travel-our-dog-friendly-guide-to-the-mornington-peninsula",
+        "finalUrl": "https://www.petstock.com.au/blog/articles/summer-travel-our-dog-friendly-guide-to-the-mornington-peninsula",
+        "status": 429,
+        "reachability": "blocked",
+        "digest": "0e8c43508319fc71",
+        "bytes": 32183,
+        "attempts": 1,
+        "note": "HTTP 429"
+      },
+      "attempts": [
+        {
+          "url": "https://www.petstock.com.au/blog/articles/summer-travel-our-dog-friendly-guide-to-the-mornington-peninsula",
+          "reachability": "blocked",
+          "status": 429
+        }
+      ],
+      "adjudication": {
+        "outcome": "blocked",
+        "confidence": "n/a",
+        "code": "blocked",
+        "why": "the cited source answered and refused this client (HTTP 429)",
+        "quotes": [],
+        "detail": null,
+        "identityScore": null
+      },
+      "patch": {
+        "ops": [],
+        "refusals": []
+      },
+      "verdicts": [],
+      "proposedEvidence": []
+    },
+    {
+      "claimId": "data-facts/beaches/mornington-main-mothers-beach/access-restriction",
+      "claimClass": "access-restriction",
+      "consequence": "high",
+      "riskScore": 9,
+      "state": "unsupported",
+      "overdueDays": 114,
+      "ageBand": "over 3 periods overdue",
+      "subject": "data-facts/beaches/mornington-main-mothers-beach",
+      "source": {
+        "url": "https://www.visitmorningtonpeninsula.org/Places-To-See/Trips-Itineraries/Accessible-Beaches",
+        "publisher": "regional-body"
+      },
+      "artifact": {
+        "url": "https://www.visitmorningtonpeninsula.org/Places-To-See/Trips-Itineraries/Accessible-Beaches",
+        "finalUrl": "https://www.visitmorningtonpeninsula.org/Places-To-See/Trips-Itineraries/Accessible-Beaches",
+        "status": 200,
+        "reachability": "ok",
+        "digest": "f448abf9b86e4469",
+        "bytes": 105516,
+        "attempts": 1,
+        "note": null
+      },
+      "attempts": [
+        {
+          "url": "https://www.visitmorningtonpeninsula.org/Places-To-See/Trips-Itineraries/Accessible-Beaches",
+          "reachability": "ok",
+          "status": 200
+        }
+      ],
+      "adjudication": {
+        "outcome": "confirmed",
+        "confidence": "medium",
+        "code": null,
+        "why": "the cited page names the subject and carries no contradicting statement",
+        "quotes": [],
+        "detail": null,
+        "identityScore": 0.75
+      },
+      "patch": {
+        "ops": [],
+        "refusals": []
+      },
+      "verdicts": [],
+      "proposedEvidence": [
+        {
+          "claim": "data-facts/beaches/mornington-main-mothers-beach/access-restriction",
+          "stance": "supports",
+          "url": "https://www.visitmorningtonpeninsula.org/Places-To-See/Trips-Itineraries/Accessible-Beaches",
+          "sourceDigest": "f448abf9b86e4469",
+          "wouldCarryRetrievedAt": "2026-09-13",
+          "recorded": false,
+          "requiresHuman": true,
+          "note": "proposed by the report-only verification loop; accepting it is a human act"
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "no-content-write",
+      "pass": true,
+      "detail": {
+        "changedFiles": [],
+        "changed": 0
+      },
+      "why": "the report-only loop must not alter a single byte of any content or data record"
+    },
+    {
+      "id": "no-check-date-refreshed",
+      "pass": true,
+      "detail": {
+        "offending": []
+      },
+      "why": "a successful fetch proves a page responded, never that a person read it and agreed, so no composed change may move a verification date"
+    },
+    {
+      "id": "no-evidence-row-recorded",
+      "pass": true,
+      "detail": {
+        "offending": 0
+      },
+      "why": "a confirmation produces a PROPOSED evidence row for a person to accept; recording one automatically is the same check-date failure wearing a different field name"
+    },
+    {
+      "id": "every-change-cites-evidence",
+      "pass": true,
+      "detail": {
+        "offending": []
+      },
+      "why": "every proposed change must cite the fetched artifact it came from, by digest"
+    },
+    {
+      "id": "every-escalation-states-a-question",
+      "pass": true,
+      "detail": {
+        "offending": 0
+      },
+      "why": "an escalation without a specific question and a default is a notification, and notifications are what a review queue dies of"
+    },
+    {
+      "id": "outbound-limited-to-cited-sources",
+      "pass": true,
+      "detail": {
+        "offending": []
+      },
+      "why": "the only outbound traffic permitted is a GET of a URL a record already cites"
+    },
+    {
+      "id": "no-verdict-without-a-readable-source",
+      "pass": true,
+      "detail": {
+        "offending": []
+      },
+      "why": "unreachable and blocked are source-health facts, never verdicts about a claim"
+    },
+    {
+      "id": "no-figures-in-the-report",
+      "pass": true,
+      "detail": {},
+      "why": "this publication carries no prices, and a rate finding must escalate without one riding along"
+    },
+    {
+      "id": "no-em-dash-in-the-report",
+      "pass": true,
+      "detail": {},
+      "why": "BRAND-PI hard rule"
+    }
+  ]
+}

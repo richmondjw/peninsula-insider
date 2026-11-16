@@ -1,0 +1,12 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {mkdtemp,rm} from 'node:fs/promises';
+import {tmpdir} from 'node:os';
+import path from 'node:path';
+import {collectDetails} from './details.mjs';
+const registry={sources:[{id:'official',url:'https://example.org/events',authority:'official'}]};
+const leads=Array.from({length:3},(_,i)=>({sourceId:'official',url:`https://example.org/events/${i}`,retrievalAllowed:true,format:'html'}));
+const now=new Date('2026-10-04T00:00:00Z');
+const evidence=source=>({id:source.url,sourceId:'official',url:source.url,retrievedAt:now.toISOString(),contentType:'text/html',body:'<html></html>'});
+test('bounded batches advance, cache captures, and complete without publication',async()=>{const directory=await mkdtemp(path.join(tmpdir(),'pi-details-'));try{const calls=[];const fetcher=async s=>{calls.push(s.url);return evidence(s);};let r=await collectDetails(registry,leads,directory,{now,fetcher,limit:2});assert.equal(r.pending,1);assert.equal(r.complete,false);r=await collectDetails(registry,leads,directory,{now,fetcher,limit:2});assert.equal(r.complete,true);assert.equal(calls.length,3);assert.deepEqual(r.publicationChanges,[]);r=await collectDetails(registry,leads,directory,{now,fetcher});assert.equal(calls.length,3);assert.equal(r.receipts.filter(x=>x.status==='cached').length,3);}finally{await rm(directory,{recursive:true,force:true});}});
+test('failed detail backs off, retries later, and external URLs are not admitted',async()=>{const directory=await mkdtemp(path.join(tmpdir(),'pi-details-'));try{let calls=0;const fetcher=async()=>{calls++;throw new Error('HTTP 403');};const extra={...leads[0],url:'https://external.org/event'};let r=await collectDetails(registry,[leads[0],extra],directory,{now,fetcher});assert.equal(r.admitted,1);assert.equal(r.complete,false);r=await collectDetails(registry,[leads[0]],directory,{now,fetcher});assert.equal(r.receipts[0].status,'backoff');assert.equal(calls,1);await collectDetails(registry,[leads[0]],directory,{now:new Date(now.getTime()+3600001),fetcher});assert.equal(calls,2);}finally{await rm(directory,{recursive:true,force:true});}});

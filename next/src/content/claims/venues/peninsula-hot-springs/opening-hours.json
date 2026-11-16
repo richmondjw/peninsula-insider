@@ -1,0 +1,20 @@
+{
+  "claimId": "venues/peninsula-hot-springs/opening-hours",
+  "claimClass": "opening-hours",
+  "subject": {
+    "type": "venues",
+    "slug": "peninsula-hot-springs",
+    "field": "visiting.openingHours"
+  },
+  "statement": "Peninsula Hot Springs opens at 7am Monday to Friday and at 5am on Saturday and Sunday, closing at 11pm on Monday to Thursday and on Sunday, and at 2am on Friday and Saturday.",
+  "assertedBy": [
+    {
+      "type": "venues",
+      "slug": "peninsula-hot-springs",
+      "field": "visiting.openingHours"
+    }
+  ],
+  "createdAt": "2026-09-13",
+  "origin": "authored",
+  "note": "Unsupported, and disputed on one specific point. The opening times and the Monday to Thursday and Sunday closes match the operator Bath House hours exactly. The 2am closes the record asserts for Friday and Saturday are not the Bath House: the operator publishes 2am only for Moonlit Bathing, a separate 10pm to 2am ticketed session on those two nights, while the Bath House still closes at 11pm. The record flattens the two into one openingHours block, and that block is what reaches JSON-LD. No record was changed, because splitting a ticketed late session out of a venue hours field is an editorial decision about what openingHours means here, not a correction. Authored by hand for the PI-005 Stage 2 venue pilot. Sources were read on 2026-09-13; see ops/reports/claims/2026-09-13-pilot-venues.md."
+}

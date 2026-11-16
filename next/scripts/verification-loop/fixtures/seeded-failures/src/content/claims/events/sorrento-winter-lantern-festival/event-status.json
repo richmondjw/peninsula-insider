@@ -1,0 +1,18 @@
+{
+  "claimId": "events/sorrento-winter-lantern-festival/event-status",
+  "claimClass": "event-status",
+  "subject": {
+    "type": "events",
+    "slug": "sorrento-winter-lantern-festival"
+  },
+  "statement": "Sorrento Winter Lantern Festival is running as published.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "sorrento-winter-lantern-festival"
+    }
+  ],
+  "createdAt": "2026-06-02",
+  "origin": "fixture",
+  "note": "PI-006 fixture. Seeds one named failure class so the loop can be proved to catch it."
+}

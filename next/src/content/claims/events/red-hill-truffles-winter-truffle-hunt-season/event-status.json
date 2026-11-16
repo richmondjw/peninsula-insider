@@ -1,0 +1,18 @@
+{
+  "claimId": "events/red-hill-truffles-winter-truffle-hunt-season/event-status",
+  "claimClass": "event-status",
+  "subject": {
+    "type": "events",
+    "slug": "red-hill-truffles-winter-truffle-hunt-season"
+  },
+  "statement": "Red Hill Truffles: Winter Truffle Hunt Season is running as published.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "red-hill-truffles-winter-truffle-hunt-season"
+    }
+  ],
+  "createdAt": "2026-05-04",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

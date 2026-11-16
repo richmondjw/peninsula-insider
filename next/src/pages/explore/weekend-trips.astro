@@ -5,6 +5,7 @@ import ItineraryCard from '../../components/ItineraryCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { getCollection } from 'astro:content';
 import { routeSlug } from '../../lib/editorial';
+import ProvenanceLine from '../../components/ProvenanceLine.astro';
 import {
   buildCollectionPageSchema,
   buildItemListSchema,
@@ -31,7 +32,7 @@ const collectionSchema = buildCollectionPageSchema({
 
 const itemListSchema = buildItemListSchema({
   name: 'Mornington Peninsula Weekend Formats',
-  description: 'Six weekend formats for visiting the Mornington Peninsula.',
+  description: 'Weekend formats for visiting the Mornington Peninsula.',
   listPath: '/explore/weekend-trips',
   items: [
     { name: 'The default Peninsula weekend', path: '/explore/plans/how-to-plan-a-peninsula-weekend/', itemType: 'TouristTrip', addressLocality: 'Mornington Peninsula' },
@@ -73,8 +74,8 @@ export const prerender = true;
 ---
 
 <BaseLayout
-  title="Mornington Peninsula Weekend Trips - 6 Formats · Peninsula Insider"
-  description="How to plan a Mornington Peninsula weekend - 2D/1N and 3D/2N formats, six linked itineraries, where to base yourself, and when to book."
+  title="Mornington Peninsula Weekend Trips · Peninsula Insider"
+  description="How to plan a Mornington Peninsula weekend - 2D/1N and 3D/2N formats, linked itineraries, where to base yourself, and when to book."
   section="explore"
   canonical="https://peninsulainsider.com.au/explore/weekend-trips/"
 >
@@ -94,7 +95,7 @@ export const prerender = true;
           <ul>
             <li>A 2-day/1-night trip is the Peninsula's most popular format. <a href="/explore/plans/how-to-plan-a-peninsula-weekend/">The default Peninsula weekend</a> is the built-out version.</li>
             <li><a href="/stay/best-accommodation/">Where to base yourself</a> is the most important planning decision - Sorrento and Red Hill anchor different kinds of trips.</li>
-            <li>Six linked itineraries below - from the classic bay-and-hinterland weekend to couples and winter-specific formats.</li>
+            <li>Linked itineraries below - from the classic bay-and-hinterland weekend to couples and winter-specific formats.</li>
             <li>Booking 4–6 weeks ahead for accommodation on summer weekends is realistic in most price brackets; earlier for premium properties.</li>
           </ul>
         </blockquote>
@@ -104,7 +105,7 @@ export const prerender = true;
         <h2>The 2D/1N frame</h2>
         <p>Most Peninsula weekends work best as a 2-day, 1-night structure. Enough time to reach the southern end of the Peninsula (Sorrento, Flinders, Cape Schanck) without rushing, to have a proper dinner the night before, and to leave the following afternoon. The 3-day/2-night version (<a href="/explore/plans/ridge-to-sea-two-night-escape/">the three-day Peninsula</a>) is available but the 2D/1N is the default.</p>
 
-        <h2>Six weekend formats</h2>
+        <h2>Weekend formats</h2>
 
         <h3>1. The default Peninsula weekend</h3>
         <p>The fully built itinerary - <a href="/explore/plans/how-to-plan-a-peninsula-weekend/">the default Peninsula weekend</a> covers accommodation selection, day-by-day structure, and linked venues. <em>Best for:</em> First-time overnight visitors wanting a complete plan.</p>
@@ -122,7 +123,7 @@ export const prerender = true;
         <p>A cold-weather frame: hot springs, fireplace dinners, quiet roads. Read: <a href="/journal/a-winter-peninsula-weekend/">A winter Peninsula weekend</a>. <em>Best for:</em> Winter visitors; off-peak travel; those who find summer crowds off-putting.</p>
 
         <h3>6. The hinterland-first weekend</h3>
-        <p>Based in Red Hill or Merricks, built around winery lunches, walking, and the <a href="/eat/red-hill-market/">Red Hill Market</a> anchor on Saturday mornings. Read: <a href="/explore/plans/how-to-build-a-red-hill-saturday/">How to build a Red Hill Saturday</a> and <a href="/explore/plans/ridge-to-sea-two-night-escape/">Ridge to Sea escape</a>. <em>Best for:</em> Food-and-wine visitors.</p>
+        <p>Based in Red Hill or Merricks, built around winery lunches, walking, and a <a href="/whats-on/hill-ridge-community-market-september-2026-restart/">Hill &amp; Ridge Community Market</a> visit when its first-Saturday schedule aligns. Read: <a href="/explore/plans/how-to-build-a-red-hill-saturday/">How to build a Red Hill Saturday</a> and <a href="/explore/plans/ridge-to-sea-two-night-escape/">Ridge to Sea escape</a>. <em>Best for:</em> Food-and-wine visitors.</p>
 
         <h2>Where to base yourself</h2>
         <p>The base decision shapes everything else. Sorrento gives ocean access, back-beach walks, and ferry options. Red Hill gives the food-and-wine hinterland character. Flinders gives the most authentically quiet Peninsula experience. Read <a href="/stay/best-accommodation/">where to base yourself</a> for the full breakdown.</p>
@@ -130,7 +131,7 @@ export const prerender = true;
         <h2>When to book</h2>
         <p>Peak weekends (December–February and Easter) require 6–8 weeks' lead time for good accommodation. The shoulder seasons (autumn and spring) are 3–4 weeks for most properties. Winter midweek breaks often have availability with 1–2 weeks' notice. Peninsula Hot Springs requires its own separate booking.</p>
 
-        <p><em>Last fact-verified 23 April 2026</em></p>
+        <ProvenanceLine records={itinerariesAll} type="itineraries" noun="itinerary" emphasis />
 
         <h2>FAQ</h2>
 

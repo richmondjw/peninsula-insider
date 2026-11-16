@@ -2,24 +2,19 @@
   "slug": "phaedrus-estate",
   "name": "Phaedrus Estate",
   "type": "winery",
-  "place": "dromana",
+  "place": "moorooduc",
   "zone": "bay-coast",
-  "coordinates": {
-    "lat": -38.3437,
-    "lng": 144.981
-  },
-  "address": "220 Mornington-Flinders Rd, Red Hill VIC 3937",
-  "website": "https://phaedrusestate.com",
+  "address": "220 Mornington-Tyabb Rd, Moorooduc VIC 3933",
   "priceBand": "$$",
-  "signature": "A quieter Dromana-side estate making honest, characterful wines, Viognier, Sangiovese, and Pinot alongside the Peninsula classics.",
-  "editorNote": "Phaedrus is one of the Peninsula's unsung cellar doors, small, family-run, and deliberately off the main ridge itinerary. The focus is broader than the Peninsula average: alongside the mandatory Pinot and Chardonnay, the estate works with Viognier, Sangiovese and a handful of other varieties that give the tasting flight some genuine range and a reason to pay attention beyond the usual cool-climate benchmarks.\n\nThe cellar door is unpretentious and the wines are honest. This is the kind of stop you add when you want to finish a cellar-door day with something different, at a quieter address, before heading back down to the bayside for dinner. The Dromana position makes it easier to reach from the bayside than from the ridge, which is an advantage if you are not driving all the way up to Main Ridge.\n\nCheck current hours, Phaedrus runs a smaller tasting schedule than the headline estates. Worth confirming before you make the drive.",
-  "whyWeGo": "Phaedrus is one of the Peninsula's unsung cellar doors, small, family-run, and deliberately off the main ridge itinerary, with a varietal range that gives the flight real range.",
+  "signature": "A family wine estate and cellar door in Moorooduc with Fiano, Pinot Gris, Chardonnay, Pinot Noir and Shiraz.",
+  "editorNote": "Phaedrus Estate's official site places its cellar door at 220 Mornington-Tyabb Road, Moorooduc. The family estate produces a range including Fiano, Pinot Gris, Chardonnay, Pinot Noir and Shiraz. Check the operator for current visit details before travelling.",
+  "whyWeGo": "A Moorooduc family estate with a broad range of wines beyond the usual Pinot and Chardonnay.",
   "bestFor": [
     "Cellar door visits",
     "Wine lovers",
     "Couples"
   ],
-  "ifOnlyOneThing": "Ask to taste the Viognier or the Sangiovese, whichever is available, as your starting point before working through the rest of the flight.",
+  "ifOnlyOneThing": "Confirm current cellar-door hours and directions on the operator's site before travelling.",
   "pairWith": [
     "Crittenden Restaurant",
     "Small Stone Pantry"
@@ -39,7 +34,9 @@
   },
   "heroImage": {
     "src": "/images/sourced/place-dromana-01.webp",
-    "alt": "Dromana, Mornington Peninsula - representative image for Phaedrus Estate",
+    "alt": "A long-exposure photograph beneath a concrete pier, a black pipe running down the sand into smooth water under a clouded sky.",
+    "depicts": "a long exposure beneath a concrete pier, a pipe running down the sand into the water",
+    "depictionStatus": "illustrative",
     "credit": "Peninsula Insider",
     "license": "other-licensed"
   },
@@ -47,12 +44,30 @@
   "featuredPartner": false,
   "lastVerified": "2026-04-09",
   "publishedAt": "2026-04-09",
-  "bookingUrl": "https://phaedrusestate.com",
   "bookingProvider": "direct",
   "knownFor": [
-    "Italian and Rhône Varietals",
-    "Family-Run Dromana Estate",
-    "Off-Ridge Cellar Door",
-    "Viognier and Sangiovese"
-  ]
+    "Family-Run Moorooduc Estate",
+    "Fiano and Pinot Gris",
+    "Cellar Door in Moorooduc"
+  ],
+  "operatingStatus": "verify-open",
+  "retiredSourceLinks": [
+    {
+      "field": "website",
+      "url": "https://phaedrusestate.com",
+      "verdict": "dead",
+      "disposition": "gone",
+      "checkedOn": "2026-09-13",
+      "note": "Domain does not resolve, and no operator-run replacement was found. EDITOR: Visit Victoria and Wine Companion both place Phaedrus Estate at 220 Mornington-Tyabb Road, Moorooduc. This record says '220 Mornington-Flinders Rd, Red Hill' with place 'dromana'. The street number matches and nothing else does."
+    },
+    {
+      "field": "bookingUrl",
+      "url": "https://phaedrusestate.com",
+      "verdict": "dead",
+      "disposition": "gone",
+      "checkedOn": "2026-09-13",
+      "note": "Domain does not resolve, and no operator-run replacement was found. EDITOR: Visit Victoria and Wine Companion both place Phaedrus Estate at 220 Mornington-Tyabb Road, Moorooduc. This record says '220 Mornington-Flinders Rd, Red Hill' with place 'dromana'. The street number matches and nothing else does."
+    }
+  ],
+  "website": "https://www.phaedrus.com.au/"
 }

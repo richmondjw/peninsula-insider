@@ -1,3 +1,4 @@
+import { validateFeedItemList } from './agent-feed-contract.mjs';
 import process from 'node:process';
 import { fileURLToPath } from 'node:url';
 
@@ -37,19 +38,7 @@ export function validateLivePayloads(payloads, { expectedDate, expectedSha } = {
   if (feed?.numberOfItems !== events.length || feed?.itemListElement?.length !== events.length) {
     failures.push('schema.org ItemList counts do not match the stable events payload');
   }
-  for (const [index, event] of events.entries()) {
-    const listItem = feed?.itemListElement?.[index];
-    if (
-      listItem?.['@type'] !== 'ListItem' ||
-      listItem?.position !== index + 1 ||
-      listItem?.item?.['@type'] !== 'Event' ||
-      listItem?.item?.url !== event?.url ||
-      listItem?.item?.startDate !== event?.startDate ||
-      listItem?.item?.endDate !== event?.endDate
-    ) {
-      failures.push(`schema.org ItemList entry ${index + 1} disagrees with the stable events payload`);
-    }
-  }
+  failures.push(...validateFeedItemList(feed ?? {}).map(failure => `schema.org ${failure}`));
   if (!Number.isInteger(feed?.thisWeekend?.count) || feed.thisWeekend.count !== weekendEvents.length) {
     failures.push(
       `weekend count ${JSON.stringify(feed?.thisWeekend?.count)} does not match ${weekendEvents.length} flagged events`,
@@ -73,7 +62,15 @@ export function validateLivePayloads(payloads, { expectedDate, expectedSha } = {
     if (typeof event?.url !== 'string' || !event.url.startsWith(`${DEFAULT_BASE}/`)) {
       failures.push(`${event?.title || 'event'} has a missing or non-canonical URL`);
     }
-    if (event?.thisWeekend === true && (lastDate < weekendStart || startDate > weekendEnd)) {
+    const occurrences = event?.weekendOccurrences;
+    if (occurrences !== undefined) {
+      if (!Array.isArray(occurrences) || occurrences.some((occurrence) =>
+        !isIsoDate(occurrence?.date) || occurrence.date < weekendStart || occurrence.date > weekendEnd
+      )) failures.push(`${event.url || event.title || 'event'} has invalid weekend occurrences`);
+      if (Array.isArray(occurrences) && event.thisWeekend !== (occurrences.length > 0)) {
+        failures.push(`${event.url || event.title || 'event'} weekend flag disagrees with explicit occurrences`);
+      }
+    } else if (event?.thisWeekend === true && (lastDate < weekendStart || startDate > weekendEnd)) {
       failures.push(`${event.url || event.title || 'event'} is flagged this weekend but falls outside the weekend window`);
     }
   }

@@ -14,6 +14,8 @@ sources:
     checkedAt: 2026-05-01T07:30:00+10:00
 relatedVenue: laura-pt-leo
 status: archived
+sourceStatus: unsourced
+sourceStatusNote: "Domain does not resolve. No successor found under the venue's name that could be fetched."
 ---
 
 Three extra Sunday sittings for the first weekend of autumn. The kitchen's pace stays the same - three hours, no rush - but the booking window itself is competitive, so the alarm matters more than the menu.

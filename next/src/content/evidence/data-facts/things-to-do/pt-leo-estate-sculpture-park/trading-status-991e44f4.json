@@ -1,0 +1,18 @@
+{
+  "evidenceId": "data-facts/things-to-do/pt-leo-estate-sculpture-park/trading-status-991e44f4",
+  "claim": "data-facts/things-to-do/pt-leo-estate-sculpture-park/trading-status",
+  "stance": "supports",
+  "publisher": {
+    "kind": "venue-site"
+  },
+  "retrievedAt": "2026-09-13",
+  "expiresAt": "2026-12-12",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/data/facts/things-to-do.json",
+    "field": "entities[9].source",
+    "value": "https://www.ptleoestate.com.au/experience/sculpture-park/",
+    "dateField": "lastUpdated"
+  },
+  "url": "https://www.ptleoestate.com.au/experience/sculpture-park/"
+}

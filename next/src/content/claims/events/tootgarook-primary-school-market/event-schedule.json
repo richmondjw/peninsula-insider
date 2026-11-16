@@ -1,0 +1,20 @@
+{
+  "claimId": "events/tootgarook-primary-school-market/event-schedule",
+  "claimClass": "event-schedule",
+  "subject": {
+    "type": "events",
+    "slug": "tootgarook-primary-school-market",
+    "field": "startDate"
+  },
+  "statement": "Tootgarook Primary School Market runs on 23 May 2026, 7.30am to 12.30pm.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "tootgarook-primary-school-market",
+      "field": "startDate"
+    }
+  ],
+  "createdAt": "2026-05-04",
+  "origin": "migrated",
+  "note": "Migrated by scripts/migrate-event-claims.mjs (PI-005 Stage 2) from startDate, endDate, startTime, endTime already on next/src/content/events/tootgarook-primary-school-market.json. No editorial judgement was applied and no content record was changed."
+}

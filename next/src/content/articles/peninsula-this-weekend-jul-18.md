@@ -49,7 +49,7 @@ dispatch:
     price: "Free"
     summary: "MPRG has opened its winter season with Helen Britton and Natalia Milosz-Piekarska among the new exhibitions. The gallery is in central Mornington, which means good coffee is close. A grey Saturday morning here is a reasonable plan in its own right. The winter program runs through July and beyond. Confirm current hours and what is on before you go."
     bookingLabel: "Walk in, free entry"
-    bookingUrl: "https://www.mornpen.vic.gov.au/Arts-Culture/Mornington-Peninsula-Regional-Gallery"
+    bookingUrl: "https://mprg.mornpen.vic.gov.au/"
     eventRef: ""
   quieterAlt:
     title: "Flinders Truffles: Winter Truffle Hunt Season"

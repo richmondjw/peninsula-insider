@@ -1,0 +1,180 @@
+name: Claim Verification Loop - Peninsula Insider
+
+# PI-006, proposal-only.
+#
+# WHY IT LIVES HERE AND NOT ON THE AGENT STACK
+# --------------------------------------------
+# The OpenClaw stack is frozen until the Agency cutover and admits no new
+# agents, crons or integrations. PI-006 says as much, and this is the other
+# place the ticket names: this repository's own Actions, next to the content
+# workflows that already own the freshness pass.
+#
+# WHAT IT WRITES
+# --------------
+# A report and a queue of proposals, as artifacts. It does not commit, it does
+# not open an issue, it does not push, and it has `contents: read`. That is not
+# caution about a flag somebody could flip: the loop itself cannot write to a
+# content record, and the run proves it by hashing every content and data file
+# before and after itself. The workflow's permissions are the outer ring of the
+# same fact.
+#
+# WHAT A PERSON DOES WITH THE OUTPUT
+# ----------------------------------
+# Downloads the artifact, or runs the loop locally, and works the queue:
+#
+#   npm run verify:review -- --list
+#   npm run verify:review -- --accept <id> --by "Name" --read "<url>"
+#   npm run verify:apply
+#
+# The last of those writes a patch file. A person reads it and runs git apply.
+# Nothing in this repository edits a content record on its own, and there is no
+# flag that grants it. That sentence is also on /how-we-check/, where readers
+# can see it, which is why it is treated here as a constraint on the code
+# rather than as copy to be revised later.
+#
+# WHAT LEAVES THE RUNNER
+# ----------------------
+# One HTTP GET per cited source URL, and nothing else. The fetcher refuses any
+# URL the corpus does not already cite, so an invented URL fails the run rather
+# than making a request.
+#
+# WHY IT IS NOT A BUILD GATE
+# --------------------------
+# Everything this loop measures moves with the calendar. Evidence expires by
+# doing nothing, and 69% of the registry was already expired the day it was
+# seeded. A deploy gate over debt that accrues on its own would have blocked
+# publishing on a day nobody chose, for a reason no deploy could clear.
+# scripts/audit-event-safeguards.mjs argues the same case at length and is the
+# precedent. The fixture tests, which are pinned to a fixed date and assert
+# nothing time-driven, DO run in the Content Gate on every push.
+
+on:
+  schedule:
+    # 19:30 UTC, half an hour after the content freshness pass at 19:00, so the
+    # loop reads a corpus whose lapsed notes and recomputed occurrences have
+    # already settled for the day. Ahead of the daily content engine at 20:00.
+    - cron: '30 19 * * *'
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: 'How many claims to fetch and adjudicate this run'
+        required: false
+        default: '25'
+      offline:
+        description: 'Structural pass only, no network'
+        type: boolean
+        required: false
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: claim-verification
+  cancel-in-progress: false
+
+jobs:
+  verify-claims:
+    name: Re-check the claim registry against its own sources
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: next/package-lock.json
+
+      - name: Install dependencies
+        run: |
+          cd next
+          npm ci --prefer-offline
+
+      - name: Self-test - the seeded failures must still be caught
+        # Guards the guard. The five failure classes PI-006 names are seeded as
+        # fixtures, and if the loop stops catching them the run stops here
+        # rather than publishing a clean-looking report built on a broken
+        # detector. Fixture-driven and date-pinned, so this step asserts
+        # nothing time-driven.
+        run: |
+          cd next
+          npm run test:verification-loop
+          npm run test:verification-proposals
+
+      - name: Run the loop
+        env:
+          PI_VERIFY_LIMIT: ${{ github.event.inputs.limit || '25' }}
+        run: |
+          cd next
+          EXTRA=""
+          if [ "${{ github.event.inputs.offline }}" = "true" ]; then EXTRA="--offline"; fi
+          node scripts/run-verification-loop.mjs \
+            --limit "$PI_VERIFY_LIMIT" \
+            --concurrency 3 \
+            $EXTRA \
+            --json "ops/reports/verification/verification-loop.json" \
+            --md "ops/reports/verification/verification-loop-$(date -u +%Y-%m-%d).md" \
+            --proposals "ops/reports/verification/proposals.json" \
+            --proposals-md "ops/reports/verification/proposals-$(date -u +%Y-%m-%d).md"
+
+      - name: Upload the report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: claim-verification-${{ github.run_id }}
+          path: ops/reports/verification/
+          if-no-files-found: warn
+          retention-days: 90
+
+      - name: Count proposals and preserve the run receipt
+        id: queue
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          path = Path('next/ops/reports/verification/proposals.json')
+          count = 'unknown'
+          if path.exists():
+              try:
+                  data = json.loads(path.read_text())
+                  count = str(len(data.get('proposals', [])))
+              except (OSError, ValueError, AttributeError):
+                  count = 'unreadable'
+          with open(os.environ['GITHUB_OUTPUT'], 'a', encoding='utf-8') as out:
+              out.write(f'count={count}\n')
+          print(f'proposal_count={count}')
+          PY
+
+      - name: Alert on failed checks or proposed correction
+        if: failure() || steps.queue.outputs.count != '0'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          PI_REPO_ROOT: ${{ github.workspace }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          COUNT="${{ steps.queue.outputs.count }}"
+          if [ "$COUNT" != "0" ] && [ "$COUNT" != "unknown" ] && [ "$COUNT" != "unreadable" ]; then
+            python3 engine/alert.py \
+              --title "Claim verification produced ${COUNT} correction proposal(s)" \
+              --body "The nightly proposal-only verification loop produced ${COUNT} reviewable proposal(s). No content was changed. Review the attached run receipt and apply nothing until the required approved slate, source coverage, independent final-artifact verification, build, release handoff and production verification are present. Run: ${RUN_URL}" \
+              --dedup claim-verification-proposals --severity warning
+          elif [ "$COUNT" = "unknown" ] || [ "$COUNT" = "unreadable" ]; then
+            python3 engine/alert.py \
+              --title "Claim verification receipt could not be read" \
+              --body "The nightly proposal-only verification loop did not produce a readable proposal receipt. No content was changed. Run: ${RUN_URL}" \
+              --dedup claim-verification-receipt --severity fatal
+          else
+            python3 engine/alert.py \
+              --title "Claim verification loop failed" \
+              --body "The nightly proposal-only verification loop failed before producing a clean receipt. No content was changed. Run: ${RUN_URL}" \
+              --dedup claim-verification-failure --severity fatal
+          fi

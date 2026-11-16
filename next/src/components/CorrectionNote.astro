@@ -1,14 +1,19 @@
 ---
 export interface Props {
   compact?: boolean;
+  /** Where the prompt is rendered. Rides the analytics attribute only. */
+  surface?: string;
 }
 
-const { compact = false } = Astro.props;
+const { compact = false, surface = 'article-note' } = Astro.props;
 ---
 
 <p class:list={["correction-note", compact && "correction-note--compact"]}>
-  Business update or correction? Let us know:
-  <a href="mailto:corrections@peninsulainsider.com.au">corrections@peninsulainsider.com.au</a>
+  Something wrong on this page, or is this your business?
+  <a href="/contact/?type=correction" data-pi-intent="correction" data-pi-surface={surface}>Tell us what to fix</a>
+  and you get a case reference back.
+  <a href="mailto:corrections@peninsulainsider.com.au" data-pi-intent="correction" data-pi-surface={surface}>corrections@peninsulainsider.com.au</a>
+  reaches the same desk.
 </p>
 
 <style>

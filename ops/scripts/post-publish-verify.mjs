@@ -15,17 +15,26 @@
 
 import { writeFile, mkdir } from 'node:fs/promises';
 import { dirname } from 'node:path';
+import {metaContent,sitemapPolicy} from './lib/publication-page-policy.mjs';
 
 const args = process.argv.slice(2);
 const urls = [];
 let reportPath = null;
 let kind = 'page';
 let verbose = false;
+let eventQuality = false;
+let expectIllustration = false;
+let expectSha = null;
+let expectSourceHost = null;
 
 for (const a of args) {
   if (a.startsWith('--report=')) reportPath = a.slice('--report='.length);
   else if (a.startsWith('--kind=')) kind = a.slice('--kind='.length);
   else if (a === '--verbose' || a === '-v') verbose = true;
+  else if (a === '--event-quality') eventQuality = true;
+  else if (a === '--expect-illustration') expectIllustration = true;
+  else if (a.startsWith('--expect-sha=')) expectSha = a.slice('--expect-sha='.length);
+  else if (a.startsWith('--expect-source-host=')) expectSourceHost = a.slice('--expect-source-host='.length);
   else if (a.startsWith('http')) urls.push(a);
 }
 
@@ -63,14 +72,7 @@ function attr(html, tag, attrName, attrValue) {
   return m[1];
 }
 
-function hasMeta(html, name, prop = false) {
-  const re = new RegExp(
-    `<meta\\s+${prop ? 'property' : 'name'}=["']${name}["']\\s+content=["']([^"']*)["']`,
-    'i'
-  );
-  const m = html.match(re);
-  return m ? m[1] : null;
-}
+const hasMeta = metaContent;
 
 async function verifyOne(url) {
   const checks = [];
@@ -88,6 +90,18 @@ async function verifyOne(url) {
   if (res.status !== 200) return { url, checks, ok: false };
 
   html = await res.text();
+
+  if (expectSha) {
+    try {
+      const provenanceUrl = new URL('/deployment.json', res.url);
+      const provenanceResponse = await fetchWithTimeout(provenanceUrl);
+      const provenance = provenanceResponse.ok ? await provenanceResponse.json() : null;
+      checks.push(check('release-sha', provenance?.sourceSha === expectSha,
+        provenance?.sourceSha || 'deployment provenance unavailable'));
+    } catch (error) {
+      checks.push(check('release-sha', false, error.message));
+    }
+  }
 
   // 2. canonical
   const canonical = attr(html, 'link', 'href', '') && attr(html, 'link', 'rel') === 'canonical'
@@ -156,13 +170,17 @@ async function verifyOne(url) {
     /* sitemap absent — skip */
   }
   if (inSitemap !== null) {
-    checks.push(check('sitemap', inSitemap, inSitemap ? 'present' : 'not in sitemap.xml'));
+    const policy=sitemapPolicy(inSitemap,hasMeta(html,'robots'));
+    checks.push(check('sitemap',policy.ok,policy.detail));
   }
 
   // Per-kind checks
   if (kind === 'article' || kind === 'dispatch') {
-    // 11. hero credit visible
-    const creditVisible = /Photograph by jem|Photo · /i.test(html);
+    // 11. hero credit visible. Our own artwork carries no caption or credit
+    // (caption rule, next/src/lib/image-caption.mjs, 9 Nov 2026), so an
+    // artwork hero passes without one.
+    const artworkHero = /<figure\b[^>]*>\s*(?:<a\b[^>]*>\s*)?<img\b[^>]*src=["'][^"']*\/images\/(?:generated|illustrations|editorial\/journal-backstop)[^"']*["']/i.test(html);
+    const creditVisible = artworkHero || /Photograph by jem|Photo · |\bIllustration\s*(?:·|:|&middot;|&#183;)\s*Peninsula Insider\b/i.test(html);
     checks.push(check('hero-credit-visible', creditVisible));
 
     // 12. lastVerified rendered
@@ -183,6 +201,52 @@ async function verifyOne(url) {
 
     const bookingState = /Book now|Book direct|No booking|Walk in|Tickets/i.test(html);
     checks.push(check('event-booking-state', bookingState));
+
+    if (eventQuality) {
+      const figure = html.match(/<figure\b[^>]*class=["'][^"']*\bevent-detail__image\b[^"']*["'][^>]*>[\s\S]*?<\/figure>/i)?.[0] ?? '';
+      const heroSrc = figure.match(/<img\b[^>]*\bsrc=["']([^"']+)["']/i)?.[1];
+      checks.push(check('event-editorial-image', !!heroSrc, heroSrc || 'missing reviewed hero'));
+      if (heroSrc) {
+        try {
+          const imageUrl = new URL(heroSrc, res.url);
+          const imageResponse = await fetchWithTimeout(imageUrl);
+          const payload = imageResponse.ok
+            ? Buffer.from(await imageResponse.arrayBuffer())
+            : Buffer.alloc(0);
+          const isSvg = imageUrl.pathname.toLowerCase().endsWith('.svg');
+          const vectorMarkup = isSvg ? payload.toString('utf8') : '';
+          const imageOk = imageResponse.ok && (isSvg
+            ? imageResponse.headers.get('content-type')?.includes('image/svg+xml')
+              && payload.byteLength >= 2_000
+              && /<svg\b/i.test(vectorMarkup)
+              && !/<script\b/i.test(vectorMarkup)
+            : payload.byteLength >= 10_000);
+          checks.push(check('event-image-loads', imageOk,
+            'status ' + imageResponse.status + ', ' + payload.byteLength + ' bytes, ' +
+            (imageResponse.headers.get('content-type') || 'unknown type')));
+        } catch (error) {
+          checks.push(check('event-image-loads', false, error.message));
+        }
+      }
+      const proseHtml = html.match(/<div\b[^>]*class=["'][^"']*\bprose\b[^"']*["'][^>]*>([\s\S]*?)<\/div>/i)?.[1] ?? '';
+      const proseWords = proseHtml.replace(/<[^>]+>/g, ' ').replace(/&[a-z#0-9]+;/gi, ' ')
+        .split(/\s+/).filter(Boolean).length;
+      checks.push(check('event-useful-copy', proseWords >= 130, proseWords + ' words'));
+      const sourceAnchor = html.match(/<a\b[^>]*href=["'](https?:\/\/[^"']+)["'][^>]*>\s*Check the latest details at the source[\s\S]*?<\/a>/i);
+      let sourceHost = null;
+      try { sourceHost = sourceAnchor ? new URL(sourceAnchor[1]).hostname : null; } catch {}
+      checks.push(check('event-source-link', !!sourceHost &&
+        (!expectSourceHost || sourceHost === expectSourceHost),
+        sourceHost || 'visible primary-source link missing'));
+      if (expectIllustration) {
+        // Artwork prints nothing beneath it: no badge, no disclosure, no credit
+        // (caption rule, next/src/lib/image-caption.mjs, 9 Nov 2026).
+        checks.push(check('event-illustration-uncaptioned',
+          /<img\b/i.test(figure) &&
+            !/data-pi-media-disclosure|Illustrative image|\bIllustration\s*(?:·|:|&middot;|&#183;)\s*Peninsula Insider\b|AI-assisted artwork/i.test(figure),
+          'artwork shown with nothing printed beneath it'));
+      }
+    }
   }
 
   const ok = checks.every((c) => c.ok || c.name === 'body-hook');  // body-hook is soft

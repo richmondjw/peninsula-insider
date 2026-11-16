@@ -18,6 +18,7 @@ const slug = operator.id ?? data.slug;
 const href = `/tour/operators/${slug}/`;
 const hero = await resolveHero('tour-operator', slug, data);
 const showHero = Boolean(hero.override) || Boolean(data.heroImage?.src);
+const commonsCredit = !hero.override && data.heroImage?.license === 'wikimedia-cc-by-sa' && data.heroImage?.sourceUrl;
 
 const typeLabel: Record<string, string> = {
   'volume': 'Group Tours',
@@ -54,6 +55,12 @@ const excerpt = data.intro
     </div>
   )}
   <div class="tour-card__body">
+    {commonsCredit && (
+      <p class="tour-card__photo-credit">
+        Photo by <a href={data.heroImage.sourceUrl} rel="external">{data.heroImage.rightsHolder ?? data.heroImage.credit}</a>,
+        {' '}<a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="external">CC BY-SA 4.0</a>. Resized.
+      </p>
+    )}
     <div class="tour-card__meta">
       {data.operatorType && (
         <span class="tour-card__badge tour-card__badge--accent">
@@ -61,7 +68,7 @@ const excerpt = data.intro
         </span>
       )}
       {data.vetted && (
-        <span class="tour-card__badge">Verified</span>
+        <span class="tour-card__badge">Assessed</span>
       )}
     </div>
     <h3 class="tour-card__name">
@@ -76,6 +83,11 @@ const excerpt = data.intro
     title={data.name}
     href={href}
     dek={excerpt}
-    imageUrl={hero.src}
+    imageUrl={commonsCredit ? undefined : hero.src}
   />
 </article>
+
+<style>
+  .tour-card__photo-credit { margin: .65rem 0 .35rem; font-size: .75rem; line-height: 1.45; color: var(--soft); }
+  .tour-card__photo-credit a { text-decoration: underline; text-underline-offset: .12em; }
+</style>

@@ -401,31 +401,32 @@ It does not read as:
 - a maximalist lifestyle brand
 - a creator-style content pack
 
-### 7.2 Colour world
+### 7.2 Colour world (Harbour, evolved 2026-11-10)
 
-Use:
+The shipped palette is **Harbour**: deep harbour blue and ink on white and warm paper, with sand as the single warm accent. It replaced the earlier cream / olive / pinot world, which no longer matches the site. Exact values live in `DESIGN.md` and `next/src/styles/v6-tokens.css`.
 
-- warm cream / parchment
-- stone / sand neutrals
-- sea-fog blue-grey
-- olive / muted eucalyptus
-- pinot / oxblood / wine accents
-- charcoal / ink neutrals
+- **Harbour blue** carries links, the primary action and the "Insider" in the wordmark. One accent for action.
+- **Ink and muted ink** carry the words. **White and warm paper** carry the page; paper changes, not boxes, separate sections.
+- **Sand** is for warmth and notices (eyebrows on dark grounds, the edition tag), used sparingly.
+- **Rules are soft** (`#DCD9D1`). The stronger grey (`#83857E`) is only for things a visitor operates.
 
-Avoid:
+Avoid loud retail colours, tropical brights, and anything promo-heavy or sale-led. Colour is never decoration for its own sake.
 
-- loud retail colours
-- tropical-bright coastal palettes
-- anything that reads promo-heavy or sale-led
+### 7.3 Typography (evolved 2026-11-10)
 
-Wine-toned accents are selective and premium. Greens are botanical and muted, not fresh-and-flashy. Blue tones are coastal and weather-softened, not tropical.
+- **Sora** for display and headings: confident, modern, editorial. The masthead wordmark is set in it. (The earlier "serif display" direction is retired; the site has not used a serif display face since the Harbour migration.)
+- **Figtree** for body, interface and navigation.
+- **One type scale** (`--fs-100` to `--fs-950`), nothing under 12px, about seven steps per page. Whitespace and scale do the hierarchy work; avoid stacking weights in one module.
 
-### 7.3 Typography
+### 7.3a Restraint (adopted 2026-11-10)
 
-- **Serif display** — authority, editorial presence, cover-story energy. Used for masthead, feature headlines, section-defining copy.
-- **Sans serif** — readability, utility, interface clarity, supporting structure. Used for body, UI, navigation.
+The November 2026 simplification found the site had drifted into busyness: hundreds of drawn lines per page, outlined buttons on every row, four header bands, the same places listed two or three times. The fix is now brand law, detailed in `DESIGN.md` under "Simplicity rules":
 
-Whitespace and scale do most of the hierarchy work. Avoid stacking too many weights in one module. Never trade readability for style theatre.
+- One line between things, or none. Whitespace separates sections.
+- Quiet actions: one solid button per view; everything else is an icon or a text link.
+- Three shapes, no resting shadows.
+- Two header bands: logo row (with the edition dateline) and the nav.
+- Say it once: a place, plan or event appears once per page.
 
 ### 7.4 Photography direction
 
@@ -455,6 +456,12 @@ Two SVG marks for the PI character (Local archetype identification):
 Design language: Carmen-Sandiego silhouette restaged for the Australian coast. Wide-brimmed hat (akubra, not fedora — functional, not glamorous). Collar up against the wind off the bay. Notebook in the pocket — she's working. Profile turned slightly away — she's already moving on to the next place. Single-tone silhouette. No face. The reader projects.
 
 ---
+
+### 7.6 Coastal Punch editorial illustration rules (approved 2026-10-09)
+
+James approved Coastal Punch as the default visual language for conceptual editorial illustrations. Its canonical brief, palette, reference assets, scoring rubric and production checklist are in [COASTAL-PUNCH-ILLUSTRATIONS.md](COASTAL-PUNCH-ILLUSTRATIONS.md). Read that document before generating or placing artwork.
+
+The approved palette is deep navy, sea teal, warm ivory, coral and sunshine yellow. This is an explicit exception to the older muted generative-art direction in section 7.2 and the April production protocol. It applies to illustrations and their necessary overlay treatment; it does not replace the site chrome, typography, structure or factual photography. Use simplified bold silhouettes, controlled exaggeration, separate generations for each placement, truthful conceptual disclosure and crop-aware responsive resolution. Aim for 99/100 using the canonical rubric and record actual deductions.
 
 ## Layer 8: Operating cadence
 
@@ -514,6 +521,7 @@ If it does not produce that feeling, it needs another pass — regardless of how
 | 2026-05-25 | **Locked**: three archetypes — Editor, Local, Critic | 776BC working number; matches latent voice modes already in production |
 | 2026-05-25 | **Locked**: deliberately persona-led, not founder-led | The PI character is the irreplaceable brand asset; James and Emma are not the masthead's face |
 | 2026-05-25 | **Established**: this BOS as the single canonical strategic source | Reduces drift between previously-parallel brand documents |
+| 2026-11-10 | **Evolved**: Layer 7 colour and typography aligned to the shipped Harbour system (Sora/Figtree, harbour blue + sand); restraint rules adopted | James approved breaking or evolving brand rules to meet the design rubric; the old cream/serif description no longer matched the site and caused design drift |
 
 ---
 

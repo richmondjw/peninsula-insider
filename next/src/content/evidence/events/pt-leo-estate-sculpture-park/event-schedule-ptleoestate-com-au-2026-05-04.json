@@ -1,0 +1,19 @@
+{
+  "evidenceId": "events/pt-leo-estate-sculpture-park/event-schedule-ptleoestate-com-au-2026-05-04",
+  "claim": "events/pt-leo-estate-sculpture-park/event-schedule",
+  "stance": "supports",
+  "publisher": {
+    "kind": "organiser",
+    "name": "Pt. Leo Estate"
+  },
+  "url": "https://www.ptleoestate.com.au/experience/sculpture-park/",
+  "retrievedAt": "2026-05-04",
+  "expiresAt": "2026-06-03",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/events/pt-leo-estate-sculpture-park.json",
+    "field": "primarySourceUrl",
+    "value": "https://www.ptleoestate.com.au/experience/sculpture-park/",
+    "dateField": "lastCheckedDate"
+  }
+}

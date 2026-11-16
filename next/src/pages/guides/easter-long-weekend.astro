@@ -10,9 +10,9 @@
  */
 import { getCollection } from 'astro:content';
 import PrintLayout from '../../layouts/PrintLayout.astro';
-import { routeSlug } from '../../lib/editorial';
+import { routeSlug, isListableVenue } from '../../lib/editorial';
 
-const venues = await getCollection('venues');
+const venues = (await getCollection('venues')).filter(isListableVenue);
 
 // Easter shortlist: vintage + family + the Friday-to-Monday pacing.
 const SHORTLIST_SLUGS = [
@@ -36,17 +36,17 @@ export const prerender = true;
       <p class="guide__edition">Peninsula Insider · Issue Vol 04 · Long-Weekend Special</p>
       <h1 class="guide__cover-title">A Mornington Peninsula <em>Easter Long-Weekend</em></h1>
       <p class="guide__cover-dek">Four days, the vintage on the ridge, the markets at full programme, the season tipping. The four-day pacing the rest of the year doesn't allow.</p>
-      <p class="guide__cover-meta">Eight pages · Six venues · One four-day plan · Updated May 2026</p>
+      <p class="guide__cover-meta">Seasonal picks · A four-day plan · Updated May 2026</p>
     </header>
 
     <section class="guide__intro">
       <h2>Four days is the length the Peninsula was built for.</h2>
       <p>Two-night weekends are the Peninsula's native rhythm. Easter gives you four - and the vintage, and the markets, and a calendar quiet enough that the cellar doors aren't running tour buses through the rooms. The trade-off is that everyone else has worked this out, so book ahead.</p>
-      <p>This long-weekend guide is six venues we'd put at the centre of an Easter Friday-to-Monday, sequenced into a four-day plan with one anchor per day and breathing room between them. Use it as a starting frame, not a fixed schedule. Easter rewards loafing more than the calendar pretends.</p>
+      <p>These are the venues we'd put at the centre of an Easter Friday-to-Monday, sequenced into a four-day plan with one anchor per day and breathing room between them. Use it as a starting frame, not a fixed schedule. Easter rewards loafing more than the calendar pretends.</p>
     </section>
 
     <section class="guide__shortlist">
-      <h2>The six</h2>
+      <h2>The seasonal shortlist</h2>
       <ol class="guide__list">
         {shortlist.map((v) => (
           <li class="guide__list-item">
@@ -67,7 +67,7 @@ export const prerender = true;
         </li>
         <li>
           <h3>Saturday</h3>
-          <p>Red Hill Market in the morning. Cellar door lunch on the ridge - book before you leave the city. Afternoon is light: a coast walk or a swim. Dinner at the hotel.</p>
+          <p>Check the current Hill and Ridge Community Market schedule before planning a Red Hill market morning; the original Red Hill Community Market is temporarily closed. Cellar door lunch on the ridge - book before you leave the city. Afternoon is light: a coast walk or a swim. Dinner at the hotel.</p>
         </li>
         <li>
           <h3>Easter Sunday</h3>

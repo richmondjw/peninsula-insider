@@ -1,4 +1,5 @@
 ---
+import { pageImage } from '../../../lib/page-images';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
@@ -7,13 +8,13 @@ import SectionDivider from '../../../components/SectionDivider.astro';
 import PlaceCard from '../../../components/PlaceCard.astro';
 import NewsletterBlock from '../../../components/NewsletterBlock.astro';
 import ArticleCard from '../../../components/ArticleCard.astro';
-import { routeSlug } from '../../../lib/editorial';
+import { routeSlug, isListableVenue } from '../../../lib/editorial';
 import { buildCollectionPageSchema, buildFaqSchema, buildBreadcrumbSchema } from '../../../lib/schema';
 import { editableText } from '../../../lib/inline-edit/attrs';
 
 // ── Data ──────────────────────────────────────────────────────────────────────
 const places = (await getCollection('places')).sort((a, b) => a.data.name.localeCompare(b.data.name));
-const venues = await getCollection('venues');
+const venues = (await getCollection('venues')).filter(isListableVenue);
 const experiences = await getCollection('experiences');
 
 // Curated destination order - editorial priority, not alphabetical or regional.
@@ -90,7 +91,7 @@ export const prerender = true;
   section="explore"
   canonical="https://peninsulainsider.com.au/explore/places/"
   modifiedTime="2026-04-30"
-  ogImage="/images/sourced/places-hub-hero-01.webp"
+  ogImage={pageImage('places-hub').src}
 >
   <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
@@ -226,7 +227,7 @@ export const prerender = true;
     <div class="container">
       <div class="hub-faq__intro">
         <p class="label label--accent">Frequently asked</p>
-        <h2 class="hub-faq__title">Five honest answers about Peninsula geography</h2>
+        <h2 class="hub-faq__title">Answers about Peninsula geography</h2>
       </div>
       <div class="hub-faq__list">
         <details class="hub-faq__item">

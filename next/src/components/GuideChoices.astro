@@ -1,0 +1,56 @@
+---
+export interface Choice {
+  title: string;
+  href: string;
+  label: string;
+  body: string;
+  note: string;
+  source?: { href: string; label: string };
+}
+export interface Props {
+  id: string;
+  title: string;
+  intro: string;
+  choices: Choice[];
+  checkedNote?: string;
+  faqs?: Array<{ q: string; a: string }>;
+}
+const { id, title, intro, choices, checkedNote, faqs = [] } = Astro.props;
+---
+<section class="guide-choices" id={id} aria-labelledby={`${id}-title`}>
+  <div class="container">
+    <h2 id={`${id}-title`}>{title}</h2>
+    <p class="guide-choices__intro">{intro}</p>
+    <div class="guide-choices__grid">
+      {choices.map(choice => (
+        <article>
+          <p class="label label--accent">{choice.label}</p>
+          <h3><a href={choice.href}>{choice.title}</a></h3>
+          <p>{choice.body}</p>
+          <p class="guide-choices__note">{choice.note}</p>
+          {choice.source && <a class="guide-choices__source" href={choice.source.href}>{choice.source.label} →</a>}
+        </article>
+      ))}
+    </div>
+    {checkedNote && <p class="guide-choices__checked">{checkedNote}</p>}
+    <slot />
+    {faqs.length > 0 && <section class="guide-choices__faq" aria-labelledby={`${id}-faq-title`}>
+      <h2 id={`${id}-faq-title`}>Questions before you go</h2>
+      {faqs.map(faq => <><h3>{faq.q}</h3><p>{faq.a}</p></>)}
+    </section>}
+  </div>
+</section>
+<style>
+  .guide-choices { padding-block: var(--space-8, 48px); scroll-margin-top: 8rem; }
+  h2 { font-size: var(--fs-700, 32px); }
+  .guide-choices__intro { max-width: 68ch; margin-block: 16px 24px; }
+  .guide-choices__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 24px; }
+  article { border-top: 1px solid var(--border, #d6dce1); padding-top: 20px; min-width: 0; }
+  h3 { font-size: var(--fs-600, 24px); margin-block: 8px 12px; }
+  p { font-size: 17px; line-height: 1.6; }
+  .guide-choices__note { margin-block: 12px; }
+  .guide-choices__source { display: inline-flex; align-items: center; min-height: 44px; font-size: 15px; }
+  .guide-choices__checked { margin-top: 24px; font-size: 15px; }
+  .guide-choices__faq { margin-top: 40px; max-width: 68ch; }
+  @media (max-width: 600px) { h2 { font-size: 28px; } }
+</style>

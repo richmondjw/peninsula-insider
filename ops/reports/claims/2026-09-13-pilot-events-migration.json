@@ -1,0 +1,163 @@
+{
+  "ticket": "PI-005",
+  "stage": 2,
+  "pilot": "events",
+  "asAt": "2026-09-13",
+  "generator": "next/scripts/migrate-event-claims.mjs",
+  "totals": {
+    "eventsOnDisk": 119,
+    "published": 52,
+    "heldBackRecords": 10,
+    "heldBackClasses": 2,
+    "claims": 130,
+    "evidence": 153,
+    "expiredAtWrite": 84,
+    "deferredToAuthored": 3
+  },
+  "byClaimClass": {
+    "event-schedule": 40,
+    "booking": 30,
+    "rate-change": 30,
+    "accessibility": 30
+  },
+  "evidenceByClaimClass": {
+    "event-schedule": 71,
+    "booking": 41,
+    "rate-change": 41
+  },
+  "byPublisherKind": {
+    "gov": 21,
+    "regional-body": 12,
+    "organiser": 42,
+    "ticketing": 26,
+    "unknown": 43,
+    "social": 9
+  },
+  "heldBack": [
+    {
+      "slug": "emu-plains-market",
+      "file": "next/src/content/events/emu-plains-market.json",
+      "reasons": [
+        "free-text prose hedges the record, so its fields are not settled facts",
+        "near-duplicate of emu-plains-market-balnarring: same primary source, near-identical title"
+      ]
+    },
+    {
+      "slug": "emu-plains-market-balnarring",
+      "file": "next/src/content/events/emu-plains-market-balnarring.json",
+      "reasons": [
+        "near-duplicate of emu-plains-market: same primary source, near-identical title"
+      ]
+    },
+    {
+      "slug": "main-street-mornington-festival-2026",
+      "file": "next/src/content/events/main-street-mornington-festival-2026.json",
+      "reasons": [
+        "cancelled flag is set",
+        "free-text prose carries a cancellation signal, which no enum on this record records"
+      ]
+    },
+    {
+      "slug": "mornington-racecourse-market",
+      "file": "next/src/content/events/mornington-racecourse-market.json",
+      "reasons": [
+        "free-text prose carries a cancellation signal, which no enum on this record records"
+      ]
+    },
+    {
+      "slug": "peninsula-hot-springs-daily-studio-yoga",
+      "file": "next/src/content/events/peninsula-hot-springs-daily-studio-yoga.json",
+      "reasons": [
+        "free-text prose hedges the record, so its fields are not settled facts",
+        "record flags itself as a possible duplicate"
+      ]
+    },
+    {
+      "slug": "peninsula-hot-springs-hot-springs-yoga-complimentary",
+      "file": "next/src/content/events/peninsula-hot-springs-hot-springs-yoga-complimentary.json",
+      "reasons": [
+        "free-text prose hedges the record, so its fields are not settled facts",
+        "record flags itself as a possible duplicate"
+      ]
+    },
+    {
+      "slug": "peninsula-summer-music-festival-2027",
+      "file": "next/src/content/events/peninsula-summer-music-festival-2027.json",
+      "reasons": [
+        "record flags itself as a possible duplicate",
+        "near-duplicate of peninsula-summer-music-festival-2027-save-the-date: same primary source, near-identical title"
+      ]
+    },
+    {
+      "slug": "peninsula-summer-music-festival-2027-save-the-date",
+      "file": "next/src/content/events/peninsula-summer-music-festival-2027-save-the-date.json",
+      "reasons": [
+        "record flags itself as a possible duplicate",
+        "near-duplicate of peninsula-summer-music-festival-2027: same primary source, near-identical title"
+      ]
+    },
+    {
+      "slug": "red-hill-brewery-secret-stash-weekend",
+      "file": "next/src/content/events/red-hill-brewery-secret-stash-weekend.json",
+      "reasons": [
+        "free-text prose hedges the record, so its fields are not settled facts"
+      ]
+    },
+    {
+      "slug": "the-bloody-long-walk-mornington-peninsula-2026",
+      "file": "next/src/content/events/the-bloody-long-walk-mornington-peninsula-2026.json",
+      "reasons": [
+        "free-text prose hedges the record, so its fields are not settled facts"
+      ]
+    }
+  ],
+  "heldClasses": [
+    {
+      "slug": "pst-art-exhibition-opening-night-2026",
+      "claimClass": "event-schedule",
+      "reason": "the only opening hours on this record live in free text, not in startTime"
+    },
+    {
+      "slug": "red-hill-market-first-saturday",
+      "claimClass": "event-schedule",
+      "reason": "the only opening hours on this record live in free text, not in startTime"
+    }
+  ],
+  "sharedCitations": [
+    {
+      "url": "https://peninsulakids.com.au/markets-3/",
+      "slugs": [
+        "crib-point-community-market",
+        "heart-of-the-community-market-rosebud",
+        "mt-eliza-farmers-market",
+        "tootgarook-primary-school-market"
+      ]
+    },
+    {
+      "url": "https://www.mornpen.vic.gov.au/Events-Activities/Emu-Plains-Market-3",
+      "slugs": [
+        "emu-plains-market",
+        "emu-plains-market-balnarring"
+      ]
+    },
+    {
+      "url": "https://www.peninsulafestival.com.au",
+      "slugs": [
+        "peninsula-summer-music-festival-2027",
+        "peninsula-summer-music-festival-2027-save-the-date"
+      ]
+    },
+    {
+      "url": "https://www.peninsulahotsprings.com/bathe/wellness-activities",
+      "slugs": [
+        "peninsula-hot-springs-daily-studio-yoga",
+        "peninsula-hot-springs-hot-springs-yoga-complimentary"
+      ]
+    }
+  ],
+  "deferredToAuthored": [
+    "events/pt-leo-estate-local-complimentary-sculpture-park-winter-2026/event-schedule",
+    "events/pt-leo-estate-local-complimentary-sculpture-park-winter-2026/rate-change",
+    "events/pt-leo-estate-sculpture-park/accessibility"
+  ]
+}

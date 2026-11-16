@@ -1,0 +1,103 @@
+---
+/**
+ * HubEntry: the one opening every top-level hub uses (Eat, Wine, Stay, Explore,
+ * What's On, Plans, Journal). 2026-11-16 first-impressions loop.
+ *
+ * A licensed, captioned place photograph; a headline that says what the page
+ * helps you do; one filled action that names its destination and at most one
+ * text action; and a trust line (how many places, when they were checked, and
+ * that none of them paid). On phones the photograph leads and everything to the
+ * primary action fits in the first screen.
+ */
+import type { PageImage } from '../../../lib/page-images';
+import { captionParts } from '../../../lib/image-caption.mjs';
+
+interface Action { label: string; href: string; arrow?: 'down' | 'right' }
+interface Props {
+  /** Short section label above the headline, e.g. "Eat & drink". */
+  kicker?: string;
+  title: string;
+  dek: string;
+  primary: Action;
+  secondary?: Action;
+  /** Sentence before the "How we choose" link, e.g. "44 places, checked September to October 2026. Never paid for." */
+  trust: string;
+  trustHref?: string;
+  trustLabel?: string;
+  image: PageImage;
+  /** object-position for the photograph at desktop and phone widths. */
+  focal?: { desktop?: string; mobile?: string };
+  /** Phone photograph ratio. Utility pages (What's On) use a shorter band. */
+  mobileRatio?: string;
+  /** Phones show the primary action only, for hubs whose filters must reach the first screen. */
+  compactMobile?: boolean;
+  /** Phone-only zoom on the focal point, e.g. 1.25, when the subject is small in the frame. */
+  mobileZoom?: number;
+  headingId?: string;
+}
+const {
+  kicker, title, dek, primary, secondary, trust,
+  trustHref = '/about/#how-we-choose', trustLabel = 'How we choose',
+  image, focal = {}, mobileRatio = '2 / 1', mobileZoom = 1, compactMobile = false, headingId = 'hub-entry-title',
+} = Astro.props;
+
+const caption = captionParts(image);
+const credit = (caption?.credit ?? '').replace(/\.$/, '');
+const creditLine = !credit ? '' : /^Courtesy of /i.test(credit) ? `Photo courtesy of ${credit.slice(12)}.` : /^(Photo|Illustration)(?::|\s)/i.test(credit) ? `${credit}.` : `Photo: ${credit}.`;
+const arrow = (a?: Action) => (a?.arrow === 'down' ? '↓' : '→');
+const style = `--hub-focal:${focal.desktop ?? '50% 50%'};--hub-focal-m:${focal.mobile ?? focal.desktop ?? '50% 50%'};--hub-ratio-m:${mobileRatio};--hub-zoom-m:${mobileZoom}`;
+---
+<header class:list={["hub-entry", "container", compactMobile && "hub-entry--compact"]} aria-labelledby={headingId} style={style}>
+  <div class="hub-entry__copy">
+    {kicker && <p class="hub-entry__kicker">{kicker}</p>}
+    <h1 id={headingId}><slot name="title">{title}</slot></h1>
+    {Astro.slots.has('context') && <p class="hub-entry__context"><slot name="context" /></p>}
+    <p class="hub-entry__dek">{dek}</p>
+    <nav class="hub-entry__links" aria-label="Start here">
+      <a class="hub-entry__primary" href={primary.href}>{primary.label} <span aria-hidden="true">{arrow(primary)}</span></a>
+      {secondary && <a class="hub-entry__secondary" href={secondary.href}>{secondary.label} <span aria-hidden="true">{arrow(secondary)}</span></a>}
+    </nav>
+    <p class="hub-entry__trust"><svg aria-hidden="true" viewBox="0 0 16 16" width="16" height="16" fill="none"><path d="m3.5 8.5 3 3 6-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>{trust} <a href={trustHref}>{trustLabel}</a></span></p>
+  </div>
+  <figure class="hub-entry__photo">
+    <div class="hub-entry__frame"><img src={image.src} alt={image.alt} width="1200" height="800" loading="eager" fetchpriority="high" decoding="async" data-pi-responsive="(max-width: 700px) 100vw, 640px" /></div>
+    {caption && <figcaption>{caption.place && <>{caption.place}. </>}{creditLine}</figcaption>}
+  </figure>
+</header>
+<style>
+  .hub-entry { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: clamp(2rem, 5vw, 5rem); align-items: center; padding-block: clamp(1.5rem, 3vw, 2.5rem) clamp(1.5rem, 3vw, 2.5rem); }
+  .hub-entry__kicker { margin: 0 0 .75rem; font: 600 var(--fs-200)/1.3 var(--font-ui); letter-spacing: .02em; color: var(--accent); }
+  .hub-entry h1 { margin: 0; max-width: 18ch; font-family: var(--font-display); font-weight: 600; line-height: 1.06; letter-spacing: var(--ls-display); color: var(--text); text-wrap: balance; }
+  .hub-entry__context { margin: .7rem 0 0; font: 600 var(--fs-300)/1.4 var(--font-ui); color: var(--text); }
+  .hub-entry__context + .hub-entry__dek { margin-top: .5rem; }
+  .hub-entry__dek { text-wrap: pretty; margin: 1.1rem 0 0; max-width: 46ch; font-size: var(--fs-400); line-height: 1.55; color: var(--soft); }
+  .hub-entry__links { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1.5rem; margin-top: 1.6rem; }
+  .hub-entry__links a { min-height: 48px; display: inline-flex; align-items: center; gap: .45rem; font-size: var(--fs-300); text-underline-offset: .2em; }
+  .hub-entry__primary { padding: 0 1.35rem; border-radius: var(--radius-s); background: var(--accent); color: var(--white); font-weight: 600; font-size: var(--fs-400) !important; text-decoration: none; }
+  .hub-entry__primary:hover { background: var(--text); }
+  .hub-entry__secondary { color: var(--accent); font-weight: 500; }
+  .hub-entry__trust { display: flex; align-items: flex-start; gap: .5rem; margin: 1.25rem 0 0; max-width: 52ch; font: 500 var(--fs-300)/1.5 var(--font-ui); color: var(--text); }
+  .hub-entry__trust svg { flex: none; margin-top: .2em; color: var(--accent); }
+  .hub-entry__trust a { color: var(--accent); font-weight: 600; text-underline-offset: .2em; white-space: nowrap; }
+  .hub-entry a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+  .hub-entry__photo { margin: 0; min-width: 0; }
+  .hub-entry__frame { overflow: hidden; border-radius: var(--radius-m); }
+  .hub-entry__photo img { display: block; width: 100%; aspect-ratio: 3 / 2; height: auto; object-fit: cover; object-position: var(--hub-focal); border-radius: var(--radius-m); }
+  .hub-entry__photo figcaption { padding-top: .5rem; font: 400 var(--fs-200)/1.5 var(--font-ui); color: var(--soft); }
+  @media (max-width: 700px) {
+    .hub-entry { grid-template-columns: minmax(0, 1fr); gap: .9rem; padding-block: 1rem .75rem; }
+    .hub-entry__photo { order: -1; }
+    .hub-entry__photo img { aspect-ratio: var(--hub-ratio-m); object-position: var(--hub-focal-m); transform: scale(var(--hub-zoom-m)); transform-origin: var(--hub-focal-m); }
+    .hub-entry__photo figcaption { padding-top: .35rem; font-size: var(--fs-100); }
+    .hub-entry__dek { margin-top: .6rem; }
+    .hub-entry__kicker { margin-bottom: .4rem; }
+    .hub-entry__links { gap: 0 1.25rem; margin-top: 1rem; }
+    .hub-entry__primary { flex: 1 0 100%; justify-content: center; margin-bottom: .15rem; }
+    .hub-entry__trust { margin-top: .5rem; }
+    .hub-entry--compact .hub-entry__secondary { display: none; }
+  }
+  @media (max-width: 360px) {
+    .hub-entry__photo { order: 0; }
+    .hub-entry h1 { font-size: var(--fs-700); }
+  }
+</style>

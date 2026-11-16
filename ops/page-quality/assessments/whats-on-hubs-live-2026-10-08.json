@@ -1,0 +1,320 @@
+{
+  "schemaVersion": "1.0",
+  "programme": "Peninsula Insider page quality, existing 23-criterion rubric v1.0",
+  "assessedAt": "2026-10-08 Australia/Sydney",
+  "status": "provisional-failed",
+  "releasedSourceRevision": "9c5f2230c7649d15bc717772b52e441ff9a87922",
+  "releaseEvidence": {
+    "pullRequests": [
+      "https://github.com/richmondjw/peninsula-insider/pull/628",
+      "https://github.com/richmondjw/peninsula-insider/pull/629"
+    ],
+    "deployRun": "https://github.com/richmondjw/peninsula-insider/actions/runs/37708949326",
+    "publicDeploymentJsonMatched": true,
+    "sourceSha": "9c5f2230c7649d15bc717772b52e441ff9a87922",
+    "selfBrowserCheck": "Fresh public Chromium at 390 and 1440px: no horizontal overflow; Dominion lead illustration note and attribution rendered at 10.74:1 contrast on navy; mobile calendar guidance and no-JS weekend date warning passed in prior release check."
+  },
+  "pages": [
+    {
+      "url": "https://peninsulainsider.com.au/whats-on/",
+      "tier": "T1",
+      "independentLiveBeforeLeadContrastFix": 85.75,
+      "independentLiveAfterBoundedContrastRecheck": 89.0,
+      "scoreStatus": "provisional bounded delta, not a fresh full-page acceptance",
+      "ratingsRubricOrderBeforeFix": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        3,
+        4,
+        3,
+        3,
+        3,
+        3,
+        4,
+        2,
+        4,
+        4,
+        3,
+        3,
+        2,
+        3,
+        3,
+        4
+      ],
+      "boundedRatingsDelta": {
+        "VS4": "2 to 4",
+        "AT1": "2 to 3"
+      },
+      "observedImprovement": "Mobile decision path and hero crop live; when an illustrated event became the lead, disclosure contrast improved from 1.91:1 to 10.74:1 on the actual public page.",
+      "next": "Improve clamped teaser clarity and tall lead-card rhythm; complete direct AT, field performance, image-rights and source checks."
+    },
+    {
+      "url": "https://peninsulainsider.com.au/whats-on/this-weekend/",
+      "tier": "T1",
+      "independentLive": 91.25,
+      "scoreStatus": "provisional",
+      "ratingsRubricOrder": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        3,
+        4,
+        4,
+        3,
+        3,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        3,
+        3,
+        3,
+        3,
+        3,
+        4
+      ],
+      "observedImprovement": "The no-JavaScript mobile edition warning gives the exact Fri 9 to Sun 11 October 2026 date and an event index path before the H1.",
+      "next": "Improve mobile card scan and date discovery; test edition rollover after a missed build."
+    }
+  ],
+  "reviewEvidence": [
+    {
+      "role": "independent visual and mobile reviewer",
+      "surface": "public /whats-on/ at 1440px, exact deployment SHA",
+      "result": "Disclosure and credit visibly legible; computed #D7E4E8 on #0B2E4A = 10.74:1; specific accessibility contrast hard gate cleared.",
+      "limits": "Bounded recheck only. Previous full rubric remains provisional; no 99 acceptance."
+    },
+    {
+      "role": "implementation browser check",
+      "surface": "public /whats-on/ at 390 and 1440px, exact deployment SHA",
+      "result": "Lead note color and credit link match; 10.74:1 at desktop; no overflow.",
+      "limits": "Self-check does not replace independent full-page review."
+    }
+  ],
+  "hardGates": {
+    "clearedThisIteration": [
+      "Lead illustration disclosure text contrast on navy card"
+    ],
+    "notFullyCleared": [
+      "direct assistive-technology audit",
+      "complete independent image-rights source reopening",
+      "production field speed and stability",
+      "future no-JavaScript weekend edition expiry after a missed rebuild"
+    ]
+  },
+  "decision": "adapt: live bounded accessibility fix verified, but both T1 pages remain below 99 with open evidence gates",
+  "latestFullReview": {
+    "sourceSha": "fa89148391097709c8fa43f8e7e76238d98b5098",
+    "release": "https://github.com/richmondjw/peninsula-insider/pull/631",
+    "deployRun": "37724829496",
+    "publicManifestMatched": true,
+    "status": "provisional-failed",
+    "acceptedAbove99": false,
+    "reviews": [
+      {
+        "reviewer": "golf_postrelease_access_facts",
+        "score": 85,
+        "ratings": [
+          4,
+          4,
+          3,
+          3,
+          4,
+          4,
+          4,
+          3,
+          3,
+          3,
+          3,
+          1,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          3,
+          3,
+          3,
+          3,
+          4
+        ]
+      },
+      {
+        "reviewer": "golf_postrelease_visual",
+        "score": 90,
+        "ratings": [
+          4,
+          3,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          3,
+          3,
+          3,
+          4,
+          4,
+          4,
+          4,
+          4,
+          3,
+          3,
+          3,
+          3,
+          3,
+          4
+        ]
+      },
+      {
+        "reviewer": "golf_postrelease_ux",
+        "score": 79.5,
+        "ratings": [
+          3,
+          3,
+          3,
+          2,
+          4,
+          3,
+          4,
+          3,
+          2,
+          3,
+          2,
+          2,
+          3,
+          4,
+          4,
+          4,
+          4,
+          4,
+          3,
+          3,
+          3,
+          4,
+          4
+        ],
+        "corrections": "H1/date update correctly; touchscreen swipe works and is an intentional mobile pattern. Final corrected score retained; raw initial 76.25 then 77.25 superseded."
+      }
+    ],
+    "gate": "Public CMS hydration substituted two uncredited event photos after build. No whole-page acceptance. Scores are independent and are not averaged.",
+    "verifiedImprovement": "Complete-sentence teasers and keyboard-visible mobile/tablet rail, no body overflow at 320/390/641/768/1023/1024/1440.",
+    "remainingEvidence": [
+      "Direct assistive technology review",
+      "Whole-feed freshness and rights audit",
+      "Production field performance"
+    ],
+    "nextCandidate": {
+      "decision": "adapt",
+      "state": "released; four-route live media acceptance passed",
+      "changes": [
+        "Block event CMS URL swaps; use reviewed source image and attribution together",
+        "Require recorded image rights on homepage and discovery shelves",
+        "Restore date-picker keyboard focus",
+        "Expose recorded official source on event details",
+        "Clarify Moonah Saturday time and neutral date-scope intro"
+      ],
+      "facts": "Moonah primary venue October programme confirms Spike Bar Saturday 5pm-8pm; council listing confirms Family Friendly. No whole-record verification date advanced.",
+      "review": "golf_postrelease_access_facts found no remaining bounded code-level blocker; approval excludes live score and requires normal checks",
+      "rollback": "Revert the bounded follow-up commit through normal CI; no source images or CMS history deleted.",
+      "release": "https://github.com/richmondjw/peninsula-insider/pull/632",
+      "sourceSha": "2cb818b2497b0855160558a699273996e7c922ea",
+      "deployRun": "37729226094",
+      "localChecks": "Full production build passed; 14/14 browser journeys; 6/6 publication source tests.",
+      "independentPreviewReview": "Source, UX and visual reviewers cleared bounded changes at 390/1440; no whole-page score inferred.",
+      "liveMediaReceipt": {
+        "observedAt": "2026-10-08T05:01:44.957Z",
+        "base": "https://peninsulainsider.com.au",
+        "expectedSourceSha": "2cb818b2497b0855160558a699273996e7c922ea",
+        "checks": [
+          {
+            "route": "/",
+            "eventMediaSlots": 3,
+            "unchangedAfterScripts": true
+          },
+          {
+            "route": "/whats-on/",
+            "eventMediaSlots": 3,
+            "unchangedAfterScripts": true
+          },
+          {
+            "route": "/whats-on/mornington-racecourse-market/",
+            "eventMediaSlots": 2,
+            "unchangedAfterScripts": true
+          },
+          {
+            "route": "/whats-on/by-mood/this-weekend/",
+            "eventMediaSlots": 6,
+            "unchangedAfterScripts": true
+          }
+        ],
+        "cmsReads": [
+          {
+            "route": "/",
+            "publishedRows": 523,
+            "eventRows": 47
+          },
+          {
+            "route": "/whats-on/",
+            "publishedRows": 523,
+            "eventRows": 47
+          },
+          {
+            "route": "/whats-on/mornington-racecourse-market/",
+            "publishedRows": 523,
+            "eventRows": 47
+          },
+          {
+            "route": "/whats-on/by-mood/this-weekend/",
+            "publishedRows": 523,
+            "eventRows": 47
+          }
+        ],
+        "ok": true,
+        "sourceSha": "2cb818b2497b0855160558a699273996e7c922ea",
+        "runId": "37729226094"
+      },
+      "beforeReceipt": "Final verifier on fa891483 failed on Crib and Moonah CMS background substitutions with no matching attribution; successful CMS GET responses ruled out network-only failure.",
+      "scoreStatus": "Prior full scores remain historical baselines. A bounded live pass is not a new full score or 99 acceptance.",
+      "deploymentLimit": "Run37729226094 published the site but failed the new media checker: networkidle2 returned with its CMS GET still in flight. An explicit 20-second response wait and delayed safe/unsafe regression are prepared. Manual four-route live check passed; automated recovery pending.",
+      "independentLiveVisual": "Public390/1440 review verified source2cb818b: branded category covers persist after hydration; full teasers and attribution legible; no overflow; Today neutral copy and zero-result recovery work. Today count difference reconciled by fixed-clock replay; see negative finding. Not a full score.",
+      "negativeFindingTodayCount": {
+        "decision": "NO_CHANGE",
+        "reviewer": "golf_postrelease_access_facts",
+        "evidence": "Both public and preview show NWOP 1 at 15:59 AEDT and 0 at 16:01 AEDT on 8 October, matching the recorded 16:00 end. feed.json bodies byte-identical; SHA256 9069196883AEC1BAE80642697C1E1744F1513C24536FE112654BD83F5644DE0C. Original screenshot times unavailable; no persistent feed or release defect reproduced."
+      },
+      "verifierFollowupReview": "Independent read-only review found no weakening of HTTP200/JSON or media equality guards. Delayed safe and unsafe response regression passed; integrated discovery suite31/31 passed."
+    }
+  },
+  "nextBoundedContentTriage": [
+    {
+      "page": "/whats-on/",
+      "issue": "OLA Golf Day summary omits organiser-stated audience: Old Lauristonians and wider Lauriston community.",
+      "source": "https://events.humanitix.com/olagolf2026",
+      "reviewer": "golf_postrelease_access_facts",
+      "action": "Add attributed audience and limited-registration qualifier before the booking handoff; do not claim members-only checkout restrictions.",
+      "acceptance": "Shelf and detail show qualifier; 30 November 8am-3:30pm at Sorrento and current Humanitix handoff remain exact."
+    },
+    {
+      "page": "/whats-on/",
+      "issue": "Bloody Long Walk has a five-month-old whole-record check date; sampled current date/route are consistent, not contradicted.",
+      "source": "https://www.bloodylongwalk.com.au/mornington-peninsula/",
+      "reviewer": "golf_postrelease_access_facts",
+      "action": "Review current route/date/registration and record only scoped verification; do not advance the whole-record check from partial facts.",
+      "acceptance": "Published date/route match operator; receipt separates verified and unverified claims."
+    }
+  ]
+}

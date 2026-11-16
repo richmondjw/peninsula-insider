@@ -1,0 +1,19 @@
+{
+  "evidenceId": "events/mornington-tourist-railway-santa-specials/rate-change-morningtonrailway-org-au-2026-05-04",
+  "claim": "events/mornington-tourist-railway-santa-specials/rate-change",
+  "stance": "supports",
+  "publisher": {
+    "kind": "organiser",
+    "name": "Mornington Railway Preservation Society"
+  },
+  "url": "https://morningtonrailway.org.au/",
+  "retrievedAt": "2026-05-04",
+  "expiresAt": "2026-10-31",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/events/mornington-tourist-railway-santa-specials.json",
+    "field": "officialEventUrl",
+    "value": "https://morningtonrailway.org.au/",
+    "dateField": "lastCheckedDate"
+  }
+}

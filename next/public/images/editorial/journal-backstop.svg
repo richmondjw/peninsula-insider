@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#f4e5d3"/><stop offset="1" stop-color="#d7e4df"/></linearGradient>
+    <linearGradient id="sea" x2="1" y2="1"><stop stop-color="#719eaa"/><stop offset="1" stop-color="#254f68"/></linearGradient>
+  </defs>
+  <path fill="url(#sky)" d="M0 0h1200v800H0z"/>
+  <circle cx="875" cy="180" r="90" fill="#e7b678"/>
+  <path d="M0 375Q240 200 485 350T960 330L1200 260V800H0Z" fill="#a7b5a0"/>
+  <path d="M0 420Q235 340 475 430T1200 355V800H0Z" fill="url(#sea)"/>
+  <path d="M0 480Q190 365 390 505T780 540Q920 635 1200 590V800H0Z" fill="#efe0bc"/>
+  <path d="M0 520Q235 450 420 620T990 720L1200 790V800H0Z" fill="#597769"/>
+  <g fill="none" stroke="#d5d8b0" stroke-width="9" opacity=".65">
+    <path d="M-80 640Q160 560 355 750M-40 690Q155 630 310 800M140 790Q165 735 240 715"/>
+  </g>
+  <g transform="translate(890 400)">
+    <path d="M-32 55h95l-20 18h-55Z" fill="#f8f2e8"/>
+    <path d="M18 0v54h-50Z" fill="#f8f2e8"/>
+    <path d="M24 14v40h37Z" fill="#d7c0a6"/>
+  </g>
+  <g stroke="#314b41" stroke-width="12" stroke-linecap="round">
+    <path d="M115 560v-115M205 595V475"/>
+  </g>
+  <g fill="#466358"><ellipse cx="115" cy="418" rx="65" ry="54"/><ellipse cx="205" cy="465" rx="50" ry="42"/></g>
+  <g fill="none" stroke="#bad0d3" stroke-width="4" opacity=".6"><path d="M610 470h130M740 505h84M1010 445h125"/></g>
+</svg>

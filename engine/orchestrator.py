@@ -20,6 +20,8 @@ from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 import zoneinfo
 
+from event_admission import is_cancelled_record
+
 # ── Config ──────────────────────────────────────────────────────────────
 AEST = zoneinfo.ZoneInfo("Australia/Sydney")
 REPO_ROOT = Path(os.environ.get("PI_REPO_ROOT", "/home/node/.openclaw/workspace/peninsula-insider"))
@@ -134,6 +136,13 @@ def git_commit_and_push(message: str, files: list[str] = None) -> bool:
                 print(f"  Content admission gate failed:\n{gate.stdout}{gate.stderr}")
                 return False
         if files:
+            # hero_image.stamp records Visit Victoria placements in the where-used
+            # ledger; commit it with the content that placed them.
+            ledger = "ops/records/visit-victoria/placements.json"
+            changed = subprocess.run(["git", "status", "--porcelain", "--", ledger],
+                                     cwd=cwd, capture_output=True, text=True).stdout.strip()
+            if changed and ledger not in files:
+                files = files + [ledger]
             subprocess.run(["git", "add"] + files, cwd=cwd, check=True, capture_output=True)
         else:
             subprocess.run(["git", "add", "-A"], cwd=cwd, check=True, capture_output=True)
@@ -445,14 +454,10 @@ def run_daily(log: RunLog, state: dict, today: str, now_aest: datetime):
     log.step("verify-gate", "START")
     verify_result = run_verify_gate(article_path, today)
     if verify_result == "FAIL":
-        log.error("Verify gate hard fail — checking for fallback")
-        fallback = find_latest_insider_picks(exclude=article_path)
-        if fallback:
-            log.step("verify-gate", "FALLBACK", f"Using {fallback.name} as template")
-            article_path = fallback
-        else:
-            log.step("verify-gate", "SKIP", "No fallback available — aborting daily publish")
-            return
+        # A previous day's article cannot repair today's factual failure.
+        # Keep the rejected draft for review and fail this publication loudly.
+        log.error("Verify gate hard fail — dated draft retained for review; no publish")
+        return
     else:
         log.step("verify-gate", "PASS")
 
@@ -862,8 +867,10 @@ def run_verify_gate(article_path: Path, today: str) -> str:
             sitemap_path=REPO_ROOT / "sitemap.xml",
         )
     except Exception as e:
-        print(f"    Verify gate unavailable ({e}) — frontmatter-only pass")
-        return "PASS"
+        # A missing verifier is not evidence that the article is safe. Fail
+        # closed so an unavailable gate cannot silently turn into a publish.
+        print(f"    Verify gate unavailable ({e}) — blocking publication")
+        return "FAIL"
 
     for flag in report.get("flags", []):
         print(f"    [verify-flag] {flag}")
@@ -1083,7 +1090,7 @@ def _load_event_intel(date_str: str, horizon_days: int = 7) -> tuple[list[dict],
         try:
             data = json.loads(scan.read_text(encoding="utf-8"))
             records = data.get("events", data) if isinstance(data, dict) else data
-            picked = [_trim(r) for r in records if isinstance(r, dict) and _in_window(r)]
+            picked = [_trim(r) for r in records if isinstance(r, dict) and not is_cancelled_record(r) and _in_window(r)]
             if picked:
                 return picked, "reports/peninsula-whats-on.json"
         except (json.JSONDecodeError, OSError, TypeError):
@@ -1098,7 +1105,7 @@ def _load_event_intel(date_str: str, horizon_days: int = 7) -> tuple[list[dict],
                 rec = json.loads(f.read_text(encoding="utf-8"))
             except (json.JSONDecodeError, OSError):
                 continue
-            if rec.get("status") == "published" and _in_window(rec):
+            if rec.get("status") == "published" and not is_cancelled_record(rec) and _in_window(rec):
                 picked.append(_trim(rec))
         if picked:
             picked.sort(key=lambda r: _pick_rank(r, today))

@@ -4,8 +4,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import SubpageHero from '../../components/SubpageHero.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import CorrectionNote from '../../components/CorrectionNote.astro';
 import { buildTourSchema } from '../../lib/schema';
 import { editableText } from '../../lib/inline-edit/attrs';
+import InlinePhoto from '../../components/InlinePhoto.astro';
+import { photoPlan } from '../../lib/photo-set';
+import { loadOverrides } from '../../lib/inline-edit/overrides';
 
 export async function getStaticPaths() {
   const tours = await getCollection('tours');
@@ -17,6 +21,11 @@ export async function getStaticPaths() {
 
 const { tour } = Astro.props;
 const data = tour.data;
+// The photograph rule (src/lib/photo-set.ts). SubpageHero keeps the single
+// hero when an editor has published one (its "hero" slot), so the same check
+// here keeps the in-text photograph from pointing at a viewer that is absent.
+const tourOverrides = await loadOverrides('tour', tour.id ?? data.slug);
+const photoSet = photoPlan(data, { override: Boolean(tourOverrides.image['hero']), paragraphs: 1 });
 
 const allOperators = await getCollection('tourOperators');
 const operator = allOperators.find(op => op.data.slug === data.operatorSlug);
@@ -41,6 +50,7 @@ const experienceTypeLabel: Record<string, string> = {
 
 const durationLabel: Record<string, string> = {
   'under-2h': 'Under 2 hours',
+  'around-2h': 'About 2 hours',
   'half-day': 'Half day',
   'full-day': 'Full day',
   'multi-2n': '2 nights',
@@ -48,17 +58,9 @@ const durationLabel: Record<string, string> = {
   'multi-extended': 'Extended',
 };
 
-const budgetLabel: Record<string, string> = {
-  'budget': 'Budget',
-  'moderate': 'Moderate',
-  'mid-range': 'Mid-range',
-  'premium': 'Premium',
-  'luxury': 'Luxury',
-};
-
 const groupSizeLabel: Record<string, string> = {
-  'intimate': 'Intimate (2-4)',
-  'small-group': 'Small group (up to 24)',
+  'intimate': 'Intimate',
+  'small-group': 'Small group',
   'large-group': 'Large group',
   'private-charter': 'Private charter',
 };
@@ -81,7 +83,7 @@ export const prerender = true;
 ---
 
 <BaseLayout
-  title={`${data.name} · Peninsula Insider`}
+  title={`${data.name}${operatorData?.name ? ` with ${operatorData.name}` : ''} · Peninsula Insider`}
   description={data.intro}
   section="tour"
   canonical={`https://peninsulainsider.com.au/tour/${slug}/`}
@@ -97,7 +99,9 @@ export const prerender = true;
     title={data.name}
     heroImage={data.heroImage.src}
     imageAlt={data.heroImage.alt}
-    imageCaption={data.departsFrom ?? undefined}
+    photos={photoSet.photos}
+    imageCaption={data.heroImage.caption ?? undefined}
+    imageCredit={data.heroImage.credit}
     entityType="tour"
     entitySlug={slug}
   >
@@ -108,6 +112,15 @@ export const prerender = true;
       })}>{data.intro}</p>
     </div>
   </SubpageHero>
+
+  
+  {data.heroImage.license === 'wikimedia-cc-by-sa' && data.heroImage.sourceUrl ? (
+    <p class="container" style="font-size:0.75rem;line-height:1.5;margin-block:0.5rem 1rem">
+      Point King Beach, Portsea. Photo by <a href={data.heroImage.sourceUrl} rel="external">{data.heroImage.rightsHolder ?? data.heroImage.credit}</a>,
+      {' '}<a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="external">CC BY-SA 4.0</a>.
+      Resized from the original.
+    </p>
+  ) : null}
 
   <section class="experience-index experience-index--plain">
     <div class="container">
@@ -131,12 +144,6 @@ export const prerender = true;
           <div class="at-a-glance__value">
             {groupSizeLabel[data.groupSize] ?? data.groupSize}
             {data.maxGroupSize ? ` - max ${data.maxGroupSize} guests` : ''}
-          </div>
-        </div>
-        <div class="at-a-glance__row">
-          <div class="at-a-glance__label">Price band</div>
-          <div class="at-a-glance__value">
-            {budgetLabel[data.budgetBand] ?? data.budgetBand}
           </div>
         </div>
         {data.languages?.length > 0 && (
@@ -166,7 +173,17 @@ export const prerender = true;
       <div class="tour-cta-block">
         <h3 class="tour-cta-block__title">Check availability{operatorData?.name ? ` - ${operatorData.name}` : ''}</h3>
         <p>Pricing and availability are managed directly by the operator. Booking through the link below confirms your place directly with {operatorData?.name ?? 'the operator'}.</p>
-        <a href={primaryBookingUrl} target="_blank" rel="noopener noreferrer" class="tour-cta-primary pi-btn pi-btn--solid">
+        <a
+          href={primaryBookingUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="tour-cta-primary pi-btn pi-btn--solid"
+          data-pi-book="booking"
+          data-pi-entity-type="tour"
+          data-pi-entity-slug={slug}
+          data-pi-surface="tour-detail"
+          data-pi-provider={data.bookingUrl ? "operator" : "getyourguide"}
+        >
           Book this tour &rarr;
         </a>
         {data.aggregatorGYG && !data.bookingUrl && (
@@ -181,6 +198,7 @@ export const prerender = true;
       <div class="prose">
         <h2>What happens on this tour</h2>
         <p>{data.whatHappens}</p>
+        {photoSet.stage && photoSet.afterFirst !== null && <InlinePhoto photos={photoSet.photos} indexes={[photoSet.afterFirst]} subject={data.name} />}
       </div>
     </div>
   </section>
@@ -252,6 +270,10 @@ export const prerender = true;
       </div>
     </div>
   </section>
+
+  <div class="container">
+    <CorrectionNote surface="tour" />
+  </div>
 
   <NewsletterBlock />
 </BaseLayout>

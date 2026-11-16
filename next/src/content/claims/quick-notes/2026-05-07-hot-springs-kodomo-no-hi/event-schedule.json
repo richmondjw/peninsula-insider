@@ -1,0 +1,24 @@
+{
+  "claimId": "quick-notes/2026-05-07-hot-springs-kodomo-no-hi/event-schedule",
+  "claimClass": "event-schedule",
+  "subject": {
+    "type": "quick-notes",
+    "slug": "2026-05-07-hot-springs-kodomo-no-hi",
+    "field": "sources"
+  },
+  "statement": "Peninsula Hot Springs - Kodomo no Hi (Children's Day) Japanese cultural celebration, Saturday 9 May, 10am–8pm",
+  "assertedBy": [
+    {
+      "type": "quick-notes",
+      "slug": "2026-05-07-hot-springs-kodomo-no-hi",
+      "field": "sources"
+    },
+    {
+      "type": "venues",
+      "slug": "peninsula-hot-springs"
+    }
+  ],
+  "createdAt": "2026-05-07",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

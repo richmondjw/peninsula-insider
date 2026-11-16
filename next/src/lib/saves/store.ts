@@ -57,8 +57,6 @@ const LEGACY_ARTICLES_KEY = 'pi:saved-articles:v1';
 
 const EMPTY: SavesStore = { version: 2, items: [] };
 
-let memory: SavesStore | null = null;
-
 // --------------------------------------------------------------------------
 // Read / write
 // --------------------------------------------------------------------------
@@ -78,12 +76,19 @@ function readRaw(): SavesStore {
   }
 }
 
-function writeRaw(store: SavesStore): void {
-  if (typeof localStorage === 'undefined') return;
+/**
+ * Persist to localStorage. Returns false when the write did not land -
+ * private mode, exhausted quota, storage disabled by the browser, or SSR.
+ * A false return means nothing changed; callers must not report success.
+ */
+function writeRaw(store: SavesStore): boolean {
+  if (typeof localStorage === 'undefined') return false;
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
+    return true;
   } catch {
-    /* private mode / quota / disabled - fail silently */
+    /* private mode / quota / disabled */
+    return false;
   }
 }
 
@@ -178,15 +183,43 @@ function migrateFromLegacy(): SavesStore {
 // Public API
 // --------------------------------------------------------------------------
 
+/**
+ * Read the store. Deliberately hits localStorage on every call: there is no
+ * module-level cache, by design.
+ *
+ * A cache here was a data-loss bug (PI-012). `lib/v5-store.ts` writes this
+ * same `pi:saves:v2` key and has no way to reach into this module, so a cache
+ * populated before a v5 write was silently overwritten by the next write from
+ * here - the user clicked "+ Trip", then Save on another card, and the trip
+ * item disappeared. Nothing could invalidate it either: the `storage` event
+ * fires in OTHER tabs, never in the tab doing the writing, and the client
+ * router's SPA swaps keep the module alive across in-site navigation.
+ *
+ * Measured cost of reading fresh: JSON.parse of a saved list runs ~6us at 10
+ * items, ~27us at 50, ~300us at 500. A full repaint of a 60-card listing page
+ * is roughly 120 reads, so ~0.8ms at 10 saves and ~3ms at 50 - comfortably
+ * inside a click frame. `v5-store.ts` already reads this same key this way on
+ * every call, in production, on the same pages.
+ */
 function load(): SavesStore {
-  if (!memory) memory = readRaw();
-  return memory;
+  return readRaw();
 }
 
-function persist(store: SavesStore): void {
-  memory = store;
-  writeRaw(store);
-  emit({ kind: 'change' });
+/** Write, then notify listeners. Returns false when the write did not land. */
+function persist(store: SavesStore): boolean {
+  const ok = writeRaw(store);
+  if (ok) emit({ kind: 'change' });
+  return ok;
+}
+
+/**
+ * Outcome of a mutating call. `ok` is false when the change could not be
+ * written to localStorage, in which case nothing changed and the UI must not
+ * report success. `saved` is the state that actually holds afterwards.
+ */
+export interface SaveWriteResult {
+  ok: boolean;
+  saved: boolean;
 }
 
 /** Snapshot of all saves. */
@@ -205,12 +238,15 @@ export function isSaved(kind: SaveKind, slug: string): boolean {
 }
 
 /**
- * Toggle save state. Returns the new state (true = now saved).
+ * Toggle save state. Returns `{ ok, saved }`: `saved` is the state that holds
+ * after the attempt, and `ok` is false when the write did not land (private
+ * mode, quota, storage disabled) - in which case `saved` is the unchanged
+ * prior state and the button must not repaint to "Saved".
  * If the item is new, snapshot fields (title / dek / image_url / href / section)
  * are required to render the saved view later. If toggling off an existing
  * item, snapshot fields are ignored.
  */
-export function toggle(item: Omit<SavedItem, 'savedAt'>): boolean {
+export function toggle(item: Omit<SavedItem, 'savedAt'>): SaveWriteResult {
   const store = load();
   const idx = store.items.findIndex((it) => it.kind === item.kind && it.slug === item.slug);
   let next: SavesStore;
@@ -223,24 +259,28 @@ export function toggle(item: Omit<SavedItem, 'savedAt'>): boolean {
     next = { version: 2, items: [...store.items, { ...item, savedAt: Date.now() }] };
     nowSaved = true;
   }
-  persist(next);
-  return nowSaved;
+  const ok = persist(next);
+  return { ok, saved: ok ? nowSaved : idx >= 0 };
 }
 
-/** Explicitly remove. No-op if not saved. */
-export function remove(kind: SaveKind, slug: string): void {
+/**
+ * Explicitly remove. No-op if not saved. Returns false when the removal could
+ * not be written; true when the item is gone (including the no-op case).
+ */
+export function remove(kind: SaveKind, slug: string): boolean {
   const store = load();
   const idx = store.items.findIndex((it) => it.kind === kind && it.slug === slug);
-  if (idx < 0) return;
+  if (idx < 0) return true;
   const next: SavesStore = { version: 2, items: store.items.slice() };
   next.items.splice(idx, 1);
-  persist(next);
+  return persist(next);
 }
 
 /**
  * Merge an externally-supplied list (e.g. from Supabase after sign-in, or
  * from a shared-plan URL). Items in `incoming` that don't exist locally are
- * added; existing items are left alone. Returns the count of items added.
+ * added; existing items are left alone. Returns the count of items added -
+ * zero when nothing was new, and zero when the write did not land.
  */
 export function merge(incoming: SavedItem[]): number {
   const store = load();
@@ -255,13 +295,16 @@ export function merge(incoming: SavedItem[]): number {
     keys.add(key);
     added += 1;
   }
-  if (added > 0) persist(next);
+  if (added > 0 && !persist(next)) return 0;
   return added;
 }
 
-/** Wipe all saves. Used by sign-out flows and on user request. */
-export function clear(): void {
-  persist({ version: 2, items: [] });
+/**
+ * Wipe all saves. Used by sign-out flows and on user request. Returns false
+ * when the write did not land, in which case the saves are still there.
+ */
+export function clear(): boolean {
+  return persist({ version: 2, items: [] });
 }
 
 // --------------------------------------------------------------------------

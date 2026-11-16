@@ -1,0 +1,18 @@
+{
+  "evidenceId": "data-facts/wine/yabby-lake/trading-status-8d31dd43",
+  "claim": "data-facts/wine/yabby-lake/trading-status",
+  "stance": "supports",
+  "publisher": {
+    "kind": "venue-site"
+  },
+  "retrievedAt": "2026-09-13",
+  "expiresAt": "2026-12-12",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/data/facts/wine.json",
+    "field": "wineries[12].source",
+    "value": "https://www.yabbylake.com",
+    "dateField": "lastUpdated"
+  },
+  "url": "https://www.yabbylake.com"
+}

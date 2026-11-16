@@ -1,0 +1,20 @@
+{
+  "claimId": "events/mornington-christmas-festival-main-street-christmas-parade/event-schedule",
+  "claimClass": "event-schedule",
+  "subject": {
+    "type": "events",
+    "slug": "mornington-christmas-festival-main-street-christmas-parade",
+    "field": "startDate"
+  },
+  "statement": "Mornington Christmas Festival & Main Street Christmas Parade runs from 20 December 2026 to 23 December 2026, 1pm to 7pm.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "mornington-christmas-festival-main-street-christmas-parade",
+      "field": "startDate"
+    }
+  ],
+  "createdAt": "2026-05-04",
+  "origin": "migrated",
+  "note": "Migrated by scripts/migrate-event-claims.mjs (PI-005 Stage 2) from startDate, endDate, startTime, endTime already on next/src/content/events/mornington-christmas-festival-main-street-christmas-parade.json. No editorial judgement was applied and no content record was changed."
+}

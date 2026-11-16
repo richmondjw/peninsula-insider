@@ -94,11 +94,17 @@ export function buildWinerySchema(data: any, slug: string, section = 'wine') {
     },
     ...(data.phone ? { telephone: data.phone } : {}),
     // priceRange intentionally omitted (BRAND-PI: no pricing on site).
+    // De-duplicated: the three constants below are what every Peninsula
+    // winery knows about, and most estates also list Pinot Noir and Chardonnay
+    // in wines.keyVarieties. Until 2026-09 that collision was invisible,
+    // because wines was undeclared and keyVarieties was always empty here.
     knowsAbout: [
-      'Pinot Noir',
-      'Chardonnay',
-      'Cool-climate winemaking',
-      ...(data.wines?.keyVarieties ?? []),
+      ...new Set([
+        'Pinot Noir',
+        'Chardonnay',
+        'Cool-climate winemaking',
+        ...(data.wines?.keyVarieties ?? []),
+      ]),
     ],
     ...buildKnownForProperties(data.knownFor),
   };
@@ -470,7 +476,7 @@ export function buildTourSchema(tour: any, operatorData: any) {
       url: pageUrl,
       serviceType: 'Tour',
       ...(tour.durationHours ? { duration: `PT${tour.durationHours}H` } : {}),
-      ...(tour.heroImage?.src ? { image: `${TOUR_SITE}${tour.heroImage.src}` } : {}),
+      ...(tour.heroImage?.depictionStatus === 'actual' && tour.heroImage?.src ? { image: `${TOUR_SITE}${tour.heroImage.src}` } : {}),
       touristType: [tour.audience, ...(tour.theme || [])].filter(Boolean),
       availableLanguage: tour.languages || ['en'],
       provider: {
@@ -564,6 +570,7 @@ export function buildOperatorProfileSchema(operator: any, toursList: any[]) {
       '@id': `${pageUrl}#LocalBusiness`,
       name: operator.name,
       url: operator.website || pageUrl,
+      ...schemaImage(operator),
       ...(operator.phone ? { telephone: operator.phone } : {}),
       ...(operator.languages ? { knowsLanguage: operator.languages } : {}),
       areaServed: { '@type': 'GeoShape', name: 'Mornington Peninsula' },
@@ -964,7 +971,12 @@ interface BuildBfHubInput {
   name: string;
   description: string;
   path: string;
-  dateModified: string;
+  /**
+   * PI-004: optional. A hub that cannot derive a modification date from
+   * the records it lists emits none, rather than a constant that tracks
+   * nothing. Eleven hubs used to pass the same hardcoded April date.
+   */
+  dateModified?: string;
   breadcrumbs: Array<{ name: string; path?: string }>;
   items: Array<{ name: string; path: string; description?: string; itemType?: string }>;
 }
@@ -1022,3 +1034,4 @@ export function buildBfHubSchema({
     ],
   };
 }
+import { schemaImage } from './photo-set';

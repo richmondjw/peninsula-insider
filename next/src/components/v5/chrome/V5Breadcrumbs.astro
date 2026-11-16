@@ -33,7 +33,9 @@ const segments = rawPathname.split('/').filter(Boolean);
 // Level 1 and the homepage carry no breadcrumbs; gate/admin surfaces
 // and the 404 page are excluded.
 const excluded = ['access', 'admin', '404', '404.html'];
-const show = segments.length >= 2 && !excluded.includes(segments[0]);
+// /explore/plans/ is the Plans pillar in the main navigation, so it is level 1 too.
+const TOP_LEVEL = new Set(['explore/plans']);
+const show = segments.length >= 2 && !excluded.includes(segments[0]) && !TOP_LEVEL.has(segments.join('/'));
 
 const SEGMENT_LABELS: Record<string, string> = {
   eat: 'Eat & Drink',
@@ -166,14 +168,15 @@ const crumbs: Crumb[] = show
 </script>
 
 <style>
+  /* Round 2 (2026-11-10): no band and no rules. The trail is one quiet line
+     that sits on the page ground directly above the page's own heading. */
   .v5-breadcrumbs {
-    background: var(--bg);
-    border-bottom: 1px solid var(--border);
+    background: transparent;
   }
   .v5-breadcrumbs__container {
     max-width: var(--max-w);
     margin: 0 auto;
-    padding: var(--space-2) var(--space-5);
+    padding: var(--space-3) var(--space-5) 0;
   }
   .v5-breadcrumbs__list {
     list-style: none;
@@ -208,6 +211,10 @@ const crumbs: Crumb[] = show
     transition: color var(--dur-fast) var(--ease-enter);
   }
   .v5-breadcrumbs__item a:hover { color: var(--accent); }
+  @media (max-width: 767px) {
+    /* 44px touch target without growing the visible line. */
+    .v5-breadcrumbs__item a { padding: var(--space-3) var(--space-1); margin: calc(var(--space-3) * -1) calc(var(--space-1) * -1); }
+  }
   .v5-breadcrumbs__item a:focus-visible {
     outline: var(--focus-ring);
     outline-offset: 2px;

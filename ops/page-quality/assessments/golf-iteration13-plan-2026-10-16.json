@@ -1,0 +1,65 @@
+{
+  "url": "https://peninsulainsider.com.au/explore/golf/",
+  "tier": "T1",
+  "assessedAt": "2026-10-16",
+  "liveRevision": "cc6459edb21f2f1d27bd6720c4aa695d27e8f16d",
+  "liveRunId": "38663758698",
+  "programme": "peninsula-insider-page-quality-to-99",
+  "independentScores": [
+    87.75,
+    91.25,
+    91.75
+  ],
+  "acceptedConservativeScore": 87.75,
+  "scoreStatus": "provisional",
+  "thresholdMet": false,
+  "hardGateObserved": false,
+  "verifiedLiveEvidence": {
+    "mobilePageHeightPx": 17696,
+    "horizontalOverflow": false,
+    "consoleErrors": 0,
+    "courseFitLinks": 9,
+    "minimumCourseFitTargetPx": 54,
+    "minimumCourseTitleTargetPx": 44,
+    "minimumGolfFunctionalLabelPx": 11.52,
+    "anchorFocusTransferredToCourseCard": true,
+    "throttledMobileLcpSeconds": [
+      1.72,
+      1.668,
+      1.672
+    ]
+  },
+  "openEvidenceGates": [
+    "direct screen-reader assessment",
+    "field Core Web Vitals",
+    "exhaustive eleven-venue factual refresh"
+  ],
+  "triage": [
+    "state The National's private-club eligibility restriction in the early chooser",
+    "compress the eleven venue summaries while retaining links to full guides",
+    "shorten the dense designer section and remove unsupported superlatives",
+    "raise the two shared ten-pixel popup labels to at least eleven pixels"
+  ],
+  "boundedIteration13": {
+    "implemented": [
+      "The National chooser label now says Private club and eligibility rules",
+      "course cards show one editorial sentence instead of two",
+      "designer summaries are concise and factual",
+      "Insider Note popup eyebrow and kicker use eleven-pixel text"
+    ],
+    "verificationStatus": "local build and focused 390px browser acceptance passed; merge, deployment and independent live regrade pending",
+    "localAcceptance": {
+      "mobilePageHeightPx": 16753,
+      "baselineHeightPx": 17696,
+      "horizontalOverflow": false,
+      "consoleErrors": 0,
+      "courseFitLinks": 9,
+      "minimumCourseFitTargetPx": 54,
+      "minimumCourseTitleTargetPx": 44,
+      "theNationalChooser": "Private club · eligibility rules",
+      "anchorFocusTransferredToCourseCard": true,
+      "courseEditorialSentences": 1,
+      "build": "passed in 5m 7s with all post-build gates passing"
+    }
+  }
+}

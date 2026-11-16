@@ -1,0 +1,20 @@
+{
+  "claimId": "events/saturday-pottery-class/event-schedule",
+  "claimClass": "event-schedule",
+  "subject": {
+    "type": "events",
+    "slug": "saturday-pottery-class",
+    "field": "startDate"
+  },
+  "statement": "Saturday Pottery Class runs on 31 October 2026.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "saturday-pottery-class",
+      "field": "startDate"
+    }
+  ],
+  "createdAt": "2026-08-24",
+  "origin": "migrated",
+  "note": "Migrated by scripts/migrate-event-claims.mjs (PI-005 Stage 2) from startDate, endDate, startTime, endTime already on next/src/content/events/saturday-pottery-class.json. No editorial judgement was applied and no content record was changed."
+}

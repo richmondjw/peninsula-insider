@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "1.0",
+  "url": "https://peninsulainsider.com.au/explore/golf/",
+  "tier": "T1",
+  "family": "hub",
+  "assessedAt": "2026-10-12",
+  "status": "provisional-live-baseline-hard-gates-open",
+  "gradedSourceRevision": "595b12e0ef1c016e87190a2d3e21edb649e058a6",
+  "gradedBuildRunId": "38171000355",
+  "independentScores": [
+    {
+      "reviewer": "access-facts-performance",
+      "score": 86.75,
+      "ratings": {"VT1":4,"VT2":4,"VT3":3,"VT4":4,"FN1":3,"FN2":4,"FN3":3,"ET1":3,"ET2":4,"ET3":3,"ET4":3,"VS1":4,"VS2":3,"VS3":3,"VS4":4,"VS5":4,"MI1":3,"MI2":4,"MI3":4,"AT1":3,"AT2":2,"AT3":4,"AT4":4}
+    },
+    {
+      "reviewer": "ux-task",
+      "score": 84.75,
+      "ratings": {"VT1":4,"VT2":4,"VT3":3,"VT4":4,"FN1":3,"FN2":4,"FN3":3,"ET1":3,"ET2":4,"ET3":3,"ET4":4,"VS1":3,"VS2":3,"VS3":3,"VS4":3,"VS5":4,"MI1":3,"MI2":4,"MI3":3,"AT1":3,"AT2":2,"AT3":4,"AT4":4}
+    },
+    {
+      "reviewer": "visual-mobile",
+      "score": 84.75,
+      "ratings": {"VT1":4,"VT2":4,"VT3":3,"VT4":3,"FN1":3,"FN2":4,"FN3":3,"ET1":3,"ET2":4,"ET3":3,"ET4":4,"VS1":4,"VS2":3,"VS3":3,"VS4":3,"VS5":4,"MI1":3,"MI2":4,"MI3":3,"AT1":3,"AT2":3,"AT3":3,"AT4":4}
+    }
+  ],
+  "reconciliation": {
+    "method": "Median of three independent live rubric reviews; hard gates remain separate.",
+    "score": 84.75
+  },
+  "acceptedScore": null,
+  "hardGates": {
+    "observedFailure": false,
+    "open": [
+      "Direct screen-reader visitor journey remains untested.",
+      "Exhaustive eleven-venue factual and image-rights reconciliation remains incomplete.",
+      "Exact-route field Core Web Vitals remain unavailable."
+    ]
+  },
+  "measuredDefects": [
+    "Repeated throttled 390px mobile LCP was 6.28-6.32 seconds; the CSS-background hero was the LCP and two below-fold editorial backgrounds competed for bandwidth.",
+    "The mobile page was approximately 18,000 pixels tall with eleven dense venue cards before skill-based guidance.",
+    "The Play Peek and Insider Note bar could occupy the viewport together.",
+    "Course-count wording described eleven venues as eleven courses and The National's 72-hole count did not distinguish Long Island in Frankston.",
+    "Unsupported precise travel-time claims and a sub-AA amber text link remained in the stay-and-play band."
+  ],
+  "boundedIteration": [
+    "Render GuideHero media as a discoverable eager high-priority image with stable dimensions.",
+    "Render below-fold editorial images as lazy images with stable dimensions.",
+    "Prevent Play Peek from displaying while the Insider Note bar is visible and listen to the popup's actual events.",
+    "Clarify venue counts and locate The National's 54 Cape Schanck plus 18 Frankston holes.",
+    "Remove unsupported precise travel-time claims, constrain planning prose to 68ch and use an AA-safe link colour."
+  ],
+  "decision": "adapt-continue"
+}

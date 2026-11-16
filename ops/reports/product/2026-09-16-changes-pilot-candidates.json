@@ -1,0 +1,22 @@
+{
+  "status": "editorial-review-only",
+  "since": "2026-09-09",
+  "asAt": "2026-09-16",
+  "note": "Only potential real-world changes enter the review queue. Claim verification, disputes, expired evidence and reassurance are excluded. New venue/event database records still require operator evidence of the real-world change. Empty means no eligible registry signals; it does not mean nothing changed on the Peninsula.",
+  "counts": {
+    "changes": 74,
+    "reassurances": 7,
+    "byKind": {
+      "claim-verified": 59,
+      "claim-lapsed": 13,
+      "claim-disputed": 2
+    },
+    "byNature": {
+      "arrival": 59,
+      "confidence": 13,
+      "value": 2
+    }
+  },
+  "candidateCount": 0,
+  "candidates": []
+}

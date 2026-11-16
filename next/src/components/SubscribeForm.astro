@@ -2,9 +2,10 @@
 export interface Props {
   variant?: 'dark' | 'light';
   source?: 'footer' | 'newsletter-page';
+  disclaimer?: string;
 }
 
-const { variant = 'dark', source = 'footer' } = Astro.props;
+const { variant = 'dark', source = 'footer', disclaimer = 'No spam. Unsubscribe any time.' } = Astro.props;
 const ENDPOINT = 'https://tjjhpvslpysfklwpqmgz.supabase.co/functions/v1/pi-newsletter-subscribe';
 ---
 
@@ -30,6 +31,6 @@ const ENDPOINT = 'https://tjjhpvslpysfklwpqmgz.supabase.co/functions/v1/pi-newsl
   </div>
   <p class="newsletter__status" aria-live="polite" aria-atomic="true"></p>
   <p class="newsletter__disclaimer">
-    No spam. Unsubscribe any time. <a href="/privacy/">Privacy&nbsp;policy</a>.
+    {disclaimer} <a href="/privacy/">Privacy&nbsp;policy</a>.
   </p>
 </form>

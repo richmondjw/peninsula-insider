@@ -1,14 +1,28 @@
 ---
-title: "The Peninsula Pub Crawl: Six Pubs, Three Routes, No Pretension"
+title: "The Peninsula Pub Crawl: Local Pubs, Unhurried Routes"
 dek: "A drinking guide to the Mornington Peninsula's public houses  -  the fires, the bistros, the beer gardens, the locals, and the argument for building a whole day around them."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-04-10
 heroImage:
-  src: "/images/sourced/category-pub-01.webp"
-  alt: "A busy Peninsula pub beer garden on a Saturday afternoon with local craft beer on the table - representative image"
-  credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  src: "/images/visit-victoria/vv-143823-red-hill-brewery.webp"
+  alt: "A hand pulls a pale beer into a small glass from a row of worn metal taps with a Red Hill Brewery tap badge"
+  credit: "Peter Tarasiuk, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Red Hill Brewery, Mornington Peninsula"
+  depicts: "Red Hill Brewery"
+  depictionStatus: "illustrative"
+  creator: "Peter Tarasiuk"
+  sourceUrl: "Victoria Content Hub asset 143823, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026). Embedded usage terms: \"All image usage must be for the positive promotion of Melbourne and Victoria. Images can only be used to promote the region the image has been taken in. All material supplied is owned by Visit Victoria or its respective partners and can not be on sold to Third Parties.\""
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "service"
 tags: ["pubs", "beer", "dining", "walk-in", "locals", "groups", "casual", "all-year"]
 relatedVenues: ["flinders-hotel", "dromana-hotel", "rye-hotel", "balnarring-pub", "mornington-hotel", "portsea-hotel", "sorrento-hotel", "hotel-sorrento", "the-bay-hotel-mornington", "red-hill-brewery", "st-andrews-beach-brewery", "jetty-road-brewery", "two-bays-brewing", "mornington-peninsula-brewery"]
@@ -28,14 +42,14 @@ clusterLinks:
     href: "/explore/plans/how-to-plan-a-peninsula-weekend/"
 faq:
   - question: "Which Mornington Peninsula pub crawl route is best?"
-    answer: "The hinterland circuit for people who care about what they are drinking - Balnarring Pub for lunch, Red Hill Brewery for the hop garden and pizza, St Andrews Beach Brewery for a more experimental range. The bay-side run (Mornington → Dromana → Rye → Portsea) is the most scenic. The Sorrento strip is the only route walkable without a car."
+    answer: "The hinterland circuit for people who care about what they are drinking - The Heritage at Balnarring for lunch, Red Hill Brewery for the hop garden and pizza, St Andrews Beach Brewery for a more experimental range. The bay-side run (Mornington → Dromana → Rye → Portsea) is the most scenic. The Sorrento strip is the only route walkable without a car."
   - question: "What is the best pub on the Mornington Peninsula?"
-    answer: "Flinders Hotel - the dining room is generous, the beer garden faces the village green, the fire is real, and Flinders itself is the most underrated town on the coast. Balnarring Pub for the quiet side with a garden and genuine local atmosphere."
+    answer: "Flinders Hotel - the dining room is generous, the beer garden faces the village green, the fire is real, and Flinders itself is the most underrated town on the coast. The Heritage at Balnarring for the quiet side, with open fires and a big beer garden."
   - question: "Can you do a pub crawl on the Mornington Peninsula without a car?"
-    answer: "Only on the Sorrento strip - three venues within a five-minute walk of each other on Ocean Beach Road. All other routes require driving, which means a designated driver or limiting yourself to one to two drinks per stop and spacing them across the day. The Peninsula's roads are narrow and winding. Plan the logistics before you start."
+    answer: "Only on the Sorrento strip - three venues within a five-minute walk of each other on Ocean Beach Road. All other routes require a designated driver who does not drink, or prearranged transport between stops. Drink suggestions below are for passengers only. Plan transport before you start."
 aiSummary:
   - "An editorial guide to the Mornington Peninsula's best pubs - structured as a curated shortlist rather than a comprehensive directory."
-  - "Key picks: Balnarring Pub (village setting, genuine country pub energy), Portsea Hotel (bay views, the Peninsula's most reliably good pub food), Flinders Hotel (the correct pub for a southern-edge day), Red Hill Hotel (a peninsula institution)."
+  - "Key picks: The Heritage, Balnarring (a village pub in a 1930s heritage home), Portsea Hotel (bay views, the Peninsula's most reliably good pub food), Flinders Hotel (the correct pub for a southern-edge day), Red Hill Hotel (a peninsula institution)."
   - "The editorial argument: pub dining on the Peninsula is systematically underrated and is often the correct choice when hatted bookings aren't available."
   - "Suits: groups; spontaneous visitors; anyone who wants good, honest food in a setting that doesn't require performance."
   - "Planning note: pub bistros close their kitchen at 2pm or 3pm on weekdays. Weekend sessions run longer. The Portsea Hotel is the hardest to get a table at on a summer Sunday."
@@ -47,7 +61,7 @@ The pub is where the locals eat. The pub is where you can turn up without a book
 
 This is a guide to the Peninsula's pubs  -  not a ranked list, but a set of routes. Because the point of a pub crawl is not the individual pub. It is the trajectory.
 
-**Important note on driving:** The Peninsula is a driving region. A literal pub crawl  -  walking between pubs  -  is only possible on the Sorrento strip. Every other route below requires a designated driver, a taxi, or the discipline to stop at two beers per pub and space them across the day. The Peninsula's roads are narrow, winding, and policed. Plan accordingly.
+**Important note on driving:** The Peninsula is a driving region. A literal pub crawl  -  walking between pubs  -  is only possible on the Sorrento strip. Every other route below requires a designated driver who does not drink or prearranged transport. The drink suggestions are for passengers, never the driver. Plan the journey home before you start.
 
 ## Route one: the bay-side run
 
@@ -67,7 +81,7 @@ Walk to the foreshore. Ten minutes of harbour and bay. Then the car, heading sou
 
 This route swaps the coastal strip for the ridge and replaces the pubs with a mix of pubs and breweries. It is a better route for people who care about what they are drinking.
 
-**Stop one: Balnarring Pub (noon).** The quiet-side start. The garden is sheltered, the kitchen runs a solid pub menu, and the crowd skews local rather than tourist. Order the steak sandwich or the parma. One beer. This is the Peninsula at its most honest.
+**Stop one: The Heritage, Balnarring (noon).** The quiet-side start, in a 1930s heritage home with open fires and a big beer garden. The kitchen keeps a pub favourites list, so the parma or the fish and chips is the order. One beer. It is closed Monday and Tuesday, so this is a Wednesday-to-Sunday route.
 
 **Stop two: Red Hill Brewery (1:30pm).** Not a pub, but the Peninsula's original craft brewery, and the hop garden is the best beer-drinking setting on the ridge. The tasting paddle covers the core range. The wood-fired pizza is the food. The barn is the room. One flight, one pizza, forty-five minutes.
 
@@ -85,7 +99,7 @@ Walk thirty seconds east along Ocean Beach Road.
 
 Walk to the foreshore. The bay is across the road.
 
-**Stop three: The Continental Sorrento (1:30pm).** Technically a hotel and restaurant rather than a pub, but the bar operates as a standalone drinking room and it is the most architecturally interesting space on the strip. The cocktail menu is competent. One drink, lunch from the bar menu, and the terrace if the weather holds.
+**Stop three: The Conti Bar at The Continental precinct (1:30pm).** This is the precinct's public bar, separate from the InterContinental hotel. Stop for a drink or a casual lunch, with the Promenade or Beer Garden if conditions suit.
 
 Walk back along the main street to whichever of the three you liked best, and stay there for the afternoon.
 
@@ -97,7 +111,7 @@ In order of the pint, the room, the fire, and the crowd:
 
 1. **Flinders Hotel.** The best pub on the Peninsula. The dining room is generous, the beer garden faces the green, the fire is real, and the town around it is the most underrated on the coast. If you visit one Peninsula pub, make it Flinders.
 
-2. **Balnarring Pub.** The quiet-side pub with the garden and the local crowd. Better than it needs to be.
+2. **The Heritage, Balnarring.** The quiet-side village pub, with open fires and a two-acre block to spread out on.
 
 3. **Dromana Hotel.** The workhorse. Nobody writes about it, everybody eats there eventually. The parma is the parma.
 

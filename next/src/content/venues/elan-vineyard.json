@@ -29,8 +29,7 @@
   ],
   "ifOnlyOneThing": "Phone ahead to confirm hours, arrive without a schedule, and stay long enough to talk to whoever is pouring.",
   "pairWith": [
-    "Balnarring Bakehouse",
-    "Balnarring Market"
+    "Balnarring Bakehouse"
   ],
   "tags": {
     "mood": [
@@ -48,7 +47,10 @@
   },
   "heroImage": {
     "src": "/images/sourced/place-balnarring-01.webp",
-    "alt": "Mornington Peninsula landscape - representative image for Elan Vineyard & Gallery",
+    "alt": "",
+    "depicts": "a bay beach with a tideline of seaweed, curving to a wooded point under a grey sky",
+    "depictionStatus": "illustrative",
+    "decorative": true,
     "credit": "Peninsula Insider",
     "license": "other-licensed"
   },

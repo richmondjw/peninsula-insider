@@ -1,0 +1,18 @@
+{
+  "evidenceId": "events/foxeys-hangout-vegetable-feast-morning-sun-vineyard/booking-instagram-com-2026-05-04",
+  "claim": "events/foxeys-hangout-vegetable-feast-morning-sun-vineyard/booking",
+  "stance": "supports",
+  "publisher": {
+    "kind": "social"
+  },
+  "url": "https://www.instagram.com/foxeyshangout/",
+  "retrievedAt": "2026-05-04",
+  "expiresAt": "2026-07-03",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/events/foxeys-hangout-vegetable-feast-morning-sun-vineyard.json",
+    "field": "primarySourceUrl",
+    "value": "https://www.instagram.com/foxeyshangout/",
+    "dateField": "lastCheckedDate"
+  }
+}

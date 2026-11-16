@@ -1,0 +1,247 @@
+{
+  "url": "https://peninsulainsider.com.au/explore/golf/",
+  "tier": "T1",
+  "assessedAt": "2026-11-02",
+  "liveRevision": "7c16d321f3e548d390241b6a5668df19d24d622e",
+  "liveRunId": "41607285313",
+  "programme": "peninsula-insider-page-quality-to-99",
+  "independentScores": [
+    90.25,
+    92.25,
+    93.25
+  ],
+  "acceptedConservativeScore": 93.25,
+  "scoreStatus": "provisional",
+  "thresholdMet": false,
+  "hardGateObserved": false,
+  "verifiedLiveEvidence": {
+    "mobilePageHeightPx": 11871,
+    "desktopPageHeightPx": 7561,
+    "horizontalOverflow": false,
+    "consoleErrors": 0,
+    "shortlistLinks": 4,
+    "comparisonLinks": 11,
+    "backToComparisonLinks": 3,
+    "decisionPathLinks": 7,
+    "comparisonInitiallyCollapsed": true,
+    "minimumSupportingCopyPx": 15.66,
+    "minimumBackLinkTargetPx": 44,
+    "shortlistAnchorFocusTransferredToCourseCard": true,
+    "backAnchorFocusTransferredToComparison": true,
+    "firstVisitCookieNoticeObscuresPrimaryAction": false
+  },
+  "openEvidenceGates": [
+    "direct screen-reader assessment",
+    "field Core Web Vitals",
+    "exhaustive eleven-venue factual refresh",
+    "exact-release image-rights acceptance"
+  ],
+  "triage": [
+    "add map or base context, or URL-backed access and location filters, so geography does not depend on memory",
+    "progressively disclose the FAQ while keeping booking caveats visible",
+    "surface the constraint-led chooser earlier or preserve the chosen constraint through the catalogue",
+    "exercise newsletter validation, error and recovery behaviour",
+    "close direct screen-reader, field performance, factual and image-rights evidence gates"
+  ],
+  "boundedIteration14": {
+    "implemented": [
+      "the hero action now lands directly on the single playing-style, access and location chooser",
+      "Sorrento and Portsea complete the eleven-course chooser",
+      "the redundant four-link quick picker and two-card location orientation section are removed",
+      "the subjective heading is replaced with Memorable public rounds"
+    ],
+    "verificationStatus": "anchor hotfix live and independently regraded at 86/100; no observed hard gate; 99 remains open",
+    "localAcceptance": {
+      "mobilePageHeightPx": 15865,
+      "baselineHeightPx": 16753,
+      "horizontalOverflow": false,
+      "consoleErrors": 0,
+      "courseFitLinks": 11,
+      "minimumCourseFitTargetPx": 54,
+      "heroTargetTopMobilePx": 143.52,
+      "heroTargetTopDesktopPx": 192.16,
+      "heroTargetFocusTransferred": true,
+      "redundantQuickPickerPresent": false,
+      "redundantOrientationPresent": false,
+      "anchorFocusTransferredToCourseCard": true,
+      "build": "passed with all post-build gates"
+    }
+  },
+  "boundedIteration15": {
+    "implemented": [
+      "all eleven venues now appear in one four-field comparison",
+      "course character, visitor access and town can be compared without opening every card",
+      "comparison rows retain course-card focus transfer and sticky-header clearance",
+      "removed obsolete quick-picker and orientation styles"
+    ],
+    "verificationStatus": "live on a release containing PR #692 and independently regraded at 86.25/100; no observed hard gate; 99 remains open",
+    "localAcceptance": {
+      "mobilePageHeightPx": 16175,
+      "desktopPageHeightPx": 9720,
+      "horizontalOverflow": false,
+      "consoleErrors": 0,
+      "comparisonLinks": 11,
+      "minimumComparisonTargetMobilePx": 115.72,
+      "minimumComparisonTargetDesktopPx": 58,
+      "heroAnchorFocusTransferred": true,
+      "courseAnchorFocusTransferred": true,
+      "oldGroupedChooserPresent": false,
+      "build": "passed with all post-build gates",
+      "liveSourceRevision": "79b7c3ac66392ed7435b5fcd0ec1488ab14cf873",
+      "liveRunId": "41345011423",
+      "liveStatus": 200,
+      "independentScore": 86.25
+    }
+  },
+  "boundedIteration16": {
+    "status": "live-regraded",
+    "highestImpactDefects": [
+      "restore the Harbour hairline and no-resting-shadow visual system",
+      "add an authored shortlist before the complete eleven-course comparison",
+      "raise supporting and action copy to the documented fifteen-pixel floor",
+      "add a repeated back-to-comparison navigation route through the long catalogue",
+      "consolidate the page ending around one decisive next action"
+    ],
+    "implemented": [
+      "restored white hairline course surfaces with no resting shadow or gradient",
+      "added a four-course evidence-bound shortlist while retaining the full eleven-course comparison",
+      "raised supporting and action copy to the documented fifteen-pixel floor",
+      "added two back-to-comparison routes with focus transfer",
+      "removed the duplicated golf-editorial card section and consolidated the stay-and-play ending"
+    ],
+    "verificationStatus": "live on exact release 7dfc48033e211c91fa073d59fd46585dee57eddd via run 41416129529 and independently regraded at 90.25/100; no hard gate observed; 99 remains open",
+    "localAcceptance": {
+      "mobileCssViewportPx": 397,
+      "mobilePageHeightPx": 16320,
+      "desktopCssViewportPx": 1431,
+      "desktopPageHeightPx": 9431,
+      "horizontalOverflow": false,
+      "consoleErrors": 0,
+      "shortlistLinks": 4,
+      "comparisonLinks": 11,
+      "backToComparisonLinks": 2,
+      "minimumSupportingCopyPx": 15,
+      "shortlistAnchorFocusTransferred": true,
+      "backAnchorFocusTransferred": true,
+      "oldGolfEditorialSectionPresent": false,
+      "build": "passed with all post-build gates",
+      "liveSourceRevision": "7dfc48033e211c91fa073d59fd46585dee57eddd",
+      "liveRunId": "41416129529",
+      "liveStatus": 200,
+      "independentScore": 90.25
+    }
+  },
+  "boundedIteration17": {
+    "status": "live-regraded",
+    "highestImpactDefects": [
+      "the shortlist expands immediately into an eleven-item comparison wall",
+      "cross-course comparison still relies on memory once readers enter separated cards",
+      "equal-weight cards flatten editorial hierarchy through the long catalogue",
+      "mobile actions can sit more than one viewport below a course title",
+      "the ending does not yet convert the comparison into a personalized choice payoff"
+    ],
+    "implemented": [
+      "collapsed the full eleven-course comparison behind an accessible native disclosure while keeping all rows available without JavaScript",
+      "moved course-guide and tee-time actions directly below each course title and metadata",
+      "added three evidence-bound decision paths for public access, on-course accommodation and coastal visitor windows",
+      "made every back-to-comparison route open the disclosure and transfer focus to its summary",
+      "retained four authored starting choices and all eleven comparison rows"
+    ],
+    "verificationStatus": "live on release cb855ef9ec26bf2304f0a93f1767650f688dc375 via run 41515951444, which contains PR #698 merge 71303bb0b00ff95e2e3a198cfff591553e99c4b5; independently regraded at 92.25/100 with no observed hard gate; 99 remains open",
+    "localAcceptance": {
+      "mobileCssViewportPx": 390,
+      "mobilePageHeightPx": 16368,
+      "desktopCssViewportPx": 1440,
+      "desktopPageHeightPx": 10120,
+      "horizontalOverflow": false,
+      "comparisonInitiallyCollapsed": true,
+      "comparisonRows": 11,
+      "shortlistLinks": 4,
+      "decisionPathLinks": 7,
+      "maximumMobileTitleToActionOffsetPx": 134.25,
+      "comparisonReturnFocusTransferred": true,
+      "courseAndDecisionAnchorFocusTransferred": true,
+      "minimumSupportingCopyPx": 15,
+      "detectorFindings": 0,
+      "build": "passed with all post-build gates",
+      "liveSourceRevision": "cb855ef9ec26bf2304f0a93f1767650f688dc375",
+      "liveRunId": "41515951444",
+      "liveStatus": 200,
+      "liveMobileCssViewportPx": 390,
+      "liveDesktopCssViewportPx": 1440,
+      "liveHorizontalOverflow": false,
+      "liveMinimumSupportingCopyPx": 15.66,
+      "liveMaximumMobileTitleToActionOffsetPx": 98.13,
+      "liveMaximumDesktopTitleToActionOffsetPx": 71.22,
+      "liveComparisonInitiallyCollapsed": true,
+      "liveComparisonRows": 11,
+      "liveDecisionPathLinks": 7,
+      "livePageOriginConsoleErrors": 0,
+      "independentScore": 92.25
+    }
+  },
+  "boundedIteration18": {
+    "status": "live-regraded",
+    "highestImpactDefects": [
+      "eleven expanded course descriptions keep the mobile catalogue longer than necessary",
+      "source facts and editorial judgment are not explicitly separated within each course card",
+      "repeated dense copy slows the initial course scan"
+    ],
+    "implemented": [
+      "kept access badge, course name, location and direct actions visible on all eleven cards",
+      "moved supporting editorial and visitor-access detail into eleven native disclosures",
+      "labelled current visitor-access facts separately from the Insider read",
+      "retained semantic HTML, course anchors and forty-eight-pixel disclosure targets"
+    ],
+    "verificationStatus": "live on exact release 375d9d9d4eb85d70d86febba2bc9e23cc6d7e6a3 via run 41556547398 and independently regraded at 93.25/100; no hard gate observed; 99 remains open",
+    "acceptance": {
+      "mobileCssViewportPx": 390,
+      "mobilePageHeightPx": 15123,
+      "desktopCssViewportPx": 1440,
+      "desktopPageHeightPx": 9107,
+      "horizontalOverflow": false,
+      "courseDisclosures": 11,
+      "courseDisclosuresInitiallyOpen": 0,
+      "minimumDisclosureTargetPx": 48,
+      "disclosureFocusRetained": true,
+      "pageOriginConsoleErrors": 0,
+      "detectorFindings": 0,
+      "build": "passed with all post-build gates",
+      "liveSourceRevision": "375d9d9d4eb85d70d86febba2bc9e23cc6d7e6a3",
+      "liveRunId": "41556547398",
+      "liveStatus": 200,
+      "independentScore": 93.25
+    }
+  },
+  "boundedIteration19": {
+    "status": "live-regraded",
+    "implemented": [
+      "consolidated the course-architecture and mixed-group modules behind one clearly labelled native disclosure",
+      "kept primary comparison, course actions, stay-and-play and the final constraint chooser visible",
+      "retained five architect cards and two pairing cards in semantic HTML"
+    ],
+    "verificationStatus": "live on exact release 7c16d321f3e548d390241b6a5668df19d24d622e via run 41607285313 and independently held at 93.25/100; the 21.5 percent mobile-length reduction is a verified material UX improvement but does not add rubric points; no hard gate observed; 99 remains open",
+    "acceptance": {
+      "mobileCssViewportPx": 390,
+      "mobilePageHeightPx": 11871,
+      "mobileHeightReductionFromIteration18Px": 3252,
+      "mobileHeightReductionFromIteration18Percent": 21.5,
+      "desktopCssViewportPx": 1440,
+      "desktopPageHeightPx": 7561,
+      "horizontalOverflow": false,
+      "supportingGuideInitiallyOpen": false,
+      "supportingGuideMobileTargetPx": 142.04,
+      "supportingGuideFocusRetained": true,
+      "architectCardsRetained": 5,
+      "pairingCardsRetained": 2,
+      "pageOriginConsoleErrors": 0,
+      "detectorFindings": 0,
+      "astroProductionBuild": "passed for 1051 pages",
+      "repoWideAstroCheck": "225 pre-existing errors; none in golf.astro",
+      "liveSourceRevision": "7c16d321f3e548d390241b6a5668df19d24d622e",
+      "liveRunId": "41607285313",
+      "liveStatus": 200,
+      "independentScore": 93.25
+    }
+  }
+}

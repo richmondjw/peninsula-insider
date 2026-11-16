@@ -1,0 +1,18 @@
+{
+  "evidenceId": "data-facts/wine/quealy-winemakers/trading-status-ade90847",
+  "claim": "data-facts/wine/quealy-winemakers/trading-status",
+  "stance": "supports",
+  "publisher": {
+    "kind": "venue-site"
+  },
+  "retrievedAt": "2026-09-13",
+  "expiresAt": "2026-12-12",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/data/facts/wine.json",
+    "field": "wineries[6].source",
+    "value": "https://quealy.com.au/pages/cellar-door",
+    "dateField": "lastUpdated"
+  },
+  "url": "https://quealy.com.au/pages/cellar-door"
+}

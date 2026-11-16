@@ -1,15 +1,28 @@
 ---
-slug: "st-andrews-beach-golf-course"
 title: "St Andrews Beach Golf Course - The World-Ranked Course Anyone Can Book"
 dek: "If you want one golf story that explains the Peninsula properly, start here. Tom Doak architecture, genuine global ranking, and public-access bookings that turn prestige into a real weekend."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-04-14
 heroImage:
-  src: "/images/placeholder-golf.svg"
-  alt: "Coastal landscape near St Andrews Beach, Mornington Peninsula"
-  credit: "Peninsula Insider"
-  license: "tmp-wikimedia"
+  src: "/images/visit-victoria/vv-157419-st-andrews-beach-golf-course-fingal.webp"
+  alt: "Elevated view of a golfer driving from a tee at St Andrews Beach Golf Course, a partner by the bags and the green ahead in the dunes"
+  credit: "Gary Lisbon, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "St Andrews Beach Golf Course, Cape Schanck, Mornington Peninsula"
+  depicts: "St Andrews Beach Golf Course - Fingal"
+  depictionStatus: "actual"
+  creator: "Gary Lisbon"
+  sourceUrl: "Victoria Content Hub asset 157419, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "investigation"
 tags: ["golf", "st-andrews-beach", "public-golf", "mornington-peninsula", "cape-schanck"]
 readingTimeMinutes: 7

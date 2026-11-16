@@ -1,0 +1,20 @@
+{
+  "claimId": "quick-notes/2026-08-14-weather-friday/conditions",
+  "claimClass": "conditions",
+  "subject": {
+    "type": "quick-notes",
+    "slug": "2026-08-14-weather-friday",
+    "field": "sources"
+  },
+  "statement": "Weather: Friday is cool and mostly dry at Main Ridge; keep a warm layer handy.",
+  "assertedBy": [
+    {
+      "type": "quick-notes",
+      "slug": "2026-08-14-weather-friday",
+      "field": "sources"
+    }
+  ],
+  "createdAt": "2026-08-14",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

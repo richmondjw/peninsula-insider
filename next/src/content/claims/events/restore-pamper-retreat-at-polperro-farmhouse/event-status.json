@@ -1,0 +1,18 @@
+{
+  "claimId": "events/restore-pamper-retreat-at-polperro-farmhouse/event-status",
+  "claimClass": "event-status",
+  "subject": {
+    "type": "events",
+    "slug": "restore-pamper-retreat-at-polperro-farmhouse"
+  },
+  "statement": "Restore & Pamper Retreat at Polperro Farmhouse is running as published.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "restore-pamper-retreat-at-polperro-farmhouse"
+    }
+  ],
+  "createdAt": "2026-05-04",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

@@ -1,9 +1,10 @@
 ---
+import { eventPromotionEntries } from '../../lib/event-discovery.mjs';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import VenueDetailTemplate from '../../components/VenueDetailTemplate.astro';
 import EventStrip from '../../components/EventStrip.astro';
-import { routeSlug, typeLabel, titleize, isUpcoming } from '../../lib/editorial';
+import { routeSlug, typeLabel, titleize, isUpcoming, isListableVenue } from '../../lib/editorial';
 import {
   buildWinerySchema,
   buildRestaurantSchema,
@@ -28,7 +29,7 @@ const wineTypes = ['winery', 'producer', 'brewery', 'distillery'];
 const { venue } = Astro.props;
 const slug = routeSlug(venue);
 
-const allVenues = await getCollection('venues');
+const allVenues = (await getCollection('venues')).filter(isListableVenue);
 const related = allVenues
   .filter((entry) => routeSlug(entry) !== slug)
   .filter((entry) => wineTypes.includes(entry.data.type))
@@ -49,14 +50,9 @@ const itineraries = (await getCollection('itineraries'))
   .slice(0, 2);
 
 // Events at this venue, gated on a clean venue ref.
-const venueEvents = (await getCollection('events'))
-  .filter((event) => String(event.data.venue?.id ?? event.data.venue ?? '') === slug)
-  .filter((event) => {
-    if (['weekly', 'monthly', 'ongoing'].includes(event.data.recurrence)) return true;
-    return isUpcoming(event.data.endDate ?? event.data.startDate);
-  })
-  .sort((a, b) => (b.data.visitorAppealScore ?? 0) - (a.data.visitorAppealScore ?? 0))
-  .slice(0, 3);
+const venueEvents = eventPromotionEntries((await getCollection('events'))
+  .sort((a, b) => (b.data.visitorAppealScore ?? 0) - (a.data.visitorAppealScore ?? 0)),
+  {now: new Date(), venueId: slug, limit: 3});
 
 const venuePlaceName = titleize(String(venue.data.place?.id ?? venue.data.place ?? ''));
 const venueTypeLabel = typeLabel[venue.data.type] ?? titleize(venue.data.type);
@@ -64,10 +60,10 @@ const sigDesc = (venue.data.signature ?? '').trim();
 const editorLead = (venue.data.editorNote ?? '').split(/\n\s*\n/)[0].replace(/\s+/g, ' ').trim();
 const description = sigDesc.length >= 90 ? sigDesc : (editorLead || sigDesc).slice(0, 158);
 const canonical = `https://peninsulainsider.com.au/wine/${slug}/`;
-const hero = await resolveHero('venue', slug, venue.data);
+const hero = await resolveHero('venue', slug, venue.data, 'heroImage', {
+  requireOverrideMetadata: ['ocean-eight', 'paringa-estate'].includes(slug),
+});
 const ogImage = hero.src;
-
-const isVerified = Boolean(venue.data.lastFactVerified);
 
 const schemas: any[] = [
   buildWinerySchema(venue.data, slug),

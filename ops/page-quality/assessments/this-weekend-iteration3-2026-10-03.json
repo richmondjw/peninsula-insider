@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "1.0",
+  "url": "https://peninsulainsider.com.au/whats-on/this-weekend/",
+  "tier": "T1",
+  "family": "hub",
+  "assessedAt": "2026-10-03",
+  "sourceRevision": "local codex/pi-weekend-quality working tree based on 8a5bebd, served at 4387 before release commit",
+  "reviewers": [
+    {
+      "role": "independent factual, rights and visitor journey",
+      "assessedSubtotal": {
+        "points": 52.75,
+        "maxPoints": 55
+      },
+      "criteriaAssessed": 12,
+      "keyFindings": [
+        "All three dated event and organiser journeys resolve; Hill directions use the published street address",
+        "Current operator pages support Bass, Pt Leo, Studio Yoga and Ten Minutes claims",
+        "Displayed imagery and social previews have a rights-safe disclosure path; no CMS event images requested",
+        "Remaining deductions: limited explicit travel/order trade-offs and some generic local rationale"
+      ]
+    },
+    {
+      "role": "independent visual and mobile",
+      "assessedSubtotal": {
+        "points": 71.25,
+        "maxPoints": 79
+      },
+      "criteriaAssessed": 18,
+      "keyFindings": [
+        "Three chronological choices fit the first 900px at 320 and 390px with cookie notice",
+        "Market illustration and credit load at 320, 390 and 1440px; no overflow",
+        "Remaining deductions: unrelated scenic hero, long phone cards, small secondary credits, limited browse refinement",
+        "Measured speed, motion and assistive technology were outside this visual subset"
+      ]
+    },
+    {
+      "role": "independent interaction and accessibility",
+      "assessedSubtotal": {
+        "points": 31,
+        "maxPoints": 31
+      },
+      "criteriaAssessed": 7,
+      "keyFindings": [
+        "Keyboard, focus, Save, Share, denied-clipboard recovery, mobile navigation and dated-link journeys passed at 320, 390 and 1440px",
+        "Expiry before and after Melbourne Sunday cutoff, no-JavaScript fallback and open-tab timer passed",
+        "Actual screen-reader use and measured performance remain unassessed"
+      ]
+    }
+  ],
+  "score": null,
+  "status": "provisional-failed",
+  "observedHardGates": [],
+  "unassessedOrIncomplete": [
+    "full independent 23-criterion score",
+    "actual screen-reader use",
+    "measured production speed and layout stability",
+    "reduced-motion check",
+    "live deployment receipt"
+  ],
+  "independenceNote": "Reviewer subsets overlap; their points must not be added or converted to a score out of 100. No reviewer certified 99/100.",
+  "buildEvidence": "Static artifact, event safeguard, media provenance, link-health, all downstream local assertions and Pagefind passed after two official source links were probed; a fresh full CI build remains the release gate.",
+  "nextAction": "Push and pass full CI, merge and verify public endpoints; then continue the next design loop for task-aligned hero imagery, shorter mobile decision cards, stronger local trade-offs and remaining accessibility/performance criteria."
+}

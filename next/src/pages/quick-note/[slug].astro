@@ -57,7 +57,7 @@ export const prerender = true;
     { label: note.data.headline },
   ]} />
 
-  <main class="qn-detail">
+  <div class="qn-detail">
     <article class="container">
       <div class="qn-detail__meta">
         <span class="qn-detail__section">{SECTION_LABEL[note.data.section] ?? note.data.section}</span>
@@ -100,7 +100,7 @@ export const prerender = true;
         <p><a href="/quick-note/">← Back to Quick Note</a></p>
       </div>
     </article>
-  </main>
+  </div>
 </BaseLayout>
 
 <style is:global>

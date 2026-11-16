@@ -1,0 +1,20 @@
+{
+  "claimId": "quick-notes/2026-05-30-weather-saturday/conditions",
+  "claimClass": "conditions",
+  "subject": {
+    "type": "quick-notes",
+    "slug": "2026-05-30-weather-saturday",
+    "field": "sources"
+  },
+  "statement": "Saturday - the wet pattern arrives, 90% with showers building late, 16°C.",
+  "assertedBy": [
+    {
+      "type": "quick-notes",
+      "slug": "2026-05-30-weather-saturday",
+      "field": "sources"
+    }
+  ],
+  "createdAt": "2026-05-30",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

@@ -1,0 +1,18 @@
+{
+  "claimId": "events/foxeys-hangout-vegetable-feast-morning-sun-vineyard/event-status",
+  "claimClass": "event-status",
+  "subject": {
+    "type": "events",
+    "slug": "foxeys-hangout-vegetable-feast-morning-sun-vineyard"
+  },
+  "statement": "Foxeys Hangout Vegetable Feast (Morning Sun Vineyard) is running as published.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "foxeys-hangout-vegetable-feast-morning-sun-vineyard"
+    }
+  ],
+  "createdAt": "2026-05-04",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

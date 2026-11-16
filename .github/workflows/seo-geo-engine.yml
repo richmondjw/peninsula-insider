@@ -1,0 +1,123 @@
+name: SEO/GEO Engine
+
+# The scheduled cycle does NOT run here (decided 2026-09-21). GitHub Actions
+# cannot reach the protected Jev credential or the site's Search Console
+# identity, so a scheduled run here would only ever be the rule-based, demand-
+# blind audit. The daily cycle runs on the OpenClaw gateway instead
+# (ops/geo-engine/scripts/gateway-cycle.sh via the pi-seo-daily-pull automation,
+# 05:30 Australia/Melbourne), which has both, and commits state from there.
+#
+# This workflow keeps the engine honest on pull requests (tests) and offers a
+# manual, credential-less audit through workflow_dispatch. It does not
+# duplicate the existing `SEO Audit` workflow (SiteOne + Lighthouse), which
+# measures crawlability and lab performance.
+
+on:
+  pull_request:
+    paths:
+      - 'ops/geo-engine/**'
+      - 'next/src/**'
+      - '.github/workflows/seo-geo-engine.yml'
+  workflow_dispatch:
+    inputs:
+      cycle:
+        description: 'Cycle to run'
+        type: choice
+        options: [incremental, weekly]
+        default: incremental
+      target:
+        description: 'Audit the published build, or a fresh build of current source'
+        type: choice
+        options: [served, source]
+        default: served
+
+permissions:
+  contents: write
+
+concurrency:
+  group: seo-geo-engine-${{ github.event.pull_request.number || 'scheduled' }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  cycle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      TZ: Australia/Melbourne
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      # The engine has no third-party dependencies, so there is nothing to
+      # install. The tests are the gate: a failing engine must not write state.
+      - name: Test the engine
+        working-directory: ops/geo-engine
+        run: npm test
+
+      - name: Build current source for the deploy delta
+        if: inputs.target == 'source'
+        working-directory: next
+        continue-on-error: true
+        env:
+          PUBLIC_SUPABASE_URL: ${{ secrets.PUBLIC_SUPABASE_URL }}
+          PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.PUBLIC_SUPABASE_ANON_KEY }}
+        run: |
+          npm ci --no-audit --no-fund
+          npm run build
+        # A failed build is not fatal: the cycle then audits the published tree
+        # only, and the report says the deploy delta was unavailable.
+
+      - name: Run the optimisation cycle
+        working-directory: ops/geo-engine
+        env:
+          # Supply these to promote the decision layer off deterministic rules.
+          JEV_ENDPOINT: ${{ secrets.JEV_ENDPOINT }}
+          JEV_API_KEY: ${{ secrets.JEV_API_KEY }}
+          JEV_MODEL: ${{ secrets.JEV_MODEL }}
+          # Supplying this lets the engine see real search demand.
+          GSC_TOKEN_JSON: ${{ secrets.GSC_TOKEN_JSON }}
+          SCHEDULE: ${{ github.event.schedule }}
+          REQUESTED_CYCLE: ${{ inputs.cycle }}
+          REQUESTED_TARGET: ${{ inputs.target }}
+        run: |
+          if [ "$REQUESTED_CYCLE" = weekly ]; then
+            CYCLE=weekly
+          else
+            CYCLE=incremental
+          fi
+          ARGS="--cycle=$CYCLE"
+          if [ "$REQUESTED_TARGET" = source ]; then ARGS="$ARGS --target=source"; fi
+          node run.mjs $ARGS
+
+      - name: Publish the report to the run summary
+        if: always()
+        run: cat ops/geo-engine/state/latest-report.txt >> "$GITHUB_STEP_SUMMARY" || true
+
+      - name: Retain run evidence, including on failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: seo-geo-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ops/geo-engine/.runs/
+          include-hidden-files: true
+          retention-days: 90
+          if-no-files-found: warn
+
+      # Persistent state must outlive the runner, so it is committed. Only the
+      # engine's own state directory is ever touched.
+      - name: Commit persistent state
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          git config user.name "peninsula-insider-bot"
+          git config user.email "bot@peninsulainsider.com.au"
+          git add ops/geo-engine/state
+          if git diff --cached --quiet; then
+            echo "No state change."
+          else
+            git commit -m "chore(seo-geo): optimisation cycle state $(date -u +%Y-%m-%d) [skip-review]"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi

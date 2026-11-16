@@ -1,0 +1,160 @@
+{
+  "generatedOn": "2026-11-09",
+  "model": "Higgsfield nano_banana_2_1, 2k, aspect 3:2",
+  "references": [
+    "next/public/images/generated/coastal-punch-yoga.webp",
+    "next/public/images/generated/coastal-punch-gin.webp"
+  ],
+  "promptTemplate": "Create ONE standalone editorial illustration in the Coastal Punch house style shown in the reference images, of <subject>. Aspect ratio 3:2 for a website event card. Radical simplicity: one dominant silhouette centred in the frame, built from a few large flat shapes, generous empty ivory space, a bold navy graphic shadow, one broad teal field or gentle wave at the base. Use ONLY these five flat colours: deep navy #102D42, sea teal #008F9C, warm ivory #FFF4DC, coral #F36B4F, sunshine yellow #F3C969. No gradients, no texture, no fine detail, no outlines-within-outlines, no people, no lettering, no logos, no numbers. Conceptual object, not a photograph or a specific venue. Keep the subject inside the central 16:9 crop. Not a collage.",
+  "derivative": "1536x1024 WebP q82 (sharp, cover crop)",
+  "authority": "James, 2026-11-09: fix missing What's On event images and institutionalise the fix",
+  "assets": [
+    {
+      "id": "art-workshop",
+      "web": "next/public/images/generated/events/art-workshop.webp",
+      "subject": "a single paintbrush crossing an artist's palette with three paint dabs",
+      "higgsfieldJob": "12169caa-40c3-4b68-b524-577ded4c1efe",
+      "master": "workspace/state/pi-event-illustrations/masters-20261109/art-workshop.png"
+    },
+    {
+      "id": "barbecue",
+      "web": "next/public/images/generated/events/barbecue.webp",
+      "subject": "a round kettle barbecue with a single soft flame and curl of smoke",
+      "higgsfieldJob": "390b48e0-af0e-42a2-8a3e-3336780b96ec",
+      "master": "workspace/state/pi-event-illustrations/masters-20261109/barbecue.png"
+    },
+    {
+      "id": "books-talk",
+      "web": "next/public/images/generated/events/books-talk.webp",
+      "subject": "a short stack of three books with round reading glasses on top",
+      "higgsfieldJob": "33fe0209-b621-46f2-b0f7-7d74fb271ec9",
+      "master": "workspace/state/pi-event-illustrations/masters-20261109/books-talk.png"
+    },
+    {
+      "id": "bread",
+      "web": "next/public/images/generated/events/bread.webp",
+      "subject": "a round sourdough loaf with one scored ear, on a wooden board",
+      "higgsfieldJob": "9f02f5fa-329b-435e-8ad8-c2125d2937cf",
+      "master": "workspace/state/pi-event-illustrations/masters-20261109/bread.png"
+    },
+    {
+      "id": "celebration",
+      "web": "next/public/images/generated/events/celebration.webp",
+      "subject": "a coupe glass of sparkling wine with a single lit sparkler",
+      "higgsfieldJob": "bcde36f9-a358-43c5-b745-a5263c676576",
+      "master": "workspace/state/pi-event-illustrations/masters-20261109/celebration.png"
+    },
+    {
+      "id": "chocolate",
+      "web": "next/public/images/generated/events/chocolate.webp",
+      "subject": "a broken chocolate bar with two squares standing apart",
+      "higgsfieldJob": "47a21e7d-f2a5-45e3-bc59-6efce1a5390a",
+      "master": "workspace/state/pi-event-illustrations/masters-20261109/chocolate.png"
+    },
+    {
+      "id": "community",
+      "web": "next/public/images/generated/events/community.webp",
+      "subject": "a folded picnic blanket with a woven basket",
+      "higgsfieldJob": "2de0fa32-a3cb-4669-92e2-688ef2416751",
+      "master": "workspace/state/pi-event-illustrations/masters-20261109/community.png"
+    },
+    {
+      "id": "cooking-class",
+      "web": "next/public/images/generated/events/cooking-class.webp",
+      "subject": "a balloon whisk resting across a wide mixing bowl",
+      "higgsfieldJob": "44129885-6456-4f4c-b7fe-bf63cf70889a",
+      "master": "workspace/state/pi-event-illustrations/masters-20261109/cooking-class.png"
+    },
+    {
+      "id": "dining",
+      "web": "next/public/images/generated/events/dining.webp",
+      "subject": "a dinner plate with a knife and fork beside a stemmed wine glass",
+      "higgsfieldJob": "46f31585-7cb2-4f4a-bb62-5ba856b04532",
+      "master": "workspace/state/pi-event-illustrations/masters-20261109/dining.png"
+    },
+    {
+      "id": "family",
+      "web": "next/public/images/generated/events/family.webp",
+      "subject": "a diamond kite with a ribbon tail flying high",
+      "higgsfieldJob": "314fe7ac-7036-4117-bb77-69096063a47d",
+      "master": "workspace/state/pi-event-illustrations/masters-20261109/family.png"
+    },
+    {
+      "id": "festival",
+      "web": "next/public/images/generated/events/festival.webp",
+      "subject": "a striped festival tent with a short string of triangle bunting",
+      "higgsfieldJob": "30a59cd7-06c8-4443-8330-2f27ea3adcf6",
+      "master": "workspace/state/pi-event-illustrations/masters-20261109/festival.png"
+    },
+    {
+      "id": "gallery",
+      "web": "next/public/images/generated/events/gallery.webp",
+      "subject": "two empty picture frames hanging on a wall, lit by one spotlight beam",
+      "higgsfieldJob": "e0e43b77-188d-4d11-92d2-e29186d07d1b",
+      "master": "workspace/state/pi-event-illustrations/masters-20261109/gallery.png"
+    },
+    {
+      "id": "garden-walk",
+      "web": "next/public/images/generated/events/garden-walk.webp",
+      "subject": "a winding garden path between two rounded eucalyptus shrubs",
+      "higgsfieldJob": "c9b5669f-9885-43ec-a819-26096eaca4b2",
+      "master": "workspace/state/pi-event-illustrations/masters-20261109/garden-walk.png"
+    },
+    {
+      "id": "golf",
+      "web": "next/public/images/generated/events/golf.webp",
+      "subject": "a golf flag pin on a rounded green with a single ball",
+      "higgsfieldJob": "6d5015c3-f03e-45e1-907f-afb07925e876",
+      "master": "workspace/state/pi-event-illustrations/masters-20261109/golf.png"
+    },
+    {
+      "id": "music-amp",
+      "web": "next/public/images/generated/events/music-amp.webp",
+      "subject": "a small retro guitar amplifier with a round speaker grille",
+      "higgsfieldJob": "1175ec0d-7390-4f43-8472-bbcccf0b7446",
+      "master": "workspace/state/pi-event-illustrations/masters-20261109/music-amp.png"
+    },
+    {
+      "id": "music-guitar",
+      "web": "next/public/images/generated/events/music-guitar.webp",
+      "subject": "an acoustic guitar leaning at a gentle angle",
+      "higgsfieldJob": "1356f174-be94-4f06-8008-8ac25f72a6c9",
+      "master": "workspace/state/pi-event-illustrations/masters-20261109/music-guitar.png"
+    },
+    {
+      "id": "music-microphone",
+      "web": "next/public/images/generated/events/music-microphone.webp",
+      "subject": "a vintage stage microphone on a slim stand",
+      "higgsfieldJob": "f5ab53a2-1dcd-4f11-94f8-55da85c323fb",
+      "master": "workspace/state/pi-event-illustrations/masters-20261109/music-microphone.png"
+    },
+    {
+      "id": "sewing",
+      "web": "next/public/images/generated/events/sewing.webp",
+      "subject": "a classic sewing machine with a spool of thread",
+      "higgsfieldJob": "0c27152c-be5f-4e9b-95d9-f3c0323a1c76",
+      "master": "workspace/state/pi-event-illustrations/masters-20261109/sewing.png"
+    },
+    {
+      "id": "thermal-pool",
+      "web": "next/public/images/generated/events/thermal-pool.webp",
+      "subject": "a round outdoor bathing pool with three soft curls of steam",
+      "higgsfieldJob": "852d6573-b12f-4bd1-9e9c-4affdbab2ba4",
+      "master": "workspace/state/pi-event-illustrations/masters-20261109/thermal-pool.png"
+    },
+    {
+      "id": "wine",
+      "web": "next/public/images/generated/events/wine.webp",
+      "subject": "a stemmed glass of white wine beside one bunch of grapes and a vine leaf",
+      "higgsfieldJob": "b83bb814-5b0f-42e4-a547-47c9dc45f7b1",
+      "master": "workspace/state/pi-event-illustrations/masters-20261109/wine.png"
+    },
+    {
+      "id": "wreath",
+      "web": "next/public/images/generated/events/wreath.webp",
+      "subject": "a festive eucalyptus wreath tied with one coral ribbon bow",
+      "higgsfieldJob": "d32d10fc-aadb-445b-84a3-905e905e4bd7",
+      "master": "workspace/state/pi-event-illustrations/masters-20261109/wreath.png"
+    }
+  ]
+}

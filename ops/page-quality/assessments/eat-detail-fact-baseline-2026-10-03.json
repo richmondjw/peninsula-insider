@@ -1,0 +1,67 @@
+{
+  "schemaVersion": "1.0",
+  "family": "eat-detail-facts",
+  "tier": "T2",
+  "assessedAt": "2026-10-03",
+  "owner": "Codex in James-approved Peninsula Insider programme",
+  "status": "ready-for-protected-release",
+  "score": null,
+  "publicRelease": {
+    "sourceSha": "f1230d4f06a9e799c3790be42860b83f8376eaa7",
+    "buildRunId": "37121713795"
+  },
+  "method": "Inspected exact live Eat pages and content records after matching the public release manifest; compared volatile contact, booking, place and award/menu claims to current primary operator pages. Independent factual review pending. HTTP 200 alone did not prove a booking destination was the operator.",
+  "findings": [
+    {
+      "page": "/eat/epicurean-red-hill/",
+      "severity": "hard-gate",
+      "observed": "The booking and website links use epicurean.com.au, which served an AboveDomains for-sale page at /reservations despite HTTP 200. Record says 165 Purves Rd and (03) 5989 2000; operator lists 165 Shoreham Road and (03) 5989 4000. Record also uses a 2024 one-hat award, unsupported current pricing and specific dish advice, and lastVerified 2026-04-09.",
+      "primarySources": [
+        "https://www.theepicurean.com.au/",
+        "https://www.theepicurean.com.au/shed-restaurant-reservations"
+      ],
+      "proposedAction": "Move website and booking to the operator, correct address/phone, remove unverified coordinates and current-sounding hat/price/dish claims; anchor useful description in the operator current Shed Restaurant information."
+    },
+    {
+      "page": "/eat/doot-doot-doot/",
+      "severity": "material",
+      "observed": "Page place label says Red Hill while the record address and operator contact page say Merricks North. The current booking button points to a generic hotel page although the operator dining page links a restaurant reservation flow.",
+      "primarySources": [
+        "https://jackalopehotels.com/contact/",
+        "https://jackalopehotels.com/drink-dine/"
+      ],
+      "proposedAction": "Set place to merricks-north and use the operator-linked SevenRooms restaurant reservation; retain the Red Hill wine-country zone and documented illustrative image."
+    },
+    {
+      "page": "/eat/laura-pt-leo/",
+      "severity": "material",
+      "observed": "Numerical hats and known-for badge read as current, while the specific local award record is Good Food Guide 2024. The operator currently calls Laura two-hatted but an exact current independent award year was not established.",
+      "primarySources": [
+        "https://www.ptleoestate.com.au/dine/laura/"
+      ],
+      "proposedAction": "Remove the unattributed numeric current-award badge and historical 2024 award metadata; retain a clearly attributed statement from the current operator page, while the exact current guide edition remains unconfirmed."
+    }
+  ],
+  "hypothesis": "Correct operator paths and remove unsupported volatile claims so visitors can book and navigate with confidence without degrading the newly released media treatment.",
+  "boundedChange": "Edit only these three Eat venue records and programme evidence; do not alter photos, other venue families, templates or the 2024 historical source record elsewhere.",
+  "metric": "Epic booking and website links resolve to current operator pages; address/phone match operator; directions use corrected address rather than unverified coordinates; Doot breadcrumb/place reads Merricks North; unsupported current-sounding award/price/dish badges are absent; full build, independent review and exact live verification pass. Doot restaurant booking reaches the operator-linked SevenRooms reservation flow; Laura two-hat language is attributed to the operator rather than presented as a current independently verified award badge.",
+  "evaluationDate": "2026-10-03",
+  "rollback": "Revert the three venue-record changes; keep the prior media release intact.",
+  "validation": {
+    "build": "PASS: definitive npm run build:search exited 0; Pagefind indexed 727 pages, and assert:link-health passed with zero unrecorded citations.",
+    "independentReview": "Bounded GO: source reviewer checked current primary operator facts; separate release reviewer inspected Epic, Doot and Laura at 320/390/1440, all 200 with zero overflow, corrected booking/directions/contact, credited media and no stale rendered claims. This is not a full 23-criterion score.",
+    "liveAcceptance": "pending exact public manifest and browser checks",
+    "firstBuild": "FAIL: venue schema requires priceBand; omission rejected before page generation. Restored existing internal $$$ classification and kept unsupported comparative price copy removed. Full rebuild pending.",
+    "independentSourceReview": "Read-only reviewer independently confirmed Epic operator contact/booking mismatch and parked-domain HTTP-200 trap, Doot Merricks North and restaurant booking path, and current Pt. Leo Estate two-hat statement. Current publisher edition remains unverified.",
+    "verificationScope": "3 October primary-source check covers Epic booking/site/address/phone/service and replacement copy, Doot place/reservation, and Laura attributed award prose. The older whole-record lastVerified field remains unchanged; gallery, pairings, priceBand and other fields were not fully reverified.",
+    "linkProbe": "Repo probe:link-health -- --unrecorded fetched four new cited URLs and wrote reviewable receipts: Epic website and reservation ok, operator-linked SevenRooms ok, Jackalope dining page blocked by probe host policy. Independent browser/web read of Jackalope dining page succeeded and showed its Doot restaurant reservation link. Blocked is not treated as dead.",
+    "secondBuild": "FAIL at link-health gate before receipts: four new URLs unrecorded against baseline zero. Receipts now recorded; final rebuild pending."
+  },
+  "hardGatesOpen": [
+    "Full 23-criterion scoring, direct assistive-technology checks and broader Eat venue factual audit remain unassessed.",
+    "Current Good Food Guide hat counts for Laura and The Epicurean need independent current-year evidence before numeric badges return.",
+    "The schema-required Epicurean priceBand $$$ is retained from the historical record, has not been independently repriced and must be audited before price filters are scored.",
+    "Epic whole-record lastVerified remains 2026-04-09 because the scoped correction did not reverify gallery, pairings, priceBand or every tag. Do not present the partial check as a full content refresh."
+  ],
+  "nextAction": "Publish through protected CI, verify exact public manifest and corrected public booking/contact/directions/claims, then continue independent full-rubric and remaining factual audits."
+}

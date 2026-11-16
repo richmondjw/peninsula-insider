@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "1.0",
+  "family": "golf-course-experience-detail",
+  "tier": "T2",
+  "urls": [
+    "https://peninsulainsider.com.au/explore/moonah-links/",
+    "https://peninsulainsider.com.au/explore/st-andrews-beach-golf-course/",
+    "https://peninsulainsider.com.au/explore/the-national-golf-club/",
+    "https://peninsulainsider.com.au/explore/racv-cape-schanck-golf-course/",
+    "https://peninsulainsider.com.au/explore/flinders-golf-club/",
+    "https://peninsulainsider.com.au/explore/eagle-ridge-golf-course/",
+    "https://peninsulainsider.com.au/explore/the-dunes-golf-links/",
+    "https://peninsulainsider.com.au/explore/mornington-golf-club/",
+    "https://peninsulainsider.com.au/explore/rosebud-country-club/",
+    "https://peninsulainsider.com.au/explore/sorrento-golf-club/",
+    "https://peninsulainsider.com.au/explore/portsea-golf-club/"
+  ],
+  "assessedAt": "2026-10-06",
+  "sourceRevision": "f89f8bc4006c2e8b0e8d8546d24920caedd29137",
+  "buildRunId": "37339921698",
+  "pagesRunId": "37341538388",
+  "reviewers": [
+    "independent access/facts",
+    "independent UX/task",
+    "independent visual/mobile"
+  ],
+  "viewports": [
+    320,
+    390,
+    1440
+  ],
+  "scope": "exact-live bounded iteration10 visitor-action acceptance; no complete per-page rubric",
+  "observed": "All 11 live detail routes load; first-screen operator actions are accurate and at least 44px, with no horizontal overflow or page errors. National eligibility is explicit; Dunes has a separate rates source. Hub remains 11 cards with 11 dated notes.",
+  "supportedCriterionObservations": {
+    "VT2": "First-screen planning promise/action observed on all 11.",
+    "FN1": "Clear title, planning panel and hero hierarchy on all 11.",
+    "FN2": "Direct official operator action observed on all 11.",
+    "MI1": "Mobile reflow and touch targets observed at 320/390; desktop at 1440.",
+    "AT1": "Representative keyboard focus/Enter and accessible action names observed; direct screen-reader journey pending.",
+    "AT4": "One H1, canonical and clear action link semantics observed on all 11."
+  },
+  "score": null,
+  "scoreStatus": "withheld: 23 criteria cannot be independently evidenced for each page",
+  "hardGates": [
+    "Full-record factual freshness unverified; 11 records retain 14 Apr 2026 verification date.",
+    "Visit Victoria original image grant/download receipts unreconciled.",
+    "Direct screen-reader journey, normal-user offsite booking completion, exact-route field CWV/CLS unverified."
+  ],
+  "nextObservedIssue": "A visitor cannot return contextually to the golf comparison from a detail; breadcrumb and category link point to generic Explore.",
+  "decision": "adapt-continue"
+}

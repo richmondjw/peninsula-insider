@@ -5,9 +5,10 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import SubpageHero from '../../components/SubpageHero.astro';
 import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { routeSlug } from '../../lib/editorial';
+import { routeSlug, isListableVenue } from '../../lib/editorial';
+import ProvenanceLine from '../../components/ProvenanceLine.astro';
 
-const allVenues = await getCollection('venues');
+const allVenues = (await getCollection('venues')).filter(isListableVenue);
 
 const cafeTypes = ['cafe'];
 const cafeSlugs = ['commonfolk-coffee','many-little','somers-general',  'merricks-general-wine-store','store-ten','stringers-mornington','flinders-general-store',
@@ -55,7 +56,7 @@ const faqSchema = {
     {
       '@type': 'Question',
       name: 'What is the best cafe on the Mornington Peninsula?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Commonfolk Coffee in Mornington (16 Progress Street) is widely regarded as the Peninsula\'s best specialty coffee. House roaster, excellent food menu, dog-friendly back courtyard. For a village cafe experience, Somers General Store (Somers) and Small Stone Pantry (Shoreham) are both worth planning a stop around.' },
+      acceptedAnswer: { '@type': 'Answer', text: 'Commonfolk Coffee in Mornington (16 Progress Street) is widely regarded as the Peninsula\'s best specialty coffee. House roaster, excellent food menu, dog-friendly back courtyard. For a village cafe experience, Somers General Store is another option for a village cafe stop. Check current menus and hours with the operator.' },
     },
     {
       '@type': 'Question',
@@ -95,7 +96,7 @@ export const prerender = true;
   <div class="prose">
     <p>The Peninsula's cafe scene concentrates in Mornington and the hinterland villages. Commonfolk Coffee in Mornington is the benchmark for specialty coffee - a house roaster, an excellent kitchen, and the kind of back courtyard that makes a weekday morning feel like a weekend decision. Below it, a scattered set of village cafes and general stores doing honest work without trying to be anything they are not.</p>
         <p>The pattern on the Peninsula is the general store cafe: a converted grocery or provisions building now serving coffee, pastries, and a limited food menu. Somers General, Flinders General Store, and Merricks General Wine Store are the strongest examples. Each is worth a stop rather than a destination, unless you are already in the right part of the Peninsula for another reason.</p>
-        <p class="venues__sub" style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 23 April 2026</p>
+        <ProvenanceLine class="venues__sub" style="font-size:0.8rem;color:var(--soft)" records={venues} type="venues" noun="venue" />
       </div>
   </div>
 </SubpageHero>
@@ -105,7 +106,7 @@ export const prerender = true;
       <div class="venues__header">
         <div>
           <p class="label label--accent">Peninsula cafes</p>
-          <h2 class="venues__title">{venues.length} coffee rooms and village stops</h2>
+          <h2 class="venues__title">Coffee rooms and village stops</h2>
           <p class="venues__sub">The specialty coffee destination first, then the village cafes worth knowing by location.</p>
         </div>
         <a href="/eat/" class="venues__link">All dining venues →</a>
@@ -139,7 +140,7 @@ export const prerender = true;
         </div>
       </div>
       <div class="venues__grid venues__grid--links">
-        <div class="pi-card"><div class="pi-card__body"><h3 class="pi-card__title"><a href="/eat/bakeries/">Best Bakeries</a></h3><p class="pi-card__dek">The six Peninsula bakeries worth knowing - where they are and what makes each one different.</p><div class="pi-card__actions"><a href="/eat/bakeries/" class="pi-btn pi-btn--solid">See the list →</a></div></div></div>
+        <div class="pi-card"><div class="pi-card__body"><h3 class="pi-card__title"><a href="/eat/bakeries/">Best Bakeries</a></h3><p class="pi-card__dek">The Peninsula bakeries worth knowing - where they are and what makes each one different.</p><div class="pi-card__actions"><a href="/eat/bakeries/" class="pi-btn pi-btn--solid">See the list →</a></div></div></div>
         <div class="pi-card"><div class="pi-card__body"><h3 class="pi-card__title"><a href="/eat/brunch/">Best Brunch</a></h3><p class="pi-card__dek">The brunch spots worth planning a detour for - from Mornington to the hinterland.</p><div class="pi-card__actions"><a href="/eat/brunch/" class="pi-btn pi-btn--solid">See the list →</a></div></div></div>
         <div class="pi-card"><div class="pi-card__body"><h3 class="pi-card__title"><a href="/eat/">All Eat & Drink</a></h3><p class="pi-card__dek">The full Peninsula dining guide - restaurants, cellar doors, cafes, bakeries, and pubs.</p><div class="pi-card__actions"><a href="/eat/" class="pi-btn pi-btn--solid">Explore all →</a></div></div></div>
       </div>

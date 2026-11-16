@@ -1,0 +1,24 @@
+{
+  "claimId": "quick-notes/2026-05-01-laura-sunday-lunch-windows/booking",
+  "claimClass": "booking",
+  "subject": {
+    "type": "quick-notes",
+    "slug": "2026-05-01-laura-sunday-lunch-windows",
+    "field": "sources"
+  },
+  "statement": "Laura adds three Sunday lunch sittings for autumn",
+  "assertedBy": [
+    {
+      "type": "quick-notes",
+      "slug": "2026-05-01-laura-sunday-lunch-windows",
+      "field": "sources"
+    },
+    {
+      "type": "venues",
+      "slug": "laura-pt-leo"
+    }
+  ],
+  "createdAt": "2026-05-01",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

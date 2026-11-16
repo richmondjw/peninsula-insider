@@ -1,4 +1,5 @@
 ---
+import type { EditorialPlan } from '../../lib/editorial-plan-import';
 /**
  * SaveControl (v5) - save/unsave an entity to the reader's list.
  * Successor to PiSaveActions for the v5 Card system (spec 2.25).
@@ -32,6 +33,8 @@ export interface Props {
   labelled?: boolean;
   /** 'save' (default) or 'fork' ("Copy this plan", plan entities only). */
   variant?: 'save' | 'fork';
+  /** Required for a real plan copy into My Trip. */
+  plan?: EditorialPlan;
 }
 
 const {
@@ -44,9 +47,10 @@ const {
   imageUrl,
   labelled = false,
   variant = 'save',
+  plan,
 } = Astro.props;
 
-const isFork = variant === 'fork';
+const isFork = variant === 'fork' && Boolean(plan);
 const accessibleName = isFork ? `Copy this plan: ${title}` : `Save ${title}`;
 ---
 
@@ -60,18 +64,19 @@ const accessibleName = isFork ? `Copy this plan: ${title}` : `Save ${title}`;
   data-section={section}
   data-dek={dek}
   data-image={imageUrl}
-  data-variant={variant}
+  data-variant={isFork ? 'fork' : 'save'}
+  data-plan={isFork ? JSON.stringify(plan) : undefined}
 >
   <button
     type="button"
     class:list={['v5-save__btn', labelled && 'v5-save__btn--labelled', isFork && 'v5-save__btn--fork']}
-    aria-pressed="false"
+    aria-pressed={isFork ? undefined : 'false'}
     aria-label={accessibleName}
     data-v5-save-btn
   >
     <svg
-      width="16"
-      height="16"
+      width="18"
+      height="18"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -110,13 +115,13 @@ const accessibleName = isFork ? `Copy this plan: ${title}` : `Save ${title}`;
     min-width: 48px;
     min-height: 48px;
     padding: 0 0.6rem;
-    background: var(--bg, #fff);
-    color: var(--soft);
-    border: 1px solid var(--border);
-    border-radius: 999px;
+    background: transparent;
+    color: inherit; /* follows the card: ink on light, white on dark grounds */
+    border: 1px solid transparent;
+    border-radius: var(--radius-s);
     cursor: pointer;
     font-family: var(--font-ui, var(--font-ui));
-    font-size: var(--fs-200, 0.8125rem);
+    font-size: var(--fs-300);
     font-weight: var(--fw-semibold, 600);
     line-height: var(--lh-ui, 1.4);
     transition:
@@ -126,8 +131,8 @@ const accessibleName = isFork ? `Copy this plan: ${title}` : `Save ${title}`;
   }
 
   .v5-save__btn:hover {
-    border-color: var(--accent);
-    color: var(--accent);
+    background: color-mix(in srgb, currentColor 10%, transparent);
+    color: inherit;
   }
 
   .v5-save__btn:focus-visible {
@@ -136,9 +141,8 @@ const accessibleName = isFork ? `Copy this plan: ${title}` : `Save ${title}`;
   }
 
   .v5-save__btn[aria-pressed='true'] {
-    background: var(--text);
-    border-color: var(--text);
-    color: var(--white, #fff);
+    background: transparent;
+    color: var(--accent);
   }
 
   .v5-save__btn[aria-pressed='true'] svg path {
@@ -146,7 +150,7 @@ const accessibleName = isFork ? `Copy this plan: ${title}` : `Save ${title}`;
   }
 
   .v5-save__btn--fork {
-    border-radius: var(--radius-s, 4px);
+    border-radius: var(--radius-s);
   }
 
   /* Icon-only mode keeps the label for screen readers. */
@@ -165,6 +169,8 @@ const accessibleName = isFork ? `Copy this plan: ${title}` : `Save ${title}`;
 
 <script>
   import * as Saves from '../../lib/saves/store';
+  import { useEditorialPlan } from '../../lib/plan-trip-client';
+  import type { EditorialPlan } from '../../lib/editorial-plan-import';
   import type { SaveKind } from '../../lib/saves/store';
   import { trackEvent, initV5Analytics } from '../../lib/v5-analytics';
 
@@ -189,17 +195,48 @@ const accessibleName = isFork ? `Copy this plan: ${title}` : `Save ${title}`;
     const label = btn.querySelector<HTMLElement>('[data-v5-save-label]');
 
     function paint() {
+      if (variant === 'fork') return;
       const saved = Saves.isSaved(kind, slug!);
       btn!.setAttribute('aria-pressed', saved ? 'true' : 'false');
       if (label && variant === 'save') label.textContent = saved ? 'Saved' : 'Save';
     }
 
-    btn.addEventListener('click', (e) => {
+    btn.addEventListener('click', async (e) => {
       e.preventDefault();
       e.stopPropagation();
+      if (variant === 'fork') {
+        let plan: EditorialPlan | null = null;
+        try { plan = JSON.parse(el.dataset.plan || 'null') as EditorialPlan | null; } catch { /* invalid card data */ }
+        if (!plan) return;
+        if (btn.dataset.busy === 'true') return;
+        btn.dataset.busy = 'true';
+        btn.setAttribute('aria-disabled', 'true');
+        try {
+          const outcome = await useEditorialPlan(plan, btn);
+          if (outcome === 'added') trackEvent('plan_fork', { entity_type: kind, entity_slug: slug, surface: 'card' });
+          if ((outcome === 'added' || outcome === 'existing') && e.detail === 0) {
+            document.querySelector<HTMLAnchorElement>('[data-plan-import-status] a[href="/me/trip/"]')?.focus();
+          }
+        } finally {
+          delete btn.dataset.busy;
+          btn.removeAttribute('aria-disabled');
+        }
+        return;
+      }
       const wasSaved = Saves.isSaved(kind, slug!);
-      Saves.toggle({ kind, slug: slug!, section, title, dek, image_url, href });
-      const evt = variant === 'fork' ? 'plan_fork' : wasSaved ? 'save_remove' : 'save_add';
+      const result = Saves.toggle({ kind, slug: slug!, section, title, dek, image_url, href });
+      if (!result.ok) {
+        // Private mode / quota: nothing changed and no repaint fires. Do not
+        // paint "Saved", and do not report an event that did not happen.
+        btn!.setAttribute('title', 'Saving is unavailable in this browser');
+        if (label && variant === 'save') {
+          const previous = label.textContent;
+          label.textContent = 'Not saved';
+          setTimeout(() => { label.textContent = previous; }, 1600);
+        }
+        return;
+      }
+      const evt = wasSaved ? 'save_remove' : 'save_add';
       trackEvent(evt, {
         entity_type: kind,
         entity_slug: slug,
@@ -208,8 +245,22 @@ const accessibleName = isFork ? `Copy this plan: ${title}` : `Save ${title}`;
     });
 
     paint();
-    Saves.onChange(paint);
+    // Deliberately NOT Saves.onChange(paint) per control. onChange returns an
+    // unsubscribe nothing here could call, and the store's listener set lives
+    // in a bundled module that the client router never re-evaluates - so a
+    // per-control subscription survives the swap that discards its control,
+    // and every navigation adds one more callback repainting a detached
+    // button. One module-scope subscription below repaints whatever is live.
+    (el as any)._v5Paint = paint;
   }
+
+  function paintAll() {
+    document.querySelectorAll<HTMLElement>('[data-v5-save-control]').forEach((el) => {
+      const fn = (el as any)._v5Paint;
+      if (typeof fn === 'function') fn();
+    });
+  }
+  Saves.onChange(paintAll);
 
   function init() {
     document.querySelectorAll<HTMLElement>('[data-v5-save-control]').forEach(hydrate);

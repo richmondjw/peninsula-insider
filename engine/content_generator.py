@@ -12,7 +12,7 @@ import argparse
 import json
 import os
 import sys
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 import zoneinfo
 import subprocess
@@ -24,6 +24,7 @@ AEST = zoneinfo.ZoneInfo("Australia/Sydney")
 PI_VOICE_SYSTEM_PROMPT = """You are writing for Peninsula Insider — a premium local's guide to the Mornington Peninsula, Victoria, Australia.
 
 VOICE RULES (non-negotiable):
+- Product naming: Insider Picks is a short recommendation edition, published when a new selection is ready. Do not promise daily or Sunday publication. Peninsula This Weekend is the dated weekend edit; The Insider Note is an occasional email; the Journal is the guide and story library.
 - Specific always beats generic. Name the dish, the wine, the trail junction, the closing date.
 - No brochure language: never write "stunning", "vibrant", "nestled", "charming", "hidden gem", "must-visit", "world-class".
 - One clear opinion per pick. Recommend or don't. No hedge.
@@ -56,7 +57,7 @@ heroImage:
   credit: "Peninsula Insider"
   license: "other-licensed"
 format: "insider-edit"
-tags: [insider-picks, [season], weekly]
+tags: [insider-picks, [season]]
 relatedVenues: []
 relatedExperiences: []
 readingTimeMinutes: 4
@@ -128,6 +129,12 @@ def generate_insider_picks(date_str: str, research_data: dict | None = None) -> 
     """
     now = datetime.fromisoformat(date_str) if "-" in date_str else datetime.now(AEST)
     season = get_season(now.month)
+    # Give the writer an exact local calendar. Two September 2026 drafts
+    # failed the factual gate after inventing a weekday for a stated date.
+    calendar = "\n".join(
+        f"- {(now + timedelta(days=offset)):%A %d %B %Y}"
+        for offset in range(14)
+    )
     
     # Build context from research data
     research_context = ""
@@ -154,6 +161,9 @@ Recommended picks: {json.dumps(recommended, indent=2)}
 
 Date: {date_str}
 Season: {season.title()}
+LOCAL CALENDAR (Australia/Sydney; use these exact weekday/date pairs):
+{calendar}
+If a claimed event date is not in the research, omit the date rather than guess.
 {research_context}
 
 Write three picks:
@@ -192,11 +202,13 @@ def _clean_llm_output(text: str) -> str:
     time (first seen on the 2026-07-24 run)."""
     import re as _re
     t = text.strip()
-    if t.startswith("```"):
-        lines = t.splitlines()[1:]  # drop the opening fence line
-        if lines and lines[-1].strip().startswith("```"):
-            lines = lines[:-1]
-        t = "\n".join(lines).strip()
+    # Insider Picks has no code samples. A stray opening/closing Markdown
+    # fence makes the article render as a code block. This was the only hard
+    # verification failure on both 21 and 22 September 2026.
+    t = "\n".join(
+        line for line in t.splitlines()
+        if not _re.match(r"^\s*```(?:markdown|md|ya?ml)?\s*$", line, _re.I)
+    ).strip()
 
     def _quote_title(m):
         v = m.group(1).strip()
@@ -261,7 +273,7 @@ heroImage:
   credit: "Peninsula Insider"
   license: "other-licensed"
 format: "insider-edit"
-tags: [insider-picks, {season}, weekly, peninsula]
+tags: [insider-picks, {season}, peninsula]
 relatedVenues: [{eat.get('venue_slug', '')}]
 relatedExperiences: []
 readingTimeMinutes: 4

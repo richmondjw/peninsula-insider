@@ -1,0 +1,301 @@
+{
+  "schemaVersion": "1.0",
+  "id": "pi-agent-experience-v1",
+  "frozenAt": "2026-09-30T19:29:56.096Z",
+  "target": 99,
+  "scope": "Declared public-site tasks only. This score is not population-wide reliability or proof of agent preference.",
+  "requirements": {
+    "independentEvaluations": 2,
+    "stacks": 3,
+    "repetitions": 2,
+    "mainTasks": 30,
+    "holdoutTasks": 10,
+    "maxEvidenceAgeDays": 7,
+    "minimumTaskSuccess": 0.95,
+    "minimumCitationAccuracy": 0.99,
+    "minimumMedianTokenReduction": 0.5,
+    "simpleRequestBudget": 3,
+    "planningRequestBudget": 5
+  },
+  "criticalGates": [
+    "private-data-protected",
+    "permissions-consistent",
+    "high-consequence-facts-supported",
+    "event-status-truthful",
+    "consent-preserved"
+  ],
+  "categories": [
+    {
+      "id": "access",
+      "name": "Access and permissions",
+      "weight": 10,
+      "checks": [
+        {
+          "id": "access-public",
+          "criterion": "All frozen public routes work without a challenge in the tested clients; verify status and content."
+        },
+        {
+          "id": "access-policy",
+          "criterion": "Robots, terms, welcome and machine formats have consistent permissions."
+        },
+        {
+          "id": "access-private",
+          "criterion": "Private, unpublished, admin and personal data remain protected in pages and exports."
+        }
+      ]
+    },
+    {
+      "id": "welcome",
+      "name": "Welcome and routing",
+      "weight": 10,
+      "checks": [
+        {
+          "id": "welcome-cold",
+          "criterion": "Fresh agents select correct routes starting at the site root without being told the welcome URL."
+        },
+        {
+          "id": "welcome-assisted",
+          "criterion": "Fresh agents given the welcome URL choose correct resources without answer or ranking cues."
+        },
+        {
+          "id": "welcome-contract",
+          "criterion": "All advertised links are direct, names current and descriptions useful; llms.txt is below 6500 bytes."
+        }
+      ]
+    },
+    {
+      "id": "readable",
+      "name": "Readable content",
+      "weight": 12,
+      "checks": [
+        {
+          "id": "readable-html",
+          "criterion": "Key facts, caveats and source links work without JavaScript across declared content classes."
+        },
+        {
+          "id": "readable-parity",
+          "criterion": "Independent comparison finds no material fact or caveat loss across HTML, Markdown and applicable JSON."
+        },
+        {
+          "id": "readable-signal",
+          "criterion": "Extraction preserves lists, tables, qualifiers and links without unrelated navigation or overlays."
+        }
+      ]
+    },
+    {
+      "id": "identity",
+      "name": "Entity identity",
+      "weight": 10,
+      "checks": [
+        {
+          "id": "identity-stability",
+          "criterion": "Identifiers persist across two snapshots and renamed or retired aliases resolve correctly."
+        },
+        {
+          "id": "identity-relations",
+          "criterion": "Estate, restaurant, cellar door and event series/occurrence attributes remain distinct."
+        },
+        {
+          "id": "identity-duplicates",
+          "criterion": "Duplicates do not conflict; visible data and structured identities agree."
+        }
+      ]
+    },
+    {
+      "id": "evidence",
+      "name": "Evidence and confidence",
+      "weight": 15,
+      "checks": [
+        {
+          "id": "evidence-sources",
+          "criterion": "Independent editor adjudicates material claims against retained dated primary-source receipts."
+        },
+        {
+          "id": "evidence-unknowns",
+          "criterion": "Unknown, disputed, stale, dietary, accessibility, dog and safety facts retain appropriate uncertainty."
+        },
+        {
+          "id": "evidence-disclosures",
+          "criterion": "Opinion, sponsorship, fact and publication, modification, verification and generation dates remain distinct."
+        }
+      ]
+    },
+    {
+      "id": "freshness",
+      "name": "Freshness and changes",
+      "weight": 12,
+      "checks": [
+        {
+          "id": "freshness-events",
+          "criterion": "Event window, Sydney DST, date-only cases, cancellation, rescheduling and recurrence exceptions are verified."
+        },
+        {
+          "id": "freshness-updates",
+          "criterion": "Returning client retrieves actual changes, corrections, closures and withdrawals across two snapshots."
+        },
+        {
+          "id": "freshness-cache",
+          "criterion": "Production conditional caching avoids transfer and invalidates changed content correctly."
+        }
+      ]
+    },
+    {
+      "id": "discovery",
+      "name": "Discovery and citation",
+      "weight": 10,
+      "checks": [
+        {
+          "id": "discovery-inventory",
+          "criterion": "Complete frozen inventory is reachable from valid indexes; retired and missing routes behave deliberately."
+        },
+        {
+          "id": "discovery-citations",
+          "criterion": "At least 99% of citation checks support the precise claim on the cited canonical page."
+        },
+        {
+          "id": "discovery-holdout",
+          "criterion": "All ten unseen independently chosen tasks succeed with supporting citations."
+        }
+      ]
+    },
+    {
+      "id": "efficiency",
+      "name": "Retrieval efficiency",
+      "weight": 8,
+      "checks": [
+        {
+          "id": "efficiency-requests",
+          "criterion": "Simple factual tasks use at most three requests and planning at most five, including retries."
+        },
+        {
+          "id": "efficiency-tokens",
+          "criterion": "Matched HTML and compact tasks reduce median measured input tokens at least 50% without loss of material facts."
+        },
+        {
+          "id": "efficiency-latency",
+          "criterion": "Tasks meet pre-frozen latency budgets and retry/rate-limit behaviour is observed rather than assumed."
+        }
+      ]
+    },
+    {
+      "id": "safety",
+      "name": "Safe task completion",
+      "weight": 6,
+      "checks": [
+        {
+          "id": "safety-browser",
+          "criterion": "Real browser agents complete search, filters and planning reads with clear accessible controls and observed outcomes."
+        },
+        {
+          "id": "safety-consent",
+          "criterion": "Booking, subscription, account and private-save tasks preserve consent without test-side external submissions."
+        },
+        {
+          "id": "safety-injection",
+          "criterion": "Agents treat embedded adversarial instructions as untrusted source content and preserve the user task."
+        }
+      ]
+    },
+    {
+      "id": "upkeep",
+      "name": "Measurement and upkeep",
+      "weight": 7,
+      "checks": [
+        {
+          "id": "upkeep-provenance",
+          "criterion": "Frozen cases, denominators, deployed SHA and hashed raw receipts receive independent review."
+        },
+        {
+          "id": "upkeep-regression",
+          "criterion": "Existing build and live checks run against this version; a negative control demonstrates failure detection."
+        },
+        {
+          "id": "upkeep-ownership",
+          "criterion": "Engineering/editorial owners, next evaluation, rollback and verified existing alert destination are recorded."
+        }
+      ]
+    }
+  ],
+  "externalOutcomes": [
+    "AI answer citation share",
+    "search visibility",
+    "referral traffic",
+    "repeat retrieval"
+  ],
+  "protocol": [
+    "Freeze the exact 30 baseline tasks and at least 10 private holdouts before evaluations. Keep holdout prompts and answer keys from implementers. Retain manifest hashes.",
+    "Each evaluation requires 180 baseline invocations: 30 tasks on three distinct documented real agent/browser stacks with two fresh-session repetitions. One repetition is cold discovery and one welcome-assisted. Additionally run all ten holdouts once per evaluation.",
+    "Retain raw traces including session identity, requests, final answer, citations, source adjudication and token accounting. HTTP probes and replayed fixtures are not autonomous agent runs.",
+    "Two consecutive independently reviewed evaluations must use the same release SHA and frozen manifests. Different reviewer identities and new traces are required. An owner-provided reviewer allowlist is checked; asserted names alone do not authenticate people.",
+    "Missing, unknown, stale or invalid evidence earns zero. Critical gates override any weighted score. External outcomes never add points.",
+    "The scorer checks artifact bytes/hashes and receipt consistency, not whether a trace is truthful. Independent reviewers must inspect execution identities and primary sources. Do not use test fixtures as real acceptance evidence.",
+    "Calibrate request, latency and token budgets against baseline before freezing the evaluation manifest; never lower denominators to make a release pass."
+  ],
+  "requiredCriticalTaskIds": [
+    "B12",
+    "B14",
+    "B17",
+    "B21",
+    "B22",
+    "B23",
+    "B24"
+  ],
+  "requiredPlanningTaskIds": [
+    "B26",
+    "B27"
+  ],
+  "receiptSchema": {
+    "digest": "rubricSha256 and planSha256 hash UTF-8 JSON.stringify(parsedObject). Raw artifacts and baseline/holdout files use raw-byte SHA256.",
+    "plan": {
+      "frozenAt": "ISO timestamp after rubric freeze, before all evaluations",
+      "taskManifestSha256": "raw-byte SHA256 of frozen B01-B30 manifest",
+      "holdoutManifestSha256": "raw-byte SHA256 of private H01-H10 manifest",
+      "routeInventory": "all canonical URLs in declared scope, unique",
+      "tasks": "40 records: {id, critical:boolean, kind:simple|planning, latencyBudgetMs:number}",
+      "stacks": "3 records: {id, execution:real-agent, provider, model, modelVersion, client, browser, browserVersion, documentationUrl}"
+    },
+    "evidence": {
+      "schemaVersion": "1.0",
+      "sourceSha": "exact independently supplied deployed Git SHA",
+      "rubricSha256": "parsed rubric digest",
+      "planSha256": "parsed plan digest",
+      "evaluations": "exactly two sequential records; see agent-scorecard.test.mjs for a synthetic schema example, never real acceptance evidence"
+    },
+    "evaluation": {
+      "id": "unique",
+      "sourceSha": "expected SHA",
+      "deployedSha": "same expected SHA",
+      "startedAt": "ISO timestamp",
+      "completedAt": "ISO timestamp",
+      "reviewerId": "owner-allowlisted reviewer, different for each evaluation and not an implementer",
+      "reviewReceipt": "{path, sha256} of reviewed evidence record",
+      "environment": "production",
+      "evidenceKind": "observed",
+      "denominators": "{baseline:180, holdout:10, checks:30}",
+      "checks": "{id,status:pass|fail|unknown,artifacts:[{path,sha256}]}[]",
+      "criticalGates": "{id,status,artifacts}[] covering all five gates",
+      "routeCoverage": "{expected,checked,urls,failures:0,artifacts}",
+      "cases": "190 records"
+    },
+    "invocation": {
+      "taskId": "B01-B30 or H01-H10",
+      "stackId": "frozen real stack id",
+      "repetition": "1 or 2 for baseline; 1 for holdout",
+      "mode": "cold for repetition1; welcome-assisted for repetition2",
+      "sessionId": "globally unique real session",
+      "freshSession": true,
+      "kind": "agent-task",
+      "execution": "real-agent",
+      "environment": "production",
+      "observedAt": "ISO timestamp inside evaluation",
+      "trace": "{path,sha256} unique raw trace",
+      "answerCorrect": "boolean",
+      "constraintsRespected": "boolean",
+      "sourceFaithful": "boolean",
+      "freshnessCorrect": "boolean",
+      "unsupportedClaims": "integer",
+      "citations": "[{canonicalUrl,supportsClaim:boolean}]",
+      "metrics": "{requests,bytes,inputTokens,retries,elapsedMs,htmlBaselineTokens,materialParity:boolean}"
+    }
+  }
+}

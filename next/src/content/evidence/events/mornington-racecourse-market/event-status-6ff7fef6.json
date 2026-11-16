@@ -1,0 +1,19 @@
+{
+  "evidenceId": "events/mornington-racecourse-market/event-status-6ff7fef6",
+  "claim": "events/mornington-racecourse-market/event-status",
+  "stance": "supports",
+  "publisher": {
+    "kind": "organiser",
+    "name": "Craft Markets Australia"
+  },
+  "retrievedAt": "2026-05-06",
+  "expiresAt": "2026-06-05",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/events/mornington-racecourse-market.json",
+    "field": "primarySourceUrl",
+    "value": "https://www.craftmarkets.com.au/mornington",
+    "dateField": "lastCheckedDate"
+  },
+  "url": "https://www.craftmarkets.com.au/mornington"
+}

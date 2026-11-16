@@ -1,0 +1,18 @@
+{
+  "evidenceId": "data-facts/food/stillwater-at-crittenden/trading-status-aa26b5c9",
+  "claim": "data-facts/food/stillwater-at-crittenden/trading-status",
+  "stance": "supports",
+  "publisher": {
+    "kind": "unknown"
+  },
+  "retrievedAt": "2026-04-22",
+  "expiresAt": "2026-07-21",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/data/facts/food.json",
+    "field": "activeAlerts[0].source",
+    "value": "lakesidevillas.com.au announcement Jun 2025",
+    "dateField": "lastUpdated"
+  },
+  "method": "lakesidevillas.com.au announcement Jun 2025"
+}

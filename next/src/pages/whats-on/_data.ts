@@ -1,3 +1,5 @@
+import { hasPromotionGeography, currentFreePrice } from '../../lib/event-discovery.mjs';
+import {hasExplicitSeries,occurrenceData,hasLegacyExceptions} from '../../lib/intelligence-series.mjs';
 /**
  * _data.ts - private data loader for /whats-on/ (v5 rebuild, T-601).
  *
@@ -12,17 +14,27 @@
  *  - date-scope windows: this weekend (Fri-Sun), next weekend, VIC school
  *    holidays, custom range, month ahead
  *  - PI's picks: the weekend-picks collection entry for the current
- *    weekend, falling back to lens/appeal scoring (exactly 3)
+ *    weekend, falling back to recently checked, varied choices (up to 3)
  *  - category shelves (Markets, Live music, Food & wine, Openings,
  *    Major events)
  *  - the compact feed payload for /whats-on/feed.json (HUB-11: the month+
  *    horizon ships as fetch-on-demand JSON, never as hidden DOM)
  */
+import { listingDateLabel, resolveListingOccurrence } from '../../lib/whatson-listing.mjs';
 import { rotateDaily } from '../../lib/daily-rotation';
+import { eventContentKind, isPublicEventRecord } from '../../lib/event-publication.mjs';
+import { fillDistinctPicks, recentlyChecked } from '../../lib/pick-diversity.mjs';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { routeSlug, eventCategoryLabel } from '../../lib/editorial';
 import { emptyDayMessage } from '../../lib/whatson-empty-state.mjs';
-import { eventAccessLabel, eventIsUnqualifiedFree } from '../../lib/event-access.mjs';
+import { USE_OCCURRENCE_MODEL } from '../../lib/features';
+import {
+  isCancelledRecord,
+  occurrenceSchemaStatus,
+  recordDisposition,
+} from '../../lib/event-occurrence.mjs';
+
+export { selectEventPromotions, eventPromotionEntries } from '../../lib/event-discovery.mjs';
 
 export type EventEntry = CollectionEntry<'events'>;
 
@@ -32,266 +44,8 @@ export type EventEntry = CollectionEntry<'events'>;
 // midnight so the existing date-only arithmetic stays deterministic in CI.
 // ---------------------------------------------------------------------------
 
-const EDITORIAL_TIME_ZONE = 'Australia/Melbourne';
-
-function editorialDateParts(d: Date): { year: number; month: number; day: number } {
-  const parts = new Intl.DateTimeFormat('en-CA', {
-    timeZone: EDITORIAL_TIME_ZONE,
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-  }).formatToParts(d);
-  const get = (type: string) => Number(parts.find((part) => part.type === type)?.value);
-  return { year: get('year'), month: get('month'), day: get('day') };
-}
-
-export function startOfDay(d: Date): Date {
-  const { year, month, day } = editorialDateParts(d);
-  return new Date(Date.UTC(year, month - 1, day));
-}
-export function addDays(d: Date, n: number): Date {
-  return new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate() + n));
-}
-export function isoDate(d: Date): string {
-  const { year, month, day } = editorialDateParts(d);
-  const p = (n: number) => String(n).padStart(2, '0');
-  return `${year}-${p(month)}-${p(day)}`;
-}
-function parseIsoLocal(s: string): Date {
-  const [y, m, d] = s.split('-').map(Number);
-  return new Date(y, m - 1, d);
-}
-
-export function auSeasonWord(d: Date): string {
-  const m = d.getMonth();
-  if (m === 11 || m <= 1) return 'summer';
-  if (m <= 4) return 'autumn';
-  if (m <= 7) return 'winter';
-  return 'spring';
-}
-
-/** "Fri 11 - Sun 13 July" (en dash; em dashes are banned house-wide). */
-export function rangeLabel(start: Date, end: Date): string {
-  const dow = (d: Date) => d.toLocaleDateString('en-AU', { weekday: 'short' });
-  const day = (d: Date) => d.getDate();
-  const month = (d: Date) => d.toLocaleDateString('en-AU', { month: 'long' });
-  if (isoDate(start) === isoDate(end)) return `${dow(start)} ${day(start)} ${month(start)}`;
-  if (start.getMonth() === end.getMonth()) {
-    return `${dow(start)} ${day(start)} – ${dow(end)} ${day(end)} ${month(end)}`;
-  }
-  return `${dow(start)} ${day(start)} ${month(start)} – ${dow(end)} ${day(end)} ${month(end)}`;
-}
-
-export function dayHeading(d: Date): string {
-  return d.toLocaleDateString('en-AU', { weekday: 'long', day: 'numeric', month: 'long' });
-}
-
-// ---------------------------------------------------------------------------
-// Scope windows
-// ---------------------------------------------------------------------------
-
-export interface ScopeWindow {
-  start: Date;
-  end: Date;
-  label: string;
-}
-
-/** Fri-Sun window containing `now` (Sun still counts) or the next one. */
-export function weekendWindow(now: Date, offsetWeeks = 0): ScopeWindow {
-  const today = startOfDay(now);
-  const dow = today.getDay(); // 0 Sun .. 6 Sat
-  let fri: Date;
-  if (dow === 0) fri = addDays(today, -2);
-  else if (dow >= 5) fri = addDays(today, 5 - dow);
-  else fri = addDays(today, 5 - dow);
-  fri = addDays(fri, offsetWeeks * 7);
-  const sun = addDays(fri, 2);
-  return { start: fri, end: sun, label: rangeLabel(fri, sun) };
-}
-
-/**
- * VIC government school holiday ranges (2026 gazetted term dates plus the
- * summer tail into 2027). Maintained by hand; extend each December.
- */
-export const SCHOOL_HOLIDAY_RANGES: { start: string; end: string; name: string }[] = [
-  { start: '2026-03-28', end: '2026-04-12', name: 'Autumn school holidays' },
-  { start: '2026-06-27', end: '2026-07-12', name: 'Winter school holidays' },
-  { start: '2026-09-19', end: '2026-10-04', name: 'Spring school holidays' },
-  { start: '2026-12-19', end: '2027-01-26', name: 'Summer school holidays' },
-];
-
-/** Current-or-next school holiday window, or null when the table runs out. */
-export function schoolHolidayWindow(now: Date): (ScopeWindow & { name: string }) | null {
-  const today = startOfDay(now);
-  for (const r of SCHOOL_HOLIDAY_RANGES) {
-    const end = parseIsoLocal(r.end);
-    if (end < today) continue;
-    const start = parseIsoLocal(r.start);
-    const from = start > today ? start : today;
-    return { start: from, end, label: rangeLabel(from, end), name: r.name };
-  }
-  return null;
-}
-
-// ---------------------------------------------------------------------------
-// Occurrence rules - one shape for server and client
-// ---------------------------------------------------------------------------
-
-export interface OccurrenceRule {
-  kind: 'range' | 'weekly' | 'monthly';
-  /** Inclusive bounds (for weekly/monthly these bound the series). */
-  start: Date;
-  end: Date;
-  /** 0 Sun .. 6 Sat, weekly + monthly. */
-  day?: number;
-  /** Multiple weekdays for prose such as "Thursday to Sunday". */
-  days?: number[];
-  /** 1..5 = nth weekday of the month, -1 = last. Monthly only. */
-  nth?: number;
-  /** 1..12, when the recurrence note explicitly limits the operating season. */
-  months?: number[];
-}
-
-const DAY_WORDS: Record<string, number> = {
-  sunday: 0, sun: 0,
-  monday: 1, mon: 1,
-  tuesday: 2, tues: 2, tue: 2,
-  wednesday: 3, wed: 3,
-  thursday: 4, thurs: 4, thur: 4, thu: 4,
-  friday: 5, fri: 5,
-  saturday: 6, sat: 6,
-};
-const NTH_WORDS: Record<string, number> = {
-  first: 1, '1st': 1, second: 2, '2nd': 2, third: 3, '3rd': 3,
-  fourth: 4, '4th': 4, fifth: 5, '5th': 5, last: -1,
-};
-
-const MONTH_WORDS: Record<string, number> = {
-  january: 1, february: 2, march: 3, april: 4, may: 5, june: 6,
-  july: 7, august: 8, september: 9, october: 10, november: 11, december: 12,
-};
-
-function applicableMonths(text: string): number[] | undefined {
-  const lower = text.toLowerCase();
-  const season = lower.match(/\b(spring|summer|autumn|winter)\b/);
-  if (season && /\b(?:during|in|through|from|winter|summer|autumn|spring)\b/.test(lower)) {
-    const months: Record<string, number[]> = {
-      summer: [12, 1, 2], autumn: [3, 4, 5], winter: [6, 7, 8], spring: [9, 10, 11],
-    };
-    return months[season[1]];
-  }
-  const range = lower.match(/\b(january|february|march|april|may|june|july|august|september|october|november|december)\s*(?:to|through|-)\s*(january|february|march|april|may|june|july|august|september|october|november|december)\b/);
-  if (!range) return undefined;
-  const start = MONTH_WORDS[range[1]];
-  const end = MONTH_WORDS[range[2]];
-  const result: number[] = [];
-  for (let month = start; ; month = (month % 12) + 1) {
-    result.push(month);
-    if (month === end) break;
-  }
-  return result;
-}
-
-function parseWeekday(text: string): number | undefined {
-  const m = text.toLowerCase().match(/\b(sun|mon|tues?|wed(?:nes)?|thur?s?|fri|sat(?:ur)?)(?:day)?s?\b/);
-  if (!m) return undefined;
-  return DAY_WORDS[m[1]] ?? DAY_WORDS[`${m[1]}day`];
-}
-function parseWeekdays(text: string): number[] {
-  const matches = [...text.toLowerCase().matchAll(/\b(sun|mon|tues?|wed(?:nes)?|thur?s?|fri|sat(?:ur)?)(?:day)?s?\b/g)];
-  const days = matches
-    .map((m) => DAY_WORDS[m[1]] ?? DAY_WORDS[`${m[1]}day`])
-    .filter((day): day is number => day !== undefined);
-  return [...new Set(days)];
-}
-function parseNth(text: string): number | undefined {
-  const m = text.toLowerCase().match(/\b(first|1st|second|2nd|third|3rd|fourth|4th|fifth|5th|last)\b/);
-  return m ? NTH_WORDS[m[1]] : undefined;
-}
-
-const FAR_HORIZON_DAYS = 370;
-
-/** Derive the single occurrence rule for an event, or null when undated. */
-export function ruleFor(event: EventEntry, now: Date): OccurrenceRule | null {
-  const data = event.data as Record<string, any>;
-  const today = startOfDay(now);
-  const start: Date | undefined = data.startDate ? startOfDay(data.startDate) : undefined;
-  const endRaw: Date | undefined = data.endDate ? startOfDay(data.endDate) : start;
-  const next: Date | undefined = data.nextOccurrence ? startOfDay(data.nextOccurrence) : undefined;
-  // A computed occurrence before a future series start contradicts the
-  // record's own bounds. Ignore it instead of publishing the impossible date.
-  const validNext = next && (!start || next >= start) ? next : undefined;
-  const recur: string = data.recurrence ?? 'one-off';
-  const noteText = [data.recurrenceNote, data.title, data.summary].filter(Boolean).join(' ');
-  const months = applicableMonths(data.recurrenceNote ?? '');
-
-  const seriesStart = start ?? today;
-  // A recurring series without an explicit end runs to the far horizon.
-  const seriesEnd =
-    endRaw && endRaw > seriesStart && ['weekly', 'monthly', 'ongoing'].includes(recur)
-      ? endRaw
-      : addDays(today, FAR_HORIZON_DAYS);
-
-  if (recur === 'weekly') {
-    // Prefer explicit copy, but a weekly series' start date is also a valid
-    // weekday anchor. Falling back to a continuous range made Friday-only
-    // events appear on every day when the prose omitted the weekday.
-    const days = parseWeekdays(data.recurrenceNote ?? '');
-    const day = days[0] ?? start?.getDay();
-    if (day !== undefined) return { kind: 'weekly', start: seriesStart, end: seriesEnd, day, days: days.length ? days : undefined, months };
-    if (validNext && validNext >= today) return { kind: 'range', start: validNext, end: validNext };
-    return start && endRaw ? { kind: 'range', start, end: endRaw } : null;
-  }
-
-  if (recur === 'monthly') {
-    const day = parseWeekday(noteText);
-    const nth = parseNth(noteText);
-    if (day !== undefined && nth !== undefined) {
-      return { kind: 'monthly', start: seriesStart, end: seriesEnd, day, nth, months };
-    }
-    // Do not invent a monthly cadence from a stale nextOccurrence. Without an
-    // explicit weekday + ordinal, expose only a dated future occurrence and
-    // let the record drop out once that date passes.
-    if (validNext && validNext >= today) return { kind: 'range', start: validNext, end: validNext };
-    return start && start >= today && endRaw ? { kind: 'range', start, end: endRaw } : null;
-  }
-
-  if (!start || !endRaw) return null;
-
-  // Annual / seasonal / one-off / ongoing: a plain date range. When the
-  // listed dates are past but the cron has computed a fresh occurrence,
-  // shift the same span onto it.
-  if (endRaw < today && validNext && validNext >= today) {
-    const spanDays = Math.round((endRaw.getTime() - start.getTime()) / 86400000);
-    return { kind: 'range', start: validNext, end: addDays(validNext, Math.max(0, spanDays)) };
-  }
-  return { kind: 'range', start, end: endRaw };
-}
-
-function nthWeekdayIndex(d: Date): { nth: number; isLast: boolean } {
-  const nth = Math.floor((d.getDate() - 1) / 7) + 1;
-  const isLast = d.getDate() + 7 > new Date(d.getFullYear(), d.getMonth() + 1, 0).getDate();
-  return { nth, isLast };
-}
-
-export function occursOnDay(rule: OccurrenceRule, day: Date): boolean {
-  const d = startOfDay(day);
-  if (d < startOfDay(rule.start) || d > startOfDay(rule.end)) return false;
-  if (rule.months && !rule.months.includes(d.getMonth() + 1)) return false;
-  if (rule.kind === 'range') return true;
-  if (!(rule.days ?? [rule.day]).includes(d.getDay())) return false;
-  if (rule.kind === 'weekly') return true;
-  const { nth, isLast } = nthWeekdayIndex(d);
-  return rule.nth === -1 ? isLast : nth === rule.nth;
-}
-
-export function occursInWindow(rule: OccurrenceRule, win: ScopeWindow): boolean {
-  const days = Math.round((startOfDay(win.end).getTime() - startOfDay(win.start).getTime()) / 86400000);
-  for (let i = 0; i <= days; i += 1) {
-    if (occursOnDay(rule, addDays(win.start, i))) return true;
-  }
-  return false;
-}
+import { startOfDay, addDays, isoDate, rangeLabel, dayHeading, weekendWindow, SCHOOL_HOLIDAY_RANGES, schoolHolidayWindow, ruleFor, occursOnDay, occursInWindow, type ScopeWindow, type OccurrenceRule } from '../../lib/event-schedule';
+export { startOfDay, addDays, isoDate, rangeLabel, dayHeading, weekendWindow, SCHOOL_HOLIDAY_RANGES, schoolHolidayWindow, ruleFor, occursOnDay, occursInWindow, type ScopeWindow, type OccurrenceRule } from '../../lib/event-schedule';
 
 // ---------------------------------------------------------------------------
 // Event loading + presentation helpers
@@ -309,8 +63,18 @@ export interface LiveEvent {
   categoryLabel: string;
   placeLabel: string;
   free: boolean;
+  freePrice: ReturnType<typeof currentFreePrice>;
   accessLabel: string | null;
   appeal: number;
+  /**
+   * PI-008. `statusLabel` is the short reader-facing note a listing row shows
+   * ("Sold out", "Cancelled", "New date"); null when there is nothing to say.
+   * `promotable` is stricter than being listable: a pick or a homepage slot is
+   * an active recommendation, and a sold-out or unverified record has not
+   * earned one. Both are inert when the occurrence model is flagged off.
+   */
+  statusLabel: string | null;
+  promotable: boolean;
 }
 
 /**
@@ -321,9 +85,18 @@ export interface LiveEvent {
  * rule can be inferred from old prose. For published records, the shared
  * recurrence rule is the source of truth, so recurring series stay live when
  * their original dated occurrence has passed but a valid future cadence exists.
+ *
+ * PI-008 adds the two axes the rule cannot see. `expiresAt` ends a record
+ * independently of when its last occurrence runs, and a postponement with no
+ * announced date leaves nothing to list it under. Both are gated on the
+ * occurrence-model flag, so PUBLIC_EVENT_OCCURRENCE_MODEL=off returns the
+ * previous three-line test exactly.
  */
 export function isCurrentEvent(event: EventEntry, now: Date): boolean {
-  if (event.data.status !== 'published') return false;
+  if (event.data.status !== 'published' || !isPublicEventRecord(event.data, now) || !hasPromotionGeography(event.data, now)) return false;
+  if ((USE_OCCURRENCE_MODEL || hasExplicitSeries(event.data)) && !recordDisposition(event.data as Record<string, any>, now).listable) {
+    return false;
+  }
   const rule = ruleFor(event, now);
   return rule !== null && startOfDay(rule.end) >= startOfDay(now);
 }
@@ -332,6 +105,22 @@ export function truncateWords(text: unknown, maxWords: number): string {
   const words = String(text ?? '').replace(/\s+/g, ' ').trim().split(' ').filter(Boolean);
   if (words.length <= maxWords) return words.join(' ');
   return `${words.slice(0, maxWords).join(' ')}…`;
+}
+
+// A reader teaser may be short, but it must finish its thought. Word slicing
+// previously cut source qualifiers mid-sentence in both picks and day rows.
+export function completeEventTeaser(text: unknown, maxWords: number): string {
+  const copy = String(text ?? '').replace(/\s+/g, ' ').trim();
+  if (!copy || copy.split(' ').length <= maxWords) return copy;
+  const ends = [...copy.matchAll(/[.!?](?=\s+[A-Z“"]|$)/g)].map((match) => match.index! + 1);
+  if (!ends.length) return copy;
+  let chosen = copy.slice(0, ends[0]);
+  for (const end of ends) {
+    const sentenceGroup = copy.slice(0, end);
+    if (sentenceGroup.split(' ').length > maxWords) break;
+    chosen = sentenceGroup;
+  }
+  return chosen.trim();
 }
 
 function timeLabelFor(startTime: unknown): string {
@@ -346,12 +135,10 @@ function timeLabelFor(startTime: unknown): string {
 }
 
 function isCancelled(data: Record<string, any>): boolean {
-  return (
-    data.cancelled === true ||
-    /cancelled/i.test(data.verificationStatus ?? '') ||
-    /^cancelled:/i.test(data.summary ?? '') ||
-    data.skipThis === true
-  );
+  // The reading itself now lives in lib/event-occurrence.mjs so the build
+  // scripts apply the same one. Behaviour is unchanged: the raw flag, the
+  // legacy verificationStatus and summary prose, and an editor's skipThis.
+  return isCancelledRecord(data);
 }
 
 /**
@@ -387,21 +174,28 @@ export async function loadLiveEvents(
   const out: LiveEvent[] = [];
   for (const event of entries) {
     const data = event.data as Record<string, any>;
+    if (!isPublicEventRecord(data, now) || !hasPromotionGeography(data, now)) continue;
     if (isCancelled(data) && !options.includeCancelled) continue;
     const rule = ruleFor(event, now);
     if (!rule || !isCurrentEvent(event, now)) continue;
+    // Expiry and postponement are record-level facts, so they are resolved
+    // once here rather than per day. isCurrentEvent has already refused the
+    // non-listable ones; this is the same answer, kept for display.
+    const disposition = (USE_OCCURRENCE_MODEL || hasExplicitSeries(data))
+      ? recordDisposition(data, now)
+      : { label: null, promotable: true };
 
     const slug = routeSlug(event);
     const categoryLabel = eventCategoryLabel[data.category] ?? '';
     const placeLabel = data.suburb || data.venueName || '';
     const timeLabel = timeLabelFor(data.startTime);
-    const free = eventIsUnqualifiedFree(data);
-    const accessLabel = eventAccessLabel(data);
+    const freePrice = currentFreePrice(data, now);
+    const free = freePrice !== null;
+    // Static calendar chips do not make price claims; Free filtering rechecks the source price at reader time.
+    const accessLabel = null;
     const meta = [timeLabel, placeLabel, categoryLabel].filter(Boolean).slice(0, 3);
-    if (accessLabel) {
-      if (meta.length === 3) meta[2] = accessLabel;
-      else meta.push(accessLabel);
-    }
+    const kind = eventContentKind(data);
+    if (kind !== 'event') meta.unshift(kind === 'offer' ? 'Offer · validity dates' : 'Experience · check available sessions');
     const appeal =
       (data.visitorAppealScore ?? 0) +
       (data.editorialPriority ?? 0) * 0.5 +
@@ -414,17 +208,30 @@ export async function loadLiveEvents(
       slug,
       href: `/whats-on/${slug}/`,
       title: data.title,
-      oneLiner: truncateWords(data.editorVerdict ?? data.whyWeCare ?? data.summary, 20),
+      oneLiner: completeEventTeaser(data.editorVerdict ?? data.whyWeCare ?? data.summary, 40),
       meta,
       timeLabel,
       categoryLabel,
       placeLabel,
       free,
+      freePrice,
       accessLabel,
       appeal,
+      statusLabel: disposition.label,
+      promotable: disposition.promotable,
     });
   }
   return out.sort((a, b) => b.appeal - a.appeal || a.title.localeCompare(b.title));
+}
+
+/**
+ * Only events with a supported fixed date belong under a calendar day.
+ * Experiences describe potential availability and offers have validity
+ * windows; neither is a confirmed occurrence for a reader's selected day.
+ */
+export function isDatedCalendarEvent(live: LiveEvent): boolean {
+  const data = live.event.data as Record<string, any>;
+  return eventContentKind(data) === 'event' && (data.dateBasis ?? 'fixed') === 'fixed';
 }
 
 // ---------------------------------------------------------------------------
@@ -436,7 +243,75 @@ export interface DayGroup {
   heading: string;
   continuingCount: number;
   emptyMessage: string;
-  items: { live: LiveEvent; spanLabel: string }[];
+  items: DayItem[];
+}
+
+/**
+ * One occurrence of one record, resolved. PI-008, per occurrence rather than
+ * per record.
+ *
+ * Past days and finished occurrences are omitted from forward-looking
+ * discovery. `phase` and `bookable` still travel with current and future
+ * rows so an ongoing event can be shown without implying booking remains open.
+ * With the flag off, every item reads upcoming/bookable, which is the
+ * previous behaviour.
+ *
+ * `schemaStatus` travels with the rest so the markup on a page cannot
+ * contradict the badge beside it. The listing used to derive its own from the
+ * raw `cancelled` flag, which is one of the four signals that record a
+ * cancellation and none of the occurrence-level exceptions; that derivation is
+ * gone and this field replaced it.
+ */
+export interface OccurrenceState {
+  phase: 'upcoming' | 'running' | 'past';
+  bookable: boolean;
+  status: string;
+  statusLabel: string | null;
+  schemaStatus: string | null;
+}
+
+export interface DayItem extends OccurrenceState {
+  live: LiveEvent;
+  spanLabel: string;
+}
+
+/**
+ * Resolve one listing row through the occurrence model.
+ *
+ * Both the weekend grid and PI's picks come through here, so a badge and the
+ * markup beside it are two readings of one answer rather than two answers.
+ *
+ * A range row stands for its whole run, not for one day of it: measuring a
+ * festival that opens on Friday and finishes on Wednesday over `dayIso` alone
+ * marked it Ended from Friday midnight.
+ *
+ * The flag governs the CLOCK half of the model - whether a row may read as
+ * running or past, and whether its booking block disappears. It does not
+ * govern which state the record is in: reading that from the raw `cancelled`
+ * flag was wrong in every mode, so that correction is not behind the rollback
+ * switch.
+ */
+export function occurrenceStateFor(live: LiveEvent, dayIso: string, now: Date): OccurrenceState {
+  const occurrence = resolveListingOccurrence(live.event.data, live.rule, dayIso, now);
+  const schemaStatus = occurrenceSchemaStatus(
+    (USE_OCCURRENCE_MODEL || hasExplicitSeries(live.event.data) || hasLegacyExceptions(live.event.data)) ? occurrence : { ...occurrence, phase: 'upcoming' }
+  );
+  if (!USE_OCCURRENCE_MODEL && !hasExplicitSeries(live.event.data) && !hasLegacyExceptions(live.event.data)) {
+    return {
+      phase: 'upcoming',
+      bookable: true,
+      status: occurrence.status,
+      statusLabel: live.statusLabel ?? null,
+      schemaStatus,
+    };
+  }
+  return {
+    phase: occurrence.phase,
+    bookable: occurrence.bookable,
+    status: occurrence.status,
+    statusLabel: occurrence.label ?? live.statusLabel ?? null,
+    schemaStatus,
+  };
 }
 
 /**
@@ -444,31 +319,41 @@ export interface DayGroup {
  * their first active day, with a "runs to" span label; weekly/monthly
  * series appear on each matching day (each is a distinct occurrence).
  */
-export function groupByDay(events: LiveEvent[], win: ScopeWindow): DayGroup[] {
+export function groupByDay(events: LiveEvent[], win: ScopeWindow, now: Date = new Date()): DayGroup[] {
   const dayCount =
     Math.round((startOfDay(win.end).getTime() - startOfDay(win.start).getTime()) / 86400000) + 1;
+  const today = startOfDay(now);
   const seenRanges = new Set<string>();
   const groups: DayGroup[] = [];
   for (let i = 0; i < Math.min(dayCount, 62); i += 1) {
     const day = addDays(win.start, i);
+    if (day < today) continue;
     const items: DayGroup['items'] = [];
     let continuingCount = 0;
     for (const live of events) {
       if (!occursOnDay(live.rule, day)) continue;
+      const dayIso = isoDate(day);
+      // A weekly or monthly row is one occurrence on this day. A range row
+      // stands for the whole run: it is pushed once, on its first active day,
+      // with a "runs to" label, so its phase has to be measured over the run.
+      // Measuring it over `dayIso` alone marked a festival that opened on
+      // Friday and finishes on Wednesday as Ended from Friday midnight.
+      const state = occurrenceStateFor(live, dayIso, now);
+      // The calendar is a decision surface. An occurrence that has already
+      // finished must not occupy a result slot for the selected dates.
+      if (state.phase === 'past') continue;
       if (live.rule.kind === 'range') {
         if (seenRanges.has(live.slug)) {
           continuingCount += 1;
           continue;
         }
         seenRanges.add(live.slug);
-        const runsTo = startOfDay(live.rule.end) < startOfDay(win.end) ? live.rule.end : win.end;
-        const spanLabel =
-          isoDate(runsTo) > isoDate(day)
-            ? `runs to ${runsTo.toLocaleDateString('en-AU', { weekday: 'short', day: 'numeric', month: 'short' })}`
-            : '';
-        items.push({ live, spanLabel });
+        const spanLabel = listingDateLabel(live.rule, win);
+        items.push({ live, spanLabel, ...state });
       } else {
-        items.push({ live, spanLabel: '' });
+        const actual = occurrenceData(live.event.data, dayIso, now);
+        const resolvedLive = actual && (hasExplicitSeries(live.event.data) || hasLegacyExceptions(live.event.data)) ? {...live, event: {...live.event, data: actual}, meta: [actual.venueName, actual.startTime].filter(Boolean)} : live;
+        items.push({ live: resolvedLive, spanLabel: listingDateLabel(live.rule, win), ...state });
       }
     }
     items.sort((a, b) => b.live.appeal - a.live.appeal || a.live.title.localeCompare(b.live.title));
@@ -484,7 +369,7 @@ export function groupByDay(events: LiveEvent[], win: ScopeWindow): DayGroup[] {
 }
 
 // ---------------------------------------------------------------------------
-// PI's picks - exactly 3
+// PI's picks - up to 3; never fill a shortage with stale recommendations
 // ---------------------------------------------------------------------------
 
 export interface Pick {
@@ -492,6 +377,12 @@ export interface Pick {
   verdict: string;
   dateISO: string;
   dayLabel: string;
+  /**
+   * The pick's own occurrence on `dateISO`, resolved exactly as a weekend row
+   * is. A pick is a listing too, and its JSON-LD node has to answer the same
+   * question the row beneath it answers.
+   */
+  occurrence: OccurrenceState;
 }
 
 export function firstDayInWindow(rule: OccurrenceRule, win: ScopeWindow): Date | null {
@@ -504,18 +395,26 @@ export function firstDayInWindow(rule: OccurrenceRule, win: ScopeWindow): Date |
   return null;
 }
 
-export async function getPicks(events: LiveEvent[], win: ScopeWindow): Promise<Pick[]> {
+export async function getPicks(
+  events: LiveEvent[],
+  win: ScopeWindow,
+  now: Date = new Date()
+): Promise<Pick[]> {
   const inWindow = events.filter((e) => occursInWindow(e.rule, win));
   const bySlug = new Map(inWindow.map((e) => [e.slug, e]));
   const picks: Pick[] = [];
 
-  const toPick = (live: LiveEvent, verdict: string): Pick => {
-    const day = firstDayInWindow(live.rule, win) ?? win.start;
+  const toPick = (live: LiveEvent, verdict: string, scope: ScopeWindow = win): Pick => {
+    const today = startOfDay(now);
+    const actionableScope = { ...scope, start: scope.start > today ? scope.start : today };
+    const day = firstDayInWindow(live.rule, actionableScope) ?? scope.start;
+    const dateISO = isoDate(day);
     return {
       live,
-      verdict: truncateWords(verdict, 25),
-      dateISO: isoDate(day),
-      dayLabel: day.toLocaleDateString('en-AU', { weekday: 'short', day: 'numeric', month: 'short' }),
+      verdict: completeEventTeaser(verdict, 25),
+      dateISO,
+      dayLabel: day.toLocaleDateString('en-AU', { weekday: 'short', day: 'numeric', month: 'short', timeZone: 'UTC' }),
+      occurrence: occurrenceStateFor(live, dateISO, now),
     };
   };
 
@@ -529,15 +428,25 @@ export async function getPicks(events: LiveEvent[], win: ScopeWindow): Promise<P
   if (sheet) {
     for (const p of [...sheet.data.picks].sort((a, b) => a.position - b.position)) {
       const live = bySlug.get(p.eventSlug);
-      if (live) picks.push(toPick(live, p.editorVerdict));
+      if (live) {
+        const pick = toPick(live, p.editorVerdict);
+        if (pick.occurrence.phase !== 'past') picks.push(pick);
+      }
       if (picks.length === 3) return picks;
     }
   }
 
   // Fallback: lens/appeal scoring over what is actually on this weekend.
+  //
+  // PI-008 raises the bar here and ONLY here. A machine-generated pick is an
+  // active recommendation, so sold out, bookings closed, or a source that
+  // changed after the last verification all disqualify a record from being
+  // promoted while leaving it perfectly listable. The editorial sheet above is
+  // untouched: if an editor has chosen to lead with a sold-out signature event,
+  // that is a decision, not a scoring accident. Inert when the flag is off.
   const chosen = new Set(picks.map((p) => p.live.slug));
   const scored = inWindow
-    .filter((e) => !chosen.has(e.slug))
+    .filter((e) => !chosen.has(e.slug) && e.promotable && recentlyChecked(e.event.data.lastCheckedDate, now))
     .map((e) => {
       const data = e.event.data as Record<string, any>;
       const lens: string[] = Array.isArray(data.lens) ? data.lens : [];
@@ -553,29 +462,24 @@ export async function getPicks(events: LiveEvent[], win: ScopeWindow): Promise<P
   // the same three surface every day the window holds. Rotate through the top
   // of the ranking once per Melbourne day. The editorial sheet above returns
   // early and is never rotated.
-  for (const { e } of rotateDaily(scored, new Date())) {
-    picks.push(toPick(e, (e.event.data as any).editorVerdict ?? e.oneLiner));
-    if (picks.length === 3) break;
-  }
+  const identity = (pick: Pick) => {
+    const data = pick.live.event.data as Record<string, any>;
+    return {
+      slug: pick.live.slug,
+      venue: String(data.venueName ?? pick.live.slug).trim().toLowerCase(),
+      category: String(data.category ?? '').trim().toLowerCase(),
+      pick,
+    };
+  };
+  const candidates = rotateDaily(scored, now)
+    .map(({ e }) => {
+      const data = e.event.data as Record<string, any>;
+      return toPick(e, data.editorVerdict ?? data.whyWeCare ?? data.summary);
+    })
+    .filter((pick) => pick.occurrence.phase !== 'past')
+    .map(identity);
 
-  // Quiet-weekend guard: the module always shows exactly 3, so top up from
-  // the month ahead when the weekend itself cannot fill it.
-  if (picks.length < 3) {
-    const monthWin: ScopeWindow = { start: win.start, end: addDays(win.start, 31), label: '' };
-    const have = new Set(picks.map((p) => p.live.slug));
-    for (const e of events) {
-      if (have.has(e.slug) || !occursInWindow(e.rule, monthWin)) continue;
-      const day = firstDayInWindow(e.rule, monthWin) ?? monthWin.start;
-      picks.push({
-        live: e,
-        verdict: truncateWords((e.event.data as any).editorVerdict ?? e.oneLiner, 25),
-        dateISO: isoDate(day),
-        dayLabel: day.toLocaleDateString('en-AU', { weekday: 'short', day: 'numeric', month: 'short' }),
-      });
-      if (picks.length === 3) break;
-    }
-  }
-  return picks;
+  return fillDistinctPicks(candidates, picks.map(identity), 3).map(({ pick }) => pick);
 }
 
 // ---------------------------------------------------------------------------
@@ -626,13 +530,28 @@ export interface FeedEntry {
   t: string; // title
   d: string; // one-liner
   m: string[]; // meta chips
-  k: 'range' | 'weekly' | 'monthly';
+  c: string; // canonical event category
+  p: string; // town, when explicitly supplied
+  f: boolean; // current verified free entry at build
+  fp?: NonNullable<ReturnType<typeof currentFreePrice>>;
+  g: boolean; // explicitly marked family friendly
+  k: 'range' | 'weekly' | 'monthly' | 'explicit';
+  dates?: string[];
+  reschedules?: Record<string,string>;
   s: string; // rule start ISO date
   e: string; // rule end ISO date
   wd?: number; // weekday
   wds?: number[]; // multiple weekdays
   nth?: number; // nth weekday of month (-1 = last)
   months?: number[];
+  /**
+   * PI-008 status note ("Sold out", "New date"), omitted when there is nothing
+   * to say. The client island renders other date scopes from this payload, so
+   * a record whose booking has closed must carry that fact across the wire or
+   * the month-ahead view contradicts the weekend view above it.
+   */
+  x?: string;
+  statusData?: Record<string, any>;
 }
 
 export function feedFor(events: LiveEvent[]): FeedEntry[] {
@@ -643,14 +562,29 @@ export function feedFor(events: LiveEvent[]): FeedEntry[] {
       t: live.title,
       d: live.oneLiner,
       m: live.meta,
+      c: String(live.event.data.category ?? ''),
+      p: String(live.event.data.suburb ?? ''),
+      f: live.free,
+      ...(live.freePrice ? {fp: live.freePrice} : {}),
+      g: live.event.data.familyFriendly === true,
       k: live.rule.kind,
+      dates: live.rule.dates,
+      reschedules: live.rule.reschedules,
       s: isoDate(live.rule.start),
       e: isoDate(live.rule.end),
+      statusData: Object.fromEntries([
+        ...(hasLegacyExceptions(live.event.data) ? ['startDate', 'endDate', 'nextOccurrence', 'recurrence', 'recurrenceNote', 'title', 'summary', 'streetAddress', 'suburb', 'coordinates', 'place', 'venue', 'officialEventUrl'] : []),
+        'startTime', 'endTime', 'endsNextDay', 'timezone', 'cancelled', 'postponed',
+        'rescheduledTo', 'bookingStatus', 'expiresAt', 'occurrenceExceptions', 'occurrencePolicy', 'intelligence', 'seriesOccurrences', 'venueName', 'sourceUpdatedAt', 'lastVerifiedAt', 'lastCheckedDate', 'verificationStatus', 'skipThis',
+      ].filter((key) => (live.event.data as any)[key] !== undefined)
+        .map((key) => [key, (live.event.data as any)[key]])),
     };
     if (live.rule.day !== undefined) entry.wd = live.rule.day;
     if (live.rule.days && live.rule.days.length > 1) entry.wds = live.rule.days;
     if (live.rule.nth !== undefined) entry.nth = live.rule.nth;
     if (live.rule.months) entry.months = live.rule.months;
+    if (live.statusLabel) entry.x = live.statusLabel;
     return entry;
   });
 }
+

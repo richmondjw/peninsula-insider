@@ -11,7 +11,7 @@ heroImage:
   license: "tmp-unsplash"
 format: "editors-letter"
 tags: ["winter", "weekend", "fireplace", "hot-springs", "rainy-day", "red-hill", "flinders"]
-relatedVenues: ["alba-thermal-springs", "peninsula-hot-springs", "lindenderry", "tedesca-osteria", "polperro", "flinders-hotel", "pier-street-flinders", "red-hill-brewery", "ten-minutes-by-tractor", "montalto", "paringa-estate", "merricks-general-wine-store", "bistro-elba", "mornington-peninsula-chocolates", "red-hill-cheese", "crittenden-villas", "peninsula-hot-springs-glamping"]
+relatedVenues: ["alba-thermal-springs", "peninsula-hot-springs", "lindenderry", "tedesca-osteria", "polperro", "flinders-hotel", "red-hill-brewery", "ten-minutes-by-tractor", "montalto", "paringa-estate", "merricks-general-wine-store", "bistro-elba", "mornington-peninsula-chocolates", "red-hill-cheese", "crittenden-villas", "peninsula-hot-springs-glamping"]
 relatedExperiences: ["bushrangers-bay-walk", "cape-schanck-boardwalk", "mornington-peninsula-gallery", "sorrento-back-beach"]
 readingTimeMinutes: 8
 featured: false
@@ -31,6 +31,11 @@ faq:
     answer: "Yes. Peninsula Hot Springs and Alba Thermal Springs are purpose-built for cold weather; the steam, heated outdoor pools, and contrast between air and water temperature are all more powerful in winter. Book a 4pm session to catch the sunset."
   - question: "Which restaurants are open in winter on the Mornington Peninsula?"
     answer: "Most of the Peninsula's best restaurants operate year-round. Tedesca Osteria, Montalto, Ten Minutes by Tractor, Flinders Hotel, and Merricks General Wine Store all run through winter. Smaller cellar doors sometimes move to weekends-only or appointment-only in July; call ahead."
+editorialProvenance:
+  method: researched
+  reviewedOn: 2026-10-01
+  checkedBy: desk
+  source: "Limited correction on 2026-10-01: Bushrangers Bay Cape Schanck route duration/distance and, where changed, wave hazard caveats only checked against https://www.parks.vic.gov.au/places-to-see/sites/bushrangers-bay-walk. Other fields were not reverified; no whole-record fact-check date assigned."
 ---
 
 There is a version of the Peninsula that most visitors never see, and it is the version that locals prefer.
@@ -79,15 +84,15 @@ Here is a weekend that puts all of the above together.
 
 **9am:** Breakfast slow. No pressure. No queues in winter anyway. A slow coffee in a quiet cafe, a pastry, the papers if there are any.
 
-**10.30am:** A short hard walk. Winter unlocks the best coastal walking on the Peninsula, and the right move is short and dramatic rather than a long endurance hike. **Bushrangers Bay** from Cape Schanck is the pick: about ninety minutes round trip, serious coastline, and the descent to the beach is worth the climb back up even in a drizzle. If the weather is properly ugly, walk the **Cape Schanck Boardwalk** instead: twenty minutes from car park to lookout, dramatic, and you can retreat to a heated car if the weather turns.
+**10.30am:** A short hard walk. Winter unlocks the best coastal walking on the Peninsula, and the right move is short and dramatic rather than a long endurance hike. **Bushrangers Bay** from Cape Schanck is the pick: about two hours return, with extra time for stops, serious coastline, and the descent to the beach is worth the climb back up even in a drizzle. If the weather is properly ugly, walk the **Cape Schanck Boardwalk** instead: twenty minutes from car park to lookout, dramatic, and you can retreat to a heated car if the weather turns.
 
-**12.30pm:** Lunch at a cellar door with a fire. The move that shapes the whole day. **Ten Minutes by Tractor** for the high-end version. **Montalto** if you want the sculpture grounds around you, even wet. **Polperro** for an underrated mid-winter dining room in Red Hill. **Red Hill Brewery** for the low-key version with a wood pizza oven and a hop garden behind you.
+**After the walk and travel:** Lunch at a cellar door with a fire. Reserve a time that allows for the full return walk, stops and the drive to lunch. The move that shapes the whole day. **Ten Minutes by Tractor** for the high-end version. **Montalto** if you want the sculpture grounds around you, even wet. **Polperro** for an underrated mid-winter dining room in Red Hill. **Red Hill Brewery** for the low-key version with a wood pizza oven and a hop garden behind you.
 
 Let the lunch take two hours. It is winter. Nobody is hurrying you out.
 
 **3.30pm:** Thermal session. Alba or Peninsula Hot Springs, booked ahead, 4pm entry. Stay through the sunset. Alba is newer, more architectural, quieter on a weekday; Peninsula Hot Springs is bigger, more circuits, the original. Either works.
 
-**7.30pm:** A quiet dinner. The day already had two big meals if you count the cellar door and the thermal, so dinner on Saturday should be simple. **Pier Street Flinders**, the bar menu at your hotel, or a pizza from the village.
+**7.30pm:** A quiet dinner. The day already had two big meals if you count the cellar door and the thermal, so dinner on Saturday should be simple. The bar menu at your hotel, or a pizza from the village.
 
 ### Sunday
 

@@ -1,0 +1,18 @@
+{
+  "claimId": "events/winter-wine-weekend-winter-wine-festival-red-hill-showgrounds/event-status",
+  "claimClass": "event-status",
+  "subject": {
+    "type": "events",
+    "slug": "winter-wine-weekend-winter-wine-festival-red-hill-showgrounds"
+  },
+  "statement": "Winter Wine Weekend, Winter Wine Festival (Red Hill Showgrounds) is running as published.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "winter-wine-weekend-winter-wine-festival-red-hill-showgrounds"
+    }
+  ],
+  "createdAt": "2026-05-04",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

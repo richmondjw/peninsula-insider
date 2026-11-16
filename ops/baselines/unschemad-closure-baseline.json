@@ -1,0 +1,12 @@
+{
+  "updatedAt": "2026-09-13T17:07:25.731Z",
+  "note": "Ratchet baseline, seeded from the real corpus. A key path listed here may not carry a closure signal on more records than the ceiling; a key path NOT listed here fails on first appearance. Tighten as each case is moved onto a field next/src/content.config.ts declares.",
+  "totals": {
+    "collectionsAudited": 24,
+    "filesScanned": 1968,
+    "unreadableFiles": 0,
+    "distinctKeyPaths": 0,
+    "records": 0
+  },
+  "ceilings": {}
+}

@@ -1,0 +1,20 @@
+{
+  "claimId": "events/foxeys-hangout-vegetable-feast-morning-sun-vineyard/rate-change",
+  "claimClass": "rate-change",
+  "subject": {
+    "type": "events",
+    "slug": "foxeys-hangout-vegetable-feast-morning-sun-vineyard",
+    "field": "freePaid"
+  },
+  "statement": "Entry to Foxeys Hangout Vegetable Feast (Morning Sun Vineyard) is ticketed.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "foxeys-hangout-vegetable-feast-morning-sun-vineyard",
+      "field": "freePaid"
+    }
+  ],
+  "createdAt": "2026-05-04",
+  "origin": "migrated",
+  "note": "Migrated by scripts/migrate-event-claims.mjs (PI-005 Stage 2) from freePaid already on next/src/content/events/foxeys-hangout-vegetable-feast-morning-sun-vineyard.json. No editorial judgement was applied and no content record was changed."
+}

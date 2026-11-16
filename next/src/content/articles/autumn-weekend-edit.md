@@ -5,14 +5,28 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-09
 heroImage:
-  src: "/images/sourced/article-red-hill-saturday-01.webp"
-  alt: "An autumn afternoon on the Red Hill plateau, vineyards turning gold before harvest - representative image"
-  credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  src: "/images/visit-victoria/vv-160356-montalto.webp"
+  alt: "A grassy path between vine rows leads to the glass-fronted restaurant and umbrellas at Montalto, beneath tall pine trees"
+  credit: "Two Palms Australia, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula"
+  depicts: "Montalto"
+  depictionStatus: "illustrative"
+  creator: "Two Palms Australia"
+  sourceUrl: "Victoria Content Hub asset 160356, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "editors-letter"
 tags: ["autumn", "red-hill", "long-lunch", "walks", "weekend"]
 relatedVenues: ["tedesca-osteria", "montalto", "lindenderry", "ten-minutes-by-tractor", "morning-sun", "paringa-estate", "stillwater-crittenden", "bistro-elba", "allis-wine-bar", "many-little"]
-relatedExperiences: ["bushrangers-bay-walk", "red-hill-market"]
+relatedExperiences: ["bushrangers-bay-walk"]
 readingTimeMinutes: 8
 featured: false
 status: "published"
@@ -28,7 +42,7 @@ faq:
   - question: "Is April the best time to visit the Mornington Peninsula?"
     answer: "For most visitors, yes. Crowds thin after Easter, the vineyards are mid-harvest and at their most photogenic, the light is exceptional, and tables that were impossible in summer are bookable a week ahead. The weather is less reliable than summer but the experience is usually richer."
   - question: "What's on at the Mornington Peninsula in autumn?"
-    answer: "The Red Hill Market runs on the first Saturday of each month year-round. Autumn harvest is active at most vineyards through March and April. The walking season is at its best - the coastal paths are more dramatic in autumn light and the crowds are significantly lower."
+    answer: "The original Red Hill Community Market is temporarily closed. The separate Hill and Ridge Community Market posts its own dates from September to May; check the organiser before travelling. Autumn harvest is active at most vineyards through March and April. The walking season is at its best - the coastal paths are more dramatic in autumn light and the crowds are significantly lower."
   - question: "Which Peninsula restaurants are best in autumn?"
     answer: "Tedesca Osteria is the strongest autumn lunch - the set menu tilts into seasonal produce and the dining room suits cool weather. Montalto's cellar door and sculpture park are excellent through April. For the weekend, Lindenderry at Red Hill is the strongest autumn stay."
 ---
@@ -47,7 +61,9 @@ April undoes most of that. Book a week ahead rather than two months. Drive the r
 
 The weather helps. A good autumn day on the plateau starts cool and clear, warms into the early afternoon, and gives you late light that is almost impossibly flattering to landscape. A bad autumn day, and there are plenty, delivers rain on the windscreen, a fire in the dining room at lunch, and the kind of weekend that justifies staying another night.
 
-## The three bookings worth making first
+<span id="the-three-bookings-worth-making-first"></span>
+
+## The bookings worth making first
 
 **Tedesca Osteria** is the lunch the Peninsula does best in autumn. Brigitte Hafner's set menu suits the season's produce: mushrooms, heavier pasta, longer braises. The dining room is built for this time of year. Book for lunch, not dinner. Go a fortnight ahead if you can.
 

@@ -1,0 +1,20 @@
+{
+  "claimId": "events/hill-ridge-community-market-september-2026-restart/event-schedule",
+  "claimClass": "event-schedule",
+  "subject": {
+    "type": "events",
+    "slug": "hill-ridge-community-market-september-2026-restart",
+    "field": "startDate"
+  },
+  "statement": "Hill & Ridge Community Market is scheduled for 3 October 2026, 9am–2pm, at Red Hill Recreation Reserve; unsafe weather can cancel it without notice.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "hill-ridge-community-market-september-2026-restart",
+      "field": "startDate"
+    }
+  ],
+  "createdAt": "2026-05-04",
+  "origin": "authored",
+  "note": "Corrected 23 September 2026 from the organiser homepage, which directly lists 3 October 2026, 9am–2pm, Red Hill Recreation Reserve, 184 Arthurs Seat Road. The prior migrated claim about 5 September described the season restart and is no longer the promoted event date. Weather may cancel without notice."
+}

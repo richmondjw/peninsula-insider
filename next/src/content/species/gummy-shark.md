@@ -49,6 +49,11 @@ status: published
 verified: true
 lastVerified: 2026-04-30
 publishedAt: 2026-04-30
+heroImage:
+  src: /images/species/gummy-shark.webp
+  alt: "Illustrated natural history plate of a gummy shark, Mustelus antarcticus, in side profile"
+  credit: Peninsula Insider
+  license: original-commissioned
 ---
 
 ## What gummy shark actually is

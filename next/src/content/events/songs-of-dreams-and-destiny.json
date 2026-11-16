@@ -6,7 +6,6 @@
   "startDate": "2026-05-31",
   "endDate": "2026-05-31",
   "place": "mornington",
-  "bookingUrl": "https://www.mornpen.vic.gov.au/Events-Activities/Songs-of-Dreams-and-Destiny",
   "category": "arts",
   "recurrence": "one-off",
   "worthTheDrive": false,
@@ -24,5 +23,17 @@
     "alt": "Mornington foreshore near Peninsula Community Theatre",
     "credit": "Peninsula Insider",
     "license": "other-licensed"
-  }
+  },
+  "retiredSourceLinks": [
+    {
+      "field": "bookingUrl",
+      "url": "https://www.mornpen.vic.gov.au/Events-Activities/Songs-of-Dreams-and-Destiny",
+      "verdict": "dead",
+      "disposition": "gone",
+      "checkedOn": "2026-09-13",
+      "note": "COUNCIL RESTRUCTURE, as above."
+    }
+  ],
+  "sourceStatus": "unsourced",
+  "sourceStatusNote": "COUNCIL RESTRUCTURE, as above."
 }

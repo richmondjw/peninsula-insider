@@ -1,0 +1,18 @@
+{
+  "evidenceId": "events/peninsula-vinehop-festival-2026/booking-events-humanitix-com-2026-08-25",
+  "claim": "events/peninsula-vinehop-festival-2026/booking",
+  "stance": "supports",
+  "publisher": {
+    "kind": "ticketing"
+  },
+  "url": "https://events.humanitix.com/peninsula-vinehop-festival-2026/tickets",
+  "retrievedAt": "2026-08-25",
+  "expiresAt": "2026-10-24",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/events/peninsula-vinehop-festival-2026.json",
+    "field": "bookingUrl",
+    "value": "https://events.humanitix.com/peninsula-vinehop-festival-2026/tickets",
+    "dateField": "lastCheckedDate"
+  }
+}

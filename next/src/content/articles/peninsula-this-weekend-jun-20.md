@@ -5,10 +5,23 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-06-15
 heroImage:
-  src: "/images/sourced/article-sorrento-foreshore-01.webp"
-  alt: "Sorrento foreshore at dusk, winter solstice festival evening, Mornington Peninsula 2026"
-  credit: "Peninsula Insider"
-  license: "other-licensed"
+  src: /images/visit-victoria/vv-163880-millionaire-s-walk.webp
+  alt: Clifftop lawn and weatherboard houses above a bay dotted with moored boats and jetties along Millionaire's Walk
+  credit: Courtesy of Visit Victoria
+  license: visit-victoria
+  caption: "Sorrento, Mornington Peninsula"
+  depicts: Millionaire's Walk
+  depictionStatus: illustrative
+  sourceUrl: Victoria Content Hub asset 163880, downloaded 2026-09-28
+  permission: Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).
+  permittedUses:
+    - website
+    - social
+  rightsHolder: Visit Victoria
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: recorded
+  decorative: false
+  provenanceReview: verified
 format: "weekend-picker"
 tags: ["weekend-picker", "whats-on", "june-planning", "winter", "solstice", "festival", "sorrento", "truffle", "wine", "hotsprings"]
 relatedVenues: []
@@ -33,7 +46,6 @@ dispatch:
     price: "Free, ticketed via Humanitix"
     summary: "The Peninsula's biggest winter set-piece: two music stages, fire performers, lantern path through the village, food trucks, and the six-metre 'Bernie' effigy burn on the bay at 6:30pm. Free but ticketed - book now. The one winter night when the Peninsula is neither quiet nor crowded."
     bookingLabel: "Book free ticket via Humanitix"
-    bookingUrl: "https://www.humanitix.com/au/event/sorrento-solstice-festival-2026"
   companion:
     title: "Peninsula Hot Springs Sunday Sessions, Rye"
     when: "Sunday 21 June, 2:00pm–5:00pm"
@@ -56,6 +68,8 @@ faq:
     answer: "Yes, the festival is free, but tickets are required via Humanitix for crowd management. Book in advance - the festival reaches capacity."
   - question: "What is the quieter option for the solstice weekend?"
     answer: "Sunday is the quieter day by design. Peninsula Hot Springs Sunday Sessions run 2–5pm with live music, included with a bathing session. For a land-based Sunday: Red Hill Truffles runs winter hunts, with Sunday morning being the quietest slot of the week."
+sourceStatus: unsourced
+sourceStatusNote: "404 on Humanitix. The ticket listing was removed after the event."
 ---
 
 The longest night of the year falls on Saturday, and the Peninsula is not pretending it doesn't matter. The Sorrento Solstice Festival is the one winter weekend when the foreshore stops feeling empty and starts feeling purposeful: two music stages, fire performers on the promenade, a lantern walk through the village, and the six-metre effigy burn on the bay at 6:30pm. It is free, ticketed, and worth planning around.

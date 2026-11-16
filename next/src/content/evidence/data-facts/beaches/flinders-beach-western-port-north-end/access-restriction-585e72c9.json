@@ -1,0 +1,18 @@
+{
+  "evidenceId": "data-facts/beaches/flinders-beach-western-port-north-end/access-restriction-585e72c9",
+  "claim": "data-facts/beaches/flinders-beach-western-port-north-end/access-restriction",
+  "stance": "supports",
+  "publisher": {
+    "kind": "unknown"
+  },
+  "retrievedAt": "2026-04-22",
+  "expiresAt": "2026-05-22",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/data/facts/beaches.json",
+    "field": "entities[13].source",
+    "value": "https://www.petstock.com.au/blog/articles/summer-travel-our-dog-friendly-guide-to-the-mornington-peninsula",
+    "dateField": "lastUpdated"
+  },
+  "url": "https://www.petstock.com.au/blog/articles/summer-travel-our-dog-friendly-guide-to-the-mornington-peninsula"
+}

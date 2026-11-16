@@ -1,0 +1,18 @@
+{
+  "evidenceId": "events/saturday-pottery-class/event-schedule-eventbrite-com-au-2026-08-24",
+  "claim": "events/saturday-pottery-class/event-schedule",
+  "stance": "supports",
+  "publisher": {
+    "kind": "ticketing"
+  },
+  "url": "https://www.eventbrite.com.au/e/saturday-pottery-class-tickets-1998469367676",
+  "retrievedAt": "2026-08-24",
+  "expiresAt": "2026-09-23",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/events/saturday-pottery-class.json",
+    "field": "officialEventUrl",
+    "value": "https://www.eventbrite.com.au/e/saturday-pottery-class-tickets-1998469367676",
+    "dateField": "discoveredAt"
+  }
+}

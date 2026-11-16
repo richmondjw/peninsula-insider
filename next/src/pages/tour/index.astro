@@ -8,6 +8,7 @@ import TourPackageCard from '../../components/TourPackageCard.astro';
 import TourOperatorCard from '../../components/TourOperatorCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { buildCollectionPageSchema, buildItemListSchema, buildBreadcrumbSchema } from '../../lib/schema';
+import CorrectionNote from '../../components/CorrectionNote.astro';
 
 const allTours = (await getCollection('tours'))
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
@@ -53,7 +54,7 @@ export const prerender = true;
 
 <BaseLayout
   title="Mornington Peninsula Tours · Peninsula Insider"
-  description="Operator-led tours on the Mornington Peninsula, wine tours, hot springs, wildlife, private charters, and verified multi-day packages. Honest editorial assessments."
+  description="Operator-led tours on the Mornington Peninsula, wine tours, hot springs, wildlife, private charters, and multi-day packages. Honest editorial assessments."
   section="tour"
   canonical="https://peninsulainsider.com.au/tour/"
   modifiedTime="2026-04-29"
@@ -82,7 +83,7 @@ export const prerender = true;
             <p class="label label--accent">Featured tours</p>
             <h2 class="split-intro__title">Operator-led Peninsula experiences worth booking</h2>
           </div>
-          <p class="split-intro__body">Each entry is verified against the operator's current product. We note who each tour suits and who it doesn't.</p>
+          <p class="split-intro__body">Each entry is written from the operator's own published product and its public review record. We note who each tour suits and who it doesn't. Operators change what they run, so confirm the detail with them before you book.</p>
         </div>
         <div class="tour-grid">
           {featuredTours.map((tour) => (
@@ -138,7 +139,7 @@ export const prerender = true;
       <div class="container">
         <div class="venues__header">
           <div>
-            <p class="label label--accent">Verified operators</p>
+            <p class="label label--accent">Assessed operators</p>
             <h2 class="venues__title">Who runs tours on the Peninsula</h2>
             <p class="venues__sub">Each operator listed here has been assessed against our vetting criteria: product accuracy, guest experience, and affiliate transparency.</p>
           </div>
@@ -194,6 +195,10 @@ export const prerender = true;
       </div>
     </div>
   </section>
+
+  <div class="container">
+    <CorrectionNote surface="tour-hub" />
+  </div>
 
   <NewsletterBlock />
 </BaseLayout>

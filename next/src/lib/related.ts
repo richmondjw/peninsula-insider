@@ -11,7 +11,8 @@
  * easy to unit-test if a harness is added later.
  */
 
-import { routeSlug } from './editorial';
+import { routeSlug } from './editorial.ts';
+import {selectEventPromotions} from './event-discovery.mjs';
 
 type ContentEntry = {
   id?: string;
@@ -166,18 +167,5 @@ export function pickRelatedEventsForPlace<T extends ContentEntry>(
 ): T[] {
   const limit = options.limit ?? 4;
   const from = options.from ?? new Date();
-  return events
-    .filter((event) => {
-      const ep = String(event.data.place?.id ?? event.data.place ?? '');
-      if (ep !== placeId) return false;
-      const end = event.data.endDate ?? event.data.startDate;
-      if (!end) return true;
-      return (end as Date).getTime() >= from.getTime() - 24 * 60 * 60 * 1000;
-    })
-    .sort(
-      (a, b) =>
-        ((a.data.startDate as Date)?.getTime?.() ?? 0) -
-        ((b.data.startDate as Date)?.getTime?.() ?? 0),
-    )
-    .slice(0, limit);
+  return selectEventPromotions(events,{now:from,placeId,windowDays:30}).sort((a,b)=>a.day.localeCompare(b.day)).slice(0,limit).map(item=>item.event) as T[];
 }

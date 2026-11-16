@@ -8,6 +8,9 @@
  */
 
 import { createClient } from '@supabase/supabase-js';
+import yurtRecord from '../content/venues/yurt-hideaway.json';
+import mallorcaRecord from '../content/venues/villa-mallorca.json';
+import brewersCottageRecord from '../content/venues/brewers-cottage.json';
 // `pi` is a non-default schema, so the inferred client type does not match
 // the public-default SupabaseClient. Treat the client opaquely.
 type SupabaseClient = ReturnType<typeof createClient<any, 'pi'>>;
@@ -46,6 +49,15 @@ export interface SearchParams {
   limit?:           number;
   weights?:         { lexical?: number; vector?: number; facet?: number };
 }
+
+// The live RPC index refresh is separate from the static site deployment.
+// Suppress paused venues even when pi.entity_index still has rows
+// from an older refresh.
+const pausedVenueSlugs = new Set<string>(
+  [yurtRecord, mallorcaRecord, brewersCottageRecord]
+    .filter((record) => record.status === 'paused')
+    .map((record) => record.slug),
+);
 
 let _client: SupabaseClient | null = null;
 
@@ -97,7 +109,9 @@ export async function search(params: SearchParams): Promise<SearchHit[]> {
     if (typeof console !== 'undefined') console.warn('[pi.search] RPC error, falling back', error);
     return [];
   }
-  return (data as SearchHit[]) ?? [];
+  return ((data as SearchHit[]) ?? []).filter((hit) =>
+    !(hit.entity_type === 'venue' && pausedVenueSlugs.has(hit.entity_slug))
+  );
 }
 
 /**

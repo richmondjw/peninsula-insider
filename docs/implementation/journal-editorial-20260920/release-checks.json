@@ -1,0 +1,92 @@
+[
+  {
+    "check": "lint:no-hidden-pages",
+    "exitCode": 0,
+    "log": "journal-release-check-lint-no-hidden-pages.log"
+  },
+  {
+    "check": "lint:seo-architecture",
+    "exitCode": 0,
+    "log": "journal-release-check-lint-seo-architecture.log"
+  },
+  {
+    "check": "lint:filter-chips",
+    "exitCode": 0,
+    "log": "journal-release-check-lint-filter-chips.log"
+  },
+  {
+    "check": "audit:agent-readiness",
+    "exitCode": 0,
+    "log": "journal-release-check-audit-agent-readiness.log"
+  },
+  {
+    "check": "assert:link-graph",
+    "exitCode": 0,
+    "log": "journal-release-check-assert-link-graph.log"
+  },
+  {
+    "check": "assert:event-safeguards",
+    "exitCode": 0,
+    "log": "journal-release-check-assert-event-safeguards.log"
+  },
+  {
+    "check": "assert:provenance-dates",
+    "exitCode": 0,
+    "log": "journal-release-check-assert-provenance-dates.log"
+  },
+  {
+    "check": "assert:link-health",
+    "exitCode": 0,
+    "log": "journal-release-check-assert-link-health.log"
+  },
+  {
+    "check": "assert:schema-drift",
+    "exitCode": 0,
+    "log": "journal-release-check-assert-schema-drift.log"
+  },
+  {
+    "check": "assert:declared-fields",
+    "exitCode": 0,
+    "log": "journal-release-check-assert-declared-fields.log"
+  },
+  {
+    "check": "assert:unschemad-closures",
+    "exitCode": 0,
+    "log": "journal-release-check-assert-unschemad-closures.log"
+  },
+  {
+    "check": "assert:closed-venues",
+    "exitCode": 0,
+    "log": "journal-release-check-assert-closed-venues.log"
+  },
+  {
+    "check": "assert:commercial-firewall",
+    "exitCode": 0,
+    "log": "journal-release-check-assert-commercial-firewall.log"
+  },
+  {
+    "check": "assert:media-provenance",
+    "exitCode": 1,
+    "log": "journal-release-check-assert-media-provenance.log"
+  },
+  {
+    "check": "assert:count-semantics",
+    "exitCode": 0,
+    "log": "journal-release-check-assert-count-semantics.log"
+  },
+  {
+    "check": "assert:claim-support",
+    "exitCode": 0,
+    "log": "journal-release-check-assert-claim-support.log"
+  },
+  {
+    "check": "assert:campaigns-review-page",
+    "exitCode": 0,
+    "log": "journal-release-check-assert-campaigns-review-page.log"
+  },
+  {
+    "check": "assert:partner-portal-dashboard",
+    "exitCode": 0,
+    "log": "journal-release-check-assert-partner-portal-dashboard.log"
+  }
+]

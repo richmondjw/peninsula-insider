@@ -1,3 +1,4 @@
+import { eventEnvelope, sanitiseParams } from './analytics-contract.ts';
 /**
  * v5-analytics - the ONE GA4 dispatch utility for the v5 component system.
  *
@@ -27,14 +28,11 @@
  * Not handled here: card_impression (needs IntersectionObserver batching,
  * owned by the store agent when it wires saves/trip behaviour).
  *
- * Consent gating mirrors the BaseLayout gtag loader exactly: gtag.js is
- * only injected after the reader opts in via CookieBanner (localStorage
- * key 'pi-consent-v1', change event 'pi:consent-changed'). So:
- *   1. window.gtag exists  -> consent was granted, send through gtag.
- *   2. no gtag but stored consent grants analytics -> queue into dataLayer
- *      (the loader drains it when it injects gtag later this pageview).
- *   3. otherwise -> no-op. Nothing is stored, nothing leaves the page.
- */
+ * Consent is checked on every call against pi-consent-v1. A loaded gtag
+ * does not imply continuing consent: withdrawal suppresses further events.
+ * With granted consent, dispatch through gtag or queue its argument tuple
+ * while the loader starts. Unknown/denied consent stores and sends nothing.
+ * All v5 events use the shared redaction/envelope contract. */
 
 const CONSENT_KEY = 'pi-consent-v1';
 
@@ -50,15 +48,31 @@ const PARAM_ATTRS: Array<[string, string]> = [
   ['action', 'action'],
 ];
 
-function analyticsConsented(): boolean {
+/**
+ * Three-state consent, because "not granted" and "refused" are different
+ * facts and the warehouse needs to tell them apart. `unknown` means the
+ * reader has not answered the CookieBanner yet (no stored record, or a
+ * record written by an older schema version).
+ */
+export type ConsentState = 'granted' | 'denied' | 'unknown';
+
+/** Read the stored consent record. Never throws; never writes. */
+export function readConsentState(): ConsentState {
+  if (typeof window === 'undefined') return 'unknown';
   try {
     const raw = localStorage.getItem(CONSENT_KEY);
-    if (!raw) return false;
+    if (!raw) return 'unknown';
     const parsed = JSON.parse(raw) as { analytics?: boolean } | null;
-    return !!(parsed && parsed.analytics);
+    if (!parsed || typeof parsed !== 'object') return 'unknown';
+    if (typeof parsed.analytics !== 'boolean') return 'unknown';
+    return parsed.analytics ? 'granted' : 'denied';
   } catch {
-    return false;
+    return 'unknown';
   }
+}
+
+function analyticsConsented(): boolean {
+  return readConsentState() === 'granted';
 }
 
 /**
@@ -66,20 +80,37 @@ function analyticsConsented(): boolean {
  * never throws, no-ops on the server and for unconsented readers.
  */
 export function trackEvent(name: string, params: Record<string, unknown> = {}): void {
-  if (typeof window === 'undefined') return;
+  if (typeof window === 'undefined' || !analyticsConsented()) return;
   try {
+    if (params.pi_event !== name || params.pi_schema !== 1) {
+      params = eventEnvelope(name, params, {
+        eventId: globalThis.crypto?.randomUUID?.() || `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`,
+        timestamp: new Date().toISOString(),
+        pagePath: window.location?.pathname || '/',
+        release: import.meta.env?.PUBLIC_RELEASE_SHA?.slice(0, 12) || 'unreleased',
+        consentState: 'granted',
+      });
+    }
+    const { params: safe } = sanitiseParams(params);
+    // Contract-generated timestamps/UUIDs contain digits that the general
+    // phone detector intentionally rejects. Restore only validated formats.
+    if (params.pi_event === name && params.pi_schema === 1) {
+      if (typeof params.pi_ts === 'string' && /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/.test(params.pi_ts)) safe.pi_ts = params.pi_ts;
+      if (typeof params.pi_event_id === 'string' && /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(params.pi_event_id)) safe.pi_event_id = params.pi_event_id;
+    }
     const w = window as unknown as {
       gtag?: (...args: unknown[]) => void;
       dataLayer?: unknown[];
     };
     if (typeof w.gtag === 'function') {
-      // gtag only exists post-consent (BaseLayout loader), so this is gated.
-      w.gtag('event', name, params);
+      // Check current consent above: gtag can remain loaded after withdrawal.
+      w.gtag('event', name, safe);
       return;
     }
     if (analyticsConsented()) {
       w.dataLayer = w.dataLayer || [];
-      w.dataLayer.push({ event: name, ...params });
+      // gtag drains argument tuples, not generic dataLayer objects.
+      w.dataLayer.push(['event', name, safe]);
     }
     // No consent, no dispatch. Deliberate no-op.
   } catch {

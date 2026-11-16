@@ -5,10 +5,24 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-04
 heroImage:
-  src: "/images/sourced/article-flinders-weekend-01.webp"
-  alt: "Flinders Pier and Bass Strait at dusk, with the village behind"
-  credit: "Wikimedia Commons"
-  license: "tmp-wikimedia"
+  src: "/images/visit-victoria/vv-157359-flinders-golf-course.webp"
+  alt: "Two golfers on a clifftop green at Flinders Golf Course, with Bass Strait and a low headland beyond under late sun"
+  credit: "Gary Lisbon, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Flinders Golf Club, Mornington Peninsula"
+  depicts: "Flinders Golf Course"
+  depictionStatus: "actual"
+  creator: "Gary Lisbon"
+  sourceUrl: "Victoria Content Hub asset 157359, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "slow-peninsula"
 tags: ["flinders", "stay", "walks", "slow", "weekend"]
 relatedVenues: ["flinders-hotel", "georgie-bass", "flinders-sourdough", "tedesca-osteria", "flinders-general-store", "nazaaray-estate", "mornington-peninsula-chocolates"]
@@ -33,11 +47,11 @@ faq:
     answer: "Flinders Hotel for a pub stay in the village itself - rooms are well-renovated and the location puts you inside walking distance of everything. For more privacy, farmland cottages within a five-minute drive of Cook Street are often the better stay - wood fires, paddock views, proper kitchens."
 ---
 
-Most people who talk about the Peninsula mean Red Hill and Sorrento.
+Most people who talk about the Peninsula mean [Red Hill](/explore/places/red-hill/) and [Sorrento](/explore/places/sorrento/).
 
 For obvious reasons: the wineries are up the ridge, the restaurants follow the wineries, and the tip of the Peninsula has the ferry, the beaches, and the main street full of shops. If you ask a Melbourne weekend visitor where they are going, the answer is almost always one of those two. And that is a reasonable answer for a certain kind of weekend.
 
-But there is another version of the Peninsula. It runs south of both of those places, keeps closer to the ocean side than the bay, and treats the weekend as a rhythm rather than a checklist. That version runs through Flinders, and it is worth the drive on its own terms.
+But there is another version of the Peninsula. It runs south of both of those places, keeps closer to the ocean side than the bay, and treats the weekend as a rhythm rather than a checklist. That version runs through [Flinders](/explore/places/flinders/), and it is worth the drive on its own terms.
 
 ## What Flinders actually is
 
@@ -45,17 +59,19 @@ Flinders is a village, with a bakery, a pub, a handful of shops, a pier, and a c
 
 Geographically it sits on the southern tip of the Peninsula, facing Bass Strait rather than Port Phillip. That matters more than it sounds. Everything is two degrees cooler, the wind has more weight, and the light is harder and cleaner than the bay-side light most visitors remember. The back beaches at Sorrento are technically further west, but Flinders feels more like the actual ocean, because it is.
 
-## The three-move Flinders day
+<span id="the-three-move-flinders-day"></span>
 
-A proper Flinders weekend does three things. Nothing more.
+## A Flinders day
 
-**One: start at Flinders Sourdough.** The bakery opens at 7am and the good loaves are gone by lunchtime. Order a morning bun, a long black, and one of whatever pastry is in season. Eat it on the low wall outside. Watch the village wake up. This is the move that orients the whole day around daylight rather than dinner reservations.
+A Flinders weekend leaves room for a walk, good food and time by the water.
+
+**One: start at [Flinders Sourdough](/eat/flinders-sourdough/).** The bakery opens at 7am and the good loaves are gone by lunchtime. Order a morning bun, a long black, and one of whatever pastry is in season. Eat it on the low wall outside. Watch the village wake up. This is the move that orients the whole day around daylight rather than dinner reservations.
 
 **Two: walk the cliff track toward West Head.** The track runs from the end of Cook Street along the coast, past Flinders Pier, and eventually out toward West Head with views straight across to Phillip Island. A long morning walk on the southern Peninsula, almost always empty. Allow ninety minutes return. Bring a jacket even in summer; the wind off Bass Strait respects no forecast.
 
 **Three: lunch at Georgie Bass.** The cafe is open until 2:30pm on weekdays and 3pm on weekends, which means you have time to do the walk properly before arriving for food. The all-day menu runs on regional produce from the owners' own farm: seasonal egg dishes, proper sourdough, vegetable preparations that understand what they are. The outdoor courtyard works in most weather. Coffee is Commonfolk. It is a cafe rather than a restaurant, and the difference matters less than you would expect when the produce is this considered.
 
-That is the whole day. If you finish by 3pm, drive fifteen minutes inland for a cellar door tasting or fifteen minutes west for Cape Schanck and the boardwalk. If you don't, stay in the village and walk the pier again at dusk.
+That is the whole day. If you finish by 3pm, drive fifteen minutes inland for a cellar door tasting or fifteen minutes west for [Cape Schanck and the boardwalk](/explore/cape-schanck-boardwalk/). If you don't, stay in the village and walk the pier again at dusk.
 
 ## The stay question
 

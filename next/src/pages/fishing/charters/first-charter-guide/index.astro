@@ -6,13 +6,23 @@ import SectionHero from '../../../../components/SectionHero.astro';
 import NewsletterBlock from '../../../../components/NewsletterBlock.astro';
 import BfAnalytics from '../../../../components/BfAnalytics.astro';
 import { buildArticleSchema, buildBreadcrumbSchema, buildFaqSchema, PUBLISHER_LOGO_URL } from '../../../../lib/schema';
+import { pageProvenance } from '../../../../lib/page-provenance';
 import { BF_EXTERNAL, formatVerifiedStamp } from '../../../../lib/bf';
 
-const lastVerifiedISO = '2026-04-30';
-const lastVerifiedStamp = formatVerifiedStamp(lastVerifiedISO);
+// The published date is a fact about this article, not a verification
+// claim, so it stays a constant.
+const publishedISO = '2026-04-30';
 const path = '/fishing/charters/first-charter-guide/';
 
 const allCharters = await getCollection('fishingCharters', ({ data }) => data.status === 'published');
+
+// PI-004: the stamp is derived from the records this page is about, never
+// declared. The label is "Last fact-verified" only when every one of those
+// records carries live supporting evidence in the claim registry; otherwise
+// the floor of their review dates is published, worded as a review.
+const provenance = await pageProvenance(allCharters, 'fishing-charters');
+const verificationStamp = provenance.stampISO ? formatVerifiedStamp(provenance.stampISO) : null;
+const modifiedISO = provenance.stampISO ?? undefined;
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
@@ -26,8 +36,8 @@ const articleSchema = buildArticleSchema({
   description:
     'A practical guide to your first fishing charter on the Mornington Peninsula. Choose your operator by species and group size, what to bring, what is covered, what to expect on the day.',
   path,
-  datePublished: lastVerifiedISO,
-  dateModified: lastVerifiedISO,
+  datePublished: publishedISO,
+  dateModified: modifiedISO,
   imageUrl: PUBLISHER_LOGO_URL,
   publisherLogoUrl: PUBLISHER_LOGO_URL,
   articleSection: 'Fishing',
@@ -57,7 +67,7 @@ export const prerender = true;
   description="A practical guide to your first fishing charter on the Mornington Peninsula. Choose by species and group, what to bring, what is covered, what to expect on the day."
   section="fishing"
   canonical={`https://peninsulainsider.com.au${path}`}
-  modifiedTime={lastVerifiedISO}
+  modifiedTime={modifiedISO}
 >
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
@@ -77,7 +87,7 @@ export const prerender = true;
   <article class="venue-detail" data-bf-article>
     <div class="container">
       <div class="prose">
-        <p class="prose__verified">Last fact-verified {lastVerifiedStamp}.</p>
+        {verificationStamp && <p class="prose__verified">{provenance.stampLabel} {verificationStamp}.</p>}
 
         <h2>Step 1: Choose by species and group</h2>
         <p>

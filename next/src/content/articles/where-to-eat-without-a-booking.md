@@ -5,13 +5,27 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-10
 heroImage:
-  src: "/images/sourced/category-restaurant-01.webp"
-  alt: "A couple studying a chalkboard menu outside a Peninsula pub on a Saturday afternoon - representative image"
-  credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  src: "/images/visit-victoria/vv-143825-red-hill-brewery.webp"
+  alt: "A tasting paddle of four beers, from dark to pale, on a weathered outdoor table beside timber chairs"
+  credit: "Peter Tarasiuk, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Red Hill Brewery, Mornington Peninsula"
+  depicts: "Red Hill Brewery"
+  depictionStatus: "illustrative"
+  creator: "Peter Tarasiuk"
+  sourceUrl: "Victoria Content Hub asset 143825, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026). Embedded usage terms: \"All image usage must be for the positive promotion of Melbourne and Victoria. Images can only be used to promote the region the image has been taken in. All material supplied is owned by Visit Victoria or its respective partners and can not be on sold to Third Parties.\""
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "service"
 tags: ["dining", "walk-in", "no-booking", "pubs", "cafes", "casual", "first-timers"]
-relatedVenues: ["red-hill-brewery", "flinders-hotel", "dromana-hotel", "rye-hotel", "balnarring-pub", "mornington-hotel", "portsea-hotel", "sorrento-hotel", "flinders-sourdough", "red-hill-bakery", "commonfolk-coffee", "johnny-ripe", "st-andrews-beach-brewery", "jetty-road-brewery", "two-bays-brewing", "red-gum-bbq", "balnarring-bakehouse", "somers-general", "flinders-general-store"]
+relatedVenues: ["red-hill-brewery", "flinders-hotel", "dromana-hotel", "rye-hotel", "mornington-hotel", "portsea-hotel", "sorrento-hotel", "flinders-sourdough", "red-hill-bakery", "commonfolk-coffee", "johnny-ripe", "st-andrews-beach-brewery", "jetty-road-brewery", "two-bays-brewing", "red-gum-bbq", "balnarring-bakehouse", "somers-general", "flinders-general-store"]
 relatedExperiences: ["mornington-foreshore-walk"]
 readingTimeMinutes: 7
 featured: false
@@ -26,9 +40,9 @@ clusterLinks:
     href: "/explore/plans/how-to-plan-a-peninsula-weekend/"
 faq:
   - question: "Which Peninsula restaurants take walk-ins without a booking?"
-    answer: "The pub network is the most reliable: Flinders Hotel (best for a walk-in lunch), Dromana Hotel (most reliably available), Rye Hotel, and Balnarring Pub. Breweries: Red Hill Brewery, St Andrews Beach Brewery, and Jetty Road Brewery all take walk-ins. Bakeries and cafés including Flinders Sourdough, Commonfolk Coffee, and Red Hill Bakery are counter service only, no booking required."
+    answer: "The pub network is the most reliable: Flinders Hotel (best for a walk-in lunch), Dromana Hotel (most reliably available), and Rye Hotel. Breweries: Red Hill Brewery, St Andrews Beach Brewery, and Jetty Road Brewery all take walk-ins. Bakeries and cafés including Flinders Sourdough, Commonfolk Coffee, and The Red Hill Baker in Balnarring are counter service only, no booking required."
   - question: "What are the best walk-in towns on the Mornington Peninsula?"
-    answer: "Flinders - hotel, sourdough bakery, general store, pier takeaway, and pier walk, all walk-in. Mornington - Commonfolk, the hotel pub, dumplings, the foreshore, and the gallery. Red Hill - the bakery, Johnny Ripe, Red Hill Brewery, and Red Gum BBQ. Any of these three supports a full day without a reservation."
+    answer: "Flinders - hotel, sourdough bakery, general store, pier takeaway, and pier walk, all walk-in. Mornington - Commonfolk, the hotel pub, dumplings, the foreshore, and the gallery. Red Hill - Johnny Ripe, Red Hill Brewery, and Red Gum BBQ. Any of these three supports a full day without a reservation."
   - question: "Can you eat well on the Mornington Peninsula without booking ahead?"
     answer: "Yes - but you need to use the right circuit. The booked restaurants (hatted rooms, winery dining) are a separate system from the walk-in circuit (pubs, bakeries, breweries, fast-casual). A walk-in Peninsula day is not a compromise version; it is a different version that is cheaper, more spontaneous, and occasionally more memorable than the booked alternative."
 aiSummary:
@@ -36,7 +50,7 @@ aiSummary:
   - "Covers: which hatted restaurants accept walk-ins (Rare Hare and Many Little under specific conditions); the best pub dining on the Peninsula; which markets and bakeries to use as an alternative to restaurant lunch."
   - "The editorial distinction: a Peninsula trip without a booking is not a failed trip. There are a dozen genuinely good walk-in options that the booking-first narrative systematically undersells."
   - "Suits: spontaneous visitors; last-minute day-trippers; anyone who left booking too late but still wants to eat well."
-  - "Planning note: pub dining on the Peninsula is better than its reputation. The Balnarring Pub, Flinders Hotel, and Portsea Hotel are all legitimate alternatives to hatted bookings."
+  - "Planning note: pub dining on the Peninsula is better than its reputation. Flinders Hotel and Portsea Hotel are both legitimate alternatives to hatted bookings."
 ---
 
 The Peninsula has a booking problem, and most visitors discover it at the wrong moment.
@@ -47,7 +61,7 @@ It is not. But the restaurants that take walk-ins and the restaurants that requi
 
 ## The honest framework
 
-Walk-in dining on the Peninsula falls into five categories, and they are not all the same experience:
+Walk-in dining on the Peninsula takes different forms, and they are not all the same experience:
 
 **The pubs.** The Peninsula's pub network is the most underrated dining infrastructure in the region. Almost all of them take walk-ins, almost all of them serve food from noon to late, and the best of them cook well above the level that the word "pub" implies.
 
@@ -71,8 +85,6 @@ Start here, because the pub network solves the walk-in problem more reliably tha
 
 **Rye Hotel.** Larger than it looks from the street and serving food until late most evenings. The front bar is rough in a way that is becoming rarer and more valuable on the Peninsula. The bistro out the back is perfectly acceptable. Good for groups who turn up without warning.
 
-**Balnarring Pub.** The quieter-side alternative. A garden, a reliable menu, and a crowd that skews local rather than tourist. Walk-in availability is almost never a problem because most visitors have not heard of Balnarring.
-
 **Mornington Hotel.** Town pub, town crowd, reliable bistro. The starting point for a Mornington walk-in plan because it anchors the main street.
 
 **Portsea Hotel.** The pub at the end of the road. Tourist pricing, big beer garden, ocean proximity. Walk-in tables are usually available outside of peak summer weekends.
@@ -85,7 +97,7 @@ The Peninsula's bakery and café circuit is the secret walk-in infrastructure. T
 
 **Flinders Sourdough.** The Peninsula's best bread and one of its best pastry cases. Walk in, order a loaf and a coffee, eat the croque monsieur if it is on, and leave before the weekend crowd arrives. No booking needed or possible.
 
-**Red Hill Bakery.** The hinterland version. Pies, sausage rolls, a proper counter lunch. This is the walk-in move when you are on the ridge and the winery restaurants are full.
+**The Red Hill Baker, Balnarring.** Pies, sausage rolls, bread and a proper counter lunch. The former Red Hill shop is closed; use the sole current shop at 1/3000 Frankston-Flinders Road, Balnarring.
 
 **Commonfolk Coffee** in Mornington. The town's best café, walk-in only, and the place where most Peninsula days should either begin or end. The coffee is serious. The food menu is small and well-made. There is a back room for quieter sittings.
 

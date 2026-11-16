@@ -1,0 +1,165 @@
+{
+  "schemaVersion": "1.0",
+  "url": "https://peninsulainsider.com.au/eat/",
+  "tier": "T1",
+  "family": "hub",
+  "assessedAt": "2026-10-03",
+  "baseRevision": "07c366db785faad254b71963c56ba63bc3b58c5f",
+  "dependsOn": "Existing 618-URL programme, pilot triage PQ-005 and exact public release manifest 07c366db785f-37106203957; three independent reviewers inspected current public at 320/390/1440 and source.",
+  "status": "in-remediation",
+  "score": null,
+  "owner": "Codex in James-approved Peninsula Insider task",
+  "decision": "adapt",
+  "primaryVisitorTask": "Choose a suitable Peninsula place to eat by occasion and town, then reach a truthful venue and booking path.",
+  "baseline": {
+    "independentReviews": [
+      {
+        "reviewer": "visual",
+        "ratings": {
+          "VT1": 4,
+          "VT2": 3,
+          "VT3": 2,
+          "VT4": 2,
+          "FN1": 3,
+          "FN2": 2,
+          "FN3": 2,
+          "ET1": 2,
+          "ET2": 3,
+          "ET3": 2,
+          "ET4": 2,
+          "VS1": 1,
+          "VS2": 2,
+          "VS3": 2,
+          "VS4": 4,
+          "VS5": 3,
+          "MI1": 2,
+          "MI2": 3,
+          "MI3": 2,
+          "AT1": null,
+          "AT2": null,
+          "AT3": null,
+          "AT4": 2
+        },
+        "assessedWeight": 87,
+        "assessedPoints": 51.75,
+        "fullScore": null,
+        "unknownCriteria": [
+          "AT1",
+          "AT2",
+          "AT3"
+        ]
+      },
+      {
+        "reviewer": "editorial",
+        "ratings": {
+          "VT1": 4,
+          "VT2": 4,
+          "VT3": 3,
+          "VT4": 3,
+          "FN1": 3,
+          "FN2": 4,
+          "FN3": 4,
+          "ET1": 2,
+          "ET2": 3,
+          "ET3": 1,
+          "ET4": 2,
+          "VS1": 0,
+          "VS2": 3,
+          "VS3": 3,
+          "VS4": 3,
+          "VS5": 3,
+          "MI1": 3,
+          "MI2": 3,
+          "MI3": 3,
+          "AT1": 3,
+          "AT2": null,
+          "AT3": null,
+          "AT4": 3
+        },
+        "assessedWeight": 92,
+        "assessedPoints": 64.75,
+        "fullScore": null,
+        "unknownCriteria": [
+          "AT2",
+          "AT3"
+        ]
+      },
+      {
+        "reviewer": "technical",
+        "ratings": {
+          "VT1": 3,
+          "VT2": 3,
+          "VT3": 2,
+          "VT4": 2,
+          "FN1": 3,
+          "FN2": 3,
+          "FN3": 3,
+          "ET1": 2,
+          "ET2": 3,
+          "ET3": null,
+          "ET4": 2,
+          "VS1": null,
+          "VS2": 2,
+          "VS3": 3,
+          "VS4": 3,
+          "VS5": 3,
+          "MI1": 3,
+          "MI2": 2,
+          "MI3": 1,
+          "AT1": 1,
+          "AT2": 3,
+          "AT3": 2,
+          "AT4": 3
+        },
+        "assessedWeight": 90,
+        "assessedPoints": 55.25,
+        "fullScore": null,
+        "unknownCriteria": [
+          "ET3",
+          "VS1"
+        ]
+      }
+    ],
+    "fullScore": null,
+    "note": "Three independent 23-criterion reviews supplied assessed-point subtotals, not normalized or full scores. Ratings differ in treatment of incomplete rights and accessibility evidence; all identify material gates. No 99 claim.",
+    "positiveFindings": [
+      "52 active directory rows, working filters and URL state; no horizontal page overflow at reviewed widths.",
+      "Earlier pilot price badges and public unverified-image note are absent on fresh live DOM.",
+      "Venue detail and operator routes worked in sampled paths."
+    ]
+  },
+  "hardGatesOpen": [
+    "40 of 52 displayed directory images differ from content heroes and their matching published CMS slots lack alt_text and credit in technical review; editorial independently verified 36 /cms-assets/ URLs with those fields null. Rights and exact subject remain unverified; this is not proof of infringement.",
+    "Search overlay claims aria-modal but keyboard focus remains in underlying navigation after opening; Tab escapes while overlay is visible.",
+    "First-visit Insider Note popup can open over an active search dialog and steal focus; one Escape closes both.",
+    "Full score blocked by missing direct assistive-tech and complete performance, motion, factual freshness and rights evidence."
+  ],
+  "triage": [
+    {
+      "priority": "P0",
+      "issue": "Search dialog focus containment and competing first-visit popup",
+      "acceptance": "Focus enters search input on open; Tab stays inside; search and Insider Note never open simultaneously; one Escape closes only the active surface and returns focus."
+    },
+    {
+      "priority": "P0",
+      "issue": "CMS image rights and subject evidence",
+      "acceptance": "Audit exact published overrides; show only documented rights/subject matches with descriptive alt and attribution, otherwise use vetted fallback or clearly labelled illustration."
+    },
+    {
+      "priority": "P1",
+      "issue": "Directory verdict and browse path",
+      "acceptance": "Browse all lands below sticky header at visible filters; all 52 verdicts remain complete and readable at 390/1440, including Pt. Leo."
+    },
+    {
+      "priority": "P1",
+      "issue": "Unsupported or stale claims and booking routes",
+      "acceptance": "Date/source awards and venue claims or remove; direct Reserve actions to current operator booking route where known."
+    }
+  ],
+  "negativeFindings": [
+    "The 36 and 40 image counts use different selection methods and can coexist; do not collapse them without item-level reconciliation.",
+    "One synthetic speed/stability sample is not field performance or full page acceptance.",
+    "No direct screen-reader pass or complete image-rights receipts were produced."
+  ],
+  "nextAction": "Fix independently reproduced search focus and modal collision in a bounded shared-interaction batch; then image provenance, directory copy/layout and factual claims. Regrade independently after exact public release."
+}

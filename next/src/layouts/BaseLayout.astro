@@ -1,5 +1,5 @@
 ---
-import { CONCIERGE_API_URL } from '../lib/concierge-config';
+import { agentDirectories } from '../lib/agent-guide.mjs';
 /**
  * Peninsula Insider  -  BaseLayout
  *
@@ -9,35 +9,33 @@ import { CONCIERGE_API_URL } from '../lib/concierge-config';
  */
 
 import '../styles/global.css';
-import '../styles/concierge.css';   // chat & drawer styles, loaded on every page
-import '../styles/search.css';      // site-search overlay + /search page styles
-import '../styles/inline-edit.css'; // admin-only inline editor chrome, inert unless edit mode is on
+import '../styles/anchor-pages.css';
+import '../styles/search.css';      // masthead search and site-wide overlay only
+// Admin-only editor CSS loads after the allowlist check in inline-edit/client.ts.
+import '../styles/refinement.css'; // approved Harbour editorial refinement
 import '../styles/magenta-stone.css'; // Magenta Stone theme - inert unless html[data-theme="magenta-stone"]
+import '../styles/photo-headers.css'; // Natural colour with feathered contrast behind photo-header copy
 import { ClientRouter } from 'astro:transitions';
-// V5 chrome promotion (2026-07-11, redesign-v5): V4Masthead /
-// V4MobileDrawer / Footer are replaced by the v5 chrome set
-// (future-ia.md section 3). The v4 components stay in the codebase as
-// reference but are no longer mounted here. V5Breadcrumbs mounts
-// globally so every below-level-1 template carries a trail; the
-// V5BottomBar carries the mobile quick actions.
+// Shared editorial shell. Search, account, consent and saved-item controllers
+// remain mounted below; navigation and footer share the wider page frame.
 import V5Masthead from '../components/v5/chrome/V5Masthead.astro';
 // The conditions strip and issue stamp (visual design review finding #1,
 // P0-1 / P0-2). Sits above the masthead in normal flow, site-wide.
-import UtilityBar from '../components/UtilityBar.astro';
-import V5MobileDrawer from '../components/v5/chrome/V5MobileDrawer.astro';
-import V5BottomBar from '../components/v5/chrome/V5BottomBar.astro';
+
+
 import V5Breadcrumbs from '../components/v5/chrome/V5Breadcrumbs.astro';
 import V5Footer from '../components/v5/chrome/V5Footer.astro';
-import ConciergeDrawer from '../components/ConciergeDrawer.astro';
-import { SHOW_ASK_PI } from '../lib/features';
 import SearchOverlay from '../components/SearchOverlay.astro';
+import PiChat from '../components/PiChat.astro';
 import AuthModal from '../components/v2/AuthModal.astro';
 import ProfileDropdown from '../components/v2/ProfileDropdown.astro';
 import CookieBanner from '../components/CookieBanner.astro';
+import PlayPeek from '../components/play/PlayPeek.astro';
 import SaveSiteController from '../components/SaveSiteController.astro';
 import CloudSync from '../components/CloudSync.astro';
 import InlineEditor from '../components/admin/InlineEditor.astro';
 import InsiderNotePopup from '../components/InsiderNotePopup.astro';
+import imageQuarantine from '../data/cms-image-quarantine.json';
 
 export interface Props {
   title: string;
@@ -47,6 +45,8 @@ export interface Props {
   canonical?: string;
   ogImage?: string;
   searchImage?: string;
+  /** Omit image metadata when this page has no individually evidenced image. */
+  suppressImageMeta?: boolean;
   ogType?: string;
   noindex?: boolean;
   publishedTime?: string;
@@ -93,6 +93,7 @@ const {
   canonical,
   ogImage,
   searchImage,
+  suppressImageMeta = false,
   ogType = 'website',
   noindex = false,
   publishedTime,
@@ -138,13 +139,16 @@ const searchImageAbsolute = searchImageSource.startsWith('http')
   ? searchImageSource
   : `${SITE_URL}${searchImageSource.startsWith('/') ? searchImageSource : '/' + searchImageSource}`;
 
-// Don't render the floating drawer when the visitor is on /ask itself.
-// /ask IS the full-screen chat, the drawer would be a duplicate.
-const isAskPage = rawPathname.startsWith('/ask');
 // The same component supports preview builds and the production rollout.
 // Keep the switch explicit so an emergency rollback is one environment edit.
 const newsletterPopupMode = import.meta.env.PUBLIC_NEWSLETTER_POPUP;
-const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopupMode === 'on';
+// Keep active planning and itinerary reading free of promotional interruptions.
+// Navigation and the footer retain their normal publication links.
+const isPlanningJourney = /^\/(?:explore\/plans|plans|me\/trip)(?:\/|$)/.test(rawPathname);
+// Place guides are reading and comparison tasks. Keep their footer signup
+// pathway, but do not interrupt a location decision with a timed modal.
+const isPlaceGuide = /^\/explore\/places(?:\/|$)/.test(rawPathname);
+const showNewsletterPopup = !isPlanningJourney && !isPlaceGuide && normalizedPath !== '/stay/' && normalizedPath !== '/agents/' && (newsletterPopupMode === 'preview' || newsletterPopupMode === 'on');
 ---
 
 <!doctype html>
@@ -161,12 +165,15 @@ const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopup
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta name="description" content={description} />
   <link rel="canonical" href={canonicalUrl} />
+  {!noindex && <link rel="describedby" href="/llms.txt" type="text/plain" title="Peninsula Insider agent guide" />}
+  {!noindex && Astro.url.pathname === "/" && agentDirectories.map((directory) => <><link rel="index" type="application/json" href={directory.href} title={`${directory.title} name directory: text page links`} /><link rel="index" type="application/json" href={directory.htmlHref} title={`${directory.title} name directory: HTML page links`} /></>)}
+  <link rel="alternate" type="application/rss+xml" title="Peninsula Insider stories" href="/feed.xml" />
   <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large'} />
 
   <!-- Open Graph -->
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
-  <meta property="og:image" content={ogImageAbsolute} />
+  {!suppressImageMeta && <meta property="og:image" content={ogImageAbsolute} />}
   <meta property="og:url" content={canonicalUrl} />
   <meta property="og:type" content={ogType} />
   <meta property="og:site_name" content="Peninsula Insider" />
@@ -175,10 +182,10 @@ const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopup
   {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
 
   <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:card" content={suppressImageMeta ? "summary" : "summary_large_image"} />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
-  <meta name="twitter:image" content={ogImageAbsolute} />
+  {!suppressImageMeta && <meta name="twitter:image" content={ogImageAbsolute} />}
 
   <script type="application/ld+json" set:html={JSON.stringify({
     '@context': 'https://schema.org',
@@ -187,12 +194,6 @@ const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopup
     name: 'Peninsula Insider',
     legalName: 'Peninsula Insider',
     url: SITE_URL,
-    logo: {
-      '@type': 'ImageObject',
-      // PI-EXP-045: interim publisher logo. Replace with a dedicated square
-      // (≥112×112px) /logo.png once the asset is created.
-      url: `${SITE_URL}/images/sourced/home-cover.webp`,
-    },
     description:
       'The independent editorial guide to the Mornington Peninsula: honest, opinionated coverage of eating, drinking, staying, and exploring. Every pick is independently researched and earns its place.',
     foundingDate: '2024',
@@ -222,6 +223,8 @@ const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopup
     diversityPolicy: `${SITE_URL}/about/`,
     ethicsPolicy: `${SITE_URL}/about/`,
   })} />
+
+  <slot name="head" />
 
   {isHome && (
     <script type="application/ld+json" set:html={JSON.stringify({
@@ -289,6 +292,8 @@ const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopup
       var KEY = 'pi-consent-v1';
 
       function loadGtag() {
+        // Preview and local QA must never enter the production property.
+        if (!['peninsulainsider.com.au', 'www.peninsulainsider.com.au'].includes(location.hostname)) return;
         if (window._piGtagLoaded) return;
         window._piGtagLoaded = true;
         window.dataLayer = window.dataLayer || [];
@@ -333,37 +338,19 @@ const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopup
       above: no consent, no events. */}
   <script>
     import { initV5Analytics } from '../lib/v5-analytics';
+    import { initContractAnalytics } from '../lib/analytics-events';
+    import { initWebVitalsRUM } from '../lib/web-vitals-rum';
     initV5Analytics();
+    initContractAnalytics();
+    initWebVitalsRUM();
   </script>
 
-  {/* TEMPORARY PASSWORD GATE.
-      Client-side only, so it is a soft courtesy gate, not security: the
-      content ships in the HTML regardless and crawlers that run JS get
-      redirected (which is fatal for SEO while the gate is on). Controlled
-      by PUBLIC_ACCESS_GATE so launching is a one-line env change in
-      .github/workflows/build-and-deploy.yml: set PUBLIC_ACCESS_GATE=off. */}
-  {import.meta.env.PUBLIC_ACCESS_GATE !== 'off' && (
-    <script is:inline>
-      (function() {
-        var KEY  = 'pi-access-v1';
-        if (localStorage.getItem(KEY) === '1') return;
-        var path = window.location.pathname;
-        if (path === '/access/' || path === '/access') return;
-        window.location.replace('/access/?r=' + encodeURIComponent(window.location.href));
-      })();
-    </script>
-  )}
 </head>
-<body data-page={section} data-path={rawPathname} data-v4="true">
+<body data-page={section} data-path={rawPathname} data-anchor-page={['/','/eat/','/stay/','/wine/','/explore/','/plans/','/explore/plans/','/whats-on/','/journal/'].includes(rawPathname) ? '' : undefined} data-v4="true">
 
   <a href="#main-content" class="skip-link">Skip to content</a>
 
-  {/* Conditions strip + issue stamp. Deliberately above the masthead and
-      deliberately NOT sticky: it reads as a printed dateline and scrolls
-      away, leaving the sticky masthead (and its --masthead-h measurement
-      below) exactly as they were. */}
-  <UtilityBar />
-
+  {/* 2026-11-10: the header is one band (V5Masthead); the edition dateline sits in the footer. */}
   <V5Masthead section={section} />
 
   {/* Measure the masthead height and publish it as --masthead-h on
@@ -374,20 +361,38 @@ const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopup
   <script is:inline>
     (function () {
       function setMastheadH() {
+        // The homepage has no sticky element that consumes --masthead-h.
+        // Avoid a synchronous layout read during its critical first paint;
+        // astro:page-load will measure normally after an inner-page navigation.
+        if (document.body && document.body.dataset.path === '/') return;
         var m = document.querySelector('.masthead');
         if (!m) return;
         var h = Math.round(m.getBoundingClientRect().height);
         document.documentElement.style.setProperty('--masthead-h', h + 'px');
       }
-      setMastheadH();
-      if ('ResizeObserver' in window) {
+      var ro = null;
+      // The masthead element is replaced by every client-router navigation,
+      // so an observer pointed at the first one is watching a detached node
+      // from the second page onwards and --masthead-h silently stops tracking
+      // the utility-row collapse. Re-point it, and disconnect the old one
+      // first so re-pointing does not itself accumulate observers.
+      function watchMasthead() {
         var m = document.querySelector('.masthead');
-        if (m) new ResizeObserver(setMastheadH).observe(m);
-      } else {
-        window.addEventListener('resize', setMastheadH);
+        if (!('ResizeObserver' in window)) return;
+        if (ro) ro.disconnect();
+        ro = null;
+        if (!m) return;
+        ro = new ResizeObserver(setMastheadH);
+        ro.observe(m);
       }
+      setMastheadH();
+      if ('ResizeObserver' in window) watchMasthead();
+      else window.addEventListener('resize', setMastheadH);
       // Re-measure after page transitions (Astro view-transitions).
-      document.addEventListener('astro:page-load', setMastheadH);
+      document.addEventListener('astro:page-load', function () {
+        setMastheadH();
+        watchMasthead();
+      });
     })();
   </script>
 
@@ -399,10 +404,14 @@ const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopup
       data-pagefind-ignore opts the page out of the search index entirely. */}
   {/* Auto breadcrumbs on every below-level-1 template (future-ia §3.1).
       Defers to any page-authored <Breadcrumbs> inside main. */}
+  {/* Consent stays in flow on first visit, ahead of every page hero. */}
+  <CookieBanner />
+
   {!noindex && <V5Breadcrumbs pageTitle={title} />}
 
   <main
     id="main-content"
+    tabindex="-1"
     data-pagefind-body={searchExclude ? undefined : ''}
     data-pagefind-filter={searchExclude ? undefined : `kind:${resolvedSearchKind}`}
     data-pagefind-meta={searchExclude ? undefined : `kind:${resolvedSearchKind}`}
@@ -419,7 +428,7 @@ const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopup
         display:none elements as invisible and skips them during indexing,
         which means `data-pagefind-meta` attributes on hidden elements are
         ignored. Empty <span> has zero visual impact regardless. */}
-    {!searchExclude && searchImageSource && (
+    {!searchExclude && !suppressImageMeta && searchImageSource && (
       <span data-pagefind-meta={`image:${searchImageAbsolute}`}></span>
     )}
     <slot />
@@ -427,26 +436,11 @@ const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopup
 
   <V5Footer />
 
-  <!-- V5 mobile drawer - wayfinding only, 13 rows + Dispatch CTA.
-       Self-binding (script lives inside the component). -->
-  <V5MobileDrawer />
-
-  <!-- V5 bottom action bar - Ask · Map · Save · Trip on mobile.
-       Self-suppressing on journal articles, form flows, open sheets,
-       and while the virtual keyboard is up. -->
-  <V5BottomBar />
-
   <!-- V2 auth phase 1, modal + profile dropdown.
        Modal hidden until any [data-open-auth] element triggers it.
        Dropdown auto-mounts into the masthead utility row when signed in. -->
   <ProfileDropdown />
   <AuthModal />
-
-  <!-- Set API URL BEFORE the drawer renders, its boot script reads
-       window.PI_API_URL at parse time, so this must come first. -->
-  <script is:inline define:vars={{ API_URL: CONCIERGE_API_URL }}>
-    window.PI_API_URL = API_URL;
-  </script>
 
   <!-- Supabase config for browser-side analytics (search query logging etc).
        Anon key is safe to expose - RLS ensures anon can only INSERT, not read. -->
@@ -454,17 +448,14 @@ const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopup
     window.__PI_SB = { url: SB_URL, key: SB_ANON_KEY };
   </script>
 
-  <!-- PI concierge drawer, slides in from the right edge.
-       Suppressed on /ask itself (which is the full-page version). -->
-  {SHOW_ASK_PI && !isAskPage && <ConciergeDrawer />}
-
   <!-- Site search overlay - instant Pagefind dropdown, opened by any
        [data-open-search] trigger or the `/` keyboard shortcut. -->
   <SearchOverlay />
+  <PiChat />
 
-  <!-- Cookie consent banner. Shows on first visit only; gates the
-       gtag.js loader above via the 'pi:consent-changed' event. -->
-  <CookieBanner />
+  {/* Game corner peek (off: PLAY.enabled in lib/play.ts). Content pages only, once
+      per week, waits for consent and stands down if the Insider Note popup is up. */}
+  {!isPlanningJourney && <PlayPeek />}
 
   <!-- Save / share-list controller (Phase 2 WS2E). Site-wide; binds save
        buttons on every page, owns localStorage, exposes window.PISave. -->
@@ -487,12 +478,14 @@ const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopup
        so right-click image edits on any page (events, places, venues, home) are
        visible immediately on next load without waiting for a rebuild.
        Non-fatal: if Supabase is unreachable the static images remain. -->
-  <script is:inline define:vars={{ __SB_URL: import.meta.env.PUBLIC_SUPABASE_URL || 'https://tjjhpvslpysfklwpqmgz.supabase.co', __SB_ANON: import.meta.env.PUBLIC_SUPABASE_ANON_KEY || 'sb_publishable_JlZuo95QvNZi2ZNrFyK-Cw_2y0U7HLp' }}>
+  <script is:inline define:vars={{ __SB_URL: import.meta.env.PUBLIC_SUPABASE_URL || 'https://tjjhpvslpysfklwpqmgz.supabase.co', __SB_ANON: import.meta.env.PUBLIC_SUPABASE_ANON_KEY || 'sb_publishable_JlZuo95QvNZi2ZNrFyK-Cw_2y0U7HLp', __IMAGE_QUARANTINE: imageQuarantine.quarantined.map(({ key, fieldPath, storagePath }) => ({ key, fieldPath, storagePath })) }}>
     (function () {
       if (!__SB_URL || !__SB_ANON) return;
       function applySlots() {
+        // Fully reviewed static image surfaces need no browser-only replacement fetch.
+        if (!document.querySelector('[data-pi-edit="image"][data-pi-entity-slug][data-pi-field-path]:not([data-pi-no-hydrate])')) return;
         var url = new URL('/rest/v1/cms_image_slots', __SB_URL);
-        url.searchParams.set('select', 'entity_type,entity_slug,field_path,public_url');
+        url.searchParams.set('select', 'entity_type,entity_slug,field_path,public_url,alt_text,credit');
         url.searchParams.set('status', 'eq.published');
         fetch(url.toString(), {
           headers: {
@@ -507,10 +500,28 @@ const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopup
           if (!Array.isArray(slots)) return;
           slots.forEach(function (slot) {
             if (!slot.public_url) return;
+            // Event media and its attribution are reviewed together at build time.
+            // A browser-only URL swap bypasses that review and leaves old captions.
+            if (slot.entity_type === 'event') return;
+            // Stay images are rendered through the vetted build resolver.
+            // Browser swaps can bypass the rights and disclosure shown beside them.
+            if (window.location.pathname.startsWith('/stay/') && slot.entity_type === 'venue') return;
+            var slotKey = slot.entity_type + '/' + slot.entity_slug;
+            if (__IMAGE_QUARANTINE.some(function (entry) {
+              return entry.key === slotKey &&
+                entry.fieldPath === slot.field_path &&
+                slot.public_url.endsWith('/' + entry.storagePath);
+            })) return;
             var el = document.querySelector(
               '[data-pi-entity-type="' + slot.entity_type + '"][data-pi-entity-slug="' + slot.entity_slug + '"][data-pi-field-path="' + slot.field_path + '"]'
             );
             if (!el) return;
+            // Some editorial surfaces deliberately retain a credited,
+            // source-verified image when a published upload lacks the
+            // metadata needed to describe or credit that replacement.
+            if (el.hasAttribute('data-pi-no-hydrate')) return;
+            if (el.hasAttribute('data-pi-requires-image-metadata') &&
+                !(slot.alt_text && slot.alt_text.trim() && slot.credit && slot.credit.trim())) return;
             if (el instanceof HTMLImageElement) {
               el.src = slot.public_url;
             } else {
@@ -548,68 +559,113 @@ const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopup
   </script>
 
   <!-- Sticky Subscribe pill, fades in once the reader passes the 50%
-       scroll mark. Mobile-only. Hidden on /newsletter, /ask, /account
+       scroll mark and hides once the inline newsletter is reached. Mobile-only.
+       Hidden on home, /newsletter, /ask, /account
        via CSS rules keyed on body[data-path]. Bottom-LEFT so it sits
        opposite the concierge FAB (bottom-right) and they don't collide. -->
-  <a href="/dispatch/" class="subscribe-pill" aria-label="Join The Insider Note">
+  {!isPlaceGuide && <a href="/dispatch/" class="subscribe-pill" aria-label="Join The Insider Note">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
       <polyline points="22,6 12,13 2,6"/>
     </svg>
     <span class="subscribe-pill__label">Join</span>
-  </a>
+  </a>}
 
   <script is:inline>
     (function () {
-      function initSubscribePill() {
+      var threshold = 0.5; // 50% of scrollable page
+      var rafId = null;
+
+      // Reads document.body on every call rather than closing over it. That is
+      // the whole fix: the client router replaces <body> on every navigation,
+      // so a closed-over reference goes stale, and the previous shape dealt
+      // with that by clearing its own `_subPillBound` guard from an
+      // astro:page-load handler and re-running - which added one more scroll
+      // listener per navigation, for the life of the tab, each holding a
+      // detached body alive. tests/journeys measured +1 per navigation on
+      // every page of the site, this being in the layout.
+      function check() {
         var body = document.body;
-        if (body._subPillBound) return;
-        body._subPillBound = true;
-        var threshold = 0.5; // 50% of scrollable page
-        var rafId = null;
-        function check() {
-          var max = document.documentElement.scrollHeight - window.innerHeight;
-          if (max <= 0) {
-            body.classList.remove('show-subscribe-pill');
-            return;
-          }
-          var pct = window.scrollY / max;
-          body.classList.toggle('show-subscribe-pill', pct >= threshold);
+        if (!body) return;
+        // These routes suppress the pill in CSS. Skip the geometry reads too,
+        // so their first paint does not pay for an invisible control.
+        if (['/', '/newsletter/', '/ask/', '/account/'].includes(body.dataset.path || '')) {
+          if (body.classList.contains('show-subscribe-pill')) body.classList.remove('show-subscribe-pill');
+          return;
         }
-        window.addEventListener('scroll', function () {
-          if (rafId) return;
-          rafId = requestAnimationFrame(function () { check(); rafId = null; });
-        }, { passive: true });
-        check();
+        var max = document.documentElement.scrollHeight - window.innerHeight;
+        if (max <= 0) {
+          body.classList.remove('show-subscribe-pill');
+          return;
+        }
+        var pct = window.scrollY / max;
+        var newsletter = document.getElementById('newsletter');
+        var reachedNewsletter = newsletter && newsletter.getBoundingClientRect().top <= window.innerHeight;
+        body.classList.toggle('show-subscribe-pill', pct >= threshold && !reachedNewsletter);
       }
-      initSubscribePill();
-      document.addEventListener('astro:page-load', function () {
-        document.body._subPillBound = false;
-        initSubscribePill();
-      });
+
+      // One listener, registered once. `window` outlives every swap.
+      window.addEventListener('scroll', function () {
+        if (rafId) return;
+        rafId = requestAnimationFrame(function () { check(); rafId = null; });
+      }, { passive: true });
+      check();
+      // A navigation resets scroll position and page height, so recompute -
+      // but only recompute. Nothing is re-registered.
+      document.addEventListener('astro:page-load', check);
     })();
   </script>
 
   <!-- V4 mega-menu + mobile drawer behaviour.
        Replaces V2's #mobileNav burger script. Three responsibilities:
        1. Hover/focus open + leave/explore/plans/click-outside close on desktop pillars.
-       2. Burger opens the V4 drawer; accordion pillars expand inline.
-       3. data-pi-trigger="true" intercepts clicks and opens the concierge
-          drawer via window.openConcierge() (was previously inside V2 Masthead). -->
+       2. Burger opens the V4 drawer; accordion pillars expand inline. -->
   <script is:inline>
     (function () {
+      // `document` outlives an Astro client-router swap, but bootAll() re-runs
+      // on every astro:page-load. The two listeners below used to sit inside
+      // initV4Mega() and initV4Drawer(), whose guards live on elements the
+      // swap replaces, so each navigation added another copy holding the
+      // previous page's nav. They are registered once at module scope here and
+      // resolve the nav from the live DOM when they fire.
+      function closeAllPillars(except) {
+        document.querySelectorAll('[data-v4-pillar]').forEach(function (n) {
+          if (n === except) return;
+          n.classList.remove('is-open');
+          var trig = n.querySelector('[data-v4-pillar-link]');
+          if (trig) trig.setAttribute('aria-expanded', 'false');
+        });
+      }
+
+      function closeV4Drawer() {
+        var burger = document.querySelector('.v4-burger');
+        var drawer = document.getElementById('v4Drawer');
+        if (!drawer) return;
+        drawer.classList.remove('is-open');
+        if (burger) burger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+        drawer.querySelectorAll('.v4-drawer__pillar.is-expanded').forEach(function (p) {
+          p.classList.remove('is-expanded');
+          var t = p.querySelector('[data-v4-drawer-pillar]');
+          if (t) t.setAttribute('aria-expanded', 'false');
+        });
+      }
+
+      document.addEventListener('click', function (e) {
+        var target = e.target;
+        var inside = target.closest && target.closest('[data-v4-pillar]');
+        if (!inside) closeAllPillars(null);
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key !== 'Escape') return;
+        var drawer = document.getElementById('v4Drawer');
+        if (drawer && drawer.classList.contains('is-open')) closeV4Drawer();
+      });
+
       function initV4Mega() {
         var items = document.querySelectorAll('[data-v4-pillar]');
         if (!items.length) return;
-
-        function closeAll(except) {
-          items.forEach(function (n) {
-            if (n === except) return;
-            n.classList.remove('is-open');
-            var trig = n.querySelector('[data-v4-pillar-link]');
-            if (trig) trig.setAttribute('aria-expanded', 'false');
-          });
-        }
 
         items.forEach(function (item) {
           if (item._v4Bound) return;
@@ -620,7 +676,7 @@ const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopup
           function open() {
             clearTimeout(closeTimer);
             openTimer = setTimeout(function () {
-              closeAll(item);
+              closeAllPillars(item);
               item.classList.add('is-open');
               if (link) link.setAttribute('aria-expanded', 'true');
             }, 70);
@@ -658,12 +714,6 @@ const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopup
             });
           }
         });
-
-        document.addEventListener('click', function (e) {
-          var target = e.target;
-          var inside = target.closest && target.closest('[data-v4-pillar]');
-          if (!inside) closeAll(null);
-        });
       }
 
       function initV4Drawer() {
@@ -681,25 +731,12 @@ const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopup
           burger.setAttribute('aria-expanded', 'true');
           document.body.style.overflow = 'hidden';
         }
-        function closeDrawer() {
-          drawer.classList.remove('is-open');
-          burger.setAttribute('aria-expanded', 'false');
-          document.body.style.overflow = '';
-          drawer.querySelectorAll('.v4-drawer__pillar.is-expanded').forEach(function (p) {
-            p.classList.remove('is-expanded');
-            var t = p.querySelector('[data-v4-drawer-pillar]');
-            if (t) t.setAttribute('aria-expanded', 'false');
-          });
-        }
 
         burger.addEventListener('click', function () {
           var isOpen = drawer.classList.contains('is-open');
-          if (isOpen) closeDrawer(); else openDrawer();
+          if (isOpen) closeV4Drawer(); else openDrawer();
         });
-        if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
-        document.addEventListener('keydown', function (e) {
-          if (e.key === 'Escape' && drawer.classList.contains('is-open')) closeDrawer();
-        });
+        if (closeBtn) closeBtn.addEventListener('click', closeV4Drawer);
 
         pillarTriggers.forEach(function (trig) {
           trig.addEventListener('click', function () {
@@ -719,26 +756,13 @@ const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopup
         });
 
         drawer.querySelectorAll('a').forEach(function (a) {
-          a.addEventListener('click', closeDrawer);
-        });
-      }
-
-      function initPiTriggers() {
-        document.querySelectorAll('[data-pi-trigger="true"]').forEach(function (el) {
-          if (el._piTrigBound) return;
-          el._piTrigBound = true;
-          el.addEventListener('click', function (e) {
-            if (typeof window.openConcierge !== 'function') return;
-            e.preventDefault();
-            window.openConcierge();
-          });
+          a.addEventListener('click', closeV4Drawer);
         });
       }
 
       function bootAll() {
         initV4Mega();
         initV4Drawer();
-        initPiTriggers();
       }
 
       bootAll();

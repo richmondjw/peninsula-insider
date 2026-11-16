@@ -3,13 +3,13 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import WineSubregionTemplate from '../../components/WineSubregionTemplate.astro';
 import { buildItemListSchema, buildBreadcrumbSchema } from '../../lib/schema';
-import { routeSlug } from '../../lib/editorial';
+import { routeSlug, isListableVenue } from '../../lib/editorial';
 
 const SITE = 'https://peninsulainsider.com.au';
 const canonical = `${SITE}/wine/balnarring/`;
 
 const wineTypes = ['winery', 'producer'];
-const allVenues = await getCollection('venues');
+const allVenues = (await getCollection('venues')).filter(isListableVenue);
 const venues = allVenues
   .filter((v) => {
     if (!wineTypes.includes(v.data.type)) return false;
@@ -93,7 +93,7 @@ The roads here are quieter and less direct than the ridge - allow extra time. Mo
       { slug: 'main-ridge', label: 'Main Ridge', hint: 'The highest plateau. Kooyong, Ten Minutes by Tractor, Main Ridge Estate.' },
     ]}
     journalLinks={[
-      { href: '/journal/the-cellar-door-short-list/', title: 'The cellar-door short list', body: 'The seven cellar doors I send people to first.' },
+      { href: '/journal/the-cellar-door-short-list/', title: 'The cellar-door short list', body: 'The cellar doors I send people to first.' },
       { href: '/wine/chardonnay/', title: 'The Chardonnay case', body: 'Where Balnarring fits in the Peninsula Chardonnay story.' },
       { href: '/wine/pinot-noir/', title: 'The Pinot benchmark', body: 'How to read Peninsula Pinot Noir, sub-region by sub-region.' },
     ]}
@@ -114,7 +114,7 @@ The roads here are quieter and less direct than the ridge - allow extra time. Mo
       },
       {
         q: 'When is the Balnarring Farmers\' Market?',
-        a: 'Third Saturday of every month, year-round. It is one of the Peninsula\'s best produce markets - smaller and more local than Red Hill Market, with a stronger focus on growers from the Western Port side of the Peninsula. Build a wine day around it.',
+        a: 'Third Saturday of every month, year-round. It is one of the Peninsula\'s best produce markets - with a stronger focus on growers from the Western Port side of the Peninsula. Build a wine day around it.',
       },
     ]}
   />

@@ -1,0 +1,25 @@
+{
+  "claimId": "data-facts/beaches/cape-schanck-boardwalk/access-restriction",
+  "claimClass": "access-restriction",
+  "subject": {
+    "type": "data-facts",
+    "slug": "beaches/cape-schanck-boardwalk",
+    "field": "activeAlerts[2].source"
+  },
+  "statement": "Cape Schanck Boardwalk: access restriction as recorded in src/data/facts/beaches.json.",
+  "assertedBy": [
+    {
+      "type": "data-facts",
+      "slug": "beaches/cape-schanck-boardwalk",
+      "field": "activeAlerts[2].source"
+    },
+    {
+      "type": "data-facts",
+      "slug": "beaches/cape-schanck-boardwalk",
+      "field": "entities[16].source"
+    }
+  ],
+  "createdAt": "2026-04-01",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

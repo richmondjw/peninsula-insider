@@ -1,0 +1,8 @@
+import {readFile,writeFile} from 'node:fs/promises';
+function decode(bytes){return bytes.toString(bytes[0]===255&&bytes[1]===254?'utf16le':'utf8').replace(/^\uFEFF/,'').replace(/\x1b\[[0-9;]*m/g,'').replaceAll('\r\n','\n');}
+function diagnostics(log){return [...log.matchAll(/^([^\n]+?):\d+:\d+ - error ([^\n]+)/gm)].map(m=>`${m[1].replaceAll('\\','/')} - ${m[2]}`).sort();}
+const baseline=diagnostics(decode(await readFile('../reports/cellar-doors/typecheck-base.log'))),current=diagnostics(decode(await readFile('../reports/cellar-doors/typecheck-final.log')));
+function difference(a,b){const counts=new Map();for(const v of b)counts.set(v,(counts.get(v)||0)+1);return a.filter(v=>{if(counts.get(v)){counts.set(v,counts.get(v)-1);return false;}return true;});}
+const result={base:'244bb86ae9ca09b6a123022139f6248f17baa25a',method:'Actual base and candidate npm run check, same locked node_modules junction and PI_SKIP_CMS_LIVE_READS=1. Compare diagnostic multiset by file, code and message; normalize ANSI, CRLF and line/column offsets only.',baseErrorCount:baseline.length,candidateErrorCount:current.length,added:difference(current,baseline),removed:difference(baseline,current),baseline,candidate:current};
+result.identicalDiagnostics=!result.added.length&&!result.removed.length&&baseline.length>0;
+await writeFile('../reports/cellar-doors/typecheck-baseline-comparison.json',JSON.stringify(result,null,2));console.log({baseErrorCount:result.baseErrorCount,candidateErrorCount:result.candidateErrorCount,added:result.added,removed:result.removed,identicalDiagnostics:result.identicalDiagnostics});

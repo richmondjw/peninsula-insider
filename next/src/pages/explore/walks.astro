@@ -6,6 +6,8 @@ import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import PiSaveActions from '../../components/PiSaveActions.astro';
 import { editableImage } from '../../lib/inline-edit/attrs';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
+import ProvenanceLine from '../../components/ProvenanceLine.astro';
+import CorrectionNote from '../../components/CorrectionNote.astro';
 import {
   buildCollectionPageSchema,
   buildItemListSchema,
@@ -235,7 +237,7 @@ const faqs = [
   },
   {
     q: 'Do I need to pay to walk at Point Nepean?',
-    a: 'Parks Victoria charges entry fees for Point Nepean National Park. Most walkers park at the visitor centre and either walk or take the fee-based troop carrier toward the fort.',
+    a: 'Entry to Point Nepean National Park is free. Most walkers park at the visitor centre and either walk or take the ticketed shuttle toward the fort.',
   },
   {
     q: 'Are there easy walks suitable for families and young children?',
@@ -284,7 +286,7 @@ export const prerender = true;
 
 <BaseLayout
   title="Best Walks on the Mornington Peninsula · Peninsula Insider"
-  description="Ranked editorial guide to the Peninsula's best walks - coastal, hinterland, and national park. Effort, distance, and payoff rated for 11 walks."
+  description="Ranked editorial guide to the Peninsula's best walks - coastal, hinterland, and national park. Effort, distance, and payoff rated for each walk."
   section="explore"
   canonical="https://peninsulainsider.com.au/explore/walks/"
 >
@@ -310,7 +312,7 @@ export const prerender = true;
           <h1 class="wk-hero__title">The best walks on the Mornington Peninsula</h1>
           <p class="wk-hero__standfirst">
             Bay-side foreshore paths, clifftop boardwalks over Bass Strait, national-park
-            bush and a 26 km coast-to-coast route. Eleven walks, ranked by what they
+            bush and a 26 km coast-to-coast route. Walks ranked by what they
             demand and what they give back.
           </p>
         </div>
@@ -365,8 +367,9 @@ export const prerender = true;
         region in Victoria: foreshore paths on the bay, boardwalks over Bass Strait,
         national park bush trails, and hinterland ridge-tops through old-growth manna gum
         that see almost nobody outside school holidays. Every walk below is editorially
-        reviewed and re-verified on a rolling basis. The ranking weighs effort against
-        payoff - what a walk asks of you, against what it gives back.
+        reviewed, and the date it was last checked is stated at the foot of this
+        page. The ranking weighs effort against payoff - what a walk asks of you,
+        against what it gives back.
       </p>
 
       {tiers.map((tier) => (
@@ -458,10 +461,14 @@ export const prerender = true;
           <li><a href="/explore/">All Peninsula experiences</a></li>
         </ul>
 
-        <p><em>Last fact-verified 23 April 2026</em></p>
+        <ProvenanceLine records={experiences} type="experiences" noun="walk" emphasis />
       </div>
     </div>
   </section>
+
+  <div class="container">
+    <CorrectionNote surface="walks-hub" />
+  </div>
 
   <NewsletterBlock />
 </BaseLayout>
@@ -490,13 +497,7 @@ export const prerender = true;
   .wk-hero__scrim {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      to top,
-      rgba(11, 46, 74, 0.94) 0%,
-      rgba(11, 46, 74, 0.78) 38%,
-      rgba(11, 46, 74, 0.3) 62%,
-      rgba(11, 46, 74, 0) 80%
-    );
+    background: var(--photo-shade-bottom);
   }
   .wk-hero__content {
     position: absolute;

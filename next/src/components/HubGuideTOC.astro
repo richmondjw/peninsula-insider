@@ -45,6 +45,14 @@ const items = headings.filter((h) => h.depth === 2);
 
 <script is:inline>
   (function () {
+    // The observer has to be re-pointed on every navigation, because the
+    // headings it watches are replaced along with the rest of the document -
+    // but the previous one has to be disconnected first. Without that, the
+    // element-level `_piTocBound` guard was fresh each visit while the
+    // observer was not, so every visit to a guide left one more observer
+    // watching headings that no longer existed. Found by the PI-012 sweep.
+    let io = null;
+
     function init() {
       const links = Array.from(document.querySelectorAll('[data-toc-link]'));
       if (!links.length) return;
@@ -69,7 +77,8 @@ const items = headings.filter((h) => h.depth === 2);
       // rootMargin tuned so the active state flips when a heading is in
       // the top third of the viewport, rather than only when it's fully
       // visible. Avoids the "nothing is active" gap between sections.
-      const io = new IntersectionObserver(function (entries) {
+      if (io) io.disconnect();
+      io = new IntersectionObserver(function (entries) {
         // Among visible entries, pick the topmost.
         let topmost = null;
         entries.forEach(function (e) {

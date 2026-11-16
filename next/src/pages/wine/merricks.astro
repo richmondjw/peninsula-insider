@@ -3,13 +3,13 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import WineSubregionTemplate from '../../components/WineSubregionTemplate.astro';
 import { buildItemListSchema, buildBreadcrumbSchema } from '../../lib/schema';
-import { routeSlug } from '../../lib/editorial';
+import { routeSlug, isListableVenue } from '../../lib/editorial';
 
 const SITE = 'https://peninsulainsider.com.au';
 const canonical = `${SITE}/wine/merricks/`;
 
 const wineTypes = ['winery', 'producer'];
-const allVenues = await getCollection('venues');
+const allVenues = (await getCollection('venues')).filter(isListableVenue);
 const venues = allVenues
   .filter((v) => {
     if (!wineTypes.includes(v.data.type)) return false;
@@ -93,7 +93,7 @@ Merricks Beach Road and Stanleys Road are the spine. Both are sealed but narrow.
       { slug: 'balnarring', label: 'Balnarring', hint: 'Further east toward Western Port. Quealy and Hurley.' },
     ]}
     journalLinks={[
-      { href: '/journal/the-cellar-door-short-list/', title: 'The cellar-door short list', body: 'The seven cellar doors I send people to first.' },
+      { href: '/journal/the-cellar-door-short-list/', title: 'The cellar-door short list', body: 'The cellar doors I send people to first.' },
       { href: '/wine/chardonnay/', title: 'The Chardonnay case', body: 'Why Mornington Peninsula Chardonnay belongs in the Australian conversation.' },
       { href: '/wine/pinot-noir/', title: 'The Pinot benchmark', body: 'How to read Peninsula Pinot Noir, sub-region by sub-region.' },
     ]}

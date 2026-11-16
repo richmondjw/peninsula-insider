@@ -1,0 +1,20 @@
+{
+  "claimId": "quick-notes/2026-05-15-weather-friday/conditions",
+  "claimClass": "conditions",
+  "subject": {
+    "type": "quick-notes",
+    "slug": "2026-05-15-weather-friday",
+    "field": "sources"
+  },
+  "statement": "Friday - 20°C, sunny all day. Last clean day before Sunday rain.",
+  "assertedBy": [
+    {
+      "type": "quick-notes",
+      "slug": "2026-05-15-weather-friday",
+      "field": "sources"
+    }
+  ],
+  "createdAt": "2026-05-15",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

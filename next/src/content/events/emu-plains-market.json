@@ -2,9 +2,28 @@
   "slug": "emu-plains-market",
   "eventId": "MP-EVT-0067",
   "title": "Emu Plains Market",
-  "summary": "Monthly artisan market at Emu Plains Reserve Balnarring. For lovers of craft, design, vintage, music and food. Seasonal schedule October–April (day market 9am–2pm) plus June and August dates. Site of the Womin Djeka cultural festival. Volunteer-run community hub.",
+  "summary": "Seasonal makers market at Emu Plains Reserve, Balnarring, with craft, design, vintage, food and live music. The organiser confirms daytime markets on the third Saturdays of October, November and December 2026, 9am to 2pm.",
+  "heroImage": {
+    "src": "/images/generated/coastal-punch-produce.webp",
+    "alt": "Conceptual market produce and ceramics beneath a striped canopy.",
+    "credit": "Illustration: Peninsula Insider",
+    "license": "other-licensed",
+    "caption": "",
+    "depicts": "market produce and ceramics beneath a striped canopy",
+    "depictionStatus": "illustrative",
+    "creator": "Peninsula Insider, AI-assisted",
+    "permission": "Original AI-assisted artwork created for Peninsula Insider; website rollout approved by James on 2026-10-09.",
+    "permittedUses": [
+      "website"
+    ],
+    "rightsHolder": "Peninsula Insider",
+    "rightsEstablishedOn": "2026-10-09",
+    "rightsStatus": "recorded",
+    "provenanceReview": "verified",
+    "decorative": false
+  },
   "startDate": "2026-10-17",
-  "endDate": "2026-10-17",
+  "endDate": "2026-12-19",
   "startTime": "09:00",
   "endTime": "14:00",
   "season": "spring",
@@ -18,15 +37,12 @@
     "lng": 145.1417
   },
   "indoorOutdoor": "Outdoor",
-  "officialEventUrl": "https://www.mornpen.vic.gov.au/Events-Activities/Emu-Plains-Market-3",
+  "officialEventUrl": "https://www.emuplainsmarket.com.au/markets/november",
   "bookingRequired": "No",
-  "freePaid": "Free",
-  "priceRange": "Free entry",
-  "priceTier": "free",
   "category": "market",
   "subcategory": "Artisan & Community Market",
   "recurrence": "monthly",
-  "recurrenceNote": "Monthly October–April (day market); June and August also listed; no July, May or September",
+  "recurrenceNote": "Third Saturday October through December 2026, 9am to 2pm. January 2027 is a separately timed twilight market.",
   "suitableFor": "Families; craft lovers; day trippers",
   "audienceTags": [
     "families"
@@ -38,12 +54,14 @@
   "weatherDependency": "Outdoor – seasonal schedule; weather dependent",
   "weatherShape": "fair-weather-only",
   "organiser": {
-    "name": "Emu Plains Market Committee"
+    "name": "Untold Events Co",
+    "website": "https://www.emuplainsmarket.com.au/"
   },
-  "primarySourceUrl": "https://www.mornpen.vic.gov.au/Events-Activities/Emu-Plains-Market-3",
-  "secondarySourceUrl": "https://www.australiantraveller.com/vic/mornington-peninsula/mornington-peninsula-markets/",
-  "verificationStatus": "Tentative",
-  "lastCheckedDate": "2026-05-04",
+  "primarySourceUrl": "https://www.emuplainsmarket.com.au/markets/november",
+  "secondarySourceUrl": "https://www.visitvictoria.com/regions/mornington-peninsula/whats-on/markets-and-vintage/emu-plains-market",
+  "verification": "verified",
+  "lastCheckedDate": "2026-11-16T00:00:00.000Z",
+  "provenance": "The organiser's dated November page and market calendar were checked on 2026-11-16. They list 21 November 2026, 9am to 2pm, at Emu Plains Reserve, with paid parking, disabled toilets and no dogs on DEECA land. The same calendar lists 19 December at 9am to 2pm. January is a separately timed 3pm to 8pm twilight market and must not inherit this record's daytime hours.",
   "editorialPriority": 3,
   "nearbyAttractions": "Balnarring Village; Balnarring Beach; Merricks wineries",
   "suggestedItineraryPairing": "Market + Balnarring beach + winery lunch",
@@ -52,13 +70,30 @@
   "worthTheDrive": true,
   "firstTimer": true,
   "editorVerdict": "Emu Plains is the artisan market that actually feels like the Peninsula: stringybarks, music, makers you'd buy from twice.",
-  "editorNote": "Emu Plains runs monthly at Balnarring's Coolart Road reserve, with a seasonal schedule that skips most of winter (October through April plus June and August). It is volunteer-run, craft-and-design heavy, and the kind of market where the food trucks are worth queueing for.\n\nThe move: get there by 9:30am for the food and coffee before queues set in, do a full lap, then walk over to Coolart Wetlands next door (it's right there) or push on to Balnarring Beach. Skip in midsummer if you can't handle heat: minimal shade once the sun is up.",
+  "editorNote": "The organiser confirms 17 October, 21 November and 19 December 2026 as 9am–2pm markets at Emu Plains Reserve. Its January session is a separately timed twilight market, so check the organiser before making plans for dates beyond December.\n\nThe move: browse the makers and food stalls, then continue to Balnarring Beach or nearby Coolart Wetlands.",
   "lens": [
     "family-saturday",
-    "free",
     "walk-in",
     "locals-know"
   ],
   "place": "balnarring",
-  "nextOccurrence": "2026-09-17"
+  "nextOccurrence": "2026-11-21",
+  "retiredSourceLinks": [
+    {
+      "field": "officialEventUrl",
+      "url": "https://www.mornpen.vic.gov.au/Events-Activities/Emu-Plains-Market-3",
+      "verdict": "dead",
+      "disposition": "gone",
+      "checkedOn": "2026-09-13",
+      "note": "COUNCIL RESTRUCTURE, as above."
+    },
+    {
+      "field": "primarySourceUrl",
+      "url": "https://www.mornpen.vic.gov.au/Events-Activities/Emu-Plains-Market-3",
+      "verdict": "dead",
+      "disposition": "gone",
+      "checkedOn": "2026-09-13",
+      "note": "COUNCIL RESTRUCTURE, as above."
+    }
+  ]
 }

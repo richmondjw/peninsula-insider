@@ -9,7 +9,7 @@ status: published
 
 Where you sleep shapes the whole Peninsula weekend. A ridge stay puts you within walking distance of cellar doors and positions lunch as a walk rather than a drive. A Sorrento or Portsea base gives you the village atmosphere and easy access to the ocean beaches. The bayside properties in Mornington and Mount Martha are the most accessible from Melbourne, good for a single-night escape that doesn't require the full commitment.
 
-The best Peninsula stays are not hotels in the traditional sense. They're more often vineyard villas, converted farm buildings, and coastal properties that borrow character from the landscape. Jackalope on the Red Hill plateau is the benchmark: a serious room in a serious location, price calibrated to match. Below it, a strong mid-range layer of self-contained villas and cottages that work well for couples and small groups.
+The best Peninsula stays are not hotels in the traditional sense. They're more often vineyard villas, converted farm buildings, and coastal properties that borrow character from the landscape. Jackalope in Merricks North is the benchmark: a serious room in a serious location, price calibrated to match. Below it, a strong mid-range layer of self-contained villas and cottages that work well for couples and small groups.
 
 The Red Hill ridge puts you in wine country, better for cellar door days, vineyard lunches, and escapes where the wine list is the point. The coastal properties (Flinders, Sorrento, Portsea) are better when beaches, ocean walks, and sunset drinks at the pub are the priority. Bayside properties in Mornington and Mount Martha are the most accessible from Melbourne and work well for single nights.
 

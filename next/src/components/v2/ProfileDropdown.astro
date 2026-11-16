@@ -32,8 +32,6 @@
   }
 
   function installGlobalCloseListeners() {
-    if ((document as any).__piProfileClose) return;
-    (document as any).__piProfileClose = true;
     document.addEventListener('click', (e) => {
       const profile = document.getElementById('v2-profile');
       if (!profile) return;
@@ -44,6 +42,14 @@
       if (e.key === 'Escape') closeMenu();
     });
   }
+
+  // Called here rather than from init(): init() re-runs on every
+  // astro:page-load, and a guard that lived on a swapped element would have
+  // been fresh every time while these document listeners were not. Module
+  // scope runs exactly once, so they cannot accumulate. Both handlers resolve
+  // #v2-profile at fire time, so they are correct before init() has run and on
+  // pages that carry no profile menu at all.
+  installGlobalCloseListeners();
 
   function init() {
     if (!isAuthEnabled()) return;
@@ -60,8 +66,6 @@
     if (mountTarget && el.parentElement !== mountTarget) {
       mountTarget.appendChild(el);
     }
-
-    installGlobalCloseListeners();
 
     if ((el as any)._init) return;
     (el as any)._init = true;

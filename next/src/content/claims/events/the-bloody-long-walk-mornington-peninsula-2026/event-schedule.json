@@ -1,0 +1,20 @@
+{
+  "claimId": "events/the-bloody-long-walk-mornington-peninsula-2026/event-schedule",
+  "claimClass": "event-schedule",
+  "subject": {
+    "type": "events",
+    "slug": "the-bloody-long-walk-mornington-peninsula-2026",
+    "field": "startDate"
+  },
+  "statement": "The Bloody Long Walk, Mornington Peninsula 2026 runs on 25 October 2026.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "the-bloody-long-walk-mornington-peninsula-2026",
+      "field": "startDate"
+    }
+  ],
+  "createdAt": "2026-09-13",
+  "origin": "authored",
+  "note": "The record's internalNotes hold an unresolved date disagreement, 25 October against 18 October, and the migration held the record back for it. Settled here in the record's favour. The internalNotes were not edited: correcting them is an editorial act, not a registry one."
+}

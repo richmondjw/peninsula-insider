@@ -1,0 +1,18 @@
+{
+  "evidenceId": "data-facts/wine/crittenden-estate/trading-status-6069dbfb",
+  "claim": "data-facts/wine/crittenden-estate/trading-status",
+  "stance": "supports",
+  "publisher": {
+    "kind": "unknown"
+  },
+  "retrievedAt": "2026-09-13",
+  "expiresAt": "2026-12-12",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/data/facts/wine.json",
+    "field": "wineries[13].source",
+    "value": "https://www.crittendenwines.com.au",
+    "dateField": "lastUpdated"
+  },
+  "url": "https://www.crittendenwines.com.au"
+}

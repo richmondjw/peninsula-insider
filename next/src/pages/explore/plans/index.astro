@@ -1,93 +1,53 @@
 ---
-/**
- * /explore/plans/ - the Decide front door (v5 hub redesign, page-redesigns-hubs.md
- * section 6, wireframes #plans). A decision engine, not a card wall: h1 and
- * one Local-voice line, seven single-select context chips, one featured plan
- * plus two alternates per context, the full catalogue as compact rows, and
- * a next-step band (Ask PI / blank My Trip).
- *
- * Default context (Weekend) is server-rendered so the page is complete with
- * JS disabled; other contexts swap in place from embedded JSON with the URL
- * persisted as ?context= (canonical stays /explore/plans/, so parameterised
- * views never index). Plan detail pages are untouched; every plan URL is
- * linked from the index rows.
- *
- * This page moved here from /plans/ (2026-08-17, F16) to resolve the
- * canonical-direction split: plan detail pages already canonicalise to
- * /explore/plans/<slug>/, so the index now lives under the same tree.
- * /plans/ is a consolidation stub pointing here - see pages/plans/index.astro.
- */
+import { pageImage } from '../../../lib/page-images';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import PlanContextEngine from '../../../components/v5/plans/PlanContextEngine.astro';
+import PlanBuilder from '../../../components/v5/plans/PlanBuilder.astro';
 import PlanIndexRows from '../../../components/v5/plans/PlanIndexRows.astro';
 import PlanNextStep from '../../../components/v5/plans/PlanNextStep.astro';
 import { buildPlansModel } from '../../../components/v5/plans/plans-data';
-
+import HubEntry from '../../../components/v5/hub/HubEntry.astro';
+import { spanOf } from '../../../lib/checked-span';
 const model = await buildPlansModel();
-
-const SITE_URL = 'https://peninsulainsider.com.au';
+const itineraries = model.plans.filter(plan => plan.kind === 'itinerary').sort((a,b) => b.editorialPriority - a.editorialPriority);
+const pick = itineraries[0];
+const planChecked = spanOf(itineraries.map(plan => plan.verifiedAt));
+const catalogue = [
+  ...model.plans.filter(plan => plan.kind === 'itinerary').sort((a,b) => b.editorialPriority - a.editorialPriority),
+  ...model.plans.filter(plan => plan.kind === 'guide').sort((a,b) => a.displayTitle.localeCompare(b.displayTitle)),
+];
 const itemListSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'ItemList',
-  name: 'Mornington Peninsula plans',
+  '@context': 'https://schema.org', '@type': 'ItemList', name: 'Mornington Peninsula itineraries and planning guides',
   numberOfItems: model.plans.length,
-  itemListElement: [...model.plans]
-    .sort((a, b) => a.title.localeCompare(b.title))
-    .map((p, i) => ({
-      '@type': 'ListItem',
-      position: i + 1,
-      name: p.title,
-      url: `${SITE_URL}${p.href}`,
-    })),
+  itemListElement: catalogue.map((plan,i) => ({
+    '@type': 'ListItem', position:i+1, name:plan.title, url:`https://peninsulainsider.com.au${plan.href}`,
+  })),
 };
-
 export const prerender = true;
 ---
-
-<BaseLayout
-  title="Mornington Peninsula Plans · Peninsula Insider"
-  description="Ready-made Peninsula days and weekends. Pick the shape of the day, get one plan and two alternates, and make it your trip in one tap."
-  section="explore"
-  canonical="https://peninsulainsider.com.au/explore/plans/"
-  ogImage="/images/sourced/article-sunset-01.webp"
->
+<BaseLayout title="Mornington Peninsula Plans · Peninsula Insider" description="Choose a Peninsula day or weekend, with editorial itineraries, clear routes and practical planning guides. Use an itinerary in My Trip and make it yours." section="explore" canonical="https://peninsulainsider.com.au/explore/plans/" ogImage={pageImage('plans-hub').src}>
   <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
-
-  <header class="plans-hero">
-    <div class="container">
-      <h1 class="plans-hero__title">Don't plan. Pick one of ours.</h1>
-      <p class="plans-hero__standfirst">
-        Tested routes, real drive times, no backtracking. Pick the day that fits and go.
-      </p>
-    </div>
-  </header>
-
-  <PlanContextEngine model={model} />
-
-  <PlanIndexRows plans={model.plans} />
-
+  <!-- One opening (headline, standfirst, matcher, editor's pick), then the other itineraries, guides and a quiet close. -->
+  {pick?.image ? <HubEntry
+    kicker="Plans"
+    title="Don’t plan. Pick one of ours."
+    dek={`Ready-made days and weekends with the stops in order. Our first-visit pick runs from the Red Hill ridge to Point Nepean${pick.dayCount ? ` over ${pick.dayCount} days` : ''}.`}
+    primary={{ label: `See the ${pick.displayTitle} plan`, href: pick.href }}
+    secondary={{ label: `Browse all plans`, href: '#all-plans', arrow: 'down' }}
+    trust={planChecked ? `Every plan ${planChecked}. Chosen by our editors, never paid for.` : 'Chosen by our editors, never paid for.'}
+    image={pageImage('plans-hero')}
+    focal={{ desktop: '50% 70%', mobile: '50% 72%' }}
+    headingId="plans-title"
+  /> : <h1 class="container">Don’t plan. Pick one of ours.</h1>}
+  <PlanIndexRows model={model} pickInGrid={Boolean(pick?.image)}>
+    <PlanBuilder slot="matcher" model={model} />
+    <PlanContextEngine model={model} />
+  </PlanIndexRows>
   <PlanNextStep />
 </BaseLayout>
-
 <style>
-  .plans-hero {
-    padding: var(--space-6, 2rem) 0 var(--space-3, 0.75rem);
-  }
-  .plans-hero__title {
-    margin: 0 0 0.5rem;
-    font-family: var(--font-display, var(--font-display));
-    font-size: var(--fs-900, clamp(2.25rem, 1.7rem + 2.8vw, 3.5rem));
-    font-weight: var(--fw-display, 600);
-    line-height: var(--lh-display, 1.08);
-    color: var(--text);
-    max-width: 22ch;
-  }
-  .plans-hero__standfirst {
-    margin: 0;
-    font-family: var(--font-ui, var(--font-ui));
-    font-size: var(--fs-400, 1.0625rem);
-    line-height: var(--lh-ui, 1.5);
-    color: var(--soft);
-    max-width: 56ch;
-  }
+  h1{font-weight:500;line-height:1.05;font-family:var(--font-display);letter-spacing:-.035em;margin:0;max-width:17ch}
+  .plans-intro{max-width:44ch;margin:var(--space-4) 0 var(--space-2);font:var(--fs-400)/1.6 var(--font-ui);color:var(--text)}
+  /* Phones: the trust line already says what the page holds; the editor's pick and its button reach the first screen. */
+  @media(max-width:45rem){.plans-intro{display:none}}
 </style>

@@ -1,5 +1,4 @@
 ---
-slug: "the-winter-long-lunch"
 title: "The Winter Long Lunch: Vineyard Dining Room or Coastal Pub"
 dek: "Two very different versions of the same afternoon. Here's how to pick the right one for the day you're actually having."
 author: "editorial"
@@ -26,11 +25,11 @@ clusterLinks:
     href: "/guides/winter/"
 faq:
   - question: "Is a winery long lunch or a coastal pub lunch better in winter?"
-    answer: "Neither is better; they suit different days. A hatted vineyard dining room like Montalto or Ten Minutes by Tractor suits an occasion, a booked afternoon with nowhere else to be. A coastal pub like the Balnarring Pub or the Portsea Hotel suits an unplanned day, a drive that starts without a fixed idea and ends by a fire."
+    answer: "Neither is better; they suit different days. A hatted vineyard dining room like Montalto or Ten Minutes by Tractor suits an occasion, a booked afternoon with nowhere else to be. A pub like The Heritage at Balnarring or the Portsea Hotel suits an unplanned day, a drive that starts without a fixed idea and ends by a fire."
   - question: "Do winery restaurants get quiet in winter on the Peninsula?"
     answer: "Yes. The kitchens that book six weeks ahead in summer often have tables available with a few days' notice in June and July. Fires are lit, the dining rooms are half full, and the staff have time to talk about the wine."
   - question: "Which coastal pubs have fires in winter?"
-    answer: "The Balnarring Pub keeps an open fire through winter and is the clearest coastal-pub answer to a vineyard dining room. The Portsea Hotel and Dromana Hotel both hold their bay views through winter and are quieter than their summer selves, though check ahead for fire and heated-area availability."
+    answer: "The Heritage at Balnarring has its original open fires and serves a Sunday roast through winter, which makes it the clearest pub answer to a vineyard dining room. The Portsea Hotel and Dromana Hotel both hold their bay views through winter and are quieter than their summer selves, though check ahead for fire and heated-area availability."
 ---
 
 Winter changes what a long lunch on the Peninsula is for. In summer the two formats blur together: the deck at a cellar door and the beer garden at a pub both do the same job, which is to hold a warm afternoon open for as long as possible. In winter they split into two different kinds of day, and it's worth knowing which one you're actually planning before you book.
@@ -45,7 +44,7 @@ What it isn't: a lunch you can decide on the morning of, or one that suits a gro
 
 ## The coastal pub
 
-The other version of a Peninsula winter lunch doesn't get planned so much as arrived at. You leave without a firm booking, drive somewhere with a view, and end up at a pub with an open fire and a menu that doesn't ask much of you. The Balnarring Pub is the clearest example: a proper country local in the middle of the village, fires lit through winter, honest counter meals built on Peninsula produce. It's the Sunday roast version of the day, not the tasting-menu version.
+The other version of a Peninsula winter lunch doesn't get planned so much as arrived at. You leave without a firm booking, drive somewhere with a view, and end up at a pub with an open fire and a menu that doesn't ask much of you. The Heritage at Balnarring is the clearest example: the village pub in a 1930s heritage home, with open fires, a pub favourites menu, and a Sunday roast through winter that is served until it sells out, so call ahead. It's the Sunday roast version of the day, not the tasting-menu version.
 
 Along the coast, the Portsea Hotel and the Dromana Hotel hold their views through winter in a way that's genuinely different from their summer selves. Portsea in particular trades the January queue for a bistro that looks the same but feels like a local's pub again, the bay still doing its work through the window, just without the crowd. Neither venue needs weeks of notice. Walk in, take a table near the fire, and let the afternoon run as long or as short as the weather outside decides.
 
@@ -55,4 +54,4 @@ This is the format for a group that includes kids, a day where the plan might ch
 
 The two formats aren't competing for the same booking. A vineyard dining room suits an occasion you've already decided to have: a birthday, an anniversary, a weekend away that's built around one serious meal. A coastal pub suits the day that hasn't been decided yet, the one where the destination is "somewhere on the water" and the only firm plan is being back on the road before dark, which in winter means leaving by four.
 
-If you're weighing the two for the same weekend, the temperature test is a fair one. A dining room with a fixed sitting time and a multi-course menu wants commitment; a pub with a fire wants flexibility. Winter on the Peninsula has room for both kinds of day, often on consecutive afternoons of the same trip: a booked lunch at Montalto on the Saturday, a loose one at the Balnarring Pub or the Portsea Hotel on the Sunday, on the way home.
+If you're weighing the two for the same weekend, the temperature test is a fair one. A dining room with a fixed sitting time and a multi-course menu wants commitment; a pub with a fire wants flexibility. Winter on the Peninsula has room for both kinds of day, often on consecutive afternoons of the same trip: a booked lunch at Montalto on the Saturday, a loose one at The Heritage in Balnarring or the Portsea Hotel on the Sunday, on the way home.

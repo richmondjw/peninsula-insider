@@ -39,6 +39,8 @@ with verified provenance and geo-location.
 - **Photographer:** Marshlung
 - **Licence:** CC-BY-SA-4.0
 - **Original:** https://commons.wikimedia.org/wiki/File:Cape_schanck_looking_towards_pulpit_rock_at_dawn.jpg
+- **Adaptation:** Converted to WebP; the weekend hero crops the displayed frame. The image remains under CC BY-SA 4.0.
+- **Used for:** The undated fallback hero on /whats-on/this-weekend/.
 
 ## place-point-nepean-01.webp
 - **Source:** Looking out towards the waves near Cheviot Hill at Point Nepean in Portsea, Victoria
@@ -83,10 +85,17 @@ with verified provenance and geo-location.
 - **Original:** https://commons.wikimedia.org/wiki/File:Cape_Schanck_Upper_Trail_View.jpg
 
 ## place-red-hill-01.webp
-- **Source:** CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate
-- **Photographer:** CSIRO
-- **Licence:** CC-BY-3.0
-- **Original:** https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg
+- **Source:** Unverified. The local file shows a vineyard row; the previously recorded CSIRO link shows a close-up of grapes and is not this image.
+- **Photographer:** Unverified
+- **Licence:** Unverified. Do not use this asset for new placements until its source and permission are established.
+- **Prior incorrect citation:** https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg
+
+## place-mornington-vineyard-cc-by-sa-2.webp
+- **Source:** Mornington Peninsula vineyard (resized to 1600px and converted to WebP)
+- **Photographer:** faVori rouge
+- **Licence:** CC-BY-SA-2.0
+- **Original:** https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_vineyard.jpg
+- **Licence link:** https://creativecommons.org/licenses/by-sa/2.0/
 
 ## place-main-ridge-01.webp
 - **Source:** CSIRO ScienceImage 1961 Chardonnay grapes at the Main Ridge Estate
@@ -108,7 +117,7 @@ with verified provenance and geo-location.
 
 ## explore-arthurs-seat-lookout-01.webp
 - **Source:** Mornington Peninsula from Arthur's Seat
-- **Photographer:** Prateek.agarwal44
+- **Photographer:** Slyronit
 - **Licence:** CC-BY-SA-4.0
 - **Original:** https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_from_Arthur%27s_Seat.jpg
 
@@ -132,7 +141,7 @@ with verified provenance and geo-location.
 
 ## venue-pt-leo-sculpture-01.webp
 - **Source:** Pt. Leo Estate Sculpture Park, Mornington Peninsula (Barry Flanagan's "Drummer" hare and other works on the lawn above Western Port)
-- **Photographer:** Emma White (uploaded by BrooksieG), 6 October 2023
+- **Photographer:** BrooksieG (Commons author and licensing holder; EXIF Author says Emma White), 6 October 2023
 - **Licence:** CC-BY-SA-4.0
 - **Original:** https://commons.wikimedia.org/wiki/File:Pt_Leo_sculpture.jpg
 - **Used on:** /stay/point-leo-estate-villas/, /wine/pt-leo-estate/, /explore/pt-leo-sculpture-park/
@@ -143,3 +152,55 @@ with verified provenance and geo-location.
 - **Licence:** CC-BY-SA-3.0
 - **Original:** https://commons.wikimedia.org/wiki/File:Nazaaray_Estate_Winery.jpg
 - **Used on:** /wine/nazaaray-estate/
+
+## venue-flinders-hotel-01.webp
+- **Source:** Flinders Hotel pub frontage, photographed 29 December 2010; Quarters rooms are behind the building and are not shown.
+- **Photographer:** Mattinbgn
+- **Licence:** CC-BY-SA-3.0
+- **Original:** https://commons.wikimedia.org/wiki/File:Flinders_Hotel_001.JPG
+- **Used for:** Historical Flinders Hotel exterior on the Quarters stay page and an archived event. The source JPEG was converted to WebP for web delivery; attribution, licence link and ShareAlike apply to this derivative.
+
+## venue-sorrento-hotel-01.webp
+- **Source:** Hotel Sorrento exterior, Sorrento Victoria, photographed 2006.
+- **Photographer:** Biatch
+- **Licence:** This work has been released into the public domain by its author, Biatch at English Wikipedia. This applies worldwide.
+- **Original:** https://commons.wikimedia.org/wiki/File:Hotel_sorrento.jpg
+- **Used for:** Historical exterior on Hotel Sorrento pages and cards. The property has since been renovated.
+
+## place-balnarring-beach-public-domain.webp
+- **Source:** Balnarring Beach, Victoria, Australia
+- **Photographer:** Honk squeak
+- **Licence:** Public domain dedication by the author
+- **Original:** https://commons.wikimedia.org/wiki/File:Balnarring_Beach,_Victoria,_Australia.jpg
+- **Original SHA-1:** af3981614575841efa59ba9f24232bd1115970bd
+- **Adaptation:** Resized to 1600px and converted to WebP.
+- **Used for:** Illustrative Balnarring Beach setting on /stay/happy-glamper/, not a photograph of the tent.
+
+## place-devilbend-lake-cc-by-sa-4.webp
+- **Source:** Devilbend lake
+- **Photographer:** Smartiejl
+- **Licence:** CC-BY-SA-4.0
+- **Original:** https://commons.wikimedia.org/wiki/File:Devilbend_lake.jpg
+- **Original SHA-1:** da8684e046472dd95387d96fc9d3ed8f262507b7
+- **Adaptation:** Resized to 1600px and converted to WebP; derivative remains under CC BY-SA 4.0.
+- **Used for:** Illustrative nearby Moorooduc lake landscape on /stay/woodman-estate/, not Woodman Estate or its lake.
+
+## place-balnarring-rural-sunrise-cc-by-sa-2.webp
+- **Source:** P1030597, rural sunrise near Balnarring, Victoria.
+- **Photographer:** mattyv.au
+- **Licence:** CC-BY-SA-2.0
+- **Original:** https://commons.wikimedia.org/wiki/File:P1030597_-_Flickr_-_mattyv.au.jpg
+- **Licence link:** https://creativecommons.org/licenses/by-sa/2.0/
+- **Original SHA-1:** 6a5e8b7c775c6e378c951ee0270d4a839c171aaa
+- **Adaptation:** Cropped to 1600 x 1000 pixels and converted to WebP; derivative remains under CC BY-SA 2.0.
+- **Used for:** Illustrative rural setting on /stay/iluka-retreat/, not Iluka Retreat or its tents.
+
+## stay-vintage-caravan-unsplash.webp
+- **Source:** Vintage orange and brown caravan parked outdoors, Potsdam, Germany.
+- **Photographer:** Nicolas Görmer
+- **Licence:** Unsplash License (free for commercial use and modifications)
+- **Original:** https://unsplash.com/photos/vintage-orange-and-brown-caravan-parked-outdoors-Nek4gd3E89Q
+- **Licence link:** https://unsplash.com/license
+- **Fetched derivative SHA-256:** a44ac5fbf79780cb1990b41585a569ff0e7686ca37f2a4a80ae4adaf178d7faf
+- **Adaptation:** Unsplash 2200px JPEG cropped to 1600 x 1000 pixels and converted to WebP.
+- **Used for:** Illustrative vintage caravan on /stay/kanasta-retro-caravans/, not a Kanasta caravan.

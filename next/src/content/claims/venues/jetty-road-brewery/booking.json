@@ -1,0 +1,20 @@
+{
+  "claimId": "venues/jetty-road-brewery/booking",
+  "claimClass": "booking",
+  "subject": {
+    "type": "venues",
+    "slug": "jetty-road-brewery",
+    "field": "visiting.bookingRequired"
+  },
+  "statement": "A booking is not required to visit the Jetty Road Brewery taproom.",
+  "assertedBy": [
+    {
+      "type": "venues",
+      "slug": "jetty-road-brewery",
+      "field": "visiting.bookingRequired"
+    }
+  ],
+  "createdAt": "2026-09-13",
+  "origin": "authored",
+  "note": "Deliberately authored with no evidence attached, which makes it unsupported. The operator site carries a book now link and says nothing about whether a booking is required, and nothing else retrievable on 2026-09-13 settled it. A false here is a positive assertion to a reader planning a Friday night, and it is asserted by this record alone. Authored by hand for the PI-005 Stage 2 venue pilot. Sources were read on 2026-09-13; see ops/reports/claims/2026-09-13-pilot-venues.md."
+}

@@ -82,7 +82,7 @@ const DEFAULT_HOMEPAGE_ADMIN_CONTENT: HomepageAdminContent = {
   },
   picks: {
     label: "This week's edit",
-    title: 'Three reasons to go',
+    title: 'Reasons to go',
   },
   editorsLetter: {
     eyebrow: "Editor's Letter",
@@ -100,7 +100,7 @@ const DEFAULT_HOMEPAGE_ADMIN_CONTENT: HomepageAdminContent = {
   },
   newsletter: {
     title: 'The Insider Note',
-    body: "The Peninsula worth knowing. Weekly. What's on, where we'd go and what's worth knowing next.",
+    body: "The Peninsula worth knowing. An occasional email. What's on, where we'd go and what's worth knowing next.",
     issueNumber: '',
     issueDate: '',
     previewHeadline: '',

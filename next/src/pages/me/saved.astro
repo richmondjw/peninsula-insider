@@ -18,7 +18,11 @@
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import MeShell from '../../components/v5/me/MeShell.astro';
+import NotePathway from '../../components/v5/me/NotePathway.astro';
 import EmptyState from '../../components/v5/EmptyState.astro';
+import {getCollection} from 'astro:content';
+import {publicPlanningCatalog} from '../../lib/event-planning.mjs';
+const eventCatalogJson=JSON.stringify(publicPlanningCatalog(await getCollection('events'))).replace(/</g,'\\u003c');
 export const prerender = true;
 ---
 
@@ -91,11 +95,16 @@ export const prerender = true;
         <button type="button" class="me-footline__signin" data-open-auth>Sign in</button>
         to keep them everywhere.
       </p>
+      <NotePathway surface="me-saved" />
     </div>
   </div>
+  <script type="application/json" id="pi-saved-event-catalog" set:html={eventCatalogJson}></script>
 </BaseLayout>
 
 <script>
+  import {projectSavedEvent,installSavedEventRefresh} from '../../lib/event-planning.mjs';
+  const eventCatalog=JSON.parse(document.getElementById('pi-saved-event-catalog')?.textContent||'[]');
+  installSavedEventRefresh(window,document,eventCatalog);
   import * as store from '../../lib/v5-store';
   import type { SaveKind, SavedItem } from '../../lib/v5-store';
   import { trackEvent, initV5Analytics } from '../../lib/v5-analytics';
@@ -146,11 +155,14 @@ export const prerender = true;
   }
 
   function imageFor(item: SavedItem): string {
+    if(item.kind==='event'&&(item as any).eventAvailable===false)return '';
     const metaImg = item.meta && typeof item.meta.image_url === 'string' ? item.meta.image_url : '';
     return item.image_url || metaImg;
   }
 
   function renderCard(item: SavedItem, inTrip: boolean): string {
+    const eventState=item.kind==='event'?projectSavedEvent(item,eventCatalog):null;
+    if(eventState)item=eventState;
     const meta = KIND_META[item.kind];
     const img = imageFor(item);
     const media = img
@@ -159,7 +171,7 @@ export const prerender = true;
     const dek = item.dek ? `<p class="me-card__dek">${esc(item.dek)}</p>` : '';
     const tripMark = inTrip ? `<span class="me-card__intrip">In My Trip</span>` : '';
     return `
-      <li class="me-card">
+      <li class="me-card" data-planning-kind="${esc(item.kind)}" data-planning-slug="${esc(item.slug)}">
         ${media}
         <div class="me-card__body">
           <p class="me-card__mark">${esc(meta.plural)}${tripMark}</p>
@@ -169,7 +181,7 @@ export const prerender = true;
           ${dek}
         </div>
         <div class="me-card__actions">
-          <button type="button" class="me-card__trip" data-me-trip data-kind="${esc(item.kind)}" data-slug="${esc(item.slug)}" aria-label="Add ${esc(item.title)} to My Trip">+ Trip</button>
+          ${eventState&&!eventState.eventAvailable?`<span role="status">${esc(eventState.eventStatus)}</span>`:`<button type="button" class="me-card__trip" data-me-trip data-kind="${esc(item.kind)}" data-slug="${esc(item.slug)}" aria-label="Add ${esc(item.title)} to My Trip">+ Trip</button>`}
           <button type="button" class="me-card__remove" data-me-remove data-kind="${esc(item.kind)}" data-slug="${esc(item.slug)}" aria-label="Remove ${esc(item.title)} from your saves">Remove</button>
         </div>
       </li>`;
@@ -189,6 +201,8 @@ export const prerender = true;
   }
 
   function render(): void {
+    const note = document.querySelector<HTMLElement>('[data-note-pathway]');
+    if (note) note.hidden = store.listSaves().length === 0;
     const groupsEl = document.querySelector<HTMLElement>('[data-me-groups]');
     const emptyEl = document.querySelector<HTMLElement>('[data-me-empty]');
     const filterEmptyEl = document.querySelector<HTMLElement>('[data-me-filter-empty]');
@@ -306,8 +320,12 @@ export const prerender = true;
         const slug = tripBtn.dataset.slug || '';
         const item = store.listSaves().find((it) => it.kind === kind && it.slug === slug);
         if (!item) return;
-        store.tripAdd({ kind: item.kind, slug: item.slug, title: item.title, href: item.href, meta: item.meta });
-        trackEvent('trip_add', { entity_type: kind, entity_slug: slug, src: 'saved' });
+        if(item.kind==='event'&&!projectSavedEvent(item,eventCatalog).eventAvailable){showToast('This event needs a current check before adding it to a trip');return;}
+        if (!store.tripAdd({ kind: item.kind, slug: item.slug, title: item.title, href: item.href, meta: item.meta })) {
+          showToast('Could not add to My Trip');
+          return;
+        }
+        trackEvent('trip_add', { entity_type: kind, entity_slug: slug, src: 'saved', surface: 'me-saved' });
         showToast('Added to My Trip');
         return;
       }
@@ -358,19 +376,36 @@ export const prerender = true;
     }
   }
 
+  // Delegated on `document` and on the store, so both outlive an Astro
+  // client-router swap: register once at module scope, the pattern
+  // v5/Card.astro uses. Everything left in init() binds to elements the swap
+  // replaces, so it re-runs per page-load.
+  bindCardActions();
+  store.subscribe(() => render());
+
   function init(): void {
+    // astro:page-load also fires on the first load, alongside the branch
+    // below, so mark the DOM this init has already claimed. A second pass
+    // over the same elements would double-bind every chip and double-count
+    // the view event.
+    const root = document.querySelector<HTMLElement>('[data-me-groups]');
+    if (!root || (root as any)._piInit) return;
+    (root as any)._piInit = true;
     bindChips();
-    bindCardActions();
     bindUpsell();
     render();
     void applyAuthState();
     const all = store.listSaves();
     trackEvent('me_saved_view', { count: all.length, kinds: new Set(all.map((i) => i.kind)).size });
-    store.subscribe(() => render());
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
+  // The client router swaps the DOM but never re-evaluates a module it has
+  // already loaded, so on a second in-site visit within the same session
+  // nothing repainted the list and the page came up empty. Every comparable
+  // page in the codebase registers this; this one did not.
+  document.addEventListener('astro:page-load', init);
 </script>
 
 <style>
@@ -419,7 +454,7 @@ export const prerender = true;
     padding: 0 var(--space-4, 1rem);
     background: var(--bg, #fff);
     color: var(--soft);
-    border: 1px solid var(--border);
+    border: 1px solid var(--border-control);
     border-radius: 999px;
     font-family: var(--font-ui, var(--font-ui));
     font-size: var(--fs-200, 0.8125rem);

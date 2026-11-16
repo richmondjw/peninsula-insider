@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import RegionDetailTemplate from '../../../components/RegionDetailTemplate.astro';
+import { isListableVenue } from '../../../lib/editorial';
 
 export async function getStaticPaths() {
   const regions = await getCollection('regions', (r) => !r.data.sitemapExclude);
@@ -14,7 +15,7 @@ const placeIds = new Set(region.data.places.map((ref) => ref.id));
 const regionPlaces = allPlaces.filter((p) => placeIds.has(p.id));
 const placeSlugSet = new Set(regionPlaces.map((p) => p.id));
 
-const allVenues = await getCollection('venues', (v) => v.data.status !== 'permanently_closed');
+const allVenues = (await getCollection('venues')).filter(isListableVenue);
 const regionVenues = allVenues.filter((v) => placeSlugSet.has(String(v.data.place?.id ?? '')));
 
 const allExperiences = await getCollection('experiences');

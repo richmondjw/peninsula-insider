@@ -1,0 +1,24 @@
+{
+  "claimId": "quick-notes/2026-04-30-bushrangers-bay-track-clear/trading-status",
+  "claimClass": "trading-status",
+  "subject": {
+    "type": "quick-notes",
+    "slug": "2026-04-30-bushrangers-bay-track-clear",
+    "field": "sources"
+  },
+  "statement": "Bushrangers Bay track is clear after the April rain",
+  "assertedBy": [
+    {
+      "type": "quick-notes",
+      "slug": "2026-04-30-bushrangers-bay-track-clear",
+      "field": "sources"
+    },
+    {
+      "type": "experiences",
+      "slug": "bushrangers-bay"
+    }
+  ],
+  "createdAt": "2026-04-30",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

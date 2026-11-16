@@ -1,0 +1,20 @@
+{
+  "claimId": "quick-notes/2026-07-28-editor-note-tuesday/editorial",
+  "claimClass": "editorial",
+  "subject": {
+    "type": "quick-notes",
+    "slug": "2026-07-28-editor-note-tuesday",
+    "field": "sources"
+  },
+  "statement": "Editor's note - Tuesday is the storm day. Two days of heavy rain through Wednesday before conditions begin to ease toward the weekend.",
+  "assertedBy": [
+    {
+      "type": "quick-notes",
+      "slug": "2026-07-28-editor-note-tuesday",
+      "field": "sources"
+    }
+  ],
+  "createdAt": "2026-07-28",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

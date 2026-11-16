@@ -24,9 +24,11 @@ export interface Props {
   eyebrow?: string;
   /** Optional full-bleed hero photograph. Omit for the forest-teal glow ground. */
   image?: { src: string; alt?: string };
+  /** Compact editorial entry for decision-led category pages. */
+  compact?: boolean;
 }
 
-const { title, standfirst, id, eyebrow, image } = Astro.props;
+const { title, standfirst, id, eyebrow, image, compact = false } = Astro.props;
 
 const words = standfirst.trim().split(/\s+/).length;
 if (words > 80) {
@@ -41,9 +43,9 @@ if (/!/.test(standfirst)) {
 }
 ---
 
-<header class:list={['v5-standfirst', { 'v5-standfirst--photo': Boolean(image) }]} id={id}>
+<header class:list={['v5-standfirst', { 'v5-standfirst--photo': Boolean(image), 'v5-standfirst--compact': compact }]} id={id}>
   {image && (
-    <div class="v5-standfirst__bg" style={`background-image:url(${image.src})`} aria-hidden="true"></div>
+    <img class="v5-standfirst__bg" src={image.src} alt="" aria-hidden="true" loading="eager" fetchpriority="high" decoding="async" data-pi-responsive="100vw" />
   )}
   <div class="v5-standfirst__scrim" aria-hidden="true"></div>
   <div class="container v5-standfirst__inner">
@@ -77,8 +79,10 @@ if (/!/.test(standfirst)) {
     position: absolute;
     inset: 0;
     z-index: -2;
-    background-size: cover;
-    background-position: center;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
   }
   .v5-standfirst__scrim {
     position: absolute;
@@ -87,14 +91,7 @@ if (/!/.test(standfirst)) {
   }
   /* Photo hero: dark scrim anchored bottom-left so the copy stays legible. */
   .v5-standfirst--photo .v5-standfirst__scrim {
-    background:
-      linear-gradient(to top,
-        color-mix(in srgb, var(--bg-deep) 96%, transparent) 0%,
-        color-mix(in srgb, var(--bg-deep) 55%, transparent) 62%,
-        color-mix(in srgb, var(--bg-deep) 30%, transparent) 100%),
-      linear-gradient(to right,
-        color-mix(in srgb, var(--bg-deep) 82%, transparent) 0%,
-        transparent 72%);
+    background: var(--photo-shade-copy);
   }
   .v5-standfirst__inner {
     position: relative;
@@ -105,7 +102,7 @@ if (/!/.test(standfirst)) {
     font-family: var(--font-ui);
     font-size: var(--fs-100);
     font-weight: 600;
-    letter-spacing: var(--ls-eyebrow);
+    letter-spacing: var(--ls-eyebrow, .1em);
     text-transform: uppercase;
     color: var(--mint);
   }
@@ -137,4 +134,27 @@ if (/!/.test(standfirst)) {
   .v5-standfirst__actions:empty {
     display: none;
   }
+  .v5-standfirst--compact {
+    padding-block: clamp(1.5rem, 3vw, 2.75rem);
+    background: var(--paper, #faf8f3);
+    color: var(--text);
+  }
+  .v5-standfirst--compact:not(.v5-standfirst--photo)::before { display: none; }
+  .v5-standfirst--compact .v5-standfirst__title {
+    font-family: var(--font-display);
+    font-size: var(--fs-800);
+    line-height: 1.08;
+    max-width: 24ch;
+    color: var(--text);
+  }
+  .v5-standfirst--compact .v5-standfirst__dek {
+    font-size: var(--fs-400);
+    line-height: 1.6;
+    max-width: 70ch;
+    color: var(--soft);
+    margin-top: 0.75rem;
+  }
+  .v5-standfirst--compact .v5-standfirst__eyebrow { color: var(--teal-text); }
+  .v5-standfirst--compact.v5-standfirst--photo .v5-standfirst__title,
+  .v5-standfirst--compact.v5-standfirst--photo .v5-standfirst__dek { color: var(--white); }
 </style>

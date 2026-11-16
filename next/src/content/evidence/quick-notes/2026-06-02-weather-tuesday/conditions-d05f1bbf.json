@@ -1,0 +1,19 @@
+{
+  "evidenceId": "quick-notes/2026-06-02-weather-tuesday/conditions-d05f1bbf",
+  "claim": "quick-notes/2026-06-02-weather-tuesday/conditions",
+  "stance": "supports",
+  "publisher": {
+    "kind": "gov"
+  },
+  "retrievedAt": "2026-06-02",
+  "expiresAt": "2026-06-09",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/quick-notes/2026-06-02-weather-tuesday.md",
+    "field": "sources[0]",
+    "value": "{\"kind\":\"gov\",\"url\":\"https://api.open-meteo.com/v1/forecast?latitude=-38.40&longitude=145.00&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_probability_max,wind_speed_10m_max,wind_direction_10m_dominant&timezone=Australia%2FMelbourne&forecast_days=3\",\"note\":\"Open-Meteo Main Ridge coordinates (lat -38.40, lon 145.00, elev 159m). Retrieved 2026-06-01T20:47:41Z. Tuesday 2 June: max 15°C, min 10.9°C, precip 1.7mm, prob 78%, wind 39.2 km/h from 347° (N/NNW). Wednesday 3 June: max 13.1°C, min 10.6°C, precip 1.6mm, prob 98%, wind 41.9 km/h from 303° (WNW). Thursday 4 June: max 12.2°C, min 9.3°C, precip 16.4mm, prob 97%, wind 40.1 km/h from 280° (W).\",\"checkedAt\":\"2026-06-02T06:46:00+10:00\"}",
+    "dateField": "sources[0].checkedAt"
+  },
+  "url": "https://api.open-meteo.com/v1/forecast?latitude=-38.40&longitude=145.00&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_probability_max,wind_speed_10m_max,wind_direction_10m_dominant&timezone=Australia%2FMelbourne&forecast_days=3",
+  "note": "Open-Meteo Main Ridge coordinates (lat -38.40, lon 145.00, elev 159m). Retrieved 2026-06-01T20:47:41Z. Tuesday 2 June: max 15°C, min 10.9°C, precip 1.7mm, prob 78%, wind 39.2 km/h from 347° (N/NNW). Wednesday 3 June: max 13.1°C, min 10.6°C, precip 1.6mm, prob 98%, wind 41.9 km/h from 303° (WNW). Thursday 4 June: max 12.2°C, min 9.3°C, precip 16.4mm, prob 97%, wind 40.1 km/h from 280° (W)."
+}

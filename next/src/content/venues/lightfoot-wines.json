@@ -9,7 +9,6 @@
     "lng": 144.9922
   },
   "address": "110 Myers Rd, Main Ridge VIC 3928",
-  "website": "https://lightfootwines.com.au",
   "priceBand": "$$",
   "signature": "A small Main Ridge estate with a focused Pinot and Chardonnay range and one of the ridge's most peaceful tasting rooms.",
   "editorNote": "Lightfoot is the kind of Main Ridge cellar door that rewards a quiet afternoon visit rather than a Saturday long-weekend one. The estate is small, the tasting room is unhurried, and the range is deliberately focused: Chardonnay, Pinot Noir, sometimes a Rosé or a sparkling, all made from surrounding blocks with an obvious restraint and a house style that feels consistent from year to year.\n\nThis is an underrated Main Ridge stop for visitors who have already worked through the bigger names on the ridge and want a quieter counterpoint. The cellar door is intimate enough that the person pouring can walk you through the choices in a way the bigger estates' tasting counters rarely allow, you are not competing for the winemaker's attention with twelve other couples.\n\nBook ahead. Best visited mid-week when the ridge is quieter. Ask about current allocations before making the drive.",
@@ -41,7 +40,9 @@
   },
   "heroImage": {
     "src": "/images/sourced/place-main-ridge-01.webp",
-    "alt": "CSIRO ScienceImage 1961 Chardonnay grapes at the Main Ridge Estate - representative image for Lightfoot Wines",
+    "alt": "Bunches of white wine grapes hanging on the vine among broad green leaves.",
+    "depicts": "bunches of white wine grapes on the vine",
+    "depictionStatus": "illustrative",
     "credit": "CSIRO",
     "license": "wikimedia-cc-by"
   },
@@ -49,12 +50,33 @@
   "featuredPartner": false,
   "lastVerified": "2026-04-09",
   "publishedAt": "2026-04-09",
-  "bookingUrl": "https://lightfootwines.com.au",
   "bookingProvider": "direct",
   "knownFor": [
     "Main Ridge Boutique Estate",
     "Focused Chardonnay and Pinot",
     "Intimate Tasting Room",
     "Consistent House Style"
-  ]
+  ],
+  "operatingStatus": "verify-open",
+  "closureNote": "Recorded domain lightfootwines.com.au does not resolve (NXDOMAIN, checked 2026-09-13 against 1.1.1.1). The Lightfoot label that trades publicly is Lightfoot and Sons in the Gippsland Lakes district, at lightfootwines.com (https://winecompanion.com.au/wineries/victoria/gippsland/lightfoot-wines and https://www.winegippsland.com/lightfootwines), a different wine region from the Main Ridge address recorded here. No Main Ridge winery of this name could be found. The Gippsland URL is deliberately not recorded as a correction. Unresolved.",
+  "retiredSourceLinks": [
+    {
+      "field": "website",
+      "url": "https://lightfootwines.com.au",
+      "verdict": "dead",
+      "disposition": "gone",
+      "checkedOn": "2026-09-13",
+      "note": "Domain does not resolve. lightfootwines.com IS live, but it is Lightfoot & Sons of Calulu in East Gippsland, roughly 250km away. The record places Lightfoot Wines at 110 Myers Rd, Main Ridge. Substituting the Gippsland winery would assert an identity nothing supports. EDITOR: this record's region may be wrong, not just its link."
+    },
+    {
+      "field": "bookingUrl",
+      "url": "https://lightfootwines.com.au",
+      "verdict": "dead",
+      "disposition": "gone",
+      "checkedOn": "2026-09-13",
+      "note": "Domain does not resolve. lightfootwines.com IS live, but it is Lightfoot & Sons of Calulu in East Gippsland, roughly 250km away. The record places Lightfoot Wines at 110 Myers Rd, Main Ridge. Substituting the Gippsland winery would assert an identity nothing supports. EDITOR: this record's region may be wrong, not just its link."
+    }
+  ],
+  "sourceStatus": "unsourced",
+  "sourceStatusNote": "Domain does not resolve. lightfootwines.com IS live, but it is Lightfoot & Sons of Calulu in East Gippsland, roughly 250km away. The record places Lightfoot Wines at 110 Myers Rd, Main Ridge. Substituting the Gippsland winery would assert an identity nothing supports. EDITOR: this record's region may be wrong, not just its link."
 }

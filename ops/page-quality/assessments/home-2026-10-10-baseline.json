@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0",
+  "url": "https://peninsulainsider.com.au/",
+  "tier": "T1",
+  "family": "home",
+  "reviewer": "baseline",
+  "sourceRevision": "2a9f45515c032dde5599592b15ffe40215b9cd38",
+  "ratings": {
+    "VT1": 3,
+    "VT2": 3,
+    "VT3": 2,
+    "VT4": 3,
+    "FN1": 2,
+    "FN2": 3,
+    "FN3": 3,
+    "ET1": 3,
+    "ET2": 2,
+    "ET3": 2,
+    "ET4": 3,
+    "VS1": 3,
+    "VS2": 2,
+    "VS3": 3,
+    "VS4": 4,
+    "VS5": 3,
+    "MI1": 3,
+    "MI2": 3,
+    "MI3": 3,
+    "AT1": 3,
+    "AT2": 2,
+    "AT3": 1,
+    "AT4": 3
+  },
+  "score": 67.5,
+  "status": "provisional",
+  "limitations": [
+    "Pre-correction candidate; not the final release score.",
+    "Missing spoken assistive-technology assessment.",
+    "Full independent reviews retained in homepage iteration log."
+  ],
+  "hardGates": [],
+  "nextAction": "Recheck corrected candidate, complete release acceptance and retain deductions."
+}

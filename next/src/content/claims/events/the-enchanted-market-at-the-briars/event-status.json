@@ -1,0 +1,18 @@
+{
+  "claimId": "events/the-enchanted-market-at-the-briars/event-status",
+  "claimClass": "event-status",
+  "subject": {
+    "type": "events",
+    "slug": "the-enchanted-market-at-the-briars"
+  },
+  "statement": "The Enchanted Market at The Briars is running as published.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "the-enchanted-market-at-the-briars"
+    }
+  ],
+  "createdAt": "2026-05-04",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

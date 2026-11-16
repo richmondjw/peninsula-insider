@@ -12,9 +12,9 @@
  */
 import { getCollection } from 'astro:content';
 import PrintLayout from '../../layouts/PrintLayout.astro';
-import { routeSlug } from '../../lib/editorial';
+import { routeSlug, isListableVenue } from '../../lib/editorial';
 
-const venues = await getCollection('venues');
+const venues = (await getCollection('venues')).filter(isListableVenue);
 
 // Winter shortlist: ridge cellar doors with fires, hot springs, a
 // hatted dining room, a long lunch, a coastal walk reward, a stay.
@@ -39,17 +39,17 @@ export const prerender = true;
       <p class="guide__edition">Peninsula Insider · Issue Vol 04 · Seasonal Guide</p>
       <h1 class="guide__cover-title">A Mornington Peninsula <em>Winter</em></h1>
       <p class="guide__cover-dek">Cellar doors with fires lit, hot springs steaming, and the back-bay walks that win when the bay is grey.</p>
-      <p class="guide__cover-meta">Eight pages · Six venues · One sample weekend · Updated May 2026</p>
+      <p class="guide__cover-meta">Seasonal picks · A sample weekend · Updated May 2026</p>
     </header>
 
     <section class="guide__intro">
       <h2>Winter is the under-rated Peninsula season.</h2>
       <p>Summer is busy. Autumn is the postcard. Winter is when the Peninsula's real character holds: ridge mornings under fog, fireplaces in cellar doors, the hot springs reading like a destination instead of a queue. The summer crowds have left, the cellar door staff have time, and a serious dining room is bookable on a Saturday.</p>
-      <p>This is a short, deliberately opinionated guide. Six venues we'd commit to in winter, framed by a sample two-night plan. It is not exhaustive; it is editorial. Use it like a glove-box reference - print it, keep it in the car, ignore it the moment a local barista tells you something better.</p>
+      <p>This is a short, deliberately opinionated guide. Venues we'd commit to in winter, framed by a sample two-night plan. It is not exhaustive; it is editorial. Use it like a glove-box reference - print it, keep it in the car, ignore it the moment a local barista tells you something better.</p>
     </section>
 
     <section class="guide__shortlist">
-      <h2>The six</h2>
+      <h2>The seasonal shortlist</h2>
       <ol class="guide__list">
         {shortlist.map((v) => (
           <li class="guide__list-item">
@@ -70,7 +70,7 @@ export const prerender = true;
         </li>
         <li>
           <h3>Saturday morning</h3>
-          <p>Coffee, a short bay walk, then the ridge. Aim for the cellar doors that face north - the winter sun on the deck is the whole game. Lunch at one of the six.</p>
+          <p>Coffee, a short bay walk, then the ridge. Aim for the cellar doors that face north - the winter sun on the deck is the whole game. Lunch at a venue from the shortlist.</p>
         </li>
         <li>
           <h3>Saturday afternoon</h3>

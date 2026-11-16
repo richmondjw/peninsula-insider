@@ -1,0 +1,56 @@
+{
+  "stage": "data-retrieval",
+  "checks": {
+    "schema": {
+      "passed": true,
+      "evidence": "content.config.ts optional canonical kind, price and intelligence receipt; data.mjs validateCandidate rejects missing identities, scope and invalid kinds."
+    },
+    "identities": {
+      "passed": true,
+      "evidence": "data.test.mjs preserves separate same-title sessions; duplicateSignals produces review proposals, never merges."
+    },
+    "scope": {
+      "passed": true,
+      "evidence": "validateCandidate requires explicit Shire confirmation and scope evidence; extraction leaves geography unconfirmed."
+    },
+    "series": {
+      "passed": true,
+      "evidence": "Bounded weekly/monthly contracts export exact review-only sessions. series-website.test.mjs checks actual server enumeration, browser compact feed, detail JSON-LD/calendar and homepage resolver; unsupported cadences, collisions, DST ambiguity and zero-session contracts are refused."
+    },
+    "exceptions": {
+      "passed": true,
+      "evidence": "Positive explicit-series tests demonstrate original/effective dates, moved venue/time propagation, sold-out/cancelled/postponed booking withdrawal, raw base safety under repeated resolution and feature rollback. Legacy blocker fixtures are excluded from acceptance evidence."
+    },
+    "evidence": {
+      "passed": true,
+      "evidence": "Private packet preserves 914 quarantined candidates and 146 evidence snapshots, including earlier captures retained for human proofs. No approvals. Evidence count is not the current admitted detail denominator."
+    },
+    "retrieval": {
+      "passed": false,
+      "evidence": "Seven library pages and official Shire/library/gallery machine-date adapters tested; cleaned 122 admitted HTML detail URLs complete. A separate venue navigation research queue captured actual event/offer pages. Comprehensive independent organiser, PDF and API coverage remains incomplete."
+    },
+    "incremental": {
+      "passed": true,
+      "evidence": "collect.test.mjs and details.test.mjs verify cadence, hash detection, fair bounded queue progression, cache reuse, URL admission and failure backoff; detail receipt reports no remaining admitted URLs."
+    },
+    "failure-handling": {
+      "passed": true,
+      "evidence": "14/15 sources healthy; Shire Active 403 remains failed with review required. Unsupported formats, unsafe pagination, layout drift and ambiguous machine dates fail closed."
+    },
+    "untrusted-input": {
+      "passed": true,
+      "evidence": "data.test.mjs rejects private networks and credentials, uses registered hosts, bounded body sizes, no execution of retrieved text."
+    },
+    "coverage-matrix": {
+      "passed": false,
+      "evidence": "Official Shire boundary/locality review and CMS-seeded town/category/audience matrix implemented. Source network includes 104 unverified venue hosts. Comprehensive independent organiser coverage and verified geographic coverage remain incomplete."
+    }
+  },
+  "limitations": [
+    "Seven library pages and official Shire/library/gallery machine-date adapters tested; cleaned 122 admitted HTML detail URLs complete. A separate venue navigation research queue captured actual event/offer pages. Comprehensive independent organiser, PDF and API coverage remains incomplete.",
+    "Official Shire boundary/locality review and CMS-seeded town/category/audience matrix implemented. Source network includes 104 unverified venue hosts. Comprehensive independent organiser coverage and verified geographic coverage remain incomplete."
+  ],
+  "scope": "Complete major stage: reopened after independent grading audit.",
+  "rubricVersion": 2,
+  "checkedAt": "2026-10-04"
+}

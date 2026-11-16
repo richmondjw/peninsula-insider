@@ -1,0 +1,184 @@
+{
+  "version": 2,
+  "minimumScore": 9,
+  "stages": [
+    {
+      "id": "baseline",
+      "checks": [
+        "requirements",
+        "scope",
+        "current-revision",
+        "writer",
+        "overrides",
+        "occurrences",
+        "deployment",
+        "maintenance",
+        "isolation",
+        "runtime"
+      ],
+      "critical": [
+        "requirements",
+        "writer",
+        "isolation"
+      ]
+    },
+    {
+      "id": "data-retrieval",
+      "checks": [
+        "schema",
+        "identities",
+        "scope",
+        "series",
+        "exceptions",
+        "evidence",
+        "retrieval",
+        "incremental",
+        "failure-handling",
+        "untrusted-input",
+        "coverage-matrix"
+      ],
+      "critical": [
+        "scope",
+        "evidence",
+        "untrusted-input",
+        "retrieval",
+        "series",
+        "exceptions",
+        "coverage-matrix"
+      ]
+    },
+    {
+      "id": "verification",
+      "checks": [
+        "essential-fields",
+        "year",
+        "timezone",
+        "conflicts",
+        "status",
+        "booking",
+        "pricing",
+        "source-lineage",
+        "freshness",
+        "negative-tests",
+        "manually-verified-sample"
+      ],
+      "critical": [
+        "essential-fields",
+        "year",
+        "conflicts",
+        "status",
+        "manually-verified-sample"
+      ]
+    },
+    {
+      "id": "visuals",
+      "checks": [
+        "rights",
+        "edition",
+        "attribution",
+        "expiry",
+        "relevance",
+        "quality",
+        "ocr-limits",
+        "fallback",
+        "accessibility",
+        "channel-permissions",
+        "asset-discovery",
+        "inspected-sample"
+      ],
+      "critical": [
+        "rights",
+        "edition",
+        "fallback",
+        "asset-discovery",
+        "inspected-sample"
+      ]
+    },
+    {
+      "id": "editorial",
+      "checks": [
+        "audience-scores",
+        "reasons",
+        "priority",
+        "readiness",
+        "commercial-separation",
+        "pathways",
+        "briefs",
+        "capacity",
+        "coverage-gaps",
+        "human-approval",
+        "all-pathways",
+        "coverage-dashboard"
+      ],
+      "critical": [
+        "commercial-separation",
+        "human-approval",
+        "capacity",
+        "all-pathways",
+        "coverage-dashboard"
+      ]
+    },
+    {
+      "id": "integration",
+      "checks": [
+        "draft-isolation",
+        "approved-revision",
+        "idempotency",
+        "relationships",
+        "prices",
+        "kind-labels",
+        "structured-data",
+        "propagation",
+        "rollback",
+        "regression"
+      ],
+      "critical": [
+        "draft-isolation",
+        "approved-revision",
+        "rollback"
+      ]
+    },
+    {
+      "id": "operations",
+      "checks": [
+        "discovery-cadence",
+        "retrieval-cadence",
+        "rechecks",
+        "cancellations",
+        "expiry",
+        "alerts",
+        "coverage-dashboard",
+        "review-dashboard",
+        "receipts",
+        "recovery"
+      ],
+      "critical": [
+        "cancellations",
+        "expiry",
+        "alerts"
+      ]
+    },
+    {
+      "id": "release",
+      "checks": [
+        "prior-gates",
+        "human-content-approval",
+        "build",
+        "deploy-receipt",
+        "live-desktop",
+        "live-mobile",
+        "live-feed",
+        "search-sync",
+        "two-refresh-cycles",
+        "rollback-ready"
+      ],
+      "critical": [
+        "prior-gates",
+        "human-content-approval",
+        "deploy-receipt",
+        "live-feed"
+      ]
+    }
+  ],
+  "scope": "Complete major-stage acceptance; component tests alone cannot satisfy end-to-end checks."
+}

@@ -13,6 +13,15 @@
  *     JSON: Partial<Record<FacetKey, string[]>> using values from the shared
  *     facets taxonomy (lib/facets.ts getFacets/FACET_OPTIONS). Example:
  *       <article data-facets='{"place":["red-hill"],"mood":["long-lunch"]}'>
+ *   - Filterable and countable are two different things. `data-facets` makes
+ *     an element filterable; `data-filter-countable` (COUNTABLE_ATTR) declares
+ *     that the element is the ONE node standing for a distinct result, and so
+ *     is what the counts describe. A page may legitimately render the same
+ *     result twice (a pinned The Six card and its directory row); both must
+ *     filter, only the directory row is countable. Containers and bridge
+ *     modules that merely carry facets are neither a result nor countable.
+ *     When a page marks nothing countable every `data-facets` element counts,
+ *     which is the original behaviour and keeps single-list surfaces working.
  *   - Optionally add `data-title="..."` (used by A-to-Z sort; falls back to
  *     the first heading's text).
  *   - Optionally wrap zero-result messaging in `[data-filter-empty]` (hidden
@@ -29,6 +38,19 @@
 /* ------------------------------------------------------------------ */
 /* Pure state helpers (DOM-free, node-testable)                        */
 /* ------------------------------------------------------------------ */
+
+/**
+ * Opt-in marker naming an element as one distinct countable result.
+ *
+ * Counting tagged nodes rather than results is what made /eat/ report
+ * "Showing all 60 places" under an "All 53 places to eat" heading: the six
+ * The Six cards are the same venues rendered a second time, and a winery
+ * bridge container carried facets while representing no venue at all.
+ *
+ * Presence is the signal; the value is ignored, so both `data-filter-countable`
+ * and `data-filter-countable="true"` count.
+ */
+export const COUNTABLE_ATTR = 'data-filter-countable';
 
 export const FILTER_KEYS = ['place', 'cat', 'mood', 'price', 'party', 'date'] as const;
 export type FilterKey = (typeof FILTER_KEYS)[number];
@@ -153,6 +175,16 @@ export function itemMatches(itemFacets: FilterState, state: FilterState): boolea
   return true;
 }
 
+/**
+ * The result set the page's counts describe: every item that opted in via
+ * COUNTABLE_ATTR, or, when a page marks none, all of them. DOM-free, so the
+ * semantics are testable without a browser.
+ */
+export function countableSubset<T extends { countable?: boolean }>(items: T[]): T[] {
+  const marked = items.filter((it) => it.countable === true);
+  return marked.length ? marked : items;
+}
+
 /* ------------------------------------------------------------------ */
 /* DOM controller (all functions guard on document)                    */
 /* ------------------------------------------------------------------ */
@@ -180,13 +212,63 @@ export function writeUrl(state: FilterState, opts: { push?: boolean } = {}): voi
   if (!hasDom()) return;
   const qs = serializeFilters(state, window.location.search);
   const url = window.location.pathname + (qs ? '?' + qs : '') + window.location.hash;
-  if (opts.push) window.history.pushState(null, '', url);
-  else window.history.replaceState(null, '', url);
+  if (opts.push && document.querySelector('[name="astro-view-transitions-enabled"]')) {
+    // The router owns both its private history index and original location.
+    // Copying its index into pushState produces duplicate traversal indices;
+    // dropping it makes Astro ignore Back. Let the router create this entry.
+    // Chips, sort and view remain shallow replacements below.
+    if (url === window.location.pathname + window.location.search + window.location.hash) return;
+    const { scrollX, scrollY } = window;
+    void import('astro:transitions/client').then(({ navigate }) =>
+      navigate(url, { history: 'push' }),
+    ).then(() => {
+      if (window.location.pathname + window.location.search + window.location.hash !== url) return;
+      clearFilterError();
+      window.scrollTo({ left: scrollX, top: scrollY, behavior: 'instant' });
+      document.querySelector<HTMLButtonElement>('[data-sheet-open]')?.focus({ preventScroll: true });
+    }).catch(() => {
+      // Keep the URL authoritative if the client import/navigation fails.
+      // Never fabricate a router index or retry navigation behind the reader.
+      if (window.location.pathname !== new URL(url, window.location.href).pathname) return;
+      readUrl();
+      const noun = document.querySelector<HTMLElement>('[data-v5-filterbar]')?.dataset.noun || 'results';
+      const counts = applyToDom(current, document, noun);
+      applySort(getSort());
+      emitChange({ filters: getState(), ...counts, source: 'url' });
+      const message = 'Filters could not be applied. Please try again.';
+      document.querySelectorAll<HTMLElement>('[data-filter-error]').forEach((el) => {
+        el.textContent = message;
+        el.hidden = false;
+      });
+      // One live announcement retains the restored count and explains the failure.
+      const countText = document.querySelector('[data-filter-count]')?.textContent || '';
+      announce(`${countText}. ${message}`);
+      document.querySelector<HTMLButtonElement>('[data-sheet-open]')?.focus({ preventScroll: true });
+    });
+  } else if (opts.push) {
+    window.history.pushState(window.history.state, '', url);
+  } else {
+    window.history.replaceState(window.history.state, '', url);
+  }
 }
 
 interface FacetedItem {
   el: HTMLElement;
   facets: FilterState;
+  /** Opted in via COUNTABLE_ATTR: this node is one distinct result. */
+  countable: boolean;
+}
+
+/** Local directory search is opt-in. Reader text never enters facet analytics. */
+export function directoryTextMatches(text: string, query: string): boolean {
+  const normalise = (value: string) => value.normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  const words = normalise(query).trim().split(/\s+/).filter(Boolean);
+  return words.every(word => normalise(text).includes(word));
+}
+function matchesDirectoryQuery(item: FacetedItem, root: ParentNode): boolean {
+  if (!root.querySelector('[data-directory-search]')) return true;
+  const query = new URLSearchParams(window.location.search).get('find') || '';
+  return directoryTextMatches(item.el.dataset.searchText || item.el.dataset.title || '', query);
 }
 
 function collectItems(root: ParentNode): FacetedItem[] {
@@ -203,7 +285,11 @@ function collectItems(root: ParentNode): FacetedItem[] {
         }
       }
     }
-    items.push({ el, facets: parseItemFacets(el.getAttribute('data-facets')) });
+    items.push({
+      el,
+      facets: parseItemFacets(el.getAttribute('data-facets')),
+      countable: el.hasAttribute(COUNTABLE_ATTR),
+    });
   });
   return items;
 }
@@ -211,8 +297,8 @@ function collectItems(root: ParentNode): FacetedItem[] {
 /** Non-mutating count for the sheet's live "Show N places" preview. */
 export function countMatches(state: FilterState, root?: ParentNode): number {
   if (!hasDom()) return 0;
-  return collectItems(root || document).reduce(
-    (n, it) => n + (itemMatches(it.facets, state) ? 1 : 0),
+  return countableSubset(collectItems(root || document)).reduce(
+    (n, it) => n + (itemMatches(it.facets, state) && matchesDirectoryQuery(it, root || document) ? 1 : 0),
     0,
   );
 }
@@ -259,6 +345,10 @@ export function announce(text: string): void {
  * Apply `state` to every [data-facets] item on the page: toggles the hidden
  * attribute plus a data-filtered-out marker (for CSS hooks), updates every
  * [data-filter-count], toggles [data-filter-empty], announces the count.
+ *
+ * Filtering spans every tagged element; the counts span only the countable
+ * ones, so a duplicated result (The Six over its directory row) still hides
+ * and shows in both places while counting once.
  */
 export function applyToDom(
   state: FilterState = current,
@@ -268,16 +358,17 @@ export function applyToDom(
   if (!hasDom()) return { shown: 0, total: 0 };
   const root = rootIn || document;
   const items = collectItems(root);
-  let shown = 0;
   for (const it of items) {
-    const ok = itemMatches(it.facets, state);
-    if (ok) shown += 1;
+    const ok = itemMatches(it.facets, state) && matchesDirectoryQuery(it, root);
     it.el.toggleAttribute('hidden', !ok);
     if (ok) delete it.el.dataset.filteredOut;
     else it.el.dataset.filteredOut = '1';
   }
-  const total = items.length;
-  const anyActive = !isEmptyState(state);
+  const counted = countableSubset(items);
+  let shown = 0;
+  for (const it of counted) if (itemMatches(it.facets, state) && matchesDirectoryQuery(it, root)) shown += 1;
+  const total = counted.length;
+  const anyActive = !isEmptyState(state) || (!!root.querySelector('[data-directory-search]') && !!new URLSearchParams(window.location.search).get('find')?.trim());
   const countText = anyActive ? `Showing ${shown} of ${total} ${noun}` : `Showing all ${total} ${noun}`;
   root.querySelectorAll<HTMLElement>('[data-filter-count]').forEach((el) => {
     el.textContent = countText;
@@ -294,6 +385,15 @@ export function emitChange(detail: FiltersChangedDetail): void {
   document.dispatchEvent(new CustomEvent<FiltersChangedDetail>('pi:filters-changed', { detail }));
 }
 
+/** Visible feedback has no second live region; the existing announcer owns speech. */
+function clearFilterError(): void {
+  if (!hasDom()) return;
+  document.querySelectorAll<HTMLElement>('[data-filter-error]').forEach((el) => {
+    el.hidden = true;
+    el.textContent = '';
+  });
+}
+
 /**
  * The one write path: set state, sync URL, repaint DOM, broadcast.
  * push=true creates a history entry (sheet Apply per mobile-strategy s5).
@@ -302,11 +402,79 @@ export function commit(
   state: FilterState,
   opts: { push?: boolean; source?: string; noun?: string } = {},
 ): { shown: number; total: number } {
+  clearFilterError();
+  if (hasDom() && opts.source === 'clear' && document.querySelector('[data-directory-search]')) {
+    const url = new URL(window.location.href);
+    url.searchParams.delete('find');
+    window.history.replaceState(window.history.state, '', url.pathname + url.search + url.hash);
+    const input = document.querySelector<HTMLInputElement>('[data-directory-search]');
+    if (input) input.value = '';
+  }
   current = { ...state };
   writeUrl(current, { push: opts.push });
   const counts = applyToDom(current, document, opts.noun || 'results');
-  emitChange({ filters: getState(), ...counts, source: opts.source || 'chip' });
+  const source = opts.source || 'chip';
+  emitChange({ filters: getState(), ...counts, source });
+  trackFilterApplied(current, source, opts.noun || 'results', counts);
   return counts;
+}
+
+/**
+ * filter_applied (PI-024).
+ *
+ * Emitted from the single write path rather than from the chips, because the
+ * chips are not the only way filters change: a deep link with ?place=, a
+ * back-navigation restore and the sheet's Apply all land here too, and the
+ * pre-existing `filter_apply` click event sees none of them. It also carried
+ * no payload at all - data-key and data-value are not in the delegated
+ * listener's attribute list - so GA4 recorded that A filter happened and
+ * never which one.
+ *
+ * Values are facet slugs from a closed taxonomy (place, cat, mood, price,
+ * party, date), not reader input, so they are safe to transmit. `source:
+ * 'url'` and `source: 'restore'` are included deliberately: a filter applied
+ * by a shared link is still a filter applied, and treating it as invisible
+ * is how a referral channel comes to look like it converts nothing.
+ *
+ * The legacy `filter_apply` click event is left in place and unrenamed.
+ */
+function trackFilterApplied(
+  state: FilterState,
+  source: string,
+  noun: string,
+  counts: { shown: number; total: number },
+): void {
+  if (!hasDom()) return;
+  const track = (window as unknown as { piTrack?: (
+    name: string,
+    params: Record<string, unknown>,
+    opts?: { component?: string; dedupKey?: string; dedupMs?: number },
+  ) => boolean }).piTrack;
+  if (!track) return;
+
+  const keys = FILTER_KEYS.filter((k) => (state[k] ?? []).length > 0);
+  let values = 0;
+  for (const k of keys) values += (state[k] ?? []).length;
+
+  track(
+    'filter_applied',
+    {
+      source,
+      noun,
+      filter_keys: keys.join('|'),
+      filter_count: values,
+      results_shown: counts.shown,
+      results_total: counts.total,
+      cleared: values === 0,
+    },
+    {
+      component: 'v5-filter-state',
+      // One commit per intent. A chip click that lands inside a sheet Apply
+      // in the same tick must not count twice.
+      dedupKey: 'filter:' + noun + ':' + source + ':' + keys.join('|') + ':' + values,
+      dedupMs: 250,
+    },
+  );
 }
 
 /* --------------------------- sort + view --------------------------- */
@@ -324,7 +492,7 @@ export function setSort(value: SortValue): void {
   if (value === SORT_DEFAULT) params.delete(SORT_PARAM);
   else params.set(SORT_PARAM, value);
   const qs = params.toString();
-  window.history.replaceState(null, '', window.location.pathname + (qs ? '?' + qs : '') + window.location.hash);
+  window.history.replaceState(window.history.state, '', window.location.pathname + (qs ? '?' + qs : '') + window.location.hash);
   applySort(value);
 }
 
@@ -359,6 +527,7 @@ export function applySort(value?: SortValue, root?: ParentNode): void {
     });
     sorted.forEach((el) => container.appendChild(el));
   });
+  document.dispatchEvent(new CustomEvent('pi:sort-changed', {detail:{sort:sortValue}}));
 }
 
 export type ViewValue = 'list' | 'map';
@@ -378,7 +547,7 @@ export function setView(view: ViewValue): void {
   if (view === 'list') params.delete(VIEW_PARAM);
   else params.set(VIEW_PARAM, view);
   const qs = params.toString();
-  window.history.replaceState(null, '', window.location.pathname + (qs ? '?' + qs : '') + window.location.hash);
+  window.history.replaceState(window.history.state, '', window.location.pathname + (qs ? '?' + qs : '') + window.location.hash);
   document.dispatchEvent(new CustomEvent('pi:view-toggle', { detail: { view, filters: getState() } }));
 }
 
@@ -468,8 +637,14 @@ let throttleTimer: ReturnType<typeof setTimeout> | undefined;
  * page is already intact.
  */
 export function initFilterState(opts: { noun?: string } = {}): void {
-  if (!hasDom() || initialised) {
-    if (hasDom() && initialised) applyToDom(current, document, opts.noun || 'results');
+  if (!hasDom()) return;
+  if (initialised) {
+    // ClientRouter replaces the page DOM without re-evaluating this module.
+    // Rehydrate from this entry's URL, without registering another listener.
+    readUrl();
+    const counts = applyToDom(current, document, opts.noun || 'results');
+    applySort(getSort());
+    emitChange({ filters: getState(), ...counts, source: 'url' });
     return;
   }
   initialised = true;

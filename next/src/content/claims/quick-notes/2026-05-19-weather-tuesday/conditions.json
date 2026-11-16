@@ -1,0 +1,20 @@
+{
+  "claimId": "quick-notes/2026-05-19-weather-tuesday/conditions",
+  "claimClass": "conditions",
+  "subject": {
+    "type": "quick-notes",
+    "slug": "2026-05-19-weather-tuesday",
+    "field": "sources"
+  },
+  "statement": "Tuesday - fog at dawn, no rain. The wet week is running drier than Monday predicted.",
+  "assertedBy": [
+    {
+      "type": "quick-notes",
+      "slug": "2026-05-19-weather-tuesday",
+      "field": "sources"
+    }
+  ],
+  "createdAt": "2026-05-19",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

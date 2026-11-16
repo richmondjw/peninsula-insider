@@ -1,0 +1,25 @@
+{
+  "claimId": "events/mornington-racecourse-market/event-schedule",
+  "claimClass": "event-schedule",
+  "subject": {
+    "type": "events",
+    "slug": "mornington-racecourse-market",
+    "field": "nextOccurrence"
+  },
+  "statement": "The next confirmed Mornington Racecourse Market is Sunday 11 October 2026, 9am to 2pm.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "mornington-racecourse-market",
+      "field": "nextOccurrence"
+    },
+    {
+      "type": "events",
+      "slug": "mornington-racecourse-market",
+      "field": "startTime"
+    }
+  ],
+  "createdAt": "2026-09-13",
+  "origin": "authored",
+  "note": "This claim covers the 11 October 2026 edition only. The usual monthly cadence can shift around racing, so it does not establish any later date."
+}

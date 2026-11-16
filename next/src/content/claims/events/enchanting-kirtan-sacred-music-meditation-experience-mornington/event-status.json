@@ -1,0 +1,18 @@
+{
+  "claimId": "events/enchanting-kirtan-sacred-music-meditation-experience-mornington/event-status",
+  "claimClass": "event-status",
+  "subject": {
+    "type": "events",
+    "slug": "enchanting-kirtan-sacred-music-meditation-experience-mornington"
+  },
+  "statement": "Enchanting Kirtan: Sacred Music & Meditation Experience - Mornington is running as published.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "enchanting-kirtan-sacred-music-meditation-experience-mornington"
+    }
+  ],
+  "createdAt": "2026-08-24",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

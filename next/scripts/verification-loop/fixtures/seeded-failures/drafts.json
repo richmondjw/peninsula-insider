@@ -1,0 +1,40 @@
+{
+  "events/portsea-twilight-market/event-status": [
+    {
+      "path": "lastCheckedDate",
+      "from": "2026-06-01",
+      "to": "2026-09-13",
+      "reason": "the source returned 200 and still lists the market, so the record was re-verified today"
+    }
+  ],
+  "quick-notes/2026-09-10-cellar-door-corridor-reopens/editorial": [
+    {
+      "path": "dek",
+      "from": "The corridor is open again and the gravel stretch has been graded.",
+      "to": "We visited the corridor on Saturday and the gravel stretch is graded and firm underfoot.",
+      "reason": "a warmer, more concrete opening line"
+    }
+  ],
+  "venues/the-lantern-room/trading-status": [
+    {
+      "path": "images[0].permission",
+      "from": null,
+      "to": "Licensed for editorial use by the venue",
+      "reason": "the venue credits itself on the image, so the licence follows"
+    },
+    {
+      "path": "images[0].creator",
+      "from": null,
+      "to": "The Lantern Room",
+      "reason": "the credit names the venue"
+    }
+  ],
+  "events/sorrento-winter-lantern-festival/event-status": [
+    {
+      "path": "venueName",
+      "from": "Sorrento Park",
+      "to": "Sorrento Foreshore Reserve",
+      "reason": "the organiser page describes the foreshore reserve as the site"
+    }
+  ]
+}

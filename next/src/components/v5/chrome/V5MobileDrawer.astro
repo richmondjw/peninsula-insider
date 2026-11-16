@@ -150,7 +150,7 @@ const groups = [
        own stacking context. Use a literal opaque fallback as --bg may be
        overridden by an experimental theme. */
     min-height: 100dvh;
-    z-index: 10010;
+    z-index: calc(var(--z-drawer) + 1);
     display: flex;
     flex-direction: column;
     background-color: #fff;

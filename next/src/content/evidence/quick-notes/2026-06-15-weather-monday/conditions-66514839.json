@@ -1,0 +1,19 @@
+{
+  "evidenceId": "quick-notes/2026-06-15-weather-monday/conditions-66514839",
+  "claim": "quick-notes/2026-06-15-weather-monday/conditions",
+  "stance": "supports",
+  "publisher": {
+    "kind": "gov"
+  },
+  "retrievedAt": "2026-06-15",
+  "expiresAt": "2026-06-22",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/quick-notes/2026-06-15-weather-monday.md",
+    "field": "sources[0]",
+    "value": "{\"kind\":\"gov\",\"url\":\"https://api.open-meteo.com/v1/forecast?latitude=-38.40&longitude=145.00\",\"note\":\"Open-Meteo Main Ridge forecast retrieved 2026-06-14T21:00Z: Monday 65% / 2.1mm, Tuesday 45% / 0.8mm, Wednesday 30% / 0.3mm, Thursday 55% / 4.2mm, Friday 25% / 0.1mm, Saturday 20% / 0mm, Sunday 35% / 0.5mm.\",\"checkedAt\":\"2026-06-15T07:00:00+10:00\"}",
+    "dateField": "sources[0].checkedAt"
+  },
+  "url": "https://api.open-meteo.com/v1/forecast?latitude=-38.40&longitude=145.00",
+  "note": "Open-Meteo Main Ridge forecast retrieved 2026-06-14T21:00Z: Monday 65% / 2.1mm, Tuesday 45% / 0.8mm, Wednesday 30% / 0.3mm, Thursday 55% / 4.2mm, Friday 25% / 0.1mm, Saturday 20% / 0mm, Sunday 35% / 0.5mm."
+}

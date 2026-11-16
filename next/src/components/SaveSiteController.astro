@@ -16,18 +16,33 @@
 <script>
   import * as Saves from '../lib/saves/store';
 
+  // Private mode, exhausted quota, or storage disabled by the browser. The
+  // store fires no change event when a write does not land, so the button
+  // never repaints to "Saved" on its own - say what happened instead.
+  function reportSaveFailure(btn: HTMLElement) {
+    btn.setAttribute('title', 'Saving is unavailable in this browser');
+    const label = btn.querySelector<HTMLElement>('.save-button__label');
+    if (!label) return;
+    const previous = label.textContent;
+    label.textContent = 'Not saved';
+    setTimeout(() => { label.textContent = previous; }, 1600);
+  }
+
   function syncAll() {
+    // One read for the whole page: the store has no cache, so asking it per
+    // button would re-parse the saved list once per card.
+    const items = Saves.list();
+    const saved = new Set(items.map((it) => `${it.kind}/${it.slug}`));
     document.querySelectorAll<HTMLElement>('[data-save-toggle]').forEach((btn) => {
       const rawKind = btn.getAttribute('data-save-kind');
       const slug = btn.getAttribute('data-save-slug');
       if (!rawKind || !slug) return;
-      const kind = rawKind as Saves.SaveKind;
-      const on = Saves.isSaved(kind, slug);
+      const on = saved.has(`${rawKind}/${slug}`);
       btn.setAttribute('aria-pressed', on ? 'true' : 'false');
       const label = btn.querySelector<HTMLElement>('.save-button__label');
       if (label) label.textContent = on ? 'Saved' : 'Save';
     });
-    const total = Saves.list().length;
+    const total = items.length;
     document.querySelectorAll<HTMLElement>('[data-saved-count]').forEach((el) => {
       el.textContent = String(total);
       if (total > 0) el.removeAttribute('hidden');
@@ -53,12 +68,13 @@
         const title = btn.getAttribute('data-save-title') || slug || '';
         const href = btn.getAttribute('data-save-href') || (typeof location !== 'undefined' ? location.pathname : '/');
         if (!rawKind || !slug) return;
-        Saves.toggle({
+        const result = Saves.toggle({
           kind: rawKind as Saves.SaveKind,
           slug,
           title,
           href,
         });
+        if (!result.ok) reportSaveFailure(btn);
       });
     });
   }
@@ -89,7 +105,9 @@
       return Saves.isSaved(kind as Saves.SaveKind, slug);
     },
     toggle(kind: string, slug: string, title: string, href: string) {
-      return Saves.toggle({ kind: kind as Saves.SaveKind, slug, title, href });
+      // Legacy callers expect the resulting saved state as a boolean. A write
+      // that did not land returns the unchanged prior state, not a false claim.
+      return Saves.toggle({ kind: kind as Saves.SaveKind, slug, title, href }).saved;
     },
     clear(kind?: string) {
       if (!kind) {

@@ -1,0 +1,20 @@
+{
+  "claimId": "venues/montalto/booking",
+  "claimClass": "booking",
+  "subject": {
+    "type": "venues",
+    "slug": "montalto",
+    "field": "visiting.bookingRequired"
+  },
+  "statement": "The cellar door at Montalto takes bookings for groups of one to six and welcomes walk-ins; a booking is not required.",
+  "assertedBy": [
+    {
+      "type": "venues",
+      "slug": "montalto",
+      "field": "visiting.bookingRequired"
+    }
+  ],
+  "createdAt": "2026-09-13",
+  "origin": "authored",
+  "note": "The record's tastingNote said groups of one to eight. The operator states six, twice, and names it as the maximum it can cater for. Corrected on this branch. The claim covers the cellar door only; the restaurant is a separate booking assertion and was not written. Authored by hand for the PI-005 Stage 2 venue pilot. Sources were read on 2026-09-13; see ops/reports/claims/2026-09-13-pilot-venues.md."
+}

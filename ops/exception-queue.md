@@ -42,6 +42,7 @@ Resolution rule: when fixed, **move** the entry to the Resolved section, prepend
 
 ## Active
 
+
 ### EXC-2026-08-16-017 — Monday quick-note deployment not externally resolvable
 - **Severity:** P1
 - **Source:** post-publish-verify
@@ -212,7 +213,15 @@ Resolution rule: when fixed, **move** the entry to the Resolved section, prepend
 
 ## Resolved
 
-_(none yet — exceptions resolve in this file by being moved here with the resolution date and a one-line note)_
+### EXC-2026-10-07-018 — Market listing failed live acceptance
+- **Severity:** P0
+- **Source:** post-publish-verify
+- **Surface:** `https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/`
+- **First seen:** 2026-10-07
+- **Resolved:** 2026-10-07
+- **Owner:** PI site/release
+- **Resolution:** The reviewed illustration was restored despite the CMS hero override. The public page served source SHA `de6d77245b8fd0171364b465b01583ebdeefd4c5` and passed the automated image, disclosure, substantive-copy, source-link, and release-provenance checks on attempt 4 of [Build and Deploy run #668](https://github.com/richmondjw/peninsula-insider/actions/runs/37585479614). [Live verification artifact](https://github.com/richmondjw/peninsula-insider/actions/runs/37585479614/artifacts/11466737700).
+
 
 ## Anti-patterns / what NOT to do with this queue
 

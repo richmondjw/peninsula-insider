@@ -1,0 +1,19 @@
+{
+  "evidenceId": "events/archive/stonier-fire-wine-winter-lunch/event-status-57b0dfdc",
+  "claim": "events/archive/stonier-fire-wine-winter-lunch/event-status",
+  "stance": "supports",
+  "publisher": {
+    "kind": "organiser",
+    "name": "Stonier Wines"
+  },
+  "retrievedAt": "2026-05-04",
+  "expiresAt": "2026-06-03",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/events/archive/stonier-fire-wine-winter-lunch.json",
+    "field": "primarySourceUrl",
+    "value": "https://www.stonier.com.au/visit",
+    "dateField": "lastCheckedDate"
+  },
+  "url": "https://www.stonier.com.au/visit"
+}

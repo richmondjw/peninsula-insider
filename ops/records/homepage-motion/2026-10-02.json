@@ -1,0 +1,19 @@
+{
+  "project": "peninsula-insider",
+  "owner": "remy",
+  "decision": "publish_approved_video",
+  "approval": "James: The video is awesome. Push it live.",
+  "asset": "next/public/video/pi-homepage-motion-20261002.mp4",
+  "sha256": "8d56bf632e87124fca5a7f97eef293badc8a5588ce6626d9245222850291ee87",
+  "format": "26s1280x720H26424fpssilent",
+  "source_clearance": "James attested Visit Victoria approval for the four source images and animation in this project; written licence not independently inspected",
+  "locations": [
+    "Cape Schanck",
+    "Sorrento",
+    "Gunnamatta",
+    "Montalto"
+  ],
+  "production": "Higgsfield Seedance2.5 four source animations and full montage finishing; deterministic FFmpeg loop repair/export",
+  "review": "Independent sampled visual review; James viewed and explicitly approved completed movie; no independent continuous-motion95score claimed",
+  "rollback": "Revert this isolated deployment commit; original credited deck and all other homepage behaviour retained"
+}

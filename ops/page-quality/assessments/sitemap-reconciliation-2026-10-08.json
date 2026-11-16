@@ -1,0 +1,50 @@
+{
+  "schemaVersion": "1.0",
+  "asOf": "2026-10-08",
+  "project": "Peninsula Insider page quality programme",
+  "sourceSnapshot": "https://raw.githubusercontent.com/richmondjw/peninsula-insider/6b975579ec017d1f3d55fbd45b70d1f438a1d893/sitemap.xml",
+  "sha256": "ff590c2daf7edbfba21c42fe96f742db0e0e3bcd066e3aedf9bf720b245deb57",
+  "priorRegisterCount": 615,
+  "currentSitemapCount": 595,
+  "newUrls": [
+    "https://peninsulainsider.com.au/journal/insider-picks-2026-10-04/",
+    "https://peninsulainsider.com.au/journal/insider-picks-2026-10-05/",
+    "https://peninsulainsider.com.au/journal/insider-picks-2026-10-06/",
+    "https://peninsulainsider.com.au/journal/insider-picks-2026-10-07/",
+    "https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/"
+  ],
+  "absentUrls": [
+    "https://peninsulainsider.com.au/wine/elgee-park/",
+    "https://peninsulainsider.com.au/wine/garagiste/",
+    "https://peninsulainsider.com.au/wine/kerri-greens/",
+    "https://peninsulainsider.com.au/whats-on/boneo-community-market/",
+    "https://peninsulainsider.com.au/whats-on/breast-foot-forward-annual-community-walk-and-run-2026/",
+    "https://peninsulainsider.com.au/whats-on/doggy-day-out-mornington-peninsula-2026/",
+    "https://peninsulainsider.com.au/whats-on/emu-plains-market-balnarring/",
+    "https://peninsulainsider.com.au/whats-on/enchanting-kirtan-sacred-music-meditation-experience-mornington/",
+    "https://peninsulainsider.com.au/whats-on/family-mystery-picnic-mornington-peninsula-2026/",
+    "https://peninsulainsider.com.au/whats-on/foxeys-hangout-vegetable-feast-morning-sun-vineyard/",
+    "https://peninsulainsider.com.au/whats-on/glamping-tents-horror-movie-campout-back-from-the-dead-tour-2026/",
+    "https://peninsulainsider.com.au/whats-on/hastings-thursday-street-market/",
+    "https://peninsulainsider.com.au/whats-on/heart-of-the-community-market-rosebud/",
+    "https://peninsulainsider.com.au/whats-on/high-tea-at-mornington-botanical-rose-gardens/",
+    "https://peninsulainsider.com.au/whats-on/mornington-christmas-festival-main-street-christmas-parade/",
+    "https://peninsulainsider.com.au/whats-on/mornington-tourist-railway-santa-specials/",
+    "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/",
+    "https://peninsulainsider.com.au/whats-on/oktoberfest-continental-sorrento-2026/",
+    "https://peninsulainsider.com.au/whats-on/pearcedale-community-market/",
+    "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-hot-springs-yoga-complimentary/",
+    "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-sunday-sessions-spring-2026/",
+    "https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-2027/",
+    "https://peninsulainsider.com.au/whats-on/polperro-cellar-table-private-dining-experience/",
+    "https://peninsulainsider.com.au/whats-on/saturday-pottery-class/",
+    "https://peninsulainsider.com.au/whats-on/tootgarook-primary-school-market/"
+  ],
+  "decision": "Adapt the existing register and retain absent URLs for scope review; absence from the sitemap is not proof of deletion or closure.",
+  "negativeFindings": [
+    "Direct public sitemap HTTP fetch unavailable; snapshot uses the exact deployed GitHub Pages artifact.",
+    "Redirect, self-canonical and noindex states for 25 absent URLs have not yet been checked.",
+    "Five new URLs begin without a full 23-criterion grade."
+  ],
+  "nextAction": "Check each absent URL's live status, redirect, canonical and editorial state; baseline the five new URLs, prioritising the imminent Dominion event."
+}

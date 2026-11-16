@@ -1,0 +1,20 @@
+{
+  "claimId": "venues/montalto/trading-status",
+  "claimClass": "trading-status",
+  "subject": {
+    "type": "venues",
+    "slug": "montalto",
+    "field": "status"
+  },
+  "statement": "Montalto is trading at Red Hill South.",
+  "assertedBy": [
+    {
+      "type": "venues",
+      "slug": "montalto",
+      "field": "status"
+    }
+  ],
+  "createdAt": "2026-09-13",
+  "origin": "authored",
+  "note": "Same assertion by omission as Jetty Road: no status key on the record. Authored by hand for the PI-005 Stage 2 venue pilot. Sources were read on 2026-09-13; see ops/reports/claims/2026-09-13-pilot-venues.md."
+}

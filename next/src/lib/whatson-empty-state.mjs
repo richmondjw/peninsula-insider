@@ -12,5 +12,5 @@ export function emptyDayMessage(continuingCount = 0) {
   if (continuingCount > 1) {
     return `No new event starts today. ${continuingCount} events from earlier in this date range are still running.`;
   }
-  return 'A quiet one. Nothing we would send you to.';
+  return 'No verified event listings remain for this day. Choose another date.';
 }

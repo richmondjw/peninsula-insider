@@ -24,13 +24,20 @@
  */
 
 import Breadcrumbs from './Breadcrumbs.astro';
+import PlayRibbon from './play/PlayRibbon.astro';
 import PlaceCard from './PlaceCard.astro';
 import VenueCard from './VenueCard.astro';
 import ExperienceCard from './ExperienceCard.astro';
 import ItineraryCard from './ItineraryCard.astro';
 import ArticleCard from './ArticleCard.astro';
 import NewsletterBlock from './NewsletterBlock.astro';
+import CorrectionNote from './CorrectionNote.astro';
+import PhotoStage from './PhotoStage.astro';
+import InlinePhoto from './InlinePhoto.astro';
+import { photoPlan, STAGE_MIN } from '../lib/photo-set';
+import { altFor } from '../lib/media-provenance';
 import { titleize, formatHeroCredit } from '../lib/editorial';
+import { cleanCaption } from '../lib/image-caption.mjs';
 import { editableText, editableImage } from '../lib/inline-edit/attrs';
 import { resolveHero } from '../lib/inline-edit/resolve-hero';
 
@@ -59,14 +66,37 @@ const {
 const zoneLabel = titleize(place.data.zone);
 const kindLabel = titleize(place.data.kind);
 const placeSlug = place.id ?? place.slug ?? place.data?.slug ?? place.data?.id;
+const editorialHero = place.data.heroLayout === 'editorial';
+const relatedSummary = new Map((place.data.relatedPlaceSummaries ?? []).map((entry: { slug: string; summary: string }) => [entry.slug, entry.summary]));
 
 // CMS override consult at SSR - if an editor uploaded a place-specific
 // hero via the inline editor, it wins over the content-JSON default and
 // ships in the static HTML. No client-side swap, no flicker. Restores the
 // override propagation the client-side patcher used to provide before
 // PR #162 gated it to admin-click.
-const hero = await resolveHero('place', placeSlug, place.data);
-const heroCredit = formatHeroCredit(place.data.heroImage?.credit);
+// These place CMS covers lack published attribution. Keep the credited content
+// image unless an override provides its own metadata.
+const requiresHeroMetadata = ['main-ridge', 'merricks-north', 'dromana', 'red-hill-south', 'shoreham', 'fingal'].includes(placeSlug);
+const hero = await resolveHero('place', placeSlug, place.data, 'heroImage',
+  requiresHeroMetadata ? { requireOverrideMetadata: true } : {});
+const heroCredit = formatHeroCredit(hero.override ? hero.override.credit : place.data.heroImage?.credit);
+const heroSourceUrl = !hero.override && /^https?:\/\/\S+$/.test(String(place.data.heroImage?.sourceUrl)) ? place.data.heroImage.sourceUrl : undefined;
+const heroLicenceUrl = !hero.override ? place.data.heroImage?.licenseUrl : undefined;
+// See the note in VenueDetailTemplate: a published CMS override is a
+// different image with no recorded provenance of its own.
+// The photograph rule (src/lib/photo-set.ts). A place opens on its full-bleed
+// cover with the name laid over it, so the photographs arrive as a filmstrip
+// directly under the cover rather than replacing it, and one is set into
+// the lede.
+const photoSetInput = placeSlug === 'fingal'
+  ? { ...place.data, heroImage: undefined, gallery: (place.data.gallery ?? []).filter((photo: { src: string }) => photo.src !== place.data.heroImage?.src) }
+  : place.data;
+const photoSet = photoPlan(photoSetInput, { paragraphs: place.data.intro ? 1 : 0 });
+const showStrip = photoSet.photos.length >= STAGE_MIN;
+// `hero.alt || place.data.name` was the old line: the third instance of the
+// refill that turns a decorative image's empty alt back into the entity's
+// own name. No place record is decorative today; the shape is.
+const { alt: heroAlt, presentation: heroPresentation } = altFor(hero, place.data.name);
 
 // Category sub-page lookup - editorial, not file-system-driven.
 // Extend this map as new place-specific sub-pages are created.
@@ -77,7 +107,7 @@ const PLACE_SUBPAGES: Record<string, SubpageLink[]> = {
     { label: 'Red Hill Stays',     href: '/stay/red-hill/',         desc: 'Vineyard villas, design hotels and hinterland bases' },
   ],
   'main-ridge': [
-    { label: 'Main Ridge Wine',    href: '/wine/main-ridge/',       desc: 'Highest-altitude sub-region, small producers and appointment tastings' },
+    { label: 'Main Ridge Wine',    href: '/wine/main-ridge/',       desc: 'Elevated wine country, local cellar doors and book-ahead tastings' },
   ],
   'flinders': [
     { label: 'Flinders Wine',      href: '/wine/flinders/',         desc: 'Southern-tip producers, cool climate and coastal cellar doors' },
@@ -93,7 +123,7 @@ const PLACE_SUBPAGES: Record<string, SubpageLink[]> = {
     { label: 'Sorrento Stays',     href: '/stay/sorrento/',         desc: 'Tip-of-the-Peninsula accommodation, coastal and heritage' },
   ],
   'mornington': [
-    { label: 'Mornington Stays',   href: '/explore/places/mornington/',       desc: 'Bay-side bases, walkable and good for first-timers' },
+    { label: 'Mornington Stays',   href: '/stay/mornington/',       desc: 'Bay-side bases, walkable and good for first-timers' },
   ],
   'cape-schanck': [
     { label: 'Cape Schanck Stays', href: '/stay/cape-schanck/',     desc: 'Southern-tip accommodation with lighthouse and surf access' },
@@ -154,11 +184,19 @@ const hasContent = eatVenues.length > 0 || wineVenues.length > 0 || stayVenues.l
 // Maintained here as a data mapping rather than a data field to keep it
 // lightweight and easy to extend when new category sub-pages are built.
 const categoryGuides: Record<string, Array<{ label: string; href: string; desc: string }>> = {
+  'mornington': [
+    { label: 'Dinner and restaurants', href: '/eat/best-restaurants/#dinner', desc: 'Compare a Mornington dinner with a meal on the ridge, then check the published dining sessions.' },
+    { label: 'Dining with a dog', href: '/journal/dog-friendly-cafes-pubs-wineries-mornington-peninsula/', desc: 'Published courtyard, deck and garden policies, with booking conditions.' },
+  ],
+  'rosebud': [
+    { label: 'Hot springs nearby', href: '/explore/hot-springs/', desc: 'Compare thermal bathing options in Fingal and plan a separate trip inland.' },
+    { label: 'A rainy-day alternative', href: '/journal/rainy-day-peninsula/', desc: 'Indoor options across the Peninsula when a foreshore afternoon no longer suits.' },
+  ],
   'red-hill': [
     { label: 'Red Hill Wine', href: '/wine/red-hill/', desc: 'Cellar doors, terroir, tasting routes and producers on the plateau.' },
   ],
   'main-ridge': [
-    { label: 'Main Ridge Wine', href: '/wine/main-ridge/', desc: 'The highest, coolest sub-region - small producers, serious pinot.' },
+    { label: 'Main Ridge Wine', href: '/wine/main-ridge/', desc: 'Small producers and cool-climate wines around Main Ridge.' },
   ],
   'merricks': [
     { label: 'Merricks Wine', href: '/wine/merricks/', desc: 'Pt. Leo Estate, Stonier, Scorpo and the eastern slope producers.' },
@@ -184,18 +222,22 @@ const factual = place.data.factualLede ?? '';
 <!-- ═══════════════════════════════════════════════════════════════════════
      1. FULL-BLEED CINEMATIC HERO
      ═══════════════════════════════════════════════════════════════════════ -->
-<section class="pdv2-hero"
-  {...editableImage({
-    entityType: 'place', entitySlug: placeSlug, fieldPath: 'heroImage',
-    label: `${place.data.name} hero`, purpose: 'hero',
-  })}>
-  <img class="pdv2-hero__image" src={hero.src} alt={hero.alt || place.data.name} fetchpriority="high" decoding="async" />
+<section class:list={['pdv2-hero', { 'pdv2-hero--editorial': editorialHero }]}>
+  <img class="pdv2-hero__image" src={hero.src} srcset={editorialHero && !hero.override ? place.data.heroImage?.responsive?.srcset : undefined} sizes={editorialHero && !hero.override ? place.data.heroImage?.responsive?.sizes : undefined} width={editorialHero && !hero.override ? 1920 : undefined} height={editorialHero && !hero.override ? 1280 : undefined} alt={heroAlt} role={heroPresentation ? 'presentation' : undefined} fetchpriority="high" decoding="async"
+    {...editableImage({
+      entityType: 'place', entitySlug: placeSlug, fieldPath: 'heroImage',
+      label: `${place.data.name} hero`, purpose: 'hero',
+    })}
+    data-pi-requires-image-metadata={requiresHeroMetadata ? 'true' : undefined}
+    data-pi-no-hydrate={requiresHeroMetadata ? 'true' : undefined} />
   <div class="pdv2-hero__scrim"></div>
   <div class="pdv2-hero__inner container">
     {/* ONE eyebrow (2026-07-24, per James - the old zone · kind line doubled
         up with the region link). Region link when the place has one, else
         the zone · kind fallback. */}
-    {place.data.regionSlug ? (
+    {place.data.heroEyebrow ? (
+      <p class="pdv2-hero__eyebrow">{place.data.heroEyebrow}</p>
+    ) : place.data.regionSlug ? (
       <a
         href={`/explore/regions/${place.data.regionSlug}/`}
         class="pdv2-hero__eyebrow pdv2-hero__region"
@@ -207,16 +249,63 @@ const factual = place.data.factualLede ?? '';
     <h1 class="pdv2-hero__title"
       {...editableText({ entityType: 'place', entitySlug: placeSlug, fieldPath: 'name', label: `${place.data.name} - name` })}
     >{place.data.name}</h1>
-    {place.data.heroImage?.alt && (
+    {place.data.heroDeck && (editorialHero || !hero.override) ? (
+      <p class="pdv2-hero__alt">{place.data.heroDeck}</p>
+    ) : !hero.override && !place.data.heroImage?.decorative && place.data.heroImage?.alt && (
       <p class="pdv2-hero__alt">{place.data.heroImage.alt}</p>
     )}
+    {placeSlug === 'fingal' && (
+      <div class="pdv2-hero__actions" aria-label="Plan a Fingal visit">
+        <a class="pdv2-hero__action" href="#fingal-choose">Choose a thermal visit <span aria-hidden="true">↓</span></a>
+        <a class="pdv2-hero__action pdv2-hero__action--quiet" href="#escapes">Build a weekend <span aria-hidden="true">↓</span></a>
+      </div>
+    )}
+    {editorialHero && place.data.visitSource && (
+      <a class="pdv2-hero__visit-source" href={place.data.visitSource.url} target="_blank" rel="noopener noreferrer">
+        {place.data.visitSource.label} <span aria-hidden="true">↗</span>
+      </a>
+    )}
   </div>
-  {heroCredit && <p class="pdv2-hero__credit">{heroCredit}</p>}
+  {editorialHero && !hero.override && place.data.heroImage?.caption && <p class="pdv2-hero__caption">{cleanCaption(place.data.heroImage.caption)}</p>}
+  {heroCredit && <p class="pdv2-hero__credit">{heroCredit}{heroSourceUrl && <span> <a href={heroSourceUrl} aria-label={place.data.name + " image source"}>Source</a>{heroLicenceUrl && <> <span aria-hidden="true">·</span> <a href={heroLicenceUrl} aria-label={place.data.name + " image licence"}>Licence</a></>}</span>}</p>}
 </section>
 
 <!-- ═══════════════════════════════════════════════════════════════════════
      2. EDITORIAL LEDE - factual prose + at-a-glance sidebar card
      ═══════════════════════════════════════════════════════════════════════ -->
+{placeSlug === 'fingal' && (
+  <section class="fingal-choose" id="fingal-choose" aria-labelledby="fingal-choose-title">
+    <div class="container">
+      <div class="fingal-choose__heading">
+        <p class="label label--accent">Plan the bathe</p>
+        <h2 id="fingal-choose-title">Thermal venues in Fingal</h2>
+        <p>Alba and Peninsula Hot Springs are separate places. Check the live session and booking details with your chosen operator before you travel.</p>
+      </div>
+      <div class="fingal-choose__grid">
+        <div class="fingal-choose__option">
+          <h3>Alba Thermal Springs & Spa</h3>
+          <p>Contemporary pools, spa treatments and dining at 282 Browns Road. This is the place pictured above.</p>
+          <a href="https://albathermalsprings.com.au/book/">See Alba bathing and bookings <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="fingal-choose__option">
+          <h3>Peninsula Hot Springs</h3>
+          <p>Bath House and Spa Dreaming Centre bathing, with accommodation at 140 Springs Lane.</p>
+          <a href="https://www.peninsulahotsprings.com/bathe/">See Peninsula Hot Springs bathing <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+)}
+<div class="container">
+  <PlayRibbon kind="place" slug={placeSlug} />
+</div>
+
+{showStrip && (
+  <div class="container pdv2-photos">
+    <PhotoStage photos={photoSet.photos} subject={place.data.name} id="photos" variant="strip" />
+  </div>
+)}
+
 <section class="pdv2-lede">
   <div class="container pdv2-lede__grid">
     <div class="pdv2-lede__main">
@@ -232,6 +321,7 @@ const factual = place.data.factualLede ?? '';
           {place.data.intro}
         </p>
       )}
+      {showStrip && photoSet.afterFirst !== null && <InlinePhoto photos={photoSet.photos} indexes={[photoSet.afterFirst]} subject={place.data.name} />}
     </div>
 
     <aside class="pdv2-card" aria-label={`${place.data.name} at a glance`}>
@@ -263,6 +353,7 @@ const factual = place.data.factualLede ?? '';
 <!-- ═══════════════════════════════════════════════════════════════════════
      3. SIGNATURE PULL-QUOTE
      ═══════════════════════════════════════════════════════════════════════ -->
+<slot name="trip-choices" />
 {place.data.signature && (
   <section class="pdv2-quote">
     <div class="container">
@@ -324,7 +415,7 @@ const factual = place.data.factualLede ?? '';
     <div class="container">
       <div class="place-tldr__intro">
         <p class="label label--accent">{place.data.name} in brief</p>
-        <h2 class="place-tldr__title">{place.data.name} in four lines</h2>
+        <h2 class="place-tldr__title">{place.data.name} at a glance</h2>
       </div>
       <ol class="place-tldr__list">
         {place.data.tldr.map((item: string, i: number) => (
@@ -389,22 +480,22 @@ const factual = place.data.factualLede ?? '';
       <p class="place-scoreboard__label label label--accent">What's mapped here</p>
       <ul class="place-scoreboard__list">
         {eatVenues.length > 0 && (
-          <li><a href="#eat-drink"><strong>{eatVenues.length}</strong><span>places to eat</span></a></li>
+          <li><a href="#eat-drink"><span>Places to eat</span></a></li>
         )}
         {wineVenues.length > 0 && (
-          <li><a href="#wine"><strong>{wineVenues.length}</strong><span>cellar doors & makers</span></a></li>
+          <li><a href="#wine"><span>Cellar doors & makers</span></a></li>
         )}
         {stayVenues.length > 0 && (
-          <li><a href="#stay"><strong>{stayVenues.length}</strong><span>stays</span></a></li>
+          <li><a href="#stay"><span>Stays</span></a></li>
         )}
         {experiences.length > 0 && (
-          <li><a href="#explore"><strong>{experiences.length}</strong><span>ways to explore</span></a></li>
+          <li><a href="#explore"><span>Ways to explore</span></a></li>
         )}
         {itineraries.length > 0 && (
-          <li><a href="#escapes"><strong>{itineraries.length}</strong><span>escape plans</span></a></li>
+          <li><a href="#escapes"><span>Escape plans</span></a></li>
         )}
         {articles.length > 0 && (
-          <li><a href="#journal"><strong>{articles.length}</strong><span>journal pieces</span></a></li>
+          <li><a href="#journal"><span>Journal pieces</span></a></li>
         )}
       </ul>
     </div>
@@ -450,9 +541,9 @@ const factual = place.data.factualLede ?? '';
         <div>
           <p class="label label--accent">Eat & drink</p>
           <h2 class="venues__title">Where to eat and drink in {place.data.name}</h2>
-          <p class="venues__sub">Restaurants, cafés, bakeries, and pubs - each with an editor note, not a star rating.</p>
+          <p class="venues__sub">Our selected food and drink stops here, each with an editor note rather than a star rating.</p>
         </div>
-        <a href="/eat/" class="venues__link">More to eat in {place.data.name} →</a>
+        <a href="/eat/" class="venues__link">Browse Peninsula food & drink →</a>
       </div>
       <div class="venues__grid">
         {eatVenues.map((venue) => <VenueCard venue={venue} hrefPrefix="/eat" />)}
@@ -513,9 +604,9 @@ const factual = place.data.factualLede ?? '';
         <div>
           <p class="label label--accent">Get outside</p>
           <h2 class="venues__title">Explore moves anchored to {place.data.name}</h2>
-          <p class="venues__sub">Walks, beaches, lookouts, and markets worth scheduling around the meals.</p>
+          <p class="venues__sub">The local experiences currently mapped in our guide, with detail to help you plan.</p>
         </div>
-        <a href="/explore/" class="venues__link">Explore near {place.data.name} →</a>
+        <a href="/explore/" class="venues__link">Browse all experiences →</a>
       </div>
       <div class="experience-grid">
         {experiences.map((experience) => <ExperienceCard experience={experience} />)}
@@ -667,7 +758,7 @@ const factual = place.data.factualLede ?? '';
       </div>
       <div class="places__grid">
         {relatedPlaces.map((item, index) => (
-          <PlaceCard place={item} variant={index % 2 === 0 ? 'bay' : 'sand'} />
+          <PlaceCard place={item} variant={index % 2 === 0 ? 'bay' : 'sand'} mediaMode={place.data.relatedMediaMode ?? 'default'} summary={relatedSummary.get(item.id ?? item.slug)} />
         ))}
       </div>
     </div>
@@ -695,6 +786,10 @@ const factual = place.data.factualLede ?? '';
     <a href="/submit/" class="pi-btn pi-btn--text">Tell us about {place.data.name} →</a>
   </div>
 </aside>
+
+<div class="container">
+  <CorrectionNote surface="place" />
+</div>
 
 <NewsletterBlock />
 
@@ -739,12 +834,21 @@ const factual = place.data.factualLede ?? '';
         L.marker([lat, lng]).addTo(map).bindPopup(name);
       }).catch(() => { el._piMapInit = false; });
     }
+    // Held at module scope so the previous page's observer can be dropped.
+    // The `data-bound` guard is on the map element, which the client router
+    // replaces, so the guard was fresh on every visit while the observer was
+    // not - and a reader who never scrolled the map into view left it
+    // connected to a detached element. One more per place page, for the life
+    // of the tab. Found by the PI-012 sweep.
+    let mapObserver = null;
     function bindMaps() {
       const els = document.querySelectorAll('[data-place-map]:not([data-bound])');
       if (!els.length) return;
+      if (mapObserver) mapObserver.disconnect();
       const io = new IntersectionObserver((entries) => {
         entries.forEach((e) => { if (e.isIntersecting) { initMap(e.target); io.unobserve(e.target); } });
       }, { rootMargin: '200px' });
+      mapObserver = io;
       els.forEach((el) => { el.setAttribute('data-bound', '1'); io.observe(el); });
     }
     if (document.readyState === 'loading') {
@@ -784,9 +888,7 @@ const factual = place.data.factualLede ?? '';
   .pdv2-hero__scrim {
     position: absolute;
     inset: 0;
-    background:
-      linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(0,0,0,0.55) 100%),
-      linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0) 30%);
+    background: var(--photo-shade-bottom);
     pointer-events: none;
   }
   .pdv2-hero__inner {
@@ -795,6 +897,21 @@ const factual = place.data.factualLede ?? '';
     padding-top: clamp(4rem, 10vh, 8rem);
     padding-bottom: clamp(2.5rem, 6vh, 4.5rem);
     width: 100%;
+  }
+  /* An illustrative disclosure must not become a flex item that squeezes
+     the hero copy against the viewport edge. Keep it separate from the
+     bottom-right credit and readable over the photograph. */
+  .pdv2-hero :global(.pdv2-hero__provenance) {
+    position: absolute;
+    z-index: 2;
+    top: 1.25rem;
+    right: 1.25rem;
+    max-width: min(24rem, calc(100% - 2.5rem));
+    margin: 0;
+    padding: 0.65rem 0.85rem;
+    border-radius: var(--radius-s);
+    background: rgba(11, 46, 74, 0.92);
+    color: var(--white);
   }
   .pdv2-hero__eyebrow {
     font-family: var(--font-ui);
@@ -826,6 +943,47 @@ const factual = place.data.factualLede ?? '';
     font-style: normal;
     font-family: var(--font-ui);
   }
+  .pdv2-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    margin-top: 1.4rem;
+  }
+  .pdv2-hero__action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    padding: 0.68rem 1rem;
+    border: 1px solid var(--white);
+    border-radius: 0.35rem;
+    background: var(--white);
+    color: var(--dark);
+    font-family: var(--font-ui);
+    font-size: var(--fs-200);
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .pdv2-hero__action--quiet { background: rgba(11, 46, 74, 0.35); color: var(--white); }
+  .pdv2-hero__action:hover { background: var(--mint); border-color: var(--mint); color: var(--dark); }
+  .pdv2-hero__action:focus-visible { outline: 3px solid var(--mint); outline-offset: 3px; }
+  .fingal-choose { padding: clamp(2rem, 4vw, 3.5rem) 0; background: var(--bg-alt); scroll-margin-top: 10rem; }
+  .fingal-choose__heading { max-width: 53rem; margin-bottom: 1.5rem; }
+  .fingal-choose__heading h2 { margin: 0.4rem 0 0.7rem; color: var(--dark); }
+  .fingal-choose__heading p:last-child { max-width: 65ch; line-height: 1.6; }
+  .fingal-choose__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+  .fingal-choose__option { padding: clamp(1.25rem, 2.5vw, 1.8rem); border: 1px solid var(--border); border-radius: 0.55rem; background: var(--white); }
+  .fingal-choose__option h3 { margin: 0 0 0.65rem; color: var(--dark); }
+  .fingal-choose__option p { line-height: 1.55; }
+  .fingal-choose__option a { display: inline-flex; align-items: center; min-height: 44px; margin-top: 0.6rem; color: var(--teal-text); font-weight: 700; text-underline-offset: 0.2em; }
+  .fingal-choose__option a:focus-visible { outline: 3px solid var(--teal-text); outline-offset: 3px; }
+  #perfect-day, #eat-drink, #wine, #stay, #explore, #escapes, #journal { scroll-margin-top: 10rem; }
+  @media (max-width: 600px) {
+    .pdv2-hero__actions { gap: 0.5rem; margin-top: 1rem; }
+    .pdv2-hero__action { font-size: 0.86rem; padding-inline: 0.8rem; }
+    .fingal-choose__grid { grid-template-columns: 1fr; }
+  }
   .pdv2-hero__credit {
     position: absolute;
     right: 1.5rem; bottom: 0.85rem;
@@ -836,11 +994,173 @@ const factual = place.data.factualLede ?? '';
     color: rgba(255,255,255,0.7);
   }
   @media (max-width: 600px) {
-    .pdv2-hero { min-height: 70vh; }
+    .pdv2-hero {
+      min-height: 70vh;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: stretch;
+    }
     .pdv2-hero__title { font-size: clamp(3rem, 14vw, 5rem); }
+    .pdv2-hero__inner {
+      padding-inline: max(1.25rem, env(safe-area-inset-left)) max(1.25rem, env(safe-area-inset-right));
+      padding-bottom: 0.75rem;
+    }
+    .pdv2-hero__credit {
+      position: relative;
+      right: auto;
+      bottom: auto;
+      align-self: flex-start;
+      max-width: calc(100% - 3rem);
+      margin: 0 1.5rem 1rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.01em;
+      line-height: 1.5;
+      text-transform: none;
+      color: var(--white);
+    }
+    .pdv2-hero__credit a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0 0.35rem;
+      color: var(--white);
+      text-decoration: underline;
+      text-underline-offset: 0.18em;
+    }
   }
 
-    /* ── 2. EDITORIAL LEDE ──────────────────────────────────────────────── */
+    /* A place-specific editorial treatment keeps a truthful but modest local
+     photograph in proportion and moves its caption and licence into flow. */
+  .pdv2-hero--editorial {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    column-gap: clamp(2rem, 5vw, 5rem);
+    row-gap: 0;
+    align-items: start;
+    min-height: 0;
+    padding: clamp(2.5rem, 5vw, 5rem) max(1.5rem, calc((var(--page-vw, 100vw) - 80rem) / 2));
+    background: var(--bg-alt);
+    color: var(--dark);
+    overflow: visible;
+  }
+  .pdv2-hero--editorial .pdv2-hero__image {
+    position: relative;
+    inset: auto;
+    grid-column: 2;
+    grid-row: 1;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    border-radius: var(--radius-m);
+  }
+  .pdv2-hero--editorial .pdv2-hero__scrim { display: none; }
+  .pdv2-hero--editorial .pdv2-hero__inner {
+    grid-column: 1;
+    grid-row: 1 / 4;
+    align-self: center;
+    width: 100%;
+    max-width: 34rem;
+    margin: 0;
+    padding: 0;
+  }
+  .pdv2-hero--editorial .pdv2-hero__eyebrow {
+    color: var(--teal-text);
+    text-shadow: none;
+  }
+  .pdv2-hero--editorial .pdv2-hero__title {
+    max-width: none;
+    font-size: clamp(3.2rem, 6vw, 5.8rem);
+    color: var(--dark);
+    text-shadow: none;
+  }
+  .pdv2-hero--editorial .pdv2-hero__alt {
+    max-width: 38ch;
+    font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+    line-height: 1.6;
+    color: var(--soft);
+    text-shadow: none;
+  }
+  .pdv2-hero--editorial .pdv2-hero__visit-source {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 48px;
+    margin-top: 1.25rem;
+    padding: 0.7rem 1rem;
+    border-radius: var(--radius-s);
+    background: var(--dark);
+    color: #fff;
+    font-weight: 700;
+    line-height: 1.3;
+    text-decoration: none;
+  }
+  .pdv2-hero--editorial .pdv2-hero__visit-source:hover { background: var(--teal-text); }
+  .pdv2-hero--editorial .pdv2-hero__visit-source:focus-visible {
+    outline: 3px solid var(--teal-text);
+    outline-offset: 3px;
+  }
+  .pdv2-hero--editorial .pdv2-hero__caption {
+    grid-column: 2;
+    grid-row: 2;
+    margin: 0.75rem 0 0;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: var(--soft);
+  }
+  .pdv2-hero--editorial .pdv2-hero__credit {
+    position: static;
+    grid-column: 2;
+    grid-row: 3;
+    max-width: none;
+    margin: 0.2rem 0 0;
+    font-size: 0.75rem;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+    text-transform: none;
+    color: var(--soft);
+  }
+  .pdv2-hero--editorial .pdv2-hero__credit a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 0.35rem;
+    color: var(--teal-text);
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+  }
+  @media (max-width: 760px) {
+    .pdv2-hero--editorial {
+      grid-template-columns: minmax(0, 1fr);
+      min-height: 0;
+      padding: 2rem 1.25rem 2.5rem;
+    }
+    .pdv2-hero--editorial .pdv2-hero__inner {
+      grid-column: 1;
+      grid-row: 1;
+      margin-bottom: 1.5rem;
+    }
+    .pdv2-hero--editorial .pdv2-hero__title {
+      font-size: clamp(2.8rem, 12vw, 3.2rem);
+    }
+    .pdv2-hero--editorial .pdv2-hero__image {
+      grid-column: 1;
+      grid-row: 2;
+    }
+    .pdv2-hero--editorial .pdv2-hero__caption {
+      grid-column: 1;
+      grid-row: 3;
+    }
+    .pdv2-hero--editorial .pdv2-hero__credit {
+      grid-column: 1;
+      grid-row: 4;
+    }
+  }
+
+  /* ── 2. EDITORIAL LEDE ──────────────────────────────────────────────── */
+  /* Filmstrip under the cover: the place's photographs, one tap from the viewer. */
+  .pdv2-photos { padding-block-start: clamp(1.25rem, 2.5vw, 2rem); }
+  .pdv2-photos :global(.pstage) { margin-block-end: 0; }
   .pdv2-lede {
     padding: clamp(3.5rem, 7vw, 6rem) 0 clamp(2.5rem, 5vw, 4rem);
     background: var(--bg);
@@ -1046,9 +1366,6 @@ const factual = place.data.factualLede ?? '';
   }
   .place-fit__list--not li {
     color: var(--soft);
-    text-decoration: line-through;
-    text-decoration-color: var(--border-strong);
-    text-decoration-thickness: 1px;
   }
   .place-fit__list--not li::before { background: var(--soft); }
   .place-fit__skip {

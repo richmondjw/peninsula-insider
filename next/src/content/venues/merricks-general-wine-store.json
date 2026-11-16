@@ -11,11 +11,11 @@
   "address": "3460 Frankston-Flinders Rd, Merricks VIC 3916",
   "phone": "+61 3 5989 8088",
   "website": "https://merricksstore.com.au",
-  "bookingUrl": "https://merricksstore.com.au",
+  "bookingUrl": "https://merricksstore.com.au/reservations/",
   "bookingProvider": "direct",
   "priceBand": "$$$",
   "signature": "The old Merricks general store reborn as a cellar door, bakery, and produce-forward lunch room.",
-  "editorNote": "Merricks General Wine Store occupies what used to be the village's original general store, and it has turned those bones into one of the most likeable rooms on the Peninsula. The front of the building is part cellar door for the Baillieu family's Barragunda wines, part retail for Peninsula producers, chutneys, oils, cheeses, and the back is a long, daylit dining room looking out over paddocks and eucalypts. The building has been changed and not changed at the same time, which is harder to pull off than it sounds.\n\nThe food is deliberately unfussy: a short menu that leans on pizza from a wood oven, a day's-catch fish, a lamb roast on Sundays, and pastries from the bakery that are worth arriving early for. The wine list is smartly priced and reflects the fact that the owners make wine themselves.\n\nGood for a lunch that is not trying to be an event. Good for breakfast after a Merricks cottage stay. Very good for anyone who wants to know what a Peninsula village still can feel like.",
+  "editorNote": "Merricks Store is a village bistro, wine store and produce stop. The operator serves breakfast and lunch daily, with tables by the fire or on the decks. Its wine list centres on Elgee Park and Baillieu vineyards, alongside other local producers.\n\nChoose it for a village meal before exploring the ridge. The menu is seasonal and indicative, so check the current dishes rather than travelling for a promised pizza or Sunday roast. Friday dinner bookings are also offered by the operator; confirm the current service before making plans.",
   "whyWeGo": "The room that makes the Peninsula feel like it still belongs to itself, unhurried, unfussy, and entirely of where it is.",
   "bestFor": [
     "Long lunches",
@@ -23,7 +23,7 @@
     "Cellar door visits",
     "First-time visitors"
   ],
-  "ifOnlyOneThing": "Arrive in time for a bakery pastry, sit in the back dining room with a glass of Barragunda, and order the Sunday lamb roast if you are there for it.",
+  "ifOnlyOneThing": "Book breakfast or lunch through the operator, then choose from the current seasonal menu and local wine list.",
   "pairWith": [
     "Stonier Wines",
     "Rare Hare at Willow Creek"
@@ -46,19 +46,203 @@
     ]
   },
   "heroImage": {
-    "src": "/images/sourced/place-merricks-01.webp",
-    "alt": "Mornington Peninsula landscape - representative image for Merricks General Wine Store",
-    "credit": "Peninsula Insider",
-    "license": "other-licensed"
+    "src": "/images/visit-victoria/vv-25061243-merricks-general-wine-store.webp",
+    "alt": "Timber tables set for lunch before an open kitchen with hanging woven baskets and shelves of wine at Merricks General Wine Store",
+    "credit": "Peter Foster, courtesy of Visit Victoria",
+    "license": "visit-victoria",
+    "caption": "Merricks General Wine Store, Mornington Peninsula",
+    "depicts": "Merricks General Wine Store",
+    "depictionStatus": "actual",
+    "creator": "Peter Foster",
+    "sourceUrl": "Victoria Content Hub asset 25061243, downloaded 2026-09-28",
+    "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+    "permittedUses": [
+      "website",
+      "social"
+    ],
+    "rightsHolder": "Visit Victoria",
+    "rightsEstablishedOn": "2026-09-29",
+    "rightsStatus": "recorded",
+    "decorative": false,
+    "provenanceReview": "verified"
   },
-  "gallery": [],
+  "gallery": [
+    {
+      "src": "/images/visit-victoria/vv-25061236-merricks-general-wine-store.webp",
+      "alt": "A staff member serves a plate of scallops to two diners at a table by the open fire at Merricks General Wine Store",
+      "credit": "Peter Foster, courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Merricks General Wine Store, Mornington Peninsula",
+      "depicts": "Merricks General Wine Store",
+      "depictionStatus": "actual",
+      "creator": "Peter Foster",
+      "sourceUrl": "Victoria Content Hub asset 25061236, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-25061239-merricks-general-wine-store.webp",
+      "alt": "Scallops on the half shell served on salt with bread and glasses of white wine, an open fire glowing behind",
+      "credit": "Peter Foster, courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Merricks General Wine Store, Mornington Peninsula",
+      "depicts": "Merricks General Wine Store",
+      "depictionStatus": "actual",
+      "creator": "Peter Foster",
+      "sourceUrl": "Victoria Content Hub asset 25061239, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-25061244-merricks-general-wine-store.webp",
+      "alt": "A visitor walks past the weatherboard facade of Merricks General Store, its painted sign framed by a red flowering vine",
+      "credit": "Peter Foster, courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Merricks General Wine Store, Mornington Peninsula",
+      "depicts": "Merricks General Wine Store",
+      "depictionStatus": "actual",
+      "creator": "Peter Foster",
+      "sourceUrl": "Victoria Content Hub asset 25061244, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-25061237-merricks-general-wine-store.webp",
+      "alt": "Four scallops on the half shell with a yellow sauce, orange roe and herbs, served on salt on a timber table",
+      "credit": "Peter Foster, courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Merricks General Wine Store, Mornington Peninsula",
+      "depicts": "Merricks General Wine Store",
+      "depictionStatus": "actual",
+      "creator": "Peter Foster",
+      "sourceUrl": "Victoria Content Hub asset 25061237, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-25061238-merricks-general-wine-store.webp",
+      "alt": "White wine is poured into a glass at a table set with a shared plate, an open fire glowing in the background",
+      "credit": "Peter Foster, courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Merricks General Wine Store, Mornington Peninsula",
+      "depicts": "Merricks General Wine Store",
+      "depictionStatus": "actual",
+      "creator": "Peter Foster",
+      "sourceUrl": "Victoria Content Hub asset 25061238, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-25061231-merricks-general-wine-store.webp",
+      "alt": "Shoppers pass through a homewares store with clothing racks, botanical prints and hanging dried foliage at Merricks General Wine Store",
+      "credit": "Peter Foster, courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Merricks General Wine Store, Mornington Peninsula",
+      "depicts": "Merricks General Wine Store",
+      "depictionStatus": "actual",
+      "creator": "Peter Foster",
+      "sourceUrl": "Victoria Content Hub asset 25061231, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-25061240-merricks-general-wine-store.webp",
+      "alt": "Three friends share plates and white wine at a table by the open fire while a waiter carries glasses at Merricks General Wine Store",
+      "credit": "Peter Foster, courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Merricks General Wine Store, Mornington Peninsula",
+      "depicts": "Merricks General Wine Store",
+      "depictionStatus": "actual",
+      "creator": "Peter Foster",
+      "sourceUrl": "Victoria Content Hub asset 25061240, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-25061232-merricks-general-wine-store.webp",
+      "alt": "A group of friends talk over wine at a table near the fireplace and botanical prints at Merricks General Wine Store",
+      "credit": "Peter Foster, courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Merricks General Wine Store, Mornington Peninsula",
+      "depicts": "Merricks General Wine Store",
+      "depictionStatus": "actual",
+      "creator": "Peter Foster",
+      "sourceUrl": "Victoria Content Hub asset 25061232, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    }
+  ],
   "featuredPartner": false,
   "lastVerified": "2026-04-09",
   "publishedAt": "2026-04-09",
   "knownFor": [
-    "Original Merricks Village Store",
-    "Barragunda Wines Cellar Door",
-    "Wood-Fired Pizza and Sunday Roast",
+    "Village Bistro",
+    "Elgee Park and Baillieu Wines",
+    "Breakfast and Lunch",
     "Peninsula Produce Retail"
   ]
 }

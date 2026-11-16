@@ -2,11 +2,11 @@
 
 **North star:** Become the number-1 destination — for people and AI agents — for what's on, and where to stay, eat, drink and explore on the Mornington Peninsula.
 
-**Loop health:** 🟡 warning — Only 2 snapshot(s) in the last 7 days — expected ~7.
+**Loop health:** 🟢 healthy — Actions recorded but none re-measured yet — learning signal not flowing (expected until GSC re-crawls the actioned pages).
 
-**Generated:** 2026-09-02 06:08 AEST  
+**Generated:** 2026-11-17 07:05 AEDT  
 **Season:** Spring  
-**Inputs used:** gsc-search-analytics, gsc-coverage, sitemap-inventory, events-calendar:17-upcoming, seasonal-calendar:spring  
+**Inputs used:** gsc-search-analytics, gsc-coverage, sitemap-inventory, events-calendar:78-upcoming, seasonal-calendar:spring  
 
 ## Where we stand
 
@@ -19,11 +19,11 @@
 | Pages indexed by Google | 0 |
 | Pages known-not-indexed | 26 |
 | Pages in sitemap | 408 |
-| Open opportunities | 64 |
+| Open opportunities | 119 |
 
 ## Day-over-day (is the strategy improving?)
 
-_Compared with 2026-09-01._
+_Compared with 2026-11-16._
 
 - Average position held by 0.00.
 - Clicks flat 0 vs last snapshot.
@@ -83,41 +83,40 @@ Ranked by the strategy model (performance + season + coverage + effort). The orc
 - **Why:** 'mornington cup 2026 date' ranks avg position 8.8 on 23 impressions — small, targeted improvement could reach page 1 and start earning clicks.
 - **Do:** Strengthen the ranking page for this exact query: expand the relevant section, add an FAQ answer, tighten the H1/intro, add internal links from related hub pages.
 
-### 6. [EVENT · score 2.992] Preview: PST Art Exhibition Opening Night 2026 (23d out)
+### 6. [EVENT · score 2.992] Preview: Mornington Christmas Series at Mornington Racecourse (17d out)
 - **Desk:** dispatch-desk
-- **Why:** PST Art Exhibition Opening Night 2026 is 23 days out (2026-09-25, Mornington) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Mornington Christmas Series at Mornington Racecourse is 17 days out (2026-12-04, Mornington) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 7. [EVENT · score 2.992] Preview: Author Talk: Vikki Petraitis - Mornington Library (27d out)
+### 7. [EVENT · score 2.992] Preview: Coco Michelle Live at Peppers Moonah Links Resort (18d out)
 - **Desk:** dispatch-desk
-- **Why:** Author Talk: Vikki Petraitis - Mornington Library is 27 days out (2026-09-29, Mornington) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Coco Michelle Live at Peppers Moonah Links Resort is 18 days out (2026-12-05, Fingal) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 8. [EVENT · score 2.992] Preview: Arj Barker Live at Barlow (29d out)
+### 8. [EVENT · score 2.992] Preview: Countdown Classics 70's & 80's Live at Peninsula Beer Garden (18d out)
 - **Desk:** dispatch-desk
-- **Why:** Arj Barker Live at Barlow is 29 days out (2026-10-01, ) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Countdown Classics 70's & 80's Live at Peninsula Beer Garden is 18 days out (2026-12-05, Boneo) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 9. [EVENT · score 2.992] Preview: Breast Foot Forward Annual Community Walk & Run 2026 (44d out)
+### 9. [EVENT · score 2.992] Preview: An Evening at BRASA by Montalto (18d out)
 - **Desk:** dispatch-desk
-- **Why:** Breast Foot Forward Annual Community Walk & Run 2026 is 44 days out (2026-10-16, ) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** An Evening at BRASA by Montalto is 18 days out (2026-12-05, Red Hill South) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 10. [EVENT · score 2.963] Preview: High Tea at Mornington Botanical Rose Gardens (46d out)
+### 10. [EVENT · score 2.992] Preview: Deck the Chocolate Tree at The Chocolateries Mornington Peninsula (18d out)
 - **Desk:** dispatch-desk
-- **Why:** High Tea at Mornington Botanical Rose Gardens is 46 days out (2026-10-18, ) — on the horizon. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Deck the Chocolate Tree at The Chocolateries Mornington Peninsula is 18 days out (2026-12-05, Flinders) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 11. [EVENT · score 2.963] Preview: Main Street Mornington Festival 2026 (46d out)
+### 11. [EVENT · score 2.992] Preview: Gareth Sansom at MPRG (18d out)
 - **Desk:** dispatch-desk
-- **Why:** Main Street Mornington Festival 2026 is 46 days out (2026-10-18, Mornington) — on the horizon. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Gareth Sansom at MPRG is 18 days out (2026-12-05, Mornington) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 12. [RANK · score 2.883] Push 'dog friendly guide mornington peninsula' onto page 1
-- **Desk:** field-desk
-- **Query:** `dog friendly guide mornington peninsula`
-- **Why:** 'dog friendly guide mornington peninsula' ranks avg position 9.6 on 17 impressions — small, targeted improvement could reach page 1 and start earning clicks.
-- **Do:** Strengthen the ranking page for this exact query: expand the relevant section, add an FAQ answer, tighten the H1/intro, add internal links from related hub pages.
+### 12. [EVENT · score 2.992] Preview: Whisky, Cheese & Storytelling at Chief's Son Distillery (18d out)
+- **Desk:** dispatch-desk
+- **Why:** Whisky, Cheese & Storytelling at Chief's Son Distillery is 18 days out (2026-12-05, Somerville) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
 ## Coverage snapshot
 

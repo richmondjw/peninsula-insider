@@ -16,41 +16,63 @@
  * ONE filter state governs The Six and the directory: the single FilterBar
  * below the stand-first renders #pi-results-status and the paired sheet;
  */
+import { categoryHero } from '../../lib/category-heroes';
+import { pageImage } from '../../lib/page-images';
 import { getCollection } from 'astro:content';
+import { informationCheckedOn } from '../../lib/verification-date.mjs';
+import { resolveHero } from '../../lib/inline-edit/resolve-hero';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import AskLine from '../../components/v5/AskLine.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import Card from '../../components/v5/Card.astro';
-import CardGrid from '../../components/v5/CardGrid.astro';
+import HubEntry from '../../components/v5/hub/HubEntry.astro';
+import { checkedSpan } from '../../lib/checked-span';
 import FilterBar from '../../components/v5/FilterBar.astro';
 import SortControl from '../../components/v5/SortControl.astro';
-import HubStandfirst from '../../components/v5/hub/HubStandfirst.astro';
 import TheSix from '../../components/v5/hub/TheSix.astro';
 import DirectoryRows from '../../components/v5/hub/DirectoryRows.astro';
 import JournalModule from '../../components/v5/hub/JournalModule.astro';
-import AskBand from '../../components/v5/hub/AskBand.astro';
-import TrustNote from '../../components/v5/hub/TrustNote.astro';
+import CategoryBrowse from '../../components/v5/hub/CategoryBrowse.astro';
+import { freshnessLabel } from '../../lib/freshness';
+import StayBaseComparison from '../../components/v5/hub/StayBaseComparison.astro';
 import { getFacets, type FacetKey } from '../../lib/facets';
-import { routeSlug, isStayVenue, typeLabel, titleize, resolveHeroSrc } from '../../lib/editorial';
+import { routeSlug, isStayVenue, typeLabel, titleize, isListableVenue } from '../../lib/editorial';
 import { buildBreadcrumbSchema, absUrl } from '../../lib/schema';
+import CorrectionNote from '../../components/CorrectionNote.astro';
 
 // ── Data ─────────────────────────────────────────────────────────────────────
 // Day spas (type 'spa') pass isStayVenue but aren't accommodation - they get
 // their own detail pages (kept live for existing inbound links via
 // venueHrefPrefix) but are excluded from the reader-facing Stay directory.
-const venues = (await getCollection('venues')).filter((v) => isStayVenue(v) && v.data.type !== 'spa');
+const venues = (await getCollection('venues')).filter((v) => isListableVenue(v) && isStayVenue(v) && v.data.type !== 'spa');
 const stayCount = venues.length; // FULL corpus, every row server-rendered
 
 const articlesAll = (await getCollection('articles', ({ data }) => data.status === 'published'))
   .sort((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0));
 
+// A card photograph must be of the place it names. The corpus includes
+// illustrative and unverified media; those entries receive a neutral PI plate
+// instead of an accommodation claim the photograph cannot support.
+const venueImages = new Map(await Promise.all(venues.map(async (venue) => {
+  const slug = routeSlug(venue);
+  const hero = await resolveHero('venue', slug, venue.data);
+  const record = venue.data.heroImage;
+  const verified = !hero.override && record?.depictionStatus === 'actual';
+  const ccBySaThree = record?.license === 'wikimedia-cc-by-sa' && record?.permission === 'CC-BY-SA-3.0';
+  return [slug, verified && hero.hasPhoto
+    ? {
+        src: hero.src, alt: hero.alt, caption: record.caption, credit: record.credit,
+        ...(ccBySaThree ? {
+          sourceUrl: record.sourceUrl,
+          licenceUrl: 'https://creativecommons.org/licenses/by-sa/3.0/',
+          changeNote: 'Resized and converted to WebP.',
+        } : {}),
+      }
+    : undefined] as const;
+})));
+
 // ── Helpers ──────────────────────────────────────────────────────────────────
 const iso = (d: unknown): string | undefined =>
   d instanceof Date ? d.toISOString().slice(0, 10) : typeof d === 'string' && d ? d : undefined;
-
-const PARTNER_LABEL: Record<string, string> = {
-  airbnb: 'Books via Airbnb',
-  'booking.com': 'Books via Booking.com',
-};
 
 const PARTY_LABEL: Record<string, string> = {
   couples: 'Couples',
@@ -86,24 +108,30 @@ function stayItem(v: any, overrides: { verdict?: string } = {}) {
   const slug = v.id ?? data.slug;
   const facets = getFacets('venue', data);
   const bookingUrl: string | undefined = data.bookingUrl ?? data.website;
-  const provider = typeof data.bookingProvider === 'string' ? data.bookingProvider : '';
-  const partnerLabel = PARTNER_LABEL[provider] ?? (data.featuredPartner ? 'Partner' : undefined);
+  const bookingHost = bookingUrl ? new URL(bookingUrl).hostname.replace(/^www\./, '') : '';
+  const isBookingForm = bookingUrl ? /book-directonline\.com|\/rates-bookings\/?$/i.test(bookingUrl) : false;
+  const partnerLabel = data.featuredPartner
+    ? 'Sponsored placement'
+    : bookingHost.endsWith('airbnb.com.au') || bookingHost.endsWith('airbnb.com')
+      ? 'Opens Airbnb'
+      : bookingHost.endsWith('booking.com') ? 'Opens Booking.com' : undefined;
   return {
     title: data.name as string,
     href: `/stay/${slug}/`,
     entityType: 'venue' as const,
     entitySlug: slug as string,
-    image: { src: resolveHeroSrc(data), alt: data.heroImage?.alt ?? data.name },
+    image: venueImages.get(slug),
     verdict: overrides.verdict ?? rowVerdict(data),
     meta: [
       typeLabel[data.type] ?? titleize(String(data.type ?? '')),
       titleize(String(data.place?.id ?? data.place ?? '')),
       partyFit(facets),
     ].filter(Boolean).slice(0, 3) as string[],
-    priceBand: data.priceBand as string | undefined,
-    freshness: iso(data.lastVerified),
+    freshness: iso(informationCheckedOn(data)),
+    freshnessKind: 'checked' as const,
+    partnerLabel: data.featuredPartner ? 'Sponsored placement' : undefined,
     booking: bookingUrl
-      ? { url: bookingUrl, label: 'Book', venueName: data.name as string, partnerLabel }
+      ? { url: bookingUrl, label: isBookingForm ? 'Check availability' : 'Visit website', venueName: data.name as string, partnerLabel }
       : undefined,
     surface: 'stay',
     facets,
@@ -113,41 +141,123 @@ function stayItem(v: any, overrides: { verdict?: string } = {}) {
 // ── The Six: hand-picked spread of corridor, party and price ────────────────
 // Verdicts are Critic voice, <= 25 words, written here (editorial curation).
 const SIX: { slug: string; verdict: string }[] = [
-  { slug: 'jackalope', verdict: 'The Peninsula staged as an event: a black-steel vineyard monolith, oversized baths, and dinner under ten thousand glass orbs at Doot Doot Doot.' },
-  { slug: 'polperro-villas', verdict: 'Two houses, no neighbours, a wood fire and an outdoor bath, with the cellar door a walk away through the vines.' },
-  { slug: 'hotel-sorrento', verdict: 'The classic Peninsula weekend, still unbeaten: front rooms with bay balconies above a grand old limestone pub.' },
-  { slug: 'flinders-hotel', verdict: 'The southern Peninsula’s most practical base: village on the doorstep, Bass Strait ten minutes away, and a pub that earns its keep.' },
-  { slug: 'peninsula-hot-springs-glamping', verdict: 'Thirty seconds from bed to thermal pool at dawn, before the day visitors arrive. That proximity is the entire argument, and it holds.' },
-  { slug: 'blue-moon-cottages', verdict: '1940s cottages a five-minute walk from Rye bay beach, wood fires lit, dogs welcome in the fenced Sandpiper courtyard.' },
+  { slug: 'jackalope', verdict: 'A vineyard hotel for an occasion-led escape, with striking architecture and Doot Doot Doot dining. Check room and restaurant availability separately.' },
+  { slug: 'polperro-villas', verdict: 'Four vineyard villas, each sleeping two with a king-size bed, indoor spa and open fireplace.' },
+  { slug: 'hotel-sorrento', verdict: 'A Sorrento base with heritage rooms and a guest pool. The hotel flags possible midweek daytime construction noise; check before booking.' },
+  { slug: 'flinders-hotel', verdict: 'A village hotel for a Flinders base, with the southern coast as a separate outing. Confirm dining hours for your stay.' },
+  { slug: 'peninsula-hot-springs-glamping', verdict: 'Stay at the hot springs when bathing is the centre of the escape. Check which sessions and inclusions come with your accommodation.' },
+  { slug: 'blue-moon-cottages', verdict: 'Cottage accommodation in Rye for a bay-side base. Ask about the specific cottage and its current dog policy before booking.' },
 ];
 
 const bySlug = new Map(venues.map((v) => [(v.id ?? v.data.slug) as string, v]));
 const sixItems = SIX
   .map(({ slug, verdict }) => {
     const v = bySlug.get(slug);
-    return v ? stayItem(v, { verdict }) : null;
+    if (!v) return null;
+    // The check date is said once, at the head of the full list. The card is
+    // the way in: the stay page carries the operator link, so no second
+    // outbound action sits on the card.
+    const item = { ...stayItem(v, { verdict }), freshness: undefined, booking: undefined };
+    return slug === 'jackalope'
+      ? {
+          ...item,
+          image: {
+            src: '/images/visit-victoria/vv-26070116-jackalope-hotel.webp',
+            alt: 'A suite at Jackalope Hotel with a white bed, gold sheer curtains, lounge area and pitched ceiling.',
+            caption: 'Jackalope Hotel, Merricks North',
+            credit: 'Peter Foster, courtesy of Visit Victoria',
+          },
+          imageEdit: { entityType: 'venue' as const, entitySlug: 'jackalope', fieldPath: 'gallery[1]' },
+        }
+      : item;
   })
   .filter((x): x is NonNullable<typeof x> => Boolean(x));
 
-// ── Directory: the FULL corpus, The Six first, then town/name order ─────────
-const sixSlugs = new Set(SIX.map((s) => s.slug));
-const sixVenues = SIX.map(({ slug }) => bySlug.get(slug)).filter(Boolean);
-const restVenues = venues
-  .filter((v) => !sixSlugs.has((v.id ?? v.data.slug) as string))
+// ── Directory: the FULL corpus in town/name order. The shortlist is no
+//    longer repeated at its head (say it once); its stays keep their place
+//    in town order, so a filtered list still holds every result. ──────────
+const allVenues = [...venues]
   .sort((a, b) => {
     const townA = String(a.data.place?.id ?? a.data.place ?? '');
     const townB = String(b.data.place?.id ?? b.data.place ?? '');
     return townA.localeCompare(townB) || String(a.data.name).localeCompare(String(b.data.name));
   });
-const directoryItems = [...sixVenues, ...restVenues].map((v) => stayItem(v));
+// The full list is a practical text directory. Repeating small image plates
+// beside dozens of records made missing imagery feel like a broken gallery.
+// These complete scan lines come from each venue's supported signature.
+// Keep them in sync when the underlying venue record changes.
+const directoryVerdicts: Record<string, string> = {
+  jackalope: 'Art-led Merricks North hotel with Doot Doot Doot dining.',
+  'polperro-villas': 'Four Red Hill vineyard villas with indoor spas and fireplaces.',
+  'hotel-sorrento': 'Clifftop Sorrento hotel with heritage rooms and a guest pool. Check its midweek daytime construction notice before booking.',
+  'flinders-hotel': 'Quiet rooms behind Flinders Hotel, close to village and coast.',
+  'peninsula-hot-springs-glamping': 'On-site Fingal glamping built around geothermal bathing.',
+  'blue-moon-cottages': 'Pet-welcoming Rye cottages; Sandpiper has a log fire.',
+  'cape-retreat': 'Twelve Cape Schanck suites suited to group retreats.',
+  'arthurs-views': 'Five couples-only suites on Arthurs Seat with bay views.',
+  'birch-creek': 'Two adjoining farm cottages for two or four guests.',
+  'crittenden-villas': 'Self-contained lakeside villas with dining and cellar door.',
+  'peninsula-hot-springs-eco-lodges': 'Eco Lodge rooms; confirm private bathing for your chosen room.',
+  'sanctuary-at-alba': 'Villas and rooms above Alba springs with daily bathing.',
+  'happy-glamper': 'Balnarring Deluxe bell tent at the foreshore reserve.',
+  'woodman-estate': 'Chalet Un beside the lake on shared estate grounds.',
+  'point-nepean-discovery-tents': "Pre-pitched tents in Point Nepean's Quarantine Station.",
+  cassis: 'Adults-only vineyard villas with plunge pools or outdoor baths.',
+  'hideaways-red-hill': 'Red Hill spa cottages for two, near the village.',
+  lindenderry: 'Red Hill estate hotel with gardens, dining and a weekend cellar door.',
+  'the-orchard-red-hill': 'Rammed-earth Red Hill apartments with in-room spa baths.',
+  'treetops-red-hill': 'Two self-contained cottages on a Red Hill vineyard.',
+  'mp-beach-club-cottages': 'Five pet-friendly beach cottages with shared EV charging.',
+  'kanasta-retro-caravans': 'Retro Rye caravans with shared bathrooms and heating and cooling.',
+  'plantation-house-whitecliffs': 'Rye bed and breakfast with five rooms and cooked breakfast.',
+  'iluka-retreat': 'Shoreham bell tents for two with shared camp facilities.',
+  'mantons-creek-estate': 'Shoreham vineyard accommodation with lunch and a cellar door.',
+  'the-continental-sorrento': 'Heritage Sorrento hotel beside The Continental dining precinct.',
+};
+// Rows say less: name, one line, type and town. No per-row operator button
+// (each stay page carries it), no repeated check date, and no 'Couples' tag
+// where it is simply the default (the Couples filter still works).
+const sixSlugs = new Set(SIX.map((pick) => pick.slug));
+const directoryItems = allVenues.map((v) => {
+  const slug = String(v.id ?? v.data.slug);
+  const item = stayItem(v, { verdict: directoryVerdicts[slug] });
+  return {
+    ...item,
+    // Shown in the shortlist above; the list holds it back until a filter asks.
+    featured: sixSlugs.has(slug),
+    meta: item.meta.filter((m) => m !== 'Couples'),
+    image: undefined,
+    booking: undefined,
+    freshness: undefined,
+  };
+});
+
+/** Say the check date once, at the head of the list, instead of on every row. */
+function checkedSpan(dates: Array<string | undefined>): string {
+  const sorted = dates.filter((d): d is string => Boolean(d)).sort();
+  const first = freshnessLabel(sorted[0])?.replace('Reviewed ', '');
+  const last = freshnessLabel(sorted[sorted.length - 1])?.replace('Reviewed ', '');
+  if (!first || !last) return '';
+  const lead = sorted.length === dates.length ? 'Details checked' : 'Most details checked';
+  if (first === last) return `${lead} ${first}`;
+  const [fm, fy] = first.split(' ');
+  return `${lead} between ${fy === last.split(' ')[1] ? fm : first} and ${last}`;
+}
+const directoryChecked = checkedSpan(venues.map((v) => iso(informationCheckedOn(v.data))));
 
 // ── Best-of rail (guide cards to existing /stay/ list pages) ────────────────
 const bestOfGuides = [
-  { slug: 'best-accommodation', title: 'The best places to stay', verdict: 'The full ranking, hotel to cottage, with the reasoning shown.' },
-  { slug: 'couples-retreats', title: 'Couples’ retreats', verdict: 'Rooms built for two, from outdoor baths to village balconies.' },
-  { slug: 'vineyard-stays', title: 'Vineyard stays', verdict: 'Sleep between the rows and walk to the cellar door.' },
-  { slug: 'coastal-stays', title: 'Coastal stays', verdict: 'Bases within earshot of the water, Sorrento to Flinders.' },
-  { slug: 'hot-springs-accommodation', title: 'Hot springs stays', verdict: 'Stay inside the thermal precinct and beat the day queue.' },
+  { slug: 'best-accommodation', title: 'Choose your stay style', verdict: 'Start with your trip style, then compare hotels, cottages, coast, wine country and thermal stays.' },
+  { slug: 'boutique-hotels', title: 'Boutique hotels', verdict: 'Compare a village hotel, vineyard estate and design-led stay.' },
+  { slug: 'cottages', title: 'Cottages and B&Bs', verdict: 'Choose a self-contained cottage or a hosted room or suite.' },
+  { slug: 'couples-retreats', title: 'Couples’ retreats', verdict: 'Choose a vineyard, thermal or Sorrento stay for a weekend together.' },
+  { slug: 'vineyard-stays', title: 'Vineyard stays', verdict: 'Compare estate suites, villas and a nearby wine-country base.' },
+  { slug: 'coastal-stays', title: 'Coastal stays', verdict: 'Bay villages, south-coast bases and a night inside Point Nepean.' },
+  { slug: 'hot-springs-accommodation', title: 'Hot springs stays', verdict: 'Compare accommodation at the Peninsula thermal estates.' },
+  { slug: 'wellness-retreats', title: 'Wellness stays', verdict: 'Choose on-site bathing, a hotel spa or an off-site springs package.' },
+  { slug: 'resorts', title: 'Resorts and retreats', verdict: 'Choose a resort room, thermal stay or group retreat venue.' },
+  { slug: 'sorrento', title: 'Stay in Sorrento', verdict: 'Compare adults-only rooms with a family-friendly precinct stay.' },
+  { slug: 'red-hill', title: 'Stay in Red Hill', verdict: 'Compare Red Hill estates and private bases by their actual locality.' },
   { slug: 'dog-friendly', href: '/journal/dog-friendly-accommodation-mornington-peninsula/', title: 'Dog-friendly stays', verdict: 'Stays where the dog is a guest, not a problem.' },
 ];
 
@@ -168,8 +278,16 @@ const journalItems = journalSlugs
       : `/journal/${routeSlug(a)}/`,
     entitySlug: routeSlug(a) as string,
     image: a.data.heroImage?.src
-      ? { src: a.data.heroImage.src as string, alt: (a.data.heroImage.alt ?? a.data.title) as string }
+      ? {
+          src: a.data.heroImage.src as string,
+          alt: (a.data.heroImage.alt ?? a.data.title) as string,
+          caption: routeSlug(a) === 'the-vineyard-villa-weekend'
+            ? 'Lindenderry at Red Hill, Mornington Peninsula, shown as an illustrative wine-country setting.'
+            : a.data.heroImage.caption as string | undefined,
+          credit: a.data.heroImage.credit as string | undefined,
+        }
       : undefined,
+    suppressImageHydration: Boolean(a.data.heroImage?.src),
     verdict: a.data.dek as string | undefined,
     readTime: a.data.readingTimeMinutes ? `${a.data.readingTimeMinutes} min read` : undefined,
     dateISO: iso(a.data.publishedAt),
@@ -177,9 +295,9 @@ const journalItems = journalSlugs
 
 // ── Stand-first (<= 80 words, carries the where-to-stay + corridor phrases) ─
 const standfirst =
-  'One decision shapes the weekend: ridge and hinterland, or coastal village. ' +
-  'Red Hill puts vineyard lunches and fireplaces in walking distance; Sorrento to Mornington ' +
-  'trade that for bay light and a livelier main street. Every property is independently researched and kept current.';
+  'Choose your base first: the end of the Peninsula that suits your days, then the hotel, villa or cottage that makes the weekend.';
+
+const stayChecked = checkedSpan(venues.map((v) => v.data));
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
@@ -190,16 +308,16 @@ const breadcrumbSchema = buildBreadcrumbSchema([
   { name: 'Stay', url: absUrl('/stay/') },
 ]);
 
-// FAQ schema retained verbatim from v4 (title/meta/schema unchanged).
+// Keep visible FAQ and schema aligned with current, operator-checkable guidance.
 const faqSchema = {
   '@context': 'https://schema.org', '@type': 'FAQPage',
   mainEntity: [
     { '@type': 'Question', name: 'Where is the best area to stay on the Mornington Peninsula?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Red Hill and Main Ridge for cellar door weekends, vineyard restaurants are walkable from many stays. Sorrento for coastal village atmosphere and ocean beach access. Mornington town for the most accessible base from Melbourne (60 minutes). The right answer depends on the weekend you want, wine country, beach village, or practical proximity.' } },
+      acceptedAnswer: { '@type': 'Answer', text: 'Red Hill and Main Ridge suit cellar-door weekends; check distances between your stay and each winery. Sorrento and Rye suit coastal village days. Mornington offers a northern town base, but our current directory has no Mornington stay listings. Compare actual addresses and transport for the places you plan to visit.' } },
     { '@type': 'Question', name: 'How much does accommodation cost on the Mornington Peninsula?',
-      acceptedAnswer: { '@type': 'Answer', text: 'A good mid-range self-contained villa or cottage is the sensible baseline. Luxury vineyard stays (Jackalope, Lindenderry) sit a clear tier above that. Cheaper options in Rosebud, Dromana, and Rye bring the cost down at the price of distance from the cellar door cluster. Rates peak in summer and over long weekends, autumn midweek offers the best value.' } },
+      acceptedAnswer: { '@type': 'Answer', text: 'Rates vary by property, room, dates and inclusions. Compare live quotes for the same dates directly with operators, including meals, bathing access and cancellation terms. This directory does not publish a reliable current price for every stay.' } },
     { '@type': 'Question', name: 'Is one night enough on the Mornington Peninsula?',
-      acceptedAnswer: { '@type': 'Answer', text: 'One night works for a focused escape, arrive Friday evening, spend Saturday on the ridge (cellar doors + lunch), and drive home Sunday after a morning walk. Two nights is better: it allows a beach day, a second area to explore, and the slower pace the Peninsula rewards. Base in Mornington or Sorrento for single-night trips.' } },
+      acceptedAnswer: { '@type': 'Answer', text: 'One night works for a focused escape: arrive Friday evening, spend Saturday on the ridge and return home that evening. Two nights is better: it allows a beach day, a second area to explore, and the slower pace the Peninsula rewards. Choose a base close to the one or two activities you can realistically fit in.' } },
   ],
 };
 export const prerender = true;
@@ -207,142 +325,214 @@ export const prerender = true;
 
 <BaseLayout
   title="Where to Stay on the Mornington Peninsula · Peninsula Insider"
-  description="Where to stay on the Mornington Peninsula, hotels, vineyard villas, coastal cottages, and farm stays. Every property independently researched and reviewed. Updated for autumn."
+  description="Choose where to stay on the Mornington Peninsula: compare coastal towns and wine-country bases, then explore hotels, vineyard villas, cottages and farm stays."
   section="stay"
   canonical="https://peninsulainsider.com.au/stay"
-  modifiedTime="2026-04-30"
-  ogImage="/images/sourced/venue-jackalope-hotel-01.webp"
+  modifiedTime="2026-10-03"
+  ogImage={pageImage('stay-hero').src}
 >
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 
-  <Breadcrumbs items={breadcrumbItems} />
 
-  <!-- 1. Stand-first: h1 retained, intro + CompareBlock compressed to <= 80 words -->
-  <HubStandfirst
-    eyebrow="Stay"
-    title="Choose the base, and the whole weekend changes"
-    standfirst={standfirst}
-    image={{ src: '/images/sourced/venue-jackalope-hotel-01.webp', alt: 'A vineyard hotel on the Mornington Peninsula at dusk' }}
+  <HubEntry
+    kicker="Places to stay"
+    title="Wine country or the coast?"
+    dek={standfirst}
+    primary={{ label: 'Compare Red Hill and Sorrento', href: '#choose-base', arrow: 'down' }}
+    secondary={{ label: `Browse stays`, href: '#browse-stay', arrow: 'down' }}
+    trust={stayChecked ? `Every stay ${stayChecked}. Chosen by our editors, never paid for.` : 'Every stay chosen by our editors, never paid for.'}
+    image={pageImage('stay-hero')}
+    focal={{ desktop: '62% 50%', mobile: '66% 55%' }}
   />
 
-  <!-- 2. The Six -->
-  <TheSix
-    eyebrow="The Six · this month"
-    heading="Six stays worth building a weekend around"
-    surface="stay"
-    items={sixItems}
-  />
+  <div data-category-editorial>
+    <div id="choose-base"><StayBaseComparison /></div>
 
-  <!-- 4. Best-of rail -->
-  <section class="v5-bestof" aria-labelledby="bestof-heading">
-    <div class="container">
-      <p class="v5-bestof__eyebrow">Best-of guides</p>
-      <h2 id="bestof-heading" class="v5-bestof__title">Start with a ranked list</h2>
-      {/* "Best-of guides" is stated once, in the section eyebrow. The cards
-          drop their GUIDE stamp. They are text-only by design, so no media
-          fallback either: a plate on all three would be noise, not repair. */}
-      <CardGrid label="Stay guides" layout="grid" maxCols={3}>
-        {bestOfGuides.map((guide, i) => (
-          <Card
-            variant="guide"
-            title={guide.title}
-            href={'href' in guide ? guide.href : `/stay/${guide.slug}/`}
-            entityType="page"
-            entitySlug={`stay-${guide.slug}`}
-            showEyebrow={false}
-            verdict={guide.verdict}
-            surface="stay"
-            position={i + 1}
-          />
-        ))}
-      </CardGrid>
-    </div>
-  </section>
-
-  <!-- 5. Directory: the FULL stay corpus as compact rows, Book primary +
-       Save. Party chips are slotted directly above the list they reshape
-       (moved from the top of the page 2026-07-24 per James; slotted inside
-       the directory so the sticky bar has the full list height to stick
-       against). ONE filter state still governs The Six + directory. -->
-  <div class="container">
-    <TrustNote surface="stay" />
+    <TheSix
+      id="stay-shortlist"
+      heading="Stays worth building a weekend around"
+      sub="Distinct ways in, chosen by our editors."
+      surface="stay"
+      items={sixItems}
+      trip={false}
+    />
   </div>
-  <DirectoryRows
-    eyebrow="The full list"
-    heading={`All ${stayCount} places to stay`}
-    surface="stay"
-    noun="stays"
-    items={directoryItems}
-    topLink={{ label: 'Ranked: the best places to stay', href: '/stay/best-accommodation/' }}
-  >
-    <FilterBar
-      slot="before-list"
+
+  <!-- One filter state, yielding the editorial layer while it narrows. -->
+  <CategoryBrowse directory="stay-directory" count={stayCount} noun="stays" mapHref="/map/?cat=hotel,villa,suite,accommodation,cottage,lodge,glamping,farm-stay" showLinks={false} />
+
+  <!-- The list: heading, then one row of filter and sort controls. -->
+  <div id="browse-stay">
+    <DirectoryRows
+      id="stay-directory"
+      heading={`Places to stay`}
+      sub={directoryChecked ? `${directoryChecked}.` : undefined}
       surface="stay"
       noun="stays"
-      label="Filter stays"
-      sticky={true}
-      facets={['place', 'cat', 'price', 'party']}
+      items={directoryItems}
+      desktopColumns={2}
+      fullVerdicts
+      topLink={{ label: 'View the stay map', href: '/map/?cat=hotel,villa,suite,accommodation,cottage,lodge,glamping,farm-stay' }}
+      emptyHeading="Nothing matches those filters"
+      emptyBody="Clear a filter to see more places to stay."
     >
-      <SortControl />
-    </FilterBar>
-  </DirectoryRows>
+      <FilterBar
+        slot="before-list"
+        surface="stay"
+        noun="stays"
+        label="Filter stays"
+        pinnedMore
+        moreLabel="All filters"
+        facets={['place', 'cat', 'party']}
+      >
+        <SortControl />
+      </FilterBar>
+    </DirectoryRows>
+  </div>
 
-  <!-- 6. From the Journal (3) -->
   <JournalModule
-    heading="From the Journal"
+    eyebrow=""
+    heading="Make more of the night"
     moreHref="/journal/"
     items={journalItems}
   />
 
-  <!-- 7. FAQ: retained from v4, in-DOM, schema above -->
+  <!-- 7. FAQ: visible answers and schema share the same source above -->
   <section class="hub-faq" aria-label="Frequently asked questions">
     <div class="container">
       <div class="hub-faq__intro">
-        <p class="label label--accent">Frequently asked</p>
-        <h2 class="hub-faq__title">Three honest answers before you book the bed</h2>
+        <h2 class="hub-faq__title">Before you book the bed</h2>
       </div>
       <div class="hub-faq__list">
-        <details class="hub-faq__item">
-          <summary class="hub-faq__q">Where is the best area to stay on the Peninsula?</summary>
-          <div class="hub-faq__a"><p>Red Hill and Main Ridge for cellar-door weekends, vineyard restaurants are walkable from many stays. Sorrento for coastal village atmosphere and ocean beach access. Mornington town for the most accessible base from Melbourne (60 minutes). The right answer depends on the weekend you want, wine country, beach village, or practical proximity.</p></div>
-        </details>
-        <details class="hub-faq__item">
-          <summary class="hub-faq__q">How much does accommodation cost?</summary>
-          <div class="hub-faq__a"><p>A good mid-range self-contained villa or cottage is the sensible baseline. Luxury vineyard stays (Jackalope, Lindenderry) sit a clear tier above that. Cheaper options in Rosebud, Dromana, and Rye bring the cost down at the price of distance from the cellar door cluster. Rates peak in summer and over long weekends, autumn midweek offers the best value.</p></div>
-        </details>
-        <details class="hub-faq__item">
-          <summary class="hub-faq__q">Is one night enough on the Peninsula?</summary>
-          <div class="hub-faq__a"><p>One night works for a focused escape, arrive Friday evening, spend Saturday on the ridge (cellar doors + lunch), and drive home Sunday after a morning walk. Two nights is better: it allows a beach day, a second area to explore, and the slower pace the Peninsula rewards. Base in Mornington or Sorrento for single-night trips.</p></div>
-        </details>
+        {faqSchema.mainEntity.map((item) => (
+          <details class="hub-faq__item">
+            <summary class="hub-faq__q">{item.name}</summary>
+            <div class="hub-faq__a"><p>{item.acceptedAnswer.text}</p></div>
+          </details>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- 8. Ask band hidden (bug fix in progress) -->
+  <!-- Stay guides: one quiet line beside the questions they answer. -->
+  <nav class="container hub-guides" aria-label="Stay guides">
+    <span>Guides:</span>
+    {bestOfGuides.map((guide, i) => (<>{i > 0 && <span aria-hidden="true"> · </span>}<a href={'href' in guide ? guide.href : `/stay/${guide.slug}/`}>{guide.title}</a></>))}
+  </nav>
+
+  <AskLine dek="Tell PI who's travelling, when and what matters, and get the stays that fit." placeholder="A quiet weekend for two" />
+  <div class="container">
+    <CorrectionNote surface="stay-hub" />
+  </div>
 </BaseLayout>
 
 <style>
-  .v5-bestof {
-    padding: var(--space-8, 4rem) 0;
-    background: var(--bg-alt, var(--bg));
+  .stay-hero {
+    overflow: hidden;
+    background: #f2eee6;
   }
-  .v5-bestof__eyebrow {
-    margin: 0 0 var(--space-2, 0.5rem);
+  .stay-hero__grid {
+    display: grid;
+    grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr);
+    align-items: center;
+    gap: clamp(2rem, 4vw, 4.5rem);
+    padding-block: clamp(2rem, 4.5vw, 4.5rem);
+  }
+  .stay-hero__eyebrow {
+    margin: 0 0 1rem;
+    color: var(--accent);
     font-family: var(--font-ui);
-    font-size: var(--fs-100, 0.75rem);
+    font-size: var(--fs-100);
     font-weight: 600;
-    letter-spacing: var(--ls-eyebrow, 0.12em);
+    letter-spacing: var(--ls-eyebrow, .1em);
     text-transform: uppercase;
-    color: var(--teal-text);
   }
-  .v5-bestof__title {
-    margin: 0 0 var(--space-5, 1.5rem);
-    font-family: var(--font-display);
-    font-size: var(--fs-700, clamp(1.6rem, 1.35rem + 1.2vw, 2.1rem));
-    font-weight: var(--fw-display, 600);
-    line-height: var(--lh-heading, 1.14);
-    letter-spacing: -0.01em;
+  .stay-hero h1 {
+    max-width: 11ch;
+    margin: 0;
     color: var(--text);
+    font-family: var(--font-display);
+    font-weight: 650;
+    line-height: 1.04;
+    letter-spacing: -.045em;
+    text-wrap: balance;
+  }
+  .stay-hero__lead {
+    max-width: 43ch;
+    margin: 1.5rem 0 0;
+    color: var(--text);
+    font-size: var(--fs-400);
+    line-height: 1.58;
+  }
+  .stay-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .55rem 1.3rem;
+    margin-top: 1.7rem;
+  }
+  .stay-hero__actions a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .9rem;
+    min-height: 48px;
+    font-size: var(--fs-300);
+    font-weight: 750;
+    text-decoration: none;
+  }
+  .stay-hero__primary {
+    padding: .7rem 1.15rem;
+    border: 1px solid var(--text);
+    border-radius: var(--radius-s);
+    background: var(--text);
+    color: #fff;
+  }
+  .stay-hero__primary:hover { background: #1c4962; }
+  .stay-hero__secondary { color: var(--accent); }
+  .stay-hero__secondary:hover { text-decoration: underline; text-underline-offset: .2em; }
+  .stay-hero__actions a:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+  }
+  .stay-hero__visual { min-width: 0; margin: 0; }
+  .stay-hero__visual img {
+    display: block;
+    width: 100%;
+    height: clamp(27rem, 43vw, 38rem);
+    object-fit: cover;
+    object-position: 50% 48%;
+    border-radius: var(--radius-s);
+  }
+  .stay-hero__visual figcaption {
+    margin-top: .55rem;
+    color: var(--soft);
+    font-size: var(--fs-100);
+    line-height: 1.45;
+  }
+  #choose-base, #browse-stay, :global(#stay-directory) { scroll-margin-top: 10rem; }
+  .stay-hero__trust { margin: var(--space-4) 0 0; color: var(--soft); font-size: var(--fs-300); line-height: 1.5; }
+  .stay-hero__trust a { color: var(--accent); font-weight: 600; text-underline-offset: .2em; }
+  .stay-hero__trust a:focus-visible, .hub-guides a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+  /* Guides: one quiet line of links after the FAQ, no rules. */
+  .hub-guides { display: flex; flex-wrap: wrap; align-items: center; gap: 0 .35rem; padding-block: 0 var(--space-7); color: var(--soft); font-size: var(--fs-300); line-height: 1.5; }
+  .hub-guides > span:first-child { margin-inline-end: .25rem; }
+  .hub-guides a { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); font-weight: 600; text-underline-offset: .2em; }
+  @media (max-width: 760px) {
+    .stay-hero__grid {
+      grid-template-columns: 1fr;
+      gap: 1.3rem;
+      padding-block: 1.3rem 2.3rem;
+    }
+    .stay-hero__eyebrow { margin-bottom: .6rem; }
+    .stay-hero h1 { max-width: 13ch; }
+    .stay-hero__lead { margin-top: .8rem; font-size: var(--fs-400); line-height: 1.5; }
+    .stay-hero__actions { margin-top: 1.2rem; }
+    .stay-hero__visual img { height: clamp(15.5rem, 60vw, 24rem); }
+  }
+  @media (max-width: 380px) {
+    .stay-hero__eyebrow { display: none; }
+    .stay-hero__actions { align-items: flex-start; flex-direction: column; gap: .2rem; }
   }
 </style>

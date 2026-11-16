@@ -1,3 +1,8 @@
+import { homeWeekendWindow } from '../../../lib/home-weekend.mjs';
+import { eventPromotionEntries } from '../../../lib/event-discovery.mjs';
+import {isPublicEventRecord} from '../../../lib/event-publication.mjs';
+import {hasExplicitSeries,occurrenceData} from '../../../lib/intelligence-series.mjs';
+import {resolveListingOccurrence} from '../../../lib/whatson-listing.mjs';
 /**
  * home-data - build-time selection helpers for the v5 homepage (T-401).
  *
@@ -9,11 +14,14 @@
  * weekend-picks entry for the upcoming weekend into event entries, and
  * when no entry exists for that weekend (the common case between
  * editorial pushes) fall back to a ranked read of the events collection
- * so the module never renders empty.
+ * with a truthful discovery fallback when eligible inventory is sparse.
  */
 
 import { rotateByMelbourneHours } from '../../../lib/daily-rotation';
 import { eventIsUnqualifiedFree } from '../../../lib/event-access.mjs';
+import { USE_OCCURRENCE_MODEL } from '../../../lib/features';
+import { ruleFor, occursOnDay, addDays, isoDate } from '../../../lib/event-schedule';
+import { recordDisposition } from '../../../lib/event-occurrence.mjs';
 export interface WeekendWindow {
   /** ISO date (YYYY-MM-DD) of the weekend's Saturday, Melbourne calendar. */
   satISO: string;
@@ -43,26 +51,9 @@ function isoOf(d: Date): string {
   return `${y}-${m}-${day}`;
 }
 
-/**
- * The weekend the homepage speaks about. Monday to Saturday point at the
- * coming (or current) Saturday; Sunday still belongs to the weekend that
- * started yesterday.
- */
+/** The homepage names Saturday–Sunday and only promotes those actual dates. */
 export function weekendWindow(now: Date = new Date()): WeekendWindow {
-  const mel = melbourneNow(now);
-  const day = mel.getDay(); // 0 Sun .. 6 Sat
-  const offset = day === 0 ? -1 : 6 - day;
-  const saturday = new Date(mel.getFullYear(), mel.getMonth(), mel.getDate() + offset);
-  const friday = new Date(saturday.getFullYear(), saturday.getMonth(), saturday.getDate() - 1);
-  const sunday = new Date(saturday.getFullYear(), saturday.getMonth(), saturday.getDate() + 1);
-  const monthFmt = new Intl.DateTimeFormat('en-AU', { month: 'long' });
-  const satMonth = monthFmt.format(saturday);
-  const sunMonth = monthFmt.format(sunday);
-  const label =
-    satMonth === sunMonth
-      ? `${saturday.getDate()}–${sunday.getDate()} ${sunMonth}`
-      : `${saturday.getDate()} ${satMonth} – ${sunday.getDate()} ${sunMonth}`;
-  return { satISO: isoOf(saturday), friday, saturday, sunday, label };
+  return homeWeekendWindow(now);
 }
 
 /**
@@ -87,16 +78,8 @@ export function clampVerdict(text: string | undefined | null, maxWords = 25): st
 const LIVE_STATUSES = new Set(['published', 'scheduled']);
 
 /** Renderable on the homepage: live, not archived, not editor-skipped. */
-export function isLiveEvent(e: any): boolean {
-  if (!e?.data) return false;
-  if (String(e.id ?? '').includes('archive')) return false;
-  if (!LIVE_STATUSES.has(e.data.status ?? 'published')) return false;
-  if (e.data.skipThis) return false;
-  // A cancelled record can still be published and future-dated, and this
-  // event carries the weekend-pick lens (+20 in fallbackScore). Without this
-  // test the homepage rail would promote an event that is not happening.
-  if (e.data.cancelled) return false;
-  return Boolean(e.data.title);
+export function isLiveEvent(e: any, now: Date = new Date()): boolean {
+  return eventPromotionEntries([e], {now}).length > 0;
 }
 
 function endOfDay(d: Date): Date {
@@ -106,21 +89,15 @@ function endOfDay(d: Date): Date {
 const ALWAYS_ON = new Set(['weekly', 'ongoing']);
 
 /** Does this event have something happening on the given weekend? */
-export function occursOnWeekend(e: any, win: WeekendWindow): boolean {
-  const d = e.data;
-  if (ALWAYS_ON.has(d.recurrence)) {
-    return !d.endDate || d.endDate.getTime() >= win.friday.getTime();
-  }
-  const sunEnd = endOfDay(win.sunday).getTime();
-  const fri = win.friday.getTime();
-  if (d.nextOccurrence) {
-    const t = d.nextOccurrence.getTime();
-    if (t >= fri && t <= sunEnd) return true;
-  }
-  const start = d.startDate?.getTime();
-  if (start === undefined) return false;
-  const end = (d.endDate ?? d.startDate).getTime();
-  return start <= sunEnd && end >= fri;
+export function occursOnWeekend(e: any, win: WeekendWindow, now: Date = new Date()): boolean {
+  const start = new Date(`${win.satISO}T00:00:00Z`);
+  const rule = ruleFor(e, start);
+  if (!rule) return false;
+  return [start, addDays(start, 1)].some((day) => {
+    if (!occursOnDay(rule, day)) return false;
+    const state = resolveListingOccurrence(e.data, rule, isoDate(day), now);
+    return state.bookable;
+  });
 }
 
 /** Still worth listing at all: not entirely in the past. */
@@ -136,10 +113,10 @@ export function isUpcomingEvent(e: any, now: Date): boolean {
   return false;
 }
 
-function fallbackScore(e: any, win: WeekendWindow): number {
+function fallbackScore(e: any, win: WeekendWindow, now: Date): number {
   const d = e.data;
   let score = 0;
-  if (occursOnWeekend(e, win)) score += 100;
+  if (occursOnWeekend(e, win, now)) score += 100;
   if (Array.isArray(d.lens) && d.lens.includes('weekend-pick')) score += 20;
   if (d.worthTheDrive) score += 5;
   score += Number(d.editorialPriority ?? 0) * 2;
@@ -169,8 +146,10 @@ export function selectWeekendPicks(
   picksEntries: any[],
   events: any[],
   now: Date = new Date(),
+  limit = 3,
 ): { picks: WeekendPick[]; window: WeekendWindow } {
   const win = weekendWindow(now);
+  events = eventPromotionEntries(events, {now, windowStart: new Date(win.satISO + 'T00:00:00Z'), windowDays: 2});
   const out: WeekendPick[] = [];
   const used = new Set<string>();
   const slugOf = (e: any) => e.data.slug ?? e.id;
@@ -185,30 +164,29 @@ export function selectWeekendPicks(
     const editorialUsed = new Set<string>();
     for (const pick of ordered) {
       const ev = bySlug.get(pick.eventSlug);
-      if (!ev || !isLiveEvent(ev) || editorialUsed.has(slugOf(ev))) continue;
+      if (!ev || !isLiveEvent(ev, now) || !occursOnWeekend(ev, win, now) || editorialUsed.has(slugOf(ev))) continue;
       editorialUsed.add(slugOf(ev));
       editorialCandidates.push({ event: ev, verdict: clampVerdict(pick.editorVerdict) });
     }
-    // The collection remains the source of truth, including its verdicts and
-    // candidate set. The twice-daily cadence simply advances the visible
-    // three through that curated shortlist; when it contains only three, the
-    // same picks are shown in a different lead order.
-    for (const candidate of rotateByMelbourneHours(editorialCandidates, now, 12)) {
+    // An explicitly curated shortlist has an editor-owned lead and position.
+    // Keep that order in sync with What's On and downstream newsletter uses.
+    // The 12-hour rotation below is only for the uncurated fallback pool.
+    for (const candidate of editorialCandidates) {
       used.add(slugOf(candidate.event));
       out.push(candidate);
-      if (out.length === 3) break;
+      if (out.length === limit) break;
     }
   }
 
-  if (out.length < 3) {
+  if (out.length < limit) {
     const mel = melbourneNow(now);
     const ranked = events
-      .filter(isLiveEvent)
+      .filter((e) => isLiveEvent(e, now))
       .filter((e) => !used.has(slugOf(e)))
-      .filter((e) => isUpcomingEvent(e, mel))
+      .filter((e) => occursOnWeekend(e, win, now))
       .sort(
         (a, b) =>
-          fallbackScore(b, win) - fallbackScore(a, win) ||
+          fallbackScore(b, win, now) - fallbackScore(a, win, now) ||
           soonestTime(a, mel) - soonestTime(b, mel),
       );
     // The ranking above is computed entirely from static event fields, so it
@@ -218,17 +196,28 @@ export function selectWeekendPicks(
     // through the top of the ranking twice per Melbourne day. The deploy
     // workflow rebuilds at each 12-hour boundary over Saturday and Sunday.
     // Editorial picks above are untouched: only this fallback rotates.
-    for (const ev of rotateByMelbourneHours(ranked, now, 12)) {
+    const rotated = rotateByMelbourneHours(ranked, now, 12);
+    const pool = [...rotated, ...ranked.filter(ev => !rotated.includes(ev))];
+    for (const ev of pool) {
       used.add(slugOf(ev));
       out.push({
         event: ev,
         verdict: clampVerdict(ev.data.editorVerdict ?? ev.data.whyWeCare ?? ev.data.summary),
       });
-      if (out.length === 3) break;
+      if (out.length === limit) break;
     }
   }
 
   return { picks: out, window: win };
+}
+
+/** Pre-render each actual day so Sunday can replace Saturday without changing card facts. */
+export function weekendPickOccurrences(picks: WeekendPick[], now: Date = new Date()): WeekendPick[] {
+  const win = weekendWindow(now);
+  return picks.flatMap(pick => [win.saturday, win.sunday].flatMap(day =>
+    eventPromotionEntries([pick.event], { now, windowStart: day, windowDays: 1 })
+      .map(event => ({ event, verdict: pick.verdict })),
+  ));
 }
 
 /** Pretty label for an event category slug. */
@@ -265,18 +254,19 @@ export function placeLabel(place: unknown): string {
 }
 
 /**
- * The date to print on a pick card. Recurring weekly/ongoing events get no
- * date block (their recurrence chip does the work); dated events show the
- * next occurrence, but never a date already in the past.
+ * The first actual occurrence within the same Saturday–Sunday window as the card.
  */
 export function pickDateISO(e: any, now: Date = new Date()): string | undefined {
-  const d = e.data;
-  if (ALWAYS_ON.has(d.recurrence)) return undefined;
-  const horizon = melbourneNow(now).getTime() - 86400000;
-  const candidate = [d.nextOccurrence, d.startDate]
-    .filter(Boolean)
-    .find((x: Date) => x.getTime() >= horizon);
-  return candidate ? candidate.toISOString() : undefined;
+  if (e.data._promotionDay) return e.data._promotionDay;
+  const win = weekendWindow(now);
+  const start = new Date(`${win.satISO}T00:00:00Z`);
+  const rule = ruleFor(e, now);
+  if (!rule) return undefined;
+  const day = [start, addDays(start, 1)].find((date) => {
+    const state = resolveListingOccurrence(e.data, rule, isoDate(date), now);
+    return occursOnDay(rule, date) && state.bookable;
+  });
+  return day ? isoDate(day) : undefined;
 }
 
 /** "Every Saturday" style chip for weekly events. */

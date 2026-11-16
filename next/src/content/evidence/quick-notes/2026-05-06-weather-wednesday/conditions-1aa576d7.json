@@ -1,0 +1,18 @@
+{
+  "evidenceId": "quick-notes/2026-05-06-weather-wednesday/conditions-1aa576d7",
+  "claim": "quick-notes/2026-05-06-weather-wednesday/conditions",
+  "stance": "supports",
+  "publisher": {
+    "kind": "gov"
+  },
+  "retrievedAt": "2026-05-06",
+  "expiresAt": "2026-05-13",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/quick-notes/2026-05-06-weather-wednesday.md",
+    "field": "sources[0]",
+    "value": "{\"kind\":\"gov\",\"note\":\"wttr.in / World Weather Online live feed for Red Hill, Victoria. Wednesday 6 May hourly forecast: 11°C overcast at 06:00, 14°C cloudy 09:00, 16–17°C partly cloudy at 12:00–15:00 (rain 68%), 14°C light rain 18:00 (100%), 12°C 21:00 (100%, wind 36km/h). Thursday 7 May: 100% rain all day, max 12°C, min 9°C.\",\"checkedAt\":\"2026-05-06T06:55:00+10:00\"}",
+    "dateField": "sources[0].checkedAt"
+  },
+  "note": "wttr.in / World Weather Online live feed for Red Hill, Victoria. Wednesday 6 May hourly forecast: 11°C overcast at 06:00, 14°C cloudy 09:00, 16–17°C partly cloudy at 12:00–15:00 (rain 68%), 14°C light rain 18:00 (100%), 12°C 21:00 (100%, wind 36km/h). Thursday 7 May: 100% rain all day, max 12°C, min 9°C."
+}

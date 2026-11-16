@@ -1,0 +1,18 @@
+{
+  "evidenceId": "quick-notes/2026-05-03-weather-window-sunday/conditions-083dc8e6",
+  "claim": "quick-notes/2026-05-03-weather-window-sunday/conditions",
+  "stance": "supports",
+  "publisher": {
+    "kind": "gov"
+  },
+  "retrievedAt": "2026-05-03",
+  "expiresAt": "2026-05-10",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/quick-notes/2026-05-03-weather-window-sunday.md",
+    "field": "sources[0]",
+    "value": "{\"kind\":\"gov\",\"note\":\"wttr.in / World Weather Online feed for Merricks North conditions and Sunday hourly outlook\",\"checkedAt\":\"2026-05-03T10:43:00+10:00\"}",
+    "dateField": "sources[0].checkedAt"
+  },
+  "note": "wttr.in / World Weather Online feed for Merricks North conditions and Sunday hourly outlook"
+}

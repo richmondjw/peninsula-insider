@@ -1,0 +1,144 @@
+---
+/**
+ * BookingCta - the one place a booking link is built (PI-021).
+ *
+ * Before this component existed the charter and boat-hire pages each built
+ * their own CTA twice, four near-identical copies in all, and every one of
+ * them shipped the same defect:
+ *
+ *     const bookingDestination = data.affiliateUrl ?? data.operatorWebsite;
+ *     <a href={primaryBookingUrl} rel="external sponsored">
+ *
+ * The destination falls back to the operator's own website when there is no
+ * affiliate link, but the rel did not fall back with it. Every charter and
+ * hire operator on the site was therefore declared "sponsored" to Google, and
+ * as of today not one of them is: no record in either collection carries an
+ * affiliateUrl. The site was disclosing a commercial relationship it does not
+ * have, to a crawler, and disclosing nothing at all to the reader.
+ *
+ * Both halves of that are wrong in the same way. A paid-link marker that is
+ * applied to unpaid links means nothing when it is finally applied to a paid
+ * one, and a disclosure that only a crawler can read is not a disclosure.
+ *
+ * So the two cases are separated here rather than merged behind a ??. A
+ * booking link is either commercial or it is not, and the answer is a fact
+ * about the record:
+ *
+ *   affiliateUrl present  ->  rel="external sponsored", and a disclosure the
+ *                             reader can actually see, next to the button.
+ *   affiliateUrl absent   ->  rel="external", no sponsored claim, no
+ *                             disclosure invented for a relationship that
+ *                             does not exist.
+ *
+ * Nothing here decides WHETHER to have an affiliate relationship or what one
+ * is worth. It decides only that if one is ever recorded, the reader is told
+ * on the same screen as the button, without anyone having to remember to add
+ * the sentence.
+ *
+ * The two branches are also why scripts/audit-commercial-firewall.mjs can
+ * classify this marker. Its rule is that a rel containing "sponsored" must
+ * hang off a commercial field with no non-commercial fallback; `paidHref`
+ * satisfies that, `data.affiliateUrl ?? data.operatorWebsite` never could.
+ */
+import { buildBfUtm } from '../lib/bf';
+
+interface Props {
+  /** Operator name, used in the button label. */
+  name: string;
+  /**
+   * The commercial destination: a link Peninsula Insider is paid on. Optional,
+   * and absent on every record today. Its presence is the ONLY thing that
+   * makes this link sponsored.
+   */
+  affiliateUrl?: string | undefined;
+  /** The operator's own site. Editorial, no money attached. */
+  operatorWebsite?: string | undefined;
+  /** UTM campaign, e.g. "sorrento-charters-charter". */
+  campaign: string;
+  /** UTM medium, e.g. "charter-page". */
+  medium: string;
+  /** Where on the page this instance sits. Feeds UTM content and analytics. */
+  position: 'hero' | 'footer';
+  /** Analytics event name, e.g. "bf_charter_click". */
+  bfEvent: string;
+  /** Operator slug, for analytics attribution. */
+  slug: string;
+  /** Entity type for the saves/analytics layer, e.g. "charter". */
+  entityType: string;
+  /** Analytics surface id, e.g. "charter-hero". */
+  surface: string;
+}
+
+const {
+  name,
+  affiliateUrl,
+  operatorWebsite,
+  campaign,
+  medium,
+  position,
+  bfEvent,
+  slug,
+  entityType,
+  surface,
+} = Astro.props;
+
+const paidDestination =
+  typeof affiliateUrl === 'string' && affiliateUrl.trim().length > 0 ? affiliateUrl : null;
+const freeDestination =
+  paidDestination === null && typeof operatorWebsite === 'string' && operatorWebsite.trim().length > 0
+    ? operatorWebsite
+    : null;
+
+const utm = { campaign, medium, content: `${position}-primary` };
+
+/* Deliberately two consts, not one with a fallback. See the header. */
+const paidHref = paidDestination ? buildBfUtm({ destination: paidDestination, ...utm }) : null;
+const freeHref = freeDestination ? buildBfUtm({ destination: freeDestination, ...utm }) : null;
+---
+
+{paidHref ? (
+  <p class="booking-cta">
+    <a
+      href={paidHref}
+      class="pi-btn pi-btn--solid"
+      rel="external sponsored"
+      data-bf-event={bfEvent}
+      data-bf-operator={slug}
+      data-bf-position={position}
+      data-pi-book="booking"
+      data-pi-entity-type={entityType}
+      data-pi-entity-slug={slug}
+      data-pi-surface={surface}
+    >Book {name} &rarr;</a>
+    <span class="booking-cta__disclosure">
+      Affiliate link: Peninsula Insider earns a commission if you book through it.
+      It buys no coverage, no rating and no position on this site.
+    </span>
+  </p>
+) : freeHref ? (
+  <p class="booking-cta">
+    <a
+      href={freeHref}
+      class="pi-btn pi-btn--solid"
+      rel="external"
+      data-bf-event={bfEvent}
+      data-bf-operator={slug}
+      data-bf-position={position}
+      data-pi-book="booking"
+      data-pi-entity-type={entityType}
+      data-pi-entity-slug={slug}
+      data-pi-surface={surface}
+    >Book {name} &rarr;</a>
+  </p>
+) : null}
+
+<style>
+  .booking-cta__disclosure {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: var(--text-muted, #5f5a50);
+    max-width: 46ch;
+  }
+</style>

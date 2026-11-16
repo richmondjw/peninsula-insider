@@ -1,0 +1,164 @@
+{
+  "schemaVersion": "1.0",
+  "programme": "Peninsula Insider page quality, existing 23-criterion rubric v1.0",
+  "assessedAt": "2026-10-08 Australia/Sydney",
+  "candidateSourceRevision": "f90eaf0e",
+  "candidateBaseRevision": "09f27ababba1beee23197d3ec39cd292fd5084b4",
+  "status": "provisional-failed",
+  "pages": [
+    {
+      "url": "https://peninsulainsider.com.au/whats-on/",
+      "tier": "T1",
+      "independentVisualBaselineLive": 86.75,
+      "independentVisualCandidatePreview": 88.0,
+      "ratingsRubricOrder": [
+        4,
+        3,
+        4,
+        4,
+        4,
+        4,
+        4,
+        3,
+        4,
+        3,
+        3,
+        3,
+        3,
+        4,
+        4,
+        4,
+        4,
+        3,
+        3,
+        3,
+        3,
+        3,
+        4
+      ],
+      "observedImprovement": "Fixed-date events alone appear under calendar days; flexible experiences have a separate cautionary section, with date and hours checks. Today/search controls and mobile reflow passed in Chrome preview.",
+      "remaining": "Mobile first screen withholds useful dek; large feature cards delay calendar; teaser truncation and full keyboard, screen-reader and field performance evidence remain.",
+      "independentVisualLive": 88.0
+    },
+    {
+      "url": "https://peninsulainsider.com.au/whats-on/this-weekend/",
+      "tier": "T1",
+      "independentVisualBaselineLive": 90.25,
+      "independentVisualCandidatePreview": 91.25,
+      "ratingsRubricOrder": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        3,
+        4,
+        4,
+        3,
+        3,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        3,
+        3,
+        3,
+        3,
+        3,
+        4
+      ],
+      "observedImprovement": "Corrected gallery hours and acoustic wording. Current dated content is server-rendered without JavaScript; expired state is applied after the edition ends. 390px preview with and without JavaScript passed.",
+      "remaining": "Long mobile card stack and limited date discovery; full keyboard, screen-reader and field performance evidence remain.",
+      "independentVisualLive": 91.25
+    }
+  ],
+  "reviewEvidence": [
+    {
+      "role": "independent visual and mobile",
+      "surface": "candidate localhost:4378 at 390 and 1440px",
+      "result": "23 ratings for each page; provisional scores above; no confirmed hard-gate failure",
+      "limits": [
+        "candidate is not public",
+        "image rights and direct AT not certified"
+      ]
+    },
+    {
+      "role": "independent facts and image rights",
+      "surface": "candidate source and built HTML plus official source checks",
+      "result": "No confirmed release-blocking factual or image-rights defect; confirmed five fixed-date events and separate flexible experiences",
+      "limits": [
+        "MPRG direct page currently 403; indexed official page and prior receipt used",
+        "Visit Victoria licence text not independently reopened",
+        "no full 23-criterion score"
+      ]
+    },
+    {
+      "role": "independent UX and accessibility",
+      "surface": "attempted candidate preview",
+      "result": "No post-fix score or acceptance; browser, localhost and file runner inaccessible",
+      "limits": [
+        "no independent candidate interaction observation"
+      ]
+    },
+    {
+      "role": "implementation browser check",
+      "surface": "local Chrome 390 and 1440px, JavaScript on and off",
+      "result": "No horizontal overflow; Today changes heading and URL; fixed-date calendar remains separate; weekend current content visible without JavaScript; no-JS date controls hidden with working weekend link",
+      "limits": [
+        "self-check does not replace independent review"
+      ]
+    },
+    {
+      "role": "independent visual and mobile",
+      "surface": "public release 820be291 at 390 and 1440px",
+      "result": "Full 23-rating provisional live scores 88.0 and 91.25; no confirmed hard-gate breach in bounded review",
+      "limits": [
+        "direct AT, field performance and full rights evidence not certified"
+      ]
+    },
+    {
+      "role": "independent factual and rights",
+      "surface": "deployed artifact and official organiser sources",
+      "result": "No confirmed factual or image-rights blocker; event dates, separated flexible experiences and visible photo credits checked",
+      "limits": [
+        "direct public browser unavailable to this reviewer; Visit Victoria licence text not independently reopened"
+      ]
+    },
+    {
+      "role": "independent UX and accessibility",
+      "surface": "deployed artifact",
+      "result": "Current-weekend no-JS content is present in deployed HTML; no interaction score",
+      "limits": [
+        "browser runner crashed; keyboard, mobile and JS transition checks unavailable independently",
+        "stale no-JS content possible after cutoff if a future rebuild misses"
+      ]
+    }
+  ],
+  "hardGates": {
+    "confirmedCandidateFailures": [],
+    "notFullyCleared": [
+      "direct assistive-technology audit",
+      "complete independent image-rights source reopening",
+      "production field speed and stability",
+      "future no-JavaScript edition expiry if the next rebuild misses its cutoff"
+    ]
+  },
+  "buildEvidence": "npm run build passed twice on 2026-10-08 with reader-boundary, event safeguards, media provenance, link health and new weekend currentness test. Final wording was confirmed in emitted HTML and browser.",
+  "decision": "adapt: live corrections verified at exact SHA; scores remain provisional and below 99; next bounded iteration addresses mobile decision path and no-JS stale-edition warning",
+  "nextActions": [
+    "Browser-check and release the mobile decision-path and no-JS date-warning iteration through normal CI",
+    "Measure field performance and complete independent keyboard and screen-reader checks",
+    "Regrade all 23 criteria after exact live release; do not infer 99 from this bounded correction"
+  ],
+  "releasedSourceRevision": "820be291d9c38b403d199a753275bfde9546d404",
+  "releaseEvidence": {
+    "pullRequest": "https://github.com/richmondjw/peninsula-insider/pull/625",
+    "deployRun": "https://github.com/richmondjw/peninsula-insider/actions/runs/37700577538",
+    "publicDeploymentJsonMatched": true,
+    "selfBrowserCheck": "Fresh public Chrome at 390px and 1440px with JavaScript on and off: no overflow, fixed-date calendar separated from flexible experiences, no-JS current weekend visible, corrected NWOP hours and artwork credit visible.",
+    "limits": "Self-check does not establish field performance, direct assistive technology or complete independent acceptance."
+  }
+}

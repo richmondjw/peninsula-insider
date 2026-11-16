@@ -54,25 +54,43 @@
 <script>
   import { signInWithGoogle, signInWithMagicLink, isAuthEnabled } from '../../lib/auth';
 
+  // `document` outlives an Astro client-router swap, but init() re-runs on
+  // every astro:page-load and the `_init` guard sits on the modal element,
+  // which the swap replaces. The Escape listener was therefore gaining a copy
+  // per navigation, each closed over a detached modal and each still free to
+  // reset document.body.style.overflow. It is registered once at module scope
+  // instead; init() publishes the current page's modal into the slot and
+  // clears it when the page has none.
+  let activeModal: HTMLElement | null = null;
+
+  const open = () => {
+    const modal = activeModal;
+    if (!modal) return;
+    modal.hidden = false;
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    // focus the email input by default - magic link is the lower-friction path
+    requestAnimationFrame(() => {
+      (document.getElementById('v2-auth-email') as HTMLInputElement | null)?.focus();
+    });
+  };
+  const close = () => {
+    const modal = activeModal;
+    if (!modal) return;
+    modal.hidden = true;
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  };
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && activeModal && !activeModal.hidden) close();
+  });
+
   function init() {
     const modal = document.getElementById('v2-auth-modal');
+    activeModal = modal;
     if (!modal || (modal as any)._init) return;
     (modal as any)._init = true;
-
-    const open = () => {
-      modal.hidden = false;
-      modal.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-      // focus the email input by default - magic link is the lower-friction path
-      requestAnimationFrame(() => {
-        (document.getElementById('v2-auth-email') as HTMLInputElement | null)?.focus();
-      });
-    };
-    const close = () => {
-      modal.hidden = true;
-      modal.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-    };
 
     document.querySelectorAll<HTMLElement>('[data-open-auth]').forEach((el) => {
       el.addEventListener('click', (e) => {
@@ -87,9 +105,6 @@
 
     modal.querySelectorAll<HTMLElement>('[data-close-auth]').forEach((el) => {
       el.addEventListener('click', close);
-    });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && !modal.hidden) close();
     });
 
     // Google
@@ -135,10 +150,6 @@
         status.className = 'v2-auth__status v2-auth__status--err';
       }
     });
-
-    // Listen for any element-level "open auth" custom event so other
-    // components (like-button-locked, save-button-locked) can trigger.
-    document.addEventListener('pi:open-auth', open as EventListener);
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);

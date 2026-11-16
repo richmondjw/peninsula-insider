@@ -1,0 +1,123 @@
+{
+  "contract": "pi.newsroom.verification/1",
+  "status": "passed",
+  "verifier": "Independent Verifier / deterministic evidence gate",
+  "verified_at": "2026-09-17T00:15:20Z",
+  "plan_id": "e25b1b5d-ee97-550d-ace9-39d0b73a7bba",
+  "artifacts": [
+    {
+      "path": "next/src/content/events/national-works-on-paper-2026-nwop.json",
+      "sha256": "c5d92ffa224d2e8c16698b703703781bb03902b54eb9ab3a271b35fbffcd5ee6"
+    },
+    {
+      "path": "next/src/content/articles/practical-spring-visit-national-works-on-paper.md",
+      "sha256": "b31b7f09b57c12fd8979526339b0a8715aab4e5bf0ba47e61f96ad487d3ad2c7"
+    },
+    {
+      "path": "ops/reports/newsroom/w38-national-works-on-paper-evidence.json",
+      "sha256": "b7bf37a30fc75b2a225164adad6f7af4240ac2260648ac2d6f39d9349389b521"
+    }
+  ],
+  "checks": [
+    {
+      "name": "official exhibition source reachable",
+      "status": "passed",
+      "evidence": "HTTP 200"
+    },
+    {
+      "name": "official gallery source reachable",
+      "status": "passed",
+      "evidence": "HTTP 200"
+    },
+    {
+      "name": "official exhibition dates independently observed",
+      "status": "passed",
+      "evidence": "5 September to 22 November 2026"
+    },
+    {
+      "name": "official address independently observed",
+      "status": "passed",
+      "evidence": "Civic Reserve, Dunns Road, Mornington"
+    },
+    {
+      "name": "official regular hours independently observed",
+      "status": "passed",
+      "evidence": "11am-4pm, Tuesday-Sunday"
+    },
+    {
+      "name": "official Monday closure independently observed",
+      "status": "passed",
+      "evidence": "Closed Mondays"
+    },
+    {
+      "name": "event dates match sources",
+      "status": "passed",
+      "evidence": "2026-09-05 to 2026-11-22"
+    },
+    {
+      "name": "event hours match sources",
+      "status": "passed",
+      "evidence": "11:00-16:00"
+    },
+    {
+      "name": "event location matches sources",
+      "status": "passed",
+      "evidence": "Mornington Peninsula Regional Gallery; Civic Reserve, Dunns Road"
+    },
+    {
+      "name": "event URLs use current official sources",
+      "status": "passed",
+      "evidence": "current MPRG exhibition and home pages"
+    },
+    {
+      "name": "event source check is current",
+      "status": "passed",
+      "evidence": "2026-09-17"
+    },
+    {
+      "name": "unsupported commercial and availability fields are absent",
+      "status": "passed",
+      "evidence": "no ticket, booking, pricing, verdict, note or coordinate fields"
+    },
+    {
+      "name": "article length is within approved scope",
+      "status": "passed",
+      "evidence": "116 words"
+    },
+    {
+      "name": "article states only verified visit facts",
+      "status": "passed",
+      "evidence": "dates, regular hours and address present"
+    },
+    {
+      "name": "article advises a current source check",
+      "status": "passed",
+      "evidence": "pre-travel source check present"
+    },
+    {
+      "name": "article excludes unsupported claims explicitly",
+      "status": "passed",
+      "evidence": "exclusion statement present"
+    },
+    {
+      "name": "article contains no fabricated first-hand visit",
+      "status": "passed",
+      "evidence": "no first-person visit claim"
+    },
+    {
+      "name": "article contains no partner promotion",
+      "status": "passed",
+      "evidence": "no commercial call to action"
+    },
+    {
+      "name": "evidence packet identifies approved plan",
+      "status": "passed",
+      "evidence": "e25b1b5d-ee97-550d-ace9-39d0b73a7bba"
+    },
+    {
+      "name": "evidence packet identifies both plan items",
+      "status": "passed",
+      "evidence": "19baff07-58fc-5b90-b3ad-cf97f1f8fe8b, 675c0939-de9b-527a-8ac6-2cfdd5876465"
+    }
+  ]
+}

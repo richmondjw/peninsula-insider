@@ -1,0 +1,20 @@
+{
+  "claimId": "events/acoustic-saturdays-peppers-moonah-links-2026/event-schedule",
+  "claimClass": "event-schedule",
+  "subject": {
+    "type": "events",
+    "slug": "acoustic-saturdays-peppers-moonah-links-2026",
+    "field": "startDate"
+  },
+  "statement": "Acoustic Saturdays at Peppers Moonah Links runs from 20 June 2026 to 26 December 2026, 5pm to 8pm.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "acoustic-saturdays-peppers-moonah-links-2026",
+      "field": "startDate"
+    }
+  ],
+  "createdAt": "2026-07-11",
+  "origin": "migrated",
+  "note": "Migrated by scripts/migrate-event-claims.mjs (PI-005 Stage 2) from startDate, endDate, startTime, endTime already on next/src/content/events/acoustic-saturdays-peppers-moonah-links-2026.json. No editorial judgement was applied and no content record was changed."
+}

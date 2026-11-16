@@ -1,0 +1,20 @@
+{
+  "claimId": "quick-notes/2026-08-11-editor-note-tuesday/editorial",
+  "claimClass": "editorial",
+  "subject": {
+    "type": "quick-notes",
+    "slug": "2026-08-11-editor-note-tuesday",
+    "field": "sources"
+  },
+  "statement": "Editor's note: take the outdoor plan today, not tomorrow.",
+  "assertedBy": [
+    {
+      "type": "quick-notes",
+      "slug": "2026-08-11-editor-note-tuesday",
+      "field": "sources"
+    }
+  ],
+  "createdAt": "2026-08-11",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

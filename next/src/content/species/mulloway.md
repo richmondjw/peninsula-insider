@@ -45,6 +45,11 @@ status: published
 verified: true
 lastVerified: 2026-04-30
 publishedAt: 2026-04-30
+heroImage:
+  src: /images/species/mulloway.webp
+  alt: "Illustrated natural history plate of a mulloway, Argyrosomus japonicus, in side profile"
+  credit: Peninsula Insider
+  license: original-commissioned
 ---
 
 ## What mulloway actually is

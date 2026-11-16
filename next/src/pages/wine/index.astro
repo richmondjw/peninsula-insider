@@ -2,31 +2,38 @@
 /**
  * /wine/ - v5 Wine hub (T-502, page-redesigns-hubs.md section 4 + wireframes #wine).
  *
- * The sole home of wine. Structure: stand-first, experience chips
- * (CHIP_PRESETS.wine), The Six, Winery kitchens reciprocal module (bridge to
- * /eat/), best-of rail, full directory (every wine venue as a server-rendered
- * compact row with data-facets), one Journal module, retained FAQ, Ask band.
+ * The sole home of wine. Structure (Phase 5, 2026-11-10: say it once):
+ * image-led introduction, visit choices, The Six as six equal cards, one line
+ * of guide links + What's On / Eat & Drink line, filters, full directory
+ * (every wine venue as a server-rendered compact row with data-facets; winery
+ * lunch is the "Lunch attached" chip), one Journal module, retained FAQ.
  *
  * Protect-list page: <title>, meta description, canonical and FAQ schema are
  * UNCHANGED from v4. No venue pages touched, no redirects added here.
  *
- * Shared hub modules (HubStandfirst, TheSix, DirectoryRows, JournalModule,
+ * Shared hub modules (TheSix, DirectoryRows, JournalModule,
  * AskBand) are the EAT agent's, at components/v5/hub/; props here match the
  * shipped module APIs (each module renders its own .container).
  */
+import { categoryHero } from '../../lib/category-heroes';
+import { pageImage } from '../../lib/page-images';
 import { getCollection } from 'astro:content';
+import { informationCheckedOn } from '../../lib/verification-date.mjs';
+import { resolveHero } from '../../lib/inline-edit/resolve-hero';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import AskLine from '../../components/v5/AskLine.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import Card from '../../components/v5/Card.astro';
-import CardGrid from '../../components/v5/CardGrid.astro';
+import HubEntry from '../../components/v5/hub/HubEntry.astro';
+import { checkedSpan } from '../../lib/checked-span';
 import FilterBar from '../../components/v5/FilterBar.astro';
 import SortControl from '../../components/v5/SortControl.astro';
-import HubStandfirst from '../../components/v5/hub/HubStandfirst.astro';
 import TheSix from '../../components/v5/hub/TheSix.astro';
 import DirectoryRows from '../../components/v5/hub/DirectoryRows.astro';
 import JournalModule from '../../components/v5/hub/JournalModule.astro';
-import AskBand from '../../components/v5/hub/AskBand.astro';
-import { routeSlug } from '../../lib/editorial';
+import CategoryBrowse from '../../components/v5/hub/CategoryBrowse.astro';
+import { freshnessLabel } from '../../lib/freshness';
+import WineVisitChooser from '../../components/v5/hub/WineVisitChooser.astro';
+import { routeSlug, isListableVenue } from '../../lib/editorial';
 import { getFacets, FACET_OPTIONS } from '../../lib/facets';
 
 export const prerender = true;
@@ -45,6 +52,7 @@ const hatCount = (v: any) => Number(v.data.authority?.hats ?? 0);
 // Editor's order: picks first, then authority, then name. This is the
 // server-rendered default the SortControl treats as 'editors'.
 const venues = (await getCollection('venues'))
+  .filter(isListableVenue)
   .filter((v) => wineTypes.includes(v.data.type))
   .sort(
     (a, b) =>
@@ -53,6 +61,21 @@ const venues = (await getCollection('venues'))
       hatCount(b) - hatCount(a) ||
       a.data.name.localeCompare(b.data.name),
   );
+
+const venueImages = new Map(await Promise.all(venues.map(async (venue) => {
+  const slug = routeSlug(venue);
+  if (slug === 'willow-creek-vineyard') {
+    return [slug, { src: '/images/visit-victoria/vv-161950-rare-hare-wine-and-foodstore.webp', alt: 'A table of food and wine at Rare Hare on the Willow Creek estate.' }] as const;
+  }
+  if (slug === 'paringa-estate') {
+    const photo = venue.data.gallery?.find((item: any) => item.src === '/images/visit-victoria/vv-143071-paringa-estate-mornington-peninsula.webp');
+    if (photo) return [slug, { src: photo.src, alt: photo.alt, caption: undefined }] as const;
+  }
+  const hero = await resolveHero('venue', slug, venue.data);
+  const status = !hero.override ? venue.data.heroImage?.depictionStatus : undefined;
+  if (status === 'unverified' || status === 'illustrative') return [slug, undefined] as const;
+  return [slug, { src: hero.src, alt: hero.alt }] as const;
+})));
 
 // ── Copy helpers (Critic verdicts <= 25 words, from existing frontmatter) ──
 const wordCount = (s: string) => s.trim().split(/\s+/).filter(Boolean).length;
@@ -74,12 +97,12 @@ function verdictFor(data: any): string | undefined {
   if (fit) return fit;
   const first = candidates[0];
   if (!first) return undefined;
-  return `${first.split(/\s+/).slice(0, 24).join(' ').replace(/[,;:]+$/, '')}.`;
+  return data.type === 'winery' ? 'Choose your tasting format, then check current hours and booking arrangements with the producer.' : 'Check the current visitor offering and opening days before planning a stop.';
 }
 
 const placeLabel = new Map(FACET_OPTIONS.place.map((o) => [o.value, o.label]));
 const areaOf = (data: any): string | null =>
-  typeof data.place === 'string' ? (placeLabel.get(data.place) ?? null) : null;
+  placeLabel.get(typeof data.place === 'string' ? data.place : data.place?.id) ?? null;
 
 // Walk-in / appointment badge on 100% of winery cards (acceptance 31).
 const badgeFor = (data: any): string | null => {
@@ -117,13 +140,12 @@ function venueItem(v: any) {
     href: `/wine/${slug}/`,
     entityType: 'venue' as const,
     entitySlug: slug,
-    image: data.heroImage?.src ? { src: data.heroImage.src, alt: data.heroImage.alt ?? data.name } : undefined,
+    image: venueImages.get(slug),
     verdict: verdictFor(data),
     meta,
-    priceBand: typeof data.priceBand === 'string' ? data.priceBand : undefined,
-    // lastVerified is required by the venues schema, so it always wins here;
-    // publishedAt stays as the belt-and-braces fallback.
-    freshness: iso(data.lastVerified ?? data.publishedAt),
+    // A sourced factual check is distinct from a legacy review or publication date.
+    freshness: iso(informationCheckedOn(data)),
+    freshnessKind: 'checked' as const,
     facets: getFacets('venue', data),
     sortTitle: data.name as string,
   };
@@ -134,29 +156,49 @@ const sixSource = [
   ...venues.filter((v) => v.data.type === 'winery' && v.data.editorPick === true),
   ...venues.filter((v) => v.data.type === 'winery' && v.data.editorPick !== true),
 ].slice(0, 6);
-const theSixItems = sixSource.map((v) => venueItem(v));
+// The check date is said once, at the head of the full list.
+const theSixItems = sixSource.map((v) => ({ ...venueItem(v), freshness: undefined }));
 
-// ── Winery kitchens: reciprocal module, the HUB-01 bridge with /eat/ ──────
-const kitchens = venues
-  .filter((v) => v.data.type === 'winery' && hasKitchen(v.data))
-  .sort(
-    (a, b) =>
-      Number(b.data.restaurant?.hats ?? 0) - Number(a.data.restaurant?.hats ?? 0) ||
-      score(b) - score(a),
-  )
-  .slice(0, 6);
-const kitchenItems = kitchens.map((v) => {
+// The "Winery kitchens" module that sat here (2026-11-10, Phase 5) repeated
+// six venues already in the shortlist and the full list (Paringa Estate and
+// Polperro appeared three times). Winery lunch is now the "Lunch attached"
+// filter on the full list (WineVisitChooser links straight to it), rows
+// with a kitchen keep their "Kitchen on site" tag, and the /eat/ bridge is
+// a text link beside the What's On line.
+
+// ── Directory: every wine venue, one row each, server-rendered. Rows say
+//    less: no thumbnail or placeholder plate, no per-row check date, and no
+//    generic "check hours" line standing in for a missing verdict. ────────
+const GENERIC_VERDICTS = new Set([
+  'Choose your tasting format, then check current hours and booking arrangements with the producer.',
+  'Check the current visitor offering and opening days before planning a stop.',
+]);
+// The six picks are marked `featured`: the list does not repeat them word for
+// word under the shortlist, and lists them again once a filter is active.
+const sixSlugs = new Set(theSixItems.map((item) => item.entitySlug));
+const directoryItems = venues.map((v) => {
   const item = venueItem(v);
-  const dining = firstSentence(v.data.restaurant?.description);
   return {
     ...item,
-    verdict: dining && wordCount(dining) <= 25 ? dining : item.verdict,
-    meta: [areaOf(v.data), 'Tasting + restaurant'].filter(Boolean) as string[],
+    featured: sixSlugs.has(item.entitySlug),
+    image: undefined,
+    freshness: undefined,
+    verdict: item.verdict && GENERIC_VERDICTS.has(item.verdict) ? undefined : item.verdict,
   };
 });
 
-// ── Directory: every wine venue, one row each, server-rendered ────────────
-const directoryItems = venues.map((v) => venueItem(v));
+/** Say the check date once, at the head of the list, instead of on every row. */
+function checkedSpan(dates: Array<string | undefined>): string {
+  const sorted = dates.filter((d): d is string => Boolean(d)).sort();
+  const first = freshnessLabel(sorted[0])?.replace('Reviewed ', '');
+  const last = freshnessLabel(sorted[sorted.length - 1])?.replace('Reviewed ', '');
+  if (!first || !last) return '';
+  const lead = sorted.length === dates.length ? 'Details checked' : 'Most details checked';
+  if (first === last) return `${lead} ${first}`;
+  const [fm, fy] = first.split(' ');
+  return `${lead} between ${fy === last.split(' ')[1] ? fm : first} and ${last}`;
+}
+const directoryChecked = checkedSpan(venues.map((v) => iso(informationCheckedOn(v.data))));
 
 // ── Best-of rail (canonical guides only; absorbed dupes not linked) ───────
 const bestOfRail = [
@@ -203,22 +245,34 @@ const bestOfRail = [
 const articlesAll = (await getCollection('articles', ({ data }) => data.status === 'published')).sort(
   (a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0),
 );
+const journalDisplayTitles: Record<string, string> = {
+  'the-chardonnay-case': 'The Chardonnay Case',
+  'the-cellar-door-short-list': 'The Cellar Door Short List',
+  'how-to-build-a-red-hill-saturday': 'A Red Hill Saturday',
+};
+const journalImageOverrides: Record<string, { src: string; alt: string }> = {
+  'how-to-build-a-red-hill-saturday': {
+    src: '/images/visit-victoria/vv-143752-polperro-winery.webp',
+    alt: 'Large gum trees shade the lawn and covered terrace at Polperro Winery in Red Hill.',
+  },
+};
 const journalVerdicts: Record<string, string> = {
   'the-chardonnay-case': 'The case for Peninsula chardonnay, argued bottle by bottle.',
-  'the-cellar-door-short-list': 'The shortlist behind The Six: how we pick the rooms worth the drive.',
-  'how-to-build-a-red-hill-saturday': 'One ridge, one day: the Saturday route we actually drive.',
+  'the-cellar-door-short-list': 'The shortlist behind our cellar-door picks: how we pick the rooms worth the drive.',
+  'how-to-build-a-red-hill-saturday': 'One ridge, one day: a suggested Saturday route around Red Hill.',
 };
 const journalItems = Object.keys(journalVerdicts)
   .map((slug) => articlesAll.find((a) => routeSlug(a) === slug))
   .filter((a): a is NonNullable<typeof a> => Boolean(a))
   .slice(0, 3)
   .map((a) => ({
-    title: a.data.title as string,
+    title: journalDisplayTitles[routeSlug(a)] ?? (a.data.title as string),
     href: `/journal/${routeSlug(a)}/`,
     entitySlug: routeSlug(a),
-    image: a.data.heroImage?.src
+    image: journalImageOverrides[routeSlug(a)] ?? (a.data.heroImage?.src
       ? { src: a.data.heroImage.src, alt: a.data.heroImage.alt ?? a.data.title }
-      : undefined,
+      : undefined),
+    suppressImageHydration: Boolean(journalImageOverrides[routeSlug(a)]),
     verdict: journalVerdicts[routeSlug(a)],
     dateISO: iso(a.data.publishedAt),
   }));
@@ -226,18 +280,20 @@ const journalItems = Object.keys(journalVerdicts)
 // ── Stand-first (<= 80 words, carries cellar-door SEO phrases + the
 //    walk-in/appointment orientation line) ─────────────────────────────────
 const standfirst =
-  'Pinot and chardonnay on basalt, forty cellar doors within twenty minutes of each other. The six worth a day around this month first, then every producer we rate. Check walk-in or by-appointment before you drive.';
+  'A ridge tasting, a vineyard lunch or a booked visit with a small producer. Choose the kind of day first, then the cellar door.';
+
+const wineChecked = checkedSpan(venues.map((v) => v.data));
 
 const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Wine Country' }];
 
-// FAQ schema: UNCHANGED from v4 (protect-list, acceptance 27).
+// One FAQ source for visible answers and structured data.
 const faqSchema = {
   '@context': 'https://schema.org', '@type': 'FAQPage',
   mainEntity: [
     { '@type': 'Question', name: 'What wine is the Mornington Peninsula known for?',
       acceptedAnswer: { '@type': 'Answer', text: 'Pinot Noir and Chardonnay are the benchmark varieties, the cool maritime climate and basalt soils of the Red Hill plateau produce some of Australia\'s most consistent cool-climate examples. The region also has a growing reputation for Pinot Gris and Shiraz. Over 50 cellar doors are open to visitors, concentrated on the ridge between Red Hill and Main Ridge.' } },
     { '@type': 'Question', name: 'Do I need to book cellar door visits on the Mornington Peninsula?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Some cellar doors operate by appointment only (Ten Minutes by Tractor, Main Ridge Estate, Paringa Estate). Others welcome walk-ins (Montalto, Polperro, Red Hill Estate). Check before you drive, appointment-only cellar doors are common on the plateau and the experience is better when expected. Weekend afternoons are busiest.' } },
+      acceptedAnswer: { '@type': 'Answer', text: 'Booking arrangements differ by winery and tasting. Main Ridge Estate requires a booking. Ten Minutes by Tractor recommends reservations and accepts walk-ins subject to availability; Paringa Estate recommends bookings. Restaurant bookings are separate from cellar-door tastings. Confirm current arrangements directly before travelling.' } },
     { '@type': 'Question', name: 'How many wineries are on the Mornington Peninsula?',
       acceptedAnswer: { '@type': 'Answer', text: 'The Mornington Peninsula has over 200 vineyards and approximately 50–60 cellar doors open to visitors. Most are concentrated on the Red Hill plateau between Dromana, Red Hill, and Main Ridge. The region is compact, you can visit three cellar doors in an afternoon without rushing if you stay on the ridge.' } },
   ],
@@ -245,122 +301,66 @@ const faqSchema = {
 ---
 
 <BaseLayout
-  title="Best Cellar Doors on the Mornington Peninsula 2026 Guide"
-  description="The cellar doors worth the appointment, the Pinot worth the cellar, and the producers you should know in 2026. The Peninsula's honest wine guide."
+  title="Mornington Peninsula Wine & Wineries · Peninsula Insider"
+  description="Explore Mornington Peninsula wine country: wineries by area, Pinot Noir and Chardonnay, cellar door visits, and winery dining. Start planning your wine-country trip."
   section="wine"
-  canonical="https://peninsulainsider.com.au/wine"
-  modifiedTime="2026-05-17"
-  ogImage="/images/sourced/article-cellar-door-01.webp"
+  canonical="https://peninsulainsider.com.au/wine/"
+  ogImage={pageImage('wine-hero').src}
 >
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
-  <Breadcrumbs items={breadcrumbItems} />
 
-  <!-- 1. Stand-first: h1 + <= 80-word Editor case (replaces hero dek,
-       EditorialSurface, CompareBlock and the 232-word essay) -->
-  <HubStandfirst
-    eyebrow="Wine Country"
-    title="The Peninsula's best bottles start on the ridge"
-    standfirst={standfirst}
-    image={{ src: '/images/sourced/article-cellar-door-01.webp', alt: 'A Red Hill cellar door among the vines' }}
+  <!-- 1. Image-led introduction and two clear planning paths. -->
+  <HubEntry
+    kicker="Cellar doors worth the drive up the ridge"
+    title="Mornington Peninsula wine country"
+    dek={standfirst}
+    primary={{ label: 'Pick your kind of wine day', href: '#wine-choices', arrow: 'down' }}
+    secondary={{ label: `Browse wineries`, href: '#browse-wine', arrow: 'down' }}
+    trust={wineChecked ? `${wineChecked[0].toUpperCase()}${wineChecked.slice(1)}. Chosen by our editors, never paid for.` : 'Chosen by our editors, never paid for.'}
+    image={pageImage('wine-hero')}
+    focal={{ desktop: '30% 60%', mobile: '25% 62%' }}
   />
+
+  <div data-category-editorial>
+    <WineVisitChooser />
 
   <!-- 2. The Six -->
   <TheSix
     id="the-six"
-    eyebrow="The Six · this month"
-    heading="Where to actually go this month"
-    sub="Six cellar doors, Critic verdicts, checked dates. Save them or add them to a trip."
+    heading="Cellar doors to build a day around"
+    sub="Rooms worth the drive, chosen by our editors."
     surface="wine"
     items={theSixItems}
+    trip={false}
   />
-
-  <!-- 4. Winery kitchens: reciprocal module, fixes HUB-01 both directions.
-       /eat/ carries the mirror module pointing here. -->
-  <DirectoryRows
-    id="winery-kitchens"
-    eyebrow="The bridge to Eat & Drink"
-    heading="Winery kitchens"
-    sub="Six wineries whose dining rooms justify the booking on their own. The wineries live here; restaurants proper live in Eat & Drink."
-    surface="wine"
-    noun="winery kitchens"
-    items={kitchenItems}
-    topLink={{ label: 'Restaurants, in Eat & Drink', href: '/eat/' }}
-  />
-
-  <div class="wine-mid container">
-    <!-- 5. Best-of rail (canonical guides; cellar-doors + best-wineries
-         absorb into best-cellar-doors per the sitemap, handled elsewhere) -->
-    <section class="wine-rail" aria-labelledby="wine-rail-h">
-      <p class="wine-rail__eyebrow">The guides</p>
-      <h2 id="wine-rail-h" class="wine-rail__heading">Read before you book</h2>
-      {/* The section eyebrow already reads "The guides"; the cards drop the
-          per-card GUIDE stamp. Text-only rail, so no media fallback. */}
-      <CardGrid label="Wine guides" layout="grid" maxCols={3}>
-        {bestOfRail.map((guide, i) => (
-          <Card
-            variant="guide"
-            title={guide.title}
-            href={guide.href}
-            entityType="page"
-            entitySlug={guide.entitySlug}
-            showEyebrow={false}
-            verdict={guide.verdict}
-            surface="wine"
-            position={i + 1}
-          />
-        ))}
-      </CardGrid>
-    </section>
-
-    <!-- Events: one line + link, not a strip (spec point 17) -->
-    <p class="wine-events-line">
-      Release weekends and winemaker dinners live in <a href="/whats-on/">What&rsquo;s On</a>.
-    </p>
   </div>
 
-  <!-- 6. Directory: every wine venue as a server-rendered compact row with
-       data-facets. Breweries and distilleries are type facets in the sheet,
-       not separate one-card grids (HUB-13). -->
-  <DirectoryRows
-    id="wine-directory"
-    eyebrow="The full list"
-    heading={`All ${venues.length} cellar doors, breweries and distilleries`}
-    sub="Every producer we track, one URL each. Narrow with the chips; sort by name or town."
-    surface="wine"
-    noun="cellar doors"
-    items={directoryItems}
-    emptyHeading="Nothing matches those filters"
-    emptyBody="Clear one and the ridge reopens."
-  >
-    {/* Experience chips live with the list they reshape (moved from the top
-        of the page 2026-07-24 per James). Slotted inside the directory so the
-        sticky bar has the full list height to stick against. ONE filter
-        state still governs The Six, the kitchens rows and this directory. */}
-    <FilterBar slot="before-list" surface="wine" noun="cellar doors" sticky={true}>
-      <SortControl />
-    </FilterBar>
+  <!-- One filter state, yielding the editorial layer while it narrows. -->
+  <CategoryBrowse directory="wine-directory" count={venues.length} noun="producers" mapHref="/map/?cat=winery" showLinks={false} />
 
-    {/* Walk-in vs appointment: depth kept behind one interaction (P7).
-        Carries the CompareBlock's SEO-load-bearing names and phrases. */}
-    <details slot="before-list" class="wine-orientation">
-      <summary>Walk-in or appointment? How to shape the day</summary>
-      <div class="wine-orientation__body">
-        <p>
-          Walk-in rooms (Montalto, Polperro, Pt. Leo Estate, Red Hill Estate, Foxeys Hangout,
-          Paringa Estate) suit a first visit: taste at the bar, then a long lunch in the dining
-          room. Cellar doors take you as you come; the restaurants book 2 to 6 weeks ahead for
-          weekends.
-        </p>
-        <p>
-          Appointment producers (Ten Minutes by Tractor, Main Ridge Estate, Dexter Wines, Quealy
-          Winemakers, Eldridge Estate, Garagiste) pour smaller, talk longer and often open the
-          back vintages. Book 1 to 3 weeks ahead. The right call when the wine is genuinely the
-          point of the trip.
-        </p>
-      </div>
-    </details>
-  </DirectoryRows>
+  <!-- 6. Directory: every wine venue as a server-rendered compact row with
+       data-facets, under its heading and one row of filter and sort
+       controls. Breweries and distilleries are type facets in the sheet. -->
+  <div id="browse-wine">
+    <DirectoryRows
+      id="wine-directory"
+      heading={`Explore wine-country places`}
+      sub={directoryChecked ? `${directoryChecked}.` : undefined}
+      surface="wine"
+      noun="cellar doors"
+      items={directoryItems}
+      desktopColumns={2}
+      fullVerdicts
+      topLink={{ label: "View the winery map", href: "/map/?cat=winery" }}
+      emptyHeading="Nothing matches those filters"
+      emptyBody="Clear one and the ridge reopens."
+    >
+      <FilterBar slot="before-list" surface="wine" noun="cellar doors" facets={['place', 'cat', 'mood', 'party']}>
+        <SortControl />
+      </FilterBar>
+    </DirectoryRows>
+  </div>
 
   <!-- 7. From the Journal: ONE module, <= 3 cards (down from two sections) -->
   <JournalModule
@@ -375,110 +375,64 @@ const faqSchema = {
   <section class="hub-faq" aria-label="Frequently asked questions">
     <div class="container">
       <div class="hub-faq__intro">
-        <p class="label label--accent">Frequently asked</p>
-        <h2 class="hub-faq__title">Three honest answers before you book</h2>
+        <h2 class="hub-faq__title">Before you book</h2>
       </div>
       <div class="hub-faq__list">
-        <details class="hub-faq__item">
-          <summary class="hub-faq__q">What wine is the Peninsula known for?</summary>
-          <div class="hub-faq__a"><p>Pinot Noir and Chardonnay are the benchmark varieties, the cool maritime climate and basalt soils of the Red Hill plateau produce some of Australia's most consistent cool-climate examples. The region also has a growing reputation for Pinot Gris and Shiraz. Over 50 cellar doors are open to visitors, concentrated on the ridge between Red Hill and Main Ridge.</p></div>
-        </details>
-        <details class="hub-faq__item">
-          <summary class="hub-faq__q">Do I need to book cellar door visits?</summary>
-          <div class="hub-faq__a"><p>Some cellar doors operate by appointment only (Ten Minutes by Tractor, Main Ridge Estate, Paringa Estate). Others welcome walk-ins (Montalto, Polperro, Red Hill Estate). Check before you drive, appointment-only cellar doors are common on the plateau and the experience is better when expected. Weekend afternoons are busiest.</p></div>
-        </details>
-        <details class="hub-faq__item">
-          <summary class="hub-faq__q">How many wineries are on the Peninsula?</summary>
-          <div class="hub-faq__a"><p>Over 200 vineyards and approximately 50–60 cellar doors open to visitors. Most are concentrated on the Red Hill plateau between Dromana, Red Hill, and Main Ridge. The region is compact, you can visit three cellar doors in an afternoon without rushing if you stay on the ridge.</p></div>
-        </details>
+        {faqSchema.mainEntity.map((item) => (
+          <details class="hub-faq__item">
+            <summary class="hub-faq__q">{item.name}</summary>
+            <div class="hub-faq__a"><p>{item.acceptedAnswer.text}</p></div>
+          </details>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- 9. Ask band hidden (bug fix in progress) -->
+  <!-- Guides: one quiet line beside the questions they answer. Release
+       weekends and winemaker dinners are in What's On (main navigation). -->
+  <nav class="container hub-guides" aria-label="Wine guides">
+    <span>Guides:</span>
+    {bestOfRail.map((guide, i) => (<>{i > 0 && <span aria-hidden="true"> · </span>}<a href={guide.href}>{guide.title}</a></>))}
+  </nav>
+
+  <AskLine dek="Tell PI what you like to drink and how you're getting around." placeholder="Cellar door lunch, no booking" />
 </BaseLayout>
 
 <style>
-  .wine-controls {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4, 1rem);
-    padding-top: var(--space-3, 0.75rem);
-  }
+  /* Guides: one quiet line of links after the FAQ, no cards, no rules. */
+  .hub-guides { display: flex; flex-wrap: wrap; align-items: center; gap: 0 .35rem; padding-block: 0 var(--space-7); font: 400 var(--fs-300)/1.5 var(--font-ui); color: var(--soft); }
+  .hub-guides > span:first-child { margin-inline-end: .25rem; }
+  .hub-guides a { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); font-weight: 600; text-underline-offset: .2em; }
+  .hub-guides a:focus-visible { outline: var(--focus-ring, 2px solid var(--accent)); outline-offset: 2px; }
 
-  .wine-mid {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-5, 1.5rem);
-    padding: var(--space-6, 2rem) 0;
+  .wine-hero { background: #f3efe7; }
+  .wine-hero__grid { display: grid; grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr); gap: clamp(2rem, 4.5vw, 5rem); align-items: center; padding-block: clamp(2.25rem, 4vw, 4.5rem); }
+  .wine-hero__eyebrow { margin: 0 0 1rem; color: var(--accent); font-size: var(--fs-100); font-weight: 600; letter-spacing: var(--ls-eyebrow, .1em); text-transform: uppercase; }
+  .wine-hero h1 { max-width: 12ch; margin: 0; color: var(--text); font-family: var(--font-display); line-height: 1.03; letter-spacing: -.045em; text-wrap: balance; }
+  .wine-hero__lead { max-width: 46ch; margin: 1.5rem 0 0; color: var(--text); font-size: var(--fs-400); line-height: 1.58; }
+  .wine-hero__actions { display: flex; flex-wrap: wrap; align-items: center; gap: .55rem 1.25rem; margin-top: 1.8rem; }
+  .wine-hero__actions a { display: inline-flex; align-items: center; justify-content: space-between; gap: .8rem; min-height: 48px; font-size: var(--fs-300); font-weight: 750; text-decoration: none; }
+  .wine-hero__primary { padding: .7rem 1.15rem; border: 1px solid var(--text); border-radius: var(--radius-s); background: var(--text); color: var(--white); }
+  .wine-hero__primary:hover { background: #1c4962; }
+  .wine-hero__secondary { color: var(--accent); text-underline-offset: .2em; }
+  .wine-hero__secondary:hover { text-decoration: underline; }
+  .wine-hero__actions a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+  .wine-hero__visual { min-width: 0; margin: 0; }
+  .wine-hero__visual img { display: block; width: 100%; height: clamp(24rem, 40vw, 35rem); object-fit: cover; object-position: 50% 55%; border-radius: var(--radius-s); }
+  .wine-hero__visual figcaption { max-width: 62ch; margin-top: .6rem; color: var(--soft); font-size: var(--fs-100); line-height: 1.45; }
+  #browse-wine, :global(#wine-directory) { scroll-margin-top: 10rem; }
+  @media (max-width: 760px) {
+    .wine-hero__grid { grid-template-columns: 1fr; gap: 1.4rem; padding-block: 1.2rem 2rem; }
+    .wine-hero h1 { max-width: 13ch; }
+    .wine-hero__eyebrow { margin-bottom: .65rem; }
+    .wine-hero__lead { margin-top: .65rem; font-size: var(--fs-400); line-height: 1.48; }
+    .wine-hero__actions { margin-top: 1.2rem; }
+    .wine-hero__visual img { height: clamp(15rem, 56vw, 22rem); }
   }
-
-  /* One-interaction walk-in/appointment disclosure (P7) */
-  .wine-orientation {
-    border: 1px solid var(--border);
-    border-radius: var(--radius-m, 10px);
-    background: var(--bg-alt);
-    max-width: var(--measure-prose, 68ch);
-  }
-  .wine-orientation summary {
-    cursor: pointer;
-    padding: 0.85rem 1rem;
-    font-family: var(--font-ui, var(--font-ui));
-    font-weight: var(--fw-semibold, 600);
-    font-size: var(--fs-300, 0.9375rem);
-    color: var(--text);
-  }
-  .wine-orientation summary:focus-visible {
-    outline: var(--focus-ring, 2px solid var(--accent));
-    outline-offset: 2px;
-  }
-  .wine-orientation__body {
-    padding: 0 1rem 1rem;
-  }
-  .wine-orientation__body p {
-    margin: 0 0 0.75rem;
-    font-size: var(--fs-300, 0.9375rem);
-    line-height: var(--lh-body, 1.6);
-    color: var(--text);
-    max-width: var(--measure-prose, 68ch);
-  }
-  .wine-orientation__body p:last-child {
-    margin-bottom: 0;
-  }
-
-  /* Best-of rail */
-  .wine-rail__eyebrow {
-    margin: 0 0 var(--space-2, 0.5rem);
-    font-family: var(--font-ui);
-    font-size: var(--fs-100, 0.75rem);
-    font-weight: var(--fw-semibold, 600);
-    letter-spacing: var(--ls-eyebrow, 0.12em);
-    text-transform: uppercase;
-    color: var(--teal-text);
-  }
-  .wine-rail__heading {
-    margin: 0 0 var(--space-5, 1.5rem);
-    font-family: var(--font-display);
-    font-size: var(--fs-700, clamp(1.75rem, 1.5rem + 1.2vw, 2.25rem));
-    font-weight: var(--fw-display, 600);
-    line-height: var(--lh-heading, 1.14);
-    letter-spacing: -0.01em;
-    color: var(--text);
-  }
-
-  /* Events one-liner */
-  .wine-events-line {
-    margin: 0;
-    font-family: var(--font-ui, var(--font-ui));
-    font-size: var(--fs-300, 0.9375rem);
-    color: var(--soft);
-  }
-  .wine-events-line a {
-    color: var(--accent);
-    text-underline-offset: 2px;
-  }
-  .wine-events-line a:focus-visible {
-    outline: var(--focus-ring, 2px solid var(--accent));
-    outline-offset: 2px;
+  @media (max-width: 370px) {
+    .wine-hero__grid { padding-top: 1rem; }
+    .wine-hero__eyebrow { display: none; }
+    .wine-hero__lead { margin-top: .5rem; }
+    .wine-hero__actions { align-items: flex-start; flex-direction: column; gap: .15rem; margin-top: 1rem; }
   }
 </style>

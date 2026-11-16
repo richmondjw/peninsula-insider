@@ -1,0 +1,20 @@
+{
+  "claimId": "events/restore-pamper-retreat-at-polperro-farmhouse/rate-change",
+  "claimClass": "rate-change",
+  "subject": {
+    "type": "events",
+    "slug": "restore-pamper-retreat-at-polperro-farmhouse",
+    "field": "freePaid"
+  },
+  "statement": "Entry to Restore & Pamper Retreat at Polperro Farmhouse is ticketed.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "restore-pamper-retreat-at-polperro-farmhouse",
+      "field": "freePaid"
+    }
+  ],
+  "createdAt": "2026-05-04",
+  "origin": "migrated",
+  "note": "Migrated by scripts/migrate-event-claims.mjs (PI-005 Stage 2) from freePaid already on next/src/content/events/restore-pamper-retreat-at-polperro-farmhouse.json. No editorial judgement was applied and no content record was changed."
+}

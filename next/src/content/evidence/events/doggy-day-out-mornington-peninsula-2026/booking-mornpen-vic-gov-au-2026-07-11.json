@@ -1,0 +1,18 @@
+{
+  "evidenceId": "events/doggy-day-out-mornington-peninsula-2026/booking-mornpen-vic-gov-au-2026-07-11",
+  "claim": "events/doggy-day-out-mornington-peninsula-2026/booking",
+  "stance": "supports",
+  "publisher": {
+    "kind": "gov"
+  },
+  "url": "https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Doggy-Day-Out-1",
+  "retrievedAt": "2026-07-11",
+  "expiresAt": "2026-09-09",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/events/doggy-day-out-mornington-peninsula-2026.json",
+    "field": "bookingUrl",
+    "value": "https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Doggy-Day-Out-1",
+    "dateField": "lastCheckedDate"
+  }
+}

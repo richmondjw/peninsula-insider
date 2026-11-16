@@ -1,14 +1,18 @@
 ---
+import { pageImage } from '../../lib/page-images';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import PhotoStage from '../../components/PhotoStage.astro';
+import { verifiedPhotos, STAGE_MIN } from '../../lib/photo-set';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import PiSaveActions from '../../components/PiSaveActions.astro';
 import { editableImage } from '../../lib/inline-edit/attrs';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
+import CorrectionNote from '../../components/CorrectionNote.astro';
+import { isListableVenue } from '../../lib/editorial';
 import {
   buildCollectionPageSchema,
-  buildItemListSchema,
   buildFaqSchema,
   buildBreadcrumbSchema,
 } from '../../lib/schema';
@@ -27,6 +31,9 @@ interface RankedSpa {
   booking: string;
   verdict: string;
   bestFor: string;
+  sourceUrl?: string;
+  address?: string;
+  phone?: string;
 }
 
 const ranked: RankedSpa[] = [
@@ -49,8 +56,11 @@ const ranked: RankedSpa[] = [
     type: 'Day spa',
     booking: 'Easy to book',
     verdict:
-      'The Mornington outpost of the Endota chain - the Peninsula\'s strongest mid-market spa option. Good treatment menu, reliable quality, easy to book compared with Jackalope. Combines naturally with a Mornington town day or a morning at the farmers market.',
+      'The Mornington outpost of the Endota chain - the Peninsula\'s strongest mid-market spa option. Good treatment menu, reliable quality, easy to book compared with Jackalope. Combines naturally with a Mornington town day or a Wednesday visit to the Main Street Market.',
     bestFor: 'Northern Peninsula stays; mid-range spa days; uncomplicated booking.',
+    address: '30 Main St, Mornington VIC 3931',
+    phone: '+61 3 5977 1522',
+    sourceUrl: 'https://endotaspa.com.au/pages/spa/mornington',
   },
   {
     rank: 3,
@@ -74,10 +84,22 @@ const ranked: RankedSpa[] = [
       'Resort-integrated spa at the RACV Cape Schanck property. Good for those staying at the resort or wanting to combine golf with a treatment. Standard resort spa quality.',
     bestFor: 'Resort guests; golf and spa combinations.',
   },
+  {
+    rank: 5,
+    slug: 'alba-thermal-springs',
+    name: 'Alba Thermal Springs & Spa',
+    locality: 'Fingal',
+    type: 'Springs + treatments',
+    booking: 'Check treatment inclusions',
+    verdict:
+      'Alba combines geothermal bathing with massage, facials, body treatments and water and steam therapies at 282 Browns Road, Fingal. Choose it when you want bathing and a booked treatment in the same visit. Compare the inclusions of your chosen treatment or package before booking; overnight accommodation is a separate reservation at The Sanctuary.',
+    bestFor: 'A bathing-and-treatment day in Fingal, with an overnight option at The Sanctuary.',
+    sourceUrl: 'https://albathermalsprings.com.au/alba-experiences/spa/',
+  },
 ];
 
 /* Join each ranked spa to its venue record for hero + save metadata. */
-const venues = await getCollection('venues');
+const venues = (await getCollection('venues')).filter(isListableVenue);
 const bySlug = new Map(venues.map((v) => [v.data.slug ?? v.id.replace(/\.json$/, ''), v]));
 
 const heroes = new Map<string, { src: string; alt: string }>();
@@ -154,20 +176,29 @@ const collectionSchema = buildCollectionPageSchema({
   name: 'Day Spas and Wellness on the Mornington Peninsula',
   description: 'Ranked editorial guide to day spas and wellness experiences on the Mornington Peninsula - treatments, hot springs, and spa days.',
   path: '/explore/spas-and-wellness/',
-  dateModified: '2026-08-10',
+  dateModified: '2026-09-07',
 });
 
-const itemListSchema = buildItemListSchema({
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
   name: 'Day Spas and Wellness on the Mornington Peninsula',
   description: 'Ranked guide to day spas and wellness experiences on the Mornington Peninsula.',
-  listPath: '/explore/spas-and-wellness',
-  items: [
-    { name: 'Spa by Jackalope', path: '/explore/spas-and-wellness/#spa-by-jackalope', itemType: 'SportsActivityLocation', addressLocality: 'Merricks North' },
-    { name: 'Endota Spa Mornington', path: '/explore/spas-and-wellness/#endota-spa-mornington', itemType: 'SportsActivityLocation', addressLocality: 'Mornington' },
-    { name: 'Peninsula Hot Springs spa treatments', path: '/explore/spas-and-wellness/#peninsula-hot-springs', itemType: 'SportsActivityLocation', addressLocality: 'Fingal' },
-    { name: 'One Spa at RACV Cape Schanck', path: '/explore/spas-and-wellness/#one-spa-racv-cape-schanck', itemType: 'SportsActivityLocation', addressLocality: 'Cape Schanck' },
-  ],
-});
+  url: 'https://peninsulainsider.com.au/explore/spas-and-wellness/',
+  numberOfItems: ranked.length,
+  itemListOrder: 'https://schema.org/ItemListOrderAscending',
+  itemListElement: ranked.map((spa) => ({
+    '@type': 'ListItem',
+    position: spa.rank,
+    item: {
+      '@type': 'DaySpa',
+      '@id': `https://peninsulainsider.com.au/explore/spas-and-wellness/#${spa.slug}`,
+      name: spa.name,
+      url: `https://peninsulainsider.com.au/explore/spas-and-wellness/#${spa.slug}`,
+      address: { '@type': 'PostalAddress', addressLocality: spa.locality, addressRegion: 'VIC', addressCountry: 'AU' },
+    },
+  })),
+};
 
 const faqSchema = buildFaqSchema(faqs);
 
@@ -190,7 +221,7 @@ export const prerender = true;
   description="Ranked editorial guide to day spas and wellness experiences on the Mornington Peninsula - Jackalope, Endota, Peninsula Hot Springs treatments, and more."
   section="explore"
   canonical="https://peninsulainsider.com.au/explore/spas-and-wellness/"
-  ogImage="/images/sourced/spa-dark-boutique-room-01.webp"
+  ogImage={pageImage('spas-hub').src}
 >
   <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
@@ -267,7 +298,8 @@ export const prerender = true;
         genuine spa and wellness options than most Australian regions manage across a
         whole state: thermal springs, treatment-focused day spas in converted
         properties, and resort spa facilities. Every spa below is editorially reviewed
-        and re-verified on a rolling basis.
+        against the operator's published information, and the date of that
+        check is stated at the foot of this page.
       </p>
 
       {ranked.map((s) => {
@@ -307,7 +339,18 @@ export const prerender = true;
               </ul>
               <p class="sr__verdict">{s.verdict}</p>
               <p class="sr__bestfor"><strong>Best for</strong> {s.bestFor}</p>
+              {s.address && <p class="sr__bestfor"><strong>Visit</strong> {s.address}{s.phone && <> · <a href={`tel:${s.phone.replace(/\D/g, '')}`}>{s.phone}</a></>}</p>}
+              {s.sourceUrl && <p class="sr__bestfor"><a href={s.sourceUrl} target="_blank" rel="noopener noreferrer">View the operator's treatment menu →</a></p>}
             </div>
+            {(() => {
+              // Licensed photographs of the spa itself (src/lib/photo-set.ts).
+              const spaPhotos = verifiedPhotos(bySlug.get(s.slug)?.data ?? {});
+              return spaPhotos.length >= STAGE_MIN && (
+                <div class="sr__photos">
+                  <PhotoStage photos={spaPhotos} subject={s.name} id={`photos-${s.slug}`} variant="strip" />
+                </div>
+              );
+            })()}
             <PiSaveActions
               kind="venue"
               slug={s.slug}
@@ -329,7 +372,7 @@ export const prerender = true;
         <div class="sp-split__cols">
           <div class="sp-split__col">
             <h3>Bathing</h3>
-            <p>Thermal pools at various temperatures, outdoor soaking, no appointments. Turn up and get in the water.</p>
+            <p>Thermal pools and outdoor soaking. Reserve your bathing entry with the operator and check session times before travelling.</p>
             <a class="sp-split__link" href="/explore/hot-springs/">The hot springs guide →</a>
           </div>
           <div class="sp-split__col">
@@ -348,7 +391,7 @@ export const prerender = true;
       <header class="sp-days__head">
         <span class="sp-days__rule" aria-hidden="true"></span>
         <h2 class="sp-days__title" id="sp-days-title">Building a spa day</h2>
-        <p class="sp-days__standfirst">Three ways to structure it, from a single booking to a full weekend.</p>
+        <p class="sp-days__standfirst">Ways to structure it, from a single booking to a full weekend.</p>
       </header>
       <div class="sp-days__grid">
         {dayPlans.map((plan) => (
@@ -390,10 +433,14 @@ export const prerender = true;
           <li><a href="/explore/">All Peninsula experiences</a></li>
         </ul>
 
-        <p><em>Last fact-verified 23 April 2026</em></p>
+        <p><em>Alba entry checked against its official spa menu and FAQs on 7 September 2026. The remaining entries were last fact-verified on 23 April 2026 and are being reviewed.</em></p>
       </div>
     </div>
   </section>
+
+  <div class="container">
+    <CorrectionNote surface="spa-hub" />
+  </div>
 
   <NewsletterBlock />
 </BaseLayout>
@@ -421,13 +468,7 @@ export const prerender = true;
   .sp-hero__scrim {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      to top,
-      rgba(11, 46, 74, 0.94) 0%,
-      rgba(11, 46, 74, 0.78) 38%,
-      rgba(11, 46, 74, 0.3) 62%,
-      rgba(11, 46, 74, 0) 80%
-    );
+    background: var(--photo-shade-bottom);
   }
   .sp-hero__content {
     position: absolute;
@@ -591,6 +632,9 @@ export const prerender = true;
     color: var(--text);
     margin: 0 0 var(--space-6);
   }
+  /* The spa's licensed photographs run the full width of its card. */
+  .sr__photos { grid-column: 1 / -1; min-width: 0; }
+  .sr__photos :global(.pstage) { margin-block-end: 0; }
   .sr {
     position: relative;
     display: grid;

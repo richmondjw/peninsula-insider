@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "1.0",
+  "family": "golf-course-experience-detail",
+  "tier": "T2",
+  "urls": [
+    "https://peninsulainsider.com.au/explore/moonah-links/",
+    "https://peninsulainsider.com.au/explore/st-andrews-beach-golf-course/",
+    "https://peninsulainsider.com.au/explore/the-national-golf-club/",
+    "https://peninsulainsider.com.au/explore/racv-cape-schanck-golf-course/",
+    "https://peninsulainsider.com.au/explore/flinders-golf-club/",
+    "https://peninsulainsider.com.au/explore/eagle-ridge-golf-course/",
+    "https://peninsulainsider.com.au/explore/the-dunes-golf-links/",
+    "https://peninsulainsider.com.au/explore/mornington-golf-club/",
+    "https://peninsulainsider.com.au/explore/rosebud-country-club/",
+    "https://peninsulainsider.com.au/explore/sorrento-golf-club/",
+    "https://peninsulainsider.com.au/explore/portsea-golf-club/"
+  ],
+  "assessedAt": "2026-10-06",
+  "status": "built-local-independent-preview-reviewed-pending-protected-release",
+  "baseline": {
+    "exactLiveSourceRevision": "f89f8bc4006c2e8b0e8d8546d24920caedd29137",
+    "score": "null for all 11 details; full independent 23-criterion evidence unavailable",
+    "hardGates": "open",
+    "observedDefect": "After finding a course unsuitable, the detail breadcrumb is Home > Explore > course and the category link Golf Course goes to generic /explore/, leaving no contextual return to the 11-course golf comparison."
+  },
+  "hypothesis": "A golf-specific breadcrumb and clearly named category link to the golf hub will let visitors recover and compare another course without relying on browser Back or global navigation.",
+  "boundedChange": [
+    "Add Golf > /explore/golf/ between Explore and course in the visible breadcrumb for golf details only.",
+    "Change the first-screen category link to Compare golf courses > /explore/golf/ for golf details only; leave other experience details unchanged."
+  ],
+  "metric": "All 11 built/live golf details expose both hub routes at 320/390/1440, keyboard navigation reaches the comparison, no overflow or CTA regression; non-golf details retain existing routes.",
+  "evaluationDate": "2026-10-06",
+  "rollback": "Revert the golf-only breadcrumb/category route changes if navigation or layout regresses.",
+  "independentReview": "Exact-live iteration10 independent UX reviewer observed and nominated the comparison-recovery defect. Iteration11 independent preview verified Golf breadcrumb and Compare golf courses category navigation by click and keyboard Enter on National, Sorrento, Portsea and Dunes at 320/390/1440; no overflow or JS errors, and non-golf Boardwalk unchanged. Reviewer found an orphan 320px duration wrap; it was corrected by hiding the duplicate golf duration in metadata at <=360px while retaining At a glance. Final full rebuild/browser recheck passed; no live score claimed.",
+  "localEvidence": {
+    "build": "Final TZ=Australia/Sydney npm run build:search passed after 320px refinement; 1015 HTML, 711 indexed.",
+    "browser": "All 11 built golf details at 320/390/1440 have Golf breadcrumb and Compare golf courses category link targeting /explore/golf/, no overflow and >=44px primary action. Representative National, Sorrento, Portsea and Dunes at 320/390/1440 show duration hidden only at <=360px; primary action remains visible. Independent preview confirmed actual click and keyboard navigation to hub. Non-golf Cape Schanck Boardwalk kept generic Explore route."
+  },
+  "openGates": [
+    "Protected CI, Pages publication and exact-live browser acceptance pending.",
+    "Full 23-criterion per-page scores and image-rights, whole-record facts, direct AT, booking and field performance gates remain open."
+  ],
+  "decision": "adapt-continue"
+}

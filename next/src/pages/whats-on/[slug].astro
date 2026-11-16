@@ -1,4 +1,5 @@
 ---
+import {hasExplicitSeries,nextSeriesData,hasLegacyExceptions} from '../../lib/intelligence-series.mjs';
 import { getCollection, getEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import {
@@ -13,7 +14,9 @@ import {
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import EventBadges from '../../components/EventBadges.astro';
 import EventCard from '../../components/EventCard.astro';
+import EventImageCredit from '../../components/EventImageCredit.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import CorrectionNote from '../../components/CorrectionNote.astro';
 import {
   eventCategoryLabel,
   eventDateLabel,
@@ -23,34 +26,59 @@ import {
   weatherCopy,
 } from '../../lib/editorial';
 import { isCancelledEvent, isCurrentEvent, loadLiveEvents } from './_data';
+import { currentVerifiedPrice, eventContentKind, isPublicEventRecord, publicEventData } from '../../lib/event-publication.mjs';
+import { USE_OCCURRENCE_MODEL } from '../../lib/features';
+import { dayIsoOf, recordDisposition, resolveOccurrence } from '../../lib/event-occurrence.mjs';
 import { editableText, editableImage } from '../../lib/inline-edit/attrs';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
+import { ruleFor } from '../../lib/event-schedule';
 
 export async function getStaticPaths() {
-  const events = await getCollection('events');
+  const events = await getCollection('events', ({ data }) => isPublicEventRecord(data));
   return events.map((event) => ({
     params: { slug: routeSlug(event) },
     props: { event },
   }));
 }
 
-const { event } = Astro.props;
+const { event: originalEvent } = Astro.props;
 const now = new Date();
+const explicitSeries = hasExplicitSeries(originalEvent.data) || hasLegacyExceptions(originalEvent.data);
+const event = explicitSeries ? {...originalEvent, data: nextSeriesData(originalEvent.data, now)} : originalEvent;
+const contentKind = eventContentKind(event.data);
+const kindLabel = contentKind === 'offer' ? 'Offer' : contentKind === 'experience' ? 'Experience' : 'Event';
 const isCurrent = isCurrentEvent(event, now);
 // A cancelled event keeps its URL and stays indexable: readers arriving from
 // search or an old link need to be told it is off, not redirected into a hub
 // that answers a question they did not ask. The record is withdrawn from every
 // listing surface by loadLiveEvents instead.
 const cancelled = isCancelledEvent(event);
-const place = event.data.place ? await getEntry(event.data.place).catch(() => null) : null;
-const venue = event.data.venue ? await getEntry(event.data.venue).catch(() => null) : null;
+// PI-008. Cancelled, postponed, expired and sold-out are four different
+// answers to a reader standing at a venue door, and the page had vocabulary
+// for exactly one of them. The three flags below carry the others into the
+// notices and into bookingClosed; with the occurrence model flagged off,
+// disposition is null and the page renders precisely as it did before.
+const disposition = (USE_OCCURRENCE_MODEL || explicitSeries)
+  ? recordDisposition(event.data as Record<string, any>, now)
+  : null;
+const postponed = disposition?.status === 'postponed';
+const rescheduled = disposition?.status === 'rescheduled';
+const soldOut =
+  disposition?.bookingStatus === 'sold-out' || disposition?.bookingStatus === 'closed';
+const expiredRecord = disposition?.expired === true;
+// Everything that takes the booking affordance away. Cancellation already did;
+// these are the cases that used to leave a live "Book now" on a page for an
+// event nobody could attend.
+const bookingWithdrawn = cancelled || postponed || soldOut || expiredRecord || (explicitSeries && disposition?.unverified === true);
+const place = event.data.place ? await Promise.resolve(getEntry('places', event.data.place.id)).catch(() => null) : null;
+const venue = event.data.venue ? await Promise.resolve(getEntry('venues', event.data.venue.id)).catch(() => null) : null;
 
 // Expired pages stay available for direct/backlink visits, but never link to
 // each other. That closes the stale-event crawl path while current series keep
 // their normal related-event discovery.
 const allEvents = (await loadLiveEvents(now))
   .map(({ event: entry }) => entry)
-  .filter((e) => routeSlug(e) !== routeSlug(event));
+  .filter((e) => e.data.status === 'published' && isPublicEventRecord(e.data) && routeSlug(e) !== routeSlug(event));
 const related = allEvents
   .filter((e) => e.data.category === event.data.category)
   .slice(0, 3);
@@ -63,6 +91,7 @@ const sidebar = related.length >= 2 ? related : relatedFallback;
 const lensSeen = new Set<string>();
 const lensList: Array<{ key: string; label: string }> = ((event.data.lens ?? []) as unknown[])
   .filter((key): key is string => typeof key === 'string' && key.trim() !== '')
+  .filter((key) => !cancelled || !['free', 'walk-in', 'weekend-pick', 'family-saturday'].includes(key))
   .map((key: string) => ({ key, label: eventLensLabel[key] ?? key }))
   .filter(({ label }) => {
     const dedupeKey = label.trim().toLowerCase().replace(/[\s_-]+/g, ' ');
@@ -73,27 +102,84 @@ const lensList: Array<{ key: string; label: string }> = ((event.data.lens ?? [])
 
 const slug = routeSlug(event);
 const placeName = place?.data?.name ?? 'Mornington Peninsula';
+const addressForDirections = [event.data.venueName, event.data.streetAddress, event.data.suburb, 'VIC']
+  .filter(Boolean)
+  .join(', ');
+const directionsHref = event.data.coordinates
+  ? (`https://www.google.com/maps?q=${event.data.coordinates.lat},${event.data.coordinates.lng}`)
+  : addressForDirections
+    ? (`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(addressForDirections)}`)
+    : null;
+
 const canonical = `https://peninsulainsider.com.au/whats-on/${slug}/`;
 
 // Social/search-card image must honour the same CMS-aware hero resolver as
 // event cards, otherwise the detail page and listing/search cards drift.
-const eventHero = await resolveHero('event', slug, event.data);
-const ogImage = eventHero.src;
+const resolvedHero = await resolveHero('event', slug, event.data);
+// A CMS upload is a different asset with separate rights. The content hero's
+// rights record cannot clear that upload, but it can still support its own
+// reviewed image. Fall back to that image instead of hiding the hero entirely.
+const eventHero = resolvedHero.override
+  ? await resolveHero('event', slug, event.data, 'heroImage', { ignoreOverride: true })
+  : resolvedHero;
+// A recorded, explicitly marked illustrative venue photo is eligible even
+// when its filename matches the generic-location fallback pattern.
+const showReviewedImage = Boolean(eventHero.src && event.data.heroImage?.src) && event.data.heroImage?.rightsStatus === 'recorded';
+// A text-only detail must not redistribute a fallback place photograph without its on-page credit.
+const ogImage = showReviewedImage ? eventHero.src : '/images/generated/whats-on-og-card.png';
 
 // Standardised event fields (Discovery Phase 1, workstream 4): every event
 // page always renders price, time (when known), recurrence, and family grade
 // in the at-a-glance block, plus an add-to-calendar action.
 const priceLabel = eventPriceLabel(event.data);
+const verifiedPrice = currentVerifiedPrice(event.data, now);
 const priceKnown = eventHasKnownPrice(event.data);
-const timeLabel = eventTimeLabel(event.data);
-const calendarUrl = eventCalendarUrl(event.data, canonical);
+// Archived records can retain old scheduling fields for the audit trail. When
+// the record says its next date is unverified, never present that range as a
+// current weekly promise to a visitor arriving at its direct URL.
+const unconfirmedArchivedSchedule = event.data.status === 'archived'
+  && /unverified|no future date confirmed/i.test(String(event.data.verificationStatus ?? ''));
+const timeLabel = unconfirmedArchivedSchedule ? '' : eventTimeLabel(event.data);
+// A weekly exhibition with several opening days is not one continuous appointment.
+// Do not publish a calendar range or Event JSON-LD that includes closed days.
+const weeklyOpeningDays = event.data.recurrence === 'weekly' && (ruleFor(event as any, now)?.days?.length ?? 0) > 1;
+const calendarUrl = weeklyOpeningDays ? '' : eventCalendarUrl(event.data, canonical);
 const bookingTarget = eventBookingTarget(event.data);
-const recurrenceLabel = eventRecurrenceLabel(event.data);
+const dateBasis = event.data.dateBasis ?? 'fixed';
+const flexibleDate = dateBasis !== 'fixed';
+const flexibleRecurrenceLabel: Record<string, string> = {
+  'operator-calendar': 'Sessions on the organiser calendar',
+  'on-request': 'By arrangement',
+  'opening-hours': 'Visit during published opening hours',
+};
+const recurrenceLabel = cancelled ? 'Cancelled edition. Check the organiser for future dates.' : unconfirmedArchivedSchedule ? 'Historical listing' : flexibleDate ? flexibleRecurrenceLabel[dateBasis] : eventRecurrenceLabel(event.data);
+const flexibleWhenLabel: Record<string, string> = {
+  'operator-calendar': 'Choose a date on the organiser calendar',
+  'on-request': 'Arrange a date with the organiser',
+  'opening-hours': 'Check current opening hours',
+};
 const nextOccurrence = (event.data as any).nextOccurrence as Date | undefined;
-const usesNextOccurrence = ['weekly', 'monthly', 'annual'].includes(event.data.recurrence) && nextOccurrence;
+const usesNextOccurrence = !cancelled && !weeklyOpeningDays && ['weekly', 'monthly', 'annual'].includes(event.data.recurrence) && nextOccurrence;
 const whenStart = usesNextOccurrence ? nextOccurrence : event.data.startDate;
 const whenEnd = usesNextOccurrence ? nextOccurrence : event.data.endDate;
-const whenLabel = eventDateLabel(whenStart, whenEnd);
+const whenLabel = unconfirmedArchivedSchedule ? 'No future date confirmed' : flexibleDate ? flexibleWhenLabel[dateBasis] : eventDateLabel(whenStart, whenEnd);
+
+// PI-008. isCurrentEvent is day-granular, so a session that finished at 2pm
+// still offered a booking link at 6pm on the same day. Resolve the run this
+// page actually displays and ask whether it is over. For a recurring series
+// whenStart is the next occurrence, so this is false until that one passes.
+const displayedRun =
+  (USE_OCCURRENCE_MODEL || explicitSeries) && !flexibleDate && whenStart
+    ? resolveOccurrence(event.data as Record<string, any>, dayIsoOf(whenStart), now, {
+        endDayIso: dayIsoOf(whenEnd ?? whenStart),
+      })
+    : null;
+const occurrenceOver = event.data.status === 'archived' || displayedRun?.phase === 'past';
+// A page that already tells the reader "This event has ended" must not also
+// offer them a booking and an add-to-calendar button. Seventy event pages were
+// doing exactly that: the notice and the actions block were computed from
+// different things and nobody had ever put them side by side.
+const bookingClosed = bookingWithdrawn || occurrenceOver || unconfirmedArchivedSchedule || ((USE_OCCURRENCE_MODEL || explicitSeries) && !isCurrent);
 
 // Rich Event JSON-LD: includes geo coordinates, organiser, attendance mode,
 // offers with currency, and image. Falls through gracefully when fields are
@@ -101,7 +187,7 @@ const whenLabel = eventDateLabel(whenStart, whenEnd);
 // Keep the retained cancellation URL richly described for search and old
 // inbound links. A cancelled event is deliberately not "current", but its
 // Event JSON-LD must still declare EventCancelled rather than disappearing.
-const eventSchema = (isCurrent || cancelled)
+const eventSchema = contentKind === 'event' && !flexibleDate && !weeklyOpeningDays && (isCurrent || cancelled)
   ? eventJsonLd(event, 'https://peninsulainsider.com.au')
   : null;
 
@@ -130,20 +216,24 @@ export const prerender = true;
 
 <BaseLayout
   title={`${event.data.title}, ${placeName} · Peninsula Insider`}
-  description={event.data.summary}
+  description={unconfirmedArchivedSchedule ? (event.data.archivedReason ?? 'This listing is under review. No future event date is confirmed.') : event.data.summary}
   section="whats-on"
   canonical={canonical}
   ogImage={ogImage}
   searchImage={ogImage}
+  searchExclude={unconfirmedArchivedSchedule}
   noindex={!isCurrent}
 >
   {eventSchema && <script type="application/ld+json" set:html={JSON.stringify(eventSchema)} />}
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <Breadcrumbs items={breadcrumbItems} />
-  <article class="event-detail">
+  <aside class="event-detail__ended" data-routine-expired hidden>This listing needs a fresh source check. <a href={event.data.primarySourceUrl}>Check the organiser</a> or <a href="/whats-on/">browse current listings</a>.</aside>
+  <article class="event-detail" data-routine-event={event.data.intelligence?.standingAuthority ? JSON.stringify(publicEventData(event.data)) : undefined}>
     <div class="container">
       <div class="event-detail__header">
         <div class="event-detail__meta">
+          <span class="label label--accent">{unconfirmedArchivedSchedule ? 'Listing under review' : kindLabel}</span>
+          <span class="event-detail__dot" aria-hidden="true"></span>
           <span class="label label--accent">{eventCategoryLabel[event.data.category] ?? event.data.category}</span>
           <span class="event-detail__dot" aria-hidden="true"></span>
           <span class="event-detail__meta-item">{whenLabel}</span>
@@ -155,18 +245,71 @@ export const prerender = true;
           entityType: 'event', entitySlug: slug, fieldPath: 'title',
           label: `${event.data.title} - title`,
         })}>{event.data.title}</h1>
-        <p class="event-detail__summary" {...editableText({
+        {unconfirmedArchivedSchedule ? (<p class="event-detail__summary">{event.data.archivedReason ?? 'This listing is under review. No future event date is confirmed.'}</p>) : (<p class="event-detail__summary" {...editableText({
           entityType: 'event', entitySlug: slug, fieldPath: 'summary',
           label: `${event.data.title} - summary`,
-        })}>{event.data.summary}</p>
+        })}>{event.data.summary}</p>)}
+
+        {!bookingClosed && bookingTarget && (
+          <div class="event-detail__intro-action">
+            <a
+              href={bookingTarget.href}
+              class="event-detail__action event-detail__action--primary"
+              rel="nofollow noreferrer"
+              target="_blank"
+              data-pi-book={bookingTarget.kind === 'organiser' ? undefined : bookingTarget.kind}
+              data-pi-entity-type="event"
+              data-pi-entity-slug={slug}
+              data-pi-surface="event-detail"
+            >
+              {flexibleDate ? 'Check dates with organiser' : bookingTarget.label}
+            </a>
+          </div>
+        )}
 
         <EventBadges
-          worthTheDrive={event.data.worthTheDrive}
-          firstTimer={event.data.firstTimer}
+          worthTheDrive={!cancelled && !unconfirmedArchivedSchedule && event.data.worthTheDrive}
+          firstTimer={!cancelled && !unconfirmedArchivedSchedule && event.data.firstTimer}
           weather={event.data.weather}
           skipThis={event.data.skipThis}
           size="md"
         />
+        {!cancelled && postponed && (
+          <aside class="event-detail__ended" role="status">
+            <strong>Postponed. A new date has not been announced.</strong>{' '}
+            {event.data.postponementNote}
+            {event.data.postponementSourceUrl && (
+              <>
+                {' '}
+                <a href={event.data.postponementSourceUrl} rel="nofollow noreferrer" target="_blank">
+                  {event.data.postponementSourceLabel ?? 'Read the notice'}
+                </a>
+              </>
+            )}
+          </aside>
+        )}
+        {!cancelled && rescheduled && (
+          <aside class="event-detail__ended" role="status">
+            <strong>Moved to a new date.</strong>{' '}
+            {event.data.postponementNote}
+          </aside>
+        )}
+        {!cancelled && !postponed && soldOut && (
+          <aside class="event-detail__ended" role="status">
+            <strong>
+              {event.data.bookingStatus === 'closed' ? 'Bookings have closed.' : 'Sold out.'}
+            </strong>{' '}
+            {event.data.bookingStatusNote}
+            {event.data.bookingStatusSourceUrl && (
+              <>
+                {' '}
+                <a href={event.data.bookingStatusSourceUrl} rel="nofollow noreferrer" target="_blank">
+                  Check with the organiser
+                </a>
+              </>
+            )}
+          </aside>
+        )}
         {cancelled && (
           <aside class="event-detail__ended" role="status">
             <strong>Cancelled. This event will not go ahead.</strong>{' '}
@@ -183,23 +326,38 @@ export const prerender = true;
         )}
         {!isCurrent && !cancelled && (
           <aside class="event-detail__ended" role="status">
-            <strong>This event has ended.</strong> For current Peninsula plans, see <a href="/whats-on/">What’s On</a>.
+            {unconfirmedArchivedSchedule ? (
+              <><strong>This listing is archived until a future date is confirmed.</strong> For current Peninsula plans, see <a href="/whats-on/">What’s On</a>.</>
+            ) : (
+              <><strong>This {contentKind} has ended.</strong> For current Peninsula plans, see <a href="/whats-on/">What’s On</a>.</>
+            )}
+
           </aside>
         )}
       </div>
+
+      {showReviewedImage && (
+        <figure class="event-detail__image">
+          <img src={eventHero.src} alt={eventHero.alt} loading="eager" decoding="async" />
+          <figcaption>
+            <EventImageCredit image={event.data.heroImage} />
+          </figcaption>
+        </figure>
+      )}
 
       <div class="event-detail__body">
         <div class="event-detail__main">
           {event.data.editorVerdict && (
             <aside class="event-verdict">
-              <p class="event-verdict__label">Editor's verdict</p>
+              <p class="event-verdict__label">{unconfirmedArchivedSchedule ? 'Historical editorial notes' : "Editor's verdict"}</p>
               <p class="event-verdict__body">{event.data.editorVerdict}</p>
             </aside>
           )}
 
-          {event.data.editorNote && (
+          {(event.data.editorNote || event.data.primarySourceUrl) && (
             <div class="prose">
-              {event.data.editorNote.split(/\n\n+/).map((para: string) => <p>{para}</p>)}
+              {unconfirmedArchivedSchedule && <h2>Historical listing notes</h2>}{event.data.editorNote?.split(/\n\n+/).map((para: string) => <p>{para}</p>)}
+              {event.data.primarySourceUrl && <p><a href={event.data.primarySourceUrl} rel="nofollow noreferrer" target="_blank">Check the latest details at the source &rarr;</a></p>}
             </div>
           )}
 
@@ -246,13 +404,9 @@ export const prerender = true;
                     </a>
                   </li>
                 )}
-                {event.data.coordinates && (
+                {directionsHref && !cancelled && !unconfirmedArchivedSchedule && (
                   <li>
-                    <a
-                      href={`https://www.google.com/maps?q=${event.data.coordinates.lat},${event.data.coordinates.lng}`}
-                      rel="nofollow noreferrer"
-                      target="_blank"
-                    >
+                    <a href={directionsHref} rel="nofollow noreferrer" target="_blank">
                       Get directions &rarr;
                     </a>
                   </li>
@@ -265,7 +419,7 @@ export const prerender = true;
             <p class="event-detail__box-label">At a glance</p>
             <dl class="event-detail__box-list">
               <div>
-                <dt>When</dt>
+                <dt>{contentKind === 'offer' ? 'Valid dates' : 'When'}</dt>
                 <dd>{whenLabel}</dd>
               </div>
               {timeLabel && (
@@ -276,11 +430,22 @@ export const prerender = true;
               )}
               <div>
                 <dt>Recurrence</dt>
-                <dd>{recurrenceLabel}{event.data.recurrenceNote ? ` · ${event.data.recurrenceNote}` : ''}</dd>
+                <dd>{recurrenceLabel}{!cancelled && !unconfirmedArchivedSchedule && event.data.recurrenceNote ? ` · ${event.data.recurrenceNote}` : ''}</dd>
               </div>
               <div>
                 <dt>Price</dt>
-                <dd class={priceKnown ? '' : 'event-detail__box-soft'}>{priceLabel}</dd>
+                <dd class={priceKnown ? '' : 'event-detail__box-soft'}>
+                  {unconfirmedArchivedSchedule ? 'Under review' : verifiedPrice ? (
+                    <span data-verified-price data-price-checked={new Date(verifiedPrice.checkedAt).toISOString()} data-price-expiry={verifiedPrice.expiresAt}>
+                      <span data-price-current hidden>
+                        {verifiedPrice.label}{' '}
+                        <a href={verifiedPrice.sourceUrl} rel="nofollow noreferrer" target="_blank">Price source</a>
+                        <small class="event-detail__price-check">Checked {new Date(verifiedPrice.checkedAt).toLocaleDateString('en-AU', { timeZone: 'Australia/Melbourne', day: 'numeric', month: 'short', year: 'numeric' })}. Conditions may apply.</small>
+                      </span>
+                      <span data-price-fallback>Check organiser for pricing</span>
+                    </span>
+                  ) : priceLabel}
+                </dd>
               </div>
               {place && (
                 <div>
@@ -292,22 +457,34 @@ export const prerender = true;
                 <dt>Weather</dt>
                 <dd>{weatherCopy[event.data.weather] ?? 'Weather flexible'}</dd>
               </div>
-              {event.data.worthTheDrive && (
+              {!cancelled && !unconfirmedArchivedSchedule && event.data.worthTheDrive && (
                 <div>
                   <dt>Worth the drive</dt>
                   <dd>Yes - unprompted recommendation</dd>
                 </div>
               )}
-              {event.data.firstTimer && (
+              {!cancelled && !unconfirmedArchivedSchedule && event.data.firstTimer && (
                 <div>
                   <dt>First time on the Peninsula</dt>
                   <dd>Start here</dd>
                 </div>
               )}
             </dl>
-            {cancelled ? (
+            {bookingClosed ? (
               <p class="event-detail__box-soft">
-                Booking and calendar links are withdrawn while this event is cancelled.
+                {cancelled
+                  ? 'Booking and calendar links are withdrawn while this event is cancelled.'
+                  : postponed
+                    ? 'Booking and calendar links are withdrawn until a new date is announced.'
+                    : soldOut
+                      ? 'Booking links are withdrawn while this event is sold out.'
+                      : unconfirmedArchivedSchedule
+                        ? 'Booking and calendar links are unavailable while a future date is unconfirmed.'
+                        : expiredRecord
+                        ? 'Booking and calendar links are withdrawn; this listing has expired.'
+                        : occurrenceOver
+                          ? 'Booking and calendar links are withdrawn; this session has finished.'
+                          : 'Booking and calendar links are withdrawn; this event has ended.'}
               </p>
             ) : (
               <div class="event-detail__actions">
@@ -317,11 +494,15 @@ export const prerender = true;
                     class="event-detail__action event-detail__action--primary"
                     rel="nofollow noreferrer"
                     target="_blank"
+                    data-pi-book={bookingTarget.kind === 'organiser' ? undefined : bookingTarget.kind}
+                    data-pi-entity-type="event"
+                    data-pi-entity-slug={slug}
+                    data-pi-surface="event-detail"
                   >
-                    {bookingTarget.label}
+                    {flexibleDate ? 'Check dates with organiser' : bookingTarget.label}
                   </a>
                 )}
-                <a
+                {calendarUrl && contentKind === 'event' && !flexibleDate && (!event.data.startTime || event.data.endTime) && <a
                   href={calendarUrl}
                   class="event-detail__action event-detail__action--secondary"
                   rel="noreferrer"
@@ -329,7 +510,7 @@ export const prerender = true;
                   aria-label={`Add ${event.data.title} to your calendar`}
                 >
                   Add to calendar
-                </a>
+                </a>}
               </div>
             )}
           </div>
@@ -360,11 +541,43 @@ export const prerender = true;
           <a href="/whats-on/" class="venues__link">All events -></a>
         </div>
         <div class="event-grid">
-          {sidebar.map((entry) => <EventCard event={entry} />)}
+          {sidebar.map((entry) => <EventCard event={entry} imagePolicy="recorded-only" />)}
         </div>
       </div>
     </section>
   )}
 
+  <div class="container">
+    <CorrectionNote surface="event" />
+  </div>
+
   <NewsletterBlock />
 </BaseLayout>
+
+<script>
+  import { refreshVerifiedPriceElements } from '../../lib/event-publication.mjs';
+  let priceTimer: ReturnType<typeof setTimeout> | undefined;
+  const refreshPrices = () => {
+    if (priceTimer) clearTimeout(priceTimer);
+    const expiry = refreshVerifiedPriceElements(document);
+    if (expiry) priceTimer = setTimeout(refreshPrices, Math.max(1, Math.min(60_000, expiry - Date.now() + 1)));
+  };
+  refreshPrices();
+  document.addEventListener('astro:page-load', refreshPrices);
+  document.addEventListener('visibilitychange', refreshPrices);
+</script>
+
+<style>
+  .event-detail__intro-action { margin: 1rem 0 0; }
+  .event-detail__price-check { display: block; margin-top: 0.35rem; color: var(--soft); }
+  [data-price-current][hidden], [data-price-fallback][hidden] { display: none; }
+  .event-detail__image { margin: 0 0 2.5rem; }
+  .event-detail__image img { display: block; width: 100%; max-height: 420px; aspect-ratio: 16 / 7; object-fit: cover; border-radius: var(--radius-m); }
+  .event-detail__image figcaption { padding: 0 0.2rem; }
+  @media (max-width: 600px) { .event-detail__image img { aspect-ratio: 4 / 3; } }
+</style>
+
+<script>
+  import { installRoutineDetailRefresh } from '../../lib/event-publication.mjs';
+  installRoutineDetailRefresh(window,document);
+</script>

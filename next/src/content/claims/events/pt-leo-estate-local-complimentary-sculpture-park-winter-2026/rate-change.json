@@ -1,0 +1,28 @@
+{
+  "claimId": "events/pt-leo-estate-local-complimentary-sculpture-park-winter-2026/rate-change",
+  "claimClass": "rate-change",
+  "subject": {
+    "type": "events",
+    "slug": "pt-leo-estate-local-complimentary-sculpture-park-winter-2026",
+    "field": "freePaid"
+  },
+  "statement": "Complimentary weekday entry to the Pt. Leo Estate Sculpture Park was offered to permanent residents of Mornington Peninsula Shire and Frankston, and to nobody else.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "pt-leo-estate-local-complimentary-sculpture-park-winter-2026",
+      "field": "freePaid"
+    },
+    {
+      "type": "articles",
+      "slug": "insider-picks-2026-07-30"
+    },
+    {
+      "type": "articles",
+      "slug": "insider-picks-2026-08-27"
+    }
+  ],
+  "createdAt": "2026-09-13",
+  "origin": "authored",
+  "note": "This is the third reading of entry in the corpus, and it is the narrow one: time limited, weekdays only, residents only. It is the reason the free assertions elsewhere look defensible at a glance and are not. The offer window has passed, so any surface still presenting it as available is wrong. Authored by hand for the PI-005 Stage 2 pilot on the Pt. Leo Estate sculpture park cluster. Sources were read on 2026-09-13; see ops/reports/claims/2026-09-13-pilot-pt-leo-sculpture-park.md."
+}

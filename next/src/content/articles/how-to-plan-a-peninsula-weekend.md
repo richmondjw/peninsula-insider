@@ -5,14 +5,25 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-10
 heroImage:
-  src: "/images/sourced/article-orientation-drive-01.webp"
-  alt: "A notebook and coffee on a table with a Peninsula map and vineyard views through the window - representative image"
-  credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  src: "/images/generated/coastal-punch-planning.webp"
+  alt: "Conceptual travellers considering an unlabelled folded map beside an abstract bay."
+  credit: "Illustration: Peninsula Insider"
+  license: "other-licensed"
+  caption: ""
+  depicts: "Conceptual travellers considering an unlabelled folded map beside an abstract bay."
+  depictionStatus: "illustrative"
+  creator: "Peninsula Insider, AI-assisted"
+  permission: "Original AI-assisted artwork created for Peninsula Insider; website rollout approved by James on 2026-10-09."
+  permittedUses: ["website"]
+  rightsHolder: "Peninsula Insider"
+  rightsEstablishedOn: "2026-10-09"
+  rightsStatus: "recorded"
+  provenanceReview: "verified"
+  decorative: false
 format: "service"
 tags: ["planning", "weekend", "guide", "accommodation", "booking", "first-timers", "couples", "family", "groups", "all-year"]
 relatedVenues: ["ten-minutes-by-tractor", "montalto", "tedesca-osteria", "merricks-general-wine-store", "lindenderry", "jackalope", "polperro-villas", "crittenden-villas", "hotel-sorrento", "flinders-hotel", "pt-leo-estate", "commonfolk-coffee", "alba-thermal-springs", "peninsula-hot-springs", "the-continental-sorrento", "rare-hare", "paringa-estate", "port-phillip-estate-restaurant", "doot-doot-doot"]
-relatedExperiences: ["arthurs-seat-lookout", "point-nepean-national-park", "sorrento-back-beach", "mornington-foreshore-walk", "bushrangers-bay-walk", "pt-leo-sculpture-park", "montalto-sculpture-trail", "red-hill-market", "cape-schanck-lighthouse-walk"]
+relatedExperiences: ["arthurs-seat-lookout", "point-nepean-national-park", "sorrento-back-beach", "mornington-foreshore-walk", "bushrangers-bay-walk", "pt-leo-sculpture-park", "montalto-sculpture-trail", "cape-schanck-lighthouse-walk"]
 readingTimeMinutes: 8
 featured: false
 status: "published"
@@ -67,7 +78,7 @@ The accommodation decision locks in your geography for the weekend. Make it earl
 
 **The hinterland (Red Hill, Main Ridge, Merricks).** Stay here if the weekend is about food and wine. You will be within fifteen minutes of the best restaurants, the cellar doors, and the producer trail. The mornings are misty, the evenings are quiet, and the landscape is vineyard and bushland. Options: **Lindenderry** (country house), **Jackalope** (design hotel), **Polperro Villas** or **Crittenden Villas** (vineyard cottages), or Airbnb rentals in the Red Hill area.
 
-**The coast (Sorrento, Portsea).** Stay here if the weekend is about the beach, the village atmosphere, and the view. You will be further from the wineries but closer to the ocean, the ferry, and Point Nepean. **Hotel Sorrento** for the village centre, **The Continental** for the upgrade, rental houses along the cliff for the view.
+**The coast (Sorrento, Portsea).** Stay here if the weekend is about the beach, the village atmosphere, and the view. You will be further from the wineries but closer to the ocean, the ferry, and Point Nepean. **Hotel Sorrento** for the village centre, **InterContinental Sorrento** for a hotel stay beside the Continental dining precinct, rental houses along the cliff for the view.
 
 **The bay side (Mornington, Mount Martha, Dromana).** The cheaper option and the one that works best for families. Closer to Melbourne, closer to the freeway, and the bay beaches are gentler for children. Holiday rentals in Dromana and Rosebud are significantly cheaper than the hinterland or the coast.
 
@@ -87,7 +98,7 @@ Every Peninsula weekend has one anchor meal, the lunch or dinner that the trip i
 - **Port Phillip Estate / Pt Leo Estate.** Two sister properties with serious dining rooms and coastal views. The more formal end of the Peninsula lunch.
 - **Rare Hare** at Willow Creek. A vineyard bistro that handles a group lunch with more flexibility than the fine-dining options.
 
-**For a Saturday dinner:** Fewer options than lunch, because the Peninsula's dining scene runs on daylight. **Doot Doot Doot** at Jackalope is the dedicated evening restaurant. **Hotel Sorrento** and **The Continental** serve dinner. **Paringa Estate** does Friday and Saturday evenings.
+**For a Saturday dinner:** Fewer options than lunch, because the Peninsula's dining scene runs on daylight. **Doot Doot Doot** at Jackalope is the dedicated evening restaurant. **Hotel Sorrento** serves dinner, and the Continental precinct has separate dining options such as Ember and The Conti Bar. **Paringa Estate** does Friday and Saturday evenings.
 
 **For a Sunday lunch:** The exit meal. Something relaxed on the way home. **Merricks General Wine Store** for pizza and local wine. **Commonfolk** in Mornington for coffee and a light meal. **Montalto** if you want to repeat the Saturday format at a calmer tempo.
 
@@ -101,12 +112,12 @@ With accommodation and the anchor meal locked in, fill the remaining time. The r
 - **Arthurs Seat Eagle**, gondola to the summit (1 hour)
 - A cellar door, **Polperro**, **Montalto**, or **Crittenden** (45 minutes each)
 - A producer visit, **Red Hill Cheese**, **Main Ridge Dairy** (30 minutes)
-- **Red Hill Market**, first Saturday of the month only (1–2 hours)
+- **Hill & Ridge Community Market**, only on a confirmed organiser date (allow 1–2 hours; 3 October 2026 is currently listed, 9am–2pm)
 - **Alba Thermal Springs** or **Peninsula Hot Springs**, morning session (2 hours including drive)
 
 **Afternoon moves (after lunch):**
 - A beach walk, **Sorrento Back Beach**, **Mount Martha** (30–60 minutes)
-- **Pt Leo Sculpture Park**, free, coastal, contemplative (1 hour)
+- **Pt Leo Sculpture Park**, ticketed, coastal, contemplative (1 hour)
 - **Point Nepean National Park**, the fort walk to the tip (2 hours)
 - **Mornington Peninsula Gallery**, free, indoor, good for a rainy afternoon (45 minutes)
 - A second cellar door, only if the first one was short
@@ -126,7 +137,7 @@ The decisions that people agonise over but shouldn't.
 
 **What to pack.** Walking shoes, a jacket (the ridge is cooler than Melbourne even in summer), swimmers, a cooler bag for producer purchases, and a corkscrew. If staying in a rental, bring breakfast supplies, the nearest good café might be twenty minutes away.
 
-**How much it costs.** Accommodation and the anchor meal carry most of the weekend; activities are the smallest line, and several of the best (beaches, the gallery, Pt Leo Sculpture Park) are free. A splurge couple's weekend costs roughly double the mid-range version. A family rental with a kitchen, or a group house split between friends, is the cheapest way in per head.
+**How much it costs.** Accommodation and the anchor meal carry most of the weekend; activities are the smallest line, and several of the best (beaches, the gallery) are free. A splurge couple's weekend costs roughly double the mid-range version. A family rental with a kitchen, or a group house split between friends, is the cheapest way in per head.
 
 ## The skeleton plan
 

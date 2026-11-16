@@ -1,0 +1,18 @@
+{
+  "evidenceId": "data-facts/beaches/mornington-peninsula-national-park/access-restriction-914fddd2",
+  "claim": "data-facts/beaches/mornington-peninsula-national-park/access-restriction",
+  "stance": "supports",
+  "publisher": {
+    "kind": "gov"
+  },
+  "retrievedAt": "2026-01-01",
+  "expiresAt": "2026-01-31",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/data/facts/beaches.json",
+    "field": "activeAlerts[1].source",
+    "value": "https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park/things-to-do/ocean-beaches",
+    "dateField": "dateSince"
+  },
+  "url": "https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park/things-to-do/ocean-beaches"
+}

@@ -1,5 +1,4 @@
 ---
-slug: "weddings-where-guests-stay-mornington-peninsula"
 title: "Where Wedding Guests Should Stay on the Mornington Peninsula"
 dek: "The best towns, hotels, and guest-base logic for a Peninsula wedding weekend, from Red Hill winery weddings to Sorrento coastal celebrations."
 author: "editorial"
@@ -88,7 +87,7 @@ The closer you can keep the accommodation to the event centre of gravity, the st
 
 ## What good guest accommodation actually needs to do
 
-For a Peninsula wedding, guest accommodation should ideally do at least three things well:
+For a Peninsula wedding, guest accommodation should get these things right:
 - make transport easier
 - feel pleasant enough that the weekend still feels like a treat
 - support the moments around the wedding, not just the overnight stay

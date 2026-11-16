@@ -165,6 +165,9 @@ both.
 | Editorial | 1.8:1 | 572×318 | 1144×636 |
 | Day card | 1.36:1 | 240×176 | 480×352 |
 
+Source: the licensed Visit Victoria library first
+(`node ops/scripts/visit-victoria/find-images.mjs "<venue slug>" --channel email`); its credit
+line ("Photo · <Creator>, courtesy of Visit Victoria") sits directly under the image.
 Rules: real photography only (no illustration, no stock composites); JPEG, quality 72–78,
 each file under 220KB; hosted at `https://peninsulainsider.com.au/images/email/<slug>.jpg`;
 descriptive alt text written as a sentence (it is read aloud and shown when images are

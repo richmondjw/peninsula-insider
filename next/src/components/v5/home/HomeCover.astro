@@ -1,213 +1,152 @@
 ---
-/**
- * HomeCover - block 2 of the v5 homepage (page-redesigns.md section 1,
- * hierarchy item 2).
- *
- * One Editor-voice masthead statement (the page's single h1, <= 18 words,
- * carries "Mornington Peninsula" server-rendered for search) plus the date
- * context line ("Friday 11 July · winter on the Peninsula"). Date and
- * season are computed at build time on the Melbourne clock; no client JS,
- * no motion.
- *
- * The statement is CMS-editable: override slot (page/home, cover.statement)
- * is resolved server-side so editor rewrites survive rebuilds.
- *
- * The hero photo has a slow CSS-only Ken Burns zoom (2026-08-17, James)
- * for visual "buzz" on the masthead. Still no client JS: the motion is a
- * pure transform:scale() keyframe animation, GPU-compositor only, and it
- * backs off automatically under prefers-reduced-motion.
- */
+import { cleanCaption, isArtwork } from '../../../lib/image-caption.mjs';
 import { editableText, editableImage } from '../../../lib/inline-edit/attrs';
 import { loadOverrides } from '../../../lib/inline-edit/overrides';
-import { getSeason } from '../../../lib/edition';
-
-const DEFAULT_STATEMENT = 'The Mornington Peninsula, sorted.';
-
-// Hero photograph behind the masthead statement. Swappable via the inline
-// CMS (right-click replace) and resolved through the page/home override
-// slot so an editor's replacement survives rebuilds.
-const DEFAULT_HERO_SRC = '/images/sourced/home-cover-cape-schanck-rainbow-01.webp';
-const DEFAULT_HERO_ALT =
-  'A rainbow arcs over the bay at Cape Schanck on a still winter morning, Mornington Peninsula';
-
+import { SHOW_ASK_PI } from '../../../lib/features';
+import { getCollection } from 'astro:content';
+import { isListableVenue } from '../../../lib/editorial';
+import { checkedSpan } from '../../../lib/checked-span';
+// Trust line: how many places the guide covers and when they were last checked.
+const listed = (await getCollection('venues')).filter(isListableVenue);
+const checked = checkedSpan(listed.map((v) => v.data));
+const original = {
+  src: '/images/visit-victoria/vv-143799-cape-schanck.webp',
+  alt: 'Scrubby cliffs at Cape Schanck falling to a rocky shore and sunlit sea, with the lighthouse on the headland above',
+  caption: 'Cape Schanck, Mornington Peninsula.',
+  credit: 'Peter Tarasiuk, courtesy of Visit Victoria',
+};
 const overrides = await loadOverrides('page', 'home');
-const statement = overrides.text['cover.statement'] ?? DEFAULT_STATEMENT;
-
-const heroOverride = overrides.image['cover.image'];
-const heroSrc = heroOverride?.src ?? DEFAULT_HERO_SRC;
-const heroAlt = heroOverride?.alt ?? DEFAULT_HERO_ALT;
-
-if (statement.trim().split(/\s+/).length > 18) {
-  console.warn('[v5 home] cover statement over 18 words; trim it (page-redesigns.md 1.9)');
+const published = overrides.image['cover.image'];
+const replacement = published?.src && published.alt?.trim() && published.credit?.trim() ? published : undefined;
+const photo = replacement ?? original;
+const statement = overrides.text['cover.statement'] ?? 'Make a day of the Peninsula.';
+const credit = photo.credit?.trim().replace(/\.$/, '') ?? '';
+const creditLine = /illustration/i.test(credit) ? credit + '.' : /^Courtesy of /i.test(credit) ? 'Photo courtesy of ' + credit.slice('Courtesy of '.length) + '.' : 'Photo: ' + credit + '.';
+---
+<section class="home-cover" aria-label="Your Peninsula starts here">
+  <figure class="home-cover__plate">
+    <img class="home-cover__media" data-pi-avif="true" src={photo.src} data-pi-responsive="100vw" alt={photo.alt} width="1280" height="853" fetchpriority="high" loading="eager" decoding="async" data-pi-no-hydrate="true" data-pi-requires-image-metadata="true" {...editableImage({entityType:'page',entitySlug:'home',fieldPath:'cover.image',label:'Cover image',purpose:'hero'})} />
+    {!isArtwork(photo) && <figcaption>{cleanCaption(photo.caption).replace(/\.$/, '')}. {creditLine}</figcaption>}
+  </figure>
+  <div class="home-cover__content">
+    <p class="home-cover__eyebrow">The independent guide to the Mornington Peninsula</p>
+    <h1 class="home-cover__statement" {...editableText({entityType:'page',entitySlug:'home',fieldPath:'cover.statement',label:'Cover statement'})}>{statement === 'Make a day of the Peninsula.' ? <>Make a day<br />of the<br />Peninsula.</> : statement}</h1>
+    <p class="home-cover__promise">An independent local guide to where to eat, stay and explore, and how to put the day together.</p>
+    <nav class="home-cover__actions" aria-label="Start planning your Peninsula visit"><a href="#home-choose">Find a ready-made day <span aria-hidden="true">&#8595;</span></a></nav>
+    <p class="home-cover__trust">Places chosen by our editors{checked ? `, ${checked}` : ''}. Never paid for. <a href="/about/#how-we-choose">How we choose</a></p>
+  </div>
+  {SHOW_ASK_PI && (
+    <a class="home-cover__ask" href="/ask/" data-pi-popup aria-haspopup="dialog" aria-label="Ask PI, your Peninsula local">
+      <svg class="home-cover__ask-art" viewBox="0 0 310 310" width="46" height="46" fill="currentColor" aria-hidden="true">
+        <path d="M100 143C88 88 118 44 162 42c40-2 66 18 70 44-22 14-62 29-132 57z"/>
+        <path d="M28 205c10-27 62-55 122-73 45-14 85-40 112-60 16-10 28-2 24 20-6 38-22 70-46 92-10-16-26-26-42-26-48 12-108 37-153 54-13 4-20-1-17-7z"/>
+        <path d="M60 214c-14 22 6 34-6 56 16 6 30-6 30-20 6 14 22 22 36 12-12-12-2-26-8-40 12 12 30 14 40 4-10-8-8-22-4-32-28 4-60 12-88 20z"/>
+        <path d="M196 166c8 20 0 38-12 48 14 0 26 8 30 22" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/>
+        <path d="M120 282c30-42 85-68 142-62-12 10-57 20-112 64z"/>
+        <path class="home-cover__spark" d="M292 18l4.5 13.5L310 36l-13.5 4.5L292 54l-4.5-13.5L274 36l13.5-4.5z"/>
+        <path class="home-cover__spark" d="M104 6l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/>
+        <path class="home-cover__spark" d="M20 150l2.5 7.5L30 160l-7.5 2.5L20 170l-2.5-7.5L10 160l7.5-2.5z"/>
+      </svg>
+      <span class="home-cover__ask-text"><span>Ask PI</span><small>Your Peninsula local</small></span>
+    </a>
+  )}
+  <a class="home-cover__story" href="/explore/plans/flinders-and-cape-reset/">
+    <span class="home-cover__story-label">Start with the coast</span>
+    <strong>Flinders &amp; the Cape</strong>
+    <span>Coastal walks and one excellent meal.</span>
+    <b aria-hidden="true">&#8599;</b>
+  </a>
+</section>
+<nav class="home-cover-paths" aria-label="Find your Peninsula">
+  <a href="/eat/">Eat &amp; drink <span aria-hidden="true">&#8599;</span></a>
+  <a href="/wine/">Wine country <span aria-hidden="true">&#8599;</span></a>
+  <a href="/explore/">Get outside <span aria-hidden="true">&#8599;</span></a>
+  <a href="/whats-on/this-weekend/">This weekend <span aria-hidden="true">&#8599;</span></a>
+</nav>
+<script>
+  // The corner "Ask PI" pill steps aside while the cover badge is on screen.
+  let seen: IntersectionObserver | null = null;
+  function watchAskBadge() {
+    seen?.disconnect();
+    document.documentElement.classList.remove('pi-hero-ask');
+    const badge = document.querySelector('.home-cover__ask');
+    if (!badge || !('IntersectionObserver' in window)) return;
+    seen = new IntersectionObserver(([e]) => document.documentElement.classList.toggle('pi-hero-ask', e.isIntersecting));
+    seen.observe(badge);
+  }
+  document.addEventListener('astro:page-load', watchAskBadge);
+</script>
+<style>
+.home-cover{padding:0;position:relative;isolation:isolate;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);background:#0b2e4a;color:white;overflow:hidden;min-height:39.5rem}
+.home-cover__plate{position:absolute;inset:0;margin:0;z-index:-2}.home-cover__media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
+.home-cover:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(4,27,39,.84),rgba(4,27,39,.5) 34%,transparent 58%),linear-gradient(0deg,rgba(4,27,39,.3),transparent 40%)}
+.home-cover__content{position:relative;z-index:1;padding:3.75rem 1.5rem 4.75rem max(2rem,calc((var(--page-vw,100vw) - 1280px)/2));min-width:0;align-self:center}
+.home-cover__eyebrow{font:600 .6875rem/1.6 var(--font-ui);letter-spacing:.09em;text-transform:uppercase;margin:0 0 1.625rem;color:#fff}
+:global(body[data-anchor-page][data-path="/"] #main-content) .home-cover__statement{font:600 clamp(4rem,calc(var(--page-vw,100vw) * .064),5.75rem)/1.02 var(--font-display);letter-spacing:-.065em;max-width:11ch;margin:0 0 1.625rem;color:white;text-wrap:initial;overflow-wrap:anywhere}
+.home-cover__promise{font:400 1.3125rem/1.45 var(--font-ui);max-width:30ch;margin:0 0 1.5rem;color:white}
+.home-cover__trust{margin:1.125rem 0 0;max-width:34ch;font:400 .9375rem/1.5 var(--font-ui);color:rgba(255,255,255,.92)}.home-cover__trust a{color:#fff;font-weight:600;text-underline-offset:.2em;white-space:nowrap}
+.home-cover__actions a{display:inline-flex;align-items:center;justify-content:space-between;gap:1.75rem;min-height:3.25rem;padding:.875rem 1.5rem;border-radius:100px;background:white;color:#0b2e4a;text-decoration:none;font:600 1rem/1.4 var(--font-ui)}.home-cover__actions span{font-size:1.5rem}
+.home-cover__story{position:relative;align-self:end;justify-self:end;margin:0 max(2rem,calc((var(--page-vw,100vw) - 1280px)/2)) 4rem 1.5rem;max-width:21rem;display:grid;gap:.375rem;padding:1.375rem 3.25rem 1.375rem 1.5rem;background:#f2efea;color:#0b2e4a;border-radius:6px;text-decoration:none;min-width:0}
+.home-cover__story-label{font:600 .6875rem/1.4 var(--font-ui);letter-spacing:.1em;text-transform:uppercase;color:#10527e}.home-cover__story strong{font:600 1.5rem/1.2 var(--font-display);letter-spacing:-.035em}.home-cover__story>span:last-of-type{font:400 .9375rem/1.4 var(--font-ui)}.home-cover__story b{position:absolute;right:1.5rem;top:50%;transform:translateY(-50%);font:400 1.75rem/1 var(--font-ui)}
+.home-cover__plate figcaption{position:absolute;right:1rem;bottom:.5rem;z-index:2;background:#0b2e4a;color:white;font:400 .6875rem/1.4 var(--font-ui);padding:.375rem .5625rem;max-width:45ch}
+/* Attribution stays above the decorative scrim, rather than darkening with it. */
+.home-cover__plate{z-index:auto}.home-cover__media{z-index:-2}.home-cover__plate :global(picture){position:absolute;inset:0;z-index:-2}.home-cover__plate :global(picture img){z-index:auto}
+.home-cover a:focus-visible,.home-cover-paths a:focus-visible{outline:3px solid #f5c177;outline-offset:4px}.home-cover__story:focus-visible{outline-color:white}.home-cover a:hover strong{text-decoration:underline;text-underline-offset:.2em}
+.home-cover-paths{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));background:#0b2e4a;padding:0 max(2rem,calc((var(--page-vw,100vw) - 1280px)/2))}.home-cover-paths a{display:flex;justify-content:space-between;align-items:center;gap:.75rem;padding:1.375rem 1.25rem;color:white;text-decoration:none;font:600 1rem/1.4 var(--font-ui);border-right:1px solid #315268;min-height:3.25rem}.home-cover-paths a:first-child{padding-left:0}.home-cover-paths a:last-child{border:0;padding-right:0}.home-cover-paths a:hover{text-decoration:underline}
+@media(max-width:47.99em){
+.home-cover{grid-template-columns:minmax(0,1fr);min-height:41.25rem;padding-bottom:3.5rem;gap:4.75rem}.home-cover__content{padding:2.5rem 1.5rem 0;align-self:start}.home-cover__eyebrow{font-size:.625rem;max-width:27ch;margin-bottom:1.75rem}:global(body[data-anchor-page][data-path="/"] #main-content) .home-cover__statement{font-size:clamp(2.75rem,13.85vw,3.375rem);line-height:1.03;max-width:10.5ch;margin-bottom:1.25rem}.home-cover__promise{font-size:1.125rem;line-height:1.5;max-width:25ch;margin-bottom:1.125rem}.home-cover__actions a{font-size:.9375rem;padding:.75rem 1.25rem;min-height:3.125rem;gap:1.5rem}
+.home-cover__media{height:100%;top:0;object-position:96% top}.home-cover:before{background:linear-gradient(90deg,rgba(4,27,39,.88),rgba(4,27,39,.7) 55%,rgba(4,27,39,.25)),linear-gradient(0deg,rgba(4,27,39,.32),transparent 50%)}.home-cover__trust{font-size:.875rem;max-width:30ch}@media(max-width:22.5em){.home-cover__trust{display:none}}
+.home-cover__story{justify-self:stretch;margin:0 1.5rem;max-width:none;padding:1.1875rem 3rem 1.1875rem 1.25rem}.home-cover__story strong{font-size:1.4375rem}.home-cover__story-label{font-size:.625rem}.home-cover__story>span:last-of-type{font-size:.8125rem}.home-cover__plate figcaption{left:0;right:0;bottom:0;max-width:none;font-size:.625rem;padding:.5rem .75rem}
+.home-cover-paths{grid-template-columns:repeat(2,minmax(0,1fr));padding:0 1.25rem}.home-cover-paths a,.home-cover-paths a:first-child,.home-cover-paths a:last-child{font-size:.875rem;padding:1.125rem .625rem;min-height:3.625rem;border-right:1px solid #315268;border-bottom:1px solid #315268}.home-cover-paths a:nth-child(even){border-right:0}.home-cover-paths a:nth-child(n+3){border-bottom:0}
+}
+/* Cover motion (2026-11-13). Shot like a slow drone pass at the Cape: a push-in that drifts
+   toward the lighthouse, sun haze that breathes as thin cloud crosses it, a soft cloud shadow
+   sliding over the cliff, and parallax as the page scrolls. Transform and opacity only, so it
+   stays on the compositor. Reduced-motion readers get the still photograph. */
+/* Clip the moving layers at the plate so they never count as page overflow. */
+.home-cover__plate{overflow:clip}
+@media (prefers-reduced-motion: no-preference){
+.home-cover__media{transform-origin:80% 32%;animation:hc-push 26s cubic-bezier(.45,0,.55,1) .2s infinite alternate both;will-change:transform}
+/* Sun on the figure (painted after the photo, under the scrim); cloud shadow inside the picture. */
+.home-cover__plate:after,.home-cover__plate :global(picture):after{content:"";position:absolute;inset:-10%;pointer-events:none}
+.home-cover__plate:after{z-index:-2;background:radial-gradient(42% 38% at 58% 4%,rgba(255,244,214,.55),rgba(255,236,196,.18) 45%,transparent 70%);mix-blend-mode:screen;animation:hc-sun 9s ease-in-out infinite alternate both}
+.home-cover__plate :global(picture):after{background:radial-gradient(30% 45% at 50% 50%,rgba(6,24,32,.34),transparent 70%);mix-blend-mode:multiply;transform:translate3d(-70%,0,0);animation:hc-cloud 38s linear 3s infinite}
+/* Keep the mobile LCP frame still. The full cinematic pass remains on larger
+   screens, while phones avoid promoting and animating the largest paint. */
+@media(max-width:47.99em){
+.home-cover__media{animation:none;will-change:auto;transform:none}
+.home-cover__plate:after{animation:none;opacity:.72;transform:none}
+.home-cover__plate :global(picture):after{animation:none;opacity:.45;transform:none}
+}
+@keyframes hc-push{from{transform:scale(1.015)}to{transform:scale(1.085) translate3d(-1.6%,.9%,0)}}
+@keyframes hc-sun{from{opacity:.35;transform:translate3d(-2%,0,0)}to{opacity:1;transform:translate3d(2%,1.5%,0)}}
+@keyframes hc-cloud{0%{opacity:0;transform:translate3d(-60%,4%,0)}15%{opacity:1}85%{opacity:1}100%{opacity:0;transform:translate3d(70%,-3%,0)}}
+@supports (animation-timeline:scroll()){
+.home-cover__plate :global(picture){inset:-9% 0 0 0;animation:hc-parallax linear both;animation-timeline:scroll(root);animation-range:0 42rem}
+@keyframes hc-parallax{to{transform:translate3d(0,9%,0)}}
+}
+}
+/* Ask PI badge (2026-11-13): a white line drawing of PI under her hat, floating in the cover's
+   top-right. It bobs, and three sparkles twinkle around the brim; a sheen crosses it now and then.
+   While it is on screen the corner "Ask PI" pill steps aside (html.pi-hero-ask, PiChat.astro). */
+.home-cover__ask{position:absolute;z-index:2;top:1.5rem;right:max(2rem,calc((var(--page-vw,100vw) - 1280px)/2));display:inline-flex;align-items:center;gap:.75rem;padding:.3125rem 1.25rem .3125rem .375rem;border:1px solid rgba(255,255,255,.72);border-radius:100px;background:rgba(4,27,39,.58);-webkit-backdrop-filter:blur(10px) saturate(1.2);backdrop-filter:blur(10px) saturate(1.2);color:#fff;text-decoration:none;overflow:hidden;box-shadow:0 10px 30px -14px rgba(0,0,0,.55);transition:background .25s,border-color .25s}
+:global(html.pi-chat-open) .home-cover__ask{opacity:0;visibility:hidden;pointer-events:none}
+.home-cover__ask:hover{background:rgba(4,27,39,.72);border-color:#fff}
+.home-cover__ask-art{flex:none;display:block;overflow:visible}
+.home-cover__ask-text{display:grid;line-height:1.15;white-space:nowrap}
+.home-cover__ask-text span{font:600 1.1875rem/1.1 var(--font-display);letter-spacing:-.02em}
+.home-cover__ask-text small{font:400 .75rem/1.3 var(--font-ui);opacity:.92}
+.home-cover__spark{transform-box:fill-box;transform-origin:center}
+@media (prefers-reduced-motion: no-preference){
+.home-cover__ask{animation:hc-float 5.5s ease-in-out infinite alternate}
+.home-cover__ask:after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 35%,rgba(255,255,255,.28) 50%,transparent 65%);transform:translateX(-120%);animation:hc-sheen 7s ease-in-out 1.5s infinite;pointer-events:none}
+.home-cover__spark{animation:hc-twinkle 3.6s ease-in-out infinite both}
+.home-cover__spark:nth-of-type(7){animation-delay:1.2s}.home-cover__spark:nth-of-type(8){animation-delay:2.4s}
+.home-cover__ask:hover .home-cover__spark{animation-duration:1.2s}
+@keyframes hc-float{from{transform:translateY(0)}to{transform:translateY(-6px)}}
+@keyframes hc-twinkle{0%,100%{transform:scale(0) rotate(0);opacity:0}18%{transform:scale(1.25) rotate(45deg);opacity:1}36%{transform:scale(.9) rotate(90deg);opacity:.9}55%{transform:scale(0) rotate(135deg);opacity:0}}
+@keyframes hc-sheen{0%,70%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
 }
 
-const now = new Date();
-const dateLabel = now.toLocaleDateString('en-AU', {
-  weekday: 'long',
-  day: 'numeric',
-  month: 'long',
-  timeZone: 'Australia/Melbourne',
-});
-const isoDate = new Intl.DateTimeFormat('en-CA', {
-  timeZone: 'Australia/Melbourne',
-}).format(now);
-const season = getSeason(now).toLowerCase();
----
-
-<section class="home-cover" aria-label="Cover">
-  <img
-    class="home-cover__media"
-    src={heroSrc}
-    alt={heroAlt}
-    fetchpriority="high"
-    decoding="async"
-    width="2400"
-    height="1350"
-    {...editableImage({
-      entityType: 'page',
-      entitySlug: 'home',
-      fieldPath: 'cover.image',
-      label: 'Cover background image',
-      purpose: 'hero',
-    })}
-  />
-  <span class="home-cover__scrim" aria-hidden="true"></span>
-  <div class="container home-cover__inner">
-    <p class="home-cover__eyebrow">{season} on the Peninsula</p>
-    <h1
-      class="home-cover__statement"
-      {...editableText({
-        entityType: 'page',
-        entitySlug: 'home',
-        fieldPath: 'cover.statement',
-        label: 'Cover statement',
-      })}
-    >
-      {statement}
-    </h1>
-    <p class="home-cover__context">
-      <time datetime={isoDate}>{dateLabel}</time>
-    </p>
-    <div class="home-cover__actions">
-      <a class="pi-btn pi-btn--solid pi-btn--lg pi-btn--inverse" href="/whats-on/">See this weekend</a>
-      <a class="pi-btn pi-btn--ghost pi-btn--lg pi-btn--inverse" href="/search/" data-open-search data-evt="search_open">Search</a>
-    </div>
-  </div>
-</section>
-
-<style>
-  /* Immersive giant-type hero over a full-bleed Peninsula landscape. The
-     photo sits under a forest-teal scrim, weighted to the lower-left where
-     the statement, date, and CTAs live, so the white type stays legible
-     while the headland and sky read through. Tokens only. */
-  .home-cover {
-    position: relative;
-    isolation: isolate;
-    overflow: hidden;
-    background: var(--bg-deep);
-    padding: clamp(3rem, 9vw, 6.4rem) 0;
-  }
-
-  .home-cover__media {
-    position: absolute;
-    inset: 0;
-    z-index: -2;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    object-fit: cover;
-    /* Bias upward so the horizon, headland, and rainbow stay in frame
-       rather than centring on empty water. */
-    object-position: center 38%;
-    /* Ken Burns: slow compositor-only zoom, no JS. .home-cover has
-       overflow:hidden so the scaled-up edges never show. */
-    animation: home-cover-kenburns 36s ease-in-out infinite alternate;
-    will-change: transform;
-  }
-
-  @keyframes home-cover-kenburns {
-    from { transform: scale(1); }
-    to { transform: scale(1.08); }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .home-cover__media {
-      animation: none;
-    }
-  }
-
-  .home-cover__scrim {
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-    background:
-      linear-gradient(
-        180deg,
-        color-mix(in srgb, var(--bg-deep) 28%, transparent) 0%,
-        color-mix(in srgb, var(--bg-deep) 52%, transparent) 55%,
-        color-mix(in srgb, var(--bg-deep) 86%, transparent) 100%
-      ),
-      linear-gradient(
-        90deg,
-        color-mix(in srgb, var(--bg-deep) 62%, transparent) 0%,
-        color-mix(in srgb, var(--bg-deep) 26%, transparent) 46%,
-        transparent 78%
-      );
-  }
-
-  .home-cover__inner {
-    position: relative;
-  }
-
-  .home-cover__eyebrow {
-    margin: 0 0 var(--space-4);
-    font-family: var(--font-ui);
-    font-size: var(--fs-100);
-    font-weight: var(--fw-semibold);
-    letter-spacing: var(--ls-eyebrow);
-    text-transform: uppercase;
-    color: var(--mint);
-  }
-
-  .home-cover__statement {
-    margin: 0;
-    max-width: 18ch;
-    font-family: var(--font-display);
-    font-weight: var(--fw-display);
-    font-size: var(--fs-950);
-    line-height: var(--lh-display);
-    letter-spacing: var(--ls-display);
-    color: var(--white);
-    text-wrap: balance;
-    text-shadow: 0 1px 28px color-mix(in srgb, var(--bg-deep) 55%, transparent);
-  }
-
-  .home-cover__context {
-    margin: var(--space-5) 0 0;
-    font-family: var(--font-ui);
-    font-size: var(--fs-300);
-    line-height: var(--lh-ui);
-    color: var(--soft-inverse);
-    letter-spacing: 0.02em;
-  }
-
-  .home-cover__actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-3);
-    margin-top: var(--space-6);
-  }
-  /* Narrow phones: stack the hero CTAs full-width so they are easy thumb
-     targets instead of two half-stranded pills. */
-  @media (max-width: 26em) {
-    .home-cover__actions { flex-direction: column; align-items: stretch; }
-  }
-
-
-  @media (max-width: 47.94em) {
-    .home-cover {
-      padding: clamp(2.5rem, 12vw, 4rem) 0;
-    }
-  }
+@media(max-width:47.99em){.home-cover__ask{top:1rem;right:1rem;gap:.5rem;padding:.25rem 1rem .25rem .25rem}.home-cover__ask-art{width:38px;height:38px}.home-cover__ask-text span{font-size:1.0625rem}.home-cover__ask-text small{display:none}}
 </style>

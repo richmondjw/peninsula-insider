@@ -1,0 +1,19 @@
+{
+  "updatedAt": "2026-09-14T00:18:52.433Z",
+  "assertedMetrics": [
+    "unledgeredMigration",
+    "orphanedLedgerEntry",
+    "malformedLedgerEntry",
+    "ddlInExcludedDirectory",
+    "unknownStateMigration",
+    "uncreatedTable"
+  ],
+  "ceilings": {
+    "unledgeredMigration": 0,
+    "orphanedLedgerEntry": 0,
+    "malformedLedgerEntry": 0,
+    "ddlInExcludedDirectory": 0,
+    "unknownStateMigration": 33,
+    "uncreatedTable": 0
+  }
+}

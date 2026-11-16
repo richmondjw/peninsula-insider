@@ -1,0 +1,75 @@
+{
+  "generatedAt": "2026-09-13T08:39:23.405Z",
+  "assertedMetrics": [
+    "publishPathStampsCheckDate",
+    "visitWithoutVisitRecord",
+    "checkedOnWithoutSource",
+    "hardcodedVerificationDate"
+  ],
+  "totals": {
+    "publishPathStampsCheckDate": 0,
+    "visitWithoutVisitRecord": 0,
+    "checkedOnWithoutSource": 0,
+    "hardcodedVerificationDate": 11
+  },
+  "publishPathStampsCheckDate": [],
+  "visitWithoutVisitRecord": [],
+  "checkedOnWithoutSource": [],
+  "hardcodedVerificationDate": [
+    {
+      "file": "next/src/pages/boating/tides-safety/index.astro",
+      "line": 10,
+      "code": "const lastVerifiedISO = '2026-04-30';"
+    },
+    {
+      "file": "next/src/pages/explore/day-trips.astro",
+      "line": 158,
+      "code": "<p><em>Last fact-verified 23 April 2026</em></p>"
+    },
+    {
+      "file": "next/src/pages/explore/family-friendly.astro",
+      "line": 138,
+      "code": "<p><em>Last fact-verified 23 April 2026</em></p>"
+    },
+    {
+      "file": "next/src/pages/explore/getting-around.astro",
+      "line": 142,
+      "code": "<p><em>Last fact-verified 23 April 2026</em></p>"
+    },
+    {
+      "file": "next/src/pages/explore/getting-here.astro",
+      "line": 162,
+      "code": "<p><em>Last fact-verified 23 April 2026</em></p>"
+    },
+    {
+      "file": "next/src/pages/explore/hot-springs.astro",
+      "line": 105,
+      "code": "const lastVerified = '17 May 2026';"
+    },
+    {
+      "file": "next/src/pages/explore/map.astro",
+      "line": 177,
+      "code": "<p><em>Last fact-verified 23 April 2026</em></p>"
+    },
+    {
+      "file": "next/src/pages/explore/rainy-day.astro",
+      "line": 130,
+      "code": "<p><em>Last fact-verified 23 April 2026</em></p>"
+    },
+    {
+      "file": "next/src/pages/explore/spas-and-wellness.astro",
+      "line": 415,
+      "code": "<p><em>Alba entry checked against its official spa menu and FAQs on 7 September 2026. The remaining entries were last fact-verified on 23 April 2026 and are bei"
+    },
+    {
+      "file": "next/src/pages/partners/project-dashboard.astro",
+      "line": 33,
+      "code": "<p class=\"evidence-note\">Status comes from the governed planning evidence listed below. Last verified 6 September 2026.</p>"
+    },
+    {
+      "file": "next/src/pages/pi-admin/precision-sprint/index.astro",
+      "line": 56,
+      "code": "evidence: 'The empty state now acknowledges continuing multi-day events instead of saying nothing is on. All 85 active event records were re-audited against a n"
+    }
+  ]
+}

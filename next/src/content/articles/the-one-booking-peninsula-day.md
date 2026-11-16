@@ -5,10 +5,24 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-06-01
 heroImage:
-  src: "/images/sourced/article-red-hill-saturday-01.webp"
-  alt: "A quiet morning on the Peninsula, the kind that earns the afternoon"
-  credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  src: "/images/visit-victoria/vv-160359-montalto.webp"
+  alt: "The restaurant at Montalto with white umbrellas along its deck, set above a broad sloping lawn under a blue sky with cloud"
+  credit: "Two Palms Australia, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula"
+  depicts: "Montalto"
+  depictionStatus: "illustrative"
+  creator: "Two Palms Australia"
+  sourceUrl: "Victoria Content Hub asset 160359, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "editors-letter"
 section: "plans"
 tags: ["slow-peninsula", "one-booking", "pacing", "planning", "long-lunch"]
@@ -41,7 +55,7 @@ The best Peninsula days follow this sequence: a walk, then a table.
 
 The walk does not need to be serious - a 40-minute circuit is enough. It gives the day a physical quality that makes the lunch feel earned rather than default. It makes the first glass of wine sit differently. It gives you something to talk about at the table that is not the car park.
 
-Bushrangers Bay before a Main Ridge lunch. The Mornington Peninsula National Park coastal track before Flinders. The Red Hill market loop before a cellar door at Merricks General Wine Store.
+Bushrangers Bay before a Main Ridge lunch. The Mornington Peninsula National Park coastal track before Flinders. A Red Hill producer stop before a cellar door at Merricks General Wine Store.
 
 The structure is the point, not the specific walk.
 
@@ -61,7 +75,7 @@ If you are making one booking for a Peninsula day, make it the meal.
 
 The cellar doors can accommodate walk-ins, especially mid-week and in the shoulder and winter seasons. The walks do not require booking. The bakeries, the markets, the coastal stops - all of these are available without advance planning.
 
-The one thing that genuinely benefits from a reservation is the dining room. The hatted rooms - Laura, Tedesca, Ten Minutes by Tractor, Barragunda - book weeks ahead. But the second tier - Montalto, Polperro, Paringa Estate, Foxeys Hangout - is bookable within a week or two for most weekend slots, and walk-in accessible on weekday lunches.
+The one thing that genuinely benefits from a reservation is the dining room. The hatted rooms - Laura, Tedesca, Ten Minutes by Tractor, Barragunda - book weeks ahead. But the second tier - Montalto, Polperro, Paringa Estate, Foxeys Hangout - is bookable within a week or two for most weekend slots, but weekday opening and availability vary. Polperro Restaurant and Cellar Door are closed on Mondays and Tuesdays; book its restaurant separately.
 
 Book one of these. Leave the rest open.
 

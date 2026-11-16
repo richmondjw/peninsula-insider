@@ -1,7 +1,7 @@
 /**
  * Peninsula Insider - inline editor client.
  *
- * Loads on every public page (via BaseLayout). When a signed-in admin is
+ * Loads after authentication (via BaseLayout). When a signed-in admin is
  * detected, renders an "Edit mode" toggle. When edit mode is on, decorates
  * elements marked with `data-pi-edit` to be edited in place:
  *
@@ -24,19 +24,46 @@
  */
 
 import { getSupabase, isAuthEnabled } from '../auth';
+import inlineEditorStylesUrl from '../../styles/inline-edit.css?url';
+import imageQuarantine from '../../data/cms-image-quarantine.json';
+import { imagePresentationText } from '../image-presentation.mjs';
 
 type Tone = 'ok' | 'err' | 'info';
 
 const STORAGE_BUCKET = 'cms-assets';
 const EDIT_MODE_FLAG = 'pi.editMode';
+const EDITOR_STYLES_ID = 'pi-inline-editor-styles';
 
 let editMode = false;
 let isAdmin = false;
+let authSubscriptionInstalled = false;
 let toggleEl: HTMLButtonElement | null = null;
 let themeToggleEl: HTMLButtonElement | null = null;
+let adminToolsEl: HTMLDivElement | null = null;
 let menuEl: HTMLDivElement | null = null;
 let toastEl: HTMLDivElement | null = null;
 let toastTimer: ReturnType<typeof setTimeout> | null = null;
+
+function ensureEditorStyles(): Promise<boolean> {
+  let link = document.getElementById(EDITOR_STYLES_ID) as HTMLLinkElement | null;
+  if (link?.sheet) return Promise.resolve(true);
+
+  if (!link) {
+    link = document.createElement('link');
+    link.id = EDITOR_STYLES_ID;
+    link.rel = 'stylesheet';
+    link.href = inlineEditorStylesUrl;
+  }
+
+  return new Promise((resolve) => {
+    link!.addEventListener('load', () => resolve(true), { once: true });
+    link!.addEventListener('error', () => {
+      link!.remove();
+      resolve(false);
+    }, { once: true });
+    if (!link!.isConnected) document.head.appendChild(link!);
+  });
+}
 
 // Install event delegation immediately at module load. Handlers all check
 // `editMode` and `isAdmin` internally before doing anything, so this is a
@@ -83,10 +110,17 @@ export async function bootInlineEditor(): Promise<void> {
   }
   if (!isAdmin) return;
 
+  // Load admin chrome before it can appear, including after view transitions.
+  if (!(await ensureEditorStyles())) {
+    console.warn('[pi-edit] editor stylesheet failed to load');
+    return;
+  }
+
   // Mount/restore the floating toggle. Astro's <ClientRouter /> swaps
   // <body> on soft navigations, so any DOM we appended is gone - we
   // re-render on every page-load event. Delegation is installed at module
   // load above, so no per-boot install needed here.
+  mountAdminTools();
   mountToggle();
   mountThemeToggle();
 
@@ -106,19 +140,50 @@ export async function bootInlineEditor(): Promise<void> {
   void applyOverridesOnLoad();
 
   // If the session ends mid-page, hide the chrome.
-  supa.auth.onAuthStateChange((event) => {
-    if (event === 'SIGNED_OUT') {
-      isAdmin = false;
-      setEditMode(false);
-      ensureToggleRemoved();
-      ensureThemeToggleRemoved();
-    }
-  });
+  if (!authSubscriptionInstalled) {
+    authSubscriptionInstalled = true;
+    supa.auth.onAuthStateChange((event) => {
+      if (event === 'SIGNED_OUT') {
+        isAdmin = false;
+        setEditMode(false);
+        ensureToggleRemoved();
+        ensureThemeToggleRemoved();
+      }
+    });
+  }
 }
 
 function ensureToggleRemoved() {
+  document.querySelectorAll('.pi-admin-tools').forEach((n) => n.remove());
+  adminToolsEl = null;
   document.querySelectorAll('.pi-edit-toggle').forEach((n) => n.remove());
   toggleEl = null;
+}
+
+// A compact, closed-by-default disclosure keeps editorial chrome out of the
+// reading experience. It is mounted only after the existing allowlist gate.
+function mountAdminTools() {
+  const existing = document.querySelector<HTMLDivElement>('.pi-admin-tools');
+  if (existing) { adminToolsEl = existing; return; }
+  adminToolsEl = document.createElement('div');
+  adminToolsEl.className = 'pi-admin-tools';
+  adminToolsEl.innerHTML = '<button type="button" class="pi-admin-tools__tab" aria-expanded="false" aria-controls="pi-admin-tools-panel" aria-label="Open admin tools">Admin</button><section id="pi-admin-tools-panel" class="pi-admin-tools__panel" aria-label="Admin tools" hidden><div class="pi-admin-tools__heading"><span>Admin tools</span><button type="button" class="pi-admin-tools__close" aria-label="Close admin tools">×</button></div></section>';
+  adminToolsEl.querySelector('.pi-admin-tools__tab')!.addEventListener('click', () => {
+    setAdminToolsOpen(adminToolsEl?.querySelector('button')?.getAttribute('aria-expanded') !== 'true');
+  });
+  adminToolsEl.querySelector('.pi-admin-tools__close')!.addEventListener('click', () => setAdminToolsOpen(false, true));
+  document.body.appendChild(adminToolsEl);
+}
+
+function setAdminToolsOpen(open: boolean, restoreFocus = false) {
+  const tab = adminToolsEl?.querySelector<HTMLButtonElement>('.pi-admin-tools__tab');
+  const panel = adminToolsEl?.querySelector<HTMLElement>('.pi-admin-tools__panel');
+  if (!tab || !panel) return;
+  tab.setAttribute('aria-expanded', String(open));
+  tab.setAttribute('aria-label', open ? 'Close admin tools' : 'Open admin tools');
+  panel.hidden = !open;
+  if (open) panel.querySelector<HTMLButtonElement>('.pi-edit-toggle')?.focus();
+  else if (restoreFocus) tab.focus();
 }
 
 // --------------------------------------------------------------------------
@@ -169,7 +234,7 @@ function mountThemeToggle() {
   themeToggleEl.addEventListener('click', () => {
     applyTheme(currentTheme() === MAGENTA_STONE ? 'classic' : MAGENTA_STONE);
   });
-  document.body.appendChild(themeToggleEl);
+  adminToolsEl?.querySelector('.pi-admin-tools__panel')?.appendChild(themeToggleEl);
   updateThemeToggleLabel(currentTheme() === MAGENTA_STONE);
 }
 
@@ -193,11 +258,13 @@ function mountToggle() {
   toggleEl.setAttribute('aria-label', 'Toggle inline edit mode');
   toggleEl.innerHTML = '<span class="pi-edit-toggle__dot" aria-hidden="true"></span><span class="pi-edit-toggle__label">Edit mode</span>';
   toggleEl.addEventListener('click', () => setEditMode(!editMode, 'click'));
-  document.body.appendChild(toggleEl);
+  adminToolsEl?.querySelector('.pi-admin-tools__panel')?.appendChild(toggleEl);
 }
 
 function setEditMode(on: boolean, source: 'click' | 'restore' = 'restore') {
   editMode = on;
+  toggleEl?.setAttribute('aria-pressed', String(on));
+  adminToolsEl?.classList.toggle('pi-admin-tools--editing', on);
   document.body.dataset.piEditMode = on ? 'on' : 'off';
   sessionStorage.setItem(EDIT_MODE_FLAG, on ? '1' : '0');
   if (!on) closeMenu();
@@ -222,6 +289,7 @@ function installDelegation() {
 }
 
 function onDocumentClick(event: MouseEvent) {
+  if (adminToolsEl && !adminToolsEl.contains(event.target as Node)) setAdminToolsOpen(false);
   // Close menu on any unrelated click.
   if (menuEl && !menuEl.contains(event.target as Node)) closeMenu();
 
@@ -336,6 +404,11 @@ function onContextMenu(event: MouseEvent) {
 }
 
 function onKeyDown(event: KeyboardEvent) {
+  if (event.key === 'Escape' && adminToolsEl?.querySelector('.pi-admin-tools__tab')?.getAttribute('aria-expanded') === 'true') {
+    setAdminToolsOpen(false, true);
+    event.preventDefault();
+    return;
+  }
   if (event.key === 'Escape') {
     closeMenu();
     closeLinkPopover();
@@ -555,7 +628,9 @@ function srcBasename(src: string | null | undefined): string {
 
 /** Current displayed src for either an <img> or a background-image div. */
 function currentImageSrc(el: HTMLElement): string {
-  if (el instanceof HTMLImageElement) return el.currentSrc || el.src;
+  if (el instanceof HTMLImageElement) return el.dataset.piImageOriginalSrc || el.currentSrc || el.src;
+  const cardImage = el.classList.contains('pi-card__media') ? el.querySelector('img') : null;
+  if (cardImage) return currentImageSrc(cardImage);
   const bg = window.getComputedStyle(el).backgroundImage;
   const match = bg.match(/url\((['"]?)(.*?)\1\)/);
   return match?.[2] ?? '';
@@ -564,7 +639,27 @@ function currentImageSrc(el: HTMLElement): string {
 /** Update either an <img> or a background-image div with a new src. */
 function setImageSrc(el: HTMLElement, src: string) {
   if (el instanceof HTMLImageElement) {
+    // A published replacement must not keep the former photograph's AVIF source.
+    el.closest?.('picture')?.querySelectorAll('source[data-pi-avif-source]').forEach(source => source.remove());
+    el.removeAttribute('srcset');
+    el.removeAttribute('sizes');
+    delete el.dataset.piImageOriginalSrc;
     el.src = src;
+    return;
+  }
+  // Empty card slots keep their CMS identity on the wrapper. Replace only
+  // the decorative plate, preserving date badges and the editor target.
+  if (el.classList.contains('pi-card__media')) {
+    let img = el.querySelector('img');
+    if (!img) {
+      img = document.createElement('img');
+      img.alt = el.getAttribute('aria-label') || el.dataset.piLabel || '';
+      img.decoding = 'async';
+      el.prepend(img);
+    }
+    setImageSrc(img, src);
+    el.querySelector('.pi-card__plate')?.remove();
+    el.classList.remove('pi-card__media--plate');
     return;
   }
   // For bg-image divs, preserve any non-url() parts of the existing inline
@@ -964,8 +1059,8 @@ async function savePanelMeta(panel: HTMLElement, el: HTMLElement, desc: ImageDes
   }
 
   // Reflect alt in the DOM (only meaningful for <img>).
-  if (altText && el instanceof HTMLImageElement) el.alt = altText;
-  if (altText && !(el instanceof HTMLImageElement)) el.setAttribute('aria-label', altText);
+  if (altText && el instanceof HTMLImageElement) el.alt = imagePresentationText(altText);
+  if (altText && !(el instanceof HTMLImageElement)) el.setAttribute('aria-label', imagePresentationText(altText));
 
   await recordRevision(supa, session.user.id, {
     entity_type: desc.entityType,
@@ -1379,17 +1474,26 @@ async function applyOverridesOnLoad() {
   await Promise.all(Array.from(groups.values()).map(async (group) => {
     const { data } = await supa
       .from('cms_image_slots')
-      .select('field_path, public_url, alt_text')
+      .select('field_path, public_url, alt_text, credit')
       .eq('entity_type', group.entityType)
       .eq('entity_slug', group.entitySlug)
       .eq('status', 'published');
-    const rows = (data as Array<{ field_path: string; public_url: string | null; alt_text: string | null }> | null) ?? [];
-    const byPath = new Map(rows.map((r) => [r.field_path, r]));
+    const rows = (data as Array<{ field_path: string; public_url: string | null; alt_text: string | null; credit: string | null }> | null) ?? [];
+    const byPath = new Map(rows
+      .filter((row) => !imageQuarantine.quarantined.some((entry) =>
+        entry.key === group.entityType + '/' + group.entitySlug &&
+        entry.fieldPath === row.field_path &&
+        row.public_url?.endsWith('/' + entry.storagePath)
+      ))
+      .map((row) => [row.field_path, row]));
     for (const el of group.els) {
+      if (el.hasAttribute('data-pi-no-hydrate')) continue;
       const fieldPath = el.dataset.piFieldPath;
       if (!fieldPath) continue;
       const row = byPath.get(fieldPath);
       if (!row?.public_url) continue;
+      if (el.hasAttribute('data-pi-requires-image-metadata') &&
+          !(row.alt_text?.trim() && row.credit?.trim())) continue;
       if (currentImageSrc(el) === row.public_url) continue;
       setImageSrc(el, row.public_url);
       // A placeholder card has no inline bg-image at build time; once a real
@@ -1402,8 +1506,8 @@ async function applyOverridesOnLoad() {
         .filter((c) => !/__hero--placeholder$/.test(c))
         .join(' ');
       if (row.alt_text) {
-        if (el instanceof HTMLImageElement) el.alt = row.alt_text;
-        else el.setAttribute('aria-label', row.alt_text);
+        if (el instanceof HTMLImageElement) el.alt = imagePresentationText(row.alt_text);
+        else el.setAttribute('aria-label', imagePresentationText(row.alt_text));
       }
     }
   }));
@@ -1445,11 +1549,13 @@ async function applyImplicitPageOverrides(supa: NonNullable<ReturnType<typeof ge
   // resolved data-pi-field-path and have just been patched above.
   const candidates: HTMLElement[] = [];
   document.querySelectorAll<HTMLImageElement>('img').forEach((img) => {
+    if (img.hasAttribute('data-pi-no-hydrate')) return;
     if (img.closest('[data-pi-edit="image"][data-pi-entity-slug][data-pi-field-path]')) return;
     if (img.closest('[data-pi-hero-managed]')) return; // hero owns its own deck
     candidates.push(img);
   });
   document.querySelectorAll<HTMLElement>('[style*="background-image"]').forEach((el) => {
+    if (el.hasAttribute('data-pi-no-hydrate')) return;
     if (el.closest('[data-pi-edit="image"][data-pi-entity-slug][data-pi-field-path]')) return;
     if (el.closest('[data-pi-hero-managed]')) return; // hero owns its own deck
     if (!isImageLike(el)) return;
@@ -1465,8 +1571,8 @@ async function applyImplicitPageOverrides(supa: NonNullable<ReturnType<typeof ge
     if (src === override.public_url) continue;
     setImageSrc(el, override.public_url);
     if (override.alt_text) {
-      if (el instanceof HTMLImageElement) el.alt = override.alt_text;
-      else el.setAttribute('aria-label', override.alt_text);
+      if (el instanceof HTMLImageElement) el.alt = imagePresentationText(override.alt_text);
+      else el.setAttribute('aria-label', imagePresentationText(override.alt_text));
     }
   }
 }

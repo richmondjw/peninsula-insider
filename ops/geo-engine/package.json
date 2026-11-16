@@ -1,0 +1,14 @@
+{
+  "name": "pi-seo-geo-engine",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Peninsula Insider autonomous SEO and GEO optimisation engine",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "cycle": "node run.mjs",
+    "cycle:weekly": "node run.mjs --cycle=weekly",
+    "cycle:source": "node run.mjs --target=source",
+    "test": "node --test test/*.test.mjs"
+  }
+}

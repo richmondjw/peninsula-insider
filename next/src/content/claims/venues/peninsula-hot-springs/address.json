@@ -1,0 +1,20 @@
+{
+  "claimId": "venues/peninsula-hot-springs/address",
+  "claimClass": "address",
+  "subject": {
+    "type": "venues",
+    "slug": "peninsula-hot-springs",
+    "field": "address"
+  },
+  "statement": "Peninsula Hot Springs is at 140 Springs Ln, Fingal VIC 3939.",
+  "assertedBy": [
+    {
+      "type": "venues",
+      "slug": "peninsula-hot-springs",
+      "field": "address"
+    }
+  ],
+  "createdAt": "2026-09-14",
+  "origin": "authored",
+  "note": "The record carries a complete street address and the operator publishes the same one on its contact page. Authored by hand for the PI-005 address and coordinates pilot. Sources were read on 2026-09-14; see ops/reports/claims/2026-09-14-pilot-address.md."
+}

@@ -1,16 +1,17 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PlanPageFrame from '../../../components/v5/plans/PlanPageFrame.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import ItineraryCard from '../../../components/ItineraryCard.astro';
 import VenueCard from '../../../components/VenueCard.astro';
 import NewsletterBlock from '../../../components/NewsletterBlock.astro';
-import { routeSlug, isStayVenue } from '../../../lib/editorial';
+import { routeSlug, isStayVenue, isListableVenue } from '../../../lib/editorial';
 
 const itineraries = (await getCollection('itineraries'))
   .sort((a, b) => b.data.lengthNights - a.data.lengthNights);
 
-const allVenues = await getCollection('venues');
+const allVenues = (await getCollection('venues')).filter(isListableVenue);
 const stays = allVenues.filter(isStayVenue);
 const anchorStays = stays.filter((v) =>
   ['jackalope', 'hotel-sorrento', 'flinders-hotel', 'lindenderry-at-red-hill'].includes(routeSlug(v))
@@ -64,7 +65,7 @@ export const prerender = true;
 ---
 
 <BaseLayout
-  title="Mornington Peninsula Itinerary · Peninsula Insider"
+  title="The Mornington Peninsula Itinerary · Peninsula Insider"
   description="The best Mornington Peninsula itinerary - 1, 2, and 3-day plans built around wine, coast, hot springs, and the places that make the region worth the drive from Melbourne."
   section="explore"
   canonical="https://peninsulainsider.com.au/explore/plans/mornington-peninsula-itinerary"
@@ -72,6 +73,7 @@ export const prerender = true;
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <Breadcrumbs items={breadcrumbItems} />
 
+  <PlanPageFrame>
   <article class="article">
     <div class="container">
       <h1 class="article__title">The Mornington Peninsula Itinerary</h1>
@@ -182,5 +184,6 @@ export const prerender = true;
     </div>
   </section>
 
+  </PlanPageFrame>
   <NewsletterBlock />
 </BaseLayout>

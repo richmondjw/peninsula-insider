@@ -1,0 +1,19 @@
+{
+  "evidenceId": "events/peninsula-hot-springs-daily-studio-yoga/event-status-c3ab7234",
+  "claim": "events/peninsula-hot-springs-daily-studio-yoga/event-status",
+  "stance": "supports",
+  "publisher": {
+    "kind": "organiser",
+    "name": "Peninsula Hot Springs"
+  },
+  "retrievedAt": "2026-05-04",
+  "expiresAt": "2026-06-03",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/events/peninsula-hot-springs-daily-studio-yoga.json",
+    "field": "primarySourceUrl",
+    "value": "https://www.peninsulahotsprings.com/bathe/wellness-activities",
+    "dateField": "lastCheckedDate"
+  },
+  "url": "https://www.peninsulahotsprings.com/bathe/wellness-activities"
+}

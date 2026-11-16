@@ -4,6 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import SubpageHero from '../../components/SubpageHero.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import CorrectionNote from '../../components/CorrectionNote.astro';
 import PlaceCard from '../../components/PlaceCard.astro';
 import { routeSlug } from '../../lib/editorial';
 
@@ -57,7 +58,9 @@ const eventSchema = {
   name: data.name,
   description: data.summary,
   url: canonical,
-  eventStatus: 'https://schema.org/EventScheduled',
+  // No eventStatus: these records carry no occurrence to describe, and a
+  // hardcoded EventScheduled told search engines a cancelled festival was
+  // going ahead while the page said it was not.
   eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
   location: {
     '@type': 'Place',
@@ -230,6 +233,10 @@ export const prerender = true;
     </div>
   </article>
 
+  <div class="container">
+    <CorrectionNote surface="event" />
+  </div>
+
   <NewsletterBlock />
 </BaseLayout>
 
@@ -369,7 +376,7 @@ export const prerender = true;
   .event-chip {
     padding: 0.3rem 0.8rem;
     background: var(--bg-alt);
-    border: 1px solid var(--border);
+    border: 1px solid var(--border-control);
     border-radius: var(--radius-pill);
     font-family: var(--font-ui);
     font-size: var(--fs-200);

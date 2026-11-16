@@ -1,0 +1,38 @@
+{
+  "claimId": "venues/red-hill-market/trading-status",
+  "claimClass": "trading-status",
+  "subject": {
+    "type": "venues",
+    "slug": "red-hill-market"
+  },
+  "statement": "Red Hill Market trades at the Red Hill Recreation Reserve on the first Saturday of each month from September to May.",
+  "assertedBy": [
+    {
+      "type": "venues",
+      "slug": "red-hill-market"
+    },
+    {
+      "type": "events",
+      "slug": "red-hill-market-first-saturday"
+    },
+    {
+      "type": "places",
+      "slug": "red-hill"
+    },
+    {
+      "type": "places",
+      "slug": "red-hill-south"
+    },
+    {
+      "type": "tour-packages",
+      "slug": "long-weekend"
+    },
+    {
+      "type": "itineraries",
+      "slug": "ridge-to-sea-two-night-escape"
+    }
+  ],
+  "createdAt": "2026-09-14",
+  "origin": "authored",
+  "note": "Register item A25. This claim is written exactly as the corpus makes it, not as the evidence leaves it, because that is the point: seventeen articles, two market guide pages and five other records send a reader to this market by this name. Every standing evidence row DISPUTES it, and none supports it, so the gate counts it unbacked. That is correct and it is the finding. Resolving it is an editorial decision that belongs to James and is deliberately not taken here: see ops/reports/content/2026-09-14-red-hill-market-identity.md. The claim covers the NAME and the OPERATOR trading at that ground. It does not assert that no market trades there - one does, and the Hill & Ridge claims record it. assertedBy lists the records that carry the assertion in a field or in prose the editor can point at; it is not the full 17-article blast radius, which the report enumerates."
+}

@@ -5,10 +5,21 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-10
 heroImage:
-  src: "/images/sourced/explore-cape-schanck-boardwalk-01.webp"
-  alt: "The Cape Schanck boardwalk stretching toward the clifftop lighthouse at the southern tip of the Mornington Peninsula"
-  credit: "Wikimedia Commons"
-  license: "tmp-wikimedia"
+  src: "/images/generated/coastal-punch-first-visit.webp"
+  alt: "Conceptual coral car on a curving coastal road beside an abstract bay."
+  credit: "Illustration: Peninsula Insider"
+  license: "other-licensed"
+  caption: ""
+  depicts: "Conceptual coral car on a curving coastal road beside an abstract bay."
+  depictionStatus: "illustrative"
+  creator: "Peninsula Insider, AI-assisted"
+  permission: "Original AI-assisted artwork created for Peninsula Insider; website rollout approved by James on 2026-10-09."
+  permittedUses: ["website"]
+  rightsHolder: "Peninsula Insider"
+  rightsEstablishedOn: "2026-10-09"
+  rightsStatus: "recorded"
+  provenanceReview: "verified"
+  decorative: false
 format: "service"
 tags: ["first-timers", "guide", "overview", "planning", "explore", "weekend"]
 relatedVenues: ["montalto", "ten-minutes-by-tractor", "merricks-general-wine-store", "commonfolk-coffee", "flinders-hotel", "hotel-sorrento", "red-hill-brewery", "alba-thermal-springs", "peninsula-hot-springs", "polperro", "lindenderry", "jackalope", "flinders-sourdough", "red-hill-cheese", "sorrento-hotel", "portsea-hotel", "main-ridge-dairy"]
@@ -57,7 +68,7 @@ The geography matters because it dictates how you plan. The Peninsula is roughly
 
 The fastest way to understand the region is to accept that there are really three different Peninsulas, and a first visit should pick one.
 
-**The hinterland Peninsula.** Red Hill, Merricks, Main Ridge. This is the wine-and-food version, cellar doors, vineyard restaurants, producer trails, the Red Hill Market on the first Saturday of each month. If you are coming for a long lunch or a weekend of eating, this is where you spend your time. The landscape is rolling green hills, dirt roads, gum-lined drives, and hand-painted signs pointing to cheese rooms and olive groves.
+**The hinterland Peninsula.** Red Hill, Merricks, Main Ridge. This is the wine-and-food version: cellar doors, vineyard restaurants and producer trails. The original Red Hill Community Market is temporarily closed; check the separate Hill & Ridge Community Market's published dates if a market is part of your plan. If you are coming for a long lunch or a weekend of eating, this is where you spend your time. The landscape is rolling green hills, dirt roads, gum-lined drives, and hand-painted signs pointing to cheese rooms and olive groves.
 
 **The coastal Peninsula.** Sorrento, Portsea, Point Nepean. This is the beach-and-village version, the heritage main street at Sorrento, the ocean back beaches, the clifftop walks, the ferry to Queenscliff, and Point Nepean National Park at the very tip. If you are coming for landscape and walking and seaside atmosphere, this is the section.
 
@@ -67,7 +78,7 @@ For a first visit: start with the hinterland or the coast. Not both.
 
 ## What to do: the short list
 
-If you only have time for five things, these are the five.
+If your time is short, start here.
 
 **1. One serious lunch.** The Peninsula's restaurants are the main event, and the right lunch will be the thing you remember longest. **Ten Minutes by Tractor** runs a fixed menu of precise, seasonal cooking in a vineyard dining room and is one of regional Victoria's most respected kitchens. **Montalto** is the warmer, more accessible alternative with a sculpture trail and a kitchen that handles a table of four as easily as a couple. **Merricks General Wine Store** is the casual version: wood-fired pizza, local wines by the glass, a paddock view. Any of these three will do the job.
 

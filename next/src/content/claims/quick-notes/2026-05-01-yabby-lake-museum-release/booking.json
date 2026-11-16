@@ -1,0 +1,24 @@
+{
+  "claimId": "quick-notes/2026-05-01-yabby-lake-museum-release/booking",
+  "claimClass": "booking",
+  "subject": {
+    "type": "quick-notes",
+    "slug": "2026-05-01-yabby-lake-museum-release",
+    "field": "sources"
+  },
+  "statement": "Yabby Lake releases the 2024 single-block Pinots",
+  "assertedBy": [
+    {
+      "type": "quick-notes",
+      "slug": "2026-05-01-yabby-lake-museum-release",
+      "field": "sources"
+    },
+    {
+      "type": "venues",
+      "slug": "yabby-lake"
+    }
+  ],
+  "createdAt": "2026-05-01",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

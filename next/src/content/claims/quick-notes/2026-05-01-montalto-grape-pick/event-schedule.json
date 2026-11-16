@@ -1,0 +1,24 @@
+{
+  "claimId": "quick-notes/2026-05-01-montalto-grape-pick/event-schedule",
+  "claimClass": "event-schedule",
+  "subject": {
+    "type": "quick-notes",
+    "slug": "2026-05-01-montalto-grape-pick",
+    "field": "sources"
+  },
+  "statement": "Montalto's Saturday open day for the public grape pick",
+  "assertedBy": [
+    {
+      "type": "quick-notes",
+      "slug": "2026-05-01-montalto-grape-pick",
+      "field": "sources"
+    },
+    {
+      "type": "venues",
+      "slug": "montalto"
+    }
+  ],
+  "createdAt": "2026-05-01",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

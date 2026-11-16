@@ -1,0 +1,18 @@
+{
+  "evidenceId": "quick-notes/2026-05-04-weather-monday-morning/conditions-52a1ca7a",
+  "claim": "quick-notes/2026-05-04-weather-monday-morning/conditions",
+  "stance": "supports",
+  "publisher": {
+    "kind": "gov"
+  },
+  "retrievedAt": "2026-05-04",
+  "expiresAt": "2026-05-11",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/quick-notes/2026-05-04-weather-monday-morning.md",
+    "field": "sources[0]",
+    "value": "{\"kind\":\"gov\",\"note\":\"wttr.in / World Weather Online live feed for Red Hill, Victoria. Monday 4 May hourly forecast.\",\"checkedAt\":\"2026-05-04T06:48:00+10:00\"}",
+    "dateField": "sources[0].checkedAt"
+  },
+  "note": "wttr.in / World Weather Online live feed for Red Hill, Victoria. Monday 4 May hourly forecast."
+}

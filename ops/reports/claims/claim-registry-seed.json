@@ -1,0 +1,63 @@
+{
+  "ticket": "PI-005",
+  "stage": 1,
+  "asAt": "2026-09-13",
+  "generator": "next/scripts/seed-claim-registry.mjs",
+  "totals": {
+    "harvestedRows": 429,
+    "claims": 362,
+    "evidence": 429,
+    "expiredAtSeed": 298,
+    "liveAtSeed": 131
+  },
+  "bySource": {
+    "quickNotes.sources": 196,
+    "events.primarySourceUrl": 91,
+    "events.importerProvenance": 12,
+    "events.secondarySourceUrl": 49,
+    "species.vfaCitationUrl": 12,
+    "signatureEvents.officialUrl": 10,
+    "dataFacts.source": 59
+  },
+  "expiredBySource": {
+    "dataFacts.source": 28,
+    "events.primarySourceUrl": 85,
+    "events.secondarySourceUrl": 47,
+    "quickNotes.sources": 129,
+    "signatureEvents.officialUrl": 9
+  },
+  "byClaimClass": {
+    "trading-status": 34,
+    "editorial": 52,
+    "booking": 48,
+    "event-schedule": 18,
+    "offering": 1,
+    "conditions": 74,
+    "event-status": 162,
+    "fishing-rule": 12,
+    "access-restriction": 27,
+    "regional-count": 1
+  },
+  "byPublisherKind": {
+    "gov": 170,
+    "visit": 23,
+    "venue-site": 69,
+    "phone": 2,
+    "press": 2,
+    "partner": 4,
+    "regional-body": 35,
+    "importer": 12,
+    "organiser": 31,
+    "unknown": 66,
+    "social": 7,
+    "ticketing": 8
+  },
+  "houseStyleScrubs": {
+    "emDashes": 0,
+    "figures": 0
+  },
+  "warnings": [
+    "quick-note 2026-05-01-jackalope-spa-may-package: relatedVenue 'jackalope-hotel' resolves to no record on disk",
+    "event peninsula-hot-springs-sunday-sessions: primarySourceUrl cites peninsulainsider.com.au, which is not evidence"
+  ]
+}

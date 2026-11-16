@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.0",
+  "url": "https://peninsulainsider.com.au/explore/golf/",
+  "tier": "T1",
+  "family": "hub-and-three-course-details",
+  "assessedAt": "2026-10-06",
+  "status": "exact-live-released-provisional-independent-score-83.5-hard-gates-open",
+  "baseline": {
+    "exactLiveSourceRevision": "f0692dce8a2217845e6adf838c5eb679e6472ad5",
+    "buildRunId": "37325869455",
+    "provisionalReconciledScore": 83.5,
+    "hardGates": "open",
+    "defects": [
+      "Flinders and Mornington records attributed subjective assessments to unnamed Peninsula club golfers without a field-reporting receipt; Mornington also asserted unsupported nearest-course, drive-time and value comparisons.",
+      "Portsea hub and record supplied a fixed visitor day list while current pages of the same operator list different days.",
+      "Flinders and Portsea records contained street addresses differing from the operators' current directions pages; these surfaced on detail pages and in structured data."
+    ]
+  },
+  "hypothesis": "Removing unattributed editorial claims and conflicting booking-day guidance while correcting operator-published addresses will improve factual trust and usable course wayfinding without changing the visual system.",
+  "boundedChange": [
+    "Replace Flinders and Mornington editor notes, local reads and green-fee notes with sourceable descriptions and current-booking guidance.",
+    "Replace Portsea's fixed visitor-day summary and record note with date-specific calendar and pro-shop guidance.",
+    "Correct Flinders address to Bass Street, Flinders VIC 3929 and Portsea address to 46 London Bridge Road, Portsea VIC 3944."
+  ],
+  "sources": [
+    {
+      "claim": "Flinders visitor windows, fees and shop contact",
+      "url": "https://www.flindersgolfclub.com.au/cms/visitors-and-social-groups/fees-availability/"
+    },
+    {
+      "claim": "Flinders address",
+      "url": "https://www.flindersgolfclub.com.au/cms/visitors-and-social-groups/location-and-directions/"
+    },
+    {
+      "claim": "Mornington public green-fee booking and bay views",
+      "url": "https://www.morningtongolf.com.au/cms/golf/public-golf/"
+    },
+    {
+      "claim": "Portsea golf enquiry days and course setting",
+      "url": "https://portseagolf.com.au/golf/"
+    },
+    {
+      "claim": "Portsea accommodation FAQ lists different visitor days",
+      "url": "https://portseagolf.com.au/accommodation/"
+    },
+    {
+      "claim": "Portsea address and pro-shop contact",
+      "url": "https://portseagolf.com.au/contact/"
+    }
+  ],
+  "metric": "No disputed hearsay, nearest-course, fixed Portsea day or obsolete address survives in the built hub/detail pages; correct addresses render visibly and in structured data; mobile/desktop have no overflow or page errors.",
+  "evaluationDate": "2026-10-06",
+  "rollback": "Revert only the four content/source files if an operator correction or visitor-task regression is evidenced; retain the original source snapshots in Git.",
+  "independentReview": "Source reviewer and root checked official club pages before release; independent preview UX and visual reviewers passed at mobile/desktop. After exact-live publication, three reviewers rated the full golf hub 79, 82.25 and 93.25, reconciled by criterion to 83.5 provisional; see golf-iteration9-live-regrade-2026-10-06.json.",
+  "localEvidence": {
+    "build": "TZ=Australia/Sydney npm run build:search passed on the rebased final source; 1015 HTML files and 711 indexed pages.",
+    "browser": "Built local Flinders, Mornington and Portsea detail pages returned HTTP 200 at 390 and 1440; zero horizontal overflow and JS page errors. Flinders/Portsea visible and schema addresses corrected; disputed hearsay, old addresses and fixed Portsea day statement absent. Built hub carries current-calendar guidance.",
+    "unchangedMetadata": "All three record lastVerified dates remain 2026-04-14; this partial source review does not assert whole-record verification."
+  },
+  "openGates": [
+    "The exact-live golf hub remains 83.5/100 provisional; the three corrected detail pages have not received full independent T2 scores.",
+    "Normal-user booking acceptance, direct screen-reader journey and exact-route field CWV/CLS unresolved.",
+    "Broader golf-record facts and original Visit Victoria written rights clarification remain unresolved."
+  ],
+  "decision": "adapt-continue",
+  "releaseEvidence": {
+    "pullRequest": "https://github.com/richmondjw/peninsula-insider/pull/594",
+    "mergeSha": "453dbcbf521f1bd8810ab2612d551f221cdef825",
+    "buildRunId": "37331704030",
+    "pagesRunId": "37333174250",
+    "ci": "All protected PR checks and main Build and Deploy passed; Pages build, status and deploy succeeded.",
+    "manifest": "Public deployment.json and release-manifest.json both matched exact source SHA 453dbcbf521f1bd8810ab2612d551f221cdef825 and run 37331704030.",
+    "browser": "Exact public golf hub, Flinders, Mornington and Portsea detail routes returned HTTP 200 at 320/390/1440, with no horizontal overflow or JS errors. Hub retained 11 cards. Old hearsay, closest-course and fixed Portsea day claims absent. Flinders Bass Street and Portsea 46 London Bridge Road visible and in schema."
+  }
+}

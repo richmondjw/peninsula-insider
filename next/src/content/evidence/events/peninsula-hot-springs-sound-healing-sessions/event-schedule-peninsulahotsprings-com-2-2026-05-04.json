@@ -1,0 +1,19 @@
+{
+  "evidenceId": "events/peninsula-hot-springs-sound-healing-sessions/event-schedule-peninsulahotsprings-com-2-2026-05-04",
+  "claim": "events/peninsula-hot-springs-sound-healing-sessions/event-schedule",
+  "stance": "supports",
+  "publisher": {
+    "kind": "organiser",
+    "name": "Peninsula Hot Springs"
+  },
+  "url": "https://www.peninsulahotsprings.com",
+  "retrievedAt": "2026-05-04",
+  "expiresAt": "2026-06-03",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/events/peninsula-hot-springs-sound-healing-sessions.json",
+    "field": "officialEventUrl",
+    "value": "https://www.peninsulahotsprings.com",
+    "dateField": "lastCheckedDate"
+  }
+}

@@ -13,10 +13,10 @@ Rain doesn't ruin a Peninsula trip. In several categories (hot springs, cellar d
 
 Hot springs first. Rain makes hot springs more atmospheric, not less. The contrast between cold air and 40 degree water is the whole sensory experience. Both Peninsula Hot Springs and Alba Thermal Springs are open in all weather. Rainy-day availability at Peninsula Hot Springs in the off-peak season (May to August, non-school holidays, midweek) is the most reliable window for a spontaneous visit. Summer rain days are still crowded.
 
-The Peninsula's cellar doors, particularly those with restaurant or casual dining attached, are the best rainy-day activity outside the hot springs. Most have covered dining. The experience is, arguably, better on a rainy day. Tables are easier to get, the wines taste different, and the experience has an unhurried quality that summer lunch services don't allow. Recommended cellar door lunches in rain: Montalto, Ten Minutes by Tractor, Polperro, and Foxeys Hangout.
+The Peninsula's cellar doors, particularly those with restaurant or casual dining attached, are the best rainy-day activity outside the hot springs. Most have covered dining. The experience is, arguably, better on a rainy day. Tables are easier to get, the wines taste different, and the experience has an unhurried quality that summer lunch services don't allow. Recommended cellar door lunches in rain: Montalto, Ten Minutes by Tractor, Polperro, and Foxeys Hangout. Polperro Restaurant and Cellar Door are closed on Mondays and Tuesdays; check opening hours and book before travelling.
 
 Spa treatments are the natural booking window for rainy days. All Peninsula spas operate year-round indoors. Spa by Jackalope is premium and indoor. Endota Spa Mornington is mid-range and reliable.
 
 Galleries: the Peninsula's gallery scene is modest compared with its food and wine offering. Mornington Peninsula Regional Gallery in Langwarrin is the most accessible option, a genuine regional gallery with permanent and travelling exhibitions.
 
-Markets are a partial exception. Red Hill Market runs in light rain; most stalls are covered or have gazebos. Heavy rain thins the stall count. An overcast or lightly drizzly first Saturday is better than a summer Saturday with 3,000 visitors.
+Markets are a partial exception. The original Red Hill Community Market is temporarily closed. The separate Hill and Ridge Community Market is outdoors and may cancel in unsafe weather; check its organiser before travelling.

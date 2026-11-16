@@ -1,0 +1,18 @@
+{
+  "claimId": "events/wild-mushroom-forage-lunch-with-the-kitchen/event-status",
+  "claimClass": "event-status",
+  "subject": {
+    "type": "events",
+    "slug": "wild-mushroom-forage-lunch-with-the-kitchen"
+  },
+  "statement": "Wild Mushroom Forage & Lunch with The Kitchen is running as published.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "wild-mushroom-forage-lunch-with-the-kitchen"
+    }
+  ],
+  "createdAt": "2026-05-04",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

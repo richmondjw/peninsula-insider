@@ -1,5 +1,4 @@
 ---
-slug: "weddings-mornington-peninsula-weekend-planning"
 title: "How to Plan a Mornington Peninsula Wedding Weekend"
 dek: "The Peninsula wedding weekend only works when the event, the guest base, the food, and the next-day recovery all belong to the same idea. Here is how to shape it properly."
 author: "editorial"
@@ -40,7 +39,7 @@ The venue is the anchor, not the whole plan. The wedding weekend is everything a
 
 ## What makes a Peninsula wedding weekend work
 
-Four things matter most:
+Start with what matters most:
 - the right locality
 - the right guest base
 - the right event flow

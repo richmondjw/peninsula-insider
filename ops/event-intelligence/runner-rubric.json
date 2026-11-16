@@ -1,0 +1,26 @@
+{
+  "stage": "automated-collection-review-alerts-recovery",
+  "minimumScore": 9,
+  "status": "requires-observed-live-cycles-and-recovery-drills",
+  "checks": [
+    "bounded-registered-public-source-collection",
+    "private-snapshot-provenance-and-root-detail-extraction",
+    "human-review-and-approval-preservation",
+    "durable-actionable-alert-delivery-and-human-ack-separation",
+    "published-catalogue-and-live-feed-rechecks",
+    "concurrent-run-isolation-and-process-instance-lock-identity",
+    "hard-watchdog-and-observed-dead-owner-recovery",
+    "failed-source-backoff-and-destination-retry",
+    "private-dashboard-and-no-publication-mutations",
+    "two-observed-scheduled-cycles-plus-independent-recovery-drills"
+  ],
+  "critical": [
+    "human-review-and-approval-preservation",
+    "durable-actionable-alert-delivery-and-human-ack-separation",
+    "concurrent-run-isolation-and-process-instance-lock-identity",
+    "hard-watchdog-and-observed-dead-owner-recovery",
+    "private-dashboard-and-no-publication-mutations",
+    "two-observed-scheduled-cycles-plus-independent-recovery-drills"
+  ],
+  "rule": "Each scored check requires a current receipt. All critical checks must pass independently of the total. Unit tests alone cannot accept this major stage."
+}

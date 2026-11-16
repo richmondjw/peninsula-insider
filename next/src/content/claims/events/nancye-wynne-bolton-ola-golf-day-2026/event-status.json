@@ -1,0 +1,18 @@
+{
+  "claimId": "events/nancye-wynne-bolton-ola-golf-day-2026/event-status",
+  "claimClass": "event-status",
+  "subject": {
+    "type": "events",
+    "slug": "nancye-wynne-bolton-ola-golf-day-2026"
+  },
+  "statement": "\"Nancye Wynne Bolton\" OLA Golf Day 2026 is running as published.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "nancye-wynne-bolton-ola-golf-day-2026"
+    }
+  ],
+  "createdAt": "2026-08-23",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

@@ -1,0 +1,41 @@
+---
+import type { PageImage } from '../../../lib/page-images';
+import { captionParts } from '../../../lib/image-caption.mjs';
+interface Props { count: number; image:PageImage; }
+const {count,image}=Astro.props;
+/* House caption rule (lib/image-caption.mjs): a place line and its source, nothing for artwork.
+   Credit wording matches Card: "Courtesy of X" reads "Photo courtesy of X". */
+const caption=captionParts(image);
+const credit=(caption?.credit??'').replace(/\.$/,'');
+const creditLine=!credit?'':/^Courtesy of /i.test(credit)?`Photo courtesy of ${credit.slice(12)}.`:/^(Photo|Illustration)(?::|\s)/i.test(credit)?`${credit}.`:`Photo: ${credit}.`;
+---
+<header class="eat-entry container">
+  <div class="eat-entry__copy">
+    <h1>A long lunch, a village coffee, a table by the bay</h1>
+    <p class="eat-entry__dek">Places to eat and drink across the Peninsula, from ridge-top farm kitchens to bayside pubs. Find the one that fits your day.</p>
+    <nav class="eat-entry__links" aria-label="Browse this guide">
+      <a class="eat-entry__primary" href="#directory">Browse places to eat <span aria-hidden="true">↓</span></a>
+      <a href="/map/">View the map <span aria-hidden="true">→</span></a>
+    </nav>
+    <p class="eat-entry__trust">Chosen by our editors, never paid for. <a href="/about/">How we choose</a></p>
+  </div>
+  <figure class="eat-entry__photo">
+    <img src={image.src} alt={image.alt} width="1200" height="800" fetchpriority="high" decoding="async" data-pi-responsive="(max-width: 700px) 100vw, 640px" />
+    {caption && <figcaption>{caption.place && <>{caption.place}. </>}{creditLine}</figcaption>}
+  </figure>
+</header>
+<style>
+  .eat-entry{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:center;padding-block:2rem 1.5rem}
+  .eat-entry h1{font-weight:600;line-height:1.1;font-family:var(--font-display);letter-spacing:var(--ls-display);max-width:22ch;margin:.75rem 0 1rem;text-wrap:balance}
+  .eat-entry__dek{font-size:var(--fs-400);line-height:1.6;max-width:49ch;color:var(--soft)}
+  .eat-entry__links{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem 1.5rem;margin-top:1.5rem}
+  .eat-entry__links a{min-height:48px;display:inline-flex;align-items:center;gap:.4rem;color:var(--accent);font-weight:500;font-size:var(--fs-300);text-underline-offset:.2em}
+  .eat-entry__links .eat-entry__primary{padding:0 1.35rem;border-radius:var(--radius-s);background:var(--accent);color:var(--white);font-weight:600;font-size:var(--fs-400);text-decoration:none;margin-inline-end:.25rem}
+  .eat-entry__links .eat-entry__primary:hover{background:var(--text)}
+  .eat-entry__trust{margin:1.25rem 0 0;font:400 var(--fs-300)/1.5 var(--font-ui);color:var(--soft)}
+  .eat-entry__trust a{color:var(--accent);font-weight:600;text-underline-offset:.2em;white-space:nowrap}
+  .eat-entry__photo{margin:0}.eat-entry__photo img{display:block;width:100%;aspect-ratio:4/3;height:auto;object-fit:cover;border-radius:var(--radius-m)}
+  figcaption{font:400 var(--fs-200)/1.5 var(--font-ui);color:var(--soft);padding-top:.5rem}
+  .eat-entry a:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+  @media(max-width:700px){.eat-entry{grid-template-columns:1fr;gap:1rem;padding-block:1.25rem .75rem}.eat-entry h1{max-width:22ch;margin-top:.5rem}.eat-entry__photo{order:-1}.eat-entry__photo img{aspect-ratio:2/1;border-radius:var(--radius-m)}.eat-entry__photo figcaption{font-size:var(--fs-100);padding-top:.35rem}.eat-entry__dek{margin-bottom:0}.eat-entry__links{gap:0 1.25rem;margin-top:1rem}.eat-entry__links .eat-entry__primary{flex:1 0 100%;justify-content:center;margin-bottom:.25rem}.eat-entry__trust{margin-top:.75rem}}
+</style>

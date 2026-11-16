@@ -17,6 +17,19 @@
  */
 
 import { routeSlug } from './editorial';
+import { ptwWeekendBounds } from './event-occurrence.mjs';
+
+/**
+ * The calendar day a weekend anchor stands for.
+ *
+ * The weekend maths in this file counts UTC days on purpose: publishedAt is a
+ * date-only field, so its UTC day IS the editorial day. Only the clock ever
+ * needed a timezone, which is why the old 07:00/13:59 UTC constants were wrong
+ * without looking wrong.
+ */
+function weekendDayKey(d: Date): string {
+  return d.toISOString().slice(0, 10);
+}
 
 /**
  * True when an article looks like a Peninsula This Weekend dispatch.
@@ -107,11 +120,7 @@ export function ptwWeekendLabel(article: any): string {
  * so the page can say so instead of presenting a past weekend as current.
  */
 export function ptwWeekendEndIso(article: any): string {
-  const friday = ptwWeekendFriday(article);
-  const sunday = new Date(friday);
-  sunday.setUTCDate(friday.getUTCDate() + 2);
-  sunday.setUTCHours(13, 59, 0, 0); // 23:59 AEST
-  return sunday.toISOString();
+  return ptwWeekendBounds(weekendDayKey(ptwWeekendFriday(article))).end.toISOString();
 }
 
 /**
@@ -124,25 +133,21 @@ export function ptwWeekendEndIso(article: any): string {
  * Insider as organizer.
  */
 export function buildPtwEventSchema(article: any, canonicalUrl: string) {
-  const friday = ptwWeekendFriday(article);
-  const sunday = new Date(friday);
-  sunday.setUTCDate(friday.getUTCDate() + 2);
-  // End of Sunday in AEST (UTC+10). The weekend "window" closes Sunday
-  // night, so the Event endDate is Sunday 23:59 local.
-  sunday.setUTCHours(13, 59, 0, 0); // 23:59 AEST
-  const start = new Date(friday);
-  start.setUTCHours(7, 0, 0, 0); // 17:00 AEST Friday
+  // 17:00 Friday to 23:59 Sunday, Melbourne. Both ends used to be set in UTC
+  // by hand (07:00 and 13:59), which is +10:00 by construction and so an hour
+  // out for the whole of daylight saving.
+  const { start, end } = ptwWeekendBounds(weekendDayKey(ptwWeekendFriday(article)));
   return {
     '@context': 'https://schema.org',
     '@type': 'Event',
     name: article.data.title,
     description: article.data.dek,
     startDate: start.toISOString(),
-    endDate: sunday.toISOString(),
+    endDate: end.toISOString(),
     // Only the weekend that is still ahead of us is genuinely "scheduled".
     // Archived dispatches keep their dates but drop the status, so indexable
     // archive pages stop advertising long-finished weekends as upcoming.
-    ...(sunday >= new Date() ? { eventStatus: 'https://schema.org/EventScheduled' } : {}),
+    ...(end >= new Date() ? { eventStatus: 'https://schema.org/EventScheduled' } : {}),
     eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
     location: {
       '@type': 'Place',

@@ -1,0 +1,20 @@
+{
+  "claimId": "quick-notes/2026-05-15-editor-note-friday/editorial",
+  "claimClass": "editorial",
+  "subject": {
+    "type": "quick-notes",
+    "slug": "2026-05-15-editor-note-friday",
+    "field": "sources"
+  },
+  "statement": "Editor's note - Friday at 20°C. The clear window closes Sunday.",
+  "assertedBy": [
+    {
+      "type": "quick-notes",
+      "slug": "2026-05-15-editor-note-friday",
+      "field": "sources"
+    }
+  ],
+  "createdAt": "2026-05-15",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

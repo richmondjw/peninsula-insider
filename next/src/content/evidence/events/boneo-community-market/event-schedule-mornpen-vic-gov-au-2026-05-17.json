@@ -1,0 +1,22 @@
+{
+  "evidenceId": "events/boneo-community-market/event-schedule-mornpen-vic-gov-au-2026-05-17",
+  "claim": "events/boneo-community-market/event-schedule",
+  "stance": "supports",
+  "publisher": {
+    "kind": "gov"
+  },
+  "url": "https://www.mornpen.vic.gov.au/Events-Activities/Boneo-Community-Market",
+  "retrievedAt": "2026-05-17",
+  "expiresAt": "2026-06-16",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/events/boneo-community-market.json",
+    "field": "primarySourceUrl",
+    "value": "https://www.mornpen.vic.gov.au/Events-Activities/Boneo-Community-Market",
+    "dateField": "lastCheckedDate"
+  },
+  "sourceHealth": "dead",
+  "sourceHealthCheckedOn": "2026-09-13",
+  "sourceStatus": "unsourced",
+  "sourceStatusNote": "COUNCIL RESTRUCTURE. The council's own 404 page renders at every /Events-Activities/ path; event listings now live under /Things-to-do/Events/Whats-on/. One such page was fetched successfully before the host began refusing this address, so the new structure is confirmed - but a replacement for this specific listing could not be fetched, and constructing one unread is exactly what this programme exists to stop. EDITOR."
+}

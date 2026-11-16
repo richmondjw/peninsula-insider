@@ -1,0 +1,20 @@
+{
+  "claimId": "quick-notes/2026-05-12-weather-tuesday/conditions",
+  "claimClass": "conditions",
+  "subject": {
+    "type": "quick-notes",
+    "slug": "2026-05-12-weather-tuesday",
+    "field": "sources"
+  },
+  "statement": "Tuesday - morning fog clearing to full sun by 9am. No rain, 18°C. The autumn clear window holds.",
+  "assertedBy": [
+    {
+      "type": "quick-notes",
+      "slug": "2026-05-12-weather-tuesday",
+      "field": "sources"
+    }
+  ],
+  "createdAt": "2026-05-12",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

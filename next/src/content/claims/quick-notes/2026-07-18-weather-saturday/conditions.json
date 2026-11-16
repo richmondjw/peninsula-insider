@@ -1,0 +1,20 @@
+{
+  "claimId": "quick-notes/2026-07-18-weather-saturday/conditions",
+  "claimClass": "conditions",
+  "subject": {
+    "type": "quick-notes",
+    "slug": "2026-07-18-weather-saturday",
+    "field": "sources"
+  },
+  "statement": "Weather - six point nine degrees at Main Ridge on Saturday morning, the dry block has extended to five days.",
+  "assertedBy": [
+    {
+      "type": "quick-notes",
+      "slug": "2026-07-18-weather-saturday",
+      "field": "sources"
+    }
+  ],
+  "createdAt": "2026-07-18",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

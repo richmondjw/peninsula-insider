@@ -1,0 +1,22 @@
+{
+  "evidenceId": "events/rocky-road-festival-tasting-sessions/event-status-c8ddd9b9",
+  "claim": "events/rocky-road-festival-tasting-sessions/event-status",
+  "stance": "supports",
+  "publisher": {
+    "kind": "unknown"
+  },
+  "retrievedAt": "2026-05-04",
+  "expiresAt": "2026-06-03",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/events/rocky-road-festival-tasting-sessions.json",
+    "field": "primarySourceUrl",
+    "value": "https://www.mpchoc.com.au/events/rocky-road-festival-tasting-sessions/",
+    "dateField": "lastCheckedDate"
+  },
+  "url": "https://www.mpchoc.com.au/events/rocky-road-festival-tasting-sessions/",
+  "sourceHealth": "dead",
+  "sourceHealthCheckedOn": "2026-09-13",
+  "sourceStatus": "unsourced",
+  "sourceStatusNote": "404 on the operator's own live site. The event page was removed after the event."
+}

@@ -1,0 +1,20 @@
+{
+  "claimId": "events/polperro-cellar-table-private-dining-experience/accessibility",
+  "claimClass": "accessibility",
+  "subject": {
+    "type": "events",
+    "slug": "polperro-cellar-table-private-dining-experience",
+    "field": "accessibilityNotes"
+  },
+  "statement": "Access at Polperro Cellar Table, Private Dining Experience: Private room accessible, check with venue for specific needs.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "polperro-cellar-table-private-dining-experience",
+      "field": "accessibilityNotes"
+    }
+  ],
+  "createdAt": "2026-05-04",
+  "origin": "migrated",
+  "note": "Migrated by scripts/migrate-event-claims.mjs (PI-005 Stage 2) from accessibilityNotes already on next/src/content/events/polperro-cellar-table-private-dining-experience.json. No editorial judgement was applied and no content record was changed."
+}

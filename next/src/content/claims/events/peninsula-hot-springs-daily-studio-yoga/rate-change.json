@@ -1,0 +1,20 @@
+{
+  "claimId": "events/peninsula-hot-springs-daily-studio-yoga/rate-change",
+  "claimClass": "rate-change",
+  "subject": {
+    "type": "events",
+    "slug": "peninsula-hot-springs-daily-studio-yoga",
+    "field": "freePaid"
+  },
+  "statement": "Studio yoga at Peninsula Hot Springs is a bathing add-on, not a complimentary activity.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "peninsula-hot-springs-daily-studio-yoga",
+      "field": "freePaid"
+    }
+  ],
+  "createdAt": "2026-09-13",
+  "origin": "authored",
+  "note": "Answers the internalNotes question on this record and on peninsula-hot-springs-hot-springs-yoga-complimentary, which each ask whether the other is a duplicate. The operator lists them as two activities on two different bases. No record was merged, and neither internalNote was edited."
+}

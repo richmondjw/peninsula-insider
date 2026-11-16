@@ -10,7 +10,7 @@ const project = {
   name: 'Peninsula Insider Precision Sprint',
   objective: 'Make Peninsula Insider feel effortlessly precise by removing brand contradictions, protecting factual freshness and strengthening the planning loop.',
   due: '26 August 2026',
-  trackerUpdated: '13 August 2026 · Pass 1 complete, Passes 2–4 partial',
+  trackerUpdated: '13 September 2026 · Pass 1 complete, Passes 2–4 partial; Pass 04 evidence corrected',
   status: 'In progress',
   asanaUrl: 'https://app.asana.com/1/233540066981051/project/1216946484367930/task/1217412580304611',
 };
@@ -83,10 +83,12 @@ const passes = [
       'Explore filters: activity, town, weather, party, time required and free or paid.',
       'Keep cross-site taxonomy available to global search, not every section filter.',
       'Add a compact trust proof near high-intent editorial sections: “Independent editorial. No paid rankings. Every pick earns its place.”',
+      // pi-claim-lint-allow: quotes the claim vocabulary this pass audited; a task description, not a claim
       'Audit “visited”, “firsthand” and “verified” claims, including the Wine navigation, so public language matches the real editorial workflow.',
     ],
     proof: 'Section filter sets are contextual in production and public trust claims are supported by the editorial record.',
-    evidence: 'Site-wide sweep for unsupported "visited"/"firsthand"/"verified" claims complete, prompted by Emma\'s 13 August live-site review flag. Fixed the sitewide JSON-LD organisation description, the Stay page standfirst and meta description, and all five seasonal guide footers, which each implied every property or venue had been personally visited. Wine navigation and cellar-door pages checked clean, no absolute claims found. Methodology and Editorial Approach pages already use defensible general language and were left as-is. Shipped 13 August 2026. Reader-first filters (Eat & Drink, Stay, Explore) and the compact trust-proof snippet for high-intent sections have not started.',
+    // pi-claim-lint-allow: records the claim language the 13 Aug sweep removed; quoting it is the correction
+    evidence: 'Sweep run and recorded as complete on 13 August 2026, prompted by Emma\'s live-site review flag. The record was wrong on its face and is corrected here. WHAT WAS ACTUALLY SWEPT: seven files, all under src/pages/ and src/layouts/. Fixed the sitewide JSON-LD organisation description, the Stay page standfirst and meta description, and all five seasonal guide footers, which each implied every property or venue had been personally visited. Those fixes stand. WHAT WAS MISSED: the sweep never entered src/content/, and the note that the cellar-door pages were checked clean with no absolute claims found was not correct. The two flagship best-of pages, /eat/best-restaurants/ and /wine/best-cellar-doors/, each carried an absolute first-hand claim for a further sixteen days. WHEN THE REMAINDER WAS FIXED: those two pages on 29 August 2026, by unrelated work rather than by this pass; the two reusable intro blocks in src/content/editorial_blocks/ on 13 September 2026, having survived a month past the date this pass was marked complete. The scope gap is now closed by a build-time guard, next/scripts/lint-firsthand-claims.mjs, which reads src/content/ as well as pages, layouts and components, so a sweep can no longer mis-record its own reach. A fresh audit of the 260 commits since 13 August found no new unsupported claims. Methodology and Editorial Approach pages already use defensible general language and were left as-is. Reader-first filters (Eat & Drink, Stay, Explore) and the compact trust-proof snippet for high-intent sections have not started.',
   },
   {
     number: '05',

@@ -1,0 +1,152 @@
+{
+  "checkedAt": "2026-11-02T04:10:00.908Z",
+  "checkedBy": "Codex",
+  "authority": "Direct user instruction to push live and populate events with images, 2026-11-02",
+  "mode": "bounded editorial curation; no raw candidate approval flags changed",
+  "records": [
+    {
+      "slug": "chatty-cafe-rosebud-library-2026-11-04",
+      "sourceUrl": "https://library.mornpen.vic.gov.au/Whats-On/Events/Chatty-Caf%C3%A9-Rosebud-Library",
+      "sourceRetrievedAt": "2026-11-02T04:03:46.120Z",
+      "sourceSha256": "c60b74e4b15f9cab3266e2ed8ceff339d42f3268e5ea892090a98f444942436f",
+      "facts": {
+        "date": "2026-11-04",
+        "start": "10:00",
+        "end": "12:00",
+        "timezone": "Australia/Melbourne",
+        "venue": "Rosebud Library",
+        "address": "McDowell Street, Rosebud",
+        "booking": "No bookings required",
+        "cancellation": "No cancellation/postponement notice found in retrieved primary page; recheck operator for changes"
+      },
+      "geography": {
+        "assessment": "inside Mornington Peninsula Shire",
+        "basis": "Shire-operated library primary page identifies the exact Rosebud or Mornington branch address and mapped coordinates",
+        "coordinates": {
+          "lat": -38.3574413,
+          "lng": 144.9048471
+        }
+      },
+      "image": {
+        "publicPath": "/images/generated/chatty-cafe-rosebud-library-2026-11-04.webp",
+        "master": "ops/records/events/population-2026-11-02/illustration-masters/chatty-cafe-rosebud-library-2026-11-04.svg",
+        "sha256": "91fc0233239a034d9b9c36458c2a416cd67654669d42bf07affa4fd5e21819ef",
+        "rightsBasis": "Original authored vector; no third-party content",
+        "caption": "Original editorial illustration of conversation and a cuppa. Not a photograph of Rosebud Library or this event.",
+        "dimensions": [
+          1680,
+          1120
+        ]
+      }
+    },
+    {
+      "slug": "study-smart-rosebud-library-2026-11-06",
+      "sourceUrl": "https://library.mornpen.vic.gov.au/Whats-On/Events/Study-Smart-VCE-Tertiary-Student-Study-Space-Rosebud-Library",
+      "sourceRetrievedAt": "2026-11-02T04:03:46.691Z",
+      "sourceSha256": "eeac7ec90b5f57b27669adb2ca170c8651c78b94c86bc52aba12c6cf935efd7f",
+      "facts": {
+        "date": "2026-11-06",
+        "start": "16:00",
+        "end": "17:45",
+        "timezone": "Australia/Melbourne",
+        "venue": "Rosebud Library",
+        "address": "McDowell Street, Rosebud",
+        "booking": "No bookings required",
+        "cancellation": "No cancellation/postponement notice found in retrieved primary page; recheck operator for changes"
+      },
+      "geography": {
+        "assessment": "inside Mornington Peninsula Shire",
+        "basis": "Shire-operated library primary page identifies the exact Rosebud or Mornington branch address and mapped coordinates",
+        "coordinates": {
+          "lat": -38.3574413,
+          "lng": 144.9048471
+        }
+      },
+      "image": {
+        "publicPath": "/images/generated/study-smart-rosebud-library-2026-11-06.webp",
+        "master": "ops/records/events/population-2026-11-02/illustration-masters/study-smart-rosebud-library-2026-11-06.svg",
+        "sha256": "d2b067f205babc170c11f28e3ec6b0c328a5dd6e22651e89ca165d7fc3c1d929",
+        "rightsBasis": "Original authored vector; no third-party content",
+        "caption": "Original editorial illustration of books and study stationery. Not a photograph of Rosebud Library or this event.",
+        "dimensions": [
+          1680,
+          1120
+        ]
+      }
+    },
+    {
+      "slug": "study-smart-mornington-library-2026-11-06",
+      "sourceUrl": "https://library.mornpen.vic.gov.au/Whats-On/Events/Study-Smart-VCE-Tertiary-Student-Study-Space-Mornington-Library",
+      "sourceRetrievedAt": "2026-11-02T04:03:47.117Z",
+      "sourceSha256": "f8d8a7bbf232ade5df89f86da771e48ffa7fe71e3d1ea797430a9759f8df72de",
+      "facts": {
+        "date": "2026-11-06",
+        "start": "16:00",
+        "end": "17:45",
+        "timezone": "Australia/Melbourne",
+        "venue": "Mornington Library",
+        "address": "Vancouver Street, Mornington",
+        "booking": "No bookings required",
+        "cancellation": "No cancellation/postponement notice found in retrieved primary page; recheck operator for changes"
+      },
+      "geography": {
+        "assessment": "inside Mornington Peninsula Shire",
+        "basis": "Shire-operated library primary page identifies the exact Rosebud or Mornington branch address and mapped coordinates",
+        "coordinates": {
+          "lat": -38.2176922,
+          "lng": 145.0362946
+        }
+      },
+      "image": {
+        "publicPath": "/images/generated/study-smart-mornington-library-2026-11-06.webp",
+        "master": "ops/records/events/population-2026-11-02/illustration-masters/study-smart-mornington-library-2026-11-06.svg",
+        "sha256": "ddf5a91986174e4d2b57d693deb0b7eefa1186ddb5a81cdb689ab45ffe5103cc",
+        "rightsBasis": "Original authored vector; no third-party content",
+        "caption": "Original editorial illustration of books and an open notebook. Not a photograph of Mornington Library or this event.",
+        "dimensions": [
+          1680,
+          1120
+        ]
+      }
+    },
+    {
+      "slug": "acoustic-saturdays-peppers-moonah-links-2026",
+      "sourceUrl": "https://www.moonahlinks.com.au/cms/dining/spike-bar/",
+      "secondarySourceUrl": "https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Acoustic-Saturdays-Peppers-Moonah-Links-Live-Music-1",
+      "checkedAt": "2026-11-02T04:13:21.488Z",
+      "sources": [
+        {
+          "url": "https://www.moonahlinks.com.au/cms/dining/spike-bar/",
+          "retrievedAt": "2026-11-02T04:11:58.084Z",
+          "sha256": "fd2c36d53eee927532f7517d5d8fa550161f7b6d3254fde665c203a63a707907"
+        },
+        {
+          "url": "https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Acoustic-Saturdays-Peppers-Moonah-Links-Live-Music-1",
+          "retrievedAt": "2026-11-02T04:11:58.880Z",
+          "sha256": "e44a2efdfa9596e24879aa37fb76d75a5b58d72f5e3bd3861168d99b1baf24ae"
+        }
+      ],
+      "facts": {
+        "date": "2026-11-07",
+        "start": "17:00",
+        "end": "20:00",
+        "timezone": "Australia/Melbourne",
+        "venue": "Spike Bar, Peppers Moonah Links",
+        "address": "55 Peter Thomson Drive, Fingal",
+        "booking": "No bookings required",
+        "timeConflictResolution": "Shire calendar uses midnight placeholder; venue programme explicitly gives 5pm to 8pm."
+      },
+      "image": {
+        "publicPath": "/images/generated/acoustic-saturdays-peppers-moonah-links-2026.webp",
+        "master": "ops/records/events/population-2026-11-02/illustration-masters/acoustic-saturdays-peppers-moonah-links-2026.svg",
+        "sha256": "9530b0b3df11ea9f2f30293ff55140d4254bf86cf107d3ac50dd4b02ced3ddad",
+        "rightsBasis": "Original authored vector; no third-party content",
+        "caption": "Original editorial illustration of an acoustic guitar, not a photograph of Spike Bar or a performing musician.",
+        "dimensions": [
+          1680,
+          1120
+        ]
+      }
+    }
+  ]
+}

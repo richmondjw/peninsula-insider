@@ -49,7 +49,7 @@ The vessel is a 50-foot Westcoaster flybridge with a large deck, toilet, ice box
 
 ## Why we chose this charter
 
-Two reasons specific to position in the Peninsula market. First, it is the only operator in this pack that fishes Western Port exclusively. If your target species is KGW in the channel systems or leatherjacket on the bay's productive margins, this is the right vessel. Second, the 50-foot platform at 20-passenger capacity fills a large-group need in Western Port that no other operator here covers.
+Its position in the Peninsula market matters. First, it is the only operator in this pack that fishes Western Port exclusively. If your target species is KGW in the channel systems or leatherjacket on the bay's productive margins, this is the right vessel. Second, the 50-foot platform at 20-passenger capacity fills a large-group need in Western Port that no other operator here covers.
 
 The honest caveat: if you want Port Phillip Bay snapper during the October to December run, this is not the right operator. Western Port's pink snapper population is separate from the Port Phillip Bay warm-water run, and the fishery and experience are meaningfully different.
 

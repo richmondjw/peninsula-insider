@@ -18,7 +18,6 @@
     "lng": 144.6921
   },
   "indoorOutdoor": "Outdoor",
-  "officialEventUrl": "https://www.mornpen.vic.gov.au/Events-Activities/Coastrek-Mornington-Peninsula-2026",
   "bookingRequired": "Yes",
   "freePaid": "Paid",
   "priceRange": "Ticketed, per person; registration tiers vary",
@@ -41,7 +40,6 @@
     "name": "Coastrek / Beyond Blue",
     "website": "https://www.beyondblue.org.au"
   },
-  "primarySourceUrl": "https://www.mornpen.vic.gov.au/Events-Activities/Coastrek-Mornington-Peninsula-2026",
   "secondarySourceUrl": "https://www.beyondblue.org.au/get-involved/events/coastrek-mornington-peninsula-2026",
   "lastCheckedDate": "2026-05-04",
   "editorialPriority": 4,
@@ -64,5 +62,23 @@
     "alt": "Coastal bushland trail on the Mornington Peninsula",
     "credit": "Peninsula Insider",
     "license": "other-licensed"
-  }
+  },
+  "retiredSourceLinks": [
+    {
+      "field": "officialEventUrl",
+      "url": "https://www.mornpen.vic.gov.au/Events-Activities/Coastrek-Mornington-Peninsula-2026",
+      "verdict": "dead",
+      "disposition": "gone",
+      "checkedOn": "2026-09-13",
+      "note": "COUNCIL RESTRUCTURE, as above. Also a 2026 event that has passed."
+    },
+    {
+      "field": "primarySourceUrl",
+      "url": "https://www.mornpen.vic.gov.au/Events-Activities/Coastrek-Mornington-Peninsula-2026",
+      "verdict": "dead",
+      "disposition": "gone",
+      "checkedOn": "2026-09-13",
+      "note": "COUNCIL RESTRUCTURE, as above. Also a 2026 event that has passed."
+    }
+  ]
 }

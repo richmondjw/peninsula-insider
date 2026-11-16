@@ -58,7 +58,7 @@ Finish with lunch at Barragunda Dining if you booked weeks ago, or the RACV Cape
 
 Free weekday entry for Mornington Peninsula Shire residents ends on Monday 31 August, which makes this week the last chance to walk the sculpture park on a local's terms.
 
-Sixteen hectares of lawn and coastal scrub run down toward Western Port, with more than fifty large-scale works set along the paths - Jaume Plensa and Inge King among the names you'll recognise. Winter is genuinely the better season for it. Low sun rakes across the steel and stone, the grass is green rather than scorched, and on a Tuesday morning you will have long stretches of the loop entirely to yourself. Allow an hour to walk it properly, more if you sit.
+Sixteen and a half acres of lawn and coastal scrub run down toward Western Port, with more than seventy large-scale works set along the paths - Jaume Plensa and Inge King among the names you'll recognise. Winter is genuinely the better season for it. Low sun rakes across the steel and stone, the grass is green rather than scorched, and on a Tuesday morning you will have long stretches of the loop entirely to yourself. Allow an hour to walk it properly, more if you sit.
 
 3649 Frankston-Flinders Road, Merricks. Weekdays only for the local offer; bring photo ID or a rates notice with a Shire address. Check opening hours at ptleoestate.com.au before you drive out.
 

@@ -1,0 +1,20 @@
+{
+  "claimId": "experiences/eagle-ridge-golf-course/address",
+  "claimClass": "address",
+  "subject": {
+    "type": "experiences",
+    "slug": "eagle-ridge-golf-course",
+    "field": "place"
+  },
+  "statement": "Eagle Ridge Golf Course is in Boneo.",
+  "assertedBy": [
+    {
+      "type": "experiences",
+      "slug": "eagle-ridge-golf-course",
+      "field": "place"
+    }
+  ],
+  "createdAt": "2026-09-24",
+  "origin": "authored",
+  "note": "The official contact page gives 215 Browns Road, Boneo VIC 3939. Corrects the place reference from Balnarring to Boneo only. Does not verify coordinates, image, travel duration or the remaining editorial assessments."
+}

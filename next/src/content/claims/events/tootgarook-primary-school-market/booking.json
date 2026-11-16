@@ -1,0 +1,20 @@
+{
+  "claimId": "events/tootgarook-primary-school-market/booking",
+  "claimClass": "booking",
+  "subject": {
+    "type": "events",
+    "slug": "tootgarook-primary-school-market",
+    "field": "bookingRequired"
+  },
+  "statement": "Booking is not required for Tootgarook Primary School Market.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "tootgarook-primary-school-market",
+      "field": "bookingRequired"
+    }
+  ],
+  "createdAt": "2026-05-04",
+  "origin": "migrated",
+  "note": "Migrated by scripts/migrate-event-claims.mjs (PI-005 Stage 2) from bookingRequired already on next/src/content/events/tootgarook-primary-school-market.json. No editorial judgement was applied and no content record was changed."
+}

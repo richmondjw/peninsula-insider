@@ -1,0 +1,20 @@
+{
+  "claimId": "venues/the-old-pier-kitchen/opening-hours",
+  "claimClass": "opening-hours",
+  "subject": {
+    "type": "venues",
+    "slug": "the-old-pier-kitchen",
+    "field": "openingHours"
+  },
+  "statement": "The Old Pier Kitchen opens Wednesday to Sunday, late morning to late afternoon.",
+  "assertedBy": [
+    {
+      "type": "venues",
+      "slug": "the-old-pier-kitchen",
+      "field": "openingHours"
+    }
+  ],
+  "createdAt": "2026-05-20",
+  "origin": "fixture",
+  "note": "PI-006 fixture. Seeds one named failure class so the loop can be proved to catch it."
+}

@@ -1,0 +1,20 @@
+{
+  "claimId": "events/ten-minutes-by-tractor-terroir-masterclass/booking",
+  "claimClass": "booking",
+  "subject": {
+    "type": "events",
+    "slug": "ten-minutes-by-tractor-terroir-masterclass",
+    "field": "bookingRequired"
+  },
+  "statement": "Booking is required for Ten Minutes by Tractor, Terroir Masterclass.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "ten-minutes-by-tractor-terroir-masterclass",
+      "field": "bookingRequired"
+    }
+  ],
+  "createdAt": "2026-05-04",
+  "origin": "migrated",
+  "note": "Migrated by scripts/migrate-event-claims.mjs (PI-005 Stage 2) from bookingRequired already on next/src/content/events/ten-minutes-by-tractor-terroir-masterclass.json. No editorial judgement was applied and no content record was changed."
+}

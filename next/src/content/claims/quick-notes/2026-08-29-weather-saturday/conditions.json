@@ -1,0 +1,20 @@
+{
+  "claimId": "quick-notes/2026-08-29-weather-saturday/conditions",
+  "claimClass": "conditions",
+  "subject": {
+    "type": "quick-notes",
+    "slug": "2026-08-29-weather-saturday",
+    "field": "sources"
+  },
+  "statement": "Weather: a cool, dry Saturday at Main Ridge; bring a warm layer.",
+  "assertedBy": [
+    {
+      "type": "quick-notes",
+      "slug": "2026-08-29-weather-saturday",
+      "field": "sources"
+    }
+  ],
+  "createdAt": "2026-08-29",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

@@ -1,0 +1,19 @@
+{
+  "slug": "the-lantern-room",
+  "name": "The Lantern Room",
+  "type": "wine-bar",
+  "place": "red-hill",
+  "website": "https://example-venue.test/the-lantern-room",
+  "images": [
+    {
+      "src": "/images/sourced/the-lantern-room-01.webp",
+      "alt": "A low-lit wine bar room with timber tables",
+      "depictionStatus": "actual",
+      "permittedUses": [
+        "web",
+        "newsletter"
+      ],
+      "credit": "Peninsula Insider"
+    }
+  ]
+}

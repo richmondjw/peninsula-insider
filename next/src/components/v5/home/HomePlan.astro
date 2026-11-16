@@ -1,40 +1,44 @@
 ---
-/**
- * HomePlan - block 5, the featured plan (page-redesigns.md 1.9 item 5;
- * wireframes.html #home note 4: "The Decide door, one plan only").
- *
- * One plan Card (v5 plan variant: day-count chip, fork SaveControl) chosen
- * deterministically at build time: in-season plans first, year-round next
- * form the eligible pool; within that pool the pick rotates on a fixed
- * calendar window (ROTATION_WINDOW_DAYS) rather than always favoring the
- * most recently published plan. Same UTC window always yields the same
- * plan (deterministic, reproducible for a given build), but the pick
- * changes once the window rolls over (rotating) - see
- * .github/workflows/build-and-deploy.yml `schedule` for the rebuild
- * cadence that makes the rotation actually reach the live site. Closes
- * with "All plans" into the hub.
+/** Plan your day: the one homepage route into Plans.
+ * A compact chooser (posts to the Plans matcher, works without scripts) sits
+ * above three comparable editorial itineraries from the usable catalogue.
+ * The first card rotates on a fixed five-day window. Cards carry image,
+ * title, one line, one meta line and a quiet credit; the whole card is the
+ * link. Copy/Save and per-plan booking notes live on the plan pages
+ * (2026-11-10). Round 2: no intro or footer copy; "See all plans" sits in the
+ * heading row; the selects stack full-width below 48em so none truncates.
  */
-import { getCollection } from 'astro:content';
 import Card from '../Card.astro';
-import { resolveHero } from '../../../lib/inline-edit/resolve-hero';
-import { currentSeason } from '../../../lib/editorial';
+import { buildPlansModel } from '../plans/plans-data';
+import { compareEditorialPlans } from '../plans/plan-curation';
+import { FACET_OPTIONS } from '../../../lib/facets';
+import { loadOverrides } from '../../../lib/inline-edit/overrides';
+import { SHOW_ASK_PI } from '../../../lib/features';
 
 const ROTATION_WINDOW_DAYS = 5;
+const FAMILY_PLAN_SLUG = 'the-family-day-out';
+const FAMILY_PLAN_SLOT = 'plan.family.image';
+/* Licensed Victoria Content Hub asset 167058. Its metadata is also recorded
+   on the Arthurs Seat Eagle tour; the gondola is this itinerary's first stop. */
+const FAMILY_PLAN_PHOTO = {
+  src: '/images/visit-victoria/vv-167058-arthurs-seat-eagle.webp',
+  alt: 'A family looks out from inside an Arthurs Seat Eagle gondola over the bayside suburbs and Port Phillip below',
+  caption: 'Arthurs Seat Eagle Gondola Ride, Mornington Peninsula.',
+  credit: 'Courtesy of Visit Victoria',
+};
 
-const plans = await getCollection('itineraries');
-const season = currentSeason();
+/* The itinerary records have no season field. Use the same reviewed
+   editorial order as the plans hub, then rotate among its three strongest
+   starting points. */
+const plansModel = await buildPlansModel();
+const usablePlans = plansModel.plans.filter((plan) => plan.kind === 'itinerary' && plan.stops.length > 0);
+const eligible = [...usablePlans].sort(compareEditorialPlans).slice(0, 3);
 
-const seasonScore = (p: any) =>
-  p.data.season === season ? 2 : p.data.season === 'year-round' ? 1 : 0;
-
-const topScore = plans.reduce((max, p) => Math.max(max, seasonScore(p)), 0);
-
-// Eligibility: same season-priority tier as before (in-season beats
-// year-round beats out-of-season). Everything tied for the top tier is a
-// fair pick - this is where rotation replaces "always most recent".
-const eligible = [...plans]
-  .filter((p) => seasonScore(p) === topScore)
-  .sort((a, b) => (a.data.slug ?? a.id).localeCompare(b.data.slug ?? b.id));
+/* Chooser options: only facets that at least one published itinerary carries. */
+const present = (key: 'party' | 'cat' | 'mood') => FACET_OPTIONS[key].filter(option => usablePlans.some(plan => (plan.facets[key] ?? []).includes(option.value)));
+const interests = [...present('cat'), ...present('mood')]
+  .filter(option => option.value !== 'plan' && option.value !== 'rainy-day')
+  .filter((option, i, list) => list.findIndex(other => other.value === option.value) === i);
 
 const epochDay = Math.floor(Date.now() / 86_400_000);
 const rotationIndex = eligible.length
@@ -42,136 +46,96 @@ const rotationIndex = eligible.length
   : 0;
 
 const featured = eligible[rotationIndex];
+const slug = featured?.slug ?? '';
+const familyPlanPublished = slug === FAMILY_PLAN_SLUG
+  ? (await loadOverrides('page', 'home')).image[FAMILY_PLAN_SLOT]
+  : undefined;
+const familyPlanOverride = familyPlanPublished?.src && familyPlanPublished.alt?.trim() && familyPlanPublished.credit?.trim()
+  ? familyPlanPublished
+  : undefined;
+const sameFamilyPhoto = !familyPlanOverride || familyPlanOverride.src === FAMILY_PLAN_PHOTO.src;
+const featuredImage = slug === FAMILY_PLAN_SLUG
+  ? {
+      src: familyPlanOverride?.src ?? FAMILY_PLAN_PHOTO.src,
+      alt: familyPlanOverride?.alt ?? (sameFamilyPhoto ? FAMILY_PLAN_PHOTO.alt : featured?.title ?? 'Family plan'),
+      caption: (familyPlanOverride?.caption ?? (sameFamilyPhoto ? FAMILY_PLAN_PHOTO.caption : undefined)) ?? undefined,
+      credit: (familyPlanOverride?.credit ?? (sameFamilyPhoto ? FAMILY_PLAN_PHOTO.credit : undefined)) ?? undefined,
+    }
+  : featured?.image;
+const featuredImageEdit = slug === FAMILY_PLAN_SLUG
+  ? { entityType: 'page' as const, entitySlug: 'home', fieldPath: FAMILY_PLAN_SLOT }
+  : undefined;
 
-const slug = featured ? (featured.data.slug ?? featured.id) : '';
-const hero = featured ? await resolveHero('itinerary', slug, featured.data) : null;
+/* Alternates use the same editorial ranking as the plans hub. */
+const featuredId = `it-${slug}`;
+const alternates = usablePlans
+  .filter((p) => p.id !== featuredId && p.image)
+  .sort(compareEditorialPlans)
+  .slice(0, 2);
 
-const moodLabel = featured
-  ? String(featured.data.mood ?? '')
-      .replace(/-/g, ' ')
-      .replace(/^\w/, (c: string) => c.toUpperCase())
-  : '';
+/* A complete one-sentence invitation fits the compact homepage cards.
+   The plan pages retain their full editorial verdicts. */
+const alternateSummary: Record<string, string> = {
+  'ridge-to-sea-two-night-escape': 'Red Hill wine country to the southern coast.',
+  'flinders-and-cape-reset': 'Coastal walks and one excellent meal.',
+  'the-family-day-out': 'A gondola, brewery lunch and a bay beach.',
+};
 
-const audienceLabel = featured
-  ? ({ couple: 'Couples', family: 'Family', friends: 'Friends', solo: 'Solo', locals: 'Locals' } as Record<string, string>)[
-      featured.data.audience
-    ] ?? ''
-  : '';
-
-const seasonLabel = featured
-  ? String(featured.data.season ?? '')
-      .replace(/-/g, ' ')
-      .replace(/^\w/, (c: string) => c.toUpperCase())
-  : '';
-
-const dayCount = featured ? (featured.data.lengthNights ?? 0) + 1 : 0;
-const firstStop = featured
-  ? [...(featured.data.stops ?? [])].sort((a: any, b: any) => a.day - b.day || a.order - b.order)[0]
-  : null;
-const firstStopDetail = firstStop?.note
-  ? String(firstStop.note).split(/(?<=[.!?])\s+/)[0]
-  : featured?.data.editorNote
-    ? String(featured.data.editorNote).split(/(?<=[.!?])\s+/)[0]
-    : '';
-const planShape = [
-  dayCount ? `${dayCount} ${dayCount === 1 ? 'day' : 'days'}` : '',
-  audienceLabel,
-  seasonLabel === 'Year round' ? '' : seasonLabel,
-].filter(Boolean);
+const cards = featured && featuredImage ? [
+  { plan: featured, image: featuredImage, imageEdit: featuredImageEdit, surface: 'home-plan' },
+  ...alternates.map((plan) => ({ plan, image: plan.image ?? undefined, imageEdit: undefined, surface: 'home-plan-alt' })),
+] : [];
 ---
 
-{featured && hero && (
-  <section class="home-plan" aria-labelledby="home-plan-title">
-    <div class="container">
-      <div class="home-plan__head">
-        <div class="home-plan__heading">
-          <p class="home-plan__eyebrow">Plan it</p>
-          <h2 id="home-plan-title" class="home-plan__title">Featured plan</h2>
-        </div>
-        <p class="home-plan__all">
-          <a href="/explore/plans/">All plans &rarr;</a>
-        </p>
-      </div>
-
-      <div class="home-plan__layout">
-        {/* showEyebrow is off: the section heading is already "Featured plan",
-            so a PLAN stamp on the single card below it says nothing new. */}
-        <div class="home-plan__card">
-          <Card
-            as="article"
-            variant="plan"
-            title={featured.data.title}
-            href={`/explore/plans/${slug}/`}
-            entityType="itinerary"
-            entitySlug={slug}
-            image={{ src: hero.src, alt: hero.alt || featured.data.title }}
-            verdict={featured.data.dek}
-            showEyebrow={false}
-            dayCount={dayCount}
-            meta={[moodLabel].filter(Boolean)}
-            freshness={featured.data.lastVerified ? String(featured.data.lastVerified) : undefined}
-            surface="home-plan"
-            position={0}
-          />
-        </div>
-
-        <aside class="home-plan__rail" aria-label="Plan details and alternatives">
-          <div class="home-plan__shape">
-            <p class="home-plan__rail-label">This plan's shape</p>
-            {planShape.length > 0 && <p class="home-plan__shape-list">{planShape.join(' · ')}</p>}
-          </div>
-
-          {firstStopDetail && (
-            <div class="home-plan__start">
-              <p class="home-plan__rail-label">Start here</p>
-              <p>{firstStopDetail}</p>
-            </div>
-          )}
-
-          <nav class="home-plan__alternatives" aria-label="Browse plans by context">
-            <p class="home-plan__rail-label">If today looks different</p>
-            <ul>
-              <li><a href="/explore/plans/?context=one-day">One day <span aria-hidden="true">→</span></a></li>
-              <li><a href="/explore/plans/?context=family">With kids <span aria-hidden="true">→</span></a></li>
-              <li><a href="/explore/plans/?context=rainy-day">Rainy day <span aria-hidden="true">→</span></a></li>
-            </ul>
-          </nav>
-        </aside>
-      </div>
+<section id="home-choose" class="home-plan home-choose" aria-labelledby="home-plan-title">
+  <div class="container">
+    <div class="home-plan__head">
+      <h2 id="home-plan-title" class="home-plan__title">Plan your day</h2>
+      <a class="home-plan__more" href="/explore/plans/">See all plans <span aria-hidden="true">→</span></a>
     </div>
-  </section>
-)}
+
+    <form action="/explore/plans/#build" method="get" class="home-choose__form" aria-label="Find a Peninsula plan">
+      <label>How long?<select name="length"><option value="">Any length</option><option value="one-day">One day</option><option value="weekend">A weekend</option><option value="longer">Two nights or more</option></select></label>
+      <label>Who’s coming?<select name="who"><option value="">Anyone</option>{present('party').map(option => <option value={option.value}>{option.label}</option>)}</select></label>
+      <label>What sounds good?<select name="into"><option value="">Anything</option>{interests.map(option => <option value={option.value}>{option.label}</option>)}</select></label>
+      <button class="pi-btn pi-btn--solid" type="submit">Find my plan</button>
+    </form>
+    {SHOW_ASK_PI && <p class="home-plan__ask">Something more specific? <a class="home-plan__ask-link" href="/ask/">Ask PI <span aria-hidden="true">→</span></a></p>}
+
+    {cards.length > 0 && (
+      <>
+        <ul class="home-plan__choices" role="list" aria-label="More plans to explore">
+          {cards.filter(({ plan }) => plan.slug !== 'flinders-and-cape-reset').map(({ plan, image, imageEdit, surface }, i) => (
+            <li class:list={[i === 0 ? 'home-plan__card' : 'home-plan__alt']}>
+              <Card preferAvif={true}
+                as="article"
+                variant="plan"
+                title={plan.displayTitle}
+                href={plan.href}
+                entityType={plan.entityType}
+                entitySlug={plan.slug}
+                fieldPath={plan.imageField}
+                imageEdit={imageEdit}
+                requireImageMetadata={Boolean(imageEdit)}
+                suppressImageHydration={true}
+                image={image}
+                verdict={alternateSummary[plan.slug] ?? plan.editorialReason ?? plan.verdict}
+                showEyebrow={false}
+                meta={plan.meta}
+                surface={surface}
+                position={i}
+              />
+            </li>
+          ))}
+        </ul>
+      </>
+    )}
+  </div>
+</section>
 
 <style>
-  .home-plan {
-    padding: var(--space-7) 0;
-  }
-
-  .home-plan__head {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: var(--space-3);
-    margin-bottom: var(--space-5);
-  }
-
-  .home-plan__heading {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-  }
-
-  .home-plan__eyebrow {
-    margin: 0;
-    font-family: var(--font-ui);
-    font-size: var(--fs-100);
-    font-weight: var(--fw-semibold);
-    letter-spacing: var(--ls-eyebrow);
-    text-transform: uppercase;
-    color: var(--teal-text);
-  }
-
+  .home-plan { padding: var(--space-7) 0; scroll-margin-top: 9rem; }
+  .home-plan__head { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: var(--space-2) var(--space-5); margin-bottom: var(--space-5); }
   .home-plan__title {
     margin: 0;
     font-family: var(--font-display);
@@ -181,141 +145,49 @@ const planShape = [
     letter-spacing: var(--ls-display);
     color: var(--text);
   }
+  /* The one "more" link style on the homepage: section-head right, text only. */
+  .home-plan__more { display: inline-flex; align-items: center; gap: .4em; min-height: 44px; color: var(--accent); font: 600 var(--fs-300)/1.4 var(--font-ui); text-decoration: none; }
+  .home-plan__more:hover { text-decoration: underline; text-underline-offset: .2em; }
 
-  .home-plan__all {
-    margin: 0;
-    font-family: var(--font-ui);
-    font-weight: var(--fw-bold);
-    font-size: var(--fs-300);
-  }
+  /* Selects never truncate: three equal columns only where each has room,
+     otherwise one full-width column. */
+  .home-choose__form { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)) auto; gap: var(--space-4); align-items: end; }
+  .home-choose__form label { font-size: var(--fs-300); font-weight: 600; min-width: 0; }
+  .home-choose__form select { display: block; width: 100%; margin-top: var(--space-2); min-height: 48px; padding: .65rem 2rem .65rem .75rem; background: var(--bg); border: 1px solid var(--border-control); border-radius: var(--radius-s); color: var(--text); font: 400 var(--fs-400)/1.4 var(--font-ui); }
+  .home-choose__form button { min-height: 48px; }
+  .home-plan__ask { margin: var(--space-3) 0 0; color: var(--soft); font: 400 var(--fs-300)/1.4 var(--font-ui); }
+  .home-plan__ask-link { display: inline-flex; align-items: center; gap: .3em; min-height: 44px; color: var(--accent); font-weight: 600; text-decoration: none; }
+  .home-plan__ask-link:hover { text-decoration: underline; text-underline-offset: .2em; }
+  .home-choose__form select:focus-visible, .home-plan a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 
-  .home-plan__all a {
-    color: var(--text);
-    text-decoration: none;
-    border-bottom: 1.5px solid var(--accent);
-    padding-bottom: 2px;
-    transition: color var(--dur-fast) var(--ease-enter);
-  }
-
-  .home-plan__all a:hover {
-    color: var(--accent);
-  }
-
-  .home-plan__layout {
-    display: grid;
-    grid-template-columns: minmax(0, 2fr) minmax(15rem, 1fr);
-    align-items: stretch;
-    border-top: 1px solid var(--border, color-mix(in srgb, var(--text) 16%, transparent));
-  }
-
-  .home-plan__card {
-    min-width: 0;
-    padding: var(--space-5) var(--space-6) var(--space-5) 0;
-  }
-
-  .home-plan__rail {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-5);
-    padding: var(--space-5) 0 var(--space-5) var(--space-6);
-    border-left: 1px solid var(--border, color-mix(in srgb, var(--text) 16%, transparent));
-    color: var(--text);
-  }
-
-  .home-plan__rail-label {
-    margin: 0 0 var(--space-2);
-    font-family: var(--font-ui);
-    font-size: var(--fs-100);
-    font-weight: var(--fw-semibold);
-    letter-spacing: var(--ls-eyebrow);
-    text-transform: uppercase;
-    color: var(--teal-text);
-  }
-
-  .home-plan__shape-list,
-  .home-plan__start p:last-child {
-    margin: 0;
-    font-family: var(--font-display);
-    font-size: var(--fs-400);
-    line-height: 1.35;
-    letter-spacing: var(--ls-display);
-  }
-
-  .home-plan__alternatives {
-    margin-top: auto;
-    padding-top: var(--space-5);
-    border-top: 1px solid var(--border, color-mix(in srgb, var(--text) 16%, transparent));
-  }
-
-  .home-plan__alternatives ul {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .home-plan__alternatives a {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    min-height: 44px;
-    color: var(--text);
-    font-family: var(--font-ui);
-    font-size: var(--fs-300);
-    font-weight: var(--fw-semibold);
-    text-decoration: none;
-    border-bottom: 1px solid color-mix(in srgb, var(--text) 18%, transparent);
-  }
-
-  .home-plan__alternatives a:hover {
-    color: var(--accent);
-  }
+  /* Same card anatomy as This weekend: 3:2 image, title, one line, meta, then
+     the photo credit as one quiet closing line. */
+  .home-plan__choices { list-style: none; margin: var(--space-7) 0 0; padding: 0; display: grid; gap: var(--space-5); grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
+  .home-plan__card, .home-plan__alt { min-width: 0; }
+  .home-plan__choices :global(.pi-card) { width: 100%; }
+  .home-plan__choices :global(.pi-card__media) { aspect-ratio: 3/2; height: auto; }
+  .home-plan__choices :global(.pi-card__media img) { height: 100%; width: 100%; object-fit: cover; }
+  .home-plan__choices :global(.pi-card__body) { display: flex; flex-direction: column; }
+  .home-plan__choices :global(.pi-card__title) { font-size: var(--fs-500); line-height: 1.25; text-wrap: balance; }
+  .home-plan__choices :global(.pi-card__dek) { display: block; -webkit-line-clamp: unset; line-clamp: unset; overflow: visible; font-size: var(--fs-400); line-height: var(--lh-body); }
+  /* Copy and Save live on each plan page; the card is a single link here. */
+  .home-plan__choices :global(.pi-card__actions) { display: none; }
 
   @media (max-width: 63.99rem) {
-    .home-plan__layout {
-      grid-template-columns: 1fr;
-    }
-
-    .home-plan__card {
-      padding-right: 0;
-    }
-
-    .home-plan__rail {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: var(--space-4);
-      padding: var(--space-5) 0 0;
-      border-top: 1px solid var(--border, color-mix(in srgb, var(--text) 16%, transparent));
-      border-left: 0;
-    }
-
-    .home-plan__alternatives {
-      margin-top: 0;
-      padding-top: 0;
-      border-top: 0;
-    }
+    .home-choose__form { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .home-choose__form button { grid-column: 1 / -1; justify-self: start; }
+    /* Below the desktop grid the plans scroll sideways with a visible peek,
+       exactly like This weekend. Reader-driven, no motion. */
+    .home-plan__choices { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: min(21rem, 84vw); overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: none; padding-bottom: var(--space-2); }
+    .home-plan__choices::-webkit-scrollbar { display: none; }
+    .home-plan__choices > li { scroll-snap-align: start; }
   }
-
-  @media (max-width: 39.99rem) {
-    .home-plan__card {
-      padding: var(--space-4) 0;
-    }
-
-    .home-plan__rail {
-      display: block;
-      padding-top: var(--space-4);
-    }
-
-    .home-plan__start,
-    .home-plan__alternatives {
-      margin-top: var(--space-4);
-    }
-
-    .home-plan__alternatives {
-      padding-top: var(--space-4);
-      border-top: 1px solid var(--border, color-mix(in srgb, var(--text) 16%, transparent));
-    }
+  @media (max-width: 47.99em) {
+    .home-plan { padding: var(--space-6) 0; }
+    .home-plan__title { font-size: var(--fs-600); }
+    .home-choose__form { grid-template-columns: 1fr; gap: var(--space-3); }
+    .home-choose__form button { width: 100%; }
+    .home-plan__choices { margin-top: var(--space-6); margin-right: -1rem; gap: var(--space-4); }
+    .home-plan__choices :global(.pi-card__dek) { font-size: var(--fs-300); line-height: 1.45; }
   }
 </style>

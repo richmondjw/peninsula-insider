@@ -1,0 +1,18 @@
+{
+  "evidenceId": "signature-events/wine-weekends/event-status-f26a40ca",
+  "claim": "signature-events/wine-weekends/event-status",
+  "stance": "supports",
+  "publisher": {
+    "kind": "unknown"
+  },
+  "retrievedAt": "2026-05-13",
+  "expiresAt": "2026-06-12",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/signature-events/wine-weekends.json",
+    "field": "officialUrl",
+    "value": "https://www.mpva.com.au/",
+    "dateField": "lastReviewed"
+  },
+  "url": "https://www.mpva.com.au/"
+}

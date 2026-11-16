@@ -1,0 +1,18 @@
+{
+  "claimId": "events/archibald-prize-2026-facing-modernity-mitchelton-winery-mprg-art-trip/event-status",
+  "claimClass": "event-status",
+  "subject": {
+    "type": "events",
+    "slug": "archibald-prize-2026-facing-modernity-mitchelton-winery-mprg-art-trip"
+  },
+  "statement": "Archibald Prize 2026, Facing Modernity & Mitchelton Winery: MPRG Art Trip is running as published.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "archibald-prize-2026-facing-modernity-mitchelton-winery-mprg-art-trip"
+    }
+  ],
+  "createdAt": "2026-08-24",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

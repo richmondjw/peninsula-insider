@@ -1,0 +1,20 @@
+{
+  "claimId": "quick-notes/2026-05-18-editor-note-monday/editorial",
+  "claimClass": "editorial",
+  "subject": {
+    "type": "quick-notes",
+    "slug": "2026-05-18-editor-note-monday",
+    "field": "sources"
+  },
+  "statement": "Editor's note - the wet week begins. The Peninsula in autumn is most itself when the weather narrows the options.",
+  "assertedBy": [
+    {
+      "type": "quick-notes",
+      "slug": "2026-05-18-editor-note-monday",
+      "field": "sources"
+    }
+  ],
+  "createdAt": "2026-05-18",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

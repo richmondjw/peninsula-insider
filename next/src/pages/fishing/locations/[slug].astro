@@ -5,6 +5,7 @@ import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import SubpageHero from '../../../components/SubpageHero.astro';
 import NewsletterBlock from '../../../components/NewsletterBlock.astro';
 import BfAnalytics from '../../../components/BfAnalytics.astro';
+import AlertBlock from '../../../components/AlertBlock.astro';
 import { buildFishingLocationSchema } from '../../../lib/schema';
 import { BF_EXTERNAL, REGION_LABEL, formatVerifiedStamp } from '../../../lib/bf';
 
@@ -71,33 +72,40 @@ export const prerender = true;
   <article class="venue-detail" data-bf-article>
     <div class="container">
       <div class="prose">
+        {data.accessNotice ? (
+          <AlertBlock type="danger" heading={data.accessNotice.status === 'closed' ? 'Public access closed' : 'Access restricted'}>
+            <p>{data.accessNotice.summary}</p>
+            <p>
+              Access notice checked {formatVerifiedStamp(data.accessNotice.checkedOn)}.
+              {' '}<a href={data.accessNotice.sourceUrl} rel="external">Read the current authority notice</a> before travelling.
+            </p>
+          </AlertBlock>
+        ) : null}
         <p class="prose__verified">
           Last fact-verified {lastVerifiedStamp}
         </p>
 
         <h2>Quick facts</h2>
-        <table>
-          <tbody>
-            <tr><td>Type</td><td>{locationTypeLabel[data.locationType] ?? data.locationType}</td></tr>
-            <tr><td>Water body</td><td>{REGION_LABEL[data.region]}</td></tr>
-            {data.bestSeason ? <tr><td>Best season</td><td>{data.bestSeason}</td></tr> : null}
-            {data.parking ? <tr><td>Parking</td><td>{data.parking}</td></tr> : null}
-            {data.tideStation ? <tr><td>Tide reference station</td><td>{data.tideStation}</td></tr> : null}
-            {data.publicToilets != null ? <tr><td>Public toilets</td><td>{data.publicToilets ? 'Yes' : 'No'}</td></tr> : null}
-            {data.accessibility ? <tr><td>Accessibility</td><td>{data.accessibility}</td></tr> : null}
-            {data.primarySpecies.length > 0 ? (
-              <tr>
-                <td>Top species</td>
-                <td>{data.primarySpecies.slice(0, 4).map((s, idx) => (
-                  <>
-                    <a href={`/fishing/species/${s}/`}>{s.replace(/-/g, ' ')}</a>
-                    {idx < Math.min(data.primarySpecies.length, 4) - 1 ? ', ' : null}
-                  </>
-                ))}</td>
-              </tr>
-            ) : null}
-          </tbody>
-        </table>
+        <dl class="location-facts">
+          <div class="location-facts__row"><dt>Type</dt><dd>{locationTypeLabel[data.locationType] ?? data.locationType}</dd></div>
+          <div class="location-facts__row"><dt>Water body</dt><dd>{REGION_LABEL[data.region]}</dd></div>
+          {data.bestSeason ? <div class="location-facts__row"><dt>Best season</dt><dd>{data.bestSeason}</dd></div> : null}
+          {data.parking ? <div class="location-facts__row"><dt>Parking</dt><dd>{data.parking}</dd></div> : null}
+          {data.tideStation ? <div class="location-facts__row"><dt>Tide reference station</dt><dd>{data.tideStation}</dd></div> : null}
+          {data.publicToilets != null ? <div class="location-facts__row"><dt>Public toilets</dt><dd>{data.publicToilets ? 'Yes' : 'No'}</dd></div> : null}
+          {data.accessibility ? <div class="location-facts__row"><dt>Accessibility</dt><dd>{data.accessibility}</dd></div> : null}
+          {data.primarySpecies.length > 0 ? (
+            <div class="location-facts__row">
+              <dt>Top species</dt>
+              <dd>{data.primarySpecies.slice(0, 4).map((species, idx) => (
+                <>
+                  <a href={`/fishing/species/${species}/`}>{species.replace(/-/g, ' ')}</a>
+                  {idx < Math.min(data.primarySpecies.length, 4) - 1 ? ', ' : null}
+                </>
+              ))}</dd>
+            </div>
+          ) : null}
+        </dl>
 
         {data.tideNotes ? (
           <aside class="alert-block">
@@ -172,3 +180,30 @@ export const prerender = true;
 
   <NewsletterBlock />
 </BaseLayout>
+
+<style>
+  .location-facts {
+    margin: 1.5rem 0 2.25rem;
+    border-top: 1px solid var(--border);
+  }
+  .location-facts__row {
+    display: grid;
+    grid-template-columns: minmax(9rem, 30%) minmax(0, 1fr);
+    gap: 1rem;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .location-facts dt {
+    font-weight: 600;
+    color: var(--dark);
+  }
+  .location-facts dd {
+    margin: 0;
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+  @media (max-width: 640px) {
+    .location-facts__row { display: block; }
+    .location-facts dt { margin-bottom: 0.2rem; }
+  }
+</style>

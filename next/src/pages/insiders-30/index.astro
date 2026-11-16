@@ -106,8 +106,8 @@ export const prerender = true;
 ---
 
 <BaseLayout
-  title={`The Insider's 30, ${currentList.data.year} · Peninsula Insider`}
-  description={`Thirty venues across the Mornington Peninsula that defined ${currentList.data.year}. Cross-category, ranked, editor-selected.`}
+  title={`The Insider's 30 · Peninsula Insider`}
+  description={`Venues across the Mornington Peninsula that defined ${currentList.data.year}. Cross-category, ranked, editor-selected.`}
   section="explore"
   canonical="https://peninsulainsider.com.au/insiders-30/"
   ogImage={currentList.data.heroImage?.src}
@@ -117,7 +117,7 @@ export const prerender = true;
   <SectionHero
     eyebrow={`The Insider's 30 · ${currentList.data.year}`}
     subEyebrow="Annual editorial"
-    title="Thirty places that <em>defined</em> the Peninsula this year."
+    title="Places that <em>defined</em> the Peninsula this year."
     dek={currentList.data.editorialFraming}
     gradient="journal"
     heroImage={currentList.data.heroImage?.src}
@@ -136,7 +136,7 @@ export const prerender = true;
 
       <div class="insiders-30__meta">
         <p class="insiders-30__meta-line">
-          <strong>{hydrated.length}</strong> picks · cross-category · editor-selected · no paid placement, ever
+          Ranked picks · cross-category · editor-selected · no paid placement, ever
           · <a href="/insiders-30/map/">view on the map</a>
           {yearsForArchive.length > 1 && (
             <>

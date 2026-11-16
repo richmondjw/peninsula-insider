@@ -8,10 +8,8 @@ on:
     # Acts as a backstop; the primary trigger is workflow_run below.
     - cron: '30 22 * * *'
   workflow_run:
-    # Fire automatically after the build-and-deploy workflow completes so the
-    # live page is actually deployed before we verify it. Triggering after the
-    # daily content engine was too early: content was committed but GitHub Pages
-    # had not yet received the deploy, causing a spurious 404 on the live check.
+    # Wait for deployment and its live acceptance checks, not just the writer.
+    # Completed failures still run this probe; the schedule remains a backstop.
     workflows: ["Build and Deploy — Peninsula Insider"]
     types: [completed]
   workflow_dispatch:
@@ -52,18 +50,22 @@ jobs:
           while [ $ATTEMPT -lt $MAX_ATTEMPTS ]; do
             ATTEMPT=$((ATTEMPT + 1))
             echo "Freshness check attempt ${ATTEMPT}/${MAX_ATTEMPTS} for ${EXPECTED_DATE}"
-            python engine/publication_freshness.py \
+            # Capture failure in a conditional so Bash -e reaches retry handling.
+            if python engine/publication_freshness.py \
               --expected-date "$EXPECTED_DATE" \
               --article "next/src/content/articles/insider-picks-${EXPECTED_DATE}.md" \
-              --url "https://peninsulainsider.com.au/journal/insider-picks-${EXPECTED_DATE}/"
-            EXIT_CODE=$?
+              --url "https://peninsulainsider.com.au/journal/insider-picks-${EXPECTED_DATE}/"; then
+              EXIT_CODE=0
+            else
+              EXIT_CODE=$?
+            fi
             if [ $EXIT_CODE -eq 0 ]; then
               echo "Freshness check passed on attempt ${ATTEMPT}."
               break
             elif [ $EXIT_CODE -eq 2 ]; then
               echo "Source record failure (exit 2) — not retriable."
               break
-            else
+            elif [ $EXIT_CODE -eq 1 ]; then
               # Exit code 1: live-page transient failure — wait and retry.
               if [ $ATTEMPT -lt $MAX_ATTEMPTS ]; then
                 echo "Live-page transient failure (exit 1) — sleeping 5 minutes before retry..."
@@ -71,6 +73,9 @@ jobs:
               else
                 echo "Live-page failure persists after ${MAX_ATTEMPTS} attempts."
               fi
+            else
+              echo "Unexpected freshness failure (exit ${EXIT_CODE}) — not retriable."
+              break
             fi
           done
           exit $EXIT_CODE

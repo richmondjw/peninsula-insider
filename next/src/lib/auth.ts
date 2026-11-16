@@ -211,71 +211,20 @@ export async function listSaves(userId: string) {
   }));
 }
 
-// ---- Cross-device save sync (Phase 3 WS3E) --------------------------------
-// Sits on top of `pi.user_saves` and `pi.user_itineraries` defined in
+// ---- Cross-device itinerary sync (Phase 3 WS3E) ---------------------------
+// Sits on top of `pi.user_itineraries` defined in
 // ops/migrations/2026-05-05-user-saves-and-itineraries.sql. Functions are
 // resilient to the tables not existing yet (e.g. local dev before the
 // migration has run); they swallow errors and return safe defaults so the
 // front-end falls back to localStorage cleanly.
-
-export type CloudSaveItem = {
-  kind: 'venue' | 'event' | 'experience';
-  slug: string;
-  title: string | null;
-  href: string | null;
-  saved_at: string;
-};
-
-export async function listUserSaves(userId: string): Promise<CloudSaveItem[]> {
-  const c = getSupabase();
-  if (!c) return [];
-  try {
-    const { data, error } = await c
-      .from('user_saves')
-      .select('kind, slug, title, href, saved_at')
-      .eq('user_id', userId)
-      .order('saved_at', { ascending: true });
-    if (error) return [];
-    return (data ?? []) as CloudSaveItem[];
-  } catch {
-    return [];
-  }
-}
-
-/**
- * Replace the user's cloud save list with the supplied items. Idempotent;
- * safe to call after every local change (the SaveSiteController wraps it
- * in a small debounce so we don't hammer the API).
- *
- * Implementation note: a true diff would be cheaper but more complex to
- * keep correct under concurrent tab edits. A delete-all-then-bulk-insert
- * within a single round trip is simple, cheap at this corpus size, and
- * inherently consistent.
- */
-export async function syncUserSaves(
-  userId: string,
-  items: Array<{ kind: 'venue' | 'event' | 'experience'; slug: string; title?: string; href?: string; savedAt?: number }>,
-): Promise<{ ok: boolean; error?: string }> {
-  const c = getSupabase();
-  if (!c) return { ok: false, error: 'Auth not configured' };
-  try {
-    await c.from('user_saves').delete().eq('user_id', userId);
-    if (items.length === 0) return { ok: true };
-    const rows = items.map((it) => ({
-      user_id: userId,
-      kind: it.kind,
-      slug: it.slug,
-      title: it.title ?? null,
-      href: it.href ?? null,
-      saved_at: it.savedAt ? new Date(it.savedAt).toISOString() : new Date().toISOString(),
-    }));
-    const { error } = await c.from('user_saves').insert(rows);
-    if (error) return { ok: false, error: error.message };
-    return { ok: true };
-  } catch (err) {
-    return { ok: false, error: (err as Error).message };
-  }
-}
+//
+// The save half of this pair - listUserSaves()/syncUserSaves() - was deleted
+// on 2026-09-13. It had no callers anywhere: `pi.user_saves` is mirrored by
+// lib/saves/cloud.ts, which upserts and deletes row by row across all nine
+// save kinds. syncUserSaves() did a delete-by-user then a bulk insert, and
+// its item type admitted only venue/event/experience, so any caller wired to
+// it would have wiped the user's saved articles, places, itineraries, tours,
+// operators and packages out of the cloud on its first run.
 
 export type CloudItinerary = {
   items: Array<{ kind: 'venue' | 'event' | 'experience'; slug: string; dayId?: string; note?: string }>;

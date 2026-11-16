@@ -1,0 +1,18 @@
+{
+  "evidenceId": "data-facts/beaches/sorrento-front-beach/access-restriction-a0353664",
+  "claim": "data-facts/beaches/sorrento-front-beach/access-restriction",
+  "stance": "supports",
+  "publisher": {
+    "kind": "regional-body"
+  },
+  "retrievedAt": "2026-04-22",
+  "expiresAt": "2026-05-22",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/data/facts/beaches.json",
+    "field": "entities[5].source",
+    "value": "https://www.visitmorningtonpeninsula.org/Places-To-See/Beaches-Coastline",
+    "dateField": "lastUpdated"
+  },
+  "url": "https://www.visitmorningtonpeninsula.org/Places-To-See/Beaches-Coastline"
+}

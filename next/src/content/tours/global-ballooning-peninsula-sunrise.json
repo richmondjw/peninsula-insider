@@ -4,7 +4,10 @@
   "operatorSlug": "global-ballooning",
   "experienceType": "scenic-sightseeing",
   "duration": "half-day",
-  "theme": ["romantic", "seasonal"],
+  "theme": [
+    "romantic",
+    "seasonal"
+  ],
   "audience": "couples",
   "occasion": "anniversary",
   "origin": "red-hill",
@@ -12,11 +15,12 @@
   "groupSize": "small-group",
   "priceLow": 385,
   "priceHigh": 425,
-  "durationHours": 4.0,
+  "durationHours": 4,
   "maxGroupSize": 16,
   "departsFrom": "Launch site varies, Red Hill or Merricks area, confirmed the evening before",
-  "languages": ["en"],
-  "bookingUrl": "https://www.globalballooning.com.au/mornington-peninsula/",
+  "languages": [
+    "en"
+  ],
   "intro": "Global Ballooning's Peninsula sunrise flight launches at dawn over the Red Hill and Merricks wine country, with approximately one hour in the air at altitudes between 500 and 1500 feet before landing and moving to a champagne breakfast at a winery or nearby venue. The flight is weather-dependent and the exact launch site is confirmed by the operator the evening before departure. Total morning commitment including ground time, flight, and breakfast is approximately four hours.",
   "whatHappens": "The morning begins early: typical wake-up times are 4:30 to 5:30am depending on seasonal sunrise. Guests make their way to the confirmed launch site (communicated the evening before), where the ground crew is already inflating the envelope. After a safety briefing, the group of up to 16 boards the basket and the balloon ascends with the sunrise. The flight travels with the prevailing wind, typically over the Red Hill and Merricks vineyard country, with vineyard rows, farmland, and the Port Phillip Bay horizon visible from altitude. The pilot provides commentary on the flight, the landscape below, and balloon navigation throughout. The landing site is determined by wind direction on the day and can vary. After landing, the chase crew retrieves the group and transfers everyone to the champagne breakfast venue, where a full cooked breakfast with sparkling wine is served. The operator provides a flight certificate as a memento.",
   "whoSuits": "Couples celebrating anniversaries, birthdays, or milestone occasions who want an experience with genuine drama and visual impact. Guests who are comfortable with early starts and with the inherent variability of an outdoor, weather-dependent activity. Autumn visitors in particular: the Red Hill vineyard canopy in April and May is among the Peninsula's most visually striking seasonal features, and viewing it from 1000 feet is the kind of experience that is difficult to replicate.",
@@ -44,5 +48,17 @@
     "license": "venue-media-kit"
   },
   "lastVerified": "2026-04-30",
-  "publishedAt": "2026-04-30"
+  "publishedAt": "2026-04-30",
+  "retiredSourceLinks": [
+    {
+      "field": "bookingUrl",
+      "url": "https://www.globalballooning.com.au/mornington-peninsula/",
+      "verdict": "dead",
+      "disposition": "gone",
+      "checkedOn": "2026-09-13",
+      "note": "404 on the operator's own live site, and no Peninsula page was found anywhere on it. EDITOR: the site sells a Global Ballooning Peninsula sunrise tour; the operator may no longer fly the Peninsula."
+    }
+  ],
+  "sourceStatus": "unsourced",
+  "sourceStatusNote": "404 on the operator's own live site, and no Peninsula page was found anywhere on it. EDITOR: the site sells a Global Ballooning Peninsula sunrise tour; the operator may no longer fly the Peninsula."
 }

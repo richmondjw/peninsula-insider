@@ -1,0 +1,20 @@
+{
+  "claimId": "signature-events/main-street-mornington-festival/event-status",
+  "claimClass": "event-status",
+  "subject": {
+    "type": "signature-events",
+    "slug": "main-street-mornington-festival",
+    "field": "officialUrl"
+  },
+  "statement": "Main Street Mornington Festival runs as published (Annual when funded. Cancelled in 2025 and 2026.).",
+  "assertedBy": [
+    {
+      "type": "signature-events",
+      "slug": "main-street-mornington-festival",
+      "field": "officialUrl"
+    }
+  ],
+  "createdAt": "2026-08-24",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

@@ -1,4 +1,5 @@
 ---
+import { schemaImage } from '../../lib/photo-set';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
@@ -7,10 +8,15 @@ import ExperienceCard from '../../components/ExperienceCard.astro';
 import ItineraryCard from '../../components/ItineraryCard.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { placeLabel, routeSlug, titleize, venueHrefPrefix } from '../../lib/editorial';
+import { placeLabel, routeSlug, titleize, venueHrefPrefix, isListableVenue, clipExcerpt, formatHeroCredit } from '../../lib/editorial';
+import { cleanCaption } from '../../lib/image-caption.mjs';
+import PhotoStage from '../../components/PhotoStage.astro';
+import InlinePhoto from '../../components/InlinePhoto.astro';
+import { photoPlan, paragraphsOf } from '../../lib/photo-set';
 import { editableText, editableImage } from '../../lib/inline-edit/attrs';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
 import { primarySchemaType } from '../../lib/schema';
+import { golfVisitorInfo, golfVisitorAccessChecked } from '../../lib/golf-visitor-info';
 
 const difficultyLabel: Record<string, string> = {
   easy: 'Easy',
@@ -56,7 +62,7 @@ export async function getStaticPaths() {
 
 const { experience } = Astro.props;
 const allExperiences = await getCollection('experiences');
-const venues = await getCollection('venues');
+const venues = (await getCollection('venues')).filter(isListableVenue);
 const itineraries = await getCollection('itineraries');
 const articles = await getCollection('articles', ({ data }) => data.status === 'published');
 
@@ -80,6 +86,7 @@ const relatedArticles = articles
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
   { label: 'Explore', href: '/explore/' },
+  ...(experience.data.type === 'golf-course' ? [{ label: 'Golf', href: '/explore/golf/' }] : []),
   { label: experience.data.name },
 ];
 
@@ -98,15 +105,30 @@ const heroClass = heroVariant[experience.data.type] ?? 'feature__image-block--hi
 
 const hero = await resolveHero('experience', slug, experience.data);
 const heroStyle = hero.style;
+// Override-aware, the same way the venue and place templates are. Before
+// this the experience hero showed an editor's uploaded photograph and
+// disclosed - and labelled - the content record's stand-in instead.
+const heroProvenance = hero.override ? null : experience.data.heroImage;
+// Credit the photograph actually shown: an editor's upload carries no record
+// here, so only the content record's own image is credited.
+const heroCredit = heroProvenance?.credit ? formatHeroCredit(heroProvenance.credit) : '';
+// Caption rule (lib/image-caption.mjs): a short place line, never the alt sentence.
+const heroPlace = heroCredit ? cleanCaption(heroProvenance?.caption) : '';
+// The photograph rule (src/lib/photo-set.ts).
+const editorParagraphs = paragraphsOf(experience.data.editorNote);
+const photoSet = photoPlan(experience.data, { override: Boolean(hero.override), paragraphs: editorParagraphs.length });
+const golfVisitor = experience.data.type === 'golf-course' ? golfVisitorInfo[slug] : null;
+const golfBookingUrl = experience.data.type === 'golf-course' ? (experience.data as any).golf?.bookingUrl : null;
+const golfActionUrl = golfVisitor?.teeTimes && golfBookingUrl ? golfBookingUrl : golfVisitor?.url;
+const golfActionLabel = golfVisitor?.detailActionLabel ?? (golfVisitor?.teeTimes && golfBookingUrl ? 'Check tee times' : 'Club visitor information');
+
 
 const canonical = `https://peninsulainsider.com.au/explore/${slug}/`;
 const ogImage = hero.src;
 
-// Truncate editor note to ~155 chars
+// Truncate editor note to ~155 chars, at a word boundary (T-EXP-CARD-1 class bug).
 const description = experience.data.editorNote
-  ? experience.data.editorNote.length > 155
-    ? experience.data.editorNote.slice(0, 152) + '...'
-    : experience.data.editorNote
+  ? clipExcerpt(experience.data.editorNote, 152)
   : '';
 
 // Schema.org type mapping: specific types get richer markup
@@ -132,6 +154,7 @@ const experienceSchema: Record<string, unknown> = {
   '@id': `${canonical}#${primaryType}`,
   name: experience.data.name,
   description: experience.data.editorNote,
+  ...schemaImage(experience.data),
   address: {
     '@type': 'PostalAddress',
     streetAddress: experience.data.address ?? undefined,
@@ -178,19 +201,19 @@ export const prerender = true;
   searchImage={ogImage}
   noindex={experience.data.sitemapExclude === true}
 >
-  <script type="application/ld+json" set:html={JSON.stringify(experienceSchema)} />
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(experienceSchema)} />
   <Breadcrumbs items={breadcrumbItems} />
 
   <section class="experience-detail">
     <div class="container">
       <div class="experience-detail__meta">
-        <a href="/explore/" class="experience-detail__type">{typeLabel[experience.data.type] ?? titleize(experience.data.type)}</a>
+        <a href={experience.data.type === 'golf-course' ? '/explore/golf/' : '/explore/'} class="experience-detail__type">{experience.data.type === 'golf-course' ? 'Compare golf courses' : (typeLabel[experience.data.type] ?? titleize(experience.data.type))}</a>
         <span class="experience-detail__dot" aria-hidden="true"></span>
         <a href={`/explore/places/${placeSlug}/`} class="experience-detail__place">{experiencePlace}</a>
         {duration && (
           <>
-            <span class="experience-detail__dot" aria-hidden="true"></span>
-            <span class="experience-detail__place">{duration}</span>
+            <span class:list={['experience-detail__dot', { 'experience-detail__golf-duration': experience.data.type === 'golf-course' }]} aria-hidden="true"></span>
+            <span class:list={['experience-detail__place', { 'experience-detail__golf-duration': experience.data.type === 'golf-course' }]}>{duration}</span>
           </>
         )}
       </div>
@@ -200,19 +223,59 @@ export const prerender = true;
         label: `${experience.data.name} - name`,
       })}>{experience.data.name}</h1>
 
-      <div class={`experience-detail__hero feature__image-block ${heroClass}`} aria-hidden="true" style={heroStyle} {...editableImage({
-        entityType: 'experience', entitySlug: slug, fieldPath: 'heroImage',
-        label: `${experience.data.name} hero`, purpose: 'hero',
-      })}>
-        <div class="experience-detail__hero-fog"></div>
-        <span class="experience-detail__hero-label">{experience.data.heroImage.alt}</span>
-      </div>
+      {golfVisitor && golfActionUrl && (
+        <div class="experience-detail__golf-visit">
+          <div class="experience-detail__golf-visit-copy">
+            <h2>Plan your round</h2>
+            <p>{golfVisitor.summary}</p>
+            <span>Visitor access checked {golfVisitorAccessChecked}; confirm current conditions with the club.</span>
+            {golfVisitor.detailSourceActionLabel && (
+              <a class="experience-detail__golf-visit-source" href={golfVisitor.url} target="_blank" rel="noopener" aria-label={golfVisitor.detailSourceActionLabel + ' for ' + experience.data.name + ', opens in a new tab'}>{golfVisitor.detailSourceActionLabel} <span aria-hidden="true">↗</span></a>
+            )}
+          </div>
+          <a
+            class="experience-detail__golf-visit-action"
+            href={golfActionUrl}
+            target="_blank"
+            rel="noopener"
+            aria-label={golfActionLabel + ' for ' + experience.data.name + ', opens in a new tab'}
+            data-pi-entity-type="golf-course"
+            data-pi-entity-slug={slug}
+            data-pi-surface="golf-detail"
+          >{golfActionLabel} <span aria-hidden="true">↗</span></a>
+        </div>
+      )}
+
+      {photoSet.stage ? (
+        <div {...editableImage({ entityType: 'experience', entitySlug: slug, fieldPath: 'heroImage', label: `${experience.data.name} hero`, purpose: 'hero' })}>
+          <PhotoStage photos={photoSet.photos} subject={experience.data.name} id="photos" />
+        </div>
+      ) : (
+        <>
+          <div class={`experience-detail__hero feature__image-block ${heroClass}`} aria-hidden="true" style={heroStyle} {...editableImage({
+            entityType: 'experience', entitySlug: slug, fieldPath: 'heroImage',
+            label: `${experience.data.name} hero`, purpose: 'hero',
+          })}>
+            <div class="experience-detail__hero-fog"></div>
+            {heroPlace && (
+              <span class="experience-detail__hero-label">{heroPlace}</span>
+            )}
+          </div>
+          {heroCredit && <p class="experience-detail__hero-credit">{heroCredit}</p>}
+
+          {photoSet.photos.length >= 3 && <PhotoStage photos={photoSet.photos} subject={experience.data.name} id="photos" variant="strip" />}
+        </>
+      )}
 
       <div class="experience-detail__grid">
         <div>
           <div class="prose">
-            {experience.data.editorNote.split(/\n\n+/).map((paragraph: string) => (
-              <p>{paragraph}</p>
+            {editorParagraphs.map((paragraph: string, i: number) => (
+              <>
+                <p>{paragraph}</p>
+                {i === 0 && photoSet.afterFirst !== null && <InlinePhoto photos={photoSet.photos} indexes={[photoSet.afterFirst]} subject={experience.data.name} />}
+                {i === 2 && photoSet.pair && <InlinePhoto photos={photoSet.photos} indexes={photoSet.pair} subject={experience.data.name} />}
+              </>
             ))}
           </div>
         </div>
@@ -249,7 +312,7 @@ export const prerender = true;
 
             {experience.data.address && (
               <>
-                <dt>Access</dt>
+                <dt>{experience.data.type === 'golf-course' ? 'Address' : 'Access'}</dt>
                 <dd>{experience.data.address}</dd>
               </>
             )}
@@ -339,3 +402,51 @@ export const prerender = true;
 
   <NewsletterBlock />
 </BaseLayout>
+
+<style>
+  .experience-detail__golf-visit {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem 1.5rem; margin: -1rem 0 1.5rem; padding: 1rem 1.2rem;
+    border: 1px solid var(--border); border-left: 3px solid var(--accent);
+    border-radius: var(--radius-m); background: var(--bg-alt);
+  }
+  .experience-detail__golf-visit-copy { min-width: 0; }
+  .experience-detail__golf-visit h2 {
+    margin: 0 0 0.25rem; color: var(--dark); font-family: var(--font-display);
+    font-size: clamp(1.05rem, 2vw, 1.22rem); line-height: 1.2;
+  }
+  .experience-detail__golf-visit p { margin: 0; color: var(--text); font-size: 0.9rem; line-height: 1.45; }
+  .experience-detail__golf-visit-copy > span { display: block; margin-top: 0.4rem; color: var(--soft); font-size: 0.76rem; line-height: 1.4; }
+  .experience-detail__golf-visit-source {
+    display: inline-flex; align-items: center; gap: 0.3rem; min-height: 44px;
+    color: var(--accent); font-size: 0.82rem; font-weight: 700;
+    text-decoration: underline; text-underline-offset: 0.18em;
+  }
+  .experience-detail__golf-visit-source:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .experience-detail__golf-visit-action {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem;
+    flex-shrink: 0; min-height: 44px; padding: 0.7rem 1rem;
+    border-radius: var(--radius-s); background: var(--dark); color: #fff;
+    font-family: var(--font-ui); font-size: 0.85rem; font-weight: 700; text-align: center;
+  }
+  .experience-detail__golf-visit-action:hover { background: var(--accent); color: #fff; }
+  .experience-detail__golf-visit-action:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  @media (max-width: 700px) {
+    .experience-detail__golf-visit { flex-direction: column; align-items: stretch; padding: 1rem; }
+    .experience-detail__golf-visit-action { width: 100%; }
+  }
+  @media (max-width: 360px) {
+    .experience-detail__golf-duration { display: none; }
+  }
+  /* Photo credit under the hero, sitting in the hero's bottom margin, as the
+     venue template does. Required beside licensed photographs. */
+  .experience-detail__hero-credit {
+    margin: calc(-1 * clamp(2.5rem, 5vw, 4rem) + .6rem) 0 clamp(2rem, 4vw, 3rem);
+    font-family: var(--font-ui);
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--soft);
+    text-align: right;
+  }
+</style>

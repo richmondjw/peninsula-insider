@@ -13,6 +13,7 @@ What it can prove offline (-> hard FAIL, blocks publish):
   2. Day-of-week correctness — "Saturday 26 July" where the next real 26 July is
      not a Saturday. Deterministic for forward-looking "what's on" content.
   3. Internal links whose top-level section does not exist at all (clear 404).
+  4. Unqualified references to cancelled/withdrawn events, including metadata.
 
 What it flags but does not block (-> PASS_WITH_FLAGS, logged):
   - Internal links not yet in the sitemap (may just be newer than the last build).
@@ -34,6 +35,7 @@ import glob
 import json
 import re
 import sys
+from event_admission import is_cancelled_record
 from datetime import date, timedelta
 from pathlib import Path
 
@@ -246,12 +248,47 @@ _TIME_BOUND_CLAIM = re.compile(
 )
 
 
+def check_cancelled_event_references(text: str, content_dir: Path) -> list[str]:
+    """Fail closed on unqualified mentions; explicit correction/history is OK.
+
+    This is a deterministic review gate, not a language-understanding claim.
+    A cancelled event must be identified as withdrawn in each mentioning block
+    (or FAQ question/answer pair), including metadata. Ambiguity needs editing.
+    """
+    fails = []
+    fm = _frontmatter(text)
+    lines = fm.splitlines()
+    blocks = [line + ("\n" + lines[i + 1] if "question:" in line and i + 1 < len(lines) else "")
+              for i, line in enumerate(lines)]
+    body = re.sub(r"^---\n.*?\n---\s*\n", "", text, count=1, flags=re.S) if fm else text
+    blocks += re.split(r"\n\s*\n", body)
+    for path in (content_dir / "events").glob("*.json"):
+        try:
+            record = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            continue
+        if not is_cancelled_record(record):
+            continue
+        title = re.sub(r"\s+20\d{2}$", "", str(record.get("title") or "")).strip()
+        if len(title) < 10:
+            continue
+        for block in blocks:
+            if title.lower() in block.lower() and not re.search(
+                r"\bcancell(?:ed|ation|ing)\b|\bwill not (?:go ahead|take place)\b|\bwithdrawn\b", block, re.I
+            ):
+                fails.append(f"Cancelled event reference needs explicit withdrawal context: {title}. "
+                             "Remove the recommendation or label the correction in this block.")
+                break
+    return fails
+
+
 def known_event_titles(content_dir: Path) -> set[str]:
-    """Lowercased titles of every event in the collection, any status.
+    """Lowercased titles of non-cancelled events in the collection, any status.
 
     Any status deliberately: a claim matching an archived event is a staleness
     problem for the accuracy scan, not a fabrication, and this gate should not
-    conflate the two.
+    conflate the two. Cancellation is excluded and checked as a hard failure
+    separately; the existence of a record cannot ground an attendance claim.
     """
     titles = set()
     d = content_dir / "events"
@@ -262,6 +299,8 @@ def known_event_titles(content_dir: Path) -> set[str]:
             with open(f, encoding="utf-8") as fh:
                 rec = json.load(fh)
         except (json.JSONDecodeError, OSError):
+            continue
+        if is_cancelled_record(rec):
             continue
         t = (rec.get("title") or "").strip().lower()
         if t:
@@ -380,7 +419,7 @@ def verify_content(path: Path, content_dir: Path = CONTENT_DIR,
     ff = check_fence_balance(text)
     rf = check_rotation(path, text, content_dir.parents[2])
 
-    fails = vf + df + lf + ef + ff + rf
+    fails = vf + df + lf + ef + ff + rf + check_cancelled_event_references(text, content_dir)
     flags = lflags + eflags + _soft_flags(text)
     result = "FAIL" if fails else ("PASS_WITH_FLAGS" if flags else "PASS")
     return {

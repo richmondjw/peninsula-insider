@@ -45,9 +45,10 @@ export interface MapViewItem {
   /** Up to 3 short meta chips (type label, town, price band glyph). */
   meta?: string[];
   /** Pin colour group. */
-  group?: 'eat' | 'wine' | 'stay' | 'do' | 'place';
+  group?: 'eat' | 'wine' | 'stay' | 'do' | 'place' | 'event';
   /** Shared facet vocabulary values from getFacets(kind, data). */
   facets: Partial<Record<FacetKey, string[]>>;
+  expiresAt?: string;
 }
 
 export interface Props {
@@ -87,7 +88,7 @@ const validItems = items.filter((it) => Number.isFinite(it.lat) && Number.isFini
 // Standalone chip bar: the five regions plus high-signal categories, values
 // and labels straight from FACET_OPTIONS (no private taxonomy terms).
 const REGION_VALUES = new Set(Object.values(PLACE_TO_REGION));
-const CAT_PICKS = ['restaurant', 'cafe', 'winery', 'brewery', 'beach', 'walk', 'market', 'hotel'];
+const CAT_PICKS = ['event', 'restaurant', 'cafe', 'winery', 'brewery', 'beach', 'walk', 'market', 'hotel'];
 const chips: { key: FacetKey; value: string; label: string }[] = standalone
   ? [
       ...FACET_OPTIONS.cat
@@ -173,11 +174,14 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
                 data-href={it.href}
                 data-lat={it.lat}
                 data-lng={it.lng}
+                data-event-expiry={it.expiresAt}
                 data-group={it.group ?? 'do'}
                 data-verdict={it.verdict ?? ''}
                 data-metaline={metaLine}
                 data-title={it.title}
-                {...(standalone ? { 'data-facets': facetAttr } : { 'data-map-facets': facetAttr })}
+                {...(standalone
+                  ? { 'data-facets': facetAttr, 'data-filter-countable': 'true' }
+                  : { 'data-map-facets': facetAttr })}
               >
                 <button
                   type="button"
@@ -280,12 +284,12 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
   }
   .v5-mapview__chip {
     font-family: var(--font-ui, var(--font-ui));
-    font-size: var(--fs-200, 0.8125rem);
+    font-size: var(--fs-200);
     font-weight: var(--fw-medium, 500);
     color: var(--text);
     background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 999px;
+    border: 1px solid var(--border-control);
+    border-radius: var(--radius-pill);
     padding: 0 1rem;
     min-height: 48px;
     white-space: nowrap;
@@ -317,7 +321,7 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
     gap: var(--space-3, 0.75rem);
     margin: 0.15rem 0 0;
     font-family: var(--font-ui, var(--font-ui));
-    font-size: var(--fs-200, 0.8125rem);
+    font-size: var(--fs-200);
     color: var(--soft);
   }
   .v5-mapview__clear {
@@ -341,7 +345,7 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
     display: flex;
     height: var(--v5-map-h, 480px);
     border: 1px solid var(--border);
-    border-radius: var(--radius-m, 10px);
+    border-radius: var(--radius-m);
     overflow: hidden;
     background: var(--bg-alt);
   }
@@ -373,18 +377,18 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
   .v5-mapview__panel-count {
     margin: 0;
     font-family: var(--font-ui, var(--font-ui));
-    font-size: var(--fs-200, 0.8125rem);
+    font-size: var(--fs-200);
     color: var(--soft);
   }
   .v5-mapview__panel-close {
     display: none;
     font-family: var(--font-ui, var(--font-ui));
-    font-size: var(--fs-200, 0.8125rem);
+    font-size: var(--fs-200);
     font-weight: var(--fw-medium, 500);
     color: var(--text);
     background: var(--bg-alt);
     border: 1px solid var(--border);
-    border-radius: 999px;
+    border-radius: var(--radius-pill);
     min-height: 48px;
     padding: 0 1rem;
     cursor: pointer;
@@ -440,6 +444,7 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
   .v5-mapview__dot--stay {
     background: var(--sage-text);
   }
+  .v5-mapview__dot--event,
   .v5-mapview__dot--do {
     background: var(--gold-text);
   }
@@ -454,7 +459,7 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
   }
   .v5-mapview__rowname {
     font-family: var(--font-ui, var(--font-ui));
-    font-size: var(--fs-300, 0.9375rem);
+    font-size: var(--fs-300);
     font-weight: var(--fw-semibold, 600);
     color: var(--text);
     line-height: var(--lh-ui, 1.4);
@@ -463,13 +468,13 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
     font-family: var(--font-display, var(--font-display));
     font-style: normal;
     font-weight: var(--fw-display-em, 600);
-    font-size: var(--fs-300, 0.9375rem);
+    font-size: var(--fs-300);
     color: var(--text);
     line-height: var(--lh-dek, 1.45);
   }
   .v5-mapview__rowmeta {
     font-family: var(--font-ui, var(--font-ui));
-    font-size: var(--fs-200, 0.8125rem);
+    font-size: var(--fs-200);
     color: var(--soft);
   }
   .v5-mapview__rowlink {
@@ -478,7 +483,7 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
     align-items: center;
     align-self: center;
     font-family: var(--font-ui, var(--font-ui));
-    font-size: var(--fs-200, 0.8125rem);
+    font-size: var(--fs-200);
     font-weight: var(--fw-medium, 500);
     color: var(--accent);
     text-decoration: underline;
@@ -493,7 +498,7 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
     margin: 0;
     padding: var(--space-4, 1rem);
     font-family: var(--font-ui, var(--font-ui));
-    font-size: var(--fs-300, 0.9375rem);
+    font-size: var(--fs-300);
     color: var(--soft);
   }
 
@@ -519,12 +524,12 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
     right: var(--space-3, 0.75rem);
     z-index: 900;
     font-family: var(--font-ui, var(--font-ui));
-    font-size: var(--fs-300, 0.9375rem);
+    font-size: var(--fs-300);
     font-weight: var(--fw-medium, 500);
     color: var(--text);
     background: var(--white);
     border: 1px solid var(--border);
-    border-radius: 999px;
+    border-radius: var(--radius-pill);
     min-height: 48px;
     padding: 0 1.25rem;
     cursor: pointer;
@@ -567,7 +572,7 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
     color: var(--white);
     background: var(--accent);
     border: none;
-    border-radius: 999px;
+    border-radius: var(--radius-pill);
     min-height: 48px;
     padding: 0 1.5rem;
     cursor: pointer;
@@ -576,7 +581,7 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
     margin: 0;
     padding: 0.3rem var(--space-3, 0.75rem);
     font-family: var(--font-ui, var(--font-ui));
-    font-size: var(--fs-100, 0.75rem);
+    font-size: var(--fs-100);
     color: var(--soft);
     background: var(--white);
     border-top: 1px solid var(--border);
@@ -591,7 +596,7 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
     z-index: 980;
     background: var(--white);
     border: 1px solid var(--border);
-    border-radius: var(--radius-m, 10px);
+    border-radius: var(--radius-m);
     box-shadow: var(--elev-2, 0 12px 24px -12px rgba(14, 40, 34, 0.28));
     padding: var(--space-4, 1rem) var(--space-4, 1rem) var(--space-3, 0.75rem);
   }
@@ -619,7 +624,7 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
     width: 44px;
     height: 4px;
     margin: 8px auto 0;
-    border-radius: 999px;
+    border-radius: var(--radius-pill);
     background: var(--border-strong, var(--border));
   }
   .v5-mapview__peek-close {
@@ -630,7 +635,7 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
     height: 48px;
     background: none;
     border: none;
-    font-size: 1.4rem;
+    font-size: var(--fs-600);
     line-height: 1;
     color: var(--soft);
     cursor: pointer;
@@ -642,13 +647,13 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
   .v5-mapview__peek-meta {
     margin: 0 2.5rem 0.2rem 0;
     font-family: var(--font-ui, var(--font-ui));
-    font-size: var(--fs-200, 0.8125rem);
+    font-size: var(--fs-200);
     color: var(--soft);
   }
   .v5-mapview__peek-title {
     margin: 0 2.5rem 0.25rem 0;
     font-family: var(--font-display, var(--font-display));
-    font-size: var(--fs-600, 1.375rem);
+    font-size: var(--fs-600);
     font-weight: var(--fw-display, 600);
     color: var(--text);
     line-height: var(--lh-heading, 1.2);
@@ -658,7 +663,7 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
     font-family: var(--font-display, var(--font-display));
     font-style: normal;
     font-weight: var(--fw-display-em, 600);
-    font-size: var(--fs-400, 1.0625rem);
+    font-size: var(--fs-400);
     color: var(--text);
     line-height: var(--lh-dek, 1.45);
   }
@@ -673,11 +678,11 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
     align-items: center;
     justify-content: center;
     font-family: var(--font-ui, var(--font-ui));
-    font-size: var(--fs-300, 0.9375rem);
+    font-size: var(--fs-300);
     font-weight: var(--fw-medium, 500);
     color: var(--white);
     background: var(--accent);
-    border-radius: 999px;
+    border-radius: var(--radius-pill);
     min-height: 48px;
     padding: 0 1.4rem;
     text-decoration: none;
@@ -695,12 +700,12 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
     align-items: center;
     justify-content: center;
     font-family: var(--font-ui, var(--font-ui));
-    font-size: var(--fs-300, 0.9375rem);
+    font-size: var(--fs-300);
     font-weight: var(--fw-medium, 500);
     color: var(--text);
     background: var(--white);
     border: 1px solid var(--border);
-    border-radius: 999px;
+    border-radius: var(--radius-pill);
     min-height: 48px;
     padding: 0 1.1rem;
     cursor: pointer;
@@ -773,7 +778,7 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
          means the sheet is only ever as tall as it needs to be. */
       height: auto;
       max-height: 46dvh;
-      border-radius: var(--radius-m, 10px) var(--radius-m, 10px) 0 0;
+      border-radius: var(--radius-m) var(--radius-m) 0 0;
       border-left: none;
       border-right: none;
       border-bottom: none;
@@ -845,6 +850,7 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
   .v5-map-pin--stay .v5-map-pin__dot {
     background: var(--sage-text);
   }
+  .v5-map-pin--event .v5-map-pin__dot,
   .v5-map-pin--do .v5-map-pin__dot {
     background: var(--gold-text);
   }
@@ -909,6 +915,7 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
     facets: FilterState;
     row: HTMLElement;
     visible: boolean;
+    expiresAt: number;
     marker: any | null;
   }
 
@@ -930,7 +937,7 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
     return leafletPromise;
   }
 
-  function hydrate(root: HTMLElement) {
+  function hydrate(root: HTMLElement, signal: AbortSignal) {
     if ((root as any)._piInit) return;
     (root as any)._piInit = true;
 
@@ -959,6 +966,7 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
         facets: parseItemFacets(facetRaw),
         row,
         visible: true,
+        expiresAt: row.dataset.eventExpiry ? Date.parse(row.dataset.eventExpiry) : Infinity,
         marker: null,
       });
     });
@@ -986,7 +994,7 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
     function applyFilters(filters: FilterState) {
       let shown = 0;
       for (const it of items) {
-        const ok = itemMatches(it.facets, filters);
+        const ok = it.expiresAt > Date.now() && itemMatches(it.facets, filters);
         it.visible = ok;
         if (ok) shown += 1;
         // Standalone rows carry data-facets and were already toggled by
@@ -1000,7 +1008,7 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
       }
       if (panelCount) {
         panelCount.textContent = isEmptyState(filters)
-          ? `${items.length} on the map`
+          ? `${shown} on the map`
           : `${shown} of ${items.length} on the map`;
       }
       if (emptyEl) emptyEl.toggleAttribute('hidden', shown !== 0);
@@ -1009,7 +1017,7 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
 
     document.addEventListener('pi:filters-changed', ((e: CustomEvent) => {
       applyFilters(e.detail.filters as FilterState);
-    }) as EventListener);
+    }) as EventListener, { signal });
 
     /* ---------- standalone chip bar ---------- */
     if (standalone) {
@@ -1037,7 +1045,7 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
       });
       document.addEventListener('pi:filters-changed', ((e: CustomEvent) => {
         paintChips(e.detail.filters as FilterState);
-      }) as EventListener);
+      }) as EventListener, { signal });
     }
 
     /* ---------- peek ---------- */
@@ -1124,9 +1132,14 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
     peek?.querySelector('[data-peek-save]')?.addEventListener('click', () => {
       if (!currentItem) return;
       const it = currentItem;
+      let result;
       try {
-        toggleSave({ kind: it.kind as SaveKind, slug: it.slug, title: it.title, href: it.href });
+        result = toggleSave({ kind: it.kind as SaveKind, slug: it.slug, title: it.title, href: it.href });
       } catch {
+        return;
+      }
+      if (!result.ok) {
+        announce('Saving is unavailable in this browser.');
         return;
       }
       paintSaveState(it);
@@ -1136,9 +1149,14 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
       if (!currentItem) return;
       const it = currentItem;
       const btn = e.currentTarget as HTMLButtonElement;
+      let entry;
       try {
-        tripAdd({ kind: it.kind as SaveKind, slug: it.slug, title: it.title, href: it.href });
+        entry = tripAdd({ kind: it.kind as SaveKind, slug: it.slug, title: it.title, href: it.href });
       } catch {
+        return;
+      }
+      if (!entry) {
+        announce('Saving is unavailable in this browser.');
         return;
       }
       btn.textContent = 'Added to trip';
@@ -1155,7 +1173,7 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
     const onStoreChange = () => {
       if (currentItem) paintSaveState(currentItem);
     };
-    window.addEventListener('pi:store-changed', onStoreChange);
+    window.addEventListener('pi:store-changed', onStoreChange, { signal });
     storeUnsub = () => window.removeEventListener('pi:store-changed', onStoreChange);
     void storeUnsub;
 
@@ -1363,8 +1381,8 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
       sync(getView());
       document.addEventListener('pi:view-toggle', ((e: CustomEvent) => {
         sync(e.detail.view);
-      }) as EventListener);
-      window.addEventListener('popstate', () => sync(getView()));
+      }) as EventListener, { signal });
+      window.addEventListener('popstate', () => sync(getView()), { signal });
     } else {
       showIsland();
     }
@@ -1372,10 +1390,40 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
     // Initial filter pass from the URL (initFilterState already emitted its
     // event before we subscribed, so run once by hand).
     applyFilters(getState());
+    const expiryTimer = window.setInterval(() => {
+      if (!root.isConnected || signal.aborted) { window.clearInterval(expiryTimer); return; }
+      applyFilters(getState());
+    }, 60000);
+    signal.addEventListener('abort', () => window.clearInterval(expiryTimer), { once: true });
   }
 
+  /**
+   * The island's listeners on `document` and `window` cannot be hoisted to
+   * module scope the way FilterBar's were: they close over the map, the
+   * cluster layer and the row index, all of which belong to one rendered
+   * island. So each island gets an AbortController instead, and the previous
+   * island's listeners are torn down when the client router replaces it.
+   *
+   * Without this, the `_piInit` guard - which lives on the island element the
+   * router replaces - was fresh on every navigation while the listeners on
+   * document/window were not: one more copy of four listeners per visit to a
+   * map surface, each filtering a detached island forever.
+   *
+   * Aborting is keyed on the element actually changing, so the ordinary
+   * double call on first load (DOMContentLoaded, then astro:page-load) leaves
+   * the live island's listeners alone.
+   */
+  let scope: AbortController | null = null;
+  let scopedRoot: HTMLElement | null = null;
+
   function init() {
-    document.querySelectorAll<HTMLElement>('[data-v5-mapview]').forEach(hydrate);
+    const root = document.querySelector<HTMLElement>('[data-v5-mapview]');
+    if (root !== scopedRoot) {
+      scope?.abort();
+      scope = root ? new AbortController() : null;
+      scopedRoot = root;
+    }
+    if (root && scope) hydrate(root, scope.signal);
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();

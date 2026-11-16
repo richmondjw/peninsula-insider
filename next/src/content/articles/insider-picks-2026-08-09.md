@@ -1,12 +1,12 @@
 ---
-title: "Stonier Fire & Wine Lunch, a Winter Whale Watch Window, and Buckwheat Galettes in Mornington"
-dek: Stonier Wines fires up a winter lunch in Merricks, the whale migration corridor off Cape Schanck peaks in August, and Ouest France Bistro's buckwheat galette with ham and gruyère earns a Saturday morning detour.
+title: "Stonier Fire & Wine Lunch and a Winter Whale Watch Window"
+dek: Stonier Wines fires up a winter lunch in Merricks, and the whale migration corridor off Cape Schanck peaks in August.
 author: "editorial"
 houseByline: true
 publishedAt: 2026-08-09
 heroImage:
   src: "/images/sourced/place-mornington-01.webp"
-  alt: "Mornington, Victoria Bathing boxes on the beach - representative image for Ouest France Bistro"
+  alt: "Mornington, Victoria bathing boxes on the beach"
   credit: "Simon Yeo"
   license: "wikimedia-cc-by"
 format: "insider-edit"
@@ -30,8 +30,7 @@ faq:
     answer: "Check availability and book through stonier.com.au/visit. The lunch runs today, Sunday 9 August 2026, so book immediately if you haven't already - seats go fast."
   - question: "When is the best time to spot whales from Cape Schanck in winter?"
     answer: "August is the peak month for humpback and southern right whales moving through Bass Strait. Arrive at the Cape Schanck boardwalk by mid-morning on a calm, clear day for the best sightlines. No booking required - Parks Victoria manages the site and the boardwalk is open daily."
-  - question: "What are Ouest France Bistro's opening hours?"
-    answer: "Ouest France Bistro is on Blight Street, Mornington. They open early on weekdays and Saturdays; check their current hours directly as winter trading can vary. The buckwheat galette service runs through the morning menu."
+
 ---
 
 **Stonier Fire & Wine Winter Lunch, Merricks - today only**
@@ -50,14 +49,6 @@ Follow this with coffee and something warm at Georgie Bass in Flinders, fifteen 
 
 ---
 
-**Ouest France Bistro, Mornington - buckwheat galette on a winter Saturday**
-
-Ouest France is easy to walk past. It sits on Blight Street rather than Main Street, the awning is blue-and-white and quietly done, and the interior is small enough that a full house looks like eight people. The buckwheat galette with ham and gruyère is the order - a properly made Breton-style galette with enough structural integrity that it doesn't collapse mid-bite, which sounds like a low bar and isn't. The café grew from a crêperie into something more considered, and the breakfast menu now runs a jambon-beurre alongside the galettes. Go early on Saturday, before ten if you can manage it, because tables move quickly and the kitchen runs at its best pace in the first hour of service. Blight Street, Mornington; check current hours before you go.
-
-Pair a post-breakfast walk along the Mornington foreshore with a stop at Commonfolk Coffee on the way back if you want a second coffee roasted in-house.
-
----
-
 ### This Weekend's Key Details
 
 **Stonier Fire & Wine Winter Lunch**
@@ -69,8 +60,3 @@ Bookings essential: stonier.com.au/visit
 Cape Schanck Road, Cape Schanck
 Open daily - August is peak window; aim for mid-morning on a clear day
 No booking required; parks.vic.gov.au
-
-**Ouest France Bistro**
-Blight Street, Mornington
-Saturday mornings recommended; arrive before 10am
-Check current winter trading hours directly

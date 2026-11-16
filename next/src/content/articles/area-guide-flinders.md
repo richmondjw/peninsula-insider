@@ -5,10 +5,24 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-05-02
 heroImage:
-  src: "/images/sourced/place-flinders-01.webp"
-  alt: "Flinders Pier reaching into blue water under a bright southern sky"
-  credit: "Peninsula Insider"
-  license: "tmp-wikimedia"
+  src: "/images/visit-victoria/vv-157369-flinders-golf-course.webp"
+  alt: "Two golfers carrying bags across a fairway at Flinders Golf Course towards the sea, with low sun flaring over the clubhouse"
+  credit: "Gary Lisbon, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Flinders Golf Club, Mornington Peninsula"
+  depicts: "Flinders Golf Course"
+  depictionStatus: "actual"
+  creator: "Gary Lisbon"
+  sourceUrl: "Victoria Content Hub asset 157369, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "hub-guide"
 tags: ["flinders", "area-guide", "planning"]
 relatedVenues: []
@@ -62,10 +76,6 @@ If you are choosing between making Flinders a base or a detour, choose the base 
 
 **Flinders Sourdough** is the right opening move. It is how you tune yourself to the place. Get there before the middle of the morning, buy what looks best, and eat it outside if the weather allows.
 
-### The key lunch booking
-
-**Pier Street Kitchen** is the strongest table in the village. The room is restrained, the produce sense is sharp, and the village scale means the meal still feels like it belongs to the place. If you are coming for one meal, make it this one.
-
 ### The local pub
 
 **Flinders Hotel** is more useful than glamorous, and that is meant as praise. A pub meal or drink here makes sense after a windy morning walk, and it feels grounded rather than aspirational.
@@ -116,7 +126,7 @@ A two-hour stop between larger names. Flinders is worth a dedicated day or an ov
 
 Arrive at Flinders Sourdough as the village is waking up. Coffee, pastry, something for later. Walk down toward the pier and continue onto the coastal track while the air is still sharp. Give yourself the whole morning. Flinders improves when you stop hurrying.
 
-Back in the village, take a late lunch at Pier Street Kitchen. Keep the afternoon loose: browse the general store, revisit the pier, or if the weather is holding beautifully, drive out for one nearby coastal detour. Finish with a drink at Flinders Hotel or an early quiet dinner if you are staying.
+Back in the village, take a late lunch. Keep the afternoon loose: browse the general store, revisit the pier, or if the weather is holding beautifully, drive out for one nearby coastal detour. Finish with a drink at Flinders Hotel or an early quiet dinner if you are staying.
 
 That is enough.
 

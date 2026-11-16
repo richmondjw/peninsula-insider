@@ -19,7 +19,7 @@
  * indexes '1'..'4' plus 'free'; labels use band glyphs only).
  */
 
-import { eventIsUnqualifiedFree } from './event-access.mjs';
+import { getAustralianSeasonLower, melbourneCalendarParts } from './season';
 
 export type FacetKey = 'place' | 'cat' | 'mood' | 'price' | 'party' | 'date';
 
@@ -149,7 +149,10 @@ export const FACET_OPTIONS: Record<FacetKey, FacetOption[]> = {
     // Stay
     { value: 'hotel', label: 'Hotels' },
     { value: 'villa', label: 'Villas' },
+    { value: 'suite', label: 'Suites' },
+    { value: 'accommodation', label: 'Accommodation' },
     { value: 'cottage', label: 'Cottages' },
+    { value: 'lodge', label: 'Lodges' },
     { value: 'glamping', label: 'Glamping' },
     { value: 'farm-stay', label: 'Farm stays' },
     // Explore
@@ -164,6 +167,7 @@ export const FACET_OPTIONS: Record<FacetKey, FacetOption[]> = {
     { value: 'tour', label: 'Tours' },
     { value: 'garden', label: 'Gardens' },
     // What's On / cross-surface
+    { value: 'event', label: 'Events' },
     { value: 'food-wine', label: 'Food & wine' },
     { value: 'festival', label: 'Festivals' },
     { value: 'live-music', label: 'Live music' },
@@ -224,6 +228,31 @@ export const FACET_OPTIONS: Record<FacetKey, FacetOption[]> = {
   ],
 };
 
+/** Reader-facing choices on the four vertical hubs. The master taxonomy remains shared. */
+export const SURFACE_FACET_VALUES: Record<string, Partial<Record<FacetKey, string[]>>> = {
+  eat: {
+    cat: ['restaurant', 'cafe', 'bakery', 'pub', 'brewery', 'distillery', 'providore', 'market'],
+    mood: ['long-lunch', 'date-night', 'quick', 'slow', 'scenic', 'garden', 'on-the-water', 'cosy', 'worth-the-drive'],
+  },
+  stay: {
+    cat: ['hotel', 'villa', 'suite', 'accommodation', 'cottage', 'lodge', 'glamping', 'farm-stay'],
+  },
+  wine: {
+    cat: ['winery', 'brewery', 'distillery'],
+    mood: ['tasting-first', 'lunch-attached', 'small-quiet', 'architecture', 'scenic', 'garden', 'cosy'],
+  },
+  explore: {
+    cat: ['spa', 'walk', 'beach', 'golf', 'gallery', 'lookout', 'attraction', 'park', 'tour', 'garden', 'market'],
+  },
+};
+
+export function surfaceFacetOptions(surface: string, key: FacetKey): FacetOption[] {
+  const allowed = SURFACE_FACET_VALUES[surface]?.[key];
+  return allowed
+    ? allowed.flatMap((value) => FACET_OPTIONS[key].filter((option) => option.value === value))
+    : FACET_OPTIONS[key];
+}
+
 // Validity sets so getFacets can never emit a value outside FACET_OPTIONS.
 const VALID: Record<FacetKey, Set<string>> = {
   place: new Set(FACET_OPTIONS.place.map((o) => o.value)),
@@ -248,7 +277,10 @@ export const CHIP_PRESETS: Record<
     { key: 'mood', value: 'date-night', label: 'Date night' },
     { key: 'party', value: 'family', label: 'With kids' },
     { key: 'mood', value: 'quick', label: 'Quick & good' },
-    { key: 'cat', value: 'winery', label: 'Winery kitchens' },
+    // No winery chip on /eat/: eatTypes excludes 'winery', so the surface has
+    // never held one. The chip used to match only the empty Winery kitchens
+    // bridge container, which carried cat=winery while standing for no venue;
+    // both were removed 2026-09-13 (PI-009). Cellar doors live on /wine/.
   ],
   stay: [
     { key: 'party', value: 'couples', label: 'Couples' },
@@ -499,15 +531,6 @@ function addDays(d: Date, n: number): Date {
   return new Date(d.getFullYear(), d.getMonth(), d.getDate() + n);
 }
 
-/** Southern-hemisphere season for a date. */
-export function auSeason(d: Date): 'summer' | 'autumn' | 'winter' | 'spring' {
-  const m = d.getMonth(); // 0-based
-  if (m === 11 || m <= 1) return 'summer';
-  if (m <= 4) return 'autumn';
-  if (m <= 7) return 'winter';
-  return 'spring';
-}
-
 function rangesOverlap(aStart: Date, aEnd: Date, bStart: Date, bEnd: Date): boolean {
   return aStart <= bEnd && bStart <= aEnd;
 }
@@ -543,11 +566,11 @@ export function dateScopesFor(
   const monthEnd = new Date(today.getFullYear(), today.getMonth() + 1, 0);
   if (rangesOverlap(s, e, monthStart, monthEnd)) scopes.push('this-month');
 
-  const season = auSeason(today);
+  const season = getAustralianSeasonLower(today);
   const overlapDays: Date[] = [s <= today ? today : s];
   // Sample the event span (start, end, today) for a same-season hit.
   overlapDays.push(e);
-  if (overlapDays.some((d) => auSeason(d) === season && d >= today)) {
+  if (overlapDays.some((d) => getAustralianSeasonLower(d) === season && d >= today)) {
     scopes.push('this-season');
   }
   return scopes;
@@ -622,7 +645,7 @@ function facetsForVenueLike(data: Record<string, any>, out: Facets) {
       ? data.seasonBest
       : [];
   if (seasons.length) {
-    const current = auSeason(new Date());
+    const current = getAustralianSeasonLower(new Date());
     if (seasons.includes('all-year') || seasons.includes(current)) {
       emit(out, 'date', 'this-season');
     }
@@ -666,11 +689,8 @@ function facetsForEvent(data: Record<string, any>, out: Facets) {
   if (data.familyFriendly === true) emit(out, 'party', 'family');
   if (data.petFriendly === true) emit(out, 'party', 'dog-friendly');
 
-  if (eventIsUnqualifiedFree(data)) {
-    emit(out, 'price', 'free');
-  } else if (typeof data.priceTier === 'string') {
-    emit(out, 'price', ...(PRICE_TIER_TO_VALUES[data.priceTier] ?? []));
-  }
+  // Event price facets are omitted from static projections. The calendar's
+  // Free filter independently verifies price freshness at the reader clock.
 
   const start = toDate(data.nextOccurrence) ?? toDate(data.startDate);
   const end = toDate(data.endDate);
@@ -715,14 +735,20 @@ function facetsForItinerary(data: Record<string, any>, out: Facets) {
     emit(out, 'date', 'weekend');
   }
 
+  const bestSeasonMonths: number[] = Array.isArray(data.bestSeasonMonths) ? data.bestSeasonMonths : [];
+  if (bestSeasonMonths.length > 0) {
+    emit(out, 'date', 'seasonal');
+    if (bestSeasonMonths.includes(melbourneCalendarParts().month)) emit(out, 'date', 'this-season');
+    return;
+  }
   const season = typeof data.season === 'string' ? data.season : 'year-round';
   if (season === 'rainy') emit(out, 'mood', 'rainy-day');
-  if (season !== 'year-round' && season !== auSeason(new Date())) {
+  if (season !== 'year-round' && season !== getAustralianSeasonLower(new Date())) {
     if (['summer', 'autumn', 'winter', 'spring', 'christmas-period', 'easter-period', 'school-holidays', 'whale-season'].includes(season)) {
       emit(out, 'date', 'seasonal');
     }
   }
-  if (season === 'year-round' || season === auSeason(new Date())) {
+  if (season === 'year-round' || season === getAustralianSeasonLower(new Date())) {
     emit(out, 'date', 'this-season');
   }
 }
@@ -736,7 +762,7 @@ function facetsForArticle(data: Record<string, any>, out: Facets) {
   if (shape === 'seasonal') emit(out, 'date', 'seasonal');
 
   const tags: string[] = Array.isArray(data.tags) ? data.tags : [];
-  const current = auSeason(new Date());
+  const current = getAustralianSeasonLower(new Date());
   for (const raw of tags) {
     const tag = String(raw).toLowerCase();
     // Place tags (plans articles tag towns directly)

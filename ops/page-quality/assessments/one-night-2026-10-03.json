@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "1.0",
+  "url": "https://peninsulainsider.com.au/explore/plans/the-one-night-escape/",
+  "tier": "T2",
+  "family": "plan",
+  "primaryVisitorTask": "Choose a practical one-night Peninsula base, stay, dinner and Sunday plan.",
+  "assessedAt": "2026-10-03T05:36:00+11:00",
+  "reviewer": "Independent visual/mobile and interaction reviewers; source reviewer for claim audit",
+  "sourceRevision": "8a0b417",
+  "viewports": [
+    320,
+    390,
+    1440
+  ],
+  "evidence": {
+    "mobileCapture": "Independent responsive browser inspection at 320 and 390px; no overflow, clipped stay summaries or broken images.",
+    "desktopCapture": "Independent responsive browser inspection at 1440px; three-base chooser and stay cards coherent.",
+    "keyboardNotes": "Denied-clipboard dialog centered; Shift+Tab and Tab loop within dialog; Escape/Close restore Share focus; 44px controls. Interaction subset 35/35.",
+    "assistiveTechnologyNotes": "Keyboard/browser behavior observed; actual screen-reader session not yet completed.",
+    "factualSources": [
+      "https://flindershotel.com.au/faqs/",
+      "https://flindershotel.com.au/accommodation/",
+      "https://montalto.com.au/pages/cellar-door",
+      "https://www.parks.vic.gov.au/projects/greater-melbourne/flinders-pier-project"
+    ],
+    "imageRightsSources": [
+      "ops/records/visit-victoria/content-hub-terms-2026-09-21.md",
+      "ops/records/visit-victoria/download-2026-09-28/catalogue.json",
+      "next/public/images/sourced/LICENSES.md"
+    ],
+    "technicalReport": "Full build:search passed; 727 pages indexed; local final preview keyboard checks passed.",
+    "liveDeploymentReceipt": ""
+  },
+  "ratings": {
+    "VT1": 4,
+    "VT2": 4,
+    "VT3": 3,
+    "VT4": 3,
+    "FN1": 4,
+    "FN2": 4,
+    "FN3": 4,
+    "ET1": 4,
+    "ET2": 4,
+    "ET4": 3,
+    "VS1": 3,
+    "VS2": 4,
+    "VS3": 4,
+    "VS4": 4,
+    "VS5": 4,
+    "MI1": 4,
+    "MI2": 3,
+    "AT4": 4
+  },
+  "interactionRatings": {
+    "VT2": 4,
+    "VT4": 4,
+    "FN2": 4,
+    "MI1": 4,
+    "MI2": 4,
+    "MI3": 4,
+    "AT1": 4,
+    "AT4": 4
+  },
+  "assessedSubtotals": {
+    "visual": {
+      "points": 72,
+      "maxPoints": 78
+    },
+    "interaction": {
+      "points": 35,
+      "maxPoints": 35
+    }
+  },
+  "unassessed": [
+    "ET3 complete factual freshness assessment",
+    "MI3 across all forms",
+    "AT1 actual screen-reader use",
+    "AT2 measured production speed",
+    "AT3 measured stability and reduced motion"
+  ],
+  "hardGates": [
+    "Active-image rights independent reconciliation pending"
+  ],
+  "issues": [
+    "Relative travel effort and budget tradeoffs not surfaced",
+    "No base-specific ready itinerary or save action",
+    "Some claim and commercial independence evidence remains to be checked",
+    "Production behavior and performance require live review"
+  ],
+  "score": null,
+  "status": "provisional",
+  "nextAction": "Publish bounded remediation, verify live, then close the remaining gates and continue the scoring loop."
+}

@@ -1,416 +1,318 @@
 ---
-/**
- * V5 Masthead (future-ia.md section 3.1, wireframes nav-desktop).
- *
- * Two rows: brand row (wordmark + utilities) and the 7-pillar nav row.
- * Pillar triggers are <button>s in the APG disclosure-nav pattern:
- * panels open on CLICK or Enter only, never on focus or hover (fixes
- * A-01/NAV-02); Escape closes and returns focus to the trigger; click
- * outside closes. Closed panels are `hidden`, so the tab path from the
- * skip link to main content is short (<=5 stops: skip link, logo,
- * launcher, Saved, menu) and screen readers never wade through closed
- * menus. No h1-h6 anywhere in the header (fixes A-09) and no
- * role="menu" misuse (fixes A-02/NAV-03).
- *
- * Utilities: one unified launcher labelled "Ask PI or search" (opens
- * the existing SearchOverlay via [data-open-search], which carries the
- * existing Ask PI escalation; /search/ is the no-JS fallback), Saved,
- * and the menu button that opens V5MobileDrawer on every breakpoint.
- *
- * Keeps the .masthead class so the existing sticky positioning and the
- * --masthead-h measurement script in BaseLayout keep working.
- *
- * v6 token pass (P3-6, 2026-07-25): the three utility controls are the
- * shared .pi-btn primitive (--ghost --sm); ground, border, radius, type
- * and hover all come from primitives.css, so the duplicated scoped rules
- * are gone. What stays here is genuinely chrome-specific: the 44px touch
- * target, the responsive icon-only collapse, and the pillar-nav row.
- * The pillar triggers are deliberately NOT .pi-btn - they are navigation
- * eyebrows (uppercase, tracked), which is the one place the review keeps
- * letterspaced caps. Button labels stay sentence case.
- */
-import { v5Pillars, v5Utilities } from '../../../lib/v5-nav';
 import V5MegaPanel from './V5MegaPanel.astro';
-
-export interface Props {
-  section?: string;
-}
-
+import { v5Pillars, v5DrawerItems, v5DrawerCta } from '../../../lib/v5-nav';
+import { PLAY, playUrl } from '../../../lib/play';
+import '../../../styles/editorial-shell.css';
 const { section = 'home' } = Astro.props;
-
-// Active pillar from the URL (more precise than the section prop, which
-// has no 'plans' value); section is the fallback for odd routes.
-const path = Astro.url.pathname.replace(/^\/V2/, '') || '/';
-function activePillar(p: string, fallback: string): string {
-  if (/^\/(eat|eat-drink)(\/|$)/.test(p)) return 'eat';
-  if (/^\/stay(\/|$)/.test(p)) return 'stay';
-  if (/^\/wine(\/|$)/.test(p)) return 'wine';
-  if (/^\/explore\/plans(\/|$)/.test(p) || /^\/plans(\/|$)/.test(p)) return 'plans';
-  if (/^\/(explore|dog-friendly|boating|fishing|tour|tour-packages|walks)(\/|$)/.test(p)) return 'explore';
-  if (/^\/(whats-on|events)(\/|$)/.test(p)) return 'whats-on';
-  if (/^\/journal(\/|$)/.test(p)) return 'journal';
-  return fallback;
-}
-const active = activePillar(path, section);
+const path = Astro.url.pathname;
+const active = path.startsWith('/explore/plans') || path.startsWith('/plans') ? 'plans' : path.startsWith('/events') ? 'whats-on' : section;
+/* 2026-11-10 round 2: one calm band - wordmark, the seven pillars, search and one
+   personal menu. The edition and sunset dateline moved to the footer (V5Footer keeps
+   the cellar-door named region). The Insider Note and Play live in the personal
+   menu and the mobile drawer. */
 ---
-
-<header class="masthead v5-masthead" data-v5-masthead>
-
-  <!-- Brand row: wordmark left, utilities right. -->
-  <div class="v5-masthead__brand">
-    <div class="v5-masthead__brand-inner">
-      <a href="/" class="v5-masthead__logo" aria-label="Peninsula Insider, home">
-        Peninsula <span>Insider</span>
-      </a>
-
-      <div class="v5-masthead__utilities">
-        {/* Signed-in profile chip mount point: ProfileDropdown.astro
-            appends itself into .v2-util__links (its legacy hook).
-            display:contents so the chip joins this flex row. */}
-        <span class="v2-util__links v5-masthead__profile-slot"></span>
-
-        <a href={v5Utilities.launcher.href} class="v5-launcher pi-btn pi-btn--ghost pi-btn--sm" data-open-search data-evt="search_open">
-          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="11" cy="11" r="7" />
-            <line x1="21" y1="21" x2="16.5" y2="16.5" />
-          </svg>
-          <span class="v5-launcher__label">{v5Utilities.launcher.label}</span>
+<header class="masthead site-header pi-shell" data-v5-masthead>
+<div class="masthead-row wrap">
+<div class="brand-lockup">
+<a aria-label="Peninsula Insider home" class="brand" href="/">Peninsula <span>Insider</span></a>
+</div>
+<nav aria-label="Main navigation" class="site-nav" id="site-nav">
+{v5Pillars.map(p => <div class="pillar-menu" data-pillar-menu>
+<div class="pillar-menu__trigger">
+<a href={p.hub} aria-current={active === p.key ? 'page' : undefined}>{p.label}</a>
+<button class="pillar-menu__toggle" type="button" aria-label={`Open ${p.label} menu`} aria-expanded="false" aria-controls={`v5-panel-${p.key}`} data-pillar-toggle>
+<svg aria-hidden="true" viewBox="0 0 16 16" width="12" height="12" fill="none"><path d="m3.5 6 4.5 4 4.5-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+</div>
+<V5MegaPanel pillar={p} />
+</div>)}
+<a class="mobile-note" href="/dispatch/">The Insider Note</a>
+</nav>
+<div class="header-actions">
+<a class="ask-link" href="/ask/" data-pi-popup data-evt="ask_open" aria-label="Ask PI, your Peninsula local">
+<img src="/images/pi/pi-avatar-96.webp" alt="" width="32" height="32" decoding="async" />
+<span class="ask-link__label">Ask PI</span>
+</a>
+<a class="search-link" data-open-search data-evt="search_open" href="/search/" aria-label="Search the Peninsula">
+<svg aria-hidden="true" fill="none" height="19" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" width="19"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg>
+<span>Search</span>
+</a>
+<details class="personal-menu">
+<summary>
+<svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" width="20"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5c1.3-3.6 4.2-5.5 7.5-5.5s6.2 1.9 7.5 5.5" stroke-linecap="round"/></svg>
+<span class="personal-menu__label">Your Peninsula</span>
+</summary>
+<div class="personal-panel">
+<a href="/me/saved/">Saved places</a>
+<a href="/me/trip/">My trip</a>
+<a href="/account/">Account</a>
+<a href="/map/">Open the map</a>
+<a class="personal-panel__sep" href="/dispatch/">The Insider Note</a>
+{PLAY.enabled && <a href={playUrl('masthead')} data-evt="pi_play_promo" data-surface="masthead">Play: find PI <span aria-hidden="true">↗</span></a>}
+</div>
+</details>
+<button type="button" aria-controls="mobile-drawer" aria-expanded="false" aria-label="Open navigation" class="mobile-menu">
+<svg aria-hidden="true" height="22" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" width="22"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+</button>
+</div>
+</div>
+<dialog class="mobile-drawer" id="mobile-drawer" aria-label="Mobile navigation">
+  <div class="mobile-drawer__top">
+    <a class="mobile-drawer__brand" href="/" aria-label="Peninsula Insider home">Peninsula <span>Insider</span></a>
+    <button class="mobile-drawer__close" type="button" aria-label="Close navigation" data-mobile-drawer-close>
+      <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 5 19 19M19 5 5 19"/></svg>
+    </button>
+  </div>
+  <nav class="mobile-drawer__body" aria-label="Explore the Peninsula">
+    <div class="mobile-drawer__intro">
+      <p class="mobile-drawer__eyebrow">The local edit</p>
+      <p class="mobile-drawer__title">Find your way.</p>
+    </div>
+    <a class="mobile-drawer__search" data-open-search data-evt="search_open" href="/search/">
+      <svg aria-hidden="true" fill="none" height="19" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24" width="19"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg>
+      <span>Search places, plans &amp; stories</span>
+    </a>
+    <div class="mobile-drawer__columns">
+      <section class="mobile-drawer__section" aria-labelledby="mobile-drawer-explore">
+        <h2 class="mobile-drawer__group-label" id="mobile-drawer-explore">Explore</h2>
+        <ul class="mobile-drawer__primary">
+          {v5DrawerItems.filter(item => item.group === 'pillars').map(item => (
+            <li><a href={item.href} aria-current={active === item.key ? 'page' : undefined}><span>{item.label}</span><span class="mobile-drawer__arrow" aria-hidden="true">→</span></a></li>
+          ))}
+        </ul>
+      </section>
+      <div class="mobile-drawer__aside">
+        <section class="mobile-drawer__section" aria-labelledby="mobile-drawer-yours">
+          <h2 class="mobile-drawer__group-label" id="mobile-drawer-yours">Your Peninsula</h2>
+          <ul class="mobile-drawer__secondary">
+            {v5DrawerItems.filter(item => item.group === 'mine').map(item => (
+              <li><a href={item.href}><span>{item.label}</span></a></li>
+            ))}
+            <li><a href="/map/"><span>Open the map</span></a></li>
+            {PLAY.enabled && <li><a href={playUrl('drawer')} data-evt="pi_play_promo" data-surface="drawer"><span>Play: find PI</span><span aria-hidden="true">↗</span></a></li>}
+          </ul>
+        </section>
+        <section class="mobile-drawer__section mobile-drawer__section--about" aria-labelledby="mobile-drawer-about">
+          <h2 class="mobile-drawer__group-label" id="mobile-drawer-about">About us</h2>
+          <ul class="mobile-drawer__secondary">
+            {v5DrawerItems.filter(item => item.group === 'trust').map(item => (
+              <li><a href={item.href}><span>{item.label}</span></a></li>
+            ))}
+          </ul>
+        </section>
+        <a class="mobile-drawer__dispatch" href={v5DrawerCta.href}>
+          <strong>{v5DrawerCta.label}</strong>
+          <span class="mobile-drawer__dispatch-dek">{v5DrawerCta.dek}</span>
+          <span class="mobile-drawer__dispatch-action">{v5DrawerCta.ctaLabel} <span aria-hidden="true">→</span></span>
         </a>
-
-        <a href={v5Utilities.saved.href} class="v5-utilbtn v5-utilbtn--saved pi-btn pi-btn--ghost pi-btn--sm" aria-label="Saved, your shortlist">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M6 3.5h12a.5.5 0 0 1 .5.5v16.6a.4.4 0 0 1-.63.33L12 16.5l-5.87 4.43a.4.4 0 0 1-.63-.33V4a.5.5 0 0 1 .5-.5Z" />
-          </svg>
-          <span class="v5-utilbtn__label">{v5Utilities.saved.label}</span>
-        </a>
-
-        <button
-          type="button"
-          class="v5-utilbtn v5-burger pi-btn pi-btn--ghost pi-btn--sm"
-          aria-label="Open menu"
-          aria-expanded="false"
-          aria-controls="v5Drawer"
-          data-v5-burger
-        >
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
-            <line x1="4" y1="7" x2="20" y2="7" />
-            <line x1="4" y1="12" x2="20" y2="12" />
-            <line x1="4" y1="17" x2="20" y2="17" />
-          </svg>
-          <span class="v5-utilbtn__label">{v5Utilities.menu.label}</span>
-        </button>
       </div>
     </div>
-  </div>
-
-  <!-- Nav row: 7 pillar disclosure triggers, desktop only. -->
-  <div class="v5-masthead__nav">
-    <nav aria-label="Primary">
-      <ul class="v5-pillars">
-        {v5Pillars.map((pillar) => (
-          <li
-            class:list={['v5-pillars__item', active === pillar.key && 'is-current']}
-            data-v5-pillar
-          >
-            <button
-              type="button"
-              class="v5-pillar-trigger"
-              aria-expanded="false"
-              aria-controls={`v5-panel-${pillar.key}`}
-              aria-current={active === pillar.key ? 'true' : undefined}
-              data-v5-pillar-trigger
-            >
-              {pillar.label}
-              <svg class="v5-pillar-trigger__chev" viewBox="0 0 12 8" width="9" height="6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <polyline points="1,1.5 6,6.5 11,1.5" />
-              </svg>
-            </button>
-            <V5MegaPanel pillar={pillar} />
-          </li>
-        ))}
-      </ul>
-    </nav>
-  </div>
-
+  </nav>
+</dialog>
 </header>
-
-<!-- Disclosure nav behaviour: click/Enter opens, Escape closes and
-     restores focus to the trigger, outside click closes, one panel at
-     a time. No focus-open, no hover-open. -->
-<script is:inline>
-  (function () {
-    function initV5Mega() {
-      var items = document.querySelectorAll('[data-v5-pillar]');
-      if (!items.length) return;
-
-      function panelOf(item) {
-        var trigger = item.querySelector('[data-v5-pillar-trigger]');
-        var panel = item.querySelector('[data-v5-mega]');
-        return { trigger: trigger, panel: panel };
-      }
-
-      function close(item) {
-        var p = panelOf(item);
-        if (p.panel) p.panel.hidden = true;
-        if (p.trigger) p.trigger.setAttribute('aria-expanded', 'false');
-        item.classList.remove('is-open');
-      }
-
-      function closeAll(except) {
-        items.forEach(function (n) { if (n !== except) close(n); });
-      }
-
-      items.forEach(function (item) {
-        if (item._v5Bound) return;
-        item._v5Bound = true;
-        var p = panelOf(item);
-        if (!p.trigger || !p.panel) return;
-
-        p.trigger.addEventListener('click', function () {
-          var isOpen = !p.panel.hidden;
-          closeAll(item);
-          if (isOpen) {
-            close(item);
-          } else {
-            p.panel.hidden = false;
-            p.trigger.setAttribute('aria-expanded', 'true');
-            item.classList.add('is-open');
-          }
-        });
-
-        item.addEventListener('keydown', function (e) {
-          if (e.key === 'Escape' && !p.panel.hidden) {
-            e.stopPropagation();
-            close(item);
-            p.trigger.focus();
-          }
-        });
-      });
-
-      if (!document._v5MegaDocBound) {
-        document._v5MegaDocBound = true;
-        document.addEventListener('click', function (e) {
-          var t = e.target;
-          var inside = t && t.closest && t.closest('[data-v5-pillar]');
-          if (!inside) {
-            document.querySelectorAll('[data-v5-pillar].is-open').forEach(function (item) {
-              var panel = item.querySelector('[data-v5-mega]');
-              var trigger = item.querySelector('[data-v5-pillar-trigger]');
-              if (panel) panel.hidden = true;
-              if (trigger) trigger.setAttribute('aria-expanded', 'false');
-              item.classList.remove('is-open');
-            });
-          }
-        });
-      }
+<noscript>
+  <style is:inline>
+    @media (max-width: 1279px) {
+      .pi-shell.site-header .masthead-row { flex-wrap: wrap; }
+      .pi-shell.site-header .site-nav { display: flex !important; flex-wrap: wrap; flex-basis: 100%; }
+      .pi-shell.site-header .mobile-menu { display: none !important; }
     }
+  </style>
+</noscript>
+<script>
+let shellCleanup:(()=>void)|undefined;
+/* After a click in the main nav, that pillar's panel stays shut until the pointer leaves it.
+   Kept at module scope so it survives the page swap: the new header sits under a pointer
+   that hasn't moved, and its first pointerenter would otherwise reopen the panel. */
+let hoverSuppressed=-1;
+let suppressedAt={x:0,y:0}; // where the click happened; leaving the page swap at the same spot is not a real leave
+document.addEventListener('astro:before-swap',()=>shellCleanup?.());
+/* Desktop navigation (inline pillars + hover panels) starts at 1280px; below that the drawer takes over. */
+const DESKTOP='(min-width: 1280px)';
+const COMPACT='(max-width: 1279px)';
+function initEditorialShell(){
+ const header=document.querySelector<HTMLElement>('.site-header');
+ if(!header || header.dataset.bound)return;
+ header.dataset.bound='true';
+ const button=header.querySelector<HTMLButtonElement>('.mobile-menu')!;
+ const nav=header.querySelector<HTMLElement>('#site-nav')!;
+ const drawer=header.querySelector<HTMLDialogElement>('#mobile-drawer')!;
+ const drawerClose=drawer.querySelector<HTMLButtonElement>('[data-mobile-drawer-close]')!;
+ const personal=header.querySelector<HTMLDetailsElement>('.personal-menu')!;
+ const menus=[...header.querySelectorAll<HTMLElement>('[data-pillar-menu]')];
+ let closeTimer:number|undefined;
+ let savedScrollY=0;
+ let savedBodyStyle:{position:string;top:string;width:string;overflow:string;htmlOverflow:string}|undefined;
 
-    initV5Mega();
-    document.addEventListener('astro:page-load', initV5Mega);
-  })();
+ function closeMenu(menu:HTMLElement){
+   const panel=menu.querySelector<HTMLElement>('[data-v5-mega]')!;
+   const toggle=menu.querySelector<HTMLButtonElement>('[data-pillar-toggle]')!;
+   panel.hidden=true;
+   toggle.setAttribute('aria-expanded','false');
+   toggle.setAttribute('aria-label',`Open ${menu.querySelector('.pillar-menu__trigger a')?.textContent?.trim()} menu`);
+   menu.classList.remove('is-open');
+ }
+ function closePanels(except?:HTMLElement){
+  window.clearTimeout(closeTimer);
+  menus.forEach(menu=>{if(menu!==except)closeMenu(menu);});
+ }
+ function openPanel(menu:HTMLElement){
+  closePanels(menu);
+  const panel=menu.querySelector<HTMLElement>('[data-v5-mega]')!;
+  const toggle=menu.querySelector<HTMLButtonElement>('[data-pillar-toggle]')!;
+  panel.hidden=false;
+  toggle.setAttribute('aria-expanded','true');
+  toggle.setAttribute('aria-label',`Close ${menu.querySelector('.pillar-menu__trigger a')?.textContent?.trim()} menu`);
+  menu.classList.add('is-open');
+  personal.open=false;
+ }
+ menus.forEach((menu,index)=>{
+  const toggle=menu.querySelector<HTMLButtonElement>('[data-pillar-toggle]')!;
+  let hoverTimer:number|undefined;
+  menu.addEventListener('pointerenter',e=>{
+   if(e.pointerType!=='mouse' || !window.matchMedia(DESKTOP).matches || hoverSuppressed===index)return;
+   // Give a direct chevron click priority over hover-opening the panel.
+   if(toggle.contains(document.elementFromPoint(e.clientX,e.clientY)))hoverTimer=window.setTimeout(()=>openPanel(menu),550);
+   else openPanel(menu);
+  });
+  menu.addEventListener('pointerleave',e=>{if(hoverSuppressed===index && Math.hypot(e.clientX-suppressedAt.x,e.clientY-suppressedAt.y)>24)hoverSuppressed=-1;window.clearTimeout(hoverTimer);if(e.pointerType==='mouse' && window.matchMedia(DESKTOP).matches)closeTimer=window.setTimeout(()=>closePanels(),180);});
+  toggle.addEventListener('pointerdown',()=>window.clearTimeout(hoverTimer));
+  menu.addEventListener('focusout',e=>{if(!menu.contains(e.relatedTarget as Node))window.setTimeout(()=>closeMenu(menu),0);});
+  toggle.addEventListener('click',()=>{menu.classList.contains('is-open')?closePanels():openPanel(menu);});
+  // Choosing a destination (the pillar link or any link in its panel) closes the panel at once.
+  menu.addEventListener('click',e=>{
+   const link=(e.target as Element).closest('a[href]');
+   if(!link || !menu.contains(link))return;
+   window.clearTimeout(hoverTimer);
+   closePanels();
+   hoverSuppressed=index;
+   suppressedAt={x:(e as MouseEvent).clientX,y:(e as MouseEvent).clientY};
+   (link as HTMLElement).blur();
+  });
+ });
+ personal.addEventListener('toggle',()=>{if(personal.open)closePanels();});
+
+ function unlockPage(){
+  if(!savedBodyStyle)return;
+  document.body.style.position=savedBodyStyle.position;
+  document.body.style.top=savedBodyStyle.top;
+  document.body.style.width=savedBodyStyle.width;
+  document.body.style.overflow=savedBodyStyle.overflow;
+  document.documentElement.style.overflow=savedBodyStyle.htmlOverflow;
+  savedBodyStyle=undefined;
+  window.scrollTo(0,savedScrollY);
+ }
+ function closeDrawer(restoreFocus=true){
+  if(drawer.open)drawer.close();
+  unlockPage();
+  button.setAttribute('aria-expanded','false');
+  button.setAttribute('aria-label','Open navigation');
+  if(restoreFocus && button.isConnected && window.matchMedia(COMPACT).matches)button.focus();
+ }
+ function openDrawer(){
+  if(!window.matchMedia(COMPACT).matches || drawer.open)return;
+  closePanels();
+  personal.open=false;
+  savedScrollY=window.scrollY;
+  savedBodyStyle={
+   position:document.body.style.position,
+   top:document.body.style.top,
+   width:document.body.style.width,
+   overflow:document.body.style.overflow,
+   htmlOverflow:document.documentElement.style.overflow,
+  };
+  document.body.style.position='fixed';
+  document.body.style.top=`-${savedScrollY}px`;
+  document.body.style.width='100%';
+  document.body.style.overflow='hidden';
+  document.documentElement.style.overflow='hidden';
+  drawer.showModal();
+  button.setAttribute('aria-expanded','true');
+  button.setAttribute('aria-label','Close navigation');
+  drawerClose.focus({preventScroll:true});
+  drawer.scrollTop=0;
+ }
+ button.addEventListener('click',()=>drawer.open?closeDrawer():openDrawer());
+ drawerClose.addEventListener('click',()=>closeDrawer());
+ drawer.addEventListener('cancel',e=>{e.preventDefault();closeDrawer();});
+ drawer.addEventListener('click',e=>{if((e.target as Element).closest('a'))closeDrawer(false);});
+ const onKeydown=(e:KeyboardEvent)=>{if(e.key!=='Escape')return;if(drawer.open){e.preventDefault();closeDrawer();return;}const open=menus.find(menu=>menu.classList.contains('is-open'));if(open){closePanels();open.querySelector<HTMLButtonElement>('[data-pillar-toggle]')?.focus();}else if(personal.open){personal.open=false;personal.querySelector('summary')?.focus();}};
+ const onClick=(e:MouseEvent)=>{if(!personal.contains(e.target as Node))personal.open=false;if(!nav.contains(e.target as Node))closePanels();};
+ const onResize=()=>{if(drawer.open && !window.matchMedia(COMPACT).matches)closeDrawer(false);};
+ document.addEventListener('keydown',onKeydown);
+ document.addEventListener('click',onClick);
+ window.addEventListener('resize',onResize);
+ shellCleanup=()=>{closeDrawer(false);window.clearTimeout(closeTimer);document.removeEventListener('keydown',onKeydown);document.removeEventListener('click',onClick);window.removeEventListener('resize',onResize);};
+}
+initEditorialShell();document.addEventListener('astro:page-load',initEditorialShell);
 </script>
-
 <style>
-  /* Evergreen Coast masthead: clean, generous, confident. Light
-     backdrop blur over a near-white ground; a single subtle bottom
-     hairline. Sticky positioning is owned by the outer .masthead. */
-  .v5-masthead {
-    /* Opaque, deliberately. This was a translucent ground (84%, then 92%)
-       with a backdrop blur, tuned so the masthead's OWN text stayed legible
-       over dark content scrolling under it. That solved the wrong problem:
-       the masthead is fixed and every hub opens on a full-bleed dark hero,
-       so at 92% the hero headline was still plainly readable THROUGH the
-       header. Contrast ratios do not fix that - it is the page showing
-       through the chrome, and no alpha short of 1 removes it.
-       The blur goes with it: once the ground is opaque it composites every
-       scroll frame for nothing. */
-    background: var(--bg);
-    border-bottom: 1px solid var(--border);
-    /* viewport-fit=cover: keep the brand row below the status bar / notch. */
-    padding-top: env(safe-area-inset-top);
-  }
-
-  .v5-masthead__brand-inner,
-  .v5-masthead__nav nav {
-    max-width: var(--max-w);
-    margin: 0 auto;
-    /* Include the horizontal safe-area insets so the row clears the notch
-       in landscape (0 on non-notched devices / portrait). */
-    /* The gutter is capped against the viewport for the same reason the
-       type in this row is: it is rem-based, so it widened under reader
-       text scaling and ate the slack the wordmark needed. */
-    padding: 0 calc(min(var(--space-5), 6.4vw) + env(safe-area-inset-right)) 0 calc(min(var(--space-5), 6.4vw) + env(safe-area-inset-left));
-  }
-
-  .v5-masthead__brand-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: min(var(--space-4), 3.0vw);
-    /* Row height, not a spacing step: it is sized off the 44px control
-       inside it plus breathing room. Left in px deliberately. */
-    min-height: 68px;
-  }
-
-  .v5-masthead__logo {
-    font-family: var(--font-display);
-    font-weight: var(--fw-bold);
-    /* Was a bespoke clamp (21.6 -> 28px) that sat off the v6 scale.
-       --fs-600 is the nearest step (22 -> 26px) and now matches the
-       drawer wordmark, which carried its own one-off value. */
-    /* Capped against the viewport, not just the type scale. --fs-600 is
-       rem-based, so it grows with the root font-size and there is no slack
-       in this row to absorb that: at 375px the wordmark, gap and utilities
-       already fill the line exactly. The vw arm holds the wordmark still
-       while body copy still scales, which keeps the brand name whole
-       instead of truncating it to "Peninsula ...". */
-    font-size: min(var(--fs-600), 5.9vw);
-    letter-spacing: var(--ls-display);
-    line-height: var(--lh-display);
-    color: var(--text);
-    text-decoration: none;
-    white-space: nowrap;
-    /* Deliberately NOT min-width: 0. In a space-between flex row that lets
-       the wordmark shrink below its own content, which truncated the brand
-       name to "Peninsula Insi..." even at default size. The row is kept in
-       bounds by capping type and spacing against the viewport instead, so
-       nothing here has to shrink at all. */
-  }
-  .v5-masthead__logo span {
-    font-weight: var(--fw-bold);
-    color: var(--accent);
-  }
-
-  .v5-masthead__utilities {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-    /* Never shrink and never be pushed out of the row: these are the only
-       navigation affordances on a phone. */
-    flex: 0 0 auto;
-  }
-
-  /* The masthead is fixed chrome with no spare width, so nothing in this
-     row is allowed to inflate with the root font-size. The reader's text
-     control still scales body copy, which is what it is for; letting it
-     also scale the header only cost the Menu button its place on screen
-     and truncated the wordmark to make room. Both arms are capped against
-     the viewport so the row is stable at any text size. */
-  .v5-masthead__utilities .pi-btn {
-    font-size: min(var(--fs-200), 3.5vw);
-    padding: var(--space-1) min(var(--space-3), 3.2vw);
-  }
-  .v5-masthead__profile-slot { display: contents; }
-
-  /* Search / Saved / Menu are .pi-btn --ghost --sm. The primitive owns
-     ground, border, radius (--radius-s), type, hover and transition, so
-     the three near-identical scoped rulesets that used to live here are
-     gone - along with the pill radius and the two different border
-     colours (--border vs --border-strong) they disagreed on, and the
-     --soft label colour that made the launcher read like a disabled
-     field. All that is left is the touch-target floor: --sm is a
-     small-button scale, and these are the header's only tap targets.
-     (The flex display is not a duplicate: min-height does nothing on an
-     inline <a>, so the target floor needs it to take effect.) */
-  .v5-launcher,
-  .v5-utilbtn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 44px;
-  }
-
-  .v5-masthead__nav {
-    border-top: 1px solid var(--border);
-  }
-  .v5-pillars {
-    list-style: none;
-    display: flex;
-    align-items: stretch;
-    gap: var(--space-6);
-  }
-  .v5-pillars__item { position: static; }
-
-  /* Nav labels: uppercase Figtree eyebrows with wide tracking. */
-  .v5-pillar-trigger {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
-    /* Nav row height (target size), not a spacing step. */
-    min-height: 50px;
-    padding: 0 var(--space-1);
-    background: none;
-    border: none;
-    border-bottom: 2px solid transparent;
-    font-family: var(--font-ui);
-    font-size: var(--fs-100);
-    font-weight: var(--fw-semibold);
-    letter-spacing: var(--ls-eyebrow);
-    text-transform: uppercase;
-    color: var(--text);
-    cursor: pointer;
-    transition: color var(--dur-fast) var(--ease-enter),
-                border-color var(--dur-fast) var(--ease-enter);
-  }
-  .v5-pillar-trigger:hover { color: var(--accent); }
-  .v5-pillars__item.is-current .v5-pillar-trigger {
-    border-bottom-color: var(--accent);
-    color: var(--accent);
-  }
-  .v5-pillars__item.is-open .v5-pillar-trigger {
-    color: var(--accent);
-    border-bottom-color: var(--accent);
-  }
-  .v5-pillar-trigger__chev {
-    transition: transform var(--dur-fast) var(--ease-enter);
-  }
-  .v5-pillars__item.is-open .v5-pillar-trigger__chev {
-    transform: rotate(180deg);
-  }
-
-  /* Visible focus (A-08): tokenised ring on every header control. */
-  .v5-masthead a:focus-visible,
-  .v5-masthead button:focus-visible {
-    outline: var(--focus-ring);
-    outline-offset: 2px;
-  }
-
-  /* Desktop: the pillar nav carries wayfinding and Saved lives in the
-     utility cluster, so the mobile menu button is redundant. Show the
-     burger only below the desktop breakpoint. */
-  @media (min-width: 1024px) {
-    .v5-burger { display: none; }
-  }
-
-  /* Mobile: nav row retires; the drawer carries wayfinding. The
-     utility cluster reduces to launcher (icon only) + menu; Saved
-     lives in the drawer and the bottom bar (NAV-05 capability set is
-     preserved across breakpoints). */
-  @media (max-width: 1023px) {
-    .v5-masthead__nav { display: none; }
-    .v5-utilbtn--saved { display: none; }
-    .v5-launcher__label {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0 0 0 0);
-      white-space: nowrap;
-      border: 0;
-    }
-    /* Icon-only launcher: the label is still in the accessible name via
-       the visually-hidden span above, so no aria-label is needed and the
-       .pi-btn--icon variant (which requires one) is not used here. Square
-       it up and let the primitive keep the ground and border. */
-    .v5-launcher {
-      min-width: 44px;
-      padding: 0;
-    }
-    /* Mobile: the burger is the only nav entry point; guarantee a 44px target. */
-    .v5-utilbtn {
-      min-width: 44px;
-    }
-  }
+ /* One band. The header itself is the positioning context for the mega panels
+    (it is sticky, from global.css), so a panel spans the page, not the nav. */
+ .site-header{padding-top:env(safe-area-inset-top);border-bottom:1px solid var(--border)}
+ .masthead-row{display:flex;align-items:center;gap:var(--space-6);min-height:72px}
+ .brand-lockup{display:flex;align-items:baseline;gap:var(--space-3);flex:none}
+ .site-nav{display:flex;align-self:stretch;align-items:stretch;gap:var(--space-5);margin-inline:auto}
+ .pillar-menu,.pillar-menu__trigger{display:flex;align-items:stretch}
+ .site-nav .pillar-menu__trigger>a{display:flex;align-items:center;min-height:44px;font:var(--fw-medium) var(--fs-300)/var(--lh-ui) var(--font-ui);color:var(--text);white-space:nowrap;text-decoration:none}
+ .site-nav .pillar-menu__trigger>a:hover,.pillar-menu.is-open .pillar-menu__trigger>a{color:var(--accent)}
+ .site-nav .pillar-menu__trigger>a[aria-current=page]{color:var(--accent);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:8px}
+ .pillar-menu__toggle{display:flex;align-items:center;justify-content:center;width:24px;padding:0;border:0;background:transparent;color:var(--soft);cursor:pointer}
+ .pillar-menu__toggle svg{transition:transform var(--dur-fast) ease}
+ .pillar-menu.is-open .pillar-menu__toggle svg{transform:rotate(180deg)}
+ .site-nav .mobile-search,.site-nav .mobile-note{display:none}
+ .header-actions{display:flex;align-items:center;gap:var(--space-2);flex:none;margin-left:auto}
+ .search-link,.personal-menu summary,.mobile-menu{display:flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border:0;background:transparent;color:var(--text);cursor:pointer;font:var(--fw-medium) var(--fs-300)/1 var(--font-ui);list-style:none;border-radius:50%}
+ .ask-link{display:inline-flex;align-items:center;gap:var(--space-2);min-height:44px;padding:0 var(--space-3) 0 6px;margin-inline-end:var(--space-2);border-radius:var(--radius-pill);color:var(--text);text-decoration:none;font:var(--fw-medium) var(--fs-300)/1 var(--font-ui)}
+ .ask-link img{width:32px;height:32px;border-radius:50%;background:#F3E7D6}
+ .ask-link:hover{background:var(--bg-alt);color:var(--accent)}
+ .ask-link:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+ .search-link:hover,.personal-menu summary:hover,.personal-menu[open] summary{color:var(--accent);background:var(--bg-alt)}
+ .search-link span,.personal-menu__label{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+ .personal-menu{position:relative}
+ .personal-menu summary::-webkit-details-marker{display:none}
+ .personal-panel{position:absolute;right:0;top:calc(100% + var(--space-2));z-index:var(--z-sticky);display:flex;flex-direction:column;min-width:220px;padding:var(--space-2) 0;background:var(--white);border:1px solid var(--border);border-radius:var(--radius-s);box-shadow:var(--elev-3)}
+ .personal-panel a{display:flex;align-items:center;gap:var(--space-2);min-height:44px;padding:0 var(--space-4);font:var(--fs-300)/var(--lh-ui) var(--font-ui);color:var(--text);text-decoration:none}
+ .personal-panel a:hover{color:var(--accent);background:var(--bg-alt)}
+ .personal-panel .personal-panel__sep{margin-top:var(--space-2);border-top:1px solid var(--border)}
+ .mobile-menu{display:none}
+ .site-header a:focus-visible,.site-header summary:focus-visible,.site-header button:focus-visible{outline:var(--focus-ring);outline-offset:2px}
+ .mobile-drawer{display:none}
+ @media(max-width:1279px){
+  .masthead-row{min-height:64px;gap:var(--space-3)}
+  .site-nav,.personal-menu{display:none}
+  .mobile-menu{display:flex;flex:none}
+  .mobile-drawer[open]{display:block;position:fixed;inset:0;width:100%;height:100dvh;max-width:none;max-height:none;margin:0;padding:0;border:0;background:var(--bg-alt);color:var(--text);overflow-y:auto;overscroll-behavior:contain;z-index:10000}
+  .mobile-drawer::backdrop{background:var(--bg-deep)}
+  .mobile-drawer__top{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:var(--space-5);min-height:64px;padding:var(--space-2) max(24px,calc((100vw - 920px)/2));background:var(--white);border-bottom:1px solid var(--border)}
+  .mobile-drawer__brand{display:flex;align-items:center;gap:.18em;min-height:44px;font:700 var(--fs-600)/1.05 var(--font-display);letter-spacing:-.025em;color:var(--text);white-space:nowrap}
+  .mobile-drawer__brand span{color:var(--accent)}
+  .mobile-drawer__close{display:grid;place-items:center;width:44px;height:44px;flex:none;border:0;border-radius:50%;background:var(--bg-alt);color:var(--text);cursor:pointer}
+  .mobile-drawer__body{width:min(920px,calc(100% - 48px));margin:0 auto;padding:var(--space-5) 0 max(48px,env(safe-area-inset-bottom))}
+  .mobile-drawer__eyebrow,.mobile-drawer__group-label{margin:0;font:var(--fw-semibold) var(--fs-100)/1.5 var(--font-ui);letter-spacing:var(--ls-eyebrow);text-transform:uppercase;color:var(--soft)}
+  .mobile-drawer__title{margin:var(--space-1) 0 var(--space-5);font:var(--fw-display) var(--fs-700)/1.1 var(--font-display);letter-spacing:-.025em;color:var(--text)}
+  .mobile-drawer__search{display:flex;align-items:center;gap:var(--space-3);min-height:52px;padding:0 var(--space-4);background:var(--white);border:1px solid var(--border-control,var(--border-strong));border-radius:var(--radius-s);font:var(--fw-medium) var(--fs-300)/1.3 var(--font-ui);color:var(--soft);text-decoration:none}
+  .mobile-drawer__columns{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(255px,.85fr);gap:var(--space-8);margin-top:var(--space-6)}
+  .mobile-drawer__group-label{margin-bottom:var(--space-2)}
+  .mobile-drawer__primary,.mobile-drawer__secondary{list-style:none;margin:0;padding:0}
+  .mobile-drawer__primary a,.mobile-drawer__secondary a{display:flex;align-items:center;justify-content:space-between;gap:var(--space-3);min-height:52px;border-bottom:1px solid var(--border);color:var(--text);font:var(--fw-medium) var(--fs-500)/1.2 var(--font-ui);text-decoration:none}
+  .mobile-drawer__secondary a{min-height:48px;font-size:var(--fs-300)}
+  .mobile-drawer__primary a:hover,.mobile-drawer__primary a[aria-current=page],.mobile-drawer__secondary a:hover{color:var(--accent)}
+  .mobile-drawer__arrow{color:var(--soft)}
+  .mobile-drawer__section--about{margin-top:var(--space-5)}
+  .mobile-drawer__dispatch{display:flex;flex-direction:column;align-items:flex-start;gap:var(--space-2);margin-top:var(--space-6);padding:var(--space-5);background:var(--bg-deep);color:var(--white);border-radius:var(--radius-m);text-decoration:none}
+  .mobile-drawer__dispatch strong{font:var(--fw-display) var(--fs-600)/1.1 var(--font-display);letter-spacing:-.02em}
+  .mobile-drawer__dispatch-dek{max-width:40ch;color:var(--soft-inverse);font:var(--fs-300)/1.5 var(--font-ui)}
+  .mobile-drawer__dispatch-action{margin-top:var(--space-1);color:var(--sand);font:var(--fw-semibold) var(--fs-300)/1.3 var(--font-ui)}
+  .mobile-drawer a:focus-visible,.mobile-drawer button:focus-visible{outline:var(--focus-ring);outline-offset:3px}
+  .mobile-drawer__dispatch:focus-visible{outline-color:var(--sand)}
+ }
+ @media(max-width:767px){ .ask-link{padding:0;width:44px;justify-content:center;margin-inline-end:0} .ask-link__label{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+  .brand-lockup{flex-direction:column;align-items:flex-start;gap:0}
+  .header-actions{gap:0}
+  .mobile-drawer__top{padding:var(--space-2) var(--space-4)}
+  .mobile-drawer__body{width:calc(100% - 32px)}
+  .mobile-drawer__columns{display:block}
+  .mobile-drawer__aside{margin-top:var(--space-6)}
+ }
 </style>

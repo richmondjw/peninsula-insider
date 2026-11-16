@@ -34,6 +34,7 @@
 
 import { readFile, readdir, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
+import { auditJournalLinks } from './journal-link-audit.mjs';
 
 const SITE = 'https://peninsulainsider.com.au';
 const INDEX_SURFACE_MIN = 40;
@@ -138,6 +139,7 @@ async function main() {
     if (canonMatch) canonicalPath = normalise(canonMatch[1], urlPath);
     const { chrome, body } = extractLinks(html, urlPath);
     pages.set(urlPath, {
+      html,
       url: urlPath,
       bytes: info.size,
       canonical: canonicalPath,
@@ -232,7 +234,10 @@ async function main() {
   const duplicateBytes = duplicates.reduce((sum, p) => sum + p.bytes, 0);
   const noindexForeignCanonical = noindexSurfaces.filter((p) => p.canonical && !p.selfCanonical);
 
+  const policy = JSON.parse(await readFile(new URL('./journal-link-policy.json', import.meta.url), 'utf8'));
+  const contextual = await auditJournalLinks(pages, new URL('../src/content/', import.meta.url), policy);
   const report = {
+    contextual,
     generatedAt: new Date().toISOString(),
     dist: DIST,
     totals: {
@@ -265,6 +270,11 @@ async function main() {
     })),
     orphans: zeroEditorial.map((p) => p.url).sort(),
   };
+
+  if (args.includes('--assert-mentions')) {
+    const failures = contextual.articles.flatMap(a => a.mentions.filter(m => ['wrong','partial-link','missing-fragment'].includes(m.status)).map(m => ({url:a.url,...m})));
+    if (failures.length) { console.error('Contextual link defects:', JSON.stringify(failures)); process.exitCode = 1; }
+  }
 
   // --- output -----------------------------------------------------------
   const t = report.totals;

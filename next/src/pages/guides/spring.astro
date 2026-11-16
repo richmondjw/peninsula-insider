@@ -7,9 +7,9 @@
  */
 import { getCollection } from 'astro:content';
 import PrintLayout from '../../layouts/PrintLayout.astro';
-import { routeSlug } from '../../lib/editorial';
+import { routeSlug, isListableVenue } from '../../lib/editorial';
 
-const venues = await getCollection('venues');
+const venues = (await getCollection('venues')).filter(isListableVenue);
 
 // Spring shortlist: market season, ridge views with the new vintage
 // going in the ground, the soft-walking weather before tourism wakes up.
@@ -34,17 +34,17 @@ export const prerender = true;
       <p class="guide__edition">Peninsula Insider · Issue Vol 04 · Seasonal Guide</p>
       <h1 class="guide__cover-title">A Mornington Peninsula <em>Spring</em></h1>
       <p class="guide__cover-dek">Ridge afternoons soft with new growth, market season opening on the bay, and the weeks before the summer crowds arrive - this is the underrated Peninsula.</p>
-      <p class="guide__cover-meta">Eight pages · Six venues · One sample weekend · Updated May 2026</p>
+      <p class="guide__cover-meta">Seasonal picks · A sample weekend · Updated May 2026</p>
     </header>
 
     <section class="guide__intro">
       <h2>Spring is the locals' season.</h2>
       <p>The Peninsula's two best-kept secrets are autumn and spring. Autumn gets the photographs; spring gets the weather. The vintage has just gone in the ground on the ridge, the markets are pulling out of winter, the back-bay walks are warm enough to enjoy without being so warm that the bay swimming is mandatory. Tourism is still asleep through October.</p>
-      <p>This guide is six venues we'd commit to in spring, framed by a sample two-night plan that leans light on the schedule. Spring rewards loafing.</p>
+      <p>These are the venues we'd commit to in spring, framed by a sample two-night plan that leans light on the schedule. Spring rewards loafing.</p>
     </section>
 
     <section class="guide__shortlist">
-      <h2>The six</h2>
+      <h2>The seasonal shortlist</h2>
       <ol class="guide__list">
         {shortlist.map((v) => (
           <li class="guide__list-item">
@@ -65,7 +65,7 @@ export const prerender = true;
         </li>
         <li>
           <h3>Saturday morning</h3>
-          <p>Red Hill Market or a Mornington Saturday - check the calendar. Spring is when the market season finds its rhythm again. Coffee at one of the village locals; stay slow.</p>
+          <p>Hill &amp; Ridge Community Market or a Mornington market - check the organiser calendar. Spring is when the market season finds its rhythm again. Coffee at one of the village locals; stay slow.</p>
         </li>
         <li>
           <h3>Saturday afternoon</h3>

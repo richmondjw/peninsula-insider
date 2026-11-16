@@ -1,9 +1,9 @@
 /**
  * plans-data - build-time model for the /plans/ decision engine (T-602).
  *
- * One plan type (P10): editorial itineraries (content/itineraries) and
- * plans-section articles (content/articles, section: plans) are merged into
- * a single PlanRecord shape. Facets come from the shared adapter
+ * Editorial itineraries and planning guides share browse metadata but keep
+ * an explicit kind: only itineraries have executable stop lists.
+ * Facets come from the shared adapter
  * (lib/facets getFacets), so the context chips are presets over the same
  * taxonomy the rest of the site filters on.
  *
@@ -16,13 +16,15 @@
 import { getCollection } from 'astro:content';
 import {
   getFacets,
-  auSeason,
   CHIP_PRESETS,
   FACET_OPTIONS,
   type FacetKey,
 } from '../../../lib/facets';
-import { routeSlug, venueHref, titleize } from '../../../lib/editorial';
+import { getAustralianSeasonLower } from '../../../lib/season';
+import { routeSlug, venueHref, titleize, isListableVenue } from '../../../lib/editorial';
 import { loadOverrides } from '../../../lib/inline-edit/overrides';
+import { informationCheckedOn } from '../../../lib/verification-date.mjs';
+import { compareEditorialPlans, planCuration } from './plan-curation';
 
 export interface PlanStop {
   /** Save-store kind for referenced stops ('venue' | 'experience' | 'article'). */
@@ -32,18 +34,29 @@ export interface PlanStop {
   href?: string;
   note?: string;
   day: number;
+  placeLabel?: string;
 }
 
 export interface PlanRecord {
   id: string;
+  kind: 'itinerary' | 'guide';
   /** CMS entity type: 'itinerary' or 'article'. */
   entityType: 'itinerary' | 'article';
   slug: string;
   title: string;
+  displayTitle: string;
+  editorialReason: string;
+  editorialPriority: number;
+  pace?: string;
+  bookingNote?: string;
+  /** A source-backed factual check, never inferred from publication. */
+  verifiedAt?: string;
+  /** The published editorial route estimate; not live routing. */
+  driveMins?: number;
   /** Verdict line, clipped to 25 words or fewer. */
   verdict: string;
   href: string;
-  image: { src: string; alt: string } | null;
+  image: { src: string; alt: string; caption?: string; credit?: string } | null;
   /** editableImage fieldPath ('heroImage' for itineraries, 'hero' for articles). */
   imageField: string;
   meta: string[];
@@ -110,33 +123,53 @@ function metaFor(record: {
 async function heroFor(
   entityType: 'itinerary' | 'article',
   slug: string,
-  fallback: { src?: string; alt?: string } | undefined,
+  fallback: { src?: string; alt?: string; caption?: string; credit?: string; rightsStatus?: string } | undefined,
   title: string,
-): Promise<{ src: string; alt: string } | null> {
+): Promise<{ src: string; alt: string; caption?: string; credit?: string } | null> {
   // Same override chain the current hub uses so editor-uploaded heroes ship.
   const ov = await loadOverrides(entityType, slug);
-  const o = ov.image['hero'] ?? ov.image['heroImage'];
+  const override = entityType === 'itinerary'
+    ? ov.image['heroImage'] ?? ov.image['hero']
+    : ov.image['hero'] ?? ov.image['heroImage'];
+  // A replacement photograph must bring its own description and credit.
+  // Itinerary detail pages already reject incomplete uploads; keep their
+  // cards in step. For article cards, fall back only when the source photo
+  // carries a recorded credit.
+  const creditedArticleSource = entityType === 'article' && fallback?.rightsStatus === 'recorded' &&
+    Boolean(fallback.src?.trim() && fallback.alt?.trim() && fallback.credit?.trim());
+  const incompleteOverride = override && (!override.alt?.trim() || !override.credit?.trim());
+  const o = incompleteOverride && (entityType === 'itinerary' || creditedArticleSource) ? undefined : override;
   const src = o?.src ?? fallback?.src;
   if (!src) return null;
-  return { src, alt: o?.alt ?? fallback?.alt ?? title };
+  // An uploaded replacement must carry its own words. The content record's
+  // caption and credit only remain valid when the source URL is identical.
+  const sameSource = src === fallback?.src;
+  return {
+    src,
+    alt: o?.alt ?? (sameSource ? fallback?.alt : undefined) ?? title,
+    caption: (o ? o.caption ?? (sameSource ? fallback?.caption : undefined) : fallback?.caption) ?? undefined,
+    credit: (o ? o.credit ?? (sameSource ? fallback?.credit : undefined) : fallback?.credit) ?? undefined,
+  };
 }
 
 export async function buildPlansModel(now: Date = new Date()): Promise<PlansModel> {
-  const season = auSeason(now);
+  const season = getAustralianSeasonLower(now);
 
   // ---- stop resolution lookups -------------------------------------------
-  const venues = await getCollection('venues');
+  const places = new Map((await getCollection('places')).map(place => [place.id, place.data.name]));
+  const placeLabel = (place: any) => places.get(typeof place === 'string' ? place : place?.id);
+  const venues = (await getCollection('venues')).filter(isListableVenue);
   const experiences = await getCollection('experiences');
   const venueBySlug = new Map(
     venues.map((v) => [
       routeSlug(v) as string,
-      { title: v.data.name as string, href: venueHref(v) },
+      { title: v.data.name as string, href: venueHref(v), placeLabel: placeLabel(v.data.place) },
     ]),
   );
   const expBySlug = new Map(
     experiences.map((e) => [
       routeSlug(e) as string,
-      { title: (e.data as any).name as string, href: `/explore/${routeSlug(e)}/` },
+      { title: (e.data as any).name as string, href: `/explore/${routeSlug(e)}/`, placeLabel: placeLabel(e.data.place) },
     ]),
   );
 
@@ -151,26 +184,33 @@ export async function buildPlansModel(now: Date = new Date()): Promise<PlansMode
   const itineraryRecords: PlanRecord[] = await Promise.all(
     itineraries.map(async (it) => {
       const slug = routeSlug(it) as string;
-      const stops: PlanStop[] = (it.data.stops ?? []).map((s: any) => {
+      const stops: PlanStop[] = [...(it.data.stops ?? [])]
+        .sort((a, b) => a.day - b.day || a.order - b.order)
+        .map((s: any) => {
         const venueSlug = refId(s.venue);
         const expSlug = refId(s.experience);
         if (venueSlug && venueBySlug.has(venueSlug)) {
           const v = venueBySlug.get(venueSlug)!;
-          return { kind: 'venue', slug: venueSlug, title: v.title, href: v.href, note: s.note, day: s.day };
+          return { kind: 'venue', slug: venueSlug, title: v.title, href: v.href, placeLabel: v.placeLabel, note: s.note, day: s.day };
         }
         if (expSlug && expBySlug.has(expSlug)) {
           const e = expBySlug.get(expSlug)!;
-          return { kind: 'experience', slug: expSlug, title: e.title, href: e.href, note: s.note, day: s.day };
+          return { kind: 'experience', slug: expSlug, title: e.title, href: e.href, placeLabel: e.placeLabel, note: s.note, day: s.day };
         }
-        return { title: s.note ? String(s.note).split(/(?<=[.?])\s+/)[0] : 'Stop', note: s.note, day: s.day };
+        throw new Error(`[plans] ${slug} day ${s.day} has an unavailable stop: ${venueSlug ?? expSlug ?? 'missing reference'}`);
       });
       const dayCount = Math.max(it.data.lengthNights + 1, ...stops.map((s) => s.day), 1);
       const facets = getFacets('itinerary', it.data);
       const base: PlanRecord = {
         id: `it-${slug}`,
+        kind: 'itinerary',
         entityType: 'itinerary',
         slug,
         title: it.data.title,
+        ...planCuration(slug, it.data.title, 'itinerary'),
+        pace: `${stops.length} stops ${dayCount === 1 ? 'in one day' : `across ${dayCount} days`}`,
+        verifiedAt: informationCheckedOn(it.data, now.getTime())?.toISOString().slice(0, 10),
+        driveMins: it.data.totalDriveMinutes,
         verdict: verdictLine(it.data.dek),
         href: `/explore/plans/${slug}/`,
         image: await heroFor('itinerary', slug, it.data.heroImage, it.data.title),
@@ -201,17 +241,19 @@ export async function buildPlansModel(now: Date = new Date()): Promise<PlansMode
       const facets = getFacets('article', a.data);
       const base: PlanRecord = {
         id: `ar-${slug}`,
+        kind: 'guide',
         entityType: 'article',
         slug,
         title,
+        ...planCuration(slug, title, 'guide'),
+        verifiedAt: informationCheckedOn(a.data, now.getTime())?.toISOString().slice(0, 10),
         verdict: verdictLine(a.data.dek),
         href,
         image: await heroFor('article', slug, a.data.heroImage, title),
         imageField: 'hero',
         meta: [],
-        // Articles have no stop list; forking adds the plan itself as the
-        // first trip entry (the reader picks stops on the detail page).
-        stops: [{ kind: 'article', slug, title, href, note: 'Read the plan, then swap in your own stops.', day: 1 }],
+        // A guide is reading material, not an executable itinerary.
+        stops: [],
         facets,
         publishedAt: a.data.publishedAt?.getTime?.() ?? 0,
       };
@@ -220,7 +262,7 @@ export async function buildPlansModel(now: Date = new Date()): Promise<PlansMode
     }),
   );
 
-  const plans = [...itineraryRecords, ...articleRecords];
+  const plans = [...itineraryRecords, ...articleRecords].sort(compareEditorialPlans);
 
   // ---- contexts ------------------------------------------------------------
   // CHIP_PRESETS.plans is the vocabulary; Weekend leads as the server default
@@ -240,13 +282,10 @@ export async function buildPlansModel(now: Date = new Date()): Promise<PlansMode
     'this-season': `What ${season} is for`,
   };
 
-  const rank = (p: PlanRecord) =>
-    (p.stops.length > 1 ? 2 : 0) + ((p.facets.date ?? []).includes('this-season') ? 1 : 0);
-
   const contexts: PlanContext[] = presets.map((chip) => {
     const matched = plans
       .filter((p) => (p.facets[chip.key] ?? []).includes(chip.value))
-      .sort((a, b) => rank(b) - rank(a) || b.publishedAt - a.publishedAt);
+      .sort(compareEditorialPlans);
     if (matched.length === 0) {
       console.warn(`[plans] context "${chip.value}" matched zero plans`);
     }

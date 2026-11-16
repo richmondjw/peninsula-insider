@@ -5,10 +5,24 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-05
 heroImage:
-  src: "/images/sourced/article-peninsula-pantry-01.webp"
-  alt: "Mornington main street with morning shoppers and cafes - representative image"
-  credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  src: "/images/visit-victoria/vv-159194-bass-and-flinders-distillery.webp"
+  alt: "Bass and Flinders Distillery signage on a tall grey wall beside a picket-fenced garden, planter boxes and a small bar"
+  credit: "Two Palms Australia, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Bass & Flinders Distillery, Mornington, Mornington Peninsula"
+  depicts: "Bass and Flinders Distillery"
+  depictionStatus: "actual"
+  creator: "Two Palms Australia"
+  sourceUrl: "Victoria Content Hub asset 159194, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "service"
 tags: ["mornington", "bayside", "day-trip", "coffee", "markets", "all-year"]
 relatedVenues: ["commonfolk-coffee", "mornington-farmers-market", "bass-and-flinders", "sourdough-kitchen", "mr-vincenzos", "the-bay-hotel-mornington", "the-rocks-mornington"]
@@ -34,11 +48,11 @@ faq:
   - question: "Is Mornington worth visiting on its own, or should I continue to Red Hill?"
     answer: "Worth a full day on its own - gallery, market, foreshore, good coffee, and Mount Martha Beach. If you want wineries and cellar doors, Red Hill is a separate day. Trying to combine both usually ends with rushing everything and enjoying neither."
 aiSummary:
-  - "A complete day-trip guide to Mornington town - structured to make the most of the Peninsula's main hub in a single day without a car-heavy itinerary."
-  - "Covers: the Wednesday market as the ideal starting point; the foreshore walk; the best café and lunch options; what the main street actually offers beyond coffee."
+  - "Start with coffee, walk Main Street and the foreshore, visit the gallery, then choose lunch in town or a nearby stop."
+  - "Wednesday brings the Main Street Market; the separate Mornington Farmers' Market usually runs on the second Saturday in Mornington Park."
   - "The editorial argument: Mornington is consistently underused as a destination in its own right rather than a gateway town. This piece treats it as the destination."
   - "Suits: day-trippers from Melbourne; visitors staying in Mount Martha or nearby who want a full Mornington day; anyone who has dismissed Mornington as 'just a service town'."
-  - "Planning note: Wednesday is the best day by a significant margin (market day). Parking fills quickly near the market from 8:30am. The Esplanade walk is the correct way to close the day."
+  - "Check the chosen market's current date and location before travelling; the Wednesday street market and second-Saturday farmers' market are different events."
 ---
 
 Mornington has a problem and the problem is geography. It is the first stop on the Peninsula when you drive down from Melbourne, and for a long time that meant nobody stayed: you bought a coffee, stretched your legs, and pressed on to the wineries or the tip. The town became a waypoint by default.
@@ -56,7 +70,7 @@ Breakfast here if you are hungry, but keep it light. The better eating happens l
 
 Main Street Mornington runs downhill from the clock tower toward the bay. Walk it once north to south without stopping except at the shops that catch your eye: the homewares stores are better than the ones in Red Hill, the bookshop on Main Street is genuinely useful, and the secondhand and vintage places are worth the loop. Drop down to the foreshore at the bottom and walk back along the bay path.
 
-If it is the second Saturday of the month, this is when the **Mornington Farmers' Market** is running in the park on the Esplanade. Bag it in. This is the best monthly market on the Peninsula and it will handle your lunch, your produce for home, and your cheese for dinner. Use the [complete Peninsula market guide](/eat/markets/) to confirm the right market day before you build the trip around it.
+If it is Wednesday, the **Mornington Main Street Market** adds stalls to the shopping loop. The separate **Mornington Farmers' Market** usually runs on the second Saturday in Mornington Park. Use the [complete Peninsula market guide](/eat/markets/) and confirm the organiser's current calendar before building the day around either.
 
 ## 12:30: The gallery
 
@@ -66,7 +80,7 @@ Check the program before you go. Allow forty-five minutes minimum.
 
 ## 1:30: Lunch somewhere deliberate
 
-The town has improved its food scene without becoming a cellar-door circuit. Main Street has a handful of reliable modern bistros, and for a longer lunch the better move is to drive seven minutes inland to **Bass & Flinders Distillery** in Tuerong for a gin-tasting flight and a short food menu. If the day has gone casual, the foreshore kiosks and the pub lunches along the Esplanade are cheerful and good.
+The town has improved its food scene without becoming a cellar-door circuit. Main Street has a handful of reliable modern bistros. For an optional distillery stop beyond Mornington, **Bass & Flinders** is at 40 Collins Road, Dromana. Check its current opening hours and experiences, and plan the onward journey from your previous stop before setting out. If the day has gone casual, the foreshore kiosks and the pub lunches along the Esplanade are cheerful and good.
 
 What you don't want to do is drive thirty minutes to a Red Hill cellar door restaurant in the middle of a Mornington day. It breaks the rhythm and the drive back is worse than you think.
 

@@ -78,6 +78,7 @@ jobs:
           PI_REPO_ROOT: ${{ github.workspace }}
         run: |
           python engine/test_strategy_engine.py --quiet
+          python engine/test_hero_image.py --quiet
 
       - name: Run daily content engine
         env:

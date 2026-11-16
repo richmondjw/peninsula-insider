@@ -1,0 +1,15 @@
+{
+  "updatedAt": "2026-09-13T08:33:20.757Z",
+  "assertedMetrics": [
+    "publishPathStampsCheckDate",
+    "visitWithoutVisitRecord",
+    "checkedOnWithoutSource",
+    "hardcodedVerificationDate"
+  ],
+  "ceilings": {
+    "publishPathStampsCheckDate": 0,
+    "visitWithoutVisitRecord": 0,
+    "checkedOnWithoutSource": 0,
+    "hardcodedVerificationDate": 11
+  }
+}

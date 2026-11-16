@@ -1,0 +1,20 @@
+{
+  "claimId": "venues/cape-schanck-boat-hire/rate-change",
+  "claimClass": "rate-change",
+  "subject": {
+    "type": "venues",
+    "slug": "cape-schanck-boat-hire",
+    "field": "rateFingerprint"
+  },
+  "statement": "The published hire rates for Cape Schanck Boat Hire are as last checked.",
+  "assertedBy": [
+    {
+      "type": "venues",
+      "slug": "cape-schanck-boat-hire",
+      "field": "rateFingerprint"
+    }
+  ],
+  "createdAt": "2026-03-11",
+  "origin": "fixture",
+  "note": "PI-006 fixture. Seeds one named failure class so the loop can be proved to catch it."
+}

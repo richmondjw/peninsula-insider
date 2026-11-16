@@ -1,0 +1,25 @@
+{
+  "claimId": "experiences/pt-leo-sculpture-park/offering",
+  "claimClass": "offering",
+  "subject": {
+    "type": "experiences",
+    "slug": "pt-leo-sculpture-park",
+    "field": "editorNote"
+  },
+  "statement": "The Pt. Leo Estate Sculpture Park holds more than seventy large scale works by Australian and international artists.",
+  "assertedBy": [
+    {
+      "type": "experiences",
+      "slug": "pt-leo-sculpture-park",
+      "field": "editorNote"
+    },
+    {
+      "type": "events",
+      "slug": "pt-leo-estate-sculpture-park",
+      "field": "summary"
+    }
+  ],
+  "createdAt": "2026-09-13",
+  "origin": "authored",
+  "note": "Settled by the operator against a press source from 2022. The sixty figure the corpus carried traces to a Time Out listing of 4 May 2022, which is also where the 330 acre figure removed from this corpus earlier today came from. Records still asserting sixty as at 2026-09-13: events/pt-leo-estate-sculpture-park (summary and editorNote). Authored by hand for the PI-005 Stage 2 pilot on the Pt. Leo Estate sculpture park cluster. Sources were read on 2026-09-13; see ops/reports/claims/2026-09-13-pilot-pt-leo-sculpture-park.md."
+}

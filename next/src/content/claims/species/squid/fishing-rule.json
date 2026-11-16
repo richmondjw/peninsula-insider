@@ -1,0 +1,20 @@
+{
+  "claimId": "species/squid/fishing-rule",
+  "claimClass": "fishing-rule",
+  "subject": {
+    "type": "species",
+    "slug": "squid",
+    "field": "vfaCitationUrl"
+  },
+  "statement": "Bag limit, size limit and season for Southern Calamari are as published.",
+  "assertedBy": [
+    {
+      "type": "species",
+      "slug": "squid",
+      "field": "vfaCitationUrl"
+    }
+  ],
+  "createdAt": "2026-04-30",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

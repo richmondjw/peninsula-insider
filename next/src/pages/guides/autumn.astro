@@ -7,9 +7,9 @@
  */
 import { getCollection } from 'astro:content';
 import PrintLayout from '../../layouts/PrintLayout.astro';
-import { routeSlug } from '../../lib/editorial';
+import { routeSlug, isListableVenue } from '../../lib/editorial';
 
-const venues = await getCollection('venues');
+const venues = (await getCollection('venues')).filter(isListableVenue);
 
 // Autumn shortlist: vintage running, markets warm, the season the
 // region is at its most editorial.
@@ -34,17 +34,17 @@ export const prerender = true;
       <p class="guide__edition">Peninsula Insider · Issue Vol 04 · Seasonal Guide</p>
       <h1 class="guide__cover-title">A Mornington Peninsula <em>Autumn</em></h1>
       <p class="guide__cover-dek">Vintage running on the ridge, warm Saturdays at the markets, the season the Peninsula is at its most editorial.</p>
-      <p class="guide__cover-meta">Eight pages · Six venues · One sample weekend · Updated May 2026</p>
+      <p class="guide__cover-meta">Seasonal picks · A sample weekend · Updated May 2026</p>
     </header>
 
     <section class="guide__intro">
       <h2>Autumn is the postcard.</h2>
       <p>If you have one weekend on the Peninsula, take it in autumn. The vintage is on, the cellar doors have time, the ocean is still warm enough to swim in if you must, and the produce that defines the region is at its most generous. Mornings have fog; afternoons have light angled the way photographers pretend it always does.</p>
-      <p>This guide is six venues we'd commit to in autumn, sequenced into a sample weekend that goes light on the early Saturday and heavier on the long lunch. Use it as a starting point - the live site is more current than any printed artefact.</p>
+      <p>These are the venues we'd commit to in autumn, sequenced into a sample weekend that goes light on the early Saturday and heavier on the long lunch. Use it as a starting point - the live site is more current than any printed artefact.</p>
     </section>
 
     <section class="guide__shortlist">
-      <h2>The six</h2>
+      <h2>The seasonal shortlist</h2>
       <ol class="guide__list">
         {shortlist.map((v) => (
           <li class="guide__list-item">
@@ -69,7 +69,7 @@ export const prerender = true;
         </li>
         <li>
           <h3>Saturday afternoon</h3>
-          <p>The long lunch is the event. Two cellar doors before; one of the six is the second. Cabs back to the hotel by 5 - autumn light demands you finish on the deck not the road.</p>
+          <p>The long lunch is the event. Two cellar doors before; choose the second from the shortlist. Cabs back to the hotel by 5 - autumn light demands you finish on the deck not the road.</p>
         </li>
         <li>
           <h3>Sunday morning</h3>

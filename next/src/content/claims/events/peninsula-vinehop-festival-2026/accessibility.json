@@ -1,0 +1,20 @@
+{
+  "claimId": "events/peninsula-vinehop-festival-2026/accessibility",
+  "claimClass": "accessibility",
+  "subject": {
+    "type": "events",
+    "slug": "peninsula-vinehop-festival-2026",
+    "field": "accessibilityNotes"
+  },
+  "statement": "Access at Peninsula VineHop Festival 2026: Check accessibility arrangements with the organiser before booking. The festival spans seven separate venues and uses shuttle transport.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "peninsula-vinehop-festival-2026",
+      "field": "accessibilityNotes"
+    }
+  ],
+  "createdAt": "2026-08-25",
+  "origin": "migrated",
+  "note": "Migrated by scripts/migrate-event-claims.mjs (PI-005 Stage 2) from accessibilityNotes already on next/src/content/events/peninsula-vinehop-festival-2026.json. No editorial judgement was applied and no content record was changed."
+}

@@ -1,0 +1,15 @@
+{
+  "evidenceId": "events/the-bloody-long-walk-mornington-peninsula-2026/event-schedule-runguides-2026-09-13",
+  "claim": "events/the-bloody-long-walk-mornington-peninsula-2026/event-schedule",
+  "stance": "supports",
+  "publisher": {
+    "kind": "unknown",
+    "name": "RunGuides"
+  },
+  "url": "https://www.runguides.com/event/30975/the-bloody-long-walk-mornington-peninsula",
+  "retrievedAt": "2026-09-13",
+  "expiresAt": "2026-10-13",
+  "note": "Listing publishes \"Oct 25, 2026 - Sunday\", 35k, at Safety Beach, Victoria. The organiser's own page returns an empty client-rendered shell to a direct fetch, so this is the strongest source that could actually be read.",
+  "method": "Read first hand. The organiser page bloodylongwalk.com.au answers a direct fetch with a body of ten characters, and runningcalendar.com.au answers with a bot-protection response, so neither could be quoted.",
+  "origin": "authored"
+}

@@ -49,11 +49,8 @@ export function verifiedFreshnessLabel(lastVerified: Date | string | undefined):
   const date = typeof lastVerified === 'string' ? new Date(lastVerified) : lastVerified;
   if (Number.isNaN(date.getTime())) return null;
 
-  const now = new Date();
-  const days = Math.floor((now.getTime() - date.getTime()) / (1000 * 60 * 60 * 24));
-
-  if (days <= 35) return 'Verified this month';
-  return `Verified ${date.toLocaleDateString('en-AU', { month: 'short', year: 'numeric' })}`;
+  if (date.getTime() > Date.now()) return null;
+  return `Information last checked ${date.toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'Australia/Melbourne' })}`;
 }
 
 /**

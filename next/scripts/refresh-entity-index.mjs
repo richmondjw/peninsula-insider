@@ -38,6 +38,7 @@ import { readFile, readdir, stat } from 'node:fs/promises';
 import { join, resolve, relative, extname, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parse as parseYaml } from 'yaml';
+import { venueHref, isListableVenue } from '../src/lib/editorial.ts';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const NEXT_ROOT = resolve(__dirname, '..');
@@ -85,16 +86,11 @@ for (const fields of Object.values(taxonomy.mappings)) {
 // can appear in collection/list pages, but do not have /{section}/{slug}/
 // detail pages and must not enter pi.search as direct hits.
 const EAT_TYPES = ['restaurant', 'cafe', 'bakery', 'pub', 'market', 'winery'];
-const STAY_TYPES = ['hotel', 'villa', 'cottage', 'glamping', 'farm-stay', 'spa'];
+const STAY_TYPES = ['hotel', 'villa', 'suite', 'accommodation', 'cottage', 'lodge', 'glamping', 'farm-stay', 'spa'];
 const WINE_TYPES = ['winery', 'producer', 'brewery', 'distillery'];
 const ROUTABLE_VENUE_TYPES = [...new Set([...EAT_TYPES, ...STAY_TYPES, ...WINE_TYPES])];
 const NON_PUBLIC_STATUSES = new Set(['draft', 'review', 'archived']);
 
-function venueHrefPrefix(type) {
-  if (STAY_TYPES.includes(type)) return '/stay/';
-  if (WINE_TYPES.includes(type)) return '/wine/';
-  return '/eat/';
-}
 
 const COLLECTIONS = [
   // hrefPrefix=null on venues → derived per-row via venueHrefPrefix(entry.type)
@@ -206,7 +202,7 @@ function buildIndexRow({ entry, entityType, folder, hrefPrefix, titleField, face
   if (NON_PUBLIC_STATUSES.has(status)) return null;
   if (entityType === 'venue') {
     if (!ROUTABLE_VENUE_TYPES.includes(entry.type)) return null;
-    if (status === 'permanently_closed') return null;
+    if (!isListableVenue(entry)) return null;
   }
   const title = entry[titleField] || entry.title || entry.name || slug;
   const dek = entry.dek || entry.summary || entry.editorNote || null;
@@ -236,7 +232,7 @@ function buildIndexRow({ entry, entityType, folder, hrefPrefix, titleField, face
     coordinates: coords,
     starts_at:    startsAt ? new Date(startsAt).toISOString() : null,
     ends_at:      endsAt ? new Date(endsAt).toISOString() : null,
-    href:         (hrefPrefix ?? venueHrefPrefix(entry.type)) + slug + '/',
+    href:         entityType === 'venue' ? venueHref({ id: slug, data: entry }) : hrefPrefix + slug + '/',
     hero_image:   entry.heroImage || null,
     taxonomy_version: String(taxonomy.version || '0'),
     refreshed_at: new Date().toISOString(),
@@ -246,6 +242,7 @@ function buildIndexRow({ entry, entityType, folder, hrefPrefix, titleField, face
 // ─── projection pass ─────────────────────────────────────────────────────
 const indexRows = [];
 const attributeRows = [];
+const pausedVenueSlugs = new Set();
 const collectionStats = {};
 
 for (const col of COLLECTIONS) {
@@ -260,6 +257,9 @@ for (const col of COLLECTIONS) {
     const slug = entry.slug || filePath.split(/[\\/]/).pop().replace(/\.(json|md|mdx)$/i, '');
     if (!slug) continue;
     entry.slug = slug;
+    if (col.entityType === 'venue' && entry.status === 'paused') {
+      pausedVenueSlugs.add(slug);
+    }
     const { facets, attributes } = projectFacets(entry, col.folder);
     // Auto-emit `zone` facet from entry.zone (universal field on most
     // entities, not captured by per-collection enum mappings).
@@ -488,6 +488,16 @@ async function pruneStaleEntities() {
 try {
   await upsert('entity_index', indexRows, 'entity_type,entity_slug');
   await upsert('entity_attributes', attributeRows, 'entity_type,entity_slug,facet_key,facet_value');
+  // Routine refreshes do not broadly prune stale rows. Remove only venues
+  // explicitly paused so pi.search cannot retain an old hit.
+  for (const slug of pausedVenueSlugs) {
+    const row = { entity_type: 'venue', entity_slug: slug };
+    await deleteEntity('entity_attributes', row);
+    await deleteEntity('entity_index', row);
+  }
+  if (pausedVenueSlugs.size > 0) {
+    console.log(`[entity-index] removed ${pausedVenueSlugs.size} paused venue(s).`);
+  }
   if (opts.prune) await pruneStaleEntities();
   console.log(`[entity-index] apply complete.`);
 } catch (err) {

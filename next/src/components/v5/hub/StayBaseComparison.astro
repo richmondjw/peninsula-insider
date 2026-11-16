@@ -1,0 +1,120 @@
+---
+import { getCollection } from 'astro:content';
+import { isListableVenue, isStayVenue } from '../../../lib/editorial';
+
+const activeStays = (await getCollection('venues'))
+  .filter((venue) => isListableVenue(venue) && isStayVenue(venue) && venue.data.type !== 'spa');
+const listedStaysFor = (places: string) => {
+  const ids = new Set(places.split(','));
+  return activeStays.filter((venue) => ids.has(String(venue.data.place?.id ?? venue.data.place))).length;
+};
+const bases = [
+  { name: 'Red Hill & Main Ridge', places: 'red-hill,main-ridge', town: 'red-hill', go: 'Vineyard lunches and a quieter hinterland weekend.', evening: 'Make dinner part of the booking plan; properties and cellar doors are spread out.', trade: 'Arrange transport between stops. A ridge address does not mean a walkable winery route.' },
+  { name: 'Sorrento & Rye', places: 'sorrento,rye', town: 'sorrento', go: 'Bay foreshore days with a coastal village base.', evening: 'Look for a property near the village if dinner on foot matters.', trade: 'Check the actual address: the bay, ocean coast and hot springs are separate outings.' },
+  { name: 'Mornington', places: 'mornington', town: 'mornington', go: 'A town base for dining, the foreshore and a shorter trip down the Peninsula.', evening: 'Choose the centre for access to the main street’s food and drink.', trade: 'The southern beaches and ridge wineries still need their own transport plan.' },
+  { name: 'Flinders', places: 'flinders', town: 'flinders', go: 'A smaller village base for the southern coast.', evening: 'Plan around the village’s opening days before choosing a dinner spot.', trade: 'Allow for transfers to the ridge and bay coast; do not assume a late return ride is available.' },
+];
+const photos = [
+  { src: '/images/visit-victoria/vv-25061217-lancemore-lindenderry-red-hill.webp', alt: 'Two guests in the outdoor dining area at Lindenderry, with trees and glowing lights at dusk', caption: 'Lindenderry at Red Hill', credit: 'Peter Foster, courtesy of Visit Victoria', width: 1280, height: 853 },
+  { src: '/images/visit-victoria/vv-22100103-sorrento-ferry-terminal.webp', alt: 'Aerial view across the Sorrento ferry terminal, bay foreshore and village', caption: 'Sorrento and the bay foreshore', credit: 'Courtesy of Visit Victoria', width: 2000, height: 1332 },
+];
+---
+<section class="base-comparison container" aria-labelledby="base-heading">
+  <div class="base-comparison__intro">
+    <div><h2 id="base-heading">First, choose your corner of the Peninsula</h2><p>Pick the days you want, then the bed.</p></div>
+  </div>
+
+  <p class="base-comparison__swipe">Swipe to compare Red Hill and Sorrento</p>
+  <div class="base-comparison__featured" role="region" aria-label="Compare Red Hill and Sorrento bases" tabindex="0">
+    {bases.slice(0, 2).map((base, i) => (
+      <article class="base-comparison__feature">
+        <figure>
+          <img src={photos[i].src} alt={photos[i].alt} width={photos[i].width} height={photos[i].height} loading="lazy" decoding="async" data-pi-responsive="(max-width: 767px) calc(100vw - 4rem), (max-width: 1100px) calc((100vw - 4rem) / 2), 580px" />
+          <figcaption><span>{photos[i].caption}</span><span>Photo: {photos[i].credit}</span></figcaption>
+        </figure>
+        <div class="base-comparison__feature-body">
+          <h3><a href={'/explore/places/' + base.town + '/'}>{base.name}</a></h3>
+          <p class="base-comparison__lead">{base.go}</p>
+          <div class="base-comparison__practical"><p><strong>For the evening</strong>{base.evening}</p><p><strong>Getting around</strong>{base.trade}</p></div>
+          <div class="base-comparison__actions"><a class="base-comparison__find" href={'/stay/?place=' + base.places + '#browse-stay'} aria-label={'Find stays in ' + base.name}>Find stays <span aria-hidden="true">&rarr;</span></a></div>
+        </div>
+      </article>
+    ))}
+  </div>
+
+  <div class="base-comparison__others" aria-labelledby="base-others-heading">
+    <h3 id="base-others-heading">More ways to base your trip</h3>
+    <div class="base-comparison__other-grid">
+      {bases.slice(2).map((base) => (
+        <article class="base-comparison__other">
+          <div><h4><a href={'/explore/places/' + base.town + '/'}>{base.name}</a></h4><p>{base.go}</p></div>
+          <p class="base-comparison__detail"><strong>For the evening</strong>{base.evening}</p>
+          <p class="base-comparison__detail"><strong>Getting around</strong>{base.trade}</p>
+          <div class="base-comparison__other-actions">
+            {listedStaysFor(base.places) > 0
+              ? <a href={'/stay/?place=' + base.places + '#browse-stay'} aria-label={'Find stays in ' + base.name}>Find stays</a>
+              : <a href={'/explore/places/' + base.town + '/'} aria-label={'Explore ' + base.name + ' before choosing accommodation'}>Explore the town</a>}
+          </div>
+          {listedStaysFor(base.places) === 0 && <p class="base-comparison__availability">No stays currently listed for {base.name}; check accommodation separately.</p>}
+        </article>
+      ))}
+    </div>
+  </div>
+
+  <p class="base-comparison__foot">Travelling without a car? Start with <a href="/explore/getting-around/">the transport guide</a> and check the journeys for your dates before selecting a base.</p>
+</section>
+<style>
+  .base-comparison { padding-block: clamp(3rem, 6vw, 5rem); }
+  .base-comparison__intro { display: flex; align-items: end; justify-content: space-between; gap: 2rem; margin-bottom: 1.75rem; }
+  .base-comparison__intro > div { max-width: 68ch; }
+  h2 { margin: 0 0 0.85rem; font: 600 var(--fs-700)/1.14 var(--font-display); letter-spacing: -0.025em; text-wrap: balance; }
+  .base-comparison__intro p { max-width: 62ch; margin: 0; color: var(--soft); font-size: var(--fs-400); line-height: 1.6; }
+  a { color: var(--accent); text-underline-offset: 0.2em; }
+  a:focus-visible, .base-comparison__featured:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .base-comparison__swipe { display: none; }
+  .base-comparison__featured { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+  .base-comparison__feature { min-width: 0; display: flex; flex-direction: column; }
+  figure { margin: 0; }
+  figure img { display: block; width: 100%; height: clamp(12rem, 23vw, 18rem); object-fit: cover; border-radius: var(--radius-m); }
+  figcaption { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.15rem 0.75rem; padding: 0.55rem 0; color: var(--soft); font-size: var(--fs-100); line-height: 1.4; }
+  .base-comparison__feature-body { display: flex; flex: 1; flex-direction: column; padding: 0.55rem 0 0; }
+  .base-comparison__feature h3 { margin: 0 0 0.45rem; font: 600 var(--fs-500)/1.25 var(--font-display); letter-spacing: -0.02em; }
+  .base-comparison__feature h3 a, .base-comparison__other h4 a { color: var(--text); text-decoration: none; }
+  .base-comparison__feature h3 a:hover, .base-comparison__other h4 a:hover { color: var(--accent); text-decoration: underline; }
+  .base-comparison__lead { margin: 0; font-size: var(--fs-400); line-height: 1.5; }
+  .base-comparison__practical { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; margin-block: 1.15rem 1.4rem; }
+  .base-comparison__practical p, .base-comparison__detail { margin: 0; color: var(--soft); font-size: var(--fs-300); line-height: 1.52; }
+  strong { display: block; margin-bottom: 0.3rem; color: var(--text); font-size: var(--fs-300); font-weight: 700; }
+  .base-comparison__actions, .base-comparison__other-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 0.75rem 1.25rem; }
+  .base-comparison__actions { margin-top: auto; }
+  .base-comparison__actions a, .base-comparison__other-actions a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; font-size: var(--fs-300); font-weight: 700; }
+  .base-comparison__find { gap: 0.4rem; color: var(--accent); }
+  .base-comparison__others { margin-top: 2.75rem; }
+  .base-comparison__others h3 { margin: 0 0 1.1rem; font: 600 var(--fs-500)/1.25 var(--font-display); }
+  .base-comparison__other-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+  .base-comparison__other { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem 1.25rem; min-width: 0; }
+  .base-comparison__other > div:first-child { grid-row: span 2; }
+  .base-comparison__other h4 { margin: 0 0 0.5rem; font: 600 var(--fs-500)/1.25 var(--font-display); }
+  .base-comparison__other div > p { margin: 0; line-height: 1.5; }
+  .base-comparison__other-actions { grid-column: 1 / -1; padding-top: 0.35rem; }
+  .base-comparison__availability { grid-column: 1 / -1; max-width: 44ch; margin: 0; color: var(--soft); font-size: var(--fs-300); line-height: 1.5; }
+  .base-comparison__foot { max-width: 70ch; margin: 1.75rem 0 0; color: var(--soft); font-size: var(--fs-300); line-height: 1.6; }
+  @media (max-width: 64em) {
+    .base-comparison__practical, .base-comparison__other { grid-template-columns: 1fr; }
+    .base-comparison__practical { gap: 0.8rem; }
+    .base-comparison__other > div:first-child { grid-row: auto; }
+    .base-comparison__other-actions { grid-column: auto; }
+  }
+  @media (max-width: 48em) {
+    .base-comparison__intro { display: block; margin-bottom: 1rem; }
+    .base-comparison__swipe { display: block; margin: 0 0 0.65rem; color: var(--soft); font-size: var(--fs-300); line-height: 1.4; }
+    .base-comparison__featured { display: flex; gap: 0.75rem; overflow-x: auto; overscroll-behavior-inline: contain; scroll-snap-type: x mandatory; scrollbar-width: none; scroll-padding-inline: 0.5rem; padding: 0 0.5rem 0.65rem; }
+    .base-comparison__featured::-webkit-scrollbar { display: none; }
+    .base-comparison__feature { flex: 0 0 calc(100% - 2rem); scroll-snap-align: start; }
+    figure img { height: 13rem; }
+    .base-comparison__practical { margin-block: 0.9rem 1rem; }
+    .base-comparison__others { margin-top: 2rem; }
+    .base-comparison__other-grid { grid-template-columns: 1fr; gap: 0; }
+    .base-comparison__other { padding: 1.25rem 0; }
+  }
+</style>

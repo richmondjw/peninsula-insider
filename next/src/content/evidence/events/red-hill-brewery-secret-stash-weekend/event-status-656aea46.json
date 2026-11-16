@@ -1,0 +1,19 @@
+{
+  "evidenceId": "events/red-hill-brewery-secret-stash-weekend/event-status-656aea46",
+  "claim": "events/red-hill-brewery-secret-stash-weekend/event-status",
+  "stance": "supports",
+  "publisher": {
+    "kind": "organiser",
+    "name": "Red Hill Brewery"
+  },
+  "retrievedAt": "2026-05-04",
+  "expiresAt": "2026-06-03",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/events/red-hill-brewery-secret-stash-weekend.json",
+    "field": "primarySourceUrl",
+    "value": "https://www.redhillbrewery.com.au/category/events/",
+    "dateField": "lastCheckedDate"
+  },
+  "url": "https://www.redhillbrewery.com.au/category/events/"
+}

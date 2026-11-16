@@ -1,0 +1,18 @@
+{
+  "evidenceId": "data-facts/things-to-do/polperro-dolphin-swims/trading-status-a40347cb",
+  "claim": "data-facts/things-to-do/polperro-dolphin-swims/trading-status",
+  "stance": "supports",
+  "publisher": {
+    "kind": "unknown"
+  },
+  "retrievedAt": "2026-09-13",
+  "expiresAt": "2026-12-12",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/data/facts/things-to-do.json",
+    "field": "entities[6].source",
+    "value": "https://www.tripadvisor.com.au",
+    "dateField": "lastUpdated"
+  },
+  "url": "https://www.tripadvisor.com.au"
+}

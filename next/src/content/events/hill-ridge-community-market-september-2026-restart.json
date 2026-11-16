@@ -1,22 +1,18 @@
 {
   "slug": "hill-ridge-community-market-september-2026-restart",
   "eventId": "MP-EVT-0066",
-  "title": "Hill & Ridge Community Market, September 2026 (Restart)",
-  "summary": "First market of the 2026–2027 season restart at Red Hill Recreation Reserve. Monthly artisan market celebrating local food, wine, produce, crafts and community. Fresh local products; food stalls; winemaker presence and artisan wares.",
-  "startDate": "2026-09-05",
-  "endDate": "2026-09-05",
+  "title": "Hill & Ridge Community Market, 3 October 2026 (cancelled)",
+  "summary": "The organiser marks the 3 October 2026 Hill & Ridge Community Market at Red Hill Recreation Reserve as cancelled. Do not travel for this date. Check the organiser for any future market dates.",
+  "startDate": "2026-10-03",
+  "endDate": "2026-10-03",
   "startTime": "09:00",
   "endTime": "14:00",
   "season": "spring",
-  "month": "September",
+  "month": "October",
   "venueName": "Red Hill Recreation Reserve",
   "venueRegion": "Red Hill",
   "suburb": "Red Hill",
   "streetAddress": "184 Arthurs Seat Road",
-  "coordinates": {
-    "lat": -38.377,
-    "lng": 145.084
-  },
   "indoorOutdoor": "Outdoor",
   "officialEventUrl": "https://www.hillandridgemarket.com.au",
   "bookingRequired": "No",
@@ -37,7 +33,7 @@
   "petFriendly": true,
   "accessibilityNotes": "Mostly flat; accessible parking",
   "weather": "mixed",
-  "weatherDependency": "Outdoor, held rain or shine",
+  "weatherDependency": "Outdoor; organiser may cancel at any time without notice in unsafe weather. Check before travelling.",
   "weatherShape": "fair-weather-only",
   "organiser": {
     "name": "Red Hill Agricultural Society",
@@ -45,17 +41,17 @@
     "contact": "hello@hillandridgemarket.com.au"
   },
   "primarySourceUrl": "https://www.hillandridgemarket.com.au",
-  "verificationStatus": "Recurring, next date confirmed",
-  "lastCheckedDate": "2026-05-04",
+  "verificationStatus": "cancelled",
+  "lastCheckedDate": "2026-10-04",
   "editorialPriority": 1,
   "nearbyAttractions": "Stonier Wines; Polperro; Foxeys Hangout; Arthur's Seat Eagle",
   "suggestedItineraryPairing": "Pair with a winery lunch at one of the Red Hill estates",
   "status": "published",
   "publishedAt": "2026-05-04",
-  "worthTheDrive": true,
-  "firstTimer": true,
-  "editorVerdict": "Hill & Ridge is the quieter sibling to Red Hill Market: same ridge, fewer crowds, more winemakers in attendance.",
-  "editorNote": "September 5 marks the 2026-27 season kick-off for Hill & Ridge at Red Hill Recreation Reserve. First Saturday of the month, September through May, run by the Red Hill Agricultural Society. Local food, wine, produce, crafts, and the genuinely useful thing: winemakers from the surrounding estates often turn up themselves.\n\nThe move: pair it with a winery lunch at Stonier, Polperro or Foxeys Hangout. It runs rain or shine, but the ridge gets cold and wet in early spring, so dress for it. If the Red Hill Show is on the same weekend (check March), expect traffic chaos.",
+  "worthTheDrive": false,
+  "firstTimer": false,
+  "editorVerdict": "Cancelled: the organiser's homepage marked the 3 October 2026 market as cancelled when checked on 4 October 2026. Check the organiser for any future market date.",
+  "editorNote": "Hill & Ridge is a separate community market at Red Hill Recreation Reserve, run by the Red Hill Agricultural & Horticultural Society. When checked on 4 October 2026, the organiser's homepage explicitly marked the 3 October 2026 edition as cancelled. Promotional copy and the seasonal calendar still listed that date at the time; the explicit cancellation notice took precedence. Do not travel for the 3 October edition. Check the organiser for any future market date.",
   "lens": [
     "weekend-pick",
     "family-saturday",
@@ -63,5 +59,30 @@
     "walk-in"
   ],
   "place": "red-hill",
-  "nextOccurrence": "2026-09-05"
+  "lastVerifiedAt": "2026-10-03T20:29:57.379772+00:00",
+  "verification": "verified",
+  "verificationNote": "The organiser homepage explicitly marks the 3 October 2026 edition as cancelled; checked 4 October 2026. Older promotional copy lower on that page is stale.",
+  "heroImage": {
+    "src": "/images/generated/coastal-punch-produce.webp",
+    "alt": "Conceptual market produce and ceramics beneath a striped canopy.",
+    "credit": "Illustration: Peninsula Insider",
+    "license": "other-licensed",
+    "caption": "",
+    "depicts": "Conceptual market produce and ceramics beneath a striped canopy.",
+    "depictionStatus": "illustrative",
+    "creator": "Peninsula Insider, AI-assisted",
+    "permission": "Original AI-assisted artwork created for Peninsula Insider; website rollout approved by James on 2026-10-09.",
+    "permittedUses": [
+      "website"
+    ],
+    "rightsHolder": "Peninsula Insider",
+    "rightsEstablishedOn": "2026-10-09",
+    "rightsStatus": "recorded",
+    "provenanceReview": "verified",
+    "decorative": false
+  },
+  "cancelled": true,
+  "cancellationNote": "The organiser marks the 3 October 2026 edition as cancelled. No replacement date is confirmed in this record.",
+  "cancellationSourceUrl": "https://www.hillandridgemarket.com.au/",
+  "cancellationSourceLabel": "Hill & Ridge Community Market organiser"
 }

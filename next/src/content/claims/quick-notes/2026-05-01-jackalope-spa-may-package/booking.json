@@ -1,0 +1,20 @@
+{
+  "claimId": "quick-notes/2026-05-01-jackalope-spa-may-package/booking",
+  "claimClass": "booking",
+  "subject": {
+    "type": "quick-notes",
+    "slug": "2026-05-01-jackalope-spa-may-package",
+    "field": "sources"
+  },
+  "statement": "Jackalope's Spa by Jackalope opens a May twilight package",
+  "assertedBy": [
+    {
+      "type": "quick-notes",
+      "slug": "2026-05-01-jackalope-spa-may-package",
+      "field": "sources"
+    }
+  ],
+  "createdAt": "2026-05-01",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

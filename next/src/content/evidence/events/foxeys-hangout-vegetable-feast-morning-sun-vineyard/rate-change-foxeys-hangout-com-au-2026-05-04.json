@@ -1,0 +1,19 @@
+{
+  "evidenceId": "events/foxeys-hangout-vegetable-feast-morning-sun-vineyard/rate-change-foxeys-hangout-com-au-2026-05-04",
+  "claim": "events/foxeys-hangout-vegetable-feast-morning-sun-vineyard/rate-change",
+  "stance": "supports",
+  "publisher": {
+    "kind": "organiser",
+    "name": "Foxeys Hangout Wine Co."
+  },
+  "url": "https://www.foxeys-hangout.com.au",
+  "retrievedAt": "2026-05-04",
+  "expiresAt": "2026-10-31",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/events/foxeys-hangout-vegetable-feast-morning-sun-vineyard.json",
+    "field": "officialEventUrl",
+    "value": "https://www.foxeys-hangout.com.au",
+    "dateField": "lastCheckedDate"
+  }
+}

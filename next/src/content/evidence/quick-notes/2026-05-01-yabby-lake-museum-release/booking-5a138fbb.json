@@ -1,0 +1,18 @@
+{
+  "evidenceId": "quick-notes/2026-05-01-yabby-lake-museum-release/booking-5a138fbb",
+  "claim": "quick-notes/2026-05-01-yabby-lake-museum-release/booking",
+  "stance": "supports",
+  "publisher": {
+    "kind": "phone"
+  },
+  "retrievedAt": "2026-05-01",
+  "expiresAt": "2026-06-30",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/quick-notes/2026-05-01-yabby-lake-museum-release.md",
+    "field": "sources[1]",
+    "value": "{\"kind\":\"phone\",\"note\":\"Confirmed allocation pours available at cellar door for mailing-list members\",\"checkedAt\":\"2026-05-01T08:00:00+10:00\"}",
+    "dateField": "sources[1].checkedAt"
+  },
+  "note": "Confirmed allocation pours available at cellar door for mailing-list members"
+}

@@ -1,0 +1,9 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PublicIntakeForm from '../../components/PublicIntakeForm.astro';
+export const prerender=true;
+---
+<BaseLayout title="Add my business · Peninsula Insider" description="Introduce an unlisted Peninsula business. Submission is free and does not guarantee publication." canonical="https://peninsulainsider.com.au/partners/add/">
+ <div class="business-form-page container"><a href="/partners/">For Peninsula Businesses</a><h1>Add my business</h1><p>Introduce your Peninsula business. Submission is free and does not guarantee publication.</p><PublicIntakeForm kind="new-business"/></div>
+</BaseLayout>
+<style>.business-form-page{max-width:54rem;padding-block:3rem}h1{font:500 clamp(2.5rem,5vw,4rem)/1.1 var(--font-display);margin:1.5rem 0}p{line-height:1.6;max-width:65ch}</style>

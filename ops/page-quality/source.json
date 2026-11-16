@@ -1,0 +1,25 @@
+{
+  "sitemapUrl": "https://peninsulainsider.com.au/sitemap.xml",
+  "snapshotFile": "2026-10-09-eat-continuation-sitemap.xml",
+  "sha256": "172699e3e9a27df852f9bbbbc97682bf193041b1fb4954c1cc4b19ed4360cfd8",
+  "processedAtUtc": "2026-10-08T15:25:52+00:00",
+  "urlCount": 588,
+  "tierCounts": {
+    "T1": 60,
+    "T2": 379,
+    "T3": 149
+  },
+  "removedCount": 36,
+  "snapshotEvidenceState": "validated-build-public-match",
+  "sourceBaseSha": "242d4423ef966deb7c4423c062ea160b2cbf970d",
+  "snapshotSource": "next/dist/sitemap.xml",
+  "limitation": "Snapshot originated from a validated build; its bytes and URL set were subsequently matched to the public sitemap on the recorded deployment. This does not certify every registered page.",
+  "publicVerification": {
+    "retrievedAtUtc": "2026-10-08T16:27:16.355269+00:00",
+    "deploymentSourceSha": "e63109812d9112d2537515dd3577d775deff0d96",
+    "buildRunId": 37806557242,
+    "sha256": "172699e3e9a27df852f9bbbbc97682bf193041b1fb4954c1cc4b19ed4360cfd8",
+    "urlCount": 588,
+    "comparison": "Identical bytes and canonical URL set."
+  }
+}

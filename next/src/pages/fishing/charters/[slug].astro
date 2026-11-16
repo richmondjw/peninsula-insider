@@ -5,8 +5,9 @@ import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import SubpageHero from '../../../components/SubpageHero.astro';
 import NewsletterBlock from '../../../components/NewsletterBlock.astro';
 import BfAnalytics from '../../../components/BfAnalytics.astro';
+import BookingCta from '../../../components/BookingCta.astro';
 import { buildCharterOperatorSchema } from '../../../lib/schema';
-import { buildBfUtm, formatVerifiedStamp } from '../../../lib/bf';
+import { formatVerifiedStamp } from '../../../lib/bf';
 
 export async function getStaticPaths() {
   const charters = await getCollection('fishingCharters', ({ data }) => data.status === 'published');
@@ -40,17 +41,11 @@ const otherCharters = allCharters
   .filter((c) => c.data.targetSpecies.some((s: string) => data.targetSpecies.includes(s)))
   .slice(0, 4);
 
-// Booking URL with PI UTM scheme. Affiliate link preferred; falls back to the
-// operator website. Charter pages without either render no CTA.
-const bookingDestination = data.affiliateUrl ?? data.operatorWebsite;
-const primaryBookingUrl = bookingDestination
-  ? buildBfUtm({
-      destination: bookingDestination,
-      campaign: `${data.slug}-charter`,
-      medium: 'charter-page',
-      content: 'hero-primary',
-    })
-  : null;
+// Booking CTA. BookingCta owns the whole decision, including whether this is a
+// commercial link and therefore whether a disclosure renders (PI-021). The
+// page's only job is to hand over the two destinations and keep them apart:
+// affiliateUrl is the one PI is paid on, operatorWebsite is not. Charter pages
+// with neither render no CTA.
 
 const licenceLabel: Record<string, string> = {
   covered: 'Licence covered for the day',
@@ -86,18 +81,18 @@ export const prerender = true;
           {data.operatorWebsite ? <> · <a href={data.operatorWebsite} rel="external">Operator website</a></> : null}
         </p>
 
-        {primaryBookingUrl ? (
-          <p>
-            <a
-              href={primaryBookingUrl}
-              class="pi-btn pi-btn--solid"
-              rel="external sponsored"
-              data-bf-event="bf_charter_click"
-              data-bf-operator={data.slug}
-              data-bf-position="hero"
-            >Book {data.name} &rarr;</a>
-          </p>
-        ) : null}
+        <BookingCta
+          name={data.name}
+          slug={data.slug}
+          affiliateUrl={data.affiliateUrl}
+          operatorWebsite={data.operatorWebsite}
+          campaign={`${data.slug}-charter`}
+          medium="charter-page"
+          position="hero"
+          bfEvent="bf_charter_click"
+          entityType="charter"
+          surface="charter-hero"
+        />
 
         <h2>Key facts</h2>
         <table>
@@ -169,18 +164,18 @@ export const prerender = true;
           </>
         ) : null}
 
-        {primaryBookingUrl ? (
-          <p>
-            <a
-              href={primaryBookingUrl}
-              class="pi-btn pi-btn--solid"
-              rel="external sponsored"
-              data-bf-event="bf_charter_click"
-              data-bf-operator={data.slug}
-              data-bf-position="footer"
-            >Book {data.name} &rarr;</a>
-          </p>
-        ) : null}
+        <BookingCta
+          name={data.name}
+          slug={data.slug}
+          affiliateUrl={data.affiliateUrl}
+          operatorWebsite={data.operatorWebsite}
+          campaign={`${data.slug}-charter`}
+          medium="charter-page"
+          position="footer"
+          bfEvent="bf_charter_click"
+          entityType="charter"
+          surface="charter-footer"
+        />
 
         {otherCharters.length > 0 ? (
           <>

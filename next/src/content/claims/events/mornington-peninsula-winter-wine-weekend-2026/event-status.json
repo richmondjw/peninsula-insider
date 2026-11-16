@@ -1,0 +1,18 @@
+{
+  "claimId": "events/mornington-peninsula-winter-wine-weekend-2026/event-status",
+  "claimClass": "event-status",
+  "subject": {
+    "type": "events",
+    "slug": "mornington-peninsula-winter-wine-weekend-2026"
+  },
+  "statement": "Mornington Peninsula Winter Wine Weekend 2026 is running as published.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "mornington-peninsula-winter-wine-weekend-2026"
+    }
+  ],
+  "createdAt": "2026-05-04",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

@@ -265,5 +265,5 @@ elsewhere.
 | `ops/reports/seo/ledger/url-ledger.{json,csv}` | Per-URL ledger, all fields |
 | `ops/reports/seo/ledger/link-graph.json` | Inbound/outbound graph, click depth |
 | `ops/reports/seo/recovery-cohort.json` | 42-URL fixed cohort, baselined |
-| `ops/reports/seo/link-loser-baseline.json` | R-1 ratchet baseline |
+| `ops/baselines/link-loser-baseline.json` | R-1 ratchet baseline |
 | `ops/reports/seo/indexation-recovery-tracker.md` | Master tracker |

@@ -1,0 +1,19 @@
+{
+  "evidenceId": "quick-notes/2026-08-16-weather-sunday/conditions-6ee115e5",
+  "claim": "quick-notes/2026-08-16-weather-sunday/conditions",
+  "stance": "supports",
+  "publisher": {
+    "kind": "gov"
+  },
+  "retrievedAt": "2026-08-16",
+  "expiresAt": "2026-08-23",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/quick-notes/2026-08-16-weather-sunday.md",
+    "field": "sources[0]",
+    "value": "{\"kind\":\"gov\",\"url\":\"https://api.open-meteo.com/v1/forecast?latitude=-38.40&longitude=145.00&current=temperature_2m,apparent_temperature,precipitation,weather_code,wind_speed_10m,wind_direction_10m,is_day&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_probability_max,wind_speed_10m_max&timezone=Australia%2FMelbourne&forecast_days=3\",\"note\":\"Open-Meteo Main Ridge retrieval 2026-08-15T20:35Z. Current at 06:30 AEST 16 Aug: 6.8°C, apparent 5.1°C, 0.0mm precipitation, 5.9km/h ESE (113°), overcast. Sun: 0%/0.00mm, 6.8-13.8°C, 12.5km/h maximum wind. Mon: 0%/0.00mm, 8.1-15.4°C, 17.8km/h maximum wind.\",\"checkedAt\":\"2026-08-16T06:35:00+10:00\"}",
+    "dateField": "sources[0].checkedAt"
+  },
+  "url": "https://api.open-meteo.com/v1/forecast?latitude=-38.40&longitude=145.00&current=temperature_2m,apparent_temperature,precipitation,weather_code,wind_speed_10m,wind_direction_10m,is_day&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_probability_max,wind_speed_10m_max&timezone=Australia%2FMelbourne&forecast_days=3",
+  "note": "Open-Meteo Main Ridge retrieval 2026-08-15T20:35Z. Current at 06:30 AEST 16 Aug: 6.8°C, apparent 5.1°C, 0.0mm precipitation, 5.9km/h ESE (113°), overcast. Sun: 0%/0.00mm, 6.8-13.8°C, 12.5km/h maximum wind. Mon: 0%/0.00mm, 8.1-15.4°C, 17.8km/h maximum wind."
+}

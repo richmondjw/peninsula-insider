@@ -1,20 +1,19 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
-import NewsletterBlock from '../components/NewsletterBlock.astro';
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
   { label: 'Privacy' },
 ];
 
-const lastUpdated = '15 May 2026';
+const lastUpdated = '23 September 2026';
 export const prerender = true;
 ---
 
 <BaseLayout
   title="Privacy Policy  -  Peninsula Insider"
-  description="How Peninsula Insider collects, stores, and uses your data. Short version: barely any, and never sold."
+  description="How Peninsula Insider handles accounts, saved plans, subscriptions, enquiries and site analytics."
   section="home"
 >
   <Breadcrumbs items={breadcrumbItems} />
@@ -28,48 +27,46 @@ export const prerender = true;
       </div>
 
       <div class="legal__body prose">
-        <p>Peninsula Insider is an independent editorial publication. We don't run display ads, we don't sell data, and we don't use third-party trackers. This policy explains the small amount of data we do collect and what happens to it.</p>
+        <p>Peninsula Insider is an independent editorial publication. This policy explains the information involved when you browse the site, create an account, save places, plan a trip, subscribe or contact us.</p>
 
         <h2>What we collect</h2>
 
-        <h3>Publication subscribers</h3>
-        <p>When you subscribe to <em>The Insider</em>, we collect your <strong>email address</strong>. That's it. We don't ask for your name, location, or anything else. Your email is stored with our email service provider and used solely to send you editorial editions.</p>
+        <h3>Accounts and profiles</h3>
+        <p>You can create an account with Google sign-in or an email magic link. Our authentication provider, Supabase, processes your email address, account identifier and sign-in information. Google sign-in requests your basic profile and email from Google; your account may show the name and image provided by Google. We do not ask you to set a password on Peninsula Insider.</p>
+        <p>Your account profile can hold a display name, optional bio, avatar URL and Insider Note preference. We use this information to show and manage your account. Signing in does not itself subscribe you to the newsletter.</p>
 
-        <h3>Contact form and email</h3>
-        <p>If you email us  -  story tips, corrections, editorial enquiries  -  we receive whatever you choose to send. We store those emails in our editorial inbox and use them only for the purpose you wrote to us about. We don't add you to any mailing list unless you separately subscribe.</p>
-        <p>If you submit a Peninsula Day, story, photograph or editorial contribution to Peninsula Insider, you retain ownership of your content but grant us permission to review, store and potentially feature it within Peninsula Insider editorial coverage.</p>
+        <h3>Saved places and My Trip</h3>
+        <p>Saved places, articles and events, trip itineraries and related planning settings are kept in your browser so these tools can work without an account. If you sign in, saved items and itineraries can also sync through Supabase so they are available on another device. A shared trip link may expose the trip details to anyone you give that link to.</p>
 
-        <h3>Analytics</h3>
-        <p>We use privacy-respecting, cookie-free analytics to understand which pages are read and how visitors find the site. This data is aggregated and anonymous  -  we cannot identify individual visitors. No personal data is collected through analytics.</p>
+        <h3>The Insider Note</h3>
+        <p>When you subscribe, we collect your email address and the signup source. The signup form sends these details to a Supabase subscription function for newsletter delivery through our email platform. You can unsubscribe through a link in an edition. We keep account creation and newsletter signup as separate choices.</p>
 
-        <h2>What we don't collect</h2>
-        <ul>
-          <li>We don't use cookies for tracking or advertising.</li>
-          <li>We don't run retargeting pixels or build user profiles.</li>
-          <li>We don't share, sell, or rent your email address to anyone, ever.</li>
-        </ul>
+        <h3>Contact, corrections and business submissions</h3>
+        <p>When you email us or use a contact, correction, story, event or business form, we receive the details you provide. These may include your name, contact details, business or venue details, message, supporting evidence and any files you attach. Form submissions are stored through Supabase; email enquiries are held in our inbox. We use them to respond, assess a submission, manage corrections and keep a record of what was reported. A submission does not add you to the newsletter.</p>
+        <p>If you submit a story, photograph or editorial contribution, you retain ownership of your content but allow us to review, store and potentially feature it in Peninsula Insider editorial coverage.</p>
+
+        <h3>Analytics and search activity</h3>
+        <p>With your analytics consent, we load Google Analytics 4 to understand site visits and interactions. You can change that choice through Cookie settings in the footer. Separately, our site search records result counts, selected filters and the page used in Supabase without relying on that analytics choice. Current search logging does not send the words you type. Search terms collected before 14 September 2026 may remain in older records while we review their retention.</p>
+
+        <h2>Browser storage</h2>
+        <p>The site uses browser storage for saved items, trip plans, your sign-in session, cookie and analytics choices, and interface preferences. Supabase stores the sign-in session in your browser to keep you signed in. Google Analytics may use cookies when you opt in. Clearing browser data may remove local saves and preferences that have not synced to an account.</p>
 
         <h2>Third-party services</h2>
-        <p>The site is hosted on <strong>GitHub Pages</strong>. Fonts are served by <strong>Google Fonts</strong>, which may log standard server request data (IP address, browser type) as described in <a href="https://developers.google.com/fonts/faq/privacy">Google's Fonts privacy FAQ</a>. We have no access to that data.</p>
-        <p>Publication email delivery is handled by our email service provider, which processes your email address under a data-processing agreement with us. Your email is not shared with other clients or used for any purpose beyond delivering editorial editions.</p>
+        <p>The website is published through <strong>GitHub Pages</strong> and delivered through <strong>Cloudflare</strong>, which handles site requests, security and redirects. <strong>Supabase</strong> provides authentication, database and storage services for account and reader features and form submissions. <strong>Google</strong> provides optional sign-in and, with consent, Google Analytics 4. A third-party email platform processes newsletter subscriptions and editions. Fonts are served by <strong>Google Fonts</strong>, which may receive standard request information as described in <a href="https://developers.google.com/fonts/faq/privacy">Google's Fonts privacy FAQ</a>.</p>
+        <p>These providers process information needed to provide their services. Links to venues, maps and other third-party sites take you to services with their own privacy practices.</p>
 
         <h2>Affiliate and referral links</h2>
         <p>Some Peninsula Insider pages may contain affiliate or referral links. Where this occurs, Peninsula Insider may earn a commission at no additional cost to the reader.</p>
 
-        <h2>Your rights</h2>
-        <p>You can <strong>unsubscribe</strong> from The Insider at any time using the link at the bottom of every email. Once unsubscribed, your email address is removed from our active list.</p>
-        <p>If you'd like us to delete any data we hold about you  -  including past emails you've sent us  -  write to <a href="mailto:hello@peninsulainsider.com.au">hello@peninsulainsider.com.au</a> and we'll action it within 30 days.</p>
-
-        <h2>Australian Privacy Act</h2>
-        <p>Peninsula Insider complies with the Australian Privacy Principles (APPs) under the <em>Privacy Act 1988</em> (Cth). We are a small publication and the data we collect is minimal, but we take the obligations seriously.</p>
+        <h2>Retention and your choices</h2>
+        <p>We have not set one retention period for all records. Account and synced planning information remains in Supabase unless it is deleted. Submissions and correspondence remain in our form records and inbox until removed. Provider logs and backups can have separate retention periods. We do not currently offer a self-service account deletion button.</p>
+        <p>You can edit your display name, bio and newsletter preference in Account, clear local saves in your browser, change analytics consent through Cookie settings, and unsubscribe from The Insider Note using the link in an email. To ask what personal information we hold, request a correction or account and data deletion, or raise a privacy concern, email <a href="mailto:hello@peninsulainsider.com.au">hello@peninsulainsider.com.au</a>. We may need to verify your identity before acting on a request and will explain any information that cannot be removed.</p>
 
         <h2>Changes to this policy</h2>
-        <p>If we change this policy in any material way, we'll note the update date at the top of this page and, where practical, mention it in The Insider. We won't retroactively weaken your protections without consent.</p>
+        <p>If we change this policy, we'll update the date at the top of this page and, where practical, mention material changes in The Insider Note.</p>
 
         <h2>Contact</h2>
         <p>Questions about this policy: <a href="mailto:hello@peninsulainsider.com.au">hello@peninsulainsider.com.au</a></p>
-
-
       </div>
     </div>
   </section>

@@ -1,0 +1,975 @@
+{
+  "generatedAt": "2026-09-13T08:05:17.229Z",
+  "disclosureComponent": "MediaProvenanceNote",
+  "namedEntityCollections": [
+    "venues",
+    "places",
+    "experiences",
+    "tour-operators",
+    "tours",
+    "tour-packages"
+  ],
+  "assertedMetrics": [
+    "illustrativeWithoutDisclosure",
+    "actualWithoutProvenance",
+    "permittedUseWithoutPermission",
+    "invalidDepictionStatus",
+    "brokenDisclosureSurface",
+    "undisclosedRepresentativeAlt"
+  ],
+  "coveredCollections": [
+    "places",
+    "venues"
+  ],
+  "disclosureSurfaces": {
+    "venues": [
+      {
+        "file": "src/components/VenueDetailTemplate.astro",
+        "renders": true
+      }
+    ],
+    "places": [
+      {
+        "file": "src/components/PlaceDetailTemplate.astro",
+        "renders": true
+      }
+    ]
+  },
+  "brokenDisclosureSurface": [],
+  "totals": {
+    "imageRecords": 572,
+    "namedEntityImages": 265,
+    "illustrativeMarked": 0,
+    "illustrativeWithoutDisclosure": 0,
+    "actualWithoutProvenance": 0,
+    "permittedUseWithoutPermission": 0,
+    "invalidDepictionStatus": 0,
+    "brokenDisclosureSurface": 0,
+    "undisclosedRepresentativeAlt": 153,
+    "unrecordedDepiction": 265
+  },
+  "illustrativeWithoutDisclosure": [],
+  "actualWithoutProvenance": [],
+  "permittedUseWithoutPermission": [],
+  "invalidDepictionStatus": [],
+  "undisclosedRepresentativeAlt": [
+    {
+      "file": "articles/autumn-weekend-edit.md",
+      "field": "heroImage",
+      "src": "/images/sourced/article-red-hill-saturday-01.webp",
+      "alt": "An autumn afternoon on the Red Hill plateau, vineyards turning gold before harvest - representative image"
+    },
+    {
+      "file": "articles/best-spas-mornington-peninsula.md",
+      "field": "heroImage",
+      "src": "/images/sourced/spa-alba-thermal-springs-01.webp",
+      "alt": "Alba Thermal Springs geothermal bathing complex - representative of the Mornington Peninsula's wellness category"
+    },
+    {
+      "file": "articles/boat-moorings-berths-mornington-peninsula.md",
+      "field": "heroImage",
+      "src": "/images/sourced/place-mornington-01.webp",
+      "alt": "Mornington waterfront and pier, Victoria - representative image for boat moorings and berths on the Mornington Peninsula"
+    },
+    {
+      "file": "articles/breakfast-before-the-crowds.md",
+      "field": "heroImage",
+      "src": "/images/sourced/category-cafe-01.webp",
+      "alt": "A plate of poached eggs on Peninsula sourdough with a flat white and a laminated pastry on a cafe bench at sunrise - representative image"
+    },
+    {
+      "file": "articles/dog-daycare-boarding-groomers-pet-shops-mornington-peninsula.md",
+      "field": "heroImage",
+      "src": "/images/sourced/dog-walk-hero-01.webp",
+      "alt": "Dog-friendly Peninsula - practical support guide - representative image"
+    },
+    {
+      "file": "articles/dog-friendly-accommodation-mornington-peninsula.md",
+      "field": "heroImage",
+      "src": "/images/sourced/dog-lifestyle-hero-01.webp",
+      "alt": "Dog-friendly Peninsula cottage stay with outdoor space - representative image"
+    },
+    {
+      "file": "articles/emergency-vet-pet-help-mornington-peninsula.md",
+      "field": "heroImage",
+      "src": "/images/sourced/dog-lifestyle-hero-01.webp",
+      "alt": "Dog resting - Peninsula Insider pet emergency guide - representative image"
+    },
+    {
+      "file": "articles/how-to-plan-a-peninsula-weekend.md",
+      "field": "heroImage",
+      "src": "/images/sourced/article-orientation-drive-01.webp",
+      "alt": "A notebook and coffee on a table with a Peninsula map and vineyard views through the window - representative image"
+    },
+    {
+      "file": "articles/insider-picks-2026-07-25.md",
+      "field": "heroImage",
+      "src": "/images/sourced/explore-two-bays-walk-01.webp",
+      "alt": "Mornington Peninsula landscape - representative image for Flinders Sourdough"
+    },
+    {
+      "file": "articles/insider-picks-2026-07-27.md",
+      "field": "heroImage",
+      "src": "/images/sourced/explore-arthurs-seat-lookout-01.webp",
+      "alt": "Mornington Peninsula landscape - representative image for Jetty Road Brewery"
+    },
+    {
+      "file": "articles/insider-picks-2026-07-28.md",
+      "field": "heroImage",
+      "src": "/images/sourced/place-cape-schanck-01.webp",
+      "alt": "Mornington Peninsula landscape - representative image for Doot Doot Doot"
+    },
+    {
+      "file": "articles/insider-picks-2026-07-30.md",
+      "field": "heroImage",
+      "src": "/images/sourced/place-mornington-01.webp",
+      "alt": "Mornington Peninsula landscape - representative image for Sourdough Kitchen"
+    },
+    {
+      "file": "articles/insider-picks-2026-07-31.md",
+      "field": "heroImage",
+      "src": "/images/sourced/explore-portsea-front-beach-01.webp",
+      "alt": "Mornington Peninsula landscape - representative image for The Sorrento Hotel"
+    },
+    {
+      "file": "articles/insider-picks-2026-08-01.md",
+      "field": "heroImage",
+      "src": "/images/sourced/explore-cape-schanck-boardwalk-01.webp",
+      "alt": "Mornington Peninsula landscape - representative image for St Andrews Beach Brewery"
+    },
+    {
+      "file": "articles/insider-picks-2026-08-02.md",
+      "field": "heroImage",
+      "src": "/images/sourced/category-restaurant-03.webp",
+      "alt": "Mornington Peninsula landscape - representative image for Mr Vincenzo's"
+    },
+    {
+      "file": "articles/insider-picks-2026-08-10.md",
+      "field": "heroImage",
+      "src": "/images/sourced/place-balnarring-01.webp",
+      "alt": "Balnarring, Mornington Peninsula - representative image for The Balnarring Pub"
+    },
+    {
+      "file": "articles/insider-picks-2026-08-12.md",
+      "field": "heroImage",
+      "src": "/images/sourced/place-flinders-01.webp",
+      "alt": "Flinders Pier 2nd Jul 2019 - representative image for Moke Dining"
+    },
+    {
+      "file": "articles/insider-picks-2026-09-01.md",
+      "field": "heroImage",
+      "src": "/images/sourced/place-red-hill-01.webp",
+      "alt": "CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate - representative image for Green Olive at Red Hill"
+    },
+    {
+      "file": "articles/insider-picks-2026-09-04.md",
+      "field": "heroImage",
+      "src": "/images/sourced/place-balnarring-01.webp",
+      "alt": "Balnarring, Mornington Peninsula - representative image for The Balnarring Pub"
+    },
+    {
+      "file": "articles/insider-picks-2026-09-06.md",
+      "field": "heroImage",
+      "src": "/images/sourced/place-flinders-01.webp",
+      "alt": "Flinders Pier 2nd Jul 2019 - representative image for Moke Dining"
+    },
+    {
+      "file": "articles/insider-picks-2026-09-07.md",
+      "field": "heroImage",
+      "src": "/images/sourced/place-dromana-01.webp",
+      "alt": "Mornington Peninsula landscape - representative image for Crittenden Estate"
+    },
+    {
+      "file": "articles/insider-picks-2026-09-09.md",
+      "field": "heroImage",
+      "src": "/images/sourced/place-mornington-01.webp",
+      "alt": "Mornington, Victoria - representative image for The Bay Hotel Mornington"
+    },
+    {
+      "file": "articles/insider-picks-2026-09-10.md",
+      "field": "heroImage",
+      "src": "/images/sourced/explore-rye-ocean-beach-01.webp",
+      "alt": "Rye, Mornington Peninsula - representative image for St Andrews Beach Brewery"
+    },
+    {
+      "file": "articles/insider-picks-2026-09-11.md",
+      "field": "heroImage",
+      "src": "/images/sourced/place-red-hill-01.webp",
+      "alt": "CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate - representative image for Green Olive at Red Hill"
+    },
+    {
+      "file": "articles/insider-picks-2026-09-12.md",
+      "field": "heroImage",
+      "src": "/images/sourced/place-merricks-01.webp",
+      "alt": "Vineyard Merricks Grove Victoria Australia - representative image for Elgee Park"
+    },
+    {
+      "file": "articles/mornington-day-guide.md",
+      "field": "heroImage",
+      "src": "/images/sourced/article-peninsula-pantry-01.webp",
+      "alt": "Mornington main street with morning shoppers and cafes - representative image"
+    },
+    {
+      "file": "articles/the-birthday-weekend.md",
+      "field": "heroImage",
+      "src": "/images/sourced/article-couples-weekend-01.webp",
+      "alt": "A candlelit dinner terrace at a Peninsula restaurant at dusk with vineyard rows beyond - representative image"
+    },
+    {
+      "file": "articles/the-easter-peninsula.md",
+      "field": "heroImage",
+      "src": "/images/sourced/article-cellar-door-01.webp",
+      "alt": "An Easter Sunday brunch table on a Peninsula garden terrace with hot cross buns and chocolate eggs - representative image"
+    },
+    {
+      "file": "articles/the-friday-night-arrival.md",
+      "field": "heroImage",
+      "src": "/images/sourced/article-sunset-01.webp",
+      "alt": "A car pulling into a Peninsula rental property at dusk with warm interior light spilling through the windows - representative image"
+    },
+    {
+      "file": "articles/the-pub-crawl.md",
+      "field": "heroImage",
+      "src": "/images/sourced/category-pub-01.webp",
+      "alt": "A busy Peninsula pub beer garden on a Saturday afternoon with local craft beer on the table - representative image"
+    },
+    {
+      "file": "articles/the-pub-guide.md",
+      "field": "heroImage",
+      "src": "/images/sourced/category-pub-02.webp",
+      "alt": "A beer garden at a Peninsula pub on a late autumn afternoon with locals at timber tables - representative image"
+    },
+    {
+      "file": "articles/the-school-holidays-survival-guide.md",
+      "field": "heroImage",
+      "src": "/images/sourced/article-kids-peninsula-01.webp",
+      "alt": "Children running along a bay beach on the Peninsula on a bright morning - representative image"
+    },
+    {
+      "file": "articles/the-spring-peninsula.md",
+      "field": "heroImage",
+      "src": "/images/sourced/article-vineyard-villa-01.webp",
+      "alt": "Red Hill vineyards bursting back into leaf in October with wildflowers along the fence lines - representative image"
+    },
+    {
+      "file": "articles/the-thermal-springs-weekend.md",
+      "field": "heroImage",
+      "src": "/images/sourced/spa-alba-thermal-springs-01.webp",
+      "alt": "A thermal bathing pool at dusk on the Mornington Peninsula, steam rising into cool autumn air - representative image"
+    },
+    {
+      "file": "articles/where-to-eat-without-a-booking.md",
+      "field": "heroImage",
+      "src": "/images/sourced/category-restaurant-01.webp",
+      "alt": "A couple studying a chalkboard menu outside a Peninsula pub on a Saturday afternoon - representative image"
+    },
+    {
+      "file": "experiences/coppins-track.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-sorrento-01.webp",
+      "alt": "Bright morning Sorrento Victoria - representative image for Coppins Track"
+    },
+    {
+      "file": "experiences/eagle-ridge-golf-course.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-balnarring-01.webp",
+      "alt": "Balnarring, Mornington Peninsula - representative image for Eagle Ridge Golf Course"
+    },
+    {
+      "file": "experiences/flinders-golf-club.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-flinders-01.webp",
+      "alt": "Flinders Pier 2nd Jul 2019 - representative image for Flinders Golf Club"
+    },
+    {
+      "file": "experiences/moonah-links.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-cape-schanck-01.webp",
+      "alt": "Cape Schanck looking towards Pulpit Rock at dawn - representative image for Moonah Links"
+    },
+    {
+      "file": "experiences/mornington-golf-club.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-mornington-01.webp",
+      "alt": "Mornington, Victoria Bathing boxes on the beach - representative image for Mornington Golf Club"
+    },
+    {
+      "file": "experiences/portsea-golf-club.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-portsea-01.webp",
+      "alt": "Point King beach in Portsea Victoria - representative image for Portsea Golf Club"
+    },
+    {
+      "file": "experiences/racv-cape-schanck-golf-course.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-cape-schanck-01.webp",
+      "alt": "Cape Schanck looking towards Pulpit Rock at dawn - representative image for RACV Cape Schanck Golf Course"
+    },
+    {
+      "file": "experiences/red-hill-truffles.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-red-hill-01.webp",
+      "alt": "CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate - representative image for Red Hill Truffles"
+    },
+    {
+      "file": "experiences/rosebud-country-club.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-rosebud-01.webp",
+      "alt": "Rosebud, Mornington Peninsula - representative image for Rosebud Country Club"
+    },
+    {
+      "file": "experiences/sorrento-golf-club.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-sorrento-01.webp",
+      "alt": "Bright morning Sorrento Victoria - representative image for Sorrento Golf Club"
+    },
+    {
+      "file": "experiences/st-andrews-beach-golf-course.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-cape-schanck-01.webp",
+      "alt": "Cape Schanck looking towards Pulpit Rock at dawn - representative image for St Andrews Beach Golf Course"
+    },
+    {
+      "file": "experiences/sunny-ridge-strawberry-farm.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-main-ridge-01.webp",
+      "alt": "CSIRO ScienceImage 1961 Chardonnay grapes at the Main Ridge Estate - representative image for Sunny Ridge Strawberry Farm"
+    },
+    {
+      "file": "experiences/the-dunes-golf-links.json",
+      "field": "heroImage",
+      "src": "/images/sourced/golf-rye-sunrise-01.webp",
+      "alt": "Rye, Mornington Peninsula - representative image for The Dunes Golf Links"
+    },
+    {
+      "file": "experiences/the-national-golf-club.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-cape-schanck-01.webp",
+      "alt": "Cape Schanck looking towards Pulpit Rock at dawn - representative image for The National Golf Club"
+    },
+    {
+      "file": "venues/allis-wine-bar.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-main-ridge-01.webp",
+      "alt": "CSIRO ScienceImage 1961 Chardonnay grapes at the Main Ridge Estate - representative image for Allis Wine Bar"
+    },
+    {
+      "file": "venues/arthurs-views.json",
+      "field": "heroImage",
+      "src": "/images/sourced/explore-arthurs-seat-lookout-01.webp",
+      "alt": "Mornington Peninsula - representative image for Arthurs Views pending venue media"
+    },
+    {
+      "file": "venues/baillieu-vineyard.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-merricks-01.webp",
+      "alt": "Vineyard Merricks Grove Victoria Australia - representative image for Baillieu Vineyard"
+    },
+    {
+      "file": "venues/balnarring-bakehouse.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-balnarring-01.webp",
+      "alt": "Balnarring, Mornington Peninsula - representative image for Balnarring Bakehouse"
+    },
+    {
+      "file": "venues/balnarring-market.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-balnarring-01.webp",
+      "alt": "Balnarring, Mornington Peninsula - representative image for Balnarring Market"
+    },
+    {
+      "file": "venues/balnarring-pub.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-balnarring-01.webp",
+      "alt": "Balnarring, Mornington Peninsula - representative image for The Balnarring Pub"
+    },
+    {
+      "file": "venues/barmah-park-vineyard.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-moorooduc-01.webp",
+      "alt": "Moorooduc, Mornington Peninsula - representative image for Barmah Park Vineyard"
+    },
+    {
+      "file": "venues/barmah-park.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-moorooduc-01.webp",
+      "alt": "Moorooduc, Mornington Peninsula - representative image for Barmah Park Farm Kitchen"
+    },
+    {
+      "file": "venues/barragunda-dining.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-cape-schanck-01.webp",
+      "alt": "Cape Schanck looking towards Pulpit Rock at dawn - representative image for Barragunda Dining"
+    },
+    {
+      "file": "venues/bass-and-flinders.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-mornington-01.webp",
+      "alt": "Mornington, Victoria Bathing boxes on the beach - representative image for Bass & Flinders Distillery"
+    },
+    {
+      "file": "venues/birch-creek.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-red-hill-01.webp",
+      "alt": "Mornington Peninsula - representative image for Birch Creek pending venue media"
+    },
+    {
+      "file": "venues/bistro-elba.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-sorrento-01.webp",
+      "alt": "Bright morning Sorrento Victoria - representative image for Bistro Elba"
+    },
+    {
+      "file": "venues/blue-moon-cottages.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-rye-01.webp",
+      "alt": "Mornington Peninsula - representative image for Blue Moon Cottages pending venue media"
+    },
+    {
+      "file": "venues/brewers-cottage.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-red-hill-01.webp",
+      "alt": "Mornington Peninsula - representative image for Brewer's Cottage pending venue media"
+    },
+    {
+      "file": "venues/cape-retreat.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-cape-schanck-01.webp",
+      "alt": "Cape Schanck - representative image for The Cape Retreat pending venue media"
+    },
+    {
+      "file": "venues/cassis.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-red-hill-01.webp",
+      "alt": "Mornington Peninsula - representative image for Cassis Red Hill pending venue media"
+    },
+    {
+      "file": "venues/commonfolk-coffee.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-mornington-01.webp",
+      "alt": "Mornington, Victoria Bathing boxes on the beach - representative image for Commonfolk Coffee"
+    },
+    {
+      "file": "venues/crittenden-estate.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-dromana-01.webp",
+      "alt": "Mornington Peninsula landscape - representative image for Crittenden Estate"
+    },
+    {
+      "file": "venues/crittenden-villas.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-dromana-01.webp",
+      "alt": "Mornington Peninsula landscape - representative image for Crittenden Estate Villas"
+    },
+    {
+      "file": "venues/driftaway-on-dundas.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-rye-01.webp",
+      "alt": "Mornington Peninsula - representative image for Driftaway on Dundas pending venue media"
+    },
+    {
+      "file": "venues/dromana-estate.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-moorooduc-01.webp",
+      "alt": "Moorooduc, Mornington Peninsula - representative image for Dromana Estate"
+    },
+    {
+      "file": "venues/elan-vineyard.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-balnarring-01.webp",
+      "alt": "Mornington Peninsula landscape - representative image for Elan Vineyard & Gallery"
+    },
+    {
+      "file": "venues/eldridge-estate.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-red-hill-01.webp",
+      "alt": "CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate - representative image for Eldridge Estate"
+    },
+    {
+      "file": "venues/elgee-park.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-merricks-01.webp",
+      "alt": "Vineyard Merricks Grove Victoria Australia - representative image for Elgee Park"
+    },
+    {
+      "file": "venues/flinders-general-store.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-flinders-01.webp",
+      "alt": "Flinders Pier 2nd Jul 2019 - representative image for Flinders General Store"
+    },
+    {
+      "file": "venues/flinders-sourdough.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-flinders-01.webp",
+      "alt": "Flinders Pier 2nd Jul 2019 - representative image for Flinders Sourdough"
+    },
+    {
+      "file": "venues/foxeys-hangout.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-red-hill-01.webp",
+      "alt": "CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate - representative image for Foxeys Hangout"
+    },
+    {
+      "file": "venues/garagiste.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-mornington-01.webp",
+      "alt": "Mornington, Victoria Bathing boxes on the beach - representative image for Garagiste"
+    },
+    {
+      "file": "venues/georgie-bass.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-flinders-01.webp",
+      "alt": "Flinders Pier 2nd Jul 2019 - representative image for Georgie Bass Cafe & Cookery"
+    },
+    {
+      "file": "venues/green-olive-red-hill.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-red-hill-01.webp",
+      "alt": "CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate - representative image for Green Olive at Red Hill"
+    },
+    {
+      "file": "venues/happy-glamper.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-merricks-01.webp",
+      "alt": "Mornington Peninsula - representative image for Happy Glamper pending venue media"
+    },
+    {
+      "file": "venues/hideaways-red-hill.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-red-hill-01.webp",
+      "alt": "Mornington Peninsula - representative image for Hideaways at Red Hill pending venue media"
+    },
+    {
+      "file": "venues/hurley-vineyard.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-balnarring-01.webp",
+      "alt": "Balnarring, Mornington Peninsula - representative image for Hurley Vineyard"
+    },
+    {
+      "file": "venues/iluka-retreat.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-balnarring-01.webp",
+      "alt": "Balnarring, Mornington Peninsula - representative image for Iluka Retreat & Camp"
+    },
+    {
+      "file": "venues/jetty-road-brewery.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-dromana-01.webp",
+      "alt": "Dromana, Mornington Peninsula - representative image for Jetty Road Brewery"
+    },
+    {
+      "file": "venues/johnny-ripe.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-main-ridge-01.webp",
+      "alt": "CSIRO ScienceImage 1961 Chardonnay grapes at the Main Ridge Estate - representative image for Johnny Ripe"
+    },
+    {
+      "file": "venues/kanasta-retro-caravans.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-rye-01.webp",
+      "alt": "Mornington Peninsula - representative image for Retro Caravans at Rye pending venue media"
+    },
+    {
+      "file": "venues/kerri-greens.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-merricks-01.webp",
+      "alt": "Vineyard Merricks Grove Victoria Australia - representative image for Kerri Greens"
+    },
+    {
+      "file": "venues/kooyong.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-main-ridge-01.webp",
+      "alt": "CSIRO ScienceImage 1961 Chardonnay grapes at the Main Ridge Estate - representative image for Kooyong"
+    },
+    {
+      "file": "venues/la-baracca-tgallant.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-main-ridge-01.webp",
+      "alt": "CSIRO ScienceImage 1961 Chardonnay grapes at the Main Ridge Estate - representative image for La Baracca at T'Gallant"
+    },
+    {
+      "file": "venues/lightfoot-wines.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-main-ridge-01.webp",
+      "alt": "CSIRO ScienceImage 1961 Chardonnay grapes at the Main Ridge Estate - representative image for Lightfoot Wines"
+    },
+    {
+      "file": "venues/main-ridge-dairy.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-main-ridge-01.webp",
+      "alt": "CSIRO ScienceImage 1961 Chardonnay grapes at the Main Ridge Estate - representative image for Main Ridge Dairy"
+    },
+    {
+      "file": "venues/mantons-creek-estate.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-balnarring-01.webp",
+      "alt": "Balnarring, Mornington Peninsula - representative image for Mantons Creek Estate"
+    },
+    {
+      "file": "venues/many-little.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-red-hill-01.webp",
+      "alt": "CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate - representative image for Many Little"
+    },
+    {
+      "file": "venues/martha-s-table.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-safety-beach-01.webp",
+      "alt": "Mornington Peninsula landscape - representative image for Martha's Table"
+    },
+    {
+      "file": "venues/maxs-red-hill-estate.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-red-hill-01.webp",
+      "alt": "CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate - representative image for Max's at Red Hill Estate"
+    },
+    {
+      "file": "venues/merricks-estate.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-merricks-01.webp",
+      "alt": "Vineyard Merricks Grove Victoria Australia - representative image for Merricks Estate"
+    },
+    {
+      "file": "venues/merricks-general-wine-store.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-merricks-01.webp",
+      "alt": "Mornington Peninsula landscape - representative image for Merricks General Wine Store"
+    },
+    {
+      "file": "venues/moke-dining.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-flinders-01.webp",
+      "alt": "Flinders Pier 2nd Jul 2019 - representative image for Moke Dining"
+    },
+    {
+      "file": "venues/moorooduc-estate.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-moorooduc-01.webp",
+      "alt": "Moorooduc, Mornington Peninsula - representative image for Moorooduc Estate"
+    },
+    {
+      "file": "venues/morning-sun.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-main-ridge-01.webp",
+      "alt": "CSIRO ScienceImage 1961 Chardonnay grapes at the Main Ridge Estate - representative image for Morning Sun Vineyard"
+    },
+    {
+      "file": "venues/mornington-farmers-market.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-mornington-01.webp",
+      "alt": "Mornington, Victoria Bathing boxes on the beach - representative image for Mornington Farmers' Market"
+    },
+    {
+      "file": "venues/mornington-hotel.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-mornington-01.webp",
+      "alt": "Mornington, Victoria Bathing boxes on the beach - representative image for The Mornington Hotel"
+    },
+    {
+      "file": "venues/mornington-peninsula-brewery.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-mornington-01.webp",
+      "alt": "Mornington, Victoria Bathing boxes on the beach - representative image for Mornington Peninsula Brewery"
+    },
+    {
+      "file": "venues/mornington-peninsula-chocolates.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-flinders-01.webp",
+      "alt": "Flinders Pier 2nd Jul 2019 - representative image for Mornington Peninsula Chocolates"
+    },
+    {
+      "file": "venues/mount-eliza-farmers-market.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-mornington-01.webp",
+      "alt": "Mornington, Victoria Bathing boxes on the beach - representative image for Mount Eliza Farmers Market"
+    },
+    {
+      "file": "venues/mp-beach-club-cottages.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-rye-01.webp",
+      "alt": "Mornington Peninsula - representative image for MP Beach Club Cottages pending venue media"
+    },
+    {
+      "file": "venues/mr-vincenzos.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-mornington-01.webp",
+      "alt": "Mornington, Victoria Bathing boxes on the beach - representative image for Mr Vincenzo's"
+    },
+    {
+      "file": "venues/ocean-eight.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-main-ridge-01.webp",
+      "alt": "CSIRO ScienceImage 1961 Chardonnay grapes at the Main Ridge Estate - representative image for Ocean Eight Vineyard"
+    },
+    {
+      "file": "venues/onannon.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-moorooduc-01.webp",
+      "alt": "Moorooduc, Mornington Peninsula - representative image for Onannon"
+    },
+    {
+      "file": "venues/ouest-france-bistro.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-mornington-01.webp",
+      "alt": "Mornington, Victoria Bathing boxes on the beach - representative image for Ouest France Bistro"
+    },
+    {
+      "file": "venues/paradigm-hill.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-merricks-01.webp",
+      "alt": "Vineyard Merricks Grove Victoria Australia - representative image for Paradigm Hill"
+    },
+    {
+      "file": "venues/peninsula-fresh-organics.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-mornington-01.webp",
+      "alt": "Mornington, Victoria Bathing boxes on the beach - representative image for Peninsula Fresh Organics"
+    },
+    {
+      "file": "venues/peninsula-hot-springs-eco-lodges.json",
+      "field": "heroImage",
+      "src": "/images/sourced/spa-peninsula-hot-springs-hilltop-01.webp",
+      "alt": "Mornington Peninsula - representative image for Peninsula Hot Springs Eco Lodges pending venue media"
+    },
+    {
+      "file": "venues/peninsula-hot-springs-glamping.json",
+      "field": "heroImage",
+      "src": "/images/sourced/spa-peninsula-hot-springs-hilltop-01.webp",
+      "alt": "Mornington Peninsula landscape - representative image for Peninsula Hot Springs Glamping"
+    },
+    {
+      "file": "venues/phaedrus-estate.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-dromana-01.webp",
+      "alt": "Dromana, Mornington Peninsula - representative image for Phaedrus Estate"
+    },
+    {
+      "file": "venues/pier-street-flinders.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-flinders-01.webp",
+      "alt": "Flinders Pier 2nd Jul 2019 - representative image for Pier Street Kitchen"
+    },
+    {
+      "file": "venues/pier-street-seafood.json",
+      "field": "heroImage",
+      "src": "/images/sourced/explore-dromana-beach-01.webp",
+      "alt": "Dromana, Mornington Peninsula - representative image for Pier Street Fresh Seafood"
+    },
+    {
+      "file": "venues/plantation-house-whitecliffs.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-rye-01.webp",
+      "alt": "Mornington Peninsula - representative image for Plantation House at Whitecliffs pending venue media"
+    },
+    {
+      "file": "venues/point-nepean-discovery-tents.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-portsea-01.webp",
+      "alt": "Point King beach in Portsea Victoria - representative image for Point Nepean Discovery Tents"
+    },
+    {
+      "file": "venues/port-phillip-estate-restaurant.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-red-hill-01.webp",
+      "alt": "CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate - representative image for Port Phillip Estate Restaurant"
+    },
+    {
+      "file": "venues/port-phillip-estate.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-red-hill-01.webp",
+      "alt": "CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate - representative image for Port Phillip Estate"
+    },
+    {
+      "file": "venues/prancing-horse-estate.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-red-hill-01.webp",
+      "alt": "CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate - representative image for Prancing Horse Estate"
+    },
+    {
+      "file": "venues/quealy-winemakers.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-balnarring-01.webp",
+      "alt": "Balnarring, Mornington Peninsula - representative image for Quealy Winemakers"
+    },
+    {
+      "file": "venues/red-gum-bbq.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-red-hill-01.webp",
+      "alt": "CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate - representative image for Red Gum BBQ"
+    },
+    {
+      "file": "venues/red-hill-brewery.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-red-hill-01.webp",
+      "alt": "CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate - representative image for Red Hill Brewery"
+    },
+    {
+      "file": "venues/red-hill-cheese.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-red-hill-01.webp",
+      "alt": "CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate - representative image for Red Hill Cheese"
+    },
+    {
+      "file": "venues/red-hill-estate.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-red-hill-01.webp",
+      "alt": "CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate - representative image for Red Hill Estate"
+    },
+    {
+      "file": "venues/red-hill-market.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-red-hill-01.webp",
+      "alt": "CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate - representative image for Red Hill Market"
+    },
+    {
+      "file": "venues/rye-hotel.json",
+      "field": "heroImage",
+      "src": "/images/sourced/explore-rye-ocean-beach-01.webp",
+      "alt": "Mornington Peninsula landscape - representative image for Rye Hotel"
+    },
+    {
+      "file": "venues/scorpo-wines.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-merricks-01.webp",
+      "alt": "Vineyard Merricks Grove Victoria Australia - representative image for Scorpo Wines"
+    },
+    {
+      "file": "venues/small-stone-pantry.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-dromana-01.webp",
+      "alt": "Dromana, Mornington Peninsula - representative image for Small Stone Pantry"
+    },
+    {
+      "file": "venues/somers-general.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-balnarring-01.webp",
+      "alt": "Mornington Peninsula landscape - representative image for Somers General"
+    },
+    {
+      "file": "venues/sourdough-kitchen.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-mornington-01.webp",
+      "alt": "Mornington Peninsula landscape - representative image for Sourdough Kitchen"
+    },
+    {
+      "file": "venues/st-andrews-beach-brewery.json",
+      "field": "heroImage",
+      "src": "/images/sourced/explore-rye-ocean-beach-01.webp",
+      "alt": "Rye, Mornington Peninsula - representative image for St Andrews Beach Brewery"
+    },
+    {
+      "file": "venues/stillwater-crittenden.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-dromana-01.webp",
+      "alt": "Dromana, Mornington Peninsula - representative image for Crittenden Restaurant"
+    },
+    {
+      "file": "venues/stonier-wines.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-merricks-01.webp",
+      "alt": "Vineyard Merricks Grove Victoria Australia - representative image for Stonier Wines"
+    },
+    {
+      "file": "venues/stringers-sorrento.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-sorrento-01.webp",
+      "alt": "Bright morning Sorrento Victoria - representative image for Stringers Sorrento"
+    },
+    {
+      "file": "venues/stumpy-gully-vineyard.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-moorooduc-01.webp",
+      "alt": "Moorooduc, Mornington Peninsula - representative image for Stumpy Gully Vineyard"
+    },
+    {
+      "file": "venues/t-gallant.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-main-ridge-01.webp",
+      "alt": "CSIRO ScienceImage 1961 Chardonnay grapes at the Main Ridge Estate - representative image for T'Gallant"
+    },
+    {
+      "file": "venues/the-baths-sorrento.json",
+      "field": "heroImage",
+      "src": "/images/sourced/explore-sorrento-ferry-01.webp",
+      "alt": "Mornington Peninsula landscape - representative image for The Baths Sorrento"
+    },
+    {
+      "file": "venues/the-bay-hotel-mornington.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-mornington-01.webp",
+      "alt": "Mornington, Victoria - representative image for The Bay Hotel Mornington"
+    },
+    {
+      "file": "venues/the-orchard-red-hill.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-red-hill-01.webp",
+      "alt": "Mornington Peninsula - representative image for The Orchard Red Hill pending venue media"
+    },
+    {
+      "file": "venues/the-rocks-mornington.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-mornington-01.webp",
+      "alt": "Mornington, Victoria Bathing boxes on the beach - representative image for The Rocks Mornington"
+    },
+    {
+      "file": "venues/treetops-red-hill.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-red-hill-01.webp",
+      "alt": "Mornington Peninsula - representative image for Treetops at Red Hill pending venue media"
+    },
+    {
+      "file": "venues/trofeo-estate.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-dromana-01.webp",
+      "alt": "Dromana, Mornington Peninsula - representative image for Trofeo Estate"
+    },
+    {
+      "file": "venues/tucks-ridge.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-red-hill-01.webp",
+      "alt": "CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate - representative image for Tuck's Ridge"
+    },
+    {
+      "file": "venues/two-bays-brewing.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-dromana-01.webp",
+      "alt": "Dromana, Mornington Peninsula - representative image for Two Bays Brewing Co"
+    },
+    {
+      "file": "venues/via-boffe.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-main-ridge-01.webp",
+      "alt": "CSIRO ScienceImage 1961 Chardonnay grapes at the Main Ridge Estate - representative image for Via Boffe"
+    },
+    {
+      "file": "venues/villa-mallorca.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-mount-martha-01.webp",
+      "alt": "Mornington Peninsula - representative image for Villa Mallorca pending venue media"
+    },
+    {
+      "file": "venues/willow-creek-vineyard.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-merricks-01.webp",
+      "alt": "Vineyard Merricks Grove Victoria Australia - representative image for Willow Creek Vineyard"
+    },
+    {
+      "file": "venues/woodman-estate.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-moorooduc-01.webp",
+      "alt": "Mornington Peninsula - representative image for Woodman Estate pending venue media"
+    },
+    {
+      "file": "venues/yabby-lake.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-moorooduc-01.webp",
+      "alt": "Moorooduc, Mornington Peninsula - representative image for Yabby Lake Vineyard"
+    },
+    {
+      "file": "venues/yurt-hideaway.json",
+      "field": "heroImage",
+      "src": "/images/sourced/place-rye-01.webp",
+      "alt": "Mornington Peninsula - representative image for Yurt Hideaway pending venue media"
+    }
+  ]
+}

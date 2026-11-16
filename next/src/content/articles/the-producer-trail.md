@@ -5,10 +5,24 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-17
 heroImage:
-  src: "/images/sourced/article-producer-trail-01.webp"
-  alt: "A wheel of fresh Peninsula goat cheese being lifted from a chilled rack at a small dairy"
-  credit: "Wikimedia Commons"
-  license: "tmp-wikimedia"
+  src: "/images/visit-victoria/vv-160029-green-olive-at-red-hill.webp"
+  alt: "Four friends holding glasses of wine walk along a grassy path beside vine rows at Green Olive at Red Hill on a clear day"
+  credit: "Two Palms Australia, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Green Olive at Red Hill, Mornington Peninsula"
+  depicts: "Green Olive at Red Hill"
+  depictionStatus: "illustrative"
+  creator: "Two Palms Australia"
+  sourceUrl: "Victoria Content Hub asset 160029, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "service"
 tags: ["producers", "food", "day-trip", "red-hill", "main-ridge", "balnarring", "explore", "all-year"]
 relatedVenues: ["main-ridge-dairy", "red-hill-cheese", "peninsula-fresh-organics", "mornington-peninsula-chocolates", "balnarring-bakehouse", "flinders-sourdough", "red-hill-bakery", "somers-general", "green-olive-red-hill", "epicurean-red-hill", "merricks-general-wine-store", "balnarring-pub"]
@@ -87,10 +101,10 @@ You are now four producers in, the cooler bag is full, and it is roughly 12.30pm
 
 ### Lunch in the middle of the loop
 
-The lunch on a producer day should be light. The point is to refuel between stops. Three options that fit:
+The lunch on a producer day should be light. The point is to refuel between stops. Options that fit:
 
 - **Merricks General Wine Store** for a wood-oven pizza and a glass of pinot. Forty-five minutes, in and out.
-- **Red Hill Bakery** for a counter lunch: sourdough sandwich, pastry, coffee. Twenty minutes.
+- **The Red Hill Baker, Balnarring** for a counter lunch: bread, pastry and coffee. Twenty minutes. The former Red Hill location is closed.
 - **Epicurean Red Hill** for a slightly more leisurely sit-down with a kitchen that uses a lot of the producers you have just been visiting. An hour.
 
 Pick the one that matches the energy of the group. The producer day is the kind of day where lunch is the supporting act, not the lead.
@@ -109,11 +123,11 @@ The next stop is a two-part visit. **Balnarring Bakehouse** is the village baker
 
 ### Stop three: Mornington Peninsula Cider or Green Olive at Red Hill
 
-Close the loop with one of two options. **Mornington Peninsula Cider** is a small cidery in the lower ridge area that does proper cellar-door tastings and sells a half-dozen ciders and perries that fit the day's mood: lighter, more fruit-forward, less heavy than a wine tasting. Or, if you have stamina, drive back up the ridge to **Green Olive at Red Hill**, the working olive grove with a cellar door, an olive oil tasting, a small farm shop, and one of the prettiest verandahs on the Peninsula.
+Choose where to close the loop. **Mornington Peninsula Cider** is a small cidery in the lower ridge area that does proper cellar-door tastings and sells a half-dozen ciders and perries that fit the day's mood: lighter, more fruit-forward, less heavy than a wine tasting. Or, if you have stamina, drive back up the ridge to **Green Olive at Red Hill**, the working olive grove with a cellar door, an olive oil tasting, a small farm shop, and one of the prettiest verandahs on the Peninsula.
 
 ### Lunch in the southern loop
 
-The lunch on the southern producer day is the **Balnarring Pub**: twenty minutes, beer-garden seating, pub food at a level that respects the producer day. Or **Somers General**, which doubles as one of the better small-plate lunch rooms on the Peninsula.
+The lunch on the southern producer day is **The Heritage**, the Balnarring village pub: beer-garden seating and a pub favourites menu, closed Monday and Tuesday. Or **Somers General**, which doubles as one of the better small-plate lunch rooms on the Peninsula.
 
 ## The cooler-bag rule
 

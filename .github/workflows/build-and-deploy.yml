@@ -13,14 +13,26 @@ on:
       # d442813 fixed the SEO ratchet baseline and triggered no run at all, so the
       # fix sat unverified on main. A change to the thing that guards the build must
       # rebuild the build.
+      #
+      # ops/baselines/** is the whole directory rather than the one SEO file it
+      # used to name: every ratchet ceiling now lives there, and changing any of
+      # them changes what the build will accept. Ratcheting one down and seeing
+      # no run at all is the same defect d442813 hit.
       - 'next/scripts/**'
+      - 'next/tests/**'
       - 'ops/scripts/seo/**'
-      - 'ops/reports/seo/seo-architecture-baseline.json'
+      - 'ops/event-intelligence/**'
+      - 'ops/scripts/post-publish-verify.mjs'
+      - 'ops/scripts/lib/publication-page-policy.mjs'
+      - 'ops/scripts/generate-llms-txt.mjs'
+      - 'ops/seo-automation/**'
+      - 'ops/baselines/**'
       - '.github/workflows/build-and-deploy.yml'
   schedule:
     # The event feed and rolling weekend page are generated at build time.
-    # Rebuild daily just after midnight in Melbourne so yesterday's
-    # occurrences cannot remain published until the next editorial deploy.
+    # Cover midnight in both Melbourne time zones: 13:10 UTC is 00:10 AEDT,
+    # and 14:10 UTC is 00:10 AEST. The extra run is before midnight in winter.
+    - cron: '10 13 * * *'
     - cron: '10 14 * * *'
     # Rebuild twice per Melbourne weekend day. UTC remains safely within the
     # weekend when DST shifts (08:00/14:00 AEST, 09:00/15:00 AEDT).
@@ -40,17 +52,21 @@ permissions:
   contents: write
   issues: write
 
-# Cancel any in-progress deploy on new push
+# Keep the running publish intact when an editorial push arrives. A push cancelled
+# the naturally scheduled 7 October build mid-flight, so no scheduled
+# discovery-to-publication evidence survived that cycle. GitHub still keeps
+# only the newest pending run in this group while the running run completes.
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 50
     env:
       TZ: Australia/Sydney
+      AGENT_PREVIOUS_CATALOG: /tmp/pi-agent-previous.json
 
     steps:
       - name: Checkout
@@ -77,23 +93,62 @@ jobs:
         run: |
           cd next
           npm run test:content-admission
+          npm run test:share-link
+          npm run test:saves-store
+          npm run test:season
+          npm run test:nav
+          npm run test:corrections
+          npm run test:corrections-queue
+          npm run test:partner-enquiry
           npm run test:agent-readiness
+          node --test scripts/agent-formats.test.mjs scripts/agent-scorecard.test.mjs
           npm run test:event-safeguards
+          npm run test:event-occurrence
+          node --test ../ops/scripts/post-publish-verify.test.mjs
+          python3 scripts/recompute-occurrence.py --dry-run --today 2026-10-12 > /tmp/pi-market-occurrence-check.txt
+          if grep -F 'mornington-racecourse-market.json ->' /tmp/pi-market-occurrence-check.txt; then
+            echo "::error::Confirmed-only market was advanced to an unverified date"
+            exit 1
+          fi
+          npm run test:material-change
           npm run validate:content
+          node scripts/assert-event-listing-quality.mjs mornington-racecourse-market
+
+      - name: Retain previous public catalogue
+        run: node next/scripts/prepare-agent-baseline.mjs --out /tmp/pi-agent-previous.json
 
       - name: Build
         run: |
           cd next
-          npm run build:search
+          build_day=$(TZ=Australia/Sydney date +%F)
+          if npm run build:search; then
+            build_ok=true
+          else
+            build_ok=false
+          fi
+          if [ "$build_day" != "$(TZ=Australia/Sydney date +%F)" ]; then
+            echo "::warning::Build crossed Sydney midnight; rerunning once so dated feeds match the new day."
+            npm run build:search
+          elif [ "$build_ok" != true ]; then
+            exit 1
+          fi
+          node scripts/check-search-opportunities.mjs
         env:
           PUBLIC_SUPABASE_URL: ${{ secrets.PUBLIC_SUPABASE_URL }}
           PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.PUBLIC_SUPABASE_ANON_KEY }}
           PUBLIC_CONCIERGE_API_URL: https://peninsula-insider-platform-api.vercel.app
-          # Set to 'off' to remove the temporary client-side password gate
-          # and launch the site publicly.
-          PUBLIC_ACCESS_GATE: 'off'
           # Site-wide Insider Note signup popup. Set to 'off' for rollback.
           PUBLIC_NEWSLETTER_POPUP: 'on'
+          # Stamped onto every analytics event as pi_release, so a metric can be
+          # attributed to the build that produced it (PI-024). Same value as
+          # SOURCE_SHA below; PUBLIC_ so Astro exposes it to client scripts.
+          PUBLIC_RELEASE_SHA: ${{ github.sha }}
+
+      - name: Verify discovery and business journeys
+        run: npm --prefix next run test:discovery-journeys
+
+      - name: Verify itinerary planning and trip handoff
+        run: npm --prefix next run test:planning-journeys
 
       - name: Generate agent index (llms.txt)
         # Build the agent-discoverability layer from the freshly-built sitemap so
@@ -103,6 +158,15 @@ jobs:
           node ops/scripts/generate-llms-txt.mjs \
             --sitemap next/dist/sitemap.xml \
             --out-dir next/dist
+          node next/scripts/generate-agent-formats.mjs --dist next/dist
+          node next/scripts/audit-agent-welcome.mjs --dist next/dist --report ops/reports/seo/agent-welcome.json
+
+      - name: Retain agent experience acceptance
+        uses: actions/upload-artifact@v4
+        with:
+          name: agent-experience-${{ github.run_id }}
+          path: ops/reports/seo/agent-welcome.json
+          retention-days: 90
 
       - name: Write deployment provenance
         env:
@@ -149,6 +213,34 @@ jobs:
             --out ops/reports/seo/ledger \
             --assert
 
+      - name: Install pinned SEO tools
+        working-directory: ops/seo-automation
+        run: |
+          npm ci --no-audit --no-fund
+          npm run setup
+          npm test
+
+      - name: SiteOne and Lighthouse pre-deploy gate
+        working-directory: ops/seo-automation
+        run: npm run audit -- --target=local --profile=ci
+
+      - name: Retain SEO gate evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: seo-deploy-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ops/seo-automation/.runs/
+          include-hidden-files: true
+          retention-days: 90
+          if-no-files-found: warn
+
+      - name: Verify dated feeds at publish boundary
+        working-directory: next
+        run: npm run audit:agent-readiness
+
+      - name: Enforce reader and agent boundary at publish
+        run: node next/scripts/assert-reader-boundary.mjs --dist next/dist
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
@@ -158,6 +250,125 @@ jobs:
           cname: peninsulainsider.com.au
           force_orphan: false
           commit_message: "deploy: ${{ github.sha }} — ${{ github.event.head_commit.message }}"
+
+      - name: Verify Mornington Market on the public site
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+        run: |
+          for attempt in {1..75}; do
+            if node ops/scripts/post-publish-verify.mjs \
+              --kind=event \
+              --event-quality \
+              --expect-illustration \
+              --expect-source-host=www.mornpen.vic.gov.au \
+              "--expect-sha=$SOURCE_SHA" \
+              "--report=$RUNNER_TEMP/mornington-market-live.md" \
+              https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/; then
+              exit 0
+            fi
+            echo "Public release not yet verified (attempt $attempt/75)"
+            sleep 20
+          done
+          exit 1
+
+      - name: Retain Mornington Market live verification
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mornington-market-live-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/mornington-market-live.md
+          retention-days: 90
+          if-no-files-found: warn
+
+      - name: Verify weekend page on the public site
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+        run: |
+          for attempt in {1..75}; do
+            if node ops/scripts/post-publish-verify.mjs \
+              --kind=page \
+              "--expect-sha=$SOURCE_SHA" \
+              "--report=$RUNNER_TEMP/weekend-page-live.md" \
+              https://peninsulainsider.com.au/whats-on/this-weekend/; then
+              exit 0
+            fi
+            echo "Weekend page not yet verified on public release (attempt $attempt/75)"
+            sleep 20
+          done
+          exit 1
+
+      - name: Retain weekend page live verification
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: weekend-page-live-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/weekend-page-live.md
+          retention-days: 90
+          if-no-files-found: warn
+
+      - name: Verify reviewed event media on the public site
+        working-directory: next
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+        run: node scripts/verify-public-event-media.mjs "--expect-sha=$SOURCE_SHA" "--report=$RUNNER_TEMP/event-media-live.json"
+
+      - name: Retain public event media verification
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: event-media-live-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/event-media-live.json
+          retention-days: 90
+          if-no-files-found: warn
+
+      - name: Verify homepage weekend on the exact public release
+        working-directory: next
+        env:
+          REVIEW_BASE_URL: https://peninsulainsider.com.au
+          REVIEW_HEAD_SHA: ${{ github.sha }}
+        run: node scripts/review-home-weekend.mjs
+
+      - name: Retain homepage weekend live verification
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: home-weekend-live-${{ github.run_id }}-${{ github.run_attempt }}
+          path: next/review/home-weekend/
+          retention-days: 90
+          if-no-files-found: warn
+
+      - name: Verify Dominion event detail while the one-off show is current
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+        run: |
+          if [ "$(date -u +%s)" -ge "$(date -u -d '2026-10-09T10:00:00Z' +%s)" ]; then
+            printf '# Dominion live verification\nSkipped: one-off event has ended.\n' > "$RUNNER_TEMP/dominion-event-live.md"
+            exit 0
+          fi
+          for attempt in {1..75}; do
+            if node ops/scripts/post-publish-verify.mjs \
+              --kind=event \
+              --event-quality \
+              --expect-illustration \
+              --expect-source-host=events.humanitix.com \
+              "--expect-sha=$SOURCE_SHA" \
+              "--report=$RUNNER_TEMP/dominion-event-live.md" \
+              https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/; then
+              exit 0
+            fi
+            echo "Dominion detail not yet verified on public release (attempt $attempt/75)"
+            sleep 20
+          done
+          exit 1
+
+      - name: Retain Dominion event live verification
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dominion-event-live-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/dominion-event-live.md
+          retention-days: 90
+          if-no-files-found: warn
 
       - name: Alert on failure (non-silent)
         # Red main must surface immediately. Uses the repo's existing alert path
@@ -177,7 +388,7 @@ jobs:
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
           BODY=$(printf '%s\n' \
-            "Build and Deploy failed - the live site is no longer being updated from main." \
+            "Build, deploy, or live acceptance failed; inspect the failed step before claiming this release is live." \
             "" \
             "Commit: ${COMMIT_URL}" \
             "Message: ${COMMIT_MESSAGE}" \

@@ -1,0 +1,20 @@
+{
+  "claimId": "events/mt-eliza-farmers-market/accessibility",
+  "claimClass": "accessibility",
+  "subject": {
+    "type": "events",
+    "slug": "mt-eliza-farmers-market",
+    "field": "accessibilityNotes"
+  },
+  "statement": "Access at Mt Eliza Farmers Market: Village precinct; generally accessible; footpath stalls.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "mt-eliza-farmers-market",
+      "field": "accessibilityNotes"
+    }
+  ],
+  "createdAt": "2026-05-04",
+  "origin": "migrated",
+  "note": "Migrated by scripts/migrate-event-claims.mjs (PI-005 Stage 2) from accessibilityNotes already on next/src/content/events/mt-eliza-farmers-market.json. No editorial judgement was applied and no content record was changed."
+}

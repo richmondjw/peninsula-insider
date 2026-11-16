@@ -5,10 +5,24 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-06-01
 heroImage:
-  src: "/images/sourced/home-cover-cape-schanck-rainbow-01.webp"
-  alt: "Rain squall clearing over Cape Schanck in winter, the coast at its most honest"
-  credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  src: "/images/visit-victoria/vv-160375-montalto.webp"
+  alt: "Two visitors crouch among marigolds in the kitchen garden at Montalto, with vine-covered pergolas and olive trees behind"
+  credit: "Two Palms Australia, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula"
+  depicts: "Montalto"
+  depictionStatus: "illustrative"
+  creator: "Two Palms Australia"
+  sourceUrl: "Victoria Content Hub asset 160375, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "editors-letter"
 section: "journal"
 tags: ["winter", "seasonal", "slow-peninsula", "atmosphere", "red-hill", "cellar-door"]
@@ -61,7 +75,7 @@ The rooms that make the most sense in winter are not necessarily the same ones t
 
 **For the cellar door afternoon:** Montalto is the most atmospheric cold-day walk-in on the Peninsula. The garden looks better in winter than most places do in summer. Tasting at the bar, then the estate walk, then a decision about whether lunch is also happening.
 
-**For the coast:** Flinders, not Sorrento. The town is quieter, the beach is better in a southerly, and the Pier Street bakeries are operating at full attention rather than managing a queue.
+**For the coast:** Flinders, not Sorrento. The town is quieter, the beach is better in a southerly, and the village bakeries are operating at full attention rather than managing a queue.
 
 **For the hot springs:** Book a weekday if you can. Both Alba and Peninsula Hot Springs are genuinely peaceful mid-week in winter in a way they are not at any weekend in any season.
 

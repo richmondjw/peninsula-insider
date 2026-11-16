@@ -27,6 +27,12 @@ export interface Props {
   sticky?: boolean;
   /** Render the paired FilterSheet (turn off if the page composes its own). */
   withSheet?: boolean;
+  /** Keep the advanced-filter trigger visible beside the scrollable chips. */
+  pinnedMore?: boolean;
+  /** Retired: quick filters always wrap on narrow screens now. Accepted, ignored. */
+  mobileWrap?: boolean;
+  /** Visible label for the advanced-filter trigger. */
+  moreLabel?: string;
   /**
    * Restrict the paired FilterSheet to these facet groups (contextual filters,
    * P1.2). Omit for the full shared taxonomy; every hub surface should pass
@@ -42,6 +48,9 @@ const {
   label = 'Filters',
   sticky = false,
   withSheet = true,
+  pinnedMore = false,
+  mobileWrap = false,
+  moreLabel = 'Filters',
   facets,
 } = Astro.props;
 
@@ -49,7 +58,7 @@ const presets = CHIP_PRESETS[surface] ?? [];
 ---
 
 <div
-  class:list={['v5-filterbar', { 'v5-filterbar--sticky': sticky }]}
+  class:list={['v5-filterbar', { 'v5-filterbar--sticky': sticky, 'v5-filterbar--pinned-more': pinnedMore, 'v5-filterbar--mobile-wrap': mobileWrap }]}
   data-v5-filterbar
   data-noun={noun}
   role="group"
@@ -70,7 +79,7 @@ const presets = CHIP_PRESETS[surface] ?? [];
           {chip.label}
         </button>
       ))}
-      <button
+      {!pinnedMore && <button
         type="button"
         class="v5-filterbar__chip v5-filterbar__chip--more"
         data-sheet-open
@@ -78,8 +87,17 @@ const presets = CHIP_PRESETS[surface] ?? [];
         aria-haspopup="dialog"
       >
         More filters<span class="v5-filterbar__more-count" data-filter-active-count hidden></span>
-      </button>
+      </button>}
     </div>
+    {pinnedMore && <button
+      type="button"
+      class="v5-filterbar__chip v5-filterbar__chip--more v5-filterbar__pinned"
+      data-sheet-open
+      data-evt="filter_open"
+      aria-haspopup="dialog"
+    >
+      {moreLabel}<span class="v5-filterbar__more-count" data-filter-active-count hidden></span>
+    </button>}
     <div class="v5-filterbar__end">
       <slot />
     </div>
@@ -90,16 +108,19 @@ const presets = CHIP_PRESETS[surface] ?? [];
       Clear filters
     </button>
   </p>
+  <p class="v5-filterbar__error" data-filter-error hidden></p>
   <p id="pi-results-status" class="v5-vh" role="status" aria-live="polite"></p>
 </div>
 
-{withSheet && <FilterSheet noun={noun} facets={facets} />}
+{withSheet && <FilterSheet noun={noun} facets={facets} surface={surface} />}
 
 <style>
+  /* One row of controls above the list: quick chips, Filters, Sort. No rule
+     under it (the rows carry the hairlines); the count shows only while the
+     list is narrowed, because the heading already states the total. */
   .v5-filterbar {
     background: var(--bg);
-    border-bottom: 1px solid var(--border);
-    padding: 0.5rem 0 0.35rem;
+    padding: var(--space-2) 0;
   }
   .v5-filterbar--sticky {
     position: sticky;
@@ -110,120 +131,86 @@ const presets = CHIP_PRESETS[surface] ?? [];
   }
   .v5-filterbar__row {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    gap: 0.5rem;
+    gap: var(--space-2);
   }
-  /* Horizontally scrollable chip row with a fade affordance on the right
-     edge while more chips remain off-screen. */
   .v5-filterbar__scroll {
     display: flex;
-    gap: 0.5rem;
-    overflow-x: auto;
+    flex-wrap: wrap;
+    gap: var(--space-2);
     flex: 1 1 auto;
     min-width: 0;
-    padding: 2px 2px 6px;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-    mask-image: linear-gradient(to right, black calc(100% - 2.5rem), transparent);
-  }
-  .v5-filterbar__scroll::-webkit-scrollbar {
-    display: none;
-  }
-  .v5-filterbar__scroll[data-scroll-end='true'] {
-    mask-image: none;
+    padding: 2px;
   }
   .v5-filterbar__end {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: var(--space-2);
     flex: 0 0 auto;
+    margin-left: auto;
   }
-  /* Mobile: give the intent-chip scroller the full row width by dropping the
-     sort/utility controls onto their own line instead of crushing the chips. */
+  /* Phone: the chips take a full line of their own and wrap, so none is
+     ever clipped under the Filters button; Filters and Sort share the next
+     line. */
   @media (max-width: 560px) {
-    .v5-filterbar__row { flex-wrap: wrap; }
-    .v5-filterbar__scroll { order: 1; flex-basis: 100%; }
-    .v5-filterbar__end { order: 2; flex-basis: 100%; justify-content: flex-end; }
+    .v5-filterbar__scroll { flex-basis: 100%; }
+    /* Wrapped controls are too tall to pin over a phone screen. */
+    .v5-filterbar--sticky { position: static; }
+    .v5-filterbar--pinned-more .v5-filterbar__pinned { margin-right: auto; }
   }
   .v5-filterbar__chip {
-    font-family: var(--font-ui);
-    font-size: 0.85rem;
-    font-weight: 500;
+    min-height: 44px;
+    padding: 0 var(--space-4);
+    font: 500 var(--fs-300)/1 var(--font-ui);
     color: var(--text);
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    padding: 0 1rem;
-    min-height: 48px; /* accessibility audit: 48px touch targets */
+    background: transparent;
+    border: 1px solid var(--border-control);
+    border-radius: var(--radius-pill);
     white-space: nowrap;
     cursor: pointer;
-    transition:
-      background 0.15s var(--ease),
-      border-color 0.15s var(--ease),
-      color 0.15s var(--ease);
+    transition: background 0.15s var(--ease), border-color 0.15s var(--ease), color 0.15s var(--ease);
   }
-  .v5-filterbar__chip:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-  }
-  .v5-filterbar__chip:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
-  .v5-filterbar__chip[aria-pressed='true'] {
-    background: var(--accent);
-    border-color: var(--accent);
-    color: var(--white);
-  }
-  .v5-filterbar__chip--more {
-    border-style: dashed;
-  }
+  .v5-filterbar__chip:hover { border-color: var(--accent); color: var(--accent); }
+  .v5-filterbar__chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .v5-filterbar__chip[aria-pressed='true'] { background: var(--accent); border-color: var(--accent); color: var(--white); }
   .v5-filterbar__more-count {
     margin-left: 0.35rem;
+    padding: 0.1rem 0.45rem;
+    border-radius: var(--radius-pill);
     background: var(--accent);
     color: var(--white);
-    border-radius: 999px;
-    font-size: 0.72rem;
-    padding: 0.1rem 0.45rem;
+    font-size: var(--fs-100);
   }
   .v5-filterbar__chip--more[aria-expanded='true'],
-  .v5-filterbar__chip[aria-pressed='true'] .v5-filterbar__more-count {
-    background: var(--white);
-    color: var(--accent);
-  }
+  .v5-filterbar__chip[aria-pressed='true'] .v5-filterbar__more-count { background: var(--white); color: var(--accent); }
   .v5-filterbar__meta {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    margin: 0.15rem 0 0;
-    font-family: var(--font-ui);
-    font-size: 0.8rem;
+    gap: var(--space-3);
+    margin: var(--space-1) 0 0;
+    font: var(--fs-300) var(--font-ui);
     color: var(--soft);
   }
+  .v5-filterbar:not([data-active]) .v5-filterbar__meta {
+    position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+    overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+  }
+  .v5-filterbar__error { margin: var(--space-2) 0; font-size: var(--fs-300); line-height: 1.5; color: var(--text); }
   .v5-filterbar__clear {
+    min-height: 44px;
+    padding: 0 var(--space-1);
     background: none;
     border: none;
     color: var(--accent);
     font: inherit;
     text-decoration: underline;
     cursor: pointer;
-    min-height: 48px;
-    padding: 0 0.25rem;
   }
-  .v5-filterbar__clear:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
+  .v5-filterbar__clear:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   .v5-vh {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    padding: 0;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-    white-space: nowrap;
-    border: 0;
+    position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+    overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
   }
 </style>
 
@@ -247,7 +234,9 @@ const presets = CHIP_PRESETS[surface] ?? [];
       chip.setAttribute('aria-pressed', on ? 'true' : 'false');
     });
     const clear = bar.querySelector<HTMLElement>('[data-filter-clear]');
-    if (clear) clear.toggleAttribute('hidden', isEmptyState(state));
+    const searching = !!document.querySelector('[data-directory-search]') && !!new URLSearchParams(location.search).get('find')?.trim();
+    if (clear) clear.toggleAttribute('hidden', isEmptyState(state) && !searching);
+    bar.toggleAttribute('data-active', !isEmptyState(state) || searching);
     const badge = bar.querySelector<HTMLElement>('[data-filter-active-count]');
     if (badge) {
       const n = countActive(state);
@@ -274,25 +263,26 @@ const presets = CHIP_PRESETS[surface] ?? [];
     });
 
     bar.querySelector('[data-filter-clear]')?.addEventListener('click', () => {
+      const clear = bar.querySelector<HTMLElement>('[data-filter-clear]');
+      if (document.activeElement === clear) bar.querySelector<HTMLButtonElement>('[data-sheet-open]')?.focus();
       commit({}, { source: 'clear', noun });
     });
-
-    // Keep chips in sync when the sheet, popstate, or another island commits.
-    document.addEventListener('pi:filters-changed', ((e: CustomEvent) => {
-      paint(bar, e.detail.filters);
-    }) as EventListener);
-
-    // Fade affordance: drop the mask once the row is scrolled to its end.
-    const scroller = bar.querySelector<HTMLElement>('[data-chip-scroll]');
-    if (scroller) {
-      const update = () => {
-        const atEnd = scroller.scrollLeft + scroller.clientWidth >= scroller.scrollWidth - 4;
-        scroller.dataset.scrollEnd = atEnd ? 'true' : 'false';
-      };
-      scroller.addEventListener('scroll', update, { passive: true });
-      update();
-    }
   }
+
+  // Keep chips in sync when the sheet, popstate, or another island commits.
+  //
+  // This sits at module scope, not inside hydrate(). The `_piInit` guard is on
+  // the bar element, and the client router replaces that element on every
+  // navigation - so the guard is fresh each time while the listener on
+  // `document` is not. Registering here added one more copy per visit to a
+  // filtered hub, each holding the previous, detached bar alive and repainting
+  // it forever. Measured at +1 per navigation by tests/journeys before this
+  // change. The listener now paints whichever bars are live when it fires.
+  document.addEventListener('pi:filters-changed', ((e: CustomEvent) => {
+    document.querySelectorAll<HTMLElement>('[data-v5-filterbar]').forEach((bar) => {
+      paint(bar, e.detail.filters);
+    });
+  }) as EventListener);
 
   function init() {
     document.querySelectorAll<HTMLElement>('[data-v5-filterbar]').forEach(hydrate);

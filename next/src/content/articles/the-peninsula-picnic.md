@@ -5,14 +5,28 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-10
 heroImage:
-  src: "/images/sourced/article-picnic-01.webp"
-  alt: "A picnic spread of cheese, bread, charcuterie and wine on a blanket overlooking bay views"
-  credit: "Wikimedia Commons"
-  license: "tmp-wikimedia"
+  src: "/images/visit-victoria/vv-160021-green-olive-at-red-hill.webp"
+  alt: "Two people seated at a garden table among vegetable beds, looking out over bushland at Green Olive at Red Hill"
+  credit: "Two Palms Australia, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Green Olive at Red Hill, Mornington Peninsula"
+  depicts: "Green Olive at Red Hill"
+  depictionStatus: "illustrative"
+  creator: "Two Palms Australia"
+  sourceUrl: "Victoria Content Hub asset 160021, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "service"
 tags: ["picnic", "producers", "outdoor", "family", "couples", "budget", "autumn", "spring"]
-relatedVenues: ["red-hill-cheese", "main-ridge-dairy", "flinders-sourdough", "red-hill-bakery", "green-olive-red-hill", "mornington-peninsula-chocolates", "peninsula-fresh-organics", "balnarring-bakehouse", "somers-general", "johnny-ripe", "merricks-general-wine-store", "red-hill-market", "mornington-farmers-market"]
-relatedExperiences: ["montalto-sculpture-trail", "pt-leo-sculpture-park", "arthurs-seat-lookout", "mount-martha-beach", "balnarring-beach", "point-nepean-national-park", "mornington-foreshore-walk", "red-hill-market"]
+relatedVenues: ["red-hill-cheese", "main-ridge-dairy", "flinders-sourdough", "red-hill-bakery", "green-olive-red-hill", "mornington-peninsula-chocolates", "peninsula-fresh-organics", "balnarring-bakehouse", "somers-general", "johnny-ripe", "merricks-general-wine-store", "mornington-farmers-market"]
+relatedExperiences: ["montalto-sculpture-trail", "pt-leo-sculpture-park", "arthurs-seat-lookout", "mount-martha-beach", "balnarring-beach", "point-nepean-national-park", "mornington-foreshore-walk"]
 readingTimeMinutes: 7
 featured: false
 status: "published"
@@ -28,7 +42,7 @@ clusterLinks:
     href: "/journal/the-spring-peninsula/"
 faq:
   - question: "Where are the best picnic spots on the Mornington Peninsula?"
-    answer: "Pt Leo Estate sculpture park for the most scenic option - coastal hillside views over Western Port, free entry, maintained grounds. Montalto's sculpture trail for the hinterland vineyard setting. Arthurs Seat summit for bay views and a family-friendly option with playground. Mount Martha Beach (northern end, near the bathing boxes) for a sheltered bay picnic. Point Nepean National Park near the fort for the most dramatic setting."
+    answer: "Pt Leo Estate sculpture park for the most scenic option - coastal hillside views over Western Port, ticketed entry, maintained grounds. Montalto's sculpture trail for the hinterland vineyard setting. Arthurs Seat summit for bay views and a family-friendly option with playground. Mount Martha Beach (northern end, near the bathing boxes) for a sheltered bay picnic. Point Nepean National Park near the fort for the most dramatic setting."
   - question: "How do I assemble a Peninsula picnic from the farm gate?"
     answer: "Three stops: bread from Flinders Sourdough (walnut sourdough loaf, holds well for hours); cheese from Red Hill Cheese or Main Ridge Dairy (one washed-rind, one cheddar or halloumi); and olives, tapenade, and cured meats from Green Olive at Red Hill. Add fruit from Peninsula Fresh Organics and one bottle of local pinot from Merricks General Wine Store. One hour of shopping, and it costs about a single restaurant main and a glass of wine for two."
   - question: "What time of year is best for a Peninsula picnic?"
@@ -36,7 +50,7 @@ faq:
 aiSummary:
   - "A guide to the best picnic spots and picnic-enabling food sources on the Mornington Peninsula - structured as a half-day or full-day itinerary."
   - "The route: buy from one of the Peninsula's farm-gate or market sources, choose a location based on the season and the group, arrive before midday."
-  - "Key locations: Red Hill Market on a first Saturday (best produce selection), Arthurs Seat lookout reserve, Point Leo Estate grounds (public access), Cape Schanck clifftop."
+  - "Key locations: a market on a confirmed date, Arthurs Seat lookout reserve, Point Leo Estate grounds (public access), Cape Schanck clifftop."
   - "Suits: families; couples wanting a low-key Peninsula day; anyone who wants an alternative to restaurant lunch on a good weather day."
   - "Planning note: the Peninsula's best picnic spots are not signposted. The article provides specific GPS-level guidance for the locations that actually work."
 ---
@@ -55,7 +69,7 @@ Start with bread because everything else sits on it.
 
 **Flinders Sourdough** is the bread to seek out on the Peninsula, and the walnut sourdough loaf is the one to buy for a picnic. It holds for hours without going stale, it stands up to cheese and olive oil, and it sets the tone for everything else.
 
-If you are starting from the northern end of the Peninsula, **Red Hill Bakery** is the closer alternative. The sourdough sits a step behind Flinders, but the pastry case is worth a morning sausage roll. **Balnarring Bakehouse** is the quieter eastern option, and its sourdough is more than good enough.
+If you are starting from the eastern side of the Peninsula, **The Red Hill Baker in Balnarring** is the practical alternative. The former Red Hill shop is closed. **Balnarring Bakehouse** is another local option, but confirm current trading before relying on it.
 
 Buy a whole loaf. You will use it.
 
@@ -77,7 +91,7 @@ For additional produce: **Peninsula Fresh Organics** for seasonal fruit and vege
 
 ### The market shortcut
 
-If you are visiting on a Saturday morning, the **Red Hill Market** (first Saturday of the month) or the **Mornington Farmers Market** (every Wednesday) will compress the shopping circuit into a single stop. Both have bread, cheese, cured meats, seasonal produce, and pastry stalls. The market picnic is less romantic than the farm-gate version but it is faster and equally good.
+If you are visiting on a market morning, a confirmed market can compress the shopping circuit into a single stop. The original **Red Hill Community Market** is temporarily closed; check the separate Hill & Ridge organiser's dates for Red Hill, or Mornington Farmers Market's current calendar. Stallholders vary, so confirm the market and supplement your picnic supplies at farm gates if needed. The market picnic is less romantic than the farm-gate version but often faster.
 
 ### What to bring from home
 
@@ -95,7 +109,7 @@ The location matters as much as the food, and the Peninsula has a hierarchy of p
 
 ### The sculpture parks
 
-For a more elevated picnic setting on the Peninsula, the grounds of **Pt Leo Estate** are hard to beat, specifically the sculpture park that stretches along the coastal hillside above Western Port Bay. The park is free to enter, the grass is maintained, the views run for miles, and there are enough flat spots between the sculptures that a blanket feels intentional rather than improvised.
+For a more elevated picnic setting on the Peninsula, the grounds of **Pt Leo Estate** are hard to beat, specifically the sculpture park that stretches along the coastal hillside above Western Port Bay. Entry to the park is ticketed, the grass is maintained, the views run for miles, and there are enough flat spots between the sculptures that a blanket feels intentional rather than improvised.
 
 **Montalto's sculpture trail** is the hinterland alternative: less dramatic views, but a long walk through a vineyard-edge sculpture collection with several natural clearings that work as picnic settings. Check with the cellar door before setting up; they are generally relaxed about it.
 

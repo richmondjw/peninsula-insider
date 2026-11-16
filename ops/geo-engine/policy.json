@@ -1,0 +1,18 @@
+{
+  "_README": "James-authorised autonomous release scope, 2026-09-21. Extractive, reversible source patches only; no new facts. Exact patches require JEV containsNewClaim=false at >=0.92 confidence, code-proven reversibility, fresh build/live evidence, full existing CI, exact-head PR merge and live deployment verification. Failed technical acceptance triggers a scoped revert through the same gates. Maximum five changes; policy and validation code cannot be changed by this recurring mutator. See README.md autonomous release contract.",
+  "enabled": true,
+  "confidenceThreshold": 0.92,
+  "allowedActions": [
+    "fix_broken_internal_link",
+    "sitemap_remove_dead_url",
+    "fix_malformed_jsonld",
+    "rewrite_title",
+    "rewrite_meta_description",
+    "add_missing_meta_description",
+    "add_internal_link",
+    "sitemap_remove_noindex"
+  ],
+  "maxChangesPerRun": 5,
+  "requireReversible": true,
+  "refuseBuildOutputEdits": true
+}

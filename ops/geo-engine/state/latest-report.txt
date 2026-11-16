@@ -1,0 +1,67 @@
+PENINSULA INSIDER SEO/GEO
+2026-09-21 · incremental cycle · run 2026-09-21-1432-incremental
+
+STATUS
+Overall health: needs attention (65/100)
+Pages checked: 991 (991 new or changed since last run)
+Critical issues: 0 critical, 2 major
+Audit target: next/dist (freshly built source)
+  This is unreleased output; findings may already be fixed relative to the live site.
+
+CHANGES MADE
+None. The engine is in apply mode.
+0 change(s) planned, 0 would pass the safety gate if autonomous action were enabled.
+
+SEARCH
+1319 impressions, 0 clicks, CTR 0%
+
+GEO
+Benchmark: 554 questions, 200 assessed this cycle. 94 have a good answer on the site, 39 do not.
+Citation readiness across 991 scored pages: 23 strong, 569 workable, 399 weak.
+AI answer surfaces: not_yet_measurable. No AI answer surface can be queried from this environment; outbound access to search and assistant endpoints is denied by the egress policy.
+Site coverage above is INFERRED from Peninsula Insider's own pages. No AI citation was OBSERVED this run.
+
+TOP OPPORTUNITIES
+1. duplicate title on 1 page
+   Why it matters: title shared with 1 other page(s). Highest-value affected page: /journal/best-brunch-mornington-peninsula/ (article).
+   Recommended action: rewrite title — category DRAFT
+   Confidence: 0.84 (deterministic) · category DRAFT
+2. broken internal link on 1 page
+   Why it matters: links to /eat/alba-thermal-springs/, which is not a page in the served tree. Highest-value affected page: /dev/v5-cards/ (page).
+   Recommended action: fix broken internal link — category WATCH
+   Confidence: 0.84 (deterministic) · category WATCH
+3. Content gap: What is the best cafe in Rye?
+   Why it matters: demand=0.13, 11 supporting entities, best existing fit=0
+   Recommended action: Research and commission; do not generate
+   Confidence: 0.5 (deterministic) · category NEW CONTENT
+4. 150 internal links judged editorially legitimate
+   Why it matters: e.g. / → /eat/doot-doot-doot/ on the "features" relationship (Doot Doot Doot).
+   Recommended action: Review and implement in next/src
+   Confidence: 0.75 (deterministic) · category DRAFT
+
+CONTENT OPPORTUNITIES
+- What is the best cafe in Rye?
+  No page on the site currently answers this well (best existing fit 0), and the knowledge graph already models 11 supporting local entities to write it from.
+- What are some lesser-known things to do in Rye?
+  No page on the site currently answers this well (best existing fit 0), and the knowledge graph already models 11 supporting local entities to write it from.
+- What is on in Rye?
+  No page on the site currently answers this well (best existing fit 0), and the knowledge graph already models 11 supporting local entities to write it from.
+- Where should we eat in Merricks?
+  No page on the site currently answers this well (best existing fit 0), and the knowledge graph already models 17 supporting local entities to write it from.
+- Where should we eat in Rye?
+  No page on the site currently answers this well (best existing fit 0), and the knowledge graph already models 11 supporting local entities to write it from.
+
+NEEDS JAMES
+Nothing requiring a human decision this cycle.
+
+SYSTEM
+Decision layer: Jev via https://api.typesafe.ai (model jev-latest) — probe passed
+Crawler: local corpus reader over 991 rendered pages (no outbound crawl; egress policy denies peninsulainsider.com.au)
+Analytics: Search Console rows from gateway:analytics-live.json
+CMS/source: Astro content collections: 137 venues, 106 events, 37 towns
+Scheduled job: .github/workflows/seo-geo-engine.yml — 05:30 Australia/Melbourne daily
+Decisions this run: 12685 (100% without a frontier model, est. cost $0.1021)
+Errors requiring attention: none
+
+NEXT
+Next cycle: re-check 0 newly-seen issue(s) and 1040 recurring one(s), starting with missing_alt on /stay/sanctuary-at-alba/. Sunday runs the expanded audit.

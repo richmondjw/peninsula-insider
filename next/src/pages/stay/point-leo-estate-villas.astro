@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+export const prerender = true;
+---
+
+<BaseLayout
+  title="Correction: Pt. Leo Estate accommodation · Peninsula Insider"
+  description="Correction to a former Peninsula Insider accommodation listing for Pt. Leo Estate."
+  section="stay"
+  canonical="https://peninsulainsider.com.au/stay/point-leo-estate-villas/"
+  noindex={true}
+>
+  <main class="correction-page">
+    <p class="correction-page__eyebrow">Editorial correction · 30 September 2026</p>
+    <h1>Correction: Pt. Leo Estate accommodation</h1>
+    <p>We previously listed “Point Leo Estate Villas” as accommodation on the estate. That listing was wrong. <a href="https://www.ptleoestate.com.au/faqs/">Pt. Leo Estate confirms it has no accommodation facilities on site.</a></p>
+    <p>We have removed the listing and corrected the affected guides. For a separate stay near the estate, <a href="/stay/">browse our accommodation directory</a> and confirm availability and transport with the operator.</p>
+  </main>
+</BaseLayout>
+
+<style>
+  .correction-page { max-width: 48rem; margin: 4rem auto 7rem; padding: 0 1.25rem; }
+  .correction-page__eyebrow { color: #a35d36; font-size: .75rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+  h1 { margin: 1rem 0 1.5rem; line-height: 1.1; }
+  p { max-width: 42rem; line-height: 1.65; }
+  a { text-decoration: underline; text-underline-offset: .18em; }
+</style>

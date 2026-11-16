@@ -1,0 +1,20 @@
+{
+  "claimId": "quick-notes/2026-09-10-cellar-door-corridor-reopens/editorial",
+  "claimClass": "editorial",
+  "subject": {
+    "type": "quick-notes",
+    "slug": "2026-09-10-cellar-door-corridor-reopens",
+    "field": "sources"
+  },
+  "statement": "The Red Hill cellar door corridor has reopened.",
+  "assertedBy": [
+    {
+      "type": "quick-notes",
+      "slug": "2026-09-10-cellar-door-corridor-reopens",
+      "field": "sources"
+    }
+  ],
+  "createdAt": "2026-09-10",
+  "origin": "fixture",
+  "note": "PI-006 fixture. Seeds one named failure class so the loop can be proved to catch it."
+}

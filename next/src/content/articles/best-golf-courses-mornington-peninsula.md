@@ -1,15 +1,28 @@
 ---
-slug: "best-golf-courses-mornington-peninsula"
 title: "Best Golf Courses on the Mornington Peninsula - The Tier Guide"
 dek: "Not all Peninsula golf is equally useful to readers. This guide separates the destination rounds from the club names, and the public-access standouts from the private mythology."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-04-14
 heroImage:
-  src: "/images/sourced/golf-rye-sunrise-01.webp"
-  alt: "Coastal links landscape near Cape Schanck, Mornington Peninsula"
-  credit: "Peninsula Insider"
-  license: "tmp-wikimedia"
+  src: "/images/visit-victoria/vv-157363-moonah-links-golf-course-fingal.webp"
+  alt: "Two golfers carry their bags along a fairway at Moonah Links between deep sand bunkers towards a distant flag"
+  credit: "Gary Lisbon, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Moonah Links, Fingal, Mornington Peninsula"
+  depicts: "Moonah Links Golf Course - Fingal"
+  depictionStatus: "illustrative"
+  creator: "Gary Lisbon"
+  sourceUrl: "Victoria Content Hub asset 157363, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "insider-edit"
 tags: ["golf", "rankings", "mornington-peninsula", "guide", "sport"]
 readingTimeMinutes: 10
@@ -24,11 +37,156 @@ clusterLinks:
     href: "/explore/plans/mornington-peninsula-golf-stay-and-play/"
 faq:
   - question: "What is the best public golf course on the Mornington Peninsula?"
-    answer: "St Andrews Beach - world-ranked Tom Doak design, public access, bookable online. If it's full, The Dunes and Moonah Links are the next tier. All three are in the Cape Schanck–Fingal corridor at the southern end of the Peninsula."
+    answer: "St Andrews Beach is a fully public Tom Doak design in Fingal. Moonah Links is also in Fingal, while The Dunes is in Rye; all offer public tee times through their own booking sites."
   - question: "Is The National Golf Club on the Mornington Peninsula open to the public?"
-    answer: "No - The National is a private member club. Three courses (Old, Moonah, Gunnamatta), arguably the strongest overall property in the region, but access requires member invitation or reciprocal rights. Important to know about, not bookable directly."
+    answer: "The National is private. Victorian nonmembers need a member invitation and accompaniment; interstate and overseas visitors may request a tee time directly under the club's visitor policy. Three courses are at Cape Schanck and Long Island is at Frankston."
   - question: "When is the best time to play golf on the Mornington Peninsula?"
-    answer: "Autumn (March–May) and spring (September–November) for the best combination of weather, availability, and pricing. Summer weekends are busiest and most expensive. Midweek rounds are 30–40% cheaper than weekend rates and the courses are significantly quieter."
+    answer: "Autumn and spring can be comfortable times to play, but weather and availability vary. Green fees change by course, season and tee time; compare live club calendars before choosing a date."
+gallery:
+  - src: "/images/visit-victoria/vv-146894-national-golf-course-7th-hole-putting-green.webp"
+    alt: "Aerial view of a green and bunker cut into dense coastal scrub at The National Golf Club, with the open sea behind"
+    credit: "Gary Lisbon, courtesy of Visit Victoria"
+    license: "visit-victoria"
+    caption: "The National Golf Club, Cape Schanck, Mornington Peninsula"
+    depicts: "National Golf Course - 7th hole putting green"
+    depictionStatus: "actual"
+    creator: "Gary Lisbon"
+    sourceUrl: "Victoria Content Hub asset 146894, downloaded 2026-09-28"
+    permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+    permittedUses:
+      - "website"
+      - "social"
+    rightsHolder: "Visit Victoria"
+    rightsEstablishedOn: "2026-09-29"
+    rightsStatus: "recorded"
+    decorative: false
+    provenanceReview: "verified"
+  - src: "/images/visit-victoria/vv-146895-national-golf-course-7th-hole-putting-green.webp"
+    alt: "Aerial view of golfers on a green at The National Golf Club, edged by tussock and scrub, with the coastline stretching away"
+    credit: "Gary Lisbon, courtesy of Visit Victoria"
+    license: "visit-victoria"
+    caption: "The National Golf Club, Cape Schanck, Mornington Peninsula"
+    depicts: "National Golf Course - 7th hole putting green"
+    depictionStatus: "actual"
+    creator: "Gary Lisbon"
+    sourceUrl: "Victoria Content Hub asset 146895, downloaded 2026-09-28"
+    permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+    permittedUses:
+      - "website"
+      - "social"
+    rightsHolder: "Visit Victoria"
+    rightsEstablishedOn: "2026-09-29"
+    rightsStatus: "recorded"
+    decorative: false
+    provenanceReview: "verified"
+  - src: "/images/visit-victoria/vv-157418-st-andrews-beach-golf-course-fingal.webp"
+    alt: "Aerial view over St Andrews Beach Golf Course, with golfers on a tee, a cart path winding through dune grass and fairways beyond"
+    credit: "Gary Lisbon, courtesy of Visit Victoria"
+    license: "visit-victoria"
+    caption: "St Andrews Beach Golf Course, Cape Schanck, Mornington Peninsula"
+    depicts: "St Andrews Beach Golf Course - Fingal"
+    depictionStatus: "actual"
+    creator: "Gary Lisbon"
+    sourceUrl: "Victoria Content Hub asset 157418, downloaded 2026-09-28"
+    permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+    permittedUses:
+      - "website"
+      - "social"
+    rightsHolder: "Visit Victoria"
+    rightsEstablishedOn: "2026-09-29"
+    rightsStatus: "recorded"
+    decorative: false
+    provenanceReview: "verified"
+  - src: "/images/visit-victoria/vv-157419-st-andrews-beach-golf-course-fingal.webp"
+    alt: "Elevated view of a golfer driving from a tee at St Andrews Beach Golf Course, a partner by the bags and the green ahead in the dunes"
+    credit: "Gary Lisbon, courtesy of Visit Victoria"
+    license: "visit-victoria"
+    caption: "St Andrews Beach Golf Course, Cape Schanck, Mornington Peninsula"
+    depicts: "St Andrews Beach Golf Course - Fingal"
+    depictionStatus: "actual"
+    creator: "Gary Lisbon"
+    sourceUrl: "Victoria Content Hub asset 157419, downloaded 2026-09-28"
+    permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+    permittedUses:
+      - "website"
+      - "social"
+    rightsHolder: "Visit Victoria"
+    rightsEstablishedOn: "2026-09-29"
+    rightsStatus: "recorded"
+    decorative: false
+    provenanceReview: "verified"
+  - src: "/images/visit-victoria/vv-157359-flinders-golf-course.webp"
+    alt: "Two golfers on a clifftop green at Flinders Golf Course, with Bass Strait and a low headland beyond under late sun"
+    credit: "Gary Lisbon, courtesy of Visit Victoria"
+    license: "visit-victoria"
+    caption: "Flinders Golf Club, Mornington Peninsula"
+    depicts: "Flinders Golf Course"
+    depictionStatus: "actual"
+    creator: "Gary Lisbon"
+    sourceUrl: "Victoria Content Hub asset 157359, downloaded 2026-09-28"
+    permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+    permittedUses:
+      - "website"
+      - "social"
+    rightsHolder: "Visit Victoria"
+    rightsEstablishedOn: "2026-09-29"
+    rightsStatus: "recorded"
+    decorative: false
+    provenanceReview: "verified"
+  - src: "/images/visit-victoria/vv-157369-flinders-golf-course.webp"
+    alt: "Two golfers carrying bags across a fairway at Flinders Golf Course towards the sea, with low sun flaring over the clubhouse"
+    credit: "Gary Lisbon, courtesy of Visit Victoria"
+    license: "visit-victoria"
+    caption: "Flinders Golf Club, Mornington Peninsula"
+    depicts: "Flinders Golf Course"
+    depictionStatus: "actual"
+    creator: "Gary Lisbon"
+    sourceUrl: "Victoria Content Hub asset 157369, downloaded 2026-09-28"
+    permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+    permittedUses:
+      - "website"
+      - "social"
+    rightsHolder: "Visit Victoria"
+    rightsEstablishedOn: "2026-09-29"
+    rightsStatus: "recorded"
+    decorative: false
+    provenanceReview: "verified"
+  - src: "/images/visit-victoria/vv-157333-the-dunes-golf-links-rye.webp"
+    alt: "Aerial view of the clubhouse, accommodation and car park at The Dunes Golf Links, with fairways and greens stretching behind"
+    credit: "Gary Lisbon, courtesy of Visit Victoria"
+    license: "visit-victoria"
+    caption: "The Dunes Golf Links, Rye, Mornington Peninsula"
+    depicts: "The Dunes Golf Links - Rye"
+    depictionStatus: "actual"
+    creator: "Gary Lisbon"
+    sourceUrl: "Victoria Content Hub asset 157333, downloaded 2026-09-28"
+    permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+    permittedUses:
+      - "website"
+      - "social"
+    rightsHolder: "Visit Victoria"
+    rightsEstablishedOn: "2026-09-29"
+    rightsStatus: "recorded"
+    decorative: false
+    provenanceReview: "verified"
+  - src: "/images/visit-victoria/vv-157335-the-dunes-golf-links-rye.webp"
+    alt: "Aerial view of a green ringed by round sand bunkers at The Dunes Golf Links, two golfers putting below modern buildings on the rise"
+    credit: "Gary Lisbon, courtesy of Visit Victoria"
+    license: "visit-victoria"
+    caption: "The Dunes Golf Links, Rye, Mornington Peninsula"
+    depicts: "The Dunes Golf Links - Rye"
+    depictionStatus: "actual"
+    creator: "Gary Lisbon"
+    sourceUrl: "Victoria Content Hub asset 157335, downloaded 2026-09-28"
+    permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+    permittedUses:
+      - "website"
+      - "social"
+    rightsHolder: "Visit Victoria"
+    rightsEstablishedOn: "2026-09-29"
+    rightsStatus: "recorded"
+    decorative: false
+    provenanceReview: "verified"
 ---
 
 Not every respected golf course on the Peninsula is equally useful to a reader. Some are destination rounds you can book. Some are excellent but private. Some are better as part of a stay-and-play weekend than as a standalone mission.
@@ -57,7 +215,7 @@ One of the Peninsula's most respected public-access experiences and still centra
 
 ### Rosebud Country Club
 
-Less architectural mythology than the top pair, but highly relevant because it is practical, playable, and widely used. Three 9-hole courses mix-and-match into 18. Good value for a casual round.
+Less architectural mythology than the top pair, but highly relevant because it is practical, playable, and widely used. The club has two 18-hole courses, North and South, and publishes public booking options. Compare current tee times before choosing a round.
 
 ## Tier 3: Strong rounds, narrower fit
 
@@ -68,7 +226,7 @@ Short, scenic, close to town. Good for a relaxed round between other Peninsula a
 Part of the Cape Schanck Resort. Scenic coastal holes and full resort integration for members and guests.
 
 ### Portsea Golf Club
-Classic Peninsula member's club on the tip. Beautiful setting. Access depends on membership or reciprocal rights.
+Classic Peninsula members' club on the tip. Limited visitor tee times are available on published days, with tighter access from mid-December to early February.
 
 ### Flinders Golf Club
 Compact but scenic. Sits above the southern coast in <a href="/explore/places/flinders/">Flinders</a>. More a local favourite than a destination round.

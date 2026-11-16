@@ -1,0 +1,20 @@
+{
+  "claimId": "quick-notes/2026-05-28-hot-springs-thursday/booking",
+  "claimClass": "booking",
+  "subject": {
+    "type": "quick-notes",
+    "slug": "2026-05-28-hot-springs-thursday",
+    "field": "sources"
+  },
+  "statement": "Peninsula Hot Springs - full weekday programme today, and the weatherproof anchor for the weekend ahead.",
+  "assertedBy": [
+    {
+      "type": "quick-notes",
+      "slug": "2026-05-28-hot-springs-thursday",
+      "field": "sources"
+    }
+  ],
+  "createdAt": "2026-05-28",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

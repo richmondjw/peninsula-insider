@@ -1,0 +1,25 @@
+{
+  "claimId": "venues/montalto/opening-hours",
+  "claimClass": "opening-hours",
+  "subject": {
+    "type": "venues",
+    "slug": "montalto",
+    "field": "visiting.openingHours"
+  },
+  "statement": "The cellar door at Montalto is open seven days, from 11.30am to 4.30pm on weekdays and from 11am to 5pm at weekends.",
+  "assertedBy": [
+    {
+      "type": "venues",
+      "slug": "montalto",
+      "field": "visiting.openingHours"
+    },
+    {
+      "type": "data-facts",
+      "slug": "wine/montalto",
+      "field": "cellarDoorHours"
+    }
+  ],
+  "createdAt": "2026-09-13",
+  "origin": "authored",
+  "note": "Two records in this corpus asserted different hours for the same cellar door. The fact layer already carried the operator's split weekday and weekend hours; the venue record, which is the one that renders and emits openingHours into JSON-LD, carried a flat eleven to five across all seven days. The venue record was corrected to the operator's hours on this branch. Authored by hand for the PI-005 Stage 2 venue pilot. Sources were read on 2026-09-13; see ops/reports/claims/2026-09-13-pilot-venues.md."
+}

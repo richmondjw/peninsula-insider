@@ -1,0 +1,45 @@
+name: Ask PI knowledge refresh
+
+# Keeps Ask PI's knowledge (Supabase concierge_chunks) in step with the site:
+# new and changed pages are embedded with Cohere, retired pages and past
+# events are pruned. Ask PI went five months without a refresh before
+# 12 Nov 2026 because nothing scheduled this. A failed run emails the repo
+# owner (GitHub's default for scheduled workflows).
+
+on:
+  schedule:
+    - cron: '30 16 * * *' # 03:30 Melbourne (AEDT), after the content jobs
+  workflow_dispatch:
+
+concurrency:
+  group: concierge-corpus
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Refresh Ask PI knowledge
+        run: node ops/scripts/refresh-corpus.mjs --prune --report
+        env:
+          SUPABASE_URL: ${{ secrets.CONCIERGE_SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.CONCIERGE_SUPABASE_SERVICE_KEY }}
+          COHERE_API_KEY: ${{ secrets.COHERE_API_KEY }}
+
+      - name: Keep the report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: concierge-corpus-report
+          path: reports/concierge-corpus/
+          retention-days: 30
+          if-no-files-found: ignore

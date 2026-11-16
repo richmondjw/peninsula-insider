@@ -4,6 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import ExperienceCard from '../../components/ExperienceCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import ProvenanceLine from '../../components/ProvenanceLine.astro';
 import {
   buildCollectionPageSchema,
   buildItemListSchema,
@@ -14,15 +15,15 @@ import {
 const experiences = await getCollection('experiences');
 
 const collectionSchema = buildCollectionPageSchema({
-  name: '25 Things to Do on the Mornington Peninsula',
-  description: 'Editorial ranked list of the 25 best things to do on the Mornington Peninsula - beaches, hot springs, walks, golf, markets, food, and more.',
+  name: 'Best Things to Do on the Mornington Peninsula',
+  description: 'Editorial ranked list of the best things to do on the Mornington Peninsula - beaches, hot springs, walks, golf, markets, food, and more.',
   path: '/explore/things-to-do/',
-  dateModified: '2026-04-23',
+  dateModified: '2026-10-04',
 });
 
 const itemListSchema = buildItemListSchema({
-  name: '25 Things to Do on the Mornington Peninsula',
-  description: 'Editorial ranked list of the 25 best things to do on the Mornington Peninsula.',
+  name: 'Best Things to Do on the Mornington Peninsula',
+  description: 'Editorial ranked list of the best things to do on the Mornington Peninsula.',
   listPath: '/explore/things-to-do',
   items: [
     { name: 'Peninsula Hot Springs', path: '/explore/hot-springs/', itemType: 'TouristAttraction', addressLocality: 'Fingal' },
@@ -30,19 +31,19 @@ const itemListSchema = buildItemListSchema({
     { name: 'Two Bays Walking Track', path: '/explore/two-bays-walking-track/', itemType: 'TouristAttraction', addressLocality: 'Dromana' },
     { name: 'Winery lunch in Red Hill or Main Ridge', path: '/wine/red-hill/', itemType: 'TouristAttraction', addressLocality: 'Red Hill' },
     { name: 'Arthurs Seat Eagle gondola', path: '/explore/arthurs-seat-lookout/', itemType: 'TouristAttraction', addressLocality: 'Arthurs Seat' },
-    { name: 'Golf at Moonah Links or The National', path: '/explore/golf/', itemType: 'GolfCourse', addressLocality: 'Cape Schanck' },
+    { name: 'Golf at Moonah Links', path: '/explore/moonah-links/', itemType: 'GolfCourse', addressLocality: 'Fingal' },
     { name: 'Cape Schanck boardwalk', path: '/explore/cape-schanck-boardwalk/', itemType: 'TouristAttraction', addressLocality: 'Cape Schanck' },
     { name: 'Bushrangers Bay walk', path: '/explore/bushrangers-bay-walk/', itemType: 'TouristAttraction', addressLocality: 'Cape Schanck' },
     { name: 'Point Nepean National Park', path: '/explore/point-nepean-national-park/', itemType: 'TouristAttraction', addressLocality: 'Portsea' },
-    { name: 'Alba Thermal Springs', path: '/explore/spas-and-wellness/#alba-thermal-springs', itemType: 'TouristAttraction', addressLocality: 'Rye' },
+    { name: 'Alba Thermal Springs', path: '/explore/spas-and-wellness/#alba-thermal-springs', itemType: 'TouristAttraction', addressLocality: 'Fingal' },
     { name: 'Ashcombe Maze and Lavender Gardens', path: '/explore/ashcombe-maze/', itemType: 'TouristAttraction', addressLocality: 'Shoreham' },
-    { name: 'Red Hill Community Market', path: '/eat/red-hill-market/', itemType: 'TouristAttraction', addressLocality: 'Red Hill' },
+    { name: 'Hill and Ridge Community Market', path: '/whats-on/hill-ridge-community-market-september-2026-restart/', itemType: 'TouristAttraction', addressLocality: 'Red Hill' },
     { name: 'Swimming at Balnarring or Mount Martha', path: '/explore/beaches/', itemType: 'Beach', addressLocality: 'Balnarring' },
     { name: 'Mornington foreshore walk and town', path: '/explore/mornington-foreshore-walk/', itemType: 'TouristAttraction', addressLocality: 'Mornington' },
     { name: 'A spa day', path: '/explore/spas-and-wellness/', itemType: 'TouristAttraction', addressLocality: 'Mornington Peninsula' },
     { name: 'Portsea Front Beach and Hotel', path: '/explore/portsea-front-beach/', itemType: 'Beach', addressLocality: 'Portsea' },
     { name: 'Safety Beach foreshore', path: '/explore/safety-beach-foreshore/', itemType: 'Beach', addressLocality: 'Safety Beach' },
-    { name: 'Balnarring Market', path: '/explore/markets/', itemType: 'TouristAttraction', addressLocality: 'Balnarring' },
+    { name: 'Rye Foreshore Market', path: '/eat/rye-beachside-market/', itemType: 'TouristAttraction', addressLocality: 'Rye' },
     { name: 'Rye Ocean Beach', path: '/explore/rye-ocean-beach/', itemType: 'Beach', addressLocality: 'Rye' },
     { name: 'Mornington Peninsula National Park coastal walk', path: '/explore/walks/', itemType: 'TouristAttraction', addressLocality: 'Mornington Peninsula' },
     { name: 'Wine tasting in Merricks and Main Ridge', path: '/wine/main-ridge/', itemType: 'TouristAttraction', addressLocality: 'Main Ridge' },
@@ -60,7 +61,7 @@ const faqSchema = buildFaqSchema([
   },
   {
     q: 'What can you do on the Mornington Peninsula for free?',
-    a: 'Most beaches are free. The national park foreshore walks are largely free. Cape Schanck boardwalk is free; the lighthouse precinct charges an entry fee.',
+    a: 'Most beaches are free. The national park foreshore walks are largely free, and Cape Schanck reserve and boardwalk have no vehicle entry fee. Separately operated tours or experiences may be ticketed.',
   },
   {
     q: 'What are the best things to do on a rainy day on the Mornington Peninsula?',
@@ -91,8 +92,8 @@ export const prerender = true;
 ---
 
 <BaseLayout
-  title="25 Things to Do on the Mornington Peninsula · Peninsula Insider"
-  description="Editorial ranked list of the 25 best things to do on the Mornington Peninsula - beaches, hot springs, coastal walks, golf, markets, winery lunches, and more."
+  title="Best Things to Do on the Mornington Peninsula · Peninsula Insider"
+  description="Editorial ranked list of the best things to do on the Mornington Peninsula - beaches, hot springs, coastal walks, golf, markets, winery lunches, and more."
   section="explore"
   canonical="https://peninsulainsider.com.au/explore/things-to-do/"
 >
@@ -104,7 +105,7 @@ export const prerender = true;
 
   <article class="article">
     <div class="container">
-      <h1 class="article__title">Things to Do on the Mornington Peninsula</h1>
+      <h1 class="article__title">Best Things to Do on the Mornington Peninsula</h1>
 
       <div class="prose">
         <blockquote>
@@ -118,7 +119,7 @@ export const prerender = true;
           </ul>
         </blockquote>
 
-        <p>The Mornington Peninsula, Victoria, Australia sits at the southern rim of Port Phillip Bay - roughly 60–110 km from Melbourne depending where you're headed. It's narrow enough that the bay side and the ocean side are sometimes five minutes apart by car. That geographic compression is what makes it work: a single day can include a bay swim in the morning, a winery lunch at noon, and a thermal soak by late afternoon. This page ranks the 25 best things to do in editorial order - meaning what's most worth your time, not what's most famous.</p>
+        <p>The Mornington Peninsula, Victoria, Australia sits at the southern rim of Port Phillip Bay - roughly 60–110 km from Melbourne depending where you're headed. It's narrow enough that the bay side and the ocean side are sometimes five minutes apart by car. That geographic compression is what makes it work: a single day can include a bay swim in the morning, a winery lunch at noon, and a thermal soak by late afternoon. This page ranks the best things to do in editorial order - meaning what's most worth your time, not what's most famous.</p>
       </div>
     </div>
   </article>
@@ -126,7 +127,7 @@ export const prerender = true;
   <section class="article">
     <div class="container">
       <div class="prose">
-        <h2>The 25 best things to do</h2>
+        <h2>The best things to do</h2>
 
         <h3>1. Peninsula Hot Springs</h3>
         <p>The thermal springs complex at Fingal, the peninsula's most visited paid attraction. More than 60 bathing experiences across a hillside site. Book well ahead for peak weekends - same-day availability in summer is rare. Full guide at <a href="/explore/hot-springs/">Peninsula Hot Springs and Alba</a>.</p>
@@ -148,12 +149,12 @@ export const prerender = true;
         <p><a href="/explore/arthurs-seat-lookout/">Arthurs Seat Eagle</a> climbs 305 metres from Dromana to the summit of Arthurs Seat with 360-degree views over both bay and ocean. 15 minutes each way. Read the full <a href="/journal/arthurs-seat-eagle-visitor-guide/">Arthurs Seat Eagle visitor guide</a> before you go.</p>
         <p><em>Best for:</em> Families, first-timers, anyone who wants the orientating aerial view.</p>
 
-        <h3>6. Golf at Moonah Links or The National</h3>
-        <p>Moonah Links and The National are the Peninsula's two marquee public-access courses, side by side at Cape Schanck. Moonah Links (Open and Legends courses) has the better ocean views and is more accessible for mid-handicap players. The National ranks among Australia's top courses but is expensive and exposed. Full ranking at <a href="/explore/golf/">the Peninsula's golf courses</a>.</p>
-        <p><em>Best for:</em> Golfers with a mid-to-low handicap; anyone wanting a bucket-list round.</p>
+        <h3>6. Golf at Moonah Links</h3>
+        <p><a href="/explore/moonah-links/">Moonah Links</a> in Fingal has two bookable resort courses, the Open and Legends. The National is a separate private club at Cape Schanck: Victorian nonmembers need an invitation and must play with a member, while interstate and overseas visitors may request a tee time. Check the <a href="https://www.moonahlinks.com.au/cms/golf/book-golf/">Moonah Links bookings</a> and <a href="https://nationalgolf.com.au/visitors/">The National visitor rules</a> before planning a round. Compare courses in <a href="/explore/golf/">the Peninsula's golf courses</a>.</p>
+        <p><em>Best for:</em> Golfers planning a bookable resort round or a stay-and-play weekend.</p>
 
         <h3>7. Cape Schanck boardwalk</h3>
-        <p><a href="/explore/cape-schanck-boardwalk/">Cape Schanck boardwalk</a> drops from the <a href="/explore/cape-schanck-lighthouse-walk/">Cape Schanck lighthouse</a> to a wave-cut platform with blowholes and basalt columns. Twenty minutes each way from the car park. Parks Victoria entry fee applies for the lighthouse precinct. Free to walk the boardwalk itself.</p>
+        <p><a href="/explore/cape-schanck-boardwalk/">Cape Schanck boardwalk</a> drops from the <a href="/explore/cape-schanck-lighthouse-walk/">Cape Schanck lighthouse</a> to a wave-cut platform with blowholes and basalt columns. Twenty minutes each way from the car park. Vehicle entry and the boardwalk are free; check Parks Victoria for changed conditions.</p>
         <p><em>Best for:</em> Families, quick walkers, anyone wanting coastal drama with minimal effort.</p>
 
         <h3>8. Bushrangers Bay walk</h3>
@@ -161,7 +162,7 @@ export const prerender = true;
         <p><em>Best for:</em> Walkers who want somewhere genuinely quiet.</p>
 
         <h3>9. Point Nepean National Park</h3>
-        <p><a href="/explore/point-nepean-national-park/">Point Nepean National Park</a> covers the peninsula's western tip - a former quarantine station and military base, now open as a national park. The <a href="/explore/point-nepean-fort-walk/">Point Nepean fort walk</a> is the main circuit. Requires a Parks Victoria entry fee; book ahead in summer.</p>
+        <p><a href="/explore/point-nepean-national-park/">Point Nepean National Park</a> covers the peninsula's western tip - a former quarantine station and military base, now open as a national park. The <a href="/explore/point-nepean-fort-walk/">Point Nepean fort walk</a> is the main circuit. Park entry is free; the optional shuttle is ticketed.</p>
         <p><em>Best for:</em> History, coastal walking, end-of-land drama.</p>
 
         <h3>10. Alba Thermal Springs</h3>
@@ -172,8 +173,8 @@ export const prerender = true;
         <p>Ashcombe Maze at Shoreham - a hedge maze surrounded by lavender gardens, open year-round. One of the Peninsula's most photogenic stops and more engaging than it sounds.</p>
         <p><em>Best for:</em> Families, garden enthusiasts, photographers.</p>
 
-        <h3>12. Red Hill Community Market</h3>
-        <p><a href="/eat/red-hill-market/">Red Hill Market</a> runs on the first Saturday of each month at Red Hill Showgrounds. The best of the Peninsula's markets for produce, local craft, and prepared food. Arrive before 9am in summer. Full comparison at <a href="/explore/markets/">Peninsula markets</a>.</p>
+        <h3>12. Hill &amp; Ridge Community Market</h3>
+        <p><a href="/whats-on/hill-ridge-community-market-september-2026-restart/">Hill &amp; Ridge Community Market</a> runs at Red Hill Recreation Reserve on first Saturdays from September to May, 9am to 2pm. Check the organiser for weather cancellations. The original Red Hill Community Market is closed. Full comparison at <a href="/explore/markets/">Peninsula markets</a>.</p>
         <p><em>Best for:</em> A hinterland Saturday morning anchor.</p>
 
         <h3>13. Swimming at Balnarring or Mount Martha</h3>
@@ -196,9 +197,9 @@ export const prerender = true;
         <p>Safety Beach foreshore is a long bay-side beach near Dromana with calm water and strong birdwatching opportunities. Less touristed than Sorrento or Portsea.</p>
         <p><em>Best for:</em> Families, early-morning walkers, those staying in the Dromana corridor.</p>
 
-        <h3>18. Balnarring Market</h3>
-        <p>Balnarring Farmers Market runs on the third Saturday of each month. Smaller than Red Hill Market, more food-producer focused, less crafts. Full calendar at <a href="/explore/markets/">Peninsula markets</a>.</p>
-        <p><em>Best for:</em> Food-focused market visitors.</p>
+        <h3>18. Rye Foreshore Market</h3>
+        <p>The Shire lists Rye Foreshore Market for the first Saturday of each month, 8.30am–2pm. Check its <a href="/eat/rye-beachside-market/">market guide</a> and the Shire source before travelling.</p>
+        <p><em>Best for:</em> A bayside market morning.</p>
 
         <h3>19. Rye Ocean Beach</h3>
         <p>Rye Ocean Beach is accessible and has surf life-saving patrol in season, making it the easiest of the ocean beaches to reach from the Peninsula's mid-section. Less dramatic than Sorrento Back Beach but more swimmer-appropriate when conditions allow.</p>
@@ -238,24 +239,12 @@ export const prerender = true;
           <li><a href="/journal/mornington-peninsula-with-kids/">With-kids guide</a> - child-tested by category</li>
         </ul>
 
-        <p><em>Last fact-verified 23 April 2026</em></p>
+        <ProvenanceLine records={experiences} type="experiences" noun="entry" emphasis />
 
         <h2>FAQ</h2>
-
-        <h3>What is the single most popular thing to do on the Mornington Peninsula?</h3>
-        <p>Peninsula Hot Springs at Fingal. It is consistently the Peninsula's highest-demand paid experience and requires advance booking, particularly on weekends.</p>
-
-        <h3>What can you do on the Mornington Peninsula for free?</h3>
-        <p>Most beaches are free. The national park foreshore walks are largely free. Cape Schanck boardwalk is free; the lighthouse precinct charges an entry fee. See the full <a href="/journal/free-things-to-do-mornington-peninsula/">free Peninsula guide</a>.</p>
-
-        <h3>What are the best things to do on a rainy day on the Mornington Peninsula?</h3>
-        <p>Hot springs (Peninsula Hot Springs and Alba both operate in all weather), spa days, cellar-door lunches, and galleries. See <a href="/explore/rainy-day/">rainy-day plans</a> for a full list.</p>
-
-        <h3>What's the best thing to do on the Mornington Peninsula with kids?</h3>
-        <p>Arthurs Seat Eagle for the gondola, Ashcombe Maze for engagement, and Balnarring Beach or Safety Beach for easy swimming. See the <a href="/journal/mornington-peninsula-with-kids/">with-kids guide</a>.</p>
-
-        <h3>Where should I base myself on the Mornington Peninsula?</h3>
-        <p>Sorrento and Red Hill are the two strongest bases for different kinds of trips. Sorrento suits beach-focused visitors; Red Hill suits hinterland-focused visits. See <a href="/stay/best-accommodation/">where to base yourself</a>.</p>
+        {faqSchema.mainEntity.map((item) => (
+          <><h3>{item.name}</h3><p>{item.acceptedAnswer.text}</p></>
+        ))}
       </div>
     </div>
   </section>

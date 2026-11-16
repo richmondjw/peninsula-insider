@@ -50,6 +50,17 @@ export interface ResolvedHero {
    * never specified one.
    */
   hasPhoto: boolean;
+  /**
+   * True when the CONTENT record marks the image purely decorative, so the
+   * surface must render `alt=""` and `role="presentation"`.
+   *
+   * Always false when a CMS override is in play: the override is a different
+   * file that the content record says nothing about, and inheriting "this is
+   * decorative" onto a photograph nobody has assessed would hide a possibly
+   * informative image from every screen-reader user, silently. Same reasoning
+   * as `heroProvenance` in the detail templates.
+   */
+  decorative: boolean;
   /** The raw published override row, if any. */
   override: CmsOverrideImage | undefined;
 }
@@ -59,20 +70,47 @@ export async function resolveHero(
   slug: string,
   data: any,
   fieldPath: string = 'heroImage',
+  options: { requireOverrideMetadata?: boolean; ignoreOverride?: boolean } = {},
 ): Promise<ResolvedHero> {
-  const images = (await loadOverrides(entityType, slug)).image;
+  // Published event slots do not carry the rights and depiction record required
+  // for public event imagery. Promote approved media into the event record so
+  // every surface uses the image, description and attribution reviewed together.
+  const sourceOnly = options.ignoreOverride || entityType === 'event';
+  const images = sourceOnly ? {} : (await loadOverrides(entityType, slug)).image;
   // Honour the requested key first, then tolerate the other common key so
   // an override saved from any surface for this entity is always applied.
-  const override =
+  const candidateOverride =
     images[fieldPath] ?? images.hero ?? images.heroImage ?? undefined;
+  // Where a page has a verified fallback, an upload without both its own alt
+  // and credit must not displace it. The fallback's metadata cannot describe
+  // the different uploaded photograph.
+  const override = options.requireOverrideMetadata &&
+    (!candidateOverride?.alt?.trim() || !candidateOverride?.credit?.trim())
+      ? undefined
+      : candidateOverride;
 
   const src = override?.src ?? resolveHeroSrc(data);
-  const alt =
-    override?.alt ??
-    data?.heroImage?.alt ??
-    data?.name ??
-    data?.title ??
-    '';
+  const decorative = !override && data?.heroImage?.decorative === true;
+  // A decorative image keeps its empty alt. The name/title fallback below is
+  // for a record that simply forgot to write alt text; applying it to an
+  // image deliberately marked decorative would re-label a stand-in
+  // photograph with the entity's own name, which is the claim the mark
+  // exists to withdraw.
+  const name = data?.name ?? data?.title ?? '';
+  // A published override is a DIFFERENT photograph, and the content record
+  // says nothing about it. Falling through to `data.heroImage.alt` here
+  // described the uploaded image with the alt text of the file it replaced -
+  // which read as harmless while the corpus alt was vague, and reads as a
+  // confident lie now that it is a real description ('bunches of white wine
+  // grapes on the vine' over an operator's photograph of their own bar).
+  // Same reasoning as `heroProvenance` in the detail templates: one image's
+  // record may not stand in for another's. The entity name is a neutral
+  // label, not a claim about what is in the frame.
+  const alt = override
+    ? override.alt ?? name
+    : decorative
+      ? ''
+      : data?.heroImage?.alt ?? name;
   const style = override?.src
     ? `background-image: url(${override.src}); background-size: cover; background-position: center;`
     : heroBackgroundStyle(data);
@@ -82,6 +120,7 @@ export async function resolveHero(
     alt,
     style,
     hasPhoto: Boolean(override) || hasOwnHeroImage(data),
+    decorative,
     override,
   };
 }

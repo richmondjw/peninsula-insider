@@ -1,11 +1,11 @@
 {
-  "_comment": "Partner slot on /whats-on/. Single card between Signature and Seasonal sections. Set enabled to true and fill the fields to ship. Renders nothing when enabled is false. Labelling is mandatory (never an unlabelled commercial slot - see project_pi_advertising_pivot memory note).",
+  "_comment": "Partner slot on /whats-on/. Single card between Signature and Seasonal sections. Set enabled to true and fill the fields to ship. Renders nothing when enabled is false. Labelling is mandatory and, since PI-021, enforced: PartnerSlot.astro refuses to build an enabled slot whose label does not read as a paid disclosure. The destination is named sponsoredUrl, not url, so scripts/audit-commercial-firewall.mjs can see that this surface is commercial - see project_pi_advertising_pivot memory note.",
   "enabled": false,
-  "label": "Partner",
+  "label": "Sponsored",
   "title": "",
   "dek": "",
   "image": "",
   "imageAlt": "",
-  "url": "",
+  "sponsoredUrl": "",
   "cta": "Learn more"
 }

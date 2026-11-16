@@ -1,0 +1,78 @@
+---
+/**
+ * AskLine - the one Ask PI hand-off used across the site (2026-11-12).
+ *
+ * A quiet section: a short heading, one line of help, and a single field
+ * that posts to /ask/?q= (a plain GET form, so it works without scripts).
+ * No pills, no avatar, no floating button. Use once per page, at a natural
+ * "still deciding" moment: the foot of a hub, an empty filter, a 404.
+ *
+ *   <AskLine dek="Tell PI who's coming and what you feel like." placeholder="A long lunch with kids near Red Hill" />
+ */
+import { SHOW_ASK_PI } from '../../lib/features';
+
+interface Props {
+  title?: string;
+  dek?: string;
+  placeholder?: string;
+  id?: string;
+}
+
+const {
+  title = 'Still deciding? Ask PI',
+  dek = 'Ask a question and PI answers from our own reviews and guides.',
+  placeholder = 'A long lunch or a rainy day',
+  id = 'ask-line',
+} = Astro.props;
+---
+
+{SHOW_ASK_PI && (
+  <section class="ask-line" aria-labelledby={`${id}-title`} data-pagefind-ignore>
+    <div class="container ask-line__inner">
+      <h2 class="ask-line__title" id={`${id}-title`}>{title}</h2>
+      <p class="ask-line__dek">{dek}</p>
+      <form class="ask-line__form" action="/ask/" method="get" role="search" aria-label="Ask PI">
+        <label class="ask-line__label" for={`${id}-q`}>Your question</label>
+        <input id={`${id}-q`} name="q" type="text" required minlength="3" maxlength="500" autocomplete="off" enterkeyhint="send" placeholder={placeholder} />
+        <button type="submit" class="ask-line__go">Ask <span aria-hidden="true">→</span></button>
+      </form>
+    </div>
+  </section>
+)}
+
+<style>
+  .ask-line { padding: var(--space-8) 0; }
+  .ask-line__inner { max-width: 46rem; }
+  .ask-line__title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: var(--fw-display);
+    font-size: var(--fs-600);
+    line-height: var(--lh-heading);
+    letter-spacing: var(--ls-display);
+    color: var(--text);
+  }
+  .ask-line__dek { margin: var(--space-2) 0 var(--space-4); color: var(--soft); font: 400 var(--fs-400)/var(--lh-body) var(--font-ui); }
+  .ask-line__form {
+    display: flex; align-items: center;
+    background: var(--white); border: 1px solid var(--border-control); border-radius: var(--radius-s);
+  }
+  .ask-line__form:focus-within { outline: 3px solid var(--accent); outline-offset: 3px; }
+  .ask-line__label { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .ask-line__form input {
+    flex: 1 1 auto; min-width: 0; min-height: 52px; padding: 0 var(--space-4);
+    background: transparent; border: 0; color: var(--text); font: 400 var(--fs-400)/1.4 var(--font-ui);
+  }
+  .ask-line__form input:focus { outline: none; }
+  .ask-line__form input::placeholder { color: var(--soft); }
+  .ask-line__go {
+    flex: none; display: inline-flex; align-items: center; gap: .4em; min-height: 52px; padding: 0 var(--space-4);
+    background: transparent; border: 0; color: var(--accent); cursor: pointer;
+    font: 600 var(--fs-400)/1 var(--font-ui);
+  }
+  .ask-line__go:hover { text-decoration: underline; text-underline-offset: .2em; }
+  @media (max-width: 47.99em) {
+    .ask-line { padding: var(--space-7) 0; }
+    .ask-line__title { font-size: var(--fs-500); }
+  }
+</style>

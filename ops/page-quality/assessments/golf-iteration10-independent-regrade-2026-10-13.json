@@ -1,0 +1,36 @@
+{
+  "url": "https://peninsulainsider.com.au/explore/golf/",
+  "tier": "T1",
+  "assessedAt": "2026-10-13",
+  "liveRevision": "46f8182043ed53d1850e0900a25f07c946d2520a",
+  "liveRunId": "38309574458",
+  "programme": "peninsula-insider-page-quality-to-99",
+  "independentScores": [84.75, 86.75, 83.25],
+  "acceptedConservativeScore": 83.25,
+  "scoreStatus": "provisional",
+  "thresholdMet": false,
+  "hardGateObserved": false,
+  "evidence": {
+    "mobileHeight390Px": 18146,
+    "throttledMobileLcpSeconds": [4.128, 4.156, 4.168],
+    "heroTransferBytes": 283000,
+    "horizontalOverflow": false,
+    "keyboardJourneys": "menu, gallery, FAQ and invalid newsletter recovery passed",
+    "factualSampling": "four direct club sources corroborated; full eleven-venue refresh remains open"
+  },
+  "triage": [
+    "serve a responsive GuideHero image instead of the 2000px source on mobile",
+    "replace the cryptic oversized Nearby and Check pseudo-statistics with a clear planning checklist",
+    "increase sub-11px GuideHero and Golf access labels",
+    "move or add a compact linked selector before the long venue-card sequence",
+    "complete direct screen-reader, field Core Web Vitals and all-venue factual and image-rights acceptance"
+  ],
+  "boundedIteration10": {
+    "implemented": [
+      "GuideHero opts into the existing responsive-image build pipeline with explicit sizes",
+      "planning pseudo-statistics are replaced by a semantic, readable checklist",
+      "GuideHero meta and Golf access badges are raised to a 12px minimum"
+    ],
+    "verificationStatus": "full production build passed; built HTML has 480/800/1280/1920 responsive sources and explicit sizes; 390x844 DPR2 browser check selected the 800 source at a 358px rendered width, found no horizontal overflow or console errors, retained 12px labels, rendered the checklist and removed the old pseudo-stat panel; cold local throttled LCP was 1.492s, with live merge and production verification still pending"
+  }
+}

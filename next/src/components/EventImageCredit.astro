@@ -1,0 +1,62 @@
+---
+import { publicImageSourceUrl } from '../lib/image-source-url.mjs';
+import { cleanCaption, isArtwork } from '../lib/image-caption.mjs';
+/** Attribution for an event image with recorded provenance. */
+export interface Props {
+  image?: any;
+  compact?: boolean;
+}
+
+const { image, compact = false } = Astro.props;
+const sourceUrl = publicImageSourceUrl(image?.sourceUrl);
+const recorded = image?.rightsStatus === 'recorded';
+// Caption rule (lib/image-caption.mjs): artwork prints nothing; a photograph
+// of a real place prints that place, then its source.
+const artwork = isArtwork(image);
+const place = artwork ? '' : cleanCaption(image?.caption);
+const licence = String(image?.permission ?? '');
+const licenceLabel = licence.includes('Attribution-ShareAlike 4.0')
+  ? 'CC BY-SA 4.0'
+  : licence.includes('Attribution 3.0')
+    ? 'CC BY 3.0'
+    : licence.includes('Attribution 2.0')
+      ? 'CC BY 2.0'
+      : null;
+const licenceUrl = licenceLabel === 'CC BY-SA 4.0'
+  ? 'https://creativecommons.org/licenses/by-sa/4.0/'
+  : licenceLabel === 'CC BY 3.0'
+    ? 'https://creativecommons.org/licenses/by/3.0/'
+    : licenceLabel === 'CC BY 2.0'
+    ? 'https://creativecommons.org/licenses/by/2.0/'
+    : null;
+---
+
+{recorded && !artwork && (
+  <p class:list={['event-image-credit', compact && 'event-image-credit--compact']}>
+    {(
+      <>
+        {place && <span>{place}</span>}
+        <span>Photo · {image.creator ?? image.credit}</span>
+        {licenceLabel && licenceUrl && <a href={licenceUrl} target="_blank" rel="noopener noreferrer">{licenceLabel}</a>}
+        {sourceUrl && <a href={sourceUrl} target="_blank" rel="noopener noreferrer">Image source</a>}
+        {image.adaptationNote && <span>{image.adaptationNote}</span>}
+      </>
+    )}
+  </p>
+)}
+
+<style>
+  .event-image-credit {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 0.75rem;
+    align-items: center;
+    margin: 0;
+    padding: 0.65rem 0;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: var(--soft);
+  }
+  .event-image-credit a { color: var(--dark); text-underline-offset: 0.18em; min-height: 28px; display: inline-flex; align-items: center; }
+  .event-image-credit--compact { padding: 0.3rem 1.6rem 0; font-size: 0.72rem; }
+</style>

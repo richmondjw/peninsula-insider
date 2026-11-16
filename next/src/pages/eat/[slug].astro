@@ -1,12 +1,15 @@
 ---
+import { eventPromotionEntries } from '../../lib/event-discovery.mjs';
+import { schemaImage } from '../../lib/photo-set';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import VenueDetailTemplate from '../../components/VenueDetailTemplate.astro';
 import EventStrip from '../../components/EventStrip.astro';
 import Redirect from '../../components/Redirect.astro';
-import { routeSlug, typeLabel, titleize, isUpcoming, placeLabel } from '../../lib/editorial';
+import { routeSlug, typeLabel, titleize, isUpcoming, placeLabel, isListableVenue } from '../../lib/editorial';
 import { buildKnownForProperties, buildBreadcrumbSchema, absUrl } from '../../lib/schema';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
+import { hasWebsitePhotoEvidence } from '../../lib/media-provenance';
 
 export async function getStaticPaths() {
   const STATIC_EAT_OVERRIDES = new Set(['barmah-park-vineyard', 'port-phillip-estate-restaurant']);
@@ -29,7 +32,7 @@ const slug = routeSlug(venue);
 const allVenues = await getCollection('venues');
 const related = allVenues
   .filter((entry) => routeSlug(entry) !== slug)
-  .filter((entry) => entry.data.status !== 'permanently_closed')
+  .filter(isListableVenue)
   .filter((entry) => eatTypes.includes(entry.data.type))
   .filter((entry) => String(entry.data.place?.id ?? entry.data.place) === String(venue.data.place?.id ?? venue.data.place))
   .slice(0, 3);
@@ -51,14 +54,9 @@ const itineraries = (await getCollection('itineraries'))
 // Events at this venue: only render the strip when at least one event has
 // a clean venue ref pointing at this venue. Renders nothing for venues
 // that exist only as dining destinations (no event programme).
-const venueEvents = (await getCollection('events'))
-  .filter((event) => String(event.data.venue?.id ?? event.data.venue ?? '') === slug)
-  .filter((event) => {
-    if (['weekly', 'monthly', 'ongoing'].includes(event.data.recurrence)) return true;
-    return isUpcoming(event.data.endDate ?? event.data.startDate);
-  })
-  .sort((a, b) => (b.data.visitorAppealScore ?? 0) - (a.data.visitorAppealScore ?? 0))
-  .slice(0, 3);
+const venueEvents = eventPromotionEntries((await getCollection('events'))
+  .sort((a, b) => (b.data.visitorAppealScore ?? 0) - (a.data.visitorAppealScore ?? 0)),
+  {now: new Date(), venueId: slug, limit: 3});
 
 const venuePlaceName = titleize(String(venue.data.place?.id ?? venue.data.place ?? ''));
 const venueTypeLabel = typeLabel[venue.data.type] ?? titleize(venue.data.type);
@@ -83,12 +81,18 @@ const description = sigDesc.length >= 90 ? sigDesc : (editorLead || sigDesc).sli
 // than ~130 KB. Asserted at 0 by scripts/audit-link-graph.mjs.
 // Prior context: pre-fix data showed kerri-greens, polperro and others indexed at
 // both URLs. See ops/reports/seo/experiments.md experiment 2026-05-05-03.
-const isWineryAlias = venue.data.type === 'winery';
+// Producers live under /wine/. Their /eat/ alias exists for the food side of the
+// visit but rendered the same page under a second URL with the same title
+// (six brewery pairs in the 2026-09-21 audit), so every producer type now
+// consolidates the way wineries already did.
+const PRODUCER_TYPES = ['winery', 'brewery', 'distillery', 'producer'];
+const isWineryAlias = PRODUCER_TYPES.includes(venue.data.type);
 const canonical = isWineryAlias
   ? `https://peninsulainsider.com.au/wine/${slug}/`
   : `https://peninsulainsider.com.au/eat/${slug}/`;
-const hero = await resolveHero('venue', slug, venue.data);
-const ogImage = hero.src;
+const hero = await resolveHero('venue', slug, venue.data, 'heroImage', { ignoreOverride: true });
+const approvedHero = hasWebsitePhotoEvidence(venue.data.heroImage);
+const ogImage = approvedHero ? hero.src : schemaImage(venue.data).image?.[0];
 
 // JSON-LD: map venue type to schema.org type
 const schemaTypeMap: Record<string, string> = {
@@ -107,7 +111,7 @@ const placeId = venue.data.place?.id ?? venue.data.place;
 const breadcrumbSchema = buildBreadcrumbSchema([
   { name: 'Home', url: absUrl('/') },
   { name: 'Eat & Drink', url: absUrl('/eat/') },
-  { name: placeLabel(venue.data.place), url: absUrl(`/explore/places/${placeId}/`) },
+  ...(isListableVenue(venue) ? [{ name: placeLabel(venue.data.place), url: absUrl(`/explore/places/${placeId}/`) }] : []),
   { name: venue.data.name, url: canonical },
 ]);
 
@@ -117,17 +121,18 @@ const venueSchema = {
   '@id': `${canonical}#${schemaType}`,
   name: venue.data.name,
   description: venue.data.signature,
+  ...schemaImage(venue.data),
   address: {
     '@type': 'PostalAddress',
     streetAddress: venue.data.address,
     addressRegion: 'VIC',
     addressCountry: 'AU',
   },
-  geo: {
+  ...(venue.data.coordinates ? { geo: {
     '@type': 'GeoCoordinates',
-    latitude: venue.data.coordinates?.lat,
-    longitude: venue.data.coordinates?.lng,
-  },
+    latitude: venue.data.coordinates.lat,
+    longitude: venue.data.coordinates.lng,
+  } } : {}),
   ...(venue.data.website ? { url: venue.data.website } : {}),
   ...(venue.data.phone ? { telephone: venue.data.phone } : {}),
   ...(placeId
@@ -150,19 +155,20 @@ export const prerender = true;
   <Redirect to={`/wine/${slug}/`} consolidate />
 ) : (
 <BaseLayout
-  title={`${venue.data.name}, ${venuePlaceName} · Peninsula Insider`}
+  title={venue.data.status === "paused" ? `${venue.data.name}: listing paused · Peninsula Insider` : `${venue.data.name}, ${venuePlaceName} · Peninsula Insider`}
   description={description}
   section="eat"
   canonical={canonical}
   ogImage={ogImage}
   searchImage={ogImage}
-  noindex={venue.data.sitemapExclude === true}
+  suppressImageMeta={!ogImage}
+  noindex={venue.data.sitemapExclude === true || venue.data.status === 'paused'}
 >
-  <script type="application/ld+json" set:html={JSON.stringify(venueSchema)} />
+  {venue.data.status !== 'paused' && <script type="application/ld+json" set:html={JSON.stringify(venueSchema)} />}
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <VenueDetailTemplate venue={venue} section="eat" related={related} articles={articles} itineraries={itineraries} />
 
-  <EventStrip
+  {isListableVenue(venue) && <EventStrip
     events={venueEvents}
     eyebrow="On the calendar here"
     heading={`${venue.data.name} is also a real event venue`}
@@ -170,6 +176,6 @@ export const prerender = true;
     moreHref="/whats-on/"
     moreLabel="All events"
     variant="alt"
-  />
+  />}
 </BaseLayout>
 )}

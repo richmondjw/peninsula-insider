@@ -1,0 +1,134 @@
+name: Migration Liveness — do the tables the code needs actually exist?
+
+# PI-017. The companion to assert:migration-ledger, and deliberately its
+# opposite in every respect that matters.
+#
+# The gate in content-gate.yml is offline and deterministic: it fails when a
+# migration has no recorded state, which can only happen because somebody
+# changed this repository. It blocks a merge, and it is safe to block a merge
+# because nothing outside the repository can flip it.
+#
+# THIS workflow asks the live question — is pi.venue_claims actually there? —
+# and that answer is a property of a remote service at a moment in time. It can
+# go from PASS to FAIL with nobody having written a line of code.
+#
+# So it is NOT in the pull-request path, and must never be moved into it.
+#
+#   - it has no `pull_request:` trigger and no `push:` trigger
+#   - nothing in content-gate.yml or build-and-deploy.yml calls it
+#   - a failure here opens an alert; it does not fail anyone's branch
+#
+# The reason is not squeamishness. A check that goes red at 3am because Supabase
+# had a bad night, on a branch that did not touch the database, teaches everyone
+# to merge through a red tick — and the next real failure gets merged through
+# too. This repository has already deleted two checks this week for exactly that
+# property: a test asserting zero collisions among 2000 random draws, which
+# failed a pull request that did not touch it, and a test pinned to a literal
+# date, which failed the morning after the evidence behind it was gathered. A
+# live network probe is the same defect with a wider blast radius, because the
+# thing that flips it is not even inside the building.
+#
+# What it costs to draw the line here: a missing table is found within a day
+# rather than at the moment of merge. What it buys: when this workflow is red,
+# it means something. pi.venue_claims was missing for 127 days. A day is not the
+# constraint that was hurting.
+
+on:
+  schedule:
+    # 20:15 UTC — 06:15 AEST / 07:15 AEDT, so a finding is on the desk at the
+    # start of the working day rather than competing with the 14:10 rebuild.
+    - cron: '15 20 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: migration-liveness
+  cancel-in-progress: true
+
+jobs:
+  probe:
+    name: Probe the live endpoint for every table the code names
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Probe
+        id: probe
+        # Read-only: GET with limit=0, so no row is ever returned, and the
+        # publishable key only — the same key already baked into the deployed
+        # bundle and handed to every visitor's browser. The script refuses a
+        # service key outright. PUBLIC_SUPABASE_* are optional here; without
+        # them the probe reads the same literals out of next/src/lib/auth.ts
+        # that a build without env vars ships.
+        #
+        # Exit 1 is a finding (a table is genuinely not there). Exit 2 is an
+        # inconclusive probe (nothing answered) — reported differently below,
+        # because "I could not look" is not "it is not there".
+        env:
+          PUBLIC_SUPABASE_URL: ${{ secrets.PUBLIC_SUPABASE_URL }}
+          PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.PUBLIC_SUPABASE_ANON_KEY }}
+        run: |
+          set +e
+          node next/scripts/probe-live-tables.mjs \
+            --json ops/reports/migrations/live-table-probe.json | tee /tmp/probe.txt
+          code=${PIPESTATUS[0]}
+          echo "code=${code}" >> "$GITHUB_OUTPUT"
+          {
+            echo "## Migration liveness"
+            echo
+            echo '```'
+            cat /tmp/probe.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          exit 0
+
+      - name: Keep the probe record
+        uses: actions/upload-artifact@v4
+        with:
+          name: live-table-probe
+          path: ops/reports/migrations/live-table-probe.json
+          if-no-files-found: warn
+
+      - name: Alert — a table the code depends on is not in the live database
+        if: steps.probe.outputs.code == '1'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          PI_REPO_ROOT: ${{ github.workspace }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          python3 engine/alert.py \
+            --title "A table the site depends on is missing from the live database" \
+            --body "The liveness probe found at least one table that next/src queries and production does not have. This is the shape of the /partners/claim/ defect that went unnoticed for 127 days. Apply the migration, then record it in ops/reports/migrations/migration-ledger.json as applied with the date. Run: ${RUN_URL}" \
+            --dedup migration-liveness-absent --severity fatal
+
+      - name: Note — the probe could not establish anything
+        if: steps.probe.outputs.code == '2'
+        # Severity is deliberately lower and the dedup key deliberately
+        # different. An unreachable endpoint is an unreliable-monitor problem,
+        # not a missing-table problem, and filing it under the same alert would
+        # make the serious one look routine.
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          PI_REPO_ROOT: ${{ github.workspace }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          python3 engine/alert.py \
+            --title "Migration liveness probe was inconclusive" \
+            --body "The probe could not reach the endpoint or had no key, so it established nothing about which tables exist. This is NOT a report that tables are missing. Run: ${RUN_URL}" \
+            --dedup migration-liveness-inconclusive --severity warning

@@ -1,0 +1,118 @@
+{
+  "updatedAt": "2026-09-21T04:37:05.941Z",
+  "stats": {
+    "nodes": 1080,
+    "edges": 7918,
+    "byType": {
+      "Region": 5,
+      "Town": 37,
+      "Attraction": 5,
+      "Restaurant": 31,
+      "Venue": 31,
+      "Winery": 41,
+      "Cafe": 12,
+      "Market": 6,
+      "Distillery": 1,
+      "Accommodation": 5,
+      "Brewery": 5,
+      "Event": 261,
+      "Experience": 43,
+      "Tour": 77,
+      "Itinerary": 7,
+      "Organisation": 1,
+      "Guide": 512
+    },
+    "byRelationship": {
+      "PART_OF": 37,
+      "LOCATED_IN": 137,
+      "HELD_IN": 79,
+      "HELD_AT": 12,
+      "COVERS": 4564,
+      "FEATURES": 3089
+    },
+    "unconnectedNodes": 123,
+    "unconnectedSample": [
+      {
+        "id": "event:alba-fire-and-ice-sessions",
+        "name": "Alba Thermal Springs  -  Fire & Ice Circuits"
+      },
+      {
+        "id": "event:anzac-day-sorrento-dawn",
+        "name": "ANZAC Day Dawn Service  -  Sorrento Memorial"
+      },
+      {
+        "id": "event:arj-barker-live-at-barlow",
+        "name": "Arj Barker Live at Barlow"
+      },
+      {
+        "id": "event:breast-foot-forward-annual-community-walk-and-run-2026",
+        "name": "Breast Foot Forward Annual Community Walk & Run 2026"
+      },
+      {
+        "id": "event:briars-eco-explorers-autumn",
+        "name": "The Briars  -  Eco Explorers Autumn Sessions"
+      },
+      {
+        "id": "event:chocolaterie-junior-chocolatier",
+        "name": "Mornington Peninsula Chocolates  -  Junior Chocolatier Class"
+      },
+      {
+        "id": "event:foxeys-hangout-vegetable-feast-morning-sun-vineyard",
+        "name": "Foxeys Hangout Vegetable Feast (Morning Sun Vineyard)"
+      },
+      {
+        "id": "event:glamping-tents-horror-movie-campout-back-from-the-dead-tour-2026",
+        "name": "Glamping Tents - Horror Movie Campout: Back From The Dead Tour 2026"
+      },
+      {
+        "id": "event:high-tea-at-mornington-botanical-rose-gardens",
+        "name": "High Tea at Mornington Botanical Rose Gardens"
+      },
+      {
+        "id": "event:moonlit-sanctuary-easter-program",
+        "name": "Moonlit Sanctuary  -  Easter School Holiday Program"
+      },
+      {
+        "id": "event:mprg-autumn-exhibition",
+        "name": "Mornington Peninsula Regional Gallery  -  Autumn Exhibition"
+      },
+      {
+        "id": "event:nancye-wynne-bolton-ola-golf-day-2026",
+        "name": "\"Nancye Wynne Bolton\" OLA Golf Day 2026"
+      },
+      {
+        "id": "event:pearcedale-community-market",
+        "name": "Pearcedale Community Market"
+      },
+      {
+        "id": "event:peninsula-hot-springs-allara-briggs-pattison",
+        "name": "Peninsula Hot Springs  -  Allara Briggs Pattison"
+      },
+      {
+        "id": "event:peninsula-hot-springs-kodomo-no-hi",
+        "name": "Peninsula Hot Springs  -  Kodomo no Hi (Children's Day)"
+      }
+    ]
+  },
+  "coverage": {
+    "townsCovered": 37,
+    "venuesCovered": 135,
+    "townCoverageRate": 1,
+    "gaps": {
+      "towns": [],
+      "venues": [
+        {
+          "slug": "maxs-red-hill-estate",
+          "name": "Max's at Red Hill Estate",
+          "type": "restaurant"
+        },
+        {
+          "slug": "ouest-france-bistro",
+          "name": "Ouest France Bistro",
+          "type": "cafe"
+        }
+      ]
+    }
+  },
+  "edges": 7918
+}

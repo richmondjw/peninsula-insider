@@ -1,0 +1,18 @@
+{
+  "claimId": "events/helen-britton-story-so-far-mprg-2026/event-status",
+  "claimClass": "event-status",
+  "subject": {
+    "type": "events",
+    "slug": "helen-britton-story-so-far-mprg-2026"
+  },
+  "statement": "Helen Britton: The Story So Far at MPRG is running as published.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "helen-britton-story-so-far-mprg-2026"
+    }
+  ],
+  "createdAt": "2026-08-29",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

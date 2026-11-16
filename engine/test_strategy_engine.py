@@ -522,6 +522,82 @@ class VerifyGate(unittest.TestCase):
         self.assertEqual(self._run(body)["result"], "FAIL")
 
 
+class CancelledEventAdmission(unittest.TestCase):
+    def test_cancellation_signals(self):
+        from event_admission import is_cancelled_record
+        for signal in ({"cancelled": True}, {"skipThis": True},
+                       {"verificationStatus": "Updated after organiser cancellation notice"},
+                       {"summary": "Cancelled: no festival"}):
+            with self.subTest(signal=signal):
+                self.assertTrue(is_cancelled_record(signal))
+        self.assertFalse(is_cancelled_record({"cancelled": False, "summary": "Festival is on"}))
+
+    def test_scan_and_collection_exclude_withdrawn_events(self):
+        import json, tempfile
+        from unittest.mock import patch
+        import orchestrator as orch
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            (root / "reports").mkdir()
+            events = root / "next/src/content/events"
+            events.mkdir(parents=True)
+            active = {"title": "Active festival", "status": "published", "startDate": "2026-10-18"}
+            cancelled = dict(active, title="Cancelled festival", cancelled=True)
+            skipped = dict(active, title="Skipped festival", skipThis=True)
+            for i, rec in enumerate((active, cancelled, skipped)):
+                (events / f"{i}.json").write_text(json.dumps(rec))
+            scan = root / "reports/peninsula-whats-on.json"
+            scan.write_text(json.dumps({"events": [cancelled, skipped, active]}))
+            with patch.object(orch, "REPO_ROOT", root):
+                picked, source = orch._load_event_intel("2026-10-14")
+                self.assertEqual([r["title"] for r in picked], ["Active festival"])
+                self.assertIn("reports/", source)
+                scan.unlink()
+                picked, source = orch._load_event_intel("2026-10-14")
+                self.assertEqual([r["title"] for r in picked], ["Active festival"])
+                self.assertIn("live collection", source)
+
+    def test_gate_blocks_recommendation_but_allows_correction(self):
+        import json, tempfile
+        import verify_gate as gate
+        with tempfile.TemporaryDirectory() as d:
+            content = Path(d)
+            (content / "events").mkdir()
+            (content / "events/festival.json").write_text(json.dumps({
+                "title": "Main Street Mornington Festival 2026", "cancelled": True}))
+            for copy in ('title: "Main Street Mornington Festival"',
+                         "## DISCOVERY - Main Street Mornington Festival, Sunday 18 October",
+                         "Main Street Mornington Festival runs 11am to 5pm.",
+                         "**Main Street Mornington Festival 2026**\nSunday 18 October, 11am to 5pm.",
+                         '---\nfaq:\n  - question: "When is the Main Street Mornington Festival?"\n'
+                         '    answer: "Sunday 18 October, 11am to 5pm."\n---\n'):
+                self.assertTrue(gate.check_cancelled_event_references(copy, content))
+            self.assertFalse(gate.check_cancelled_event_references(
+                "Main Street Mornington Festival is cancelled for 2026.", content))
+            self.assertEqual(gate.known_event_titles(content), set())
+
+    def test_publish_gate_integration(self):
+        import json, tempfile
+        import verify_gate as gate
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            content = root / "next/src/content"
+            (content / "events").mkdir(parents=True)
+            (content / "events/festival.json").write_text(json.dumps({
+                "title": "Main Street Mornington Festival 2026", "cancelled": True}))
+            article = root / "article.md"
+            article.write_text('---\npublishedAt: 2026-10-14\n---\n'
+                               'Main Street Mornington Festival runs this Sunday.')
+            result = gate.verify_content(article, content, root / "sitemap.xml")
+            self.assertEqual(result["result"], "FAIL")
+            self.assertTrue(any("Cancelled event" in f for f in result["fails"]))
+            article.write_text('---\npublishedAt: 2026-10-14\nfaq:\n'
+                               '  - question: "Has the Main Street Mornington Festival been cancelled?"\n'
+                               '    answer: "Yes, it will not go ahead in 2026."\n---\n'
+                               'Main Street Mornington Festival is cancelled for 2026.')
+            self.assertNotEqual(gate.verify_content(article, content, root / "sitemap.xml")["result"], "FAIL")
+
+
 if __name__ == "__main__":
     verbosity = 1 if "--quiet" in sys.argv else 2
     argv = [a for a in sys.argv if a != "--quiet"]

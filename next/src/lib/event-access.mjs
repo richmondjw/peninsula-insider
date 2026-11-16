@@ -1,3 +1,4 @@
+import { currentVerifiedPrice } from './event-publication.mjs';
 /**
  * Public access label for an event.
  *
@@ -6,12 +7,11 @@
  * activity inside paid bathing admission) must not collapse into a plain
  * "Free" badge.
  */
-export function eventAccessLabel(data = {}) {
-  const freePaid = String(data.freePaid ?? '').replace(/\s+/g, ' ').trim();
-  const lensFree = Array.isArray(data.lens) && data.lens.includes('free');
-  const hasFreeSignal =
-    data.priceTier === 'free' || /\bfree\b|complimentary/i.test(freePaid) || lensFree;
-
+export function eventAccessLabel(data = {}, now = new Date()) {
+  const verified = currentVerifiedPrice(data, now);
+  if (!verified) return null;
+  const freePaid = String(verified.label).replace(/\s+/g, ' ').trim();
+  const hasFreeSignal = /\bfree\b|complimentary|included with/i.test(freePaid);
   if (!hasFreeSignal) return null;
 
   if (/\bpaid\b[\s\S]*\bfree\b|\bfree\b[\s\S]*\bpaid\b/i.test(freePaid)) {
@@ -28,9 +28,9 @@ export function eventAccessLabel(data = {}) {
     return 'Free entry';
   }
 
-  return 'Free';
+  return /^Free[.!]?$/i.test(freePaid) ? 'Free' : freePaid;
 }
 
-export function eventIsUnqualifiedFree(data = {}) {
-  return eventAccessLabel(data) === 'Free';
+export function eventIsUnqualifiedFree(data = {}, now = new Date()) {
+  return eventAccessLabel(data, now) === 'Free';
 }

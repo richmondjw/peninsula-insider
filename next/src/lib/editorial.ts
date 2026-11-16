@@ -1,10 +1,33 @@
+import { editorialWeekendBounds } from './event-occurrence.mjs';
+
+/**
+ * Clip excerpt/description text to a character budget without cutting
+ * mid-word. Only trims back to the last whitespace when the budget actually
+ * lands inside a word (checked against the source text, not just the cut) -
+ * a cut that already falls on a word boundary is left alone, so a full word
+ * that fits the budget is never dropped for no reason. Drops a dangling
+ * trailing punctuation mark and signals the cut honestly with an ellipsis
+ * rather than a raw `.slice(0, n)`, which can land mid-word (the DELI-811
+ * Explore-card truncation bug, T-EXP-CARD-1). Used anywhere a dek/editorNote
+ * is shown at a fixed character budget: search results, meta descriptions.
+ */
+export function clipExcerpt(text: string | undefined | null, maxChars: number): string {
+  const trimmed = (text ?? '').trim();
+  if (trimmed.length <= maxChars) return trimmed;
+  const cut = trimmed.slice(0, maxChars);
+  const cutMidWord = /\S/.test(trimmed[maxChars] ?? '') && /\S/.test(cut[cut.length - 1] ?? '');
+  const lastSpace = cut.lastIndexOf(' ');
+  const safe = cutMidWord && lastSpace > 0 ? cut.slice(0, lastSpace) : cut;
+  return safe.replace(/[,;:.!?\u2010-\u2015-]+$/u, '').trimEnd() + '…';
+}
+
 /**
  * Prefix an internal path with the site's base URL so links work
  * when the build is served from a subdirectory (e.g. /V2/).
  * Set ASTRO_BASE=/V2/ at build time; without it, paths stay root-relative.
  */
 export function baseHref(path: string): string {
-  const raw = import.meta.env.BASE_URL || '/';
+  const raw = import.meta.env?.BASE_URL || '/';
   const base = raw.endsWith('/') ? raw : raw + '/';
   if (path === '/' || path === '') return base;
   const clean = path.startsWith('/') ? path.slice(1) : path;
@@ -114,8 +137,10 @@ export function dispatchWeekend(publishedAt: Date) {
   const day = 24 * 60 * 60 * 1000;
   const sat = eventWeekendOf(publishedAt);
   const sun = new Date(sat.getTime() + day);
-  const start = new Date(`${melbourneDateKey(sat)}T00:00:00+10:00`);
-  const end = new Date(`${melbourneDateKey(sun)}T23:59:59+10:00`);
+  // Melbourne, not +10:00. The literal offset was correct only from April to
+  // October; the shared helper reads the zone in force on the day in question,
+  // and src/lib/event-occurrence.test.mjs fails if a naive one comes back.
+  const { start, end } = editorialWeekendBounds(melbourneDateKey(sat), melbourneDateKey(sun));
   const monthLong = (d: Date) =>
     d.toLocaleDateString('en-AU', { month: 'long', timeZone: 'UTC' });
   const dayNum = (d: Date) => d.getUTCDate();
@@ -138,13 +163,57 @@ export const typeLabel: Record<string, string> = {
   market: 'Market',
   hotel: 'Hotel',
   villa: 'Villa',
+  suite: 'Suite',
+  accommodation: 'Accommodation',
   cottage: 'Cottage',
+  lodge: 'Lodge',
   glamping: 'Glamping',
   'farm-stay': 'Farm Stay',
   spa: 'Spa',
 };
 
-export const stayTypes = ['hotel', 'villa', 'cottage', 'glamping', 'farm-stay', 'spa'];
+/**
+ * Permanent closure, read from BOTH fields that carry it.
+ *
+ * `status: permanently_closed` is the field the schema has always declared.
+ * `operatingStatus: permanently-closed` is the field an editor reached for
+ * instead - the La Baracca case written up at the top of
+ * scripts/audit-content-schema-drift.mjs. That audit stopped the key being
+ * silently discarded on load, so the closure now survives into the data. It
+ * did not make anything read the value, and nothing did: that record carries
+ * no `status` at all, so `status` defaults to `active` and a venue an editor
+ * verified as closed in May 2026 kept rendering as live, with a booking link.
+ *
+ * One predicate, both fields, so a closure recorded either way delists the
+ * venue everywhere. Temporary states (`closed`, `paused`, `seasonal`) are
+ * deliberately NOT covered: a venue shut for winter still belongs in a
+ * listing, and conflating the two is how a seasonal cellar door disappears.
+ */
+export function isPermanentlyClosed(entry: any): boolean {
+  const data = entry?.data ?? entry;
+  return (
+    data?.status === 'permanently_closed' ||
+    data?.operatingStatus === 'permanently-closed'
+  );
+}
+
+/**
+ * The listing predicate. Use it on every surface that enumerates venues into
+ * cards, rows, links, map pins, lookup tables or structured data.
+ *
+ * Do NOT use it in a getStaticPaths. Which detail pages build is a separate
+ * decision with a live-URL consequence, and the detail template already has
+ * a closure branch (VenueDetailTemplate `isClosed`) that keeps the page and
+ * suppresses the booking and contact actions.
+ */
+export function isListableVenue(entry: any): boolean {
+  const data = entry?.data ?? entry;
+  // Any paused record is unavailable as a current recommendation. Existing
+  // paused records were already unsourced; this also covers operator-confirmed pauses.
+  return !isPermanentlyClosed(entry) && data?.status !== 'paused';
+}
+
+export const stayTypes = ['hotel', 'villa', 'suite', 'accommodation', 'cottage', 'lodge', 'glamping', 'farm-stay', 'spa'];
 export function isStayVenue(entry: any) {
   const data = entry?.data ?? entry;
   const type = data?.type ?? entry;
@@ -190,6 +259,8 @@ export function routeSlug(entry: any) {
    body before navigation, so reaching it from a card can present as a blank
    page when the browser does not complete the script redirect promptly. */
 const venueRouteOverrides: Record<string, string> = {
+  // Dexter is a non-public wine producer; its information page lives under Wine.
+  'dexter-wines': '/wine/dexter-wines/',
   'port-phillip-estate-restaurant': '/wine/port-phillip-estate/',
   // Day spas: not accommodation, so stayEligible:false and no /stay/ page of
   // their own (job 5, 2026-08-29). Their canonical home is the Explore
@@ -234,7 +305,7 @@ export const placesWithHero = new Set<string>([
  *
  * `distillery` borrows brewery variants where we don't have native imagery.
  *
- * Stay-related types (hotel/cottage/villa/glamping/farm-stay) intentionally
+ * Stay-related types (hotel/cottage/villa/suite/lodge/glamping/farm-stay) intentionally
  * use thematic Peninsula `article-*` scenes (vineyard rows, bay water) rather
  * than the original `category-*` files, which were stock images of tropical
  * resorts/overwater bungalows/sports cars that didn't read as Peninsula. The
@@ -321,6 +392,14 @@ const categoryVariantsByType: Record<string, string[]> = {
     'article-vineyard-villa-01.webp', 'article-couples-weekend-01.webp',
     'article-sunset-01.webp', 'journal-late-afternoon-walks-01.webp',
     'explore-greens-bush-01.webp', 'explore-sorrento-ocean-baths-01.webp',
+  ],
+  suite: [
+    'article-vineyard-villa-01.webp', 'article-couples-weekend-01.webp',
+    'place-cape-schanck-01.webp',
+  ],
+  lodge: [
+    'explore-greens-bush-01.webp', 'explore-farnsworth-track-01.webp',
+    'article-couples-weekend-01.webp',
   ],
   glamping: [
     'explore-greens-bush-01.webp', 'explore-farnsworth-track-01.webp',
@@ -446,22 +525,19 @@ export function heroBackgroundStyle(data: any): string {
  */
 export function formatHeroCredit(credit: string | undefined | null): string {
   if (!credit) return '';
+  // Our own artwork prints no credit (caption rule, lib/image-caption.mjs).
+  if (/^(?:illustration|ai-assisted artwork)/i.test(credit.trim())) return '';
   if (credit.trim().toLowerCase() === 'jem') return 'Photograph by jem';
   return `Photo · ${credit}`;
 }
 
 /**
- * Return the current Southern-Hemisphere season from a Date.
- * Used for seasonal hooks on index pages.
+ * The season hooks on index pages read getAustralianSeasonLower() from
+ * src/lib/season.ts. The currentSeason() that used to live here derived the
+ * season from date.getMonth() on the build host's clock, which on a UTC
+ * runner lags Melbourne by a season for the first ten to fourteen hours
+ * after each changeover. seasonBlurb below is keyed by that shared value.
  */
-export function currentSeason(date: Date = new Date()): 'summer' | 'autumn' | 'winter' | 'spring' {
-  const m = date.getMonth(); // 0..11
-  if (m === 11 || m <= 1) return 'summer';    // Dec, Jan, Feb
-  if (m >= 2 && m <= 4) return 'autumn';      // Mar, Apr, May
-  if (m >= 5 && m <= 7) return 'winter';      // Jun, Jul, Aug
-  return 'spring';                             // Sep, Oct, Nov
-}
-
 export const seasonBlurb: Record<'summer' | 'autumn' | 'winter' | 'spring', { label: string; line: string }> = {
   summer: {
     label: 'The summer issue',

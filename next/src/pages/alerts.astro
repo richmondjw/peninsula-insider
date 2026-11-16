@@ -124,7 +124,7 @@ export const prerender = true;
 
         <fieldset class="alert-form__delivery">
           <legend>Tell me by</legend>
-          <label><input type="checkbox" name="email" checked /> Email digest (weekly Sunday)</label>
+          <label><input type="checkbox" name="email" checked /> Email digest</label>
           <label><input type="checkbox" name="browser" /> Browser notification (next site visit)</label>
         </fieldset>
 
@@ -141,7 +141,7 @@ export const prerender = true;
   /* /alerts/ controller. Local-storage primary; CloudSync mirrors to
      pi.event_alerts when authenticated.
      Browser Notifications API used opportunistically for in-session
-     delivery; the weekly digest is handled by an out-of-repo cron. */
+     delivery; email delivery is handled by an out-of-repo cron. */
   (function () {
     var KEY = 'pi:alerts:v1';
 

@@ -5,14 +5,28 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-17
 heroImage:
-  src: "/images/sourced/article-cellar-door-01.webp"
-  alt: "An Easter Sunday brunch table on a Peninsula garden terrace with hot cross buns and chocolate eggs - representative image"
-  credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  src: "/images/visit-victoria/vv-25061243-merricks-general-wine-store.webp"
+  alt: "Timber tables set for lunch before an open kitchen with hanging woven baskets and shelves of wine at Merricks General Wine Store"
+  credit: "Peter Foster, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Merricks General Wine Store, Mornington Peninsula"
+  depicts: "Merricks General Wine Store"
+  depictionStatus: "illustrative"
+  creator: "Peter Foster"
+  sourceUrl: "Victoria Content Hub asset 25061243, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "service"
 tags: ["easter", "long-weekend", "seasonal", "family", "weekend", "autumn"]
 relatedVenues: ["red-hill-bakery", "balnarring-bakehouse", "flinders-sourdough", "johnny-ripe", "mornington-peninsula-chocolates", "merricks-general-wine-store", "balnarring-pub", "flinders-hotel", "red-hill-brewery", "lindenderry", "polperro-villas", "crittenden-villas", "alba-thermal-springs", "peninsula-hot-springs"]
-relatedExperiences: ["bushrangers-bay-walk", "cape-schanck-boardwalk", "mornington-foreshore-walk", "balnarring-beach", "mount-martha-beach", "red-hill-market"]
+relatedExperiences: ["bushrangers-bay-walk", "cape-schanck-boardwalk", "mornington-foreshore-walk", "balnarring-beach", "mount-martha-beach"]
 readingTimeMinutes: 7
 featured: false
 status: "published"
@@ -30,7 +44,7 @@ faq:
   - question: "Is the Mornington Peninsula worth visiting at Easter?"
     answer: "Yes, but only with the right plan. Easter is the Peninsula's first major crowd-pressure weekend of the year. Book accommodation in February, invert the standard weekend rhythm (quiet moves on Friday and Saturday, booked lunch on Sunday), and leave Monday morning before 11am."
   - question: "Which restaurants and cellar doors are open at Easter on the Mornington Peninsula?"
-    answer: "Most Peninsula restaurants and cellar doors are open across Easter. Good Friday is the exception; many cellar doors close while bakeries and pubs tend to stay open. Book restaurant lunches for Sunday rather than Saturday; Saturday is the busiest day of the long weekend."
+    answer: "Most Peninsula restaurants and cellar doors are open across Easter. Good Friday trading varies by venue; check each bakery, pub and cellar door's holiday hours before setting out. Book restaurant lunches for Sunday rather than Saturday; Saturday is the busiest day of the long weekend."
   - question: "When is the best time to leave the Mornington Peninsula on Easter Monday?"
     answer: "Before 11.30am. The Mornington Peninsula Freeway typically slows significantly from about 1pm on Easter Monday. Leaving before midday puts you home well ahead of the worst of it."
 aiSummary:
@@ -38,7 +52,7 @@ aiSummary:
   - "The editorial argument: Easter on the Peninsula is worth doing if you book correctly and choose the right activities. The piece sequences what to book first and which parts of the Peninsula are most congested."
   - "Covers: what is worth booking 6–8 weeks ahead for Easter; where to avoid (Sorrento foreshore on Saturday); where is quieter than expected (inland hinterland, Flinders, Balnarring)."
   - "Suits: anyone committed to visiting at Easter; visitors who have flexibility about which days they go and want to minimise crowd exposure."
-  - "Planning note: the cellar doors are quieter than restaurants on Good Friday. Monday is usually the best day on the Peninsula for food - fewer day-trippers, same quality."
+  - "Planning note: check public-holiday opening and reserve the meals that matter; do not assume normal Friday or Monday service."
 ---
 
 Easter on the Mornington Peninsula is its own weekend.
@@ -62,9 +76,9 @@ Done this way, the long weekend has the same number of moves as the standard wee
 
 ## Where to stay at Easter
 
-Easter accommodation on the Peninsula is the second most stressful booking exercise of the year after Christmas, and the rule is simple: book in February, not in March. By the middle of March, the good rooms are gone and the leftover stock is either overpriced or in the wrong town for what you want.
+Easter accommodation on the Peninsula is the second most stressful booking exercise of the year after Christmas, and the rule is simple: book in February, not in March. By the middle of March, the choice can narrow and the remaining rooms may be in the wrong town for what you want.
 
-The stays that handle Easter best are the self-contained ones. **Polperro Villas** and **Crittenden Villas** are at the top of the list; both let you cook the Easter Sunday brunch in the room rather than fighting for a cafe table. **Lindenderry** is the formal alternative if you want a hotel with a dining room, and the gardens come into their own at the Easter weekend. **Peninsula Hot Springs Glamping** is the most underrated Easter stay; the tented suites with private hot tubs and fire pits are well suited to a long-weekend reset.
+The stays that handle Easter best are the self-contained ones. **Polperro Villas** and **Crittenden Villas** offer a quieter base. At Polperro, confirm the kitchenette appliances before planning meals. Polperro's restaurant and cellar door are closed on Mondays and Tuesdays, including the usual Easter Monday closure; confirm any holiday arrangements directly. **Lindenderry** is the formal alternative if you want a hotel with a dining room, and the gardens come into their own at the Easter weekend. **Peninsula Hot Springs Glamping** is the most underrated Easter stay; its glamping tents and on-site geothermal bathing can suit a long-weekend reset.
 
 One to avoid: any hotel within walking distance of a cellar door. The car park noise from Friday afternoon onwards will undo whatever calm you came for.
 
@@ -74,13 +88,13 @@ One to avoid: any hotel within walking distance of a cellar door. The car park n
 
 Friday is the day everyone else uses to drive down. Either be down already or arrive as early as possible. The freeway is busy from 10am Thursday and again from about 11am Friday. Aim for an early Friday drive (out of Melbourne by 7.30am) or, better, arrive Thursday evening and use Friday morning as the actual start.
 
-Most cellar doors are closed on Good Friday. Most bakeries and cafes are open with reduced hours. Friday rewards a slow shape:
+Good Friday hours vary across cellar doors, bakeries and cafes. Confirm a breakfast stop before building the morning around it:
 
-**8.30am:** Bakery breakfast. **Red Hill Bakery** if you are based on the ridge, **Flinders Sourdough** if you are south. Hot cross buns are the day's organising food and most of the bakeries make them properly. Buy more than you think you need; you will eat them across all four days.
+**Morning:** Choose a bakery that confirms Good Friday opening for your date. Flinders Sourdough currently lists Saturday and Sunday, 9am–2pm, so do not rely on it for this Friday without a special-hours announcement. Bring breakfast provisions if you are arriving early.
 
 **10am:** A village walk. Friday morning on the Peninsula is the right time to walk a village without anyone else there. The Mornington foreshore from the pier to Mills Beach. The Sorrento foreshore from the village to the front beach. The Flinders pier and back along the village street.
 
-**12pm:** Lunch at a pub. **Balnarring Pub**, **Flinders Hotel**, or **Dromana Hotel**. Casual, no-pressure, plenty of room. The cellar doors that do open on Good Friday are over-booked and under-staffed; the pubs are the calmer answer.
+**12pm:** Lunch at a pub. **The Heritage** at Balnarring, **Flinders Hotel**, or **Dromana Hotel**. Casual, no-pressure, plenty of room. The cellar doors that do open on Good Friday are over-booked and under-staffed; the pubs are the calmer answer.
 
 **2.30pm:** A garden, a maze, or a chocolate shop. **Ashcombe Maze**, **Mornington Peninsula Chocolates**, or **Sunny Ridge Strawberry Farm** for picking. All three are open, family-friendly, and shrug off the long-weekend crowd.
 
@@ -98,7 +112,7 @@ Saturday is the day the cellar doors are busiest, and the right day to be nowher
 
 **2.30pm:** A second short walk. Or a swim if the water is up to it (in late autumn most years it is at the edge of swimmable). Or a short hinterland drive, Main Ridge to Merricks via the back roads, just to see the vines turning colour for the season.
 
-**6pm:** A booked dinner. The night to book the dining room, but pick a smaller, quieter one rather than a destination room. **Bistro Elba**, **Allis**, or **Pier Street Flinders** handle a busy night without losing their temper. Save the destination dinner for Sunday.
+**6pm:** A booked dinner. The night to book the dining room, but pick a smaller, quieter one rather than a destination room. **Bistro Elba** or **Allis** handle a busy night without losing their temper. Save the destination dinner for Sunday.
 
 ### Easter Sunday  -  the booked lunch and the egg hunt
 
@@ -134,9 +148,9 @@ Monday is the day everyone tries to drive home at 4pm and the freeway turns into
 
 ## What Easter is for
 
-The Peninsula in late April is genuinely beautiful and the long weekend gives you four days instead of two. The vintage is finishing on the ridge. The light is at its best. The autumn vegetable harvest is filling the markets. The long weekend lets the trip move at a pace that a normal two-night weekend never quite hits.
+The Peninsula at Easter gives you four days instead of two. Autumn light and seasonal produce bring a different rhythm to the ridge and villages. The long weekend lets the trip move at a pace that a normal two-night weekend never quite hits.
 
 Treat Easter as its own weekend. Different rhythm, different bookings, different moves. The four days feel like four days.
 
 
-*Prices may change. Confirm current rates directly with the venue or operator before booking.*
+*Confirm current availability and stay conditions directly with the operator before booking.*

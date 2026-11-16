@@ -24,12 +24,12 @@
  * Required env vars:
  *   SUPABASE_URL
  *   SUPABASE_SERVICE_KEY
- *   OPENAI_API_KEY
+ *   COHERE_API_KEY     (embeddings; must match the concierge API's provider)
  *
  * Optional:
  *   CONTENT_DIR        default: next/src/content
  *   REPORT_DIR         default: reports/concierge-corpus
- *   EMBEDDING_MODEL    default: text-embedding-3-small
+ *   EMBEDDING_MODEL    default: embed-v4.0 (Cohere, 1024 dims, input_type search_document)
  *   EVENT_GRACE_DAYS   default: 14   (events older than this are pruned)
  *   STALE_GRACE_DAYS   default: 7    (non-event stale rows older than this are pruned)
  */
@@ -46,16 +46,16 @@ const REPORT = process.argv.includes("--report");
 // ─── Env ──────────────────────────────────────────────────────
 const SUPABASE_URL = process.env.SUPABASE_URL;
 const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_KEY;
-const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
-const EMBEDDING_MODEL = process.env.EMBEDDING_MODEL || "text-embedding-3-small";
+const COHERE_API_KEY = process.env.COHERE_API_KEY;
+const EMBEDDING_MODEL = process.env.EMBEDDING_MODEL || "embed-v4.0";
 const EMBEDDING_DIMS = 1024;
 const CONTENT_DIR = process.env.CONTENT_DIR || resolve("next/src/content");
 const REPORT_DIR = process.env.REPORT_DIR || resolve("reports/concierge-corpus");
 const EVENT_GRACE_DAYS = Number(process.env.EVENT_GRACE_DAYS ?? 14);
 const STALE_GRACE_DAYS = Number(process.env.STALE_GRACE_DAYS ?? 7);
 
-if (!SUPABASE_URL || !SUPABASE_SERVICE_KEY || !OPENAI_API_KEY) {
-  console.error("Missing required env: SUPABASE_URL / SUPABASE_SERVICE_KEY / OPENAI_API_KEY");
+if (!SUPABASE_URL || !SUPABASE_SERVICE_KEY || !COHERE_API_KEY) {
+  console.error("Missing required env: SUPABASE_URL / SUPABASE_SERVICE_KEY / COHERE_API_KEY");
   process.exit(1);
 }
 
@@ -591,20 +591,24 @@ function chunkEditorialBlock(meta, body, slug) {
   return out;
 }
 
-// ─── OpenAI embed ─────────────────────────────────────────────
+// ─── Cohere embed (documents) ─────────────────────────────────
+// The concierge API embeds queries with the same model and input_type
+// "search_query" (peninsula-insider-platform apps/api/src/lib/cohere-llm.ts).
 async function embed(text, retries = 3) {
   for (let attempt = 1; attempt <= retries; attempt++) {
     try {
-      const res = await fetch("https://api.openai.com/v1/embeddings", {
+      const res = await fetch("https://api.cohere.com/v2/embed", {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${OPENAI_API_KEY}`,
+          Authorization: `Bearer ${COHERE_API_KEY}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
           model: EMBEDDING_MODEL,
-          input: text,
-          dimensions: EMBEDDING_DIMS,
+          texts: [text],
+          input_type: "search_document",
+          embedding_types: ["float"],
+          output_dimension: EMBEDDING_DIMS,
         }),
       });
       if (!res.ok) {
@@ -613,10 +617,10 @@ async function embed(text, retries = 3) {
           await sleep(2000 * attempt);
           continue;
         }
-        throw new Error(`OpenAI ${res.status}: ${err}`);
+        throw new Error(`Cohere ${res.status}: ${err}`);
       }
       const data = await res.json();
-      return data.data[0].embedding;
+      return data.embeddings.float[0];
     } catch (e) {
       if (attempt === retries) throw e;
       await sleep(1000 * attempt);
@@ -961,6 +965,10 @@ async function main() {
     // we never take the metadata-only branch.
     const metaChanged = schema.hasMetadataFingerprint && (!ex || ex.meta_hash !== newMetaHash);
 
+    // Empty sections (an article with no lede) have nothing to retrieve, and
+    // Cohere rejects an empty input. Skip them; any old row is pruned as stale.
+    if (!chunk.text || !chunk.text.trim()) continue;
+
     if (DRY) {
       const verb = !ex ? "WOULD add" : textChanged ? "WOULD re-embed" : "WOULD update meta-only";
       console.log(`  ${verb}: ${chunk.chunk_id} (${chunk.text.length} chars)`);
@@ -1014,6 +1022,12 @@ async function main() {
   // Decide what to prune
   let pruned = 0;
   const prunedIds = [];
+  // Guard for unattended runs: a missing or half-checked-out content folder
+  // would mark most rows stale. Never prune more than a quarter of the corpus.
+  if (PRUNE && !DRY && staleIds.length > existing.size * 0.25) {
+    console.error(`Refusing to prune ${staleIds.length} of ${existing.size} rows (over 25%). Check CONTENT_DIR, or prune by hand.`);
+    process.exit(1);
+  }
   if (PRUNE && !DRY) {
     // Always prune expired events (script already excludes them from the rebuild set)
     for (const id of staleEvents) {

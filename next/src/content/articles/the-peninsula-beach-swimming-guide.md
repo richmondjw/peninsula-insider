@@ -1,14 +1,28 @@
 ---
 title: "The Peninsula Beach Swimming Guide: Which Beach for Which Swim, From Bay to Back Beach"
-dek: "Thirty kilometres of Port Phillip coastline, fifteen kilometres of Bass Strait back beaches, and four distinct swimming moods that most visitors cannot tell apart. A proper guide to where to actually swim on the Mornington Peninsula, by conditions and by purpose."
+dek: "Thirty kilometres of Port Phillip coastline, fifteen kilometres of Bass Strait back beaches, and distinct swimming moods that most visitors cannot tell apart. A proper guide to where to actually swim on the Mornington Peninsula, by conditions and by purpose."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-04-14
 heroImage:
-  src: "/images/sourced/article-beach-swimming-01.webp"
-  alt: "A swimmer pushing off from the shallow pale sand of a Peninsula bay beach on a calm morning"
-  credit: "Wikimedia Commons"
-  license: "tmp-wikimedia"
+  src: "/images/visit-victoria/vv-151508-sorrento-back-beach.webp"
+  alt: "Overhead view of surf washing over dark rock shelves and green reef along the Sorrento Back Beach shoreline"
+  credit: "SHERPA Projects Pty Ltd, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Sorrento Back Beach, Mornington Peninsula"
+  depicts: "Sorrento Back Beach"
+  depictionStatus: "illustrative"
+  creator: "SHERPA Projects Pty Ltd"
+  sourceUrl: "Victoria Content Hub asset 151508, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "service"
 tags: ["beach", "swim", "summer", "family", "bay", "back-beaches", "explore"]
 relatedVenues: ["the-baths-sorrento", "sorrento-hotel", "hotel-sorrento", "portsea-hotel", "dromana-hotel"]
@@ -39,9 +53,11 @@ A swim at Safety Beach is a different experience from a swim at Sorrento Back Be
 
 This guide is organised by what you want out of the swim, not by geography.
 
-## The four Peninsula swim moods
+<span id="the-four-peninsula-swim-moods"></span>
 
-Every swim on the Peninsula falls into roughly one of four categories. Pick the mood first, and the beach selects itself.
+## Find your Peninsula swim
+
+Start with the kind of Peninsula swim you want, then choose the beach to match.
 
 **1. The calm-water family swim.** Shallow, warm, safe, easy parking, often with a kiosk, almost always on the bay side. This is the default family swim. The Peninsula has more of these than any other kind.
 
@@ -91,7 +107,7 @@ Further south, the bay coast gets deeper quickly, and this is where the serious 
 
 Over on the Western Port side, **Balnarring Beach** is the Peninsula's other great family swim. It is quieter than anywhere on the Port Phillip side, backed by ti-tree scrub rather than built infrastructure, no kiosk, and a considerably more local feel. The water is slightly darker because the Western Port sands are finer, but the swim itself is equivalent in temperature and gentleness to Mount Martha. Bring your own chairs and a thermos.
 
-**Best for:** Families who want the quietest possible bay swim, local-feel picnics, combining with the Balnarring Market or a Balnarring Pub lunch.
+**Best for:** Families who want the quietest possible bay swim, local-feel picnics, combining with a lunch stop in Balnarring.
 
 **Avoid if:** You need kiosk food or public toilets close to your towel, facilities at Balnarring are minimal.
 

@@ -1,0 +1,20 @@
+{
+  "claimId": "quick-notes/2026-05-20-hot-springs-showcase-friday/booking",
+  "claimClass": "booking",
+  "subject": {
+    "type": "quick-notes",
+    "slug": "2026-05-20-hot-springs-showcase-friday",
+    "field": "sources"
+  },
+  "statement": "Peninsula Hot Springs - Showcase with Chloe Gill is three days out. Friday weather confirmed clear.",
+  "assertedBy": [
+    {
+      "type": "quick-notes",
+      "slug": "2026-05-20-hot-springs-showcase-friday",
+      "field": "sources"
+    }
+  ],
+  "createdAt": "2026-05-20",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

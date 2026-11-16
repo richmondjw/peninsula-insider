@@ -12,9 +12,9 @@
     "lng": 144.9995
   },
   "address": "25 Harrisons Rd, Dromana VIC 3936",
-  "phone": "+61 3 5981 9555",
+  "phone": "+61 3 5987 3800",
   "website": "https://www.crittendenwines.com.au",
-  "bookingUrl": "https://www.crittendenwines.com.au",
+  "bookingUrl": "https://www.crittendenwines.com.au/pages/restaurant",
   "bookingProvider": "direct",
   "priceBand": "$$",
   "authority": {
@@ -56,7 +56,9 @@
   },
   "heroImage": {
     "src": "/images/sourced/place-dromana-01.webp",
-    "alt": "Dromana, Mornington Peninsula - representative image for Crittenden Restaurant",
+    "alt": "A long-exposure photograph beneath a concrete pier, a black pipe running down the sand into smooth water under a clouded sky.",
+    "depicts": "a long exposure beneath a concrete pier, a pipe running down the sand into the water",
+    "depictionStatus": "illustrative",
     "credit": "Peninsula Insider",
     "license": "other-licensed"
   },

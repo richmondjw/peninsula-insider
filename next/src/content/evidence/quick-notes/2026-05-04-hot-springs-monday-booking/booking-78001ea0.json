@@ -1,0 +1,19 @@
+{
+  "evidenceId": "quick-notes/2026-05-04-hot-springs-monday-booking/booking-78001ea0",
+  "claim": "quick-notes/2026-05-04-hot-springs-monday-booking/booking",
+  "stance": "supports",
+  "publisher": {
+    "kind": "venue-site"
+  },
+  "retrievedAt": "2026-05-04",
+  "expiresAt": "2026-07-03",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/quick-notes/2026-05-04-hot-springs-monday-booking.md",
+    "field": "sources[0]",
+    "value": "{\"kind\":\"venue-site\",\"url\":\"https://www.peninsulahotsprings.com/\",\"note\":\"Site checked Monday morning. Booking flow showing Monday sessions available.\",\"checkedAt\":\"2026-05-04T06:50:00+10:00\"}",
+    "dateField": "sources[0].checkedAt"
+  },
+  "url": "https://www.peninsulahotsprings.com/",
+  "note": "Site checked Monday morning. Booking flow showing Monday sessions available."
+}

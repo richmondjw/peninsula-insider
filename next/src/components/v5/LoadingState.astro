@@ -80,7 +80,7 @@ const items = Array.from({ length: n });
     flex-direction: column;
     gap: 0.6rem;
     border: 1px solid var(--border);
-    border-radius: var(--radius-m, var(--tile-image-radius, 10px));
+    border-radius: var(--radius-m);
     padding: 0 0 var(--space-4, 1rem);
     overflow: hidden;
   }
@@ -93,7 +93,7 @@ const items = Array.from({ length: n });
 
   .v5-loading__bar {
     background: var(--bg-alt);
-    border-radius: var(--radius-s, 4px);
+    border-radius: var(--radius-s);
     height: 0.85rem;
     margin: 0 var(--space-4, 1rem);
   }
@@ -117,7 +117,7 @@ const items = Array.from({ length: n });
     height: 1.5rem;
     border: 2px solid var(--border);
     border-top-color: var(--accent);
-    border-radius: 999px;
+    border-radius: var(--radius-pill);
   }
 
   @media (prefers-reduced-motion: no-preference) {
