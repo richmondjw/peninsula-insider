@@ -59,7 +59,8 @@ exit "${codes[count-1]:-99}"
             sleep.chmod(0o755)
             env = dict(os.environ, PATH=str(root) + os.pathsep + os.environ["PATH"],
                        ATTEMPT_LOG=str(root / "attempts"), SLEEP_LOG=str(root / "sleeps"),
-                       FRESHNESS_EXIT_CODES=" ".join(map(str, statuses)), GITHUB_EVENT_NAME=event)
+                       FRESHNESS_EXIT_CODES=" ".join(map(str, statuses)), GITHUB_EVENT_NAME=event,
+                       DEPLOYED_SOURCE_ROOT=str(root))
             result = subprocess.run(["bash", "-e", "-c", retry_script()], env=env,
                                     cwd=ROOT, capture_output=True, text=True, timeout=10)
             self.assertEqual(result.returncode, expected_status, result.stdout + result.stderr)

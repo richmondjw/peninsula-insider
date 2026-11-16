@@ -31,6 +31,15 @@ jobs:
         with:
           fetch-depth: 1
 
+      # Inspect source identity only; never execute code from this checkout.
+      - name: Read completed deployment source snapshot
+        if: github.event_name == 'workflow_run'
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+          path: .freshness-deployment
+          fetch-depth: 1
+
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -43,8 +52,10 @@ jobs:
         # Exit code 1 = live page not yet deployed (transient, retriable).
         # Exit code 0 = fully passing.
         run: |
-          # Deployment probes follow the last due writer slot; manual/cron keep today.
-          EXPECTED_DATE="$(python3 engine/publication_freshness_date.py --event "${GITHUB_EVENT_NAME:-}")"
+          # Unrelated deploys can precede the writer; enforce the 22:30 deadline.
+          EXPECTED_DATE="$(python3 engine/publication_freshness_date.py \
+            --event "${GITHUB_EVENT_NAME:-}" \
+            --deployed-source-root "${DEPLOYED_SOURCE_ROOT:-.freshness-deployment/next/src/content/articles}")"
           MAX_ATTEMPTS=3
           ATTEMPT=0
           EXIT_CODE=0
