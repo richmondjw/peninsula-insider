@@ -365,13 +365,15 @@ export const prerender = true;
 
   <HubEntry
     kicker="Things to do"
-    title="Sea air, sandy tracks and somewhere to soak"
-    dek="Pick a coast walk, a swimming beach or a hot spring by the time you have, with the reason each one earns its place."
+    title="Walks, beaches and hot springs"
+    dek="Pick by the time you have. Each one comes with the reason it earns its place."
     primary={{ label: `Browse all ${directoryRows.length} things to do`, href: '#directory', arrow: 'down' }}
     secondary={{ label: 'See them on the map', href: '/map/' }}
     trust={exploreChecked ? `${exploreChecked[0].toUpperCase()}${exploreChecked.slice(1)}. Chosen by our editors, never paid for.` : 'Chosen by our editors, never paid for.'}
     image={pageImage('explore-hero')}
     focal={{ desktop: '50% 55%', mobile: '50% 55%' }}
+    mobileRatio="5 / 2"
+    compactMobile
     headingId="explore-title"
   />
 

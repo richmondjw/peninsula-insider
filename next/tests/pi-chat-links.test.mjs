@@ -23,7 +23,7 @@ test('minimise persists closed state and releases responsive chrome without dele
   assert.match(fn, /store.set\(sessionStorage, STATE, 'closed'\)/);
   assert.match(fn, /applyChrome\(\)/);
   assert.doesNotMatch(fn, /turns =|HISTORY|abort\(/);
-  assert.match(fn, /if \(focus\) launch.focus/);
+  assert.match(fn, /if \(focus\) \(opener && opener\.isConnected \? opener : launch\)\.focus/);
 });
 test('queued open animation cannot reopen a just-minimised chat', () => assert.match(source, /requestAnimationFrame\(\(\) => \{\s*if \(root!\.dataset\.state !== 'open'\) return;/));
 

@@ -29,6 +29,8 @@ interface Props {
   focal?: { desktop?: string; mobile?: string };
   /** Phone photograph ratio. Utility pages (What's On) use a shorter band. */
   mobileRatio?: string;
+  /** Phones show the primary action only, for hubs whose filters must reach the first screen. */
+  compactMobile?: boolean;
   /** Phone-only zoom on the focal point, e.g. 1.25, when the subject is small in the frame. */
   mobileZoom?: number;
   headingId?: string;
@@ -36,7 +38,7 @@ interface Props {
 const {
   kicker, title, dek, primary, secondary, trust,
   trustHref = '/about/#how-we-choose', trustLabel = 'How we choose',
-  image, focal = {}, mobileRatio = '2 / 1', mobileZoom = 1, headingId = 'hub-entry-title',
+  image, focal = {}, mobileRatio = '2 / 1', mobileZoom = 1, compactMobile = false, headingId = 'hub-entry-title',
 } = Astro.props;
 
 const caption = captionParts(image);
@@ -45,7 +47,7 @@ const creditLine = !credit ? '' : /^Courtesy of /i.test(credit) ? `Photo courtes
 const arrow = (a?: Action) => (a?.arrow === 'down' ? '↓' : '→');
 const style = `--hub-focal:${focal.desktop ?? '50% 50%'};--hub-focal-m:${focal.mobile ?? focal.desktop ?? '50% 50%'};--hub-ratio-m:${mobileRatio};--hub-zoom-m:${mobileZoom}`;
 ---
-<header class="hub-entry container" aria-labelledby={headingId} style={style}>
+<header class:list={["hub-entry", "container", compactMobile && "hub-entry--compact"]} aria-labelledby={headingId} style={style}>
   <div class="hub-entry__copy">
     {kicker && <p class="hub-entry__kicker">{kicker}</p>}
     <h1 id={headingId}><slot name="title">{title}</slot></h1>
@@ -92,5 +94,10 @@ const style = `--hub-focal:${focal.desktop ?? '50% 50%'};--hub-focal-m:${focal.m
     .hub-entry__links { gap: 0 1.25rem; margin-top: 1rem; }
     .hub-entry__primary { flex: 1 0 100%; justify-content: center; margin-bottom: .15rem; }
     .hub-entry__trust { margin-top: .5rem; }
+    .hub-entry--compact .hub-entry__secondary { display: none; }
+  }
+  @media (max-width: 360px) {
+    .hub-entry__photo { order: 0; }
+    .hub-entry h1 { font-size: var(--fs-700); }
   }
 </style>
