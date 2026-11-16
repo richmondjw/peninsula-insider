@@ -1,27 +1,52 @@
-/** These passing assertions reproduce known defects in the unchanged writer. */
+/** Production event projection regression tests; no network. */
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import vm from 'node:vm';
 import { readFile } from 'node:fs/promises';
-import { resolveFixture } from './evaluator.mjs';
+import {chunkEvent,projectEventInventory} from '../scripts/concierge-events.mjs';
 const fixtures=JSON.parse(await readFile(new URL('./fixtures.v1.json',import.meta.url),'utf8'));
-const source=await readFile(new URL('../scripts/refresh-corpus.mjs',import.meta.url),'utf8');
-const start=source.indexOf('function chunkEvent('),end=source.indexOf('\nfunction chunkEditorialBlock',start);
-assert(start>0&&end>start,'writer structure changed: re-audit baseline extraction');
-const clock='2026-11-16T19:30:00Z';
-const context=vm.createContext({Date,EVENT_GRACE_DAYS:14,eventId:s=>`event_${s.replace(/-/g,'_')}`,isoDate:d=>new Date(d).toISOString().slice(0,10),daysAgo:n=>new Date(Date.parse(clock)-n*86400000)});
-vm.runInContext(source.slice(start,end),context,{timeout:1000});
-test('KNOWN DEFECT: writer drops approved future recurrence when original date is past',()=>{
-  const f=fixtures.cases.find(f=>f.id==='recurring-original-date-past');
-  assert.equal(resolveFixture(f).matches.length,1);
-  const result=context.chunkEvent(f.records[0].data,'synthetic-market',new Date(clock));
-  assert.equal(result.expired,true);assert.equal(result.chunks.length,0);
+const fixture=id=>fixtures.cases.find(f=>f.id===id);
+test('writer retains future recurrence after original date passes',()=>{
+ const f=fixture('recurring-original-date-past');
+ const result=chunkEvent(f.records[0].data,'synthetic-market',f.now);
+ assert.equal(result.excluded,null);assert.equal(result.chunks[0].event_date,'2026-12-12');
 });
-test('KNOWN DEFECT: writer indexes suburb-only Red Hill as other',()=>{
-  const f=fixtures.cases[0];
-  assert.equal(context.chunkEvent(f.records[0].data,'synthetic-market',new Date(clock)).chunks[0].region,'other');
+test('writer preserves exact suburb and does not mutate CMS source',()=>{
+ const f=fixtures.cases[0],data=structuredClone(f.records[0].data),before=structuredClone(data);
+ const result=chunkEvent(data,'synthetic-market',f.now);
+ assert.equal(result.chunks[0].region,'red-hill');assert.deepEqual(data,before);
 });
-test('KNOWN DEFECT: writer admits a future published cancelled event',()=>{
-  const f=fixtures.cases.find(f=>f.id==='cancelled');assert.equal(resolveFixture(f).matches.length,0);
-  assert(context.chunkEvent(f.records[0].data,'synthetic-market',new Date(clock)).chunks.length>0);
+test('writer excludes published cancelled records',()=>{
+ const f=fixture('cancelled');assert.equal(chunkEvent(f.records[0].data,'synthetic-market',f.now).chunks.length,0);
+});
+test('writer preserves occurrence cancellation, confirmed-only and postponed boundaries',()=>{
+ for(const id of ['confirmed-only-no-date','cancelled','postponed-no-date','cms-cancelled-override']){
+  const f=fixture(id);
+  for(const record of f.records)assert.equal(chunkEvent(record.data,record.data.slug??record.id,f.now).chunks.length,0,id);
+ }
+ const f=fixture('overnight-still-running'),record=f.records[0];
+ assert.equal(chunkEvent(record.data,record.data.slug??record.id,f.now).excluded,null);
+});
+test('omitted legacy status matches Astro default; explicit draft and archive never regain admission',async()=>{
+ const f=fixture('recurring-original-date-past'),data=structuredClone(f.records[0].data);delete data.status;
+ const schema=await readFile(new URL('../../next/src/content.config.ts',import.meta.url),'utf8');
+ assert.match(schema.slice(schema.indexOf('const events =')),/status: z\s*\.enum\(\['draft', 'review', 'scheduled', 'published', 'expired', 'past', 'archived'\]\)\s*\.default\('published'\)/);
+ assert.equal(chunkEvent(data,'synthetic-market',f.now).excluded,null);assert.equal(data.status,undefined);
+ for(const status of ['draft','archived','review','scheduled','expired','past'])assert.equal(chunkEvent({...data,status},'synthetic-market',f.now).chunks.length,0);
+});
+test('every synthetic source has a revision and explicit projection or exclusion',()=>{
+ for(const f of fixtures.cases){
+  const records=f.records.map((r,i)=>({slug:r.data.slug??`synthetic-${i}`,data:r.data}));
+  const result=projectEventInventory(records,f.now);
+  assert.equal(result.outcomes.length,records.length,f.id);
+  assert(result.outcomes.every(r=>r.revision.length===64&&(r.status==='projected'||r.reason)),f.id);
+ }
+});
+test('CMS withdrawal changes revision and removes projected chunks without source mutation',()=>{
+ const f=fixture('recurring-original-date-past'),data=structuredClone(f.records[0].data);
+ delete data.slug;
+ const original=projectEventInventory([{slug:'market',data}],f.now);data.cancelled=true;
+ const changed=projectEventInventory([{slug:'market',data}],f.now);
+ assert.notEqual(original.outcomes[0].revision,changed.outcomes[0].revision);
+ assert.equal(changed.chunks.length,0);assert.equal(changed.outcomes[0].status,'excluded');
+ assert.throws(()=>projectEventInventory([{slug:'market',data},{slug:'market',data}],f.now),/Duplicate/);
 });

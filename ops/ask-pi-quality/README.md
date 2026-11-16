@@ -1,6 +1,6 @@
 # Ask PI quality: offline milestone A, v1
 
-Implements the bounded offline milestone in [the operating contract](https://app.asana.com/1/233540066981051/project/1219341217074661/task/1220589333197842), read 16 November 2026. Nothing in this folder is imported by the app, a workflow, or an index writer. No new scheduler, paid request, production write, query capture, profile, security configuration or private knowledge source is introduced.
+Implements the bounded offline milestone in [the operating contract](https://app.asana.com/1/233540066981051/project/1219341217074661/task/1220589333197842), read 16 November 2026. The quality oracle remains offline. The production writer now imports ops/scripts/concierge-events.mjs, which reuses the website publication and occurrence helpers. No new scheduler, paid request, production write, query capture, profile, security configuration or private knowledge source is introduced.
 
 ## Run
 
@@ -14,7 +14,7 @@ node ops/ask-pi-quality/validate-manifest.mjs /path/to/manifest.json
 
 No install or network call is needed. The report records exact Git HEAD, dirty state, fixture/evaluator versions, input hashes, frozen clocks, category denominators, one trial, separate answerable and abstention results, code-test output and untested surfaces. Code-test durations are observational and vary; expectations, fixture observations and hashes are reproducible. Do not count overlapping category totals as independent samples. The report exits nonzero on a fixture failure. It deliberately always declares releaseEligible=false: this offline package cannot certify the other gates.
 
-The original development baseline at c7fe845f154 was 23/24: overnight-still-running expected a still-running event after local midnight, but the promotion helper skipped its previous start day. The candidate now fixes that shared helper while preserving the original fixture expectation; rerun the report to verify the exact candidate. Three additional passing baseline assertions still reproduce known writer defects (recurrence dropped, suburb lost, cancellation admitted). A passing defect-reproduction test means the defect is still present, not fixed.
+The original development baseline at c7fe845f154 was 23/24: overnight-still-running expected a still-running event after local midnight, but the promotion helper skipped its previous start day. The candidate now fixes that shared helper while preserving the original fixture expectation; rerun the report to verify the exact candidate. The production projection now has regression assertions for the three former writer defects: recurrence dropped, suburb lost and cancellation admitted. This is code-level evidence, not a live index refresh or answer-quality result.
 
 ## Fixture schema and evaluator limits
 
@@ -50,3 +50,13 @@ The manifest is caller-supplied evidence, not a trusted source fetched by this p
 Protected holdout must be authored and retained by the independent reviewer outside this development set, with custody and hashes. The author receives aggregate findings, not examples to tune against. No holdout was accessed or assessed here. No tuning or paraphrase-copying from it is allowed. Semantic/human evaluation remains pending and paid models are outside this milestone.
 
 September trip/map and intent-analytics work stays held. This candidate neither repairs production indexing nor activates autonomous governance. The original daily Ask PI workflow remains unchanged.
+
+## Production event projection candidate
+
+`ops/scripts/concierge-events.mjs` reads all JSON event sources recursively, preserves source bytes, hashes each effective repository record and emits one projected or excluded outcome per source. Malformed/unreadable input or duplicate source identities blocks the writer before network calls. Canonical publication, geography, status and occurrence helpers govern admission; the legacy omitted-status default matches the Astro collection. Explicit CMS lifecycle decisions win. No source content is rewritten.
+
+The projection deliberately represents only the next verified occurrence within 366 days. It does not certify every occurrence or live ticket availability. Exact locality is retained, and the occurrence date is included in the existing event_date fingerprint. The existing writer continues to use its current schema and embedding model. Pagination now orders by chunk_id; this is not a database snapshot transaction.
+
+Run `node --test ops/scripts/concierge-events.integration.test.mjs` for the actual CLI with all network calls intercepted, including 2001 existing rows and a failed write that suppresses pruning. Run `node ops/scripts/audit-concierge-events.mjs --now ISO_INSTANT --out OUTSIDE_REPO.json` to account for current local source records without credentials, database access or model calls. A projected outcome is NOT an indexed receipt.
+
+The writer remains sequential and is not an atomic last-known-good system. Suppressing prune after an error does not roll back earlier writes or a crash. This candidate is held from release until staged inventory/retrieval evidence, exact-head independent review and CI pass. Live calls that incur embedding/model cost are not authorised by this package. No post-publish trigger or duplicate job is added, and no live freshness or answer-grounding improvement is claimed.

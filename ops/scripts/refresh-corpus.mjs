@@ -30,12 +30,12 @@
  *   CONTENT_DIR        default: next/src/content
  *   REPORT_DIR         default: reports/concierge-corpus
  *   EMBEDDING_MODEL    default: embed-v4.0 (Cohere, 1024 dims, input_type search_document)
- *   EVENT_GRACE_DAYS   default: 14   (events older than this are pruned)
  *   STALE_GRACE_DAYS   default: 7    (non-event stale rows older than this are pruned)
  */
 import { readdir, readFile, writeFile, mkdir } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import { resolve, join, basename } from "node:path";
+import { projectEventInventory, readEventSources } from "./concierge-events.mjs";
 
 // ─── Args ─────────────────────────────────────────────────────
 const DRY = process.argv.includes("--dry");
@@ -51,7 +51,6 @@ const EMBEDDING_MODEL = process.env.EMBEDDING_MODEL || "embed-v4.0";
 const EMBEDDING_DIMS = 1024;
 const CONTENT_DIR = process.env.CONTENT_DIR || resolve("next/src/content");
 const REPORT_DIR = process.env.REPORT_DIR || resolve("reports/concierge-corpus");
-const EVENT_GRACE_DAYS = Number(process.env.EVENT_GRACE_DAYS ?? 14);
 const STALE_GRACE_DAYS = Number(process.env.STALE_GRACE_DAYS ?? 7);
 
 if (!SUPABASE_URL || !SUPABASE_SERVICE_KEY || !COHERE_API_KEY) {
@@ -143,7 +142,6 @@ const articleId = (slug) => `article_${slug.replace(/-/g, "_")}`;
 const placeId = (slug) => `place_${slug.replace(/-/g, "_")}`;
 const itineraryId = (slug) => `itinerary_${slug.replace(/-/g, "_")}`;
 const experienceId = (slug) => `experience_${slug.replace(/-/g, "_")}`;
-const eventId = (slug) => `event_${slug.replace(/-/g, "_")}`;
 const editorialBlockId = (slug) => `editorial_${slug.replace(/-/g, "_")}`;
 
 // ─── Chunkers ─────────────────────────────────────────────────
@@ -494,76 +492,6 @@ function chunkExperience(e, slug) {
   return out;
 }
 
-function chunkEvent(ev, slug, today) {
-  const id = eventId(slug);
-  const region = String(ev.place?.id ?? ev.place ?? "other").toLowerCase();
-  const start = new Date(ev.startDate);
-  const end = ev.endDate ? new Date(ev.endDate) : start;
-  const effectiveEnd = end > start ? end : start;
-
-  // Freshness state machine:
-  //   future or in-progress  → fresh        (write to DB)
-  //   recently past (≤grace) → recently_past (skip DB; auto-prune handles it)
-  //   beyond grace           → expired      (skip DB; reconciliation pruning)
-  // The live DB's freshness_flag CHECK constraint only allows 'fresh' (and
-  // possibly other values we haven't probed), so any non-fresh state means
-  // we don't write the row at all. The reader is best served by either a
-  // current event surface or the prune list, not a half-stale tile.
-  const cutoffPrune = daysAgo(EVENT_GRACE_DAYS);
-  if (effectiveEnd < today) {
-    const stillInGrace = effectiveEnd >= cutoffPrune;
-    return { chunks: [], expired: !stillInGrace, recentlyPast: stillInGrace };
-  }
-
-  const base = {
-    source_entity_type: "event",
-    source_entity_id: id,
-    page_slug: slug,
-    page_title: ev.title,
-    editorial_tier: "A",
-    category: ev.category || "event",
-    region,
-    vendor_relationship: "none",
-    freshness_flag: "fresh",
-    event_date: isoDate(effectiveEnd),
-  };
-
-  const out = [];
-  const dateStr = ev.endDate
-    ? `${isoDate(start)} to ${isoDate(end)}`
-    : isoDate(start);
-
-  out.push({
-    ...base,
-    chunk_id: `${slug}::summary::0`,
-    section_heading: "Overview",
-    chunk_purpose: "event_summary",
-    text: `${ev.title}. ${ev.summary ?? ""} Dates: ${dateStr}. Region: ${region}. Category: ${ev.category}.`.trim(),
-  });
-
-  if (ev.editorNote && ev.editorNote.length > 60) {
-    out.push({
-      ...base,
-      chunk_id: `${slug}::editor_note::0`,
-      section_heading: "Editor's note",
-      chunk_purpose: "event_editor_note",
-      text: `${ev.title} (${dateStr}). ${ev.editorNote}`,
-    });
-  }
-
-  if (ev.editorVerdict && ev.editorVerdict.length > 30) {
-    out.push({
-      ...base,
-      chunk_id: `${slug}::verdict::0`,
-      section_heading: "Editor's verdict",
-      chunk_purpose: "event_verdict",
-      text: `${ev.title} (${dateStr}). ${ev.editorVerdict}`,
-    });
-  }
-
-  return { chunks: out, expired: false };
-}
-
 function chunkEditorialBlock(meta, body, slug) {
   const id = editorialBlockId(slug);
   const region = String(meta.region ?? meta.place ?? "other").toLowerCase();
@@ -675,7 +603,7 @@ async function fetchExistingRows() {
   let offset = 0;
   const PAGE = 1000;
   while (true) {
-    const url = `${SUPABASE_URL}/rest/v1/concierge_chunks?select=${select}&limit=${PAGE}&offset=${offset}`;
+    const url = `${SUPABASE_URL}/rest/v1/concierge_chunks?select=${select}&order=chunk_id.asc&limit=${PAGE}&offset=${offset}`;
     const res = await fetch(url, { headers: sbHeaders });
     if (!res.ok) throw new Error(`Failed listing chunks: ${res.status} ${await res.text()}`);
     const rows = await res.json();
@@ -830,7 +758,6 @@ async function main() {
   console.log(`     Embed model: ${EMBEDDING_MODEL} (${EMBEDDING_DIMS} dims)\n`);
 
   const allChunks = [];
-  const expiredEventIds = [];
   const counts = {
     venue: 0,
     article: 0,
@@ -891,26 +818,15 @@ async function main() {
   }
   console.log(`  Experiences: ${experiences.length} files`);
 
-  // 6. Events. Future / in-progress events get chunked; recently-past
-  // (≤14d) and fully expired events are skipped at write time and rely on
-  // the reconciliation prune to clean up matching DB rows on a later run.
-  const events = await readJsonDir(join(CONTENT_DIR, "events"));
-  let recentlyPastCount = 0;
-  for (const { slug, data } of events) {
-    if (data.status && data.status !== "published") continue;
-    const { chunks, expired, recentlyPast } = chunkEvent(data, slug, today);
-    if (expired) {
-      expiredEventIds.push(eventId(slug));
-    } else if (recentlyPast) {
-      recentlyPastCount += 1;
-    } else {
-      allChunks.push(...chunks);
-      counts.event += 1;
-    }
-  }
-  console.log(
-    `  Events:      ${events.length} files (${expiredEventIds.length} expired, ${recentlyPastCount} recently past)`
-  );
+  // Canonical website publication/occurrence projection. Enumerate every source;
+  // abort before database or embedding calls when any source fails projection.
+  const eventDir = join(CONTENT_DIR, "events");
+  const events = await readEventSources(eventDir);
+  const eventInventory = projectEventInventory(events, today);
+  if (!eventInventory.complete) throw new Error(`Event projection failed: ${JSON.stringify(eventInventory.outcomes.filter(r=>r.status==='failed'))}`);
+  allChunks.push(...eventInventory.chunks);
+  counts.event = eventInventory.outcomes.filter(r=>r.status==='projected').length;
+  console.log(`  Events:      ${events.length} files (${counts.event} projected, ${events.length-counts.event} explicitly excluded)`);
 
   // 7. Editorial blocks (optional collection — silent if missing)
   const editorialDir = join(CONTENT_DIR, "editorial_blocks");
@@ -1028,7 +944,7 @@ async function main() {
     console.error(`Refusing to prune ${staleIds.length} of ${existing.size} rows (over 25%). Check CONTENT_DIR, or prune by hand.`);
     process.exit(1);
   }
-  if (PRUNE && !DRY) {
+  if (PRUNE && !DRY && errors === 0) {
     // Always prune expired events (script already excludes them from the rebuild set)
     for (const id of staleEvents) {
       try {
@@ -1084,7 +1000,7 @@ async function main() {
   for (const [k, v] of Object.entries(counts)) console.log(`     ${k.padEnd(16)} ${v}`);
 
   // ─── Report artefacts ─────────────────────────────────────────
-  if (REPORT && !DRY) {
+  if (REPORT) {
     await mkdir(REPORT_DIR, { recursive: true });
     const dateStr = today.toISOString().slice(0, 10);
     const trigger = process.env.GITHUB_EVENT_NAME || "manual";
@@ -1099,6 +1015,9 @@ async function main() {
       trigger,
       mode: FORCE ? "force" : DRY ? "dry" : "delta",
       prune_enabled: PRUNE,
+      event_inventory: eventInventory.outcomes,
+      event_projection_horizon_days: 366,
+      prune_suppressed_after_write_failure: PRUNE && errors > 0,
       duration_seconds: Number(elapsed),
       git_sha: sha7,
       embedding_model: EMBEDDING_MODEL,
@@ -1122,7 +1041,7 @@ async function main() {
       metadata_only_chunk_ids: metaOnlyIds,
       pruned_chunk_ids: prunedIds,
       stale_chunk_ids: staleIds.filter((id) => !prunedIds.includes(id)),
-      expired_event_entity_ids: expiredEventIds,
+      excluded_event_sources: eventInventory.outcomes.filter(r => r.status === "excluded"),
       embedding_cost_usd_estimate: Number(costEstimate.toFixed(4)),
       errors: errorDetail,
     };

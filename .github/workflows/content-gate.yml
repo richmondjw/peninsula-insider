@@ -70,6 +70,7 @@ jobs:
           npm run test:how-we-check
           npm run test:event-safeguards
           npm run test:event-occurrence
+          node --test ../ops/ask-pi-quality/quality.test.mjs ../ops/ask-pi-quality/current-corpus.test.mjs ../ops/scripts/concierge-events.integration.test.mjs
           npm run test:event-heroes
           node --test ../ops/scripts/post-publish-verify.test.mjs
           python3 scripts/recompute-occurrence.py --dry-run --today 2026-10-12 > /tmp/pi-market-occurrence-check.txt
