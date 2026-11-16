@@ -14,6 +14,7 @@ import {
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import EventBadges from '../../components/EventBadges.astro';
 import EventCard from '../../components/EventCard.astro';
+import ClusterLinks from '../../components/ClusterLinks.astro';
 import EventImageCredit from '../../components/EventImageCredit.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import CorrectionNote from '../../components/CorrectionNote.astro';
@@ -23,6 +24,7 @@ import {
   eventLensLabel,
   routeSlug,
   venueHref,
+  isListableVenue,
   weatherCopy,
 } from '../../lib/editorial';
 import { isCancelledEvent, isCurrentEvent, loadLiveEvents } from './_data';
@@ -42,6 +44,8 @@ export async function getStaticPaths() {
 }
 
 const { event: originalEvent } = Astro.props;
+const hostVenueEntries = await Promise.all((originalEvent.data.hostVenues ?? []).map((ref: { collection: 'venues'; id: string }) => getEntry(ref)));
+const hostVenueLinks = hostVenueEntries.filter((host) => host && isListableVenue(host)).map((host) => ({ label: host!.data.name, href: venueHref(host) }));
 const now = new Date();
 const explicitSeries = hasExplicitSeries(originalEvent.data) || hasLegacyExceptions(originalEvent.data);
 const event = explicitSeries ? {...originalEvent, data: nextSeriesData(originalEvent.data, now)} : originalEvent;
@@ -360,6 +364,8 @@ export const prerender = true;
               {event.data.primarySourceUrl && <p><a href={event.data.primarySourceUrl} rel="nofollow noreferrer" target="_blank">Check the latest details at the source &rarr;</a></p>}
             </div>
           )}
+
+          {hostVenueLinks.length > 0 && <ClusterLinks links={hostVenueLinks} heading="Festival venues in the PI guide" />}
 
           {event.data.skipThis && event.data.skipReason && (
             <aside class="skip-callout">

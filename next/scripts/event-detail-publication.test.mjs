@@ -6,6 +6,18 @@ import { transform } from '@astrojs/compiler';
 import { isPublicEventRecord } from '../src/lib/event-publication.mjs';
 import { cleanCaption } from '../src/lib/image-caption.mjs';
 const source = await readFile(new URL('../src/pages/whats-on/[slug].astro', import.meta.url), 'utf8');
+
+test('event host coverage resolves canonical references and omits unavailable venues', async () => {
+  const editorial = await readFile(new URL('../src/lib/editorial.ts', import.meta.url), 'utf8');
+  const predicates = editorial.slice(editorial.indexOf('export function isPermanentlyClosed'), editorial.indexOf('export const stayTypes'));
+  const listable = new Function(`${stripTypeScriptTypes(predicates).replaceAll('export ', '')}; return isListableVenue;`)();
+  const block = source.slice(source.indexOf('const hostVenueEntries ='), source.indexOf('const now ='));
+  const actual = new Function('originalEvent', 'getEntry', 'isListableVenue', 'venueHref', `return (async () => {${stripTypeScriptTypes(block)}; return hostVenueLinks;})();`);
+  const records = [undefined, {data:{name:'Paused',status:'paused'}}, {data:{name:'Closed',operatingStatus:'permanently-closed'}}, {data:{name:'Canonical',slug:'canonical'}}];
+  const resolve = async ref => records[ref.id];
+  assert.deepEqual(await actual({data:{}}, resolve, listable, v => `/wine/${v.data.slug}/`), []);
+  assert.deepEqual(await actual({data:{hostVenues:records.map((_,id)=>({id}))}}, resolve, listable, v => `/wine/${v.data.slug}/`), [{label:'Canonical',href:'/wine/canonical/'}]);
+});
 test('actual detail route generates approved/public URLs and refuses draft records', async () => {
   const body = source.match(/export async function getStaticPaths\(\) \{([\s\S]*?)\n\}/)?.[1];
   assert.ok(body, 'Actual route function must be present');
