@@ -138,7 +138,7 @@ const verifiedTier = verificationFreshness(data.lastVerified);
   </h3>
   {summaryLine && <p class="venue-card__place">{summaryLine}</p>}
   {hats > 0 && (
-    <div class="venue-card__hats" aria-label={`${hats} Good Food Guide hat${hats > 1 ? 's' : ''}`}>
+    <div class="venue-card__hats" role="img" aria-label={`${hats} Good Food Guide hat${hats > 1 ? 's' : ''}`}>
       {Array.from({ length: hats }).map(() => (
         <span class="venue-card__hat" aria-hidden="true"></span>
       ))}
