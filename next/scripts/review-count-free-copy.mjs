@@ -14,7 +14,15 @@ try {
     const { page } = reader;
     try {
       await page.setViewport({ width, height: 900 });
-      await reader.load(route);
+      // Print-only guides deliberately have no Astro ClientRouter/page-load
+      // event. Check their actual HTTP document and font readiness directly.
+      if (route.startsWith('/guides/')) {
+        const response = await page.goto(site.origin + route, { waitUntil: 'networkidle0' });
+        assert.equal(response.status(), 200, route);
+        await page.waitForSelector('h1');
+      } else {
+        await reader.load(route);
+      }
       await page.evaluate(() => document.fonts.ready);
       const observed = await page.evaluate(() => ({
         title: document.title,
