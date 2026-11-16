@@ -18,6 +18,12 @@ test('writer preserves exact suburb and does not mutate CMS source',()=>{
 test('writer excludes published cancelled records',()=>{
  const f=fixture('cancelled');assert.equal(chunkEvent(f.records[0].data,'synthetic-market',f.now).chunks.length,0);
 });
+test('malformed input is a failed inventory item, never an exclusion',()=>{
+ for(const data of [null,[],{}, {title:'Broken',startDate:'2026-02-30'}, {title:'Broken',startDate:'2026-12-01',nextOccurrence:'invalid'}]){
+  const result=projectEventInventory([{slug:'broken',data}],fixtures.cases[0].now);
+  assert.equal(result.complete,false);assert.equal(result.outcomes[0].status,'failed');assert.equal(result.chunks.length,0);
+ }
+});
 test('writer preserves occurrence cancellation, confirmed-only and postponed boundaries',()=>{
  for(const id of ['confirmed-only-no-date','cancelled','postponed-no-date','cms-cancelled-override']){
   const f=fixture(id);

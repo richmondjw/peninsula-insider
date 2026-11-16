@@ -8,6 +8,26 @@ import { selectEventPromotions, hasPromotionGeography } from '../../next/src/lib
 import { isPublicEventRecord } from '../../next/src/lib/event-publication.mjs';
 import { recordDisposition } from '../../next/src/lib/event-occurrence.mjs';
 
+// Validate identity and date inputs before the permissive display helpers can
+// turn corrupt input into an ordinary exclusion. A failure blocks reconciliation.
+export function validateEventSource(data,slug) {
+  if(!data||typeof data!=='object'||Array.isArray(data))throw Error('Invalid event source object');
+  if(typeof slug!=='string'||!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug))throw Error('Invalid event identity');
+  if(typeof data.title!=='string'||!data.title.trim())throw Error('Missing event title');
+  if(data.slug!==undefined&&data.slug!==slug)throw Error('Event slug does not match source filename');
+  if(data.status!==undefined&&!['draft','review','scheduled','published','expired','past','archived'].includes(data.status))throw Error('Invalid event lifecycle');
+  for(const [field,allowed] of Object.entries({recurrence:['one-off','weekly','monthly','annual','seasonal','ongoing'],occurrencePolicy:['cadence','confirmed-only'],dateBasis:['fixed','operator-calendar','on-request','opening-hours'],contentKind:['event','experience','offer']})) {
+    if(data[field]!==undefined&&!allowed.includes(data[field]))throw Error(`Invalid event ${field}`);
+  }
+  for(const field of ['cancelled','postponed'])if(data[field]!==undefined&&typeof data[field]!=='boolean')throw Error(`Invalid event ${field}`);
+  for(const field of ['startDate','endDate','nextOccurrence','rescheduledTo','expiresAt']) {
+    const value=data[field];
+    if(value===undefined&&field!=='startDate')continue;
+    if(typeof value!=='string'||!/^\d{4}-\d{2}-\d{2}(?:T.*)?$/.test(value)||!Number.isFinite(Date.parse(value))||new Date(value.slice(0,10)+'T00:00:00Z').toISOString().slice(0,10)!==value.slice(0,10))throw Error(`Invalid event ${field}`);
+  }
+  if(data.endDate&&Date.parse(data.endDate)<Date.parse(data.startDate))throw Error('Inverted event date range');
+}
+
 /** Match the collection's recursive JSON glob; unreadable/malformed input fails. */
 export async function readEventSources(dir) {
   const records=[];
@@ -22,7 +42,7 @@ export async function readEventSources(dir) {
 export function chunkEvent(data, slug, now = new Date()) {
   now = new Date(now);
   if (!Number.isFinite(+now)) throw new Error('Invalid event projection clock');
-  if(data?.slug && data.slug!==slug)throw new Error('Event slug does not match source filename');
+  validateEventSource(data,slug);
   const excluded = reason => ({chunks: [], excluded: reason});
   // Astro's events collection defaults an omitted legacy status to published.
   // Apply that same default on a copy; explicit lifecycle/CMS decisions win.

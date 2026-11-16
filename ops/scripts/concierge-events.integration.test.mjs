@@ -8,11 +8,14 @@ import {fileURLToPath,pathToFileURL} from 'node:url';
 const root=fileURLToPath(new URL('../../',import.meta.url));
 const fixture={title:'Synthetic market',status:'published',startDate:'2026-05-09',endDate:'2026-05-09',nextOccurrence:'2026-12-12',recurrence:'monthly',recurrenceNote:'second Saturday every month',suburb:'Red Hill',verification:'verified',bookingStatus:'unknown'};
 
-async function run(mode) {
+async function run(mode,source=fixture) {
  const dir=await mkdtemp(join(tmpdir(),'pi-corpus-test-')),content=join(dir,'content'),report=join(dir,'report');
  await mkdir(join(content,'events'),{recursive:true});
- await writeFile(join(content,'events','market.json'),JSON.stringify(fixture));
- await writeFile(join(content,'events','cancelled.json'),JSON.stringify({...fixture,cancelled:true}));
+ if(mode!=='empty'){
+  await writeFile(join(content,'events','market.json'),JSON.stringify(source));
+  await mkdir(join(content,'events','archive'),{recursive:true});
+  await writeFile(join(content,'events','archive','cancelled.json'),JSON.stringify({...fixture,cancelled:true}));
+ }
  if(mode==='write-failure')for(const slug of ['extra-a','extra-b','extra-c'])await writeFile(join(content,'events',slug+'.json'),JSON.stringify(fixture));
  const preload=join(dir,'mock.mjs'),calls=join(dir,'calls.json');
  // Every fetch is replaced. An unrecognised URL throws; no fallback network.
@@ -33,7 +36,9 @@ async function run(mode) {
  const result=spawnSync(process.execPath,['--import',pathToFileURL(preload).href,'ops/scripts/refresh-corpus.mjs',...(mode==='dry'?['--dry','--prune']:['--prune']),'--report'],{cwd:root,encoding:'utf8',env:{...process.env,CONTENT_DIR:content,REPORT_DIR:report,SUPABASE_URL:'https://mock.invalid',SUPABASE_SERVICE_KEY:'synthetic-only',COHERE_API_KEY:'synthetic-only'}});
  assert.equal(result.error,undefined,String(result.error));
  if(!result.stdout)throw new Error(result.stderr);
- return {result,calls:JSON.parse(await readFile(calls,'utf8')),report:JSON.parse(await readFile(join(report,'2026-11-16.json'),'utf8').catch(e=>{throw new Error(result.stderr+'\n'+result.stdout.slice(-1000));}))};
+ const recorded=JSON.parse(await readFile(calls,'utf8'));
+ if(mode==='malformed'||mode==='empty')return {result,calls:recorded};
+ return {result,calls:recorded,report:JSON.parse(await readFile(join(report,'2026-11-16.json'),'utf8').catch(e=>{throw new Error(result.stderr+'\n'+result.stdout.slice(-1000));}))};
 }
 test('actual writer dry integration accounts for recurrence, locality, cancellation and >1000 rows without writes',async()=>{
  const {result,calls,report}=await run('dry');assert.equal(result.status,0,result.stderr);
@@ -48,4 +53,14 @@ test('actual writer reports failed synthetic write with nonzero exit',async()=>{
  const {result,calls,report}=await run('write-failure');assert.equal(result.status,1);
  assert(calls.some(c=>c.method==='POST'));assert(!calls.some(c=>c.method==='DELETE'));
  assert.equal(report.errors.length,4);assert.equal(report.prune_suppressed_after_write_failure,true);
+});
+test('malformed source aborts actual writer before any network, embedding or deletion',async()=>{
+ for(const source of [null,[],{...fixture,title:''},{...fixture,startDate:'invalid'},{...fixture,nextOccurrence:'2026-02-30'},{...fixture,cancelled:'yes'}]){
+  const {result,calls}=await run('malformed',source);
+  assert.equal(result.status,1,result.stdout);assert.deepEqual(calls,[]);
+  assert.match(result.stderr,/Event projection failed/);
+ }
+});
+test('empty required event collection never reconciles away the previous index',async()=>{
+ const {result,calls}=await run('empty');assert.equal(result.status,1);assert.deepEqual(calls,[]);assert.match(result.stderr,/required source inventory is empty/);
 });

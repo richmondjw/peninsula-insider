@@ -822,6 +822,7 @@ async function main() {
   // abort before database or embedding calls when any source fails projection.
   const eventDir = join(CONTENT_DIR, "events");
   const events = await readEventSources(eventDir);
+  if (!events.length) throw new Error('Event projection failed: required source inventory is empty');
   const eventInventory = projectEventInventory(events, today);
   if (!eventInventory.complete) throw new Error(`Event projection failed: ${JSON.stringify(eventInventory.outcomes.filter(r=>r.status==='failed'))}`);
   allChunks.push(...eventInventory.chunks);
