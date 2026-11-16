@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
 import {execFileSync} from 'node:child_process';
+import {fileURLToPath} from 'node:url';
 import {baseline,bundle} from './staging-fixtures.mjs';
 import {prepareSnapshot} from '../lib/concierge-snapshot.mjs';
 import {groundEventRecords} from '../lib/concierge-event-grounding.mjs';
@@ -15,6 +16,7 @@ const build=(overrides={})=>exportEventManifest({pinned:pinned(),cms:cms(),bundl
 test('pinned reader enumerates committed recursive sources without worktree or network dependence',()=>{
  const revision=execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim();
  const result=readPinnedEventSources(process.cwd(),revision);assert.equal(result.revision,revision);assert(result.sources.length>100);assert(result.sources.every(r=>r.blob.length===40&&r.path.startsWith('next/src/content/events/')));
+ assert.deepEqual(readPinnedEventSources(fileURLToPath(new URL('../../next/',import.meta.url)),revision),result);
  assert.throws(()=>readPinnedEventSources(process.cwd(),'HEAD'),/full commit/);
 });
 test('published CMS title wins with distinct raw/effective revision and complete accounting',()=>{

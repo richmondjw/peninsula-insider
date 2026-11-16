@@ -15,7 +15,8 @@ const fail=message=>{throw Error(message);};
 /** Reads committed blobs, never a partly edited worktree or a moving ref. */
 export function readPinnedEventSources(repo,revision) {
  if(!/^[a-f0-9]{40}$/.test(revision))fail('source revision must be a full commit SHA');
- const git=(args,options={})=>execFileSync('git',args,{cwd:repo,maxBuffer:32*1024*1024,...options});
+ const root=execFileSync('git',['rev-parse','--show-toplevel'],{cwd:repo,encoding:'utf8'}).trim();
+ const git=(args,options={})=>execFileSync('git',args,{cwd:root,maxBuffer:32*1024*1024,...options});
  if(git(['cat-file','-t',revision],{encoding:'utf8'}).trim()!=='commit')fail('source revision is not a commit');
  const entries=git(['ls-tree','-rz',revision,'--','next/src/content/events/'],{encoding:'utf8'}).split('\0').filter(Boolean).map(line=>{
   const separator=line.indexOf('\t');if(separator<0)fail('source tree framing');
