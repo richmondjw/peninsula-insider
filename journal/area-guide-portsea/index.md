@@ -59,7 +59,7 @@ Morning arrival is best, especially if the day involves Point Nepean. This is no
 
 ### The main address
 
-**Portsea Hotel** is the main social and dining address. The setting does most of the work. Sit on the verandah or where the bay stays in view, and come for lunch or an early dinner rather than something more elaborate.
+**[Portsea Hotel](<https://peninsulainsider.com.au/eat/portsea-hotel/>)** is the main social and dining address. The setting does most of the work. Sit on the verandah or where the bay stays in view, and come for lunch or an early dinner rather than something more elaborate.
 
 ### The practical stop
 

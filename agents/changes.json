@@ -1,11 +1,52 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-16T20:36:57.028Z",
+  "generatedAt": "2026-11-16T21:02:45.603Z",
   "baselineAvailable": true,
   "fromSnapshot": "5e45039b25ccdead4a32a6e51548dae2a488a2c1acc74ddc2fc7b3578354335e",
-  "toSnapshot": "5e45039b25ccdead4a32a6e51548dae2a488a2c1acc74ddc2fc7b3578354335e",
-  "previousGeneratedAt": "2026-11-16T20:18:51.533Z",
+  "toSnapshot": "f84f695cc264d8c871b93e68639df1f4e289ff69d2cb434c24199a29621646e4",
+  "previousGeneratedAt": "2026-11-16T20:36:57.028Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 0,
-  "changes": []
+  "count": 5,
+  "changes": [
+    {
+      "id": "https://peninsulainsider.com.au/journal/area-guide-dromana/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/area-guide-dromana/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/area-guide-dromana/index.md",
+      "contentSha256": "fb580d1ce23b6c151f57e098c6f144022515f93612765400721610c4249ab59a",
+      "previousContentSha256": "283dceab3d0b44e9302d6a5e7a74cdec549578ab82a01cbac89a0b6438b7727b"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/area-guide-flinders/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/area-guide-flinders/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/area-guide-flinders/index.md",
+      "contentSha256": "506f6b61d2e7f6fc34ef7e7567fccb6ab84df250cacd841db3ff89333758656b",
+      "previousContentSha256": "1b7e11a6c6e94fc4169189ca49d8729208ba0e37d4c2c29e725ffad1c1c8d1ff"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/area-guide-main-ridge/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/area-guide-main-ridge/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/area-guide-main-ridge/index.md",
+      "contentSha256": "7012c7b1b577ab6bafc480df90d6ebf80482363550fd9b1be78a30deaba5cfb0",
+      "previousContentSha256": "f2357cf4225bede0b54f52825ca986a8f8b47dd8ae47ddf86aaf8e78ce71878c"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/area-guide-merricks/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/area-guide-merricks/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/area-guide-merricks/index.md",
+      "contentSha256": "17cca886f1958d4e03304625eee54202193e1f26dcfeef577ff035267862e661",
+      "previousContentSha256": "3490e43051408e6f62c5a5fa6f8e4a1c4e9f196ffa21aab1a34dc0f2be08f688"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/area-guide-portsea/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/area-guide-portsea/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/area-guide-portsea/index.md",
+      "contentSha256": "9dc4972c4135530f6c3d385528bf0fb9869dc0ec1d832f84d8b0d9736c7fd309",
+      "previousContentSha256": "f4abb78f3d4778ceb9316e850bb32ef2b5e052530410cee13b84df02ebf9bccd"
+    }
+  ]
 }

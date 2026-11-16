@@ -45,7 +45,7 @@ Dromana is at its best when you stop expecting destination dining from every add
 
 ### Leave room for the wine-country pull
 
-The food-and-drink strength here is proximity to estates behind town. **Crittenden** is one of the region’s benchmark producers and an easy inclusion in a Dromana-based day. **Foxeys Hangout** and other nearby ridge addresses can also be folded in.
+The food-and-drink strength here is proximity to estates behind town. **Crittenden** is one of the region’s benchmark producers and an easy inclusion in a Dromana-based day. **[Foxeys Hangout](<https://peninsulainsider.com.au/wine/foxeys-hangout/>)** and other nearby ridge addresses can also be folded in.
 
 ### Keep one meal local
 
