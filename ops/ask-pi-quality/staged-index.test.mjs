@@ -132,3 +132,11 @@ test('corrupted retained payload never receives a successful identical retry or 
  await assert.rejects(commitPrepared(storageFor(other),rolled),/rollback-snapshot-not-retained/);
  assert.equal(active(other).token,next.token);
 });
+test('identical snapshot retry preserves its embedding dimensions and performs no embedding call',async()=>{
+ const old=await prepare(),value=readPrepared(old);let calls=0;
+ const embed=async()=>{calls++;return [0,1,0];};
+ const same=await prepareSnapshot(old,value.manifest,value.records,{dimensions:2,embed});
+ assert.deepEqual(same,old);assert.equal(calls,0);
+ await assert.rejects(prepareSnapshot(old,value.manifest,value.records,{dimensions:3,embed}),/retry-dimensions-mismatch/);
+ assert.equal(calls,0);
+});

@@ -53,7 +53,10 @@ export async function prepareSnapshot(previous,manifest,records,{embed,dimension
   validateBindings(manifest,records);
   const decision=promote(old?.manifest??null,manifest);
   if(!decision.promoted)throw Error(decision.errors.join(','));
-  if(old&&hash(old.manifest)===hash(manifest)&&hash(old.records)===hash(records))return {...previous};
+  if(old&&hash(old.manifest)===hash(manifest)&&hash(old.records)===hash(records)){
+    if(old.dimensions!==dimensions)throw Error('retry-dimensions-mismatch');
+    return {...previous};
+  }
   const embeddings=[];
   for(const row of manifest.indexRows){
     const record=records.find(r=>r.id===row.id);
