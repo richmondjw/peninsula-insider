@@ -24,8 +24,6 @@ import { resolveHero } from '../../lib/inline-edit/resolve-hero';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import AskLine from '../../components/v5/AskLine.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import HubEntry from '../../components/v5/hub/HubEntry.astro';
-import { checkedSpan } from '../../lib/checked-span';
 import FilterBar from '../../components/v5/FilterBar.astro';
 import SortControl from '../../components/v5/SortControl.astro';
 import TheSix from '../../components/v5/hub/TheSix.astro';
@@ -295,9 +293,9 @@ const journalItems = journalSlugs
 
 // ── Stand-first (<= 80 words, carries the where-to-stay + corridor phrases) ─
 const standfirst =
-  'Choose your base first: the end of the Peninsula that suits your days, then the hotel, villa or cottage that makes the weekend.';
+  'The best stay starts with a place that suits your days. Choose a wine-country or coastal base, then find the hotel, villa or cottage that makes the weekend yours.';
 
-const stayChecked = checkedSpan(venues.map((v) => v.data));
+const stayHero = categoryHero('stay');
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
@@ -329,22 +327,29 @@ export const prerender = true;
   section="stay"
   canonical="https://peninsulainsider.com.au/stay"
   modifiedTime="2026-10-03"
-  ogImage={pageImage('stay-hero').src}
+  ogImage={stayHero.src}
 >
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 
+  <Breadcrumbs items={breadcrumbItems} />
 
-  <HubEntry
-    kicker="Places to stay"
-    title="Wine country or the coast?"
-    dek={standfirst}
-    primary={{ label: 'Compare Red Hill and Sorrento', href: '#choose-base', arrow: 'down' }}
-    secondary={{ label: `Browse all ${stayCount} stays`, href: '#browse-stay', arrow: 'down' }}
-    trust={stayChecked ? `Every stay ${stayChecked}. Chosen by our editors, never paid for.` : 'Every stay chosen by our editors, never paid for.'}
-    image={pageImage('stay-hero')}
-    focal={{ desktop: '62% 50%', mobile: '66% 55%' }}
-  />
+  <section class="stay-hero" aria-labelledby="stay-hero-title">
+    <div class="container stay-hero__grid">
+      <div class="stay-hero__copy">
+        <h1 id="stay-hero-title">Where you stay shapes the whole trip.</h1>
+        <p class="stay-hero__lead">{standfirst}</p>
+        <p class="stay-hero__trust">{stayCount} stays chosen by our editors{directoryChecked ? `, ${directoryChecked.replace(/^(Most )?[Dd]etails checked/, 'checked')}` : ''}. <a href="/about/#how-we-choose">How we choose</a></p>
+        <div class="stay-hero__actions">
+          <a class="stay-hero__primary" href="#choose-base">Choose your base <span aria-hidden="true">&rarr;</span></a>
+          <a class="stay-hero__secondary" href="#browse-stay">Browse all {stayCount} stays <span aria-hidden="true">&darr;</span></a>
+        </div>
+      </div>
+      <figure class="stay-hero__visual">
+        <img src={stayHero.src} alt={stayHero.alt} width="2000" height="1333" fetchpriority="high" decoding="async" data-pi-responsive="(max-width: 760px) calc(100vw - 2rem), 1200px" />
+      </figure>
+    </div>
+  </section>
 
   <div data-category-editorial>
     <div id="choose-base"><StayBaseComparison /></div>
