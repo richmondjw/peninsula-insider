@@ -1,11 +1,11 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-11-16T19:25:56.632Z",
-  "snapshotId": "04344d62346b84277d620aeaeb74749b7a72f944afe6189ca79f2d84d6b2d566",
+  "generatedAt": "2026-11-16T20:18:51.533Z",
+  "snapshotId": "5e45039b25ccdead4a32a6e51548dae2a488a2c1acc74ddc2fc7b3578354335e",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
-  "count": 694,
+  "count": 695,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/",
@@ -6434,6 +6434,23 @@
       "markdownBytes": 8753
     },
     {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-17/",
+      "title": "Flinders Sourdough, the Arthurs Seat ridge, and NWOP closing Sunday",
+      "section": "journal",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-17/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-17/index.md",
+      "contentSha256": "2fed76cef80d97c165feefd3b58b53426911b09db848f703b9cc5500ef370c99",
+      "citation": {
+        "title": "Flinders Sourdough, the Arthurs Seat ridge, and NWOP closing Sunday",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-17/",
+        "publishedAt": "2026-11-17T00:00:00.000Z",
+        "modifiedAt": "2026-11-17T00:00:00.000Z"
+      },
+      "htmlBytes": 163393,
+      "markdownBytes": 7972
+    },
+    {
       "id": "https://peninsulainsider.com.au/journal/local-secrets/",
       "title": "The Peninsula our readers see.",
       "section": "journal",
@@ -7272,7 +7289,7 @@
       "section": "picks",
       "canonicalUrl": "https://peninsulainsider.com.au/picks/",
       "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
-      "contentSha256": "17ff1516f5e9034d90861ea9561f6d3652373ece667e8a0a33b2e96101fda4b4",
+      "contentSha256": "90507ac05f124c0541af8303c972ca6145abd07c15ee58a4de0504cdb6821ec2",
       "citation": {
         "title": "Insider Picks",
         "publisher": "Peninsula Insider",
@@ -7280,8 +7297,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 121994,
-      "markdownBytes": 5503
+      "htmlBytes": 121999,
+      "markdownBytes": 5508
     },
     {
       "id": "https://peninsulainsider.com.au/privacy/",
