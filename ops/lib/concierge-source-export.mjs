@@ -7,6 +7,7 @@ import {readPrepared,prepareSnapshot,commitPrepared} from './concierge-snapshot.
 import {connectSnapshotWriter} from './concierge-snapshot-transport.mjs';
 import {projectEventInventory,validateEventSource} from '../scripts/concierge-events.mjs';
 import {publicEventData} from '../../next/src/lib/event-publication.mjs';
+import {ruleFor} from '../../next/src/lib/event-schedule.ts';
 const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
 const clock=value=>typeof value==='string'&&Number.isFinite(Date.parse(value));
 const fail=message=>{throw Error(message);};
@@ -66,7 +67,11 @@ export function exportEventManifest({pinned,cms,previous=null,bundle,now=new Dat
  const sources=pinned.sources.map(source=>{
   if(slugs.has(source.slug))fail('duplicate source slug');slugs.add(source.slug);validateEventSource(source.data,source.slug);
   const data=structuredClone(source.data);if(data.status===undefined)data.status='published';
-  return {...source,data,rawRevision:hash(source.data)};
+  const schedule=data=>{
+   const dated={...data};for(const key of ['startDate','endDate','nextOccurrence'])if(dated[key])dated[key]=new Date(dated[key]);
+   return hash(ruleFor({id:source.slug,data:dated},now));
+  };
+  return {...source,data,rawRevision:hash(source.data),schedule,sourceRule:schedule(data)};
  });
  const bySlug=new Map(sources.map(s=>[s.slug,s]));
  for(const row of cms.rows){
@@ -76,6 +81,9 @@ export function exportEventManifest({pinned,cms,previous=null,bundle,now=new Dat
   if(!row.value){cmsOutcomes.push({id:row.id,status:'excluded',reason:'empty-display-override'});continue;}
   source.data[row.field_path]=row.value;cmsOutcomes.push({id:row.id,status:'applied',source:source.slug});
  }
+ // The public page's schedule is derived from source data, not inline display
+ // edits. Prose can influence legacy cadence parsing; never silently change it.
+ for(const source of sources)if(source.schedule(source.data)!==source.sourceRule)fail(`CMS display edit changes source occurrence rule: ${source.slug}`);
  const inventory=projectEventInventory(sources,now);
  if(!inventory.complete)fail('canonical event source projection failed');
  const records=sources.map(source=>{

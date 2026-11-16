@@ -25,6 +25,13 @@ test('published CMS title wins with distinct raw/effective revision and complete
 test('unknown source verification stays unknown rather than becoming ingestion time',()=>{
  const s=source();delete s.data.lastVerifiedAt;const result=build({pinned:pinned([s])});assert.equal(result.records[0].verifiedAt,null);assert.equal(result.manifest.sourceVerifiedAt,null);
 });
+test('CMS title or summary cannot change source-derived monthly cadence',()=>{
+ const s=source();s.data.recurrence='monthly';s.data.title='Second Saturday market';s.data.startDate='2026-01-10';s.data.endDate='2027-12-31';
+ assert.throws(()=>build({pinned:pinned([s]),cms:cms([row({value:'Third Sunday market'})])}),/changes source occurrence rule/);
+ const summarized=structuredClone(s);summarized.data.title='Monthly market';summarized.data.summary='Second Saturday market';
+ assert.throws(()=>build({pinned:pinned([summarized]),cms:cms([row({field_path:'summary',value:'Third Sunday market'})])}),/changes source occurrence rule/);
+ const corrected=build({pinned:pinned([s]),cms:cms([row({value:'Second Saturday local market'})])});assert.equal(corrected.records[0].data.title,'Second Saturday local market');
+});
 test('CMS ambiguity, unsupported structured edits, stale receipt and truncation fail closed',async()=>{
  for(const receipt of [cms([row({field_path:'cancelled',value:'false'})]),cms([row({field_kind:'richtext'})]),cms([row({locale:'en'})]),cms([row(),row({id:'002'})]),{...cms(),row_count:1},{...cms(),revision:'f'.repeat(64)},{...cms(),observed_at:'2026-01-01T00:00:00Z'}])assert.throws(()=>build({cms:receipt}));
  await assert.rejects(readCmsEventSnapshot(async()=>[]),/envelope/);
