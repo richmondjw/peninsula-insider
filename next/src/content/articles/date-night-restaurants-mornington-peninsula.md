@@ -94,7 +94,7 @@ A restaurant and wine bar on the Esplanade, just off Main Street, with views tow
 
 Some nights call for more than a good dinner.
 
-**Laura at Pt. Leo, Merricks.** The estate's fine-dining room, for up to 40 guests, with four-course and eight-course menus. Dinner is on Saturday from 6pm; lunch runs Friday to Monday. Reservations are required on weekends. This is the anniversary booking. Our [three dinners comparison](/journal/three-italian-dinners/) weighs it against Tedesca and Ten Minutes by Tractor.
+**Laura at Pt. Leo, Merricks.** The estate's fine-dining room, for up to 40 guests, with four-course and eight-course menus. Dinner is on Saturday from 6pm; lunch runs Friday to Monday. Reservations are required on weekends. This is the anniversary booking. Our [dining comparison](/journal/three-italian-dinners/) weighs it against Tedesca and Ten Minutes by Tractor.
 
 **Doot Doot Doot at Jackalope, Merricks North.** Jackalope's signature multi-course dining room, one of the most dramatic spaces on the Peninsula. Book it with a night at the hotel and the whole evening takes care of itself. Check current service dates and dietary arrangements with Jackalope before booking.
 

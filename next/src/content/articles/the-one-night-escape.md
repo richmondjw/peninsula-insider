@@ -65,7 +65,9 @@ aiSummary:
 One room, one dinner and an unhurried morning can make a single night feel longer. Keep the route close to your room so travel does not consume the stay.
 
 
-## The three bases that make a one-night trip work
+<span id="the-three-bases-that-make-a-one-night-trip-work"></span>
+
+## The bases that make a one-night trip work
 
 Choose the base before booking the room. Keep dinner and the next morning nearby.
 

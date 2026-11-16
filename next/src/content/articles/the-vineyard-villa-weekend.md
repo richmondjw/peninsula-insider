@@ -66,7 +66,7 @@ The quietest version is the vineyard villa. A stay on a working farm or winery e
 
 ## Why the villa works
 
-Three things separate a vineyard villa stay from a hotel stay, and all three matter.
+These details separate a vineyard villa stay from a hotel stay, and each matters.
 
 **The first is the absence of performance.** A hotel is a social stage, even a good one. You are dressed at breakfast. You nod at the waiter. You think about whether your drinks order is the right one. A villa asks none of that. You can walk out onto the deck in a jumper and socks at 8am holding a mug of bad instant coffee, and the only witness is a row of pinot vines.
 
@@ -74,7 +74,9 @@ Three things separate a vineyard villa stay from a hotel stay, and all three mat
 
 **The third is preparing your own meals.** Cooking facilities differ between properties. At Polperro, confirm the kitchenette appliances before buying ingredients. A good loaf and local cheese can make for a slow evening by the fire.
 
-## Three villa stays that actually deliver
+<span id="three-villa-stays-that-actually-deliver"></span>
+
+## Villa stays that actually deliver
 
 The Peninsula is crowded with rentals, and most of them are fine. The ones worth paying for are the ones where the property itself is doing the work: the vineyard, the farm, the ridge.
 

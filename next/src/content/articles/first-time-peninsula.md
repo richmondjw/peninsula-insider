@@ -78,7 +78,7 @@ For a first visit: start with the hinterland or the coast. Not both.
 
 ## What to do: the short list
 
-If you only have time for five things, these are the five.
+If your time is short, start here.
 
 **1. One serious lunch.** The Peninsula's restaurants are the main event, and the right lunch will be the thing you remember longest. **Ten Minutes by Tractor** runs a fixed menu of precise, seasonal cooking in a vineyard dining room and is one of regional Victoria's most respected kitchens. **Montalto** is the warmer, more accessible alternative with a sculpture trail and a kitchen that handles a table of four as easily as a couple. **Merricks General Wine Store** is the casual version: wood-fired pizza, local wines by the glass, a paddock view. Any of these three will do the job.
 

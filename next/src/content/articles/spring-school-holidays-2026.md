@@ -1,6 +1,6 @@
 ---
 title: "Spring school holidays on the Peninsula"
-dek: "Three ways to use the final days of the spring break: gondola art, outdoor play and an all-weather gallery stop, through 4 October 2026."
+dek: "Ways to use the final days of the spring break: gondola art, outdoor play and an all-weather gallery stop, through 4 October 2026."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-09-20

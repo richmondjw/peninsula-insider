@@ -87,7 +87,7 @@ const charters = [
 ];
 const hire = allHire.find((h) => h.data.slug === 'mornington-boat-hire') ?? allHire[0];
 
-const trustLead = `${allRamps.length} public ramps, all free to launch.${reviewedOn ? ` ${provenance.stampLabel} ` : ''}`;
+const trustLead = `Public ramps, all free to launch.${reviewedOn ? ` ${provenance.stampLabel} ` : ''}`;
 
 const hero = pageImage('boating-hero');
 const pier = pageImage('boating-pier');
@@ -182,7 +182,7 @@ export const prerender = true;
       <div class="bh-head">
         <h2 id="ramps-title">Choose your ramp</h2>
         <p class="bh-head__dek">
-          All {allRamps.length} are free to launch. The tide decides more than the drive does:
+          The ramps in this guide are free to launch. The tide decides more than the drive does:
           {anyTideCount} work at any tide, the rest need the water up. Heading for the Heads?
           Read <a class="bh-inline" href="#before-you-launch">Before you launch</a> first.
         </p>
@@ -297,7 +297,7 @@ export const prerender = true;
           <h3>Fish from a pier</h3>
           <p class="bh-option__lead">
             No boat at all? Our <a class="bh-inline" href="/fishing/locations/">fishing spots guide</a> covers
-            {pierCount} piers and jetties, with tide notes for each and any current closure.
+            piers and jetties, with tide notes for each and any current closure.
           </p>
         </div>
       </div>

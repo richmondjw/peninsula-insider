@@ -125,17 +125,17 @@ export const prerender = true;
   </div>
 </SubpageHero>
 
-  <GuideChoices id="dinner" title="Where to go for dinner on the Mornington Peninsula" intro="Two starting points with published evening sessions. These are dinner options, not a new ranking of every restaurant. Check the operator's booking calendar for your date." choices={dinnerChoices} checkedNote={`These two venues' published dinner sessions were checked on ${dinnerCheckedDate}. The wider shortlist retains each venue's existing verification date.`} />
+  <GuideChoices id="dinner" title="Where to go for dinner on the Mornington Peninsula" intro="Dinner options with published evening sessions. This is not a new ranking of every restaurant. Check the operator's booking calendar for your date." choices={dinnerChoices} checkedNote={`These venues' published dinner sessions were checked on ${dinnerCheckedDate}. The wider shortlist retains each venue's existing verification date.`} />
 
   <section class="venues" id="rankings">
     <div class="container">
       <div class="venues__header">
         <div>
           <p class="label label--accent">Editorial ranking · {new Date().getFullYear()}</p>
-          <h2 class="venues__title">The top {topVenues.length} dining rooms, by authority</h2>
+          <h2 class="venues__title">Dining rooms, by authority</h2>
           <p class="venues__sub">Ordered by editorial weight. Rooms with a hat rating first, then the places doing the strongest quiet work.</p>
         </div>
-        <a href="/eat/" class="venues__link">All {venues.length} venues →</a>
+        <a href="/eat/" class="venues__link">Explore dining venues →</a>
       </div>
       <div class="venues__grid venues__grid--ranked">
         {topVenues.map((venue) => <VenueCard venue={venue} href={venueHref(venue)} />)}

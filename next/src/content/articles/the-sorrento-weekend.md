@@ -195,7 +195,7 @@ The version of Sorrento that locals would actually recommend runs on different r
 
 The single decision that separates a good Sorrento weekend from a tolerable one is refusing to commute back up the Peninsula for dinner. If you stay in Red Hill or Flinders and drive down for the day, you are always running a shuttle. If you stay in Sorrento, the whole weekend becomes walkable, and the dining rooms you would otherwise rush through become the places the evening slows down in.
 
-Three stays do this well.
+These stays do this well.
 
 **InterContinental Sorrento** is the hotel within the landmark Continental precinct. Its heritage and newer wings make a central base for the village and bay. The precinct's dining rooms and Conti Bar are separately run options nearby; reserve the meal you want rather than assuming it is part of the room.
 

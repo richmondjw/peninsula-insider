@@ -68,7 +68,7 @@ const topicsFor=(a:typeof articles[number])=>themes.filter(t=>t.articles.include
   dek={leadDek}
   primary={{ label: displayFor(lead).eyebrow ? `Read: ${displayFor(lead).eyebrow}` : 'Read this story', href: `/journal/${routeSlug(lead)}/` }}
   secondary={{ label: 'Browse every story', href: '#archive', arrow: 'down' }}
-  trust={`${articles.length} stories, written by our editors. Never paid for.`}
+  trust={`Stories written by our editors. Never paid for.`}
   trustHref="/about/#how-we-choose"
   trustLabel="How we choose"
   image={{ page: '/journal/', role: 'hero', entity: `articles/${routeSlug(lead)}`, src: leadImage.src, alt: leadImage.alt, caption: leadImage.caption, credit: leadImage.credit }}

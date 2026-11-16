@@ -1,5 +1,5 @@
 ---
-title: "The Peninsula Pub Crawl: Six Pubs, Three Routes, No Pretension"
+title: "The Peninsula Pub Crawl: Local Pubs, Unhurried Routes"
 dek: "A drinking guide to the Mornington Peninsula's public houses  -  the fires, the bistros, the beer gardens, the locals, and the argument for building a whole day around them."
 author: "editorial"
 houseByline: true

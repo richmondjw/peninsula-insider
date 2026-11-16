@@ -101,7 +101,7 @@ You are now four producers in, the cooler bag is full, and it is roughly 12.30pm
 
 ### Lunch in the middle of the loop
 
-The lunch on a producer day should be light. The point is to refuel between stops. Three options that fit:
+The lunch on a producer day should be light. The point is to refuel between stops. Options that fit:
 
 - **Merricks General Wine Store** for a wood-oven pizza and a glass of pinot. Forty-five minutes, in and out.
 - **The Red Hill Baker, Balnarring** for a counter lunch: bread, pastry and coffee. Twenty minutes. The former Red Hill location is closed.
@@ -123,7 +123,7 @@ The next stop is a two-part visit. **Balnarring Bakehouse** is the village baker
 
 ### Stop three: Mornington Peninsula Cider or Green Olive at Red Hill
 
-Close the loop with one of two options. **Mornington Peninsula Cider** is a small cidery in the lower ridge area that does proper cellar-door tastings and sells a half-dozen ciders and perries that fit the day's mood: lighter, more fruit-forward, less heavy than a wine tasting. Or, if you have stamina, drive back up the ridge to **Green Olive at Red Hill**, the working olive grove with a cellar door, an olive oil tasting, a small farm shop, and one of the prettiest verandahs on the Peninsula.
+Choose where to close the loop. **Mornington Peninsula Cider** is a small cidery in the lower ridge area that does proper cellar-door tastings and sells a half-dozen ciders and perries that fit the day's mood: lighter, more fruit-forward, less heavy than a wine tasting. Or, if you have stamina, drive back up the ridge to **Green Olive at Red Hill**, the working olive grove with a cellar door, an olive oil tasting, a small farm shop, and one of the prettiest verandahs on the Peninsula.
 
 ### Lunch in the southern loop
 

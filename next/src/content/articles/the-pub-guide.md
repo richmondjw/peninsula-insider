@@ -1,6 +1,6 @@
 ---
-title: "The Peninsula Pub Guide: Five Hotels That Still Know What a Pub Is For"
-dek: "Not a gastropub ranking. Not a beer list. A guide to the five Peninsula pubs that still operate as the social centre of a town, where the food is good, the beer is cold, the rooms are clean, and nobody is trying to be anything else."
+title: "The Peninsula Pub Guide: Hotels That Still Know What a Pub Is For"
+dek: "Not a gastropub ranking. Not a beer list. A guide to the Peninsula pubs that still operate as the social centre of a town, where the food is good, the beer is cold, the rooms are clean, and nobody is trying to be anything else."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-04-10

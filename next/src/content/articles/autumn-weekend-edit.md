@@ -61,7 +61,9 @@ April undoes most of that. Book a week ahead rather than two months. Drive the r
 
 The weather helps. A good autumn day on the plateau starts cool and clear, warms into the early afternoon, and gives you late light that is almost impossibly flattering to landscape. A bad autumn day, and there are plenty, delivers rain on the windscreen, a fire in the dining room at lunch, and the kind of weekend that justifies staying another night.
 
-## The three bookings worth making first
+<span id="the-three-bookings-worth-making-first"></span>
+
+## The bookings worth making first
 
 **Tedesca Osteria** is the lunch the Peninsula does best in autumn. Brigitte Hafner's set menu suits the season's produce: mushrooms, heavier pasta, longer braises. The dining room is built for this time of year. Book for lunch, not dinner. Go a fortnight ahead if you can.
 

@@ -1,6 +1,6 @@
 ---
 title: "Insider Picks - Week of 21 May: The Register Has Changed"
-dek: "The warm window from last week is gone. Four picks for a cooler, quieter Peninsula: the booking before the final forage closes, the hinterland walk for grey-sky days, a regional gallery first with two weeks of life left, and the dinner that earns its keep now the weather has arrived."
+dek: "The warm window from last week is gone. The picks for a cooler, quieter Peninsula: the booking before the final forage closes, the hinterland walk for grey-sky days, a regional gallery first with two weeks of life left, and the dinner that earns its keep now the weather has arrived."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-05-20

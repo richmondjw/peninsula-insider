@@ -1,6 +1,6 @@
 ---
 title: "The Sunset Drink: Where to Watch the Light Drop on the Peninsula"
-dek: "The bay side goes gold at about five. The ocean side goes pink at about half past. You need a glass in your hand for both versions, and these are the seven places that understand the assignment."
+dek: "The bay side goes gold at about five. The ocean side goes pink at about half past. You need a glass in your hand for both versions, and these are the places that understand the assignment."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-04-10

@@ -1,6 +1,6 @@
 ---
 title: "The Peninsula Beach Swimming Guide: Which Beach for Which Swim, From Bay to Back Beach"
-dek: "Thirty kilometres of Port Phillip coastline, fifteen kilometres of Bass Strait back beaches, and four distinct swimming moods that most visitors cannot tell apart. A proper guide to where to actually swim on the Mornington Peninsula, by conditions and by purpose."
+dek: "Thirty kilometres of Port Phillip coastline, fifteen kilometres of Bass Strait back beaches, and distinct swimming moods that most visitors cannot tell apart. A proper guide to where to actually swim on the Mornington Peninsula, by conditions and by purpose."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-04-14
@@ -53,9 +53,11 @@ A swim at Safety Beach is a different experience from a swim at Sorrento Back Be
 
 This guide is organised by what you want out of the swim, not by geography.
 
-## The four Peninsula swim moods
+<span id="the-four-peninsula-swim-moods"></span>
 
-Every swim on the Peninsula falls into roughly one of four categories. Pick the mood first, and the beach selects itself.
+## Find your Peninsula swim
+
+Start with the kind of Peninsula swim you want, then choose the beach to match.
 
 **1. The calm-water family swim.** Shallow, warm, safe, easy parking, often with a kiosk, almost always on the bay side. This is the default family swim. The Peninsula has more of these than any other kind.
 

@@ -110,10 +110,8 @@ const {
 
 const headingId = `${id ?? `directory-${surface}`}-heading`;
 const featuredCount = items.filter((item) => item.featured).length;
-const words = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
-const featuredWord = words[featuredCount] ?? String(featuredCount);
 const featuredNote = featuredCount > 0
-  ? `${featuredWord[0]?.toUpperCase()}${featuredWord.slice(1)} are featured above; the other ${items.length - featuredCount} follow.`
+  ? 'Our featured picks are above; browse the rest below.'
   : '';
 ---
 
@@ -122,7 +120,7 @@ const featuredNote = featuredCount > 0
     <div class="v5-directory__header">
       <div>
         {eyebrow && <p class="v5-directory__eyebrow">{eyebrow}</p>}
-        <h2 class="v5-directory__heading" id={headingId} tabindex="-1">{heading}</h2>
+        <h2 class="v5-directory__heading" id={headingId} tabindex="-1" data-directory-total={countable ? items.length : undefined}>{heading}</h2>
         {(sub || featuredNote) && <p class="v5-directory__sub">{featuredNote && <span data-featured-note hidden>{featuredNote} </span>}{sub}</p>}
       </div>
       {topLink && (

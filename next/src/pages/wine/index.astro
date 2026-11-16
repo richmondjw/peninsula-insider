@@ -258,7 +258,7 @@ const journalImageOverrides: Record<string, { src: string; alt: string }> = {
 };
 const journalVerdicts: Record<string, string> = {
   'the-chardonnay-case': 'The case for Peninsula chardonnay, argued bottle by bottle.',
-  'the-cellar-door-short-list': 'The shortlist behind The Six: how we pick the rooms worth the drive.',
+  'the-cellar-door-short-list': 'The shortlist behind our cellar-door picks: how we pick the rooms worth the drive.',
   'how-to-build-a-red-hill-saturday': 'One ridge, one day: a suggested Saturday route around Red Hill.',
 };
 const journalItems = Object.keys(journalVerdicts)
@@ -316,7 +316,7 @@ const faqSchema = {
     title="Mornington Peninsula wine country"
     dek={standfirst}
     primary={{ label: 'Pick your kind of wine day', href: '#wine-choices', arrow: 'down' }}
-    secondary={{ label: `Browse all ${venues.length} wineries`, href: '#browse-wine', arrow: 'down' }}
+    secondary={{ label: `Browse wineries`, href: '#browse-wine', arrow: 'down' }}
     trust={wineChecked ? `${wineChecked[0].toUpperCase()}${wineChecked.slice(1)}. Chosen by our editors, never paid for.` : 'Chosen by our editors, never paid for.'}
     image={pageImage('wine-hero')}
     focal={{ desktop: '30% 60%', mobile: '25% 62%' }}
@@ -329,7 +329,7 @@ const faqSchema = {
   <TheSix
     id="the-six"
     heading="Cellar doors to build a day around"
-    sub="Six rooms worth the drive, chosen by our editors."
+    sub="Rooms worth the drive, chosen by our editors."
     surface="wine"
     items={theSixItems}
     trip={false}
@@ -345,7 +345,7 @@ const faqSchema = {
   <div id="browse-wine">
     <DirectoryRows
       id="wine-directory"
-      heading={`All ${venues.length} wine-country places`}
+      heading={`Explore wine-country places`}
       sub={directoryChecked ? `${directoryChecked}.` : undefined}
       surface="wine"
       noun="cellar doors"
@@ -375,7 +375,7 @@ const faqSchema = {
   <section class="hub-faq" aria-label="Frequently asked questions">
     <div class="container">
       <div class="hub-faq__intro">
-        <h2 class="hub-faq__title">Three honest answers before you book</h2>
+        <h2 class="hub-faq__title">Before you book</h2>
       </div>
       <div class="hub-faq__list">
         {faqSchema.mainEntity.map((item) => (
