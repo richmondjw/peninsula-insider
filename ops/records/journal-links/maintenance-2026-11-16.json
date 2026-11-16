@@ -22,10 +22,10 @@
   "placeGuides": 37,
   "totals": {
     "missing": 1668,
-    "self-reference": 109,
-    "closed-or-paused": 39,
+    "self-reference": 104,
+    "closed-or-paused": 42,
     "linked": 116,
-    "ambiguous": 60,
+    "ambiguous": 62,
     "redirect-or-noncanonical": 80,
     "wrong": 12,
     "external-reference": 5,
@@ -3279,6 +3279,15 @@
       "blockId": null
     },
     {
+      "url": "/explore/places/safety-beach/",
+      "name": "Safety Beach",
+      "target": "/explore/places/safety-beach/",
+      "status": "ambiguous",
+      "decision": "held-ambiguous",
+      "context": " Safety Beach is a bayside township on the Mornington Peninsula's eastern Port Phillip shoreline, 70 km from Melbourne, between Dromana and Mount Martha, with a marina and a sheltered swimming beach. ",
+      "blockId": null
+    },
+    {
       "url": "/explore/places/st-andrews-beach/",
       "name": "St Andrews Beach Brewery",
       "target": "/eat/st-andrews-beach-brewery/",
@@ -5079,12 +5088,48 @@
       "blockId": null
     },
     {
+      "url": "/stay/hotel-sorrento/",
+      "name": "Hotel Sorrento",
+      "target": "/stay/hotel-sorrento/",
+      "status": "ambiguous",
+      "decision": "held-ambiguous",
+      "context": "Hotel Sorrento is an adults-only stay and guest pool above Sorrento village. Its five room families are Classic, Poolside, Coastal, Sorrento Studios and Sunset Suites; views, terraces and baths vary by room. As checked 3 October 2026, the hotel warns of possible daytime midweek construction noise and changed movement around the property ahead of its 1 December expansion.",
+      "blockId": null
+    },
+    {
+      "url": "/wine/elgee-park/",
+      "name": "Elgee Park",
+      "target": "/wine/elgee-park/",
+      "status": "closed-or-paused",
+      "decision": "held-closed-or-paused",
+      "context": "Elgee Park says its estate is closed to the general public. Community groups can arrange a vineyard and sculpture-park tour with the operator. Its wines are available for tasting and sales at Merricks Store, 3460 Frankston-Flinders Road, Merricks. Do not travel to the estate for an ordinary cellar-door visit; check the operator for any arranged tour.",
+      "blockId": null
+    },
+    {
       "url": "/wine/flinders/",
       "name": "Flinders Hotel",
       "target": null,
       "status": "ambiguous",
       "decision": "held-ambiguous",
       "context": "Most people who visit Flinders for wine come for one cellar door plus the village: the Flinders Hotel for lunch, the bakery for the drive home, the coastal walk to clear the head. That's the model - wine as one move in a slower, ocean-edge weekend rather than a cellar-door crawl.",
+      "blockId": null
+    },
+    {
+      "url": "/wine/garagiste/",
+      "name": "Garagiste",
+      "target": "/wine/garagiste/",
+      "status": "closed-or-paused",
+      "decision": "held-closed-or-paused",
+      "context": "Garagiste is Barnaby Flanders' small-batch Peninsula wine project. The existing Mount Eliza address should not be treated as a public drop-in cellar door: current tasting access and visitor hours have not been verified with the operator. The producer remains active, but this record is paused as a visit recommendation until its public visitor arrangements are confirmed.",
+      "blockId": null
+    },
+    {
+      "url": "/wine/kerri-greens/",
+      "name": "Kerri Greens",
+      "target": "/wine/kerri-greens/",
+      "status": "closed-or-paused",
+      "decision": "held-closed-or-paused",
+      "context": "Kerri Greens says its former cellar door has closed. The producer continues to sell wine online and appears at local markets and pop-ups, with current appearances listed by the operator. There is no public cellar-door address to visit. This record is paused as a visit recommendation until an operator-confirmed visitor location exists.",
       "blockId": null
     },
     {
@@ -6122,6 +6167,7 @@
     },
     "/explore/places/safety-beach/": {
       "counts": {
+        "held-ambiguous": 1,
         "pending-contextual-editorial-review": 3
       },
       "pendingNames": [
@@ -8892,6 +8938,7 @@
     },
     "/stay/hotel-sorrento/": {
       "counts": {
+        "held-ambiguous": 1,
         "pending-contextual-editorial-review": 1
       },
       "pendingNames": [
@@ -9085,6 +9132,7 @@
     },
     "/wine/elgee-park/": {
       "counts": {
+        "held-closed-or-paused": 1,
         "pending-contextual-editorial-review": 1
       },
       "pendingNames": [
@@ -9118,6 +9166,7 @@
     },
     "/wine/garagiste/": {
       "counts": {
+        "held-closed-or-paused": 1,
         "pending-contextual-editorial-review": 1
       },
       "pendingNames": [
@@ -9131,6 +9180,12 @@
       "pendingNames": [
         "Dromana"
       ]
+    },
+    "/wine/kerri-greens/": {
+      "counts": {
+        "held-closed-or-paused": 1
+      },
+      "pendingNames": []
     },
     "/wine/kooyong/": {
       "counts": {

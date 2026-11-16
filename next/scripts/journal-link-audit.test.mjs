@@ -86,3 +86,16 @@ test('place introductory text is included, metadata and own-entity mentions are 
  const a=contextualMentions(pageFacts(markup,route),[own],new Map([[route,pageFacts(markup,route)]]));
  assert.equal(a.mentions.length,1);assert.equal(a.mentions[0].status,'self-reference');
 });
+
+test('marked roots cannot bypass active-plan and unsupported-route exclusions',()=>{
+ for(const route of ['/explore/plans/test/','/admin/test/']) {
+  const page=pageFacts(`<link rel="canonical" href="${route}"><div data-pi-prose-root><p>Test Venue</p></div>`,route);
+  assert.equal(contextualMentions(page,[entity],targets()).excluded,true);
+ }
+});
+test('own-page references preserve ambiguity and status holds',()=>{
+ const route='/eat/test/';const page=pageFacts(`<link rel="canonical" href="${route}"><div class="prose"><p>Test Venue</p></div>`,route);
+ const own={...entity,href:route};const pages=new Map([[route,page]]);
+ assert.equal(contextualMentions(page,[own,{...own,id:'venue:other',href:'/eat/other/'}],pages).mentions[0].status,'ambiguous');
+ assert.equal(contextualMentions(page,[{...own,hold:'closed-or-paused'}],pages).mentions[0].status,'closed-or-paused');
+});

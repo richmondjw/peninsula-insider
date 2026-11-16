@@ -80,7 +80,7 @@ export function contextualMentions(page, entities, pages) {
     return false;
   };
   const supported = /^\/(journal|explore|eat|wine|stay|guides)\//.test(page.url) && !page.url.startsWith('/explore/plans/');
-  const candidates = marked.length ? marked : supported && !page.url.startsWith('/journal/') ? nodes.filter(n => classes(n).includes('prose') || classes(n).some(c => ['pdv2-lede__factual','pdv2-lede__intro'].includes(c))) : [];
+  const candidates = !supported ? [] : marked.length ? marked : !page.url.startsWith('/journal/') ? nodes.filter(n => classes(n).includes('prose') || classes(n).some(c => ['pdv2-lede__factual','pdv2-lede__intro'].includes(c))) : [];
   const roots = candidates.filter(n => !isExcluded(n) && !candidates.some(other => other !== n && descendants(other).includes(n)));
   if (!roots.length || page.stub || page.noindex || page.canonical !== page.url) return { excluded:true, reason:page.stub ? 'redirect' : page.noindex ? 'noindex' : page.canonical !== page.url ? 'noncanonical' : 'no supported contextual body (plans excluded for active work)', mentions:[] };
   const bodyNodes = () => roots.flatMap(descendants);
@@ -120,7 +120,7 @@ export function contextualMentions(page, entities, pages) {
       const href = links.length === 1 ? links[0] : null;
       const state = targetState(m.entity,pages);
       const resolved = href ? destination(href,page.url) : null;
-      const status = m.entity.href?.split('#')[0] === page.url ? 'self-reference' : unique.length > 1 || state === 'ambiguous' ? 'ambiguous' : state !== 'eligible' ? state : href && resolved === m.entity.href ? 'linked' : href ? (resolved ? 'wrong' : 'external-reference') : links.length > 1 ? 'partial-link' : 'missing';
+      const status = unique.length > 1 || state === 'ambiguous' ? 'ambiguous' : state !== 'eligible' ? state : m.entity.href?.split('#')[0] === page.url ? 'self-reference' : href && resolved === m.entity.href ? 'linked' : href ? (resolved ? 'wrong' : 'external-reference') : links.length > 1 ? 'partial-link' : 'missing';
       mentions.push({entityId:m.entity.id, name:m.alias, target:m.entity.href, status, href, first:!seen.has(m.entity.id), block:index, blockId:attr(block,'data-pi-block-id') ?? null, context:value, candidates:unique});
       seen.add(m.entity.id);
     }
