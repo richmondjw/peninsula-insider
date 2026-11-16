@@ -128,7 +128,7 @@ const collectionSchema = buildCollectionPageSchema({
   name: 'Mornington Peninsula Golf Courses - Peninsula Insider',
   description: 'Compare 11 Mornington Peninsula golf venues by visitor access, location and playing style.',
   path: '/explore/golf/',
-  dateModified: '2026-11-02',
+  dateModified: '2026-11-16',
 });
 const itemListSchema = buildItemListSchema({
   name: 'Mornington Peninsula Golf Venues',
@@ -151,23 +151,31 @@ const itemListSchema = buildItemListSchema({
 const faqSchema = buildFaqSchema([
   {
     q: 'What is the best golf course on the Mornington Peninsula?',
-    a: "Moonah Links Open Course for championship pedigree and public access. St Andrews Beach for Tom Doak architecture at a public green fee. The National is a private club at Cape Schanck; eligible visitors should confirm access with the club before planning a round.",
+    a: "Moonah Links Open Course for championship pedigree and full public access. St Andrews Beach for Tom Doak architecture at a public green fee. The National is a private club at Cape Schanck; eligible visitors should confirm access with the club before making plans. PI view: for a mid-handicapper who values a visitor-bookable championship layout, Moonah Links Open Course is a strong starting point. Compare its live tee times and playing demands with St Andrews Beach and The Dunes before choosing.",
   },
   {
     q: 'Can you play golf on the Mornington Peninsula without a club membership?',
-    a: "Yes. Moonah Links, St Andrews Beach, RACV Cape Schanck, Eagle Ridge, The Dunes, Mornington, and Rosebud Country Club all accept visitor green fees. Flinders welcomes visitors seven days in published time windows; Portsea lists limited visitor green-fee times. Check each club's current tee-time rules.",
+    a: 'Yes. Moonah Links, St Andrews Beach, RACV Cape Schanck, Eagle Ridge, The Dunes, Mornington Golf Club, and Rosebud Country Club list visitor green fees; check current tee times with each club. Flinders welcomes visitors seven days in published time windows, and Portsea offers limited visitor green-fee times. The National is private: Victorian nonmembers need an invitation and must play with a member, while interstate and overseas visitors can request tee times directly.',
   },
   {
     q: 'How much does golf cost on the Mornington Peninsula?',
-    a: "Green fees vary by course, season and tee time. Check each club's current rate and visitor eligibility before booking; several courses publish separate midweek and weekend prices.",
+    a: 'Green fees change with season, day and tee time. RACV, Moonah Links and The Dunes publish rates; other clubs may show a live price in their booking calendar. Check visitor eligibility and the current amount directly with each club before committing to a round.',
   },
   {
     q: 'Is there accommodation near the Peninsula golf courses?',
-    a: 'RACV Cape Schanck Resort is on-site. Moonah Links has on-property accommodation with stay-and-play packages. For the remaining courses, choose a base close to the club you plan to play and check actual travel time.',
+    a: 'RACV Cape Schanck Resort is on-site with direct access to its 18-hole course. Moonah Links has on-property accommodation with stay-and-play packages covering both the Open and Legends courses. For other clubs, choose accommodation near the course and check travel time before booking. The full stay-and-play guide maps each option with travel times and booking advice.',
   },
   {
     q: 'How do the Cape Schanck and other Peninsula courses differ?',
-    a: 'The Cape Schanck and Fingal cluster has exposed coastal courses with a mix of public and private access. Other courses span Boneo, Rye, Flinders, Mornington and southern bayside towns; check access rules and location before choosing a base.',
+    a: "The Cape Schanck / Fingal cluster brings together St Andrews Beach, Moonah Links, and three of The National's four courses (Old, Moonah, Gunnamatta). The fourth National course, Long Island, is at Frankston rather than Cape Schanck. The southern courses sit in coastal duneland exposed to Bass Strait weather, with links-style characteristics and a strong concentration of recognised course architecture. The other clubs are spread across Flinders, Boneo, Rye, Mornington and southern bayside towns. They vary in visitor access, terrain and travel time; check the club rules and route that suit your trip.",
+  },
+  {
+    q: 'How far is Mornington Peninsula golf from Melbourne?',
+    a: 'Drive times from Melbourne vary materially by the course, departure point and Peninsula traffic. Mornington is the northernmost venue in this guide; the Rye, Fingal and Cape Schanck courses require travelling farther south. Check a live route for the exact tee time before booking. Allow extra margin on Friday afternoons, weekends, summer dates and school holidays, when Peninsula roads can be busier.',
+  },
+  {
+    q: 'What is the best time of year for golf on the Mornington Peninsula?',
+    a: "There is no single best season. Check the forecast, daylight, course conditions, visitor availability and the club's current booking advice for your date. Coastal courses can be exposed to wind, and conditions after heavy rain vary by venue. Confirm the live tee time, course status and cancellation policy directly with the club before travelling.",
   },
 ]);
 const breadcrumbSchema = buildBreadcrumbSchema([
@@ -189,7 +197,7 @@ export const prerender = true;
   section="explore"
   canonical="https://peninsulainsider.com.au/explore/golf/"
   ogImage={pageImage('golf-hub').src}
-  modifiedTime="2026-11-02"
+  modifiedTime="2026-11-16"
 >
   <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
@@ -465,7 +473,7 @@ export const prerender = true;
         <div>
           <p class="label label--accent">The mixed group question</p>
           <h2 class="venues__title">When one person plays, what does everyone else do?</h2>
-          <p class="venues__sub">The Peninsula solves this better than almost anywhere else in Australia. The non-golfer's day can be as good as the golfer's - if you plan it properly.</p>
+          <p class="venues__sub">A golfer and non-golfer can build parallel plans here if the route, opening times and meeting point are agreed before either booking is made.</p>
         </div>
       </div>
       <div class="pairing-grid">
@@ -576,7 +584,7 @@ export const prerender = true;
           <summary class="golf-faq__q">What is the best golf course on the Mornington Peninsula?</summary>
           <div class="golf-faq__a">
             <p>Moonah Links Open Course for championship pedigree and full public access. St Andrews Beach for Tom Doak architecture at a public green fee. The National is a private club at Cape Schanck; eligible visitors should confirm access with the club before making plans.</p>
-            <p>For a mid-handicapper who wants the best round rather than the most famous address: Moonah Links Open Course is the correct answer. The challenge is real, the conditioning is excellent, and the round does not end with the score card as the main memory.</p>
+            <p><strong>PI view:</strong> for a mid-handicapper who values a visitor-bookable championship layout, Moonah Links Open Course is a strong starting point. Compare its live tee times and playing demands with St Andrews Beach and The Dunes before choosing.</p>
           </div>
         </details>
 
@@ -620,8 +628,8 @@ export const prerender = true;
         <details class="golf-faq__item">
           <summary class="golf-faq__q">What is the best time of year for golf on the Mornington Peninsula?</summary>
           <div class="golf-faq__a">
-            <p>Autumn (March–May) and spring (September–November) are the strongest seasons - stable weather, firm course conditions, and shoulder-season pricing on green fees and accommodation. The coastal light in autumn is genuinely extraordinary on the Cape Schanck courses.</p>
-            <p>Summer (December–February) is busy and can be windy at coastal courses. Winter is playable on dry days but expect some course closures after heavy rain. Links-style courses like St Andrews Beach and The Dunes drain faster than parkland courses and often stay open when inland layouts close.</p>
+            <p>There is no single best season. Check the forecast, daylight, course conditions, visitor availability and the club's current booking advice for your date.</p>
+            <p>Coastal courses can be exposed to wind, and conditions after heavy rain vary by venue. Confirm the live tee time, course status and cancellation policy directly with the club before travelling.</p>
           </div>
         </details>
 
@@ -804,6 +812,8 @@ export const prerender = true;
 
   .golf-photos { padding-block-start: clamp(1rem, 2vw, 1.5rem); }
   .golf-photos :global(.pstage) { margin-block-end: 0; }
+  .golf-photos :global(.pstage__strip) { scrollbar-width: none; }
+  .golf-photos :global(.pstage__strip::-webkit-scrollbar) { display: none; }
   /*─────────────────────────────────────────────────────────────────
      GOLF CARD GRID
      ───────────────────────────────────────────────────────────────── */
@@ -1186,10 +1196,9 @@ export const prerender = true;
     margin-bottom: 0.15rem;
   }
   .architect-card__course {
-    font-size: 0.72rem;
+    font-size: 0.8125rem;
     font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    letter-spacing: 0.035em;
     color: var(--accent);
     margin-bottom: 0.85rem;
     line-height: 1.4;
@@ -1407,8 +1416,20 @@ export const prerender = true;
     line-height: 1.7;
   }
   .golf-faq__a p { margin-bottom: 0.6rem; }
+  .venues__sub,
+  .golf-card__note,
+  .golf-card__local,
+  .architect-card__note,
+  .pairing-card__sub,
+  .pairing-card__list,
+  .golf-stayplay__dek,
+  .golf-faq__a p { max-width: 65ch; }
   .golf-faq__a p:last-child { margin-bottom: 0; }
   .golf-faq__a a { color: var(--accent); text-decoration: underline; }
+  @media (max-width: 700px) {
+    :global(.breadcrumbs__item a),
+    .golf-area-card h4 a { display: inline-flex; align-items: center; min-height: 44px; }
+  }
 
   /* ─────────────────────────────────────────────────────────────────
      VERIFIED NOTE

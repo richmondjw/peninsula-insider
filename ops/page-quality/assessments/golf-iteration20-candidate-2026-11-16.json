@@ -1,0 +1,51 @@
+{
+  "url": "https://peninsulainsider.com.au/explore/golf/",
+  "tier": "T1",
+  "programme": "peninsula-insider-page-quality-to-99",
+  "assessedAt": "2026-11-16",
+  "productionBaseline": {
+    "sourceSha": "e72487bf7b64b7aac6bb17911ac11e36e937fe45",
+    "runId": "43809568426",
+    "independentScores": [92.75, 95.5, 95.5],
+    "acceptedConservativeScore": 92.75
+  },
+  "candidate": {
+    "status": "local-independent-regrade-passed-release-pending",
+    "independentScores": [94.75, 96.75, 97.75],
+    "acceptedConservativeScore": 94.75,
+    "thresholdMet": false,
+    "hardGateObserved": false
+  },
+  "implemented": [
+    "removed or qualified unsupported mixed-group, conditioning and seasonal claims",
+    "matched all seven visible FAQ questions and answers exactly in FAQPage structured data",
+    "updated visible and structured modification dates",
+    "constrained recurring long-form copy to a sixty-five-character reading measure",
+    "changed long architect metadata from tracked uppercase to normal case",
+    "hid the native photo-rail scrollbar while preserving swipe, wheel and keyboard access",
+    "raised mobile breadcrumb and area-title links to forty-four-pixel targets"
+  ],
+  "localAcceptance": {
+    "fullNpmBuild": "passed before the final FAQ-parity and typography delta",
+    "finalAstroProductionBuild": "passed for 1159 pages",
+    "mobileViewportPx": 390,
+    "mobilePageHeightPx": 11848,
+    "horizontalOverflow": false,
+    "pageOriginConsoleErrors": 0,
+    "failedRequests": 0,
+    "faqVisibleCount": 7,
+    "faqSchemaCount": 7,
+    "faqQuestionAndAnswerParity": true,
+    "mobileBreadcrumbTargetHeightPx": 44,
+    "mobileAreaTargetHeightPx": 44,
+    "photoRailScrollbar": "hidden",
+    "photoRailStillScrollable": true
+  },
+  "remainingDeductions": [
+    "exceptionally long mobile journey and repeated kicker-heading transitions",
+    "repetitive course-card pacing and shared border-shadow visual treatment",
+    "direct spoken NVDA or VoiceOver assessment not observed",
+    "field Core Web Vitals not available"
+  ],
+  "releaseAcceptance": "A local build and independent candidate scores are not a public release or a 99 pass. Merge through protected CI, verify the exact deployment receipt and live page, then obtain exact-live independent grading."
+}
