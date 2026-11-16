@@ -1,6 +1,6 @@
 ---
-title: "The Cellar Door Short List: Four Producers Worth the Stop"
-dek: "Not the biggest estates, not the flashiest rooms. The four Peninsula cellar doors where the wines  -  and the people pouring them  -  actually change how you think about the region."
+title: "The Cellar Door Short List: Producers Worth the Stop"
+dek: "Not the biggest estates, not the flashiest rooms. The Peninsula cellar doors where the wines  -  and the people pouring them  -  actually change how you think about the region."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-04-06

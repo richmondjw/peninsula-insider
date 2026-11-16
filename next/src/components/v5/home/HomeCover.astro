@@ -33,7 +33,7 @@ const creditLine = /illustration/i.test(credit) ? credit + '.' : /^Courtesy of /
     <h1 class="home-cover__statement" {...editableText({entityType:'page',entitySlug:'home',fieldPath:'cover.statement',label:'Cover statement'})}>{statement === 'Make a day of the Peninsula.' ? <>Make a day<br />of the<br />Peninsula.</> : statement}</h1>
     <p class="home-cover__promise">An independent local guide to where to eat, stay and explore, and how to put the day together.</p>
     <nav class="home-cover__actions" aria-label="Start planning your Peninsula visit"><a href="#home-choose">Find a ready-made day <span aria-hidden="true">&#8595;</span></a></nav>
-    <p class="home-cover__trust">{listed.length} places{checked ? `, ${checked}` : ''}. Never paid for. <a href="/about/#how-we-choose">How we choose</a></p>
+    <p class="home-cover__trust">Places chosen by our editors{checked ? `, ${checked}` : ''}. Never paid for. <a href="/about/#how-we-choose">How we choose</a></p>
   </div>
   {SHOW_ASK_PI && (
     <a class="home-cover__ask" href="/ask/" data-pi-popup aria-haspopup="dialog" aria-label="Ask PI, your Peninsula local">

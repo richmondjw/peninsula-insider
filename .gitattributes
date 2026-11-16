@@ -5,3 +5,6 @@
 
 # Existing Astro templates use CRLF; carriage returns are line endings, not trailing spaces.
 *.astro whitespace=cr-at-eol
+
+# Published PDFs contain byte offsets and embedded fonts; never normalize them.
+*.pdf binary

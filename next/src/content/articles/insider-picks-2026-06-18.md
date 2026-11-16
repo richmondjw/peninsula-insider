@@ -1,6 +1,6 @@
 ---
 title: "Insider Picks - Week of 18 June: The Shortest Week"
-dek: "Three picks for the solstice week: a gallery show with twelve days of life left, a coastal walk at its most dramatic, and the farm dinner that winter was built for."
+dek: "The picks for the solstice week: a gallery show with twelve days of life left, a coastal walk at its most dramatic, and the farm dinner that winter was built for."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-06-18
@@ -33,7 +33,7 @@ faq:
     answer: "Barragunda Dining is at 165 Boneo Road, Cape Schanck. It is a farm-to-table restaurant on a 1000-acre regenerative estate, run by chef Simone Watts. The menu changes weekly based on what the farm produces. Bookings are essential and should be made well in advance at barragundadining.com.au."
 ---
 
-The solstice falls on Saturday, and the Peninsula's editorial calendar is dominated by one big night on the Sorrento foreshore. This edition picks around it. Three things that feel strongest right now: one closing cultural window, one walk that winter actually improves, and one dinner that only makes sense in the cold months.
+The solstice falls on Saturday, and the Peninsula's editorial calendar is dominated by one big night on the Sorrento foreshore. This edition picks around it. What feels strongest right now: one closing cultural window, one walk that winter actually improves, and one dinner that only makes sense in the cold months.
 
 ## See it before it closes - MPRG Autumn Exhibition
 

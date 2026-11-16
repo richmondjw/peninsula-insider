@@ -1,6 +1,6 @@
 ---
-title: "Tedesca, Tractor, Laura: The Three Peninsula Dinners and the Argument Between Them"
-dek: "A comparative review of the three most serious dining rooms on the Mornington Peninsula, and a specific case for which one is which occasion."
+title: "Tedesca, Tractor, Laura: Peninsula Dinners and the Argument Between Them"
+dek: "A comparative review of the most serious dining rooms on the Mornington Peninsula, and a specific case for which one is which occasion."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-04-07

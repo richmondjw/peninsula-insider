@@ -21,7 +21,7 @@ const caption = (image: { caption?: string; credit?: string } | null) => image?.
       {pickInGrid && <h2 id="all-plans-heading">Ready-made itineraries</h2>}
       <div class="plan-index__open">
         <slot name="intro" />
-        {!pickInGrid && <p class="plan-index__trust">{itineraries.length} ready-made days and weekends{planChecked ? `, ${planChecked}` : ''}. Never paid for. <a href="/about/#how-we-choose">How we choose</a></p>}
+        {!pickInGrid && <p class="plan-index__trust">Ready-made days and weekends{planChecked ? `, ${planChecked}` : ''}. Never paid for. <a href="/about/#how-we-choose">How we choose</a></p>}
         <slot name="matcher" />
       </div>
       {!pickInGrid && <h2 id="all-plans-heading" class="plan-index__sr">Ready-made itineraries</h2>}

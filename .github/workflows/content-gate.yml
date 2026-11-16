@@ -243,11 +243,32 @@ jobs:
         # same.
         run: |
           cd next
-          if [ "${GITHUB_HEAD_REF:-}" = "fix/eat-featured-photo-restoration-20261115" ] || [ "${GITHUB_HEAD_REF:-}" = "fix/home-weekend-selection-20261115" ]; then
+          if [ "${GITHUB_HEAD_REF:-}" = "codex/count-free-editorial-20261117" ] || [ "${GITHUB_HEAD_REF:-}" = "fix/eat-featured-photo-restoration-20261115" ] || [ "${GITHUB_HEAD_REF:-}" = "fix/home-weekend-selection-20261115" ]; then
             npm run build
           else
             npx astro build
           fi
+
+      - name: Review count-free editorial copy
+        if: github.event_name == 'pull_request' && github.head_ref == 'codex/count-free-editorial-20261117'
+        working-directory: next
+        env:
+          REVIEW_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          node --test scripts/count-semantics.test.mjs
+          node scripts/assert-count-semantics.mjs
+          mkdir -p review/count-free-copy/downloads
+          cp public/downloads/*.pdf review/count-free-copy/downloads/
+          node scripts/review-count-free-copy.mjs
+
+      - name: Upload count-free editorial review
+        if: always() && github.event_name == 'pull_request' && github.head_ref == 'codex/count-free-editorial-20261117'
+        uses: actions/upload-artifact@v4
+        with:
+          name: count-free-copy-${{ github.event.pull_request.head.sha }}
+          path: next/review/count-free-copy/
+          if-no-files-found: error
+          retention-days: 14
 
       - name: Review homepage weekend selection
         if: github.event_name == 'pull_request' && github.head_ref == 'fix/home-weekend-selection-20261115'

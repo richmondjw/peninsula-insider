@@ -1,5 +1,5 @@
 ---
-title: "Breakfast Before the Crowds: Four Peninsula Mornings"
+title: "Breakfast Before the Crowds: Peninsula Mornings Worth an Early Start"
 dek: "The long lunches get the headlines. But the Peninsula's first hour of the day  -  the flat white, the croissant out of the oven, the eggs on a working bakery's sourdough  -  is the quieter, better-value half of the food story. Here is where locals go, and the order to do it in."
 author: "editorial"
 houseByline: true

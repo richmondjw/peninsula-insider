@@ -1,6 +1,6 @@
 ---
-title: "Indoor Play on the Mornington Peninsula: The Four Worth Driving To"
-dek: "When the weather turns and the kids need to run, there are four indoor play venues on the Peninsula that actually hold up. Here is what each one is good for, and the five things to check before you leave the house."
+title: "Indoor Play on the Mornington Peninsula: Where to Go When the Weather Turns"
+dek: "When the weather turns and the kids need to run, these Peninsula indoor play venues give the day a plan. Here is what each one is good for, and what to check before you leave the house."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-08-07
@@ -61,7 +61,9 @@ Purpose-built for children on the autism spectrum: suspended swings for vestibul
 
 Best for: sensory-sensitive kids, and families who have found that mainstream play centres do not work for them.
 
-## Five things to check before you leave
+<span id="five-things-to-check-before-you-leave"></span>
+
+## Before you leave
 
 Every one of these venues changes its hours between school term and holidays, and none of them appreciate a carload arriving to a locked door.
 

@@ -331,8 +331,8 @@ export const prerender = true;
   <HubEntry
     kicker="Eat & drink on the Peninsula"
     title="A long lunch, a village coffee, a table by the bay"
-    dek={`${venues.length} places to eat and drink, from ridge-top farm kitchens to bayside pubs, each with the reason it made our list.`}
-    primary={{ label: `Browse all ${venues.length} places`, href: '#directory', arrow: 'down' }}
+    dek={`Places to eat and drink, from ridge-top farm kitchens to bayside pubs, each with the reason it made our list.`}
+    primary={{ label: `Browse places to eat`, href: '#directory', arrow: 'down' }}
     secondary={{ label: 'See them on the map', href: '/map/?cat=restaurant' }}
     trust={eatChecked ? `${eatChecked[0].toUpperCase()}${eatChecked.slice(1)}. Chosen by our editors, never paid for.` : 'Chosen by our editors, never paid for.'}
     image={pageImage('eat-entry')}
@@ -344,7 +344,7 @@ export const prerender = true;
   <!-- 2. The verdict layer: six equal cards, all visible. -->
   <TheSix
     id="the-six"
-    heading="Six starting points. Six different days."
+    heading="Find a table to suit your day."
     surface="eat"
     items={sixItems}
     trip={false}
@@ -358,7 +358,7 @@ export const prerender = true;
        ONE URL-persisted state still governs The Six AND the directory. -->
   <DirectoryRows
     id="directory"
-    heading={`All ${directoryItems.length} places to eat`}
+    heading={`Places to eat and drink`}
     sub={`${directoryChecked ? `${directoryChecked}. ` : ''}Confirm hours with the venue before you go.`}
     noun="places"
     surface="eat"
@@ -393,7 +393,7 @@ export const prerender = true;
   <section class="hub-faq" aria-label="Frequently asked questions">
     <div class="container">
       <div class="hub-faq__intro">
-        <h2 class="hub-faq__title">Six honest answers before you plan the day</h2>
+        <h2 class="hub-faq__title">Before you plan the day</h2>
       </div>
       <div class="hub-faq__list">
         {faqSchema.mainEntity.map((item) => (
@@ -412,7 +412,7 @@ export const prerender = true;
     {bestOfRail.map((item, i) => (<>{i > 0 && <span aria-hidden="true"> · </span>}<a href={item.href}>{item.label}</a></>))}
   </nav>
 
-  <AskLine dek="Tell PI who's coming and what you feel like. You'll get two or three places that fit, with the reasons." placeholder="Long lunch with a view, kids too" />
+  <AskLine dek="Tell PI who's coming and what you feel like. You'll get places that fit, with the reasons." placeholder="Long lunch with a view, kids too" />
 </BaseLayout>
 
 <style>

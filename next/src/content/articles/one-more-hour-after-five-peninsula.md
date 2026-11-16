@@ -1,5 +1,5 @@
 ---
-title: "One More Hour: Three After-Five Peninsula Plans"
+title: "One More Hour: After-Five Peninsula Plans"
 dek: "Daylight saving begins on 4 October. Choose the evening by the time, weather and energy you actually have, then keep one useful fallback."
 author: "editorial"
 houseByline: true

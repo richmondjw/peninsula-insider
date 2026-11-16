@@ -82,7 +82,7 @@ const DEFAULT_HOMEPAGE_ADMIN_CONTENT: HomepageAdminContent = {
   },
   picks: {
     label: "This week's edit",
-    title: 'Three reasons to go',
+    title: 'Reasons to go',
   },
   editorsLetter: {
     eyebrow: "Editor's Letter",

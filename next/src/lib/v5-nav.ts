@@ -182,7 +182,7 @@ const configuredV5Pillars = [
     rail: {
       eyebrow: editorsPickEyebrow,
       title: 'The Peninsula pub crawl',
-      verdict: 'Six pubs, three routes, and a day built around them rather than squeezed between other plans. Pick the route by which way the wind is blowing.',
+      verdict: 'Local pubs, unhurried routes, and a day built around them rather than squeezed between other plans. Pick the route by which way the wind is blowing.',
       href: '/explore/plans/the-pub-crawl/',
       cta: 'Open the plan',
     },
@@ -212,7 +212,7 @@ const configuredV5Pillars = [
       fallback: {
         eyebrow: "Editor's note",
         title: 'The weekend edit',
-        verdict: 'Three calls, selected for the days ahead. Check dates before you make the drive.',
+        verdict: 'Selected for the days ahead. Check dates before you make the drive.',
         href: '/whats-on/',
         cta: 'See what is on',
       },
