@@ -67,7 +67,7 @@ Turning up expecting a full-service village - Shoreham is a beach and a few road
 
 Shoreham in brief
 
-## Shoreham in 4 points
+## Shoreham at a glance
 
 - 01   Shoreham is a small Western Port coast stop with tidal beaches and rural wine-country roads nearby.
 
@@ -89,13 +89,13 @@ Shoreham Beach is unpatrolled. Check tides and conditions before entering the wa
 
 What's mapped here
 
-- [**1** cellar doors & makers](<https://peninsulainsider.com.au/explore/places/shoreham/#wine>)
+- [Cellar doors & makers](<https://peninsulainsider.com.au/explore/places/shoreham/#wine>)
 
-- [**2** stays](<https://peninsulainsider.com.au/explore/places/shoreham/#stay>)
+- [Stays](<https://peninsulainsider.com.au/explore/places/shoreham/#stay>)
 
-- [**1** ways to explore](<https://peninsulainsider.com.au/explore/places/shoreham/#explore>)
+- [Ways to explore](<https://peninsulainsider.com.au/explore/places/shoreham/#explore>)
 
-- [**4** journal pieces](<https://peninsulainsider.com.au/explore/places/shoreham/#journal>)
+- [Journal pieces](<https://peninsulainsider.com.au/explore/places/shoreham/#journal>)
 
 Wine & producers
 
@@ -203,11 +203,11 @@ Six weeks, one Peninsula and a car full of children. The calm beaches, the outin
 
 Cellar Door Dispatch   6 min
 
-### [The Cellar Door Short List: Four Producers Worth the Stop](<https://peninsulainsider.com.au/journal/the-cellar-door-short-list/>)
+### [The Cellar Door Short List: Producers Worth the Stop](<https://peninsulainsider.com.au/journal/the-cellar-door-short-list/>)
 
 6 April 2026
 
-Not the biggest estates, not the flashiest rooms. The four Peninsula cellar doors where the wines - and the people pouring them - actually change how you think about the region.
+Not the biggest estates, not the flashiest rooms. The Peninsula cellar doors where the wines - and the people pouring them - actually change how you think about the region.
 
 Cellar Door Dispatch   8 min
 

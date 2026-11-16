@@ -107,7 +107,7 @@ Long light, warm bay water and the busiest roads of the year. A local's plan for
 
 Service   5 min
 
-### [One More Hour: Three After-Five Peninsula Plans](<https://peninsulainsider.com.au/explore/plans/one-more-hour-after-five-peninsula/>)
+### [One More Hour: After-Five Peninsula Plans](<https://peninsulainsider.com.au/explore/plans/one-more-hour-after-five-peninsula/>)
 
 26 September 2026
 

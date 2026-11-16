@@ -9,11 +9,11 @@ Fishing · Locations
 
 # Where to actually fish on the Peninsula
 
-Twelve locations grouped by water body. Access, parking pressure, primary species, tide windows, and what each spot is and isn't suited to.
+Fishing locations grouped by water body. Access, parking pressure, primary species, tide windows, and what each spot is and isn't suited to.
 
 Port Phillip Bay
 
-## 4 locations
+## Fishing locations
 
 ### [Mornington Pier](<https://peninsulainsider.com.au/fishing/locations/mornington-pier/>)
 
@@ -49,7 +49,7 @@ Safety Beach foreshore is the bay-shore alternative to the busy piers. Shallow s
 
 Western Port
 
-## 5 locations
+## Fishing locations
 
 ### [Cowes Jetty](<https://peninsulainsider.com.au/fishing/locations/cowes-jetty/>)
 
@@ -93,7 +93,7 @@ Tooradin Inlet is the tidal estuary at the northern arc of Western Port. Less we
 
 Bass Strait fringe
 
-## 3 locations
+## Fishing locations
 
 ### [Flinders Pier](<https://peninsulainsider.com.au/fishing/locations/flinders-pier/>)
 

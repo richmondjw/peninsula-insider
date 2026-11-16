@@ -15,7 +15,7 @@ Two nights at a boutique solo-friendly property in the Red Hill area, built arou
 
 Experiences
 
-1 operator-led experience
+Operator-led experiences
 
 Duration
 

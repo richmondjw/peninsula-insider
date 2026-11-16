@@ -19,7 +19,7 @@ Researched from published sources. Every venue listed was reviewed April 2026 or
 
 All Peninsula bakeries
 
-## All 3 Peninsula bakeries, by location
+## Peninsula bakeries, by location
 
 Sorted alphabetically. The Peninsula is small enough that location determines which one you visit - find yours by where you're staying.
 

@@ -15,7 +15,7 @@ Two nights at Peppers Moonah Links in Fingal, built around a Saturday morning ph
 
 Experiences
 
-2 operator-led experiences
+Operator-led experiences
 
 Duration
 

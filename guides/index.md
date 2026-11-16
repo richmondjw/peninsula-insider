@@ -9,7 +9,7 @@ Seasonal guides     Editorial PDFs
 
 # The Peninsula, by season.
 
-Eight-page editorial guides - venues, walks, and a sample weekend, shaped for the time of year. Print one for the glove box, keep one in the kitchen drawer, forward one to the friend who is asking what to do.
+Seasonal editorial guides - venues, walks, and a sample weekend, shaped for the time of year. Print one for the glove box, keep one in the kitchen drawer, forward one to the friend who is asking what to do.
 
 Peninsula Insider · seasonal guides
 
@@ -17,7 +17,7 @@ Winter
 
 ## A Mornington Peninsula Winter
 
-Cellar doors with fires lit, hot springs steaming, and the back-bay walks that win when the bay is grey. Eight pages, six venues, one sample weekend.
+Cellar doors with fires lit, hot springs steaming, and the back-bay walks that win when the bay is grey. Seasonal picks and a sample weekend.
 
 8-page PDF · No charge · No tracking
 
@@ -25,7 +25,7 @@ Autumn
 
 ## A Mornington Peninsula Autumn
 
-Vintage running on the ridge, warm Saturdays at the markets, the season the Peninsula is at its most editorial. Eight pages, six venues, one sample weekend.
+Vintage running on the ridge, warm Saturdays at the markets, the season the Peninsula is at its most editorial. Seasonal picks and a sample weekend.
 
 8-page PDF · No charge · No tracking
 

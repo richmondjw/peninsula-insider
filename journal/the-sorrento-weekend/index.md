@@ -19,7 +19,7 @@ Sorrento  Portsea  Weekend  Stay
 
 Sorrento, Mornington Peninsula   Photo · Courtesy of Visit Victoria
 
-The Sorrento Weekend: How to Do the Tip Without Treating It Like a Summer Strip in 8 photographs
+The Sorrento Weekend: How to Do the Tip Without Treating It Like a Summer Strip in photographs
 
 1  / 8
 
@@ -35,7 +35,7 @@ The version of Sorrento that locals would actually recommend runs on different r
 
 The single decision that separates a good Sorrento weekend from a tolerable one is refusing to commute back up the Peninsula for dinner. If you stay in Red Hill or Flinders and drive down for the day, you are always running a shuttle. If you stay in Sorrento, the whole weekend becomes walkable, and the dining rooms you would otherwise rush through become the places the evening slows down in.
 
-Three stays do this well.
+These stays do this well.
 
 **InterContinental Sorrento** is the hotel within the landmark Continental precinct. Its heritage and newer wings make a central base for the village and bay. The precinct’s dining rooms and Conti Bar are separately run options nearby; reserve the meal you want rather than assuming it is part of the room.
 
@@ -157,11 +157,11 @@ The best towns, hotels, and guest-base logic for a Peninsula wedding weekend, fr
 
 Insider Edit   7 min
 
-### [The Peninsula Pub Guide: Five Hotels That Still Know What a Pub Is For](<https://peninsulainsider.com.au/journal/the-pub-guide/>)
+### [The Peninsula Pub Guide: Hotels That Still Know What a Pub Is For](<https://peninsulainsider.com.au/journal/the-pub-guide/>)
 
 10 April 2026
 
-Not a gastropub ranking. Not a beer list. A guide to the five Peninsula pubs that still operate as the social centre of a town, where the food is good, the beer is cold, the rooms are clean, and nobody is trying to be anything else.
+Not a gastropub ranking. Not a beer list. A guide to the Peninsula pubs that still operate as the social centre of a town, where the food is good, the beer is cold, the rooms are clean, and nobody is trying to be anything else.
 
 Insider Edit   7 min
 

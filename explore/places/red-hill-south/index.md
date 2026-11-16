@@ -67,7 +67,7 @@ Assuming every winery takes walk-ins; check opening and tasting arrangements bef
 
 Red Hill South in brief
 
-## Red Hill South in 5 points
+## Red Hill South at a glance
 
 - 01   Red Hill South is a rural wine-country locality beyond Red Hill village, with local cellar doors and restaurants along its roads.
 
@@ -91,13 +91,13 @@ Check each cellar door and restaurant directly before travelling; neighbouring R
 
 What's mapped here
 
-- [**3** places to eat](<https://peninsulainsider.com.au/explore/places/red-hill-south/#eat-drink>)
+- [Places to eat](<https://peninsulainsider.com.au/explore/places/red-hill-south/#eat-drink>)
 
-- [**3** cellar doors & makers](<https://peninsulainsider.com.au/explore/places/red-hill-south/#wine>)
+- [Cellar doors & makers](<https://peninsulainsider.com.au/explore/places/red-hill-south/#wine>)
 
-- [**1** escape plans](<https://peninsulainsider.com.au/explore/places/red-hill-south/#escapes>)
+- [Escape plans](<https://peninsulainsider.com.au/explore/places/red-hill-south/#escapes>)
 
-- [**4** journal pieces](<https://peninsulainsider.com.au/explore/places/red-hill-south/#journal>)
+- [Journal pieces](<https://peninsulainsider.com.au/explore/places/red-hill-south/#journal>)
 
 Eat & drink
 
@@ -249,7 +249,7 @@ Not every Peninsula lunch needs a degustation and four hours. The places that do
 
 Insider Edit   7 min
 
-### [Breakfast Before the Crowds: Four Peninsula Mornings](<https://peninsulainsider.com.au/journal/breakfast-before-the-crowds/>)
+### [Breakfast Before the Crowds: Peninsula Mornings Worth an Early Start](<https://peninsulainsider.com.au/journal/breakfast-before-the-crowds/>)
 
 9 April 2026
 

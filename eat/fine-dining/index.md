@@ -19,7 +19,7 @@ Researched from published sources. Every venue listed was reviewed April 2026 or
 
 Fine dining shortlist
 
-## 9 destination dining rooms
+## Destination dining rooms
 
 Ranked by editorial authority - two-hat venues first, then the one-hat rooms, then the places working seriously without formal recognition.
 

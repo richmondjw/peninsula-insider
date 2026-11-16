@@ -7,7 +7,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Stay where the springs are.
 
-Three stays, two thermal operators, one useful first decision: choose the bathing experience before the room.
+Choose the bathing experience before the room, then compare the stays that put it on your doorstep.
 
 [Compare the stays](<https://peninsulainsider.com.au/stay/hot-springs-accommodation/#compare-stays>) [Before you book](<https://peninsulainsider.com.au/stay/hot-springs-accommodation/#booking-order>)
 

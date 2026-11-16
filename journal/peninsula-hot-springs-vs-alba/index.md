@@ -19,7 +19,7 @@ Hot Springs  Spa  Wellness  Mornington Peninsula
 
 Cape Schanck, Mornington Peninsula   Photo · Courtesy of Visit Victoria
 
-Peninsula Hot Springs vs Alba Thermal Springs - Which One Should You Book? in 8 photographs
+Peninsula Hot Springs vs Alba Thermal Springs - Which One Should You Book? in photographs
 
 1  / 8
 

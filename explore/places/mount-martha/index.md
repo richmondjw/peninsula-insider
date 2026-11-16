@@ -63,7 +63,7 @@ Expecting a major dining scene - Mount Martha is for beach time and quiet mornin
 
 Mount Martha in brief
 
-## Mount Martha in 4 points
+## Mount Martha at a glance
 
 - 01   Mount Martha is the Peninsula's most scenic bay-coast village - a long pale arc of beach backed by low hills, quieter than anything south of Mornington.
 
@@ -85,11 +85,11 @@ South Beach is the smarter choice when the main foreshore starts filling up by m
 
 What's mapped here
 
-- [**1** ways to explore](<https://peninsulainsider.com.au/explore/places/mount-martha/#explore>)
+- [Ways to explore](<https://peninsulainsider.com.au/explore/places/mount-martha/#explore>)
 
-- [**1** escape plans](<https://peninsulainsider.com.au/explore/places/mount-martha/#escapes>)
+- [Escape plans](<https://peninsulainsider.com.au/explore/places/mount-martha/#escapes>)
 
-- [**4** journal pieces](<https://peninsulainsider.com.au/explore/places/mount-martha/#journal>)
+- [Journal pieces](<https://peninsulainsider.com.au/explore/places/mount-martha/#journal>)
 
 Get outside
 

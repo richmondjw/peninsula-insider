@@ -27,7 +27,7 @@ RACV lists rooms, suites and separate villas, with restaurants, a pool, golf and
 
 For a bathing-led stay, choose the springs operator first. Peninsula Hot Springs and Alba are separate Fingal properties.
 
-Peninsula Hot Springs offers Eco Lodges and glamping. Alba offers villas and rooms at The Sanctuary. The dedicated guide compares these three formats and the booking details that change by room or package.
+Peninsula Hot Springs offers Eco Lodges and glamping. Alba offers villas and rooms at The Sanctuary. The dedicated guide compares these formats and the booking details that change by room or package.
 
  [Compare hot springs stays](<https://peninsulainsider.com.au/stay/hot-springs-accommodation/>)
 

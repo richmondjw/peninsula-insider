@@ -17,7 +17,7 @@ Researched from published sources. Every venue listed was reviewed April 2026 or
 
 Farm-to-table shortlist
 
-## 10 kitchens cooking with what the Peninsula actually grows
+## Kitchens cooking with what the Peninsula actually grows
 
 Hatted farm restaurants first, then the venues where the supply chain is visibly short.
 

@@ -9,7 +9,7 @@ Service  20 September 2026  2 min read
 
 # Spring school holidays on the Peninsula
 
-Three ways to use the final days of the spring break: gondola art, outdoor play and an all-weather gallery stop, through 4 October 2026.
+Ways to use the final days of the spring break: gondola art, outdoor play and an all-weather gallery stop, through 4 October 2026.
 
 Keep this for later
 
@@ -55,11 +55,11 @@ Six weeks, one Peninsula and a car full of children. The calm beaches, the outin
 
 Service   5 min
 
-### [Indoor Play on the Mornington Peninsula: The Four Worth Driving To](<https://peninsulainsider.com.au/journal/indoor-play-mornington-peninsula/>)
+### [Indoor Play on the Mornington Peninsula: Where to Go When the Weather Turns](<https://peninsulainsider.com.au/journal/indoor-play-mornington-peninsula/>)
 
 7 August 2026
 
-When the weather turns and the kids need to run, there are four indoor play venues on the Peninsula that actually hold up. Here is what each one is good for, and the five things to check before you leave the house.
+When the weather turns and the kids need to run, these Peninsula indoor play venues give the day a plan. Here is what each one is good for, and what to check before you leave the house.
 
 Service   7 min
 
@@ -91,7 +91,7 @@ Service   8 min
 
 14 April 2026
 
-Thirty kilometres of Port Phillip coastline, fifteen kilometres of Bass Strait back beaches, and four distinct swimming moods that most visitors cannot tell apart. A proper guide to where to actually swim on the Mornington Peninsula, by conditions and by purpose.
+Thirty kilometres of Port Phillip coastline, fifteen kilometres of Bass Strait back beaches, and distinct swimming moods that most visitors cannot tell apart. A proper guide to where to actually swim on the Mornington Peninsula, by conditions and by purpose.
 
 ## The Insider Note
 

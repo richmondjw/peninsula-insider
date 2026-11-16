@@ -21,10 +21,6 @@ The compensation for a smaller producer list is the surrounding village: the mon
 
 Photo · Wikimedia Commons
 
-**Producers mapped**
-
-3
-
 **Top Halliday**
 
 95
@@ -75,19 +71,19 @@ Wine and gallery in the same low-slung shed. Selma Lowther farms biodynamically;
 
 What's mapped here
 
-- [**3** cellar doors & producers](<https://peninsulainsider.com.au/wine/balnarring/#producers>)
+- [Cellar doors & producers](<https://peninsulainsider.com.au/wine/balnarring/#producers>)
 
-- [**3** editor's anchors](<https://peninsulainsider.com.au/wine/balnarring/#anchors>)
+- [Editor's anchors](<https://peninsulainsider.com.au/wine/balnarring/#anchors>)
 
-- [**3** journal pieces](<https://peninsulainsider.com.au/wine/balnarring/#journal>)
+- [Journal pieces](<https://peninsulainsider.com.au/wine/balnarring/#journal>)
 
-- [**3** nearby sub-regions](<https://peninsulainsider.com.au/wine/balnarring/#nearby>)
+- [Nearby sub-regions](<https://peninsulainsider.com.au/wine/balnarring/#nearby>)
 
-- [**3** answered questions](<https://peninsulainsider.com.au/wine/balnarring/#faqs>)
+- [Answered questions](<https://peninsulainsider.com.au/wine/balnarring/#faqs>)
 
 Every producer · 2026
 
-## 3 cellar doors and producers in Balnarring
+## Cellar doors and producers in Balnarring
 
 Ordered by editorial authority and Halliday score. Each card opens the full editor's note.
 
@@ -197,7 +193,7 @@ Long-form writing connected to the producers above.
 
 ### The cellar-door short list
 
-The seven cellar doors I send people to first.](<https://peninsulainsider.com.au/journal/the-cellar-door-short-list/>)[Journal
+The cellar doors I send people to first.](<https://peninsulainsider.com.au/journal/the-cellar-door-short-list/>)[Journal
 
 ### The Chardonnay case
 

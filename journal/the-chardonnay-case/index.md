@@ -33,9 +33,9 @@ The catch is that honest grapes are brutal on bad vintages. For a long time, Pen
 
 The pinot has stayed excellent. The chardonnay has caught up, then edged ahead.
 
-## The six producers to taste to understand it
+## The producers to taste to understand it
 
-If you want the shortest possible introduction to the argument, compare wines from these six producers; confirm cellar-door access separately, as not all advertise public tastings. Better to pick three at a time across two visits than to chase all six in one day; our [cellar door short list discipline](<https://peninsulainsider.com.au/journal/the-cellar-door-short-list/>) explains why.
+If you want the shortest possible introduction to the argument, compare wines from these producers; confirm cellar-door access separately, as not all advertise public tastings. Better to pick three at a time across two visits than to chase the whole list in one day; our [cellar door short list discipline](<https://peninsulainsider.com.au/journal/the-cellar-door-short-list/>) explains why.
 
 ### 1. Kooyong, the benchmark, again
 
@@ -63,7 +63,7 @@ This is a wine that needs to be drunk at the correct temperature (twelve degrees
 
 [Ten Minutes by Tractor](<https://peninsulainsider.com.au/eat/ten-minutes-by-tractor/>) is best known as a hatted restaurant and a Wine List of the Year winner, but the estate wine program is the serious other half of the story. The single-vineyard chardonnays, Wallis, McCutcheon, Judd, are among the most compelling white wines being made on the Peninsula right now, in part because the kitchen next door provides a constant, brutal stress test for whether the wines actually work at the table. They do.
 
-The cellar door tasting is tied to the restaurant’s rhythm and tends to be quieter on weekday mornings. Book the single-vineyard chardonnay flight specifically. If you can stay for lunch, this is also the room that makes the case for chardonnay with food most clearly. (See our [review of the three serious dinners](<https://peninsulainsider.com.au/journal/three-italian-dinners/>) for the broader context.)
+The cellar door tasting is tied to the restaurant’s rhythm and tends to be quieter on weekday mornings. Book the single-vineyard chardonnay flight specifically. If you can stay for lunch, this is also the room that makes the case for chardonnay with food most clearly. (See our [review of the serious dinners](<https://peninsulainsider.com.au/journal/three-italian-dinners/>) for the broader context.)
 
 ### 6. Dexter Wines, the single-vineyard producer
 
@@ -119,11 +119,11 @@ Keep reading
 
 Cellar Door Dispatch   6 min
 
-### [The Cellar Door Short List: Four Producers Worth the Stop](<https://peninsulainsider.com.au/journal/the-cellar-door-short-list/>)
+### [The Cellar Door Short List: Producers Worth the Stop](<https://peninsulainsider.com.au/journal/the-cellar-door-short-list/>)
 
 6 April 2026
 
-Not the biggest estates, not the flashiest rooms. The four Peninsula cellar doors where the wines - and the people pouring them - actually change how you think about the region.
+Not the biggest estates, not the flashiest rooms. The Peninsula cellar doors where the wines - and the people pouring them - actually change how you think about the region.
 
 Cellar Door Dispatch   6 min
 

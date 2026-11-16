@@ -13,7 +13,7 @@ Each package combines verified tours with an editorial stay recommendation. The 
 
 All packages
 
-## 8 curated Peninsula packages
+## Curated Peninsula packages
 
 Each package pairs at least one operator-led tour with an anchor stay recommendation. You book each component separately.
 

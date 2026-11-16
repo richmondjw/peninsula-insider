@@ -9,7 +9,7 @@ Long Lunch List  15 March 2026  8 min read
 
 # The Long Lunch: Why the Mornington Peninsula Does Sunday Better Than Anywhere in Victoria
 
-Three hatted restaurants, a bay view, and nowhere you need to be until Monday. This is the case for staying the whole weekend.
+Hatted restaurants, a bay view, and nowhere you need to be until Monday. This is the case for staying the whole weekend.
 
 Keep this for later
 
@@ -27,7 +27,7 @@ The question is how to do it right.
 
 The plateau that runs through Red Hill and Merricks is the key. Altitude and cool air create pinot noir country that stands with the Yarra Valley’s best, and the chefs who’ve set up here know the vineyards outside the window are their larder, their narrative, and their competitive advantage. The whole regional lunch concept makes more sense when you can see where the wine comes from through the dining room glass.
 
-## The three rooms worth booking
+## The rooms worth booking
 
 **Ten Minutes by Tractor** sits at the top. Two hats (GFG 2025), an estate wine program built over two decades, and a degustation that changes with the seasons in ways that feel genuinely responsive. Book six weeks ahead for weekends. Lunch suits it; dinner is more formal and less relaxed. The bread service alone is worth the trip.
 
@@ -75,11 +75,11 @@ Two very different versions of the same afternoon. Here's how to pick the right 
 
 Insider Edit   9 min
 
-### [Tedesca, Tractor, Laura: The Three Peninsula Dinners and the Argument Between Them](<https://peninsulainsider.com.au/journal/three-italian-dinners/>)
+### [Tedesca, Tractor, Laura: Peninsula Dinners and the Argument Between Them](<https://peninsulainsider.com.au/journal/three-italian-dinners/>)
 
 7 April 2026
 
-A comparative review of the three most serious dining rooms on the Mornington Peninsula, and a specific case for which one is which occasion.
+A comparative review of the most serious dining rooms on the Mornington Peninsula, and a specific case for which one is which occasion.
 
 Insider Edit   7 min
 
@@ -87,7 +87,7 @@ Insider Edit   7 min
 
 10 April 2026
 
-The bay side goes gold at about five. The ocean side goes pink at about half past. You need a glass in your hand for both versions, and these are the seven places that understand the assignment.
+The bay side goes gold at about five. The ocean side goes pink at about half past. You need a glass in your hand for both versions, and these are the places that understand the assignment.
 
 Editor's Letter   8 min
 

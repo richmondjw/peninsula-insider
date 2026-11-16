@@ -161,7 +161,7 @@ Everyone sells the Mornington Peninsula as a pinot noir region. They are half ri
 
 Service   8 min
 
-### [The Peninsula Orientation Drive: Six Stops in One Day](<https://peninsulainsider.com.au/explore/plans/the-peninsula-orientation-drive/>)
+### [The Peninsula Orientation Drive: A First Visit in One Day](<https://peninsulainsider.com.au/explore/plans/the-peninsula-orientation-drive/>)
 
 10 April 2026
 

@@ -95,7 +95,7 @@ Insider Edit   7 min
 
 10 April 2026
 
-The bay side goes gold at about five. The ocean side goes pink at about half past. You need a glass in your hand for both versions, and these are the seven places that understand the assignment.
+The bay side goes gold at about five. The ocean side goes pink at about half past. You need a glass in your hand for both versions, and these are the places that understand the assignment.
 
 Service   6 min
 

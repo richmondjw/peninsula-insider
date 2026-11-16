@@ -389,7 +389,7 @@ Long light, warm bay water and the busiest roads of the year. A local's plan for
 
 [Mornington & the Bay   The Peninsula's urban edge: the main street dining strip, the bay beaches, and the easy weekend gateway.](<https://peninsulainsider.com.au/explore/regions/mornington-bay-coast/>)[Flinders & the Ocean Coast   Wild surf beaches, the best pub on the Peninsula, and a rural quiet that feels hard-won.](<https://peninsulainsider.com.au/explore/regions/ocean-coast/>)
 
-Sorrento & Portsea in 12 photographs
+Sorrento & Portsea in photographs
 
 1  / 12
 

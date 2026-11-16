@@ -195,7 +195,7 @@ These pieces give you the context a listing page never does - the when, the why,
 
 Service   8 min
 
-### [The Peninsula Orientation Drive: Six Stops in One Day](<https://peninsulainsider.com.au/explore/plans/the-peninsula-orientation-drive/>)
+### [The Peninsula Orientation Drive: A First Visit in One Day](<https://peninsulainsider.com.au/explore/plans/the-peninsula-orientation-drive/>)
 
 10 April 2026
 

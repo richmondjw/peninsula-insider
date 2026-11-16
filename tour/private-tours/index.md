@@ -15,7 +15,7 @@ The value of a private tour is control: you spend longer at the estates you like
 
 Private and premium tours
 
-## 7 Peninsula private tours
+## Peninsula private tours
 
 Private charters and premium-band guided experiences.
 

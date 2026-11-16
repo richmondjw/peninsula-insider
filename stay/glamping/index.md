@@ -11,7 +11,7 @@ Find your stay by setting: hot springs, hinterland, a campsite you choose or Poi
 
  [Compare the stays](<https://peninsulainsider.com.au/stay/glamping/#compare-glamping>)
 
-## Four formats, four different trips.
+## Different formats, different trips.
 
 These are alternatives, not a ranking. The right stay depends on whether you want bathing on site, a hosted rural tent, a chosen campsite or a simple park base.
 

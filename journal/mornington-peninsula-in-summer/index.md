@@ -69,7 +69,7 @@ Then go out again. Summer sunsets on the Peninsula land around 8.30pm to 8.45pm 
 
 Point Nepean Road between Dromana and Sorrento is the Peninsula’s summer bottleneck. On peak weekends, and on any warm day in January, it can take far longer than the map suggests to cover a short distance through Rosebud, Rye and Blairgowrie.
 
-Three ways to beat it:
+Ways to beat it:
 
 - **Base yourself where you want to be.** If your summer is about Sorrento and Portsea, stay there and walk. If it is about wineries and lunches, stay on the ridge or around Red Hill and Main Ridge. The worst summer plan is a daily commute along the bay.
 
@@ -149,7 +149,7 @@ Service   8 min
 
 14 April 2026
 
-Thirty kilometres of Port Phillip coastline, fifteen kilometres of Bass Strait back beaches, and four distinct swimming moods that most visitors cannot tell apart. A proper guide to where to actually swim on the Mornington Peninsula, by conditions and by purpose.
+Thirty kilometres of Port Phillip coastline, fifteen kilometres of Bass Strait back beaches, and distinct swimming moods that most visitors cannot tell apart. A proper guide to where to actually swim on the Mornington Peninsula, by conditions and by purpose.
 
 Hub Guide   14 min
 

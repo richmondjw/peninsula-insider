@@ -109,7 +109,7 @@ Writing it off as just the main road - the foreshore is the reason to stay.
 
 Rosebud in brief
 
-## Rosebud in 4 points
+## Rosebud at a glance
 
 - 01   Rosebud is the Peninsula's most liveable bay town - long foreshore, practical main street, and a beach that genuinely delivers without requiring effort.
 
@@ -131,7 +131,7 @@ The quieter southern end of Rosebud is much better than the strip - most visitor
 
 What's mapped here
 
-- [**1** ways to explore](<https://peninsulainsider.com.au/explore/places/rosebud/#explore>)
+- [Ways to explore](<https://peninsulainsider.com.au/explore/places/rosebud/#explore>)
 
 Explore Rosebud by experience
 

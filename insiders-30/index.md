@@ -7,17 +7,17 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 The Insider's 30 · 2026     Annual editorial
 
-# Thirty places that defined the Peninsula this year.
+# Places that defined the Peninsula this year.
 
-Thirty venues across the Mornington Peninsula that defined the year. Cross-category, ranked, editor-selected. The cuts are hard by design - the point of thirty is that thirty has to mean something. Updated annually each May.
+Venues across the Mornington Peninsula that defined the year. Cross-category, ranked, editor-selected. The shortlist is selective by design. Updated annually each May.
 
 The Mornington Peninsula at sunset - the year's defining places
 
 Editor's letter
 
-The Insider's 30 is the Peninsula Insider editorial desk's annual answer to a single question: if you could only point a friend at thirty places on the Mornington Peninsula in a year, which thirty? It sits across categories deliberately. A Walk of the Year that rivals the Restaurant of the Year is the Peninsula's whole proposition. Selections are editorial - researched, verified, and cross-checked against the year's reader feedback. There is no paid placement, ever. The list updates the first weekend of May each year and stays current at /insiders-30/ until then.
+The Insider's 30 is the Peninsula Insider editorial desk's annual answer to a single question: which places would you point a friend towards on the Mornington Peninsula this year? It sits across categories deliberately. A Walk of the Year that rivals the Restaurant of the Year is the Peninsula's whole proposition. Selections are editorial - researched, verified, and cross-checked against the year's reader feedback. There is no paid placement, ever. The list updates the first weekend of May each year and stays current at /insiders-30/ until then.
 
-**30** picks · cross-category · editor-selected · no paid placement, ever · [view on the map](<https://peninsulainsider.com.au/insiders-30/map/>)
+Ranked picks · cross-category · editor-selected · no paid placement, ever · [view on the map](<https://peninsulainsider.com.au/insiders-30/map/>)
 
 - [01   eat
 

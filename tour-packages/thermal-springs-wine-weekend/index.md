@@ -15,7 +15,7 @@ Two nights at Lindenderry in June, July, or August built around a guided Peninsu
 
 Experiences
 
-2 operator-led experiences
+Operator-led experiences
 
 Anchor stay
 

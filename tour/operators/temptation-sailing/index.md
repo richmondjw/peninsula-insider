@@ -25,7 +25,7 @@ Families with young children under 5, or guests whose primary goal is a guarante
 
 Tours by Temptation Sailing
 
-## 1 tour listed
+## Tours listed
 
 Half day   Couples
 

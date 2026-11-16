@@ -15,7 +15,7 @@ A full day is the minimum useful format for visitors from Melbourne who want to 
 
 Full day tours
 
-## 12 full-day Peninsula tours
+## Full-day Peninsula tours
 
 Full day   Adults
 

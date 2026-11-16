@@ -63,7 +63,7 @@ Treating Bittern as a destination - it is a stop, and a worthwhile one if you br
 
 Bittern in brief
 
-## Bittern in 5 points
+## Bittern at a glance
 
 - 01   Bittern is a small Western Port village with one of the Peninsula's best wading-bird wetlands and a station on the Stony Point train line.
 

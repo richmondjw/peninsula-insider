@@ -17,7 +17,7 @@ Start here
 
 ## Build the dog-friendly trip
 
-The four pages that should become the core of the hub.
+The guides that should become the core of the hub.
 
 ### [Dog-Friendly Beaches](<https://peninsulainsider.com.au/journal/dog-friendly-beaches-mornington-peninsula/>)
 

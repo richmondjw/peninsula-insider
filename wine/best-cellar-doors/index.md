@@ -27,7 +27,7 @@ This is researched planning guidance. The check covers public access, visit form
 
 Find your fit
 
-## 13 doors, different days.
+## Cellar doors for different days.
 
 Pick the kind of visit you want, then jump to the practical notes.
 

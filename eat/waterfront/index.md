@@ -9,7 +9,7 @@ Eat & Drink     Waterfront
 
 # Waterfront Restaurants on the Mornington Peninsula
 
-The Peninsula's waterfront dining concentrates on Port Phillip Bay - the calmer, bay-facing side rather than the ocean. Three venues define the category. The Baths at Sorrento for special-occasion seafood with panoramic views. The Rocks at Mornington for casual waterfront dining at the marina. The Portsea Hotel for a pub setting with the most dramatic bay outlook of any pub on the Peninsula.
+The Peninsula's waterfront dining concentrates on Port Phillip Bay - the calmer, bay-facing side rather than the ocean. Start with the setting that suits your day. The Baths at Sorrento for special-occasion seafood with panoramic views. The Rocks at Mornington for casual waterfront dining at the marina. The Portsea Hotel for a pub setting with the most dramatic bay outlook of any pub on the Peninsula.
 
 None of these venues are hatted. All three have genuine waterfront positions. The choice between them is not about quality - it is about what kind of afternoon you are building.
 
@@ -19,7 +19,7 @@ Researched from published sources. Every venue listed was reviewed April 2026 or
 
 Waterfront dining on Port Phillip Bay
 
-## 3 venues with genuine bay positions
+## Venues with genuine bay positions
 
 All face Port Phillip Bay. Different formats, different crowds, different reasons to go.
 

@@ -17,7 +17,7 @@ Researched from published sources. Every venue listed was reviewed April 2026 or
 
 Peninsula pubs
 
-## All 7 Peninsula pubs
+## Peninsula pubs
 
 Sorted alphabetically. Location usually determines which one you visit.
 

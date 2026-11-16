@@ -15,7 +15,7 @@ Two nights on the Peninsula built around a private wine tour and a cellar door l
 
 Experiences
 
-1 operator-led experience
+Operator-led experiences
 
 Anchor stay
 

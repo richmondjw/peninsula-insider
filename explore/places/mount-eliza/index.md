@@ -67,7 +67,7 @@ Driving through to Mornington without stopping - Mount Eliza is more interesting
 
 Mount Eliza in brief
 
-## Mount Eliza in 5 points
+## Mount Eliza at a glance
 
 - 01   Mount Eliza is the Peninsula's affluent northern gateway - a tight village strip with strong cafés, and a string of small bay beaches the rest of Melbourne has mostly missed.
 
@@ -91,7 +91,7 @@ Park on Mount Eliza Way and walk the cliff-top path down to Canadian Bay - the a
 
 What's mapped here
 
-- [**1** places to eat](<https://peninsulainsider.com.au/explore/places/mount-eliza/#eat-drink>)
+- [Places to eat](<https://peninsulainsider.com.au/explore/places/mount-eliza/#eat-drink>)
 
 Eat & drink
 

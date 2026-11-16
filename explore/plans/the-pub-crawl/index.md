@@ -7,7 +7,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Day plan
 
-# The Peninsula Pub Crawl: Six Pubs, Three Routes, No Pretension
+# The Peninsula Pub Crawl: Local Pubs, Unhurried Routes
 
 A drinking guide to the Mornington Peninsula's public houses - the fires, the bistros, the beer gardens, the locals, and the argument for building a whole day around them.
 

@@ -39,7 +39,7 @@ More planning notes
 
 The single best move a Peninsula golf weekend can make is to choose the course before the room. A stay that looks close on a regional map can still create an awkward drive to an early tee time. Check the route for your actual dates, then book a room that makes the round and the rest of the trip fit together.
 
-Here are practical accommodation pairings across the Peninsula, followed by three ways to shape the trip. Current package terms need checking directly with each operator.
+Here are practical accommodation pairings across the Peninsula, followed by ways to shape the trip. Current package terms need checking directly with each operator.
 
 ## The southern tip: St Andrews Beach, Moonah Links, The Dunes, RACV Cape Schanck
 
@@ -83,7 +83,7 @@ The simplest on-site pairing is [RACV Cape Schanck](<https://peninsulainsider.co
 
 - **The National** → a Cape Schanck stay after the club confirms access
 
-## Three ways to shape a golf trip
+## Ways to shape a golf trip
 
 ### 1. The “one serious round” weekend: two nights
 

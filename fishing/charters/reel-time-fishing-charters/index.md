@@ -45,7 +45,7 @@ Prices may change. Confirm current rates directly with the venue or operator bef
 
 ## Why we chose this charter
 
-Two reasons. The price-to-experience ratio: the per-person rate is honest for a five-to-six-hour session with gear included. And the operational flexibility of the two-boat model: the multi-ramp departure structure means the skippers are not locked into a single location on a day when the fish are somewhere else.
+The price-to-experience ratio: the per-person rate is honest for a five-to-six-hour session with gear included. And the operational flexibility of the two-boat model: the multi-ramp departure structure means the skippers are not locked into a single location on a day when the fish are somewhere else.
 
 The honest caveat: the trailer boat format means the vessels are smaller than purpose-built charter boats. In a stiff sou’westerly, a five to six-hour session will be more physical than on a 50-foot Westcoaster. Guests prone to seasickness or wanting the most sheltered possible platform should look at Proline Charters instead.
 

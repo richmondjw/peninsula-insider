@@ -11,7 +11,7 @@ The stay guide · luxury
 
 [Find your setting](<https://peninsulainsider.com.au/stay/luxury/#choose-setting>) [Compare stay types](<https://peninsulainsider.com.au/stay/best-accommodation/>)
 
-The right stay starts with the setting. Compare nine places across wine country, thermal bathing and the Sorrento coast, then choose the exact room or villa.
+The right stay starts with the setting. Compare places across wine country, thermal bathing and the Sorrento coast, then choose the exact room or villa.
 
 Check room features, dining, bathing inclusions and guest conditions with the operator for your dates.
 

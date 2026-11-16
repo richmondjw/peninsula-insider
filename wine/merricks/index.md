@@ -21,14 +21,6 @@ Merricks General Wine Store anchors the village - a casual lunch destination tha
 
 Photo · Peter Foster, courtesy of Visit Victoria
 
-**Producers mapped**
-
-7
-
-**Hatted producers**
-
-2
-
 **From Melbourne**
 
 approximately 1 hour
@@ -75,21 +67,21 @@ Paul and Caroline Scorpo work with restraint and conviction - single-vineyard Pi
 
 What's mapped here
 
-- [**7** cellar doors & producers](<https://peninsulainsider.com.au/wine/merricks/#producers>)
+- [Cellar doors & producers](<https://peninsulainsider.com.au/wine/merricks/#producers>)
 
-- [**3** editor's anchors](<https://peninsulainsider.com.au/wine/merricks/#anchors>)
+- [Editor's anchors](<https://peninsulainsider.com.au/wine/merricks/#anchors>)
 
-- [**2** hatted producers](<https://peninsulainsider.com.au/wine/merricks/#producers>)
+- [Hatted producers](<https://peninsulainsider.com.au/wine/merricks/#producers>)
 
-- [**3** journal pieces](<https://peninsulainsider.com.au/wine/merricks/#journal>)
+- [Journal pieces](<https://peninsulainsider.com.au/wine/merricks/#journal>)
 
-- [**3** nearby sub-regions](<https://peninsulainsider.com.au/wine/merricks/#nearby>)
+- [Nearby sub-regions](<https://peninsulainsider.com.au/wine/merricks/#nearby>)
 
-- [**3** answered questions](<https://peninsulainsider.com.au/wine/merricks/#faqs>)
+- [Answered questions](<https://peninsulainsider.com.au/wine/merricks/#faqs>)
 
 Every producer · 2026
 
-## 7 cellar doors and producers in Merricks
+## Cellar doors and producers in Merricks
 
 Ordered by editorial authority and Halliday score. Each card opens the full editor's note.
 
@@ -255,7 +247,7 @@ Long-form writing connected to the producers above.
 
 ### The cellar-door short list
 
-The seven cellar doors I send people to first.](<https://peninsulainsider.com.au/journal/the-cellar-door-short-list/>)[Journal
+The cellar doors I send people to first.](<https://peninsulainsider.com.au/journal/the-cellar-door-short-list/>)[Journal
 
 ### The Chardonnay case
 

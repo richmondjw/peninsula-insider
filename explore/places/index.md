@@ -245,7 +245,7 @@ A ridge morning, one properly chosen cellar door, and a lunch that earns the dri
 
 Service   8 min
 
-### [The Peninsula Orientation Drive: Six Stops in One Day](<https://peninsulainsider.com.au/explore/plans/the-peninsula-orientation-drive/>)
+### [The Peninsula Orientation Drive: A First Visit in One Day](<https://peninsulainsider.com.au/explore/plans/the-peninsula-orientation-drive/>)
 
 10 April 2026
 
@@ -253,7 +253,7 @@ The drive to make on your first visit, or the one to send a friend on when you a
 
 Frequently asked
 
-## Five honest answers about Peninsula geography
+## Answers about Peninsula geography
 
 Which town should I stay in on the Peninsula?
 

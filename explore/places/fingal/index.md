@@ -17,7 +17,7 @@ Photo · Courtesy of Visit Victoria
 
 Plan the bathe
 
-## Two thermal venues in Fingal
+## Thermal venues in Fingal
 
 Alba and Peninsula Hot Springs are separate places. Check the live session and booking details with your chosen operator before you travel.
 
@@ -33,7 +33,7 @@ Bath House and Spa Dreaming Centre bathing, with accommodation at 140 Springs La
 
  [See Peninsula Hot Springs bathing](<https://www.peninsulahotsprings.com/bathe/>)
 
-Fingal in 8 photographs
+Fingal in photographs
 
 1  / 8
 
@@ -95,7 +95,7 @@ Expecting a walkable town centre. Fingal's venues are spread out.
 
 Fingal in brief
 
-## Fingal in 4 points
+## Fingal at a glance
 
 - 01   Fingal has two distinct thermal venues - Peninsula Hot Springs and Alba Thermal Springs & Spa - plus Moonah Links golf resort nearby.
 
@@ -117,15 +117,15 @@ Peninsula Hot Springs recommends booking ahead, especially for weekends and peak
 
 What's mapped here
 
-- [**1** places to eat](<https://peninsulainsider.com.au/explore/places/fingal/#eat-drink>)
+- [Places to eat](<https://peninsulainsider.com.au/explore/places/fingal/#eat-drink>)
 
-- [**3** stays](<https://peninsulainsider.com.au/explore/places/fingal/#stay>)
+- [Stays](<https://peninsulainsider.com.au/explore/places/fingal/#stay>)
 
-- [**2** ways to explore](<https://peninsulainsider.com.au/explore/places/fingal/#explore>)
+- [Ways to explore](<https://peninsulainsider.com.au/explore/places/fingal/#explore>)
 
-- [**2** escape plans](<https://peninsulainsider.com.au/explore/places/fingal/#escapes>)
+- [Escape plans](<https://peninsulainsider.com.au/explore/places/fingal/#escapes>)
 
-- [**4** journal pieces](<https://peninsulainsider.com.au/explore/places/fingal/#journal>)
+- [Journal pieces](<https://peninsulainsider.com.au/explore/places/fingal/#journal>)
 
 Eat & drink
 

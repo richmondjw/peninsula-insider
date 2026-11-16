@@ -9,7 +9,7 @@ The Insider's 30 · 2026
 
 # The list, on one screen.
 
-21 ranked picks pinned across the Peninsula. Click any pin for the editor's note + link to the full venue page.
+Ranked picks pinned across the Peninsula. Click any pin for the editor's note + link to the full venue page.
 
 Loading map…
 

@@ -31,9 +31,9 @@ Flinders is a village, with a bakery, a pub, a handful of shops, a pier, and a c
 
 Geographically it sits on the southern tip of the Peninsula, facing Bass Strait rather than Port Phillip. That matters more than it sounds. Everything is two degrees cooler, the wind has more weight, and the light is harder and cleaner than the bay-side light most visitors remember. The back beaches at Sorrento are technically further west, but Flinders feels more like the actual ocean, because it is.
 
-## The three-move Flinders day
+## A Flinders day
 
-A proper Flinders weekend does three things. Nothing more.
+A Flinders weekend leaves room for a walk, good food and time by the water.
 
 **One: start at [Flinders Sourdough](<https://peninsulainsider.com.au/eat/flinders-sourdough/>).** The bakery opens at 7am and the good loaves are gone by lunchtime. Order a morning bun, a long black, and one of whatever pastry is in season. Eat it on the low wall outside. Watch the village wake up. This is the move that orients the whole day around daylight rather than dinner reservations.
 
@@ -115,11 +115,11 @@ Short days, cheap rooms, empty dining rooms, a fire in every cellar door with a 
 
 Insider Edit   7 min
 
-### [The Peninsula Pub Guide: Five Hotels That Still Know What a Pub Is For](<https://peninsulainsider.com.au/journal/the-pub-guide/>)
+### [The Peninsula Pub Guide: Hotels That Still Know What a Pub Is For](<https://peninsulainsider.com.au/journal/the-pub-guide/>)
 
 10 April 2026
 
-Not a gastropub ranking. Not a beer list. A guide to the five Peninsula pubs that still operate as the social centre of a town, where the food is good, the beer is cold, the rooms are clean, and nobody is trying to be anything else.
+Not a gastropub ranking. Not a beer list. A guide to the Peninsula pubs that still operate as the social centre of a town, where the food is good, the beer is cold, the rooms are clean, and nobody is trying to be anything else.
 
 Editor's Letter   8 min
 

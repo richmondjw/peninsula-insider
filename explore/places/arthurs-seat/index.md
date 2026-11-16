@@ -13,7 +13,7 @@ View from Arthurs Seat over bushland and bayside suburbs curving around Port Phi
 
 Photo · Courtesy of Visit Victoria
 
-Arthurs Seat in 9 photographs
+Arthurs Seat in photographs
 
 1  / 9
 
@@ -33,7 +33,7 @@ about 1 hour 15 minutes
 
 Arthurs Seat in brief
 
-## Arthurs Seat in 5 points
+## Arthurs Seat at a glance
 
 - 01   Arthurs Seat is the Peninsula's highest point and one of its clearest orientation stops.
 
@@ -47,9 +47,9 @@ Arthurs Seat in brief
 
 What's mapped here
 
-- [**1** stays](<https://peninsulainsider.com.au/explore/places/arthurs-seat/#stay>)
+- [Stays](<https://peninsulainsider.com.au/explore/places/arthurs-seat/#stay>)
 
-- [**4** journal pieces](<https://peninsulainsider.com.au/explore/places/arthurs-seat/#journal>)
+- [Journal pieces](<https://peninsulainsider.com.au/explore/places/arthurs-seat/#journal>)
 
 Stay
 

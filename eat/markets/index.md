@@ -15,7 +15,7 @@ Researched from published sources. Every venue listed was reviewed April 2026 or
 
 Peninsula markets
 
-## All 4 Peninsula food markets
+## Peninsula food markets
 
 Current Peninsula markets; check organiser schedules before visiting.
 

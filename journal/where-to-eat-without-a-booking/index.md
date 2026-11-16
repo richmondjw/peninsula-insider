@@ -41,7 +41,7 @@ It is not. But the restaurants that take walk-ins and the restaurants that requi
 
 ## The honest framework
 
-Walk-in dining on the Peninsula falls into five categories, and they are not all the same experience:
+Walk-in dining on the Peninsula takes different forms, and they are not all the same experience:
 
 **The pubs.** The Peninsula’s pub network is the most underrated dining infrastructure in the region. Almost all of them take walk-ins, almost all of them serve food from noon to late, and the best of them cook well above the level that the word “pub” implies.
 

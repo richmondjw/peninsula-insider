@@ -33,7 +33,7 @@ Pricing, seasonal departures, and group bookings are managed on the operator's o
 
 Tours by Bayplay Adventure
 
-## 1 tour listed
+## Tours listed
 
 Photo by [Essiewingrove](<https://commons.wikimedia.org/wiki/File:Point_king_beach_in_Portsea_Victoria.jpg>), [CC BY-SA 4.0](<https://creativecommons.org/licenses/by-sa/4.0/>). Resized.
 

@@ -91,7 +91,7 @@ Not every Peninsula lunch needs a degustation and four hours. The places that do
 
 Insider Edit   7 min
 
-### [Breakfast Before the Crowds: Four Peninsula Mornings](<https://peninsulainsider.com.au/journal/breakfast-before-the-crowds/>)
+### [Breakfast Before the Crowds: Peninsula Mornings Worth an Early Start](<https://peninsulainsider.com.au/journal/breakfast-before-the-crowds/>)
 
 9 April 2026
 

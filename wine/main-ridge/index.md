@@ -21,14 +21,6 @@ The roads here are narrow and the properties smaller than the Red Hill plateau. 
 
 Photo · CSIRO / Wikimedia Commons (CC BY 3.0); resized to WebP by Peninsula Insider
 
-**Producers mapped**
-
-5
-
-**Hatted producers**
-
-1
-
 **From Melbourne**
 
 approximately 1 hour 10 minutes
@@ -67,21 +59,21 @@ Three single-vineyard sites, three restaurants on one estate, and a Wallis Pinot
 
 What's mapped here
 
-- [**5** cellar doors & producers](<https://peninsulainsider.com.au/wine/main-ridge/#producers>)
+- [Cellar doors & producers](<https://peninsulainsider.com.au/wine/main-ridge/#producers>)
 
-- [**1** editor's anchors](<https://peninsulainsider.com.au/wine/main-ridge/#anchors>)
+- [Editor's anchors](<https://peninsulainsider.com.au/wine/main-ridge/#anchors>)
 
-- [**1** hatted producers](<https://peninsulainsider.com.au/wine/main-ridge/#producers>)
+- [Hatted producers](<https://peninsulainsider.com.au/wine/main-ridge/#producers>)
 
-- [**3** journal pieces](<https://peninsulainsider.com.au/wine/main-ridge/#journal>)
+- [Journal pieces](<https://peninsulainsider.com.au/wine/main-ridge/#journal>)
 
-- [**3** nearby sub-regions](<https://peninsulainsider.com.au/wine/main-ridge/#nearby>)
+- [Nearby sub-regions](<https://peninsulainsider.com.au/wine/main-ridge/#nearby>)
 
-- [**3** answered questions](<https://peninsulainsider.com.au/wine/main-ridge/#faqs>)
+- [Answered questions](<https://peninsulainsider.com.au/wine/main-ridge/#faqs>)
 
 Every producer · 2026
 
-## 5 cellar doors and producers in Main Ridge
+## Cellar doors and producers in Main Ridge
 
 Ordered by editorial authority and Halliday score. Each card opens the full editor's note.
 
@@ -219,7 +211,7 @@ Long-form writing connected to the producers above.
 
 ### The cellar-door short list
 
-The seven cellar doors I send people to first. Ten Minutes by Tractor and Kooyong both feature.](<https://peninsulainsider.com.au/journal/the-cellar-door-short-list/>)[Journal
+The cellar doors I send people to first. Ten Minutes by Tractor and Kooyong both feature.](<https://peninsulainsider.com.au/journal/the-cellar-door-short-list/>)[Journal
 
 ### The Chardonnay case
 

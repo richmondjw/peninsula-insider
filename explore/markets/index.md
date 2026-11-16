@@ -77,7 +77,7 @@ Confirm the current date on the Shire event page.
 
 Current market guides
 
-## Three market guides and a cancellation notice
+## Market guides and a cancellation notice
 
 Choose by location and organiser schedule. Each card links to details and a primary source.
 

@@ -83,7 +83,7 @@ These pieces give you the context a listing page never does - the when, the why,
 
 Service   7 min
 
-### [The Peninsula Pub Crawl: Six Pubs, Three Routes, No Pretension](<https://peninsulainsider.com.au/explore/plans/the-pub-crawl/>)
+### [The Peninsula Pub Crawl: Local Pubs, Unhurried Routes](<https://peninsulainsider.com.au/explore/plans/the-pub-crawl/>)
 
 10 April 2026
 

@@ -71,7 +71,7 @@ Assuming a campsite will be available without checking the operator's current bo
 
 Capel Sound in brief
 
-## Capel Sound in 5 points
+## Capel Sound at a glance
 
 - 01   Capel Sound is a bay-coast town between Rosebud and Tootgarook, with a long beach and foreshore camping.
 

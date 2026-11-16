@@ -7,7 +7,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Two-night plan
 
-# The Market Saturday: Two Peninsula Weekends Built Around the Right Hour at the Right Stall
+# The Market Saturday: Peninsula Weekends Built Around the Right Hour at the Right Stall
 
 Mornington, Hill & Ridge, Balnarring and Somers: check each organiser's current calendar, then build a Peninsula weekend around a confirmed market.
 

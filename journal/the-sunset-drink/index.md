@@ -9,7 +9,7 @@ Insider Edit  10 April 2026  7 min read
 
 # The Sunset Drink: Where to Watch the Light Drop on the Peninsula
 
-The bay side goes gold at about five. The ocean side goes pink at about half past. You need a glass in your hand for both versions, and these are the seven places that understand the assignment.
+The bay side goes gold at about five. The ocean side goes pink at about half past. You need a glass in your hand for both versions, and these are the places that understand the assignment.
 
 Keep this for later
 
@@ -139,7 +139,7 @@ The Peninsula is a wine region that happens to be surrounded by water. The seafo
 
 Insider Edit   7 min
 
-### [Breakfast Before the Crowds: Four Peninsula Mornings](<https://peninsulainsider.com.au/journal/breakfast-before-the-crowds/>)
+### [Breakfast Before the Crowds: Peninsula Mornings Worth an Early Start](<https://peninsulainsider.com.au/journal/breakfast-before-the-crowds/>)
 
 9 April 2026
 
@@ -147,19 +147,19 @@ The long lunches get the headlines. But the Peninsula's first hour of the day - 
 
 Insider Edit   9 min
 
-### [Tedesca, Tractor, Laura: The Three Peninsula Dinners and the Argument Between Them](<https://peninsulainsider.com.au/journal/three-italian-dinners/>)
+### [Tedesca, Tractor, Laura: Peninsula Dinners and the Argument Between Them](<https://peninsulainsider.com.au/journal/three-italian-dinners/>)
 
 7 April 2026
 
-A comparative review of the three most serious dining rooms on the Mornington Peninsula, and a specific case for which one is which occasion.
+A comparative review of the most serious dining rooms on the Mornington Peninsula, and a specific case for which one is which occasion.
 
 Insider Edit   7 min
 
-### [The Peninsula Pub Guide: Five Hotels That Still Know What a Pub Is For](<https://peninsulainsider.com.au/journal/the-pub-guide/>)
+### [The Peninsula Pub Guide: Hotels That Still Know What a Pub Is For](<https://peninsulainsider.com.au/journal/the-pub-guide/>)
 
 10 April 2026
 
-Not a gastropub ranking. Not a beer list. A guide to the five Peninsula pubs that still operate as the social centre of a town, where the food is good, the beer is cold, the rooms are clean, and nobody is trying to be anything else.
+Not a gastropub ranking. Not a beer list. A guide to the Peninsula pubs that still operate as the social centre of a town, where the food is good, the beer is cold, the rooms are clean, and nobody is trying to be anything else.
 
 Insider Edit   6 min
 

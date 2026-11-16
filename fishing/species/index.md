@@ -7,7 +7,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Fishing · Species
 
-# The 12 species that actually fish on the Peninsula
+# The species that actually fish on the Peninsula
 
 Bag and size limits cite the Victorian Fisheries Authority verbatim. The editorial layer covers Peninsula-specific tide windows, where the species reliably runs, and which charters target it.
 

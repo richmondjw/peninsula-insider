@@ -21,7 +21,7 @@ The Mornington Peninsula sits at the convergence of two large coastal embayments
 
 The same 50km of coastline produces snapper, King George whiting, calamari, gummy shark, flathead, garfish, trevally, kingfish, and Australian salmon, species that in other states require separate trips to separate regions. Port Phillip Bay has a modest tidal range of 0.6 to 1.0m at Port Melbourne. Western Port has approximately 2.5 to 2.8m, and is among the most tide-sensitive fisheries in Victoria. Anglers crossing from one bay to the other without adjusting their thinking about tides, ramp access, and fish behaviour will make avoidable mistakes.
 
-The 12 species
+Species guides
 
 ## Every species page is VFA-verified
 
@@ -69,7 +69,7 @@ Sub-hubs
 
 ### [Species](<https://peninsulainsider.com.au/fishing/species/>)
 
-Twelve species pages, each with VFA-verified bag and size limits, Peninsula-specific tide and season guidance, and charter cross-links.
+Species guides, each with VFA-verified bag and size limits, Peninsula-specific tide and season guidance, and charter cross-links.
 
 [Browse species →](<https://peninsulainsider.com.au/fishing/species/>)
 

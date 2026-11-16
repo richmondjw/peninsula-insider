@@ -15,7 +15,7 @@ Chosen by our editors, never paid for. [How we choose](<https://peninsulainsider
 
 Ocean coast walk, Portsea, Mornington Peninsula. Photo: Robert Blackburn, courtesy of Visit Victoria.
 
-## All 52 experiences
+## Explore the experiences
 
 - ### [Alba Thermal Springs & Spa](<https://peninsulainsider.com.au/explore/spas-and-wellness/#alba-thermal-springs>)
 
@@ -405,7 +405,7 @@ Lookout   Cape Schanck
 
 ## More ways in
 
-- [All 37 towns](<https://peninsulainsider.com.au/explore/places/>)
+- [Explore the towns](<https://peninsulainsider.com.au/explore/places/>)
 
 - [Day trips](<https://peninsulainsider.com.au/explore/day-trips/>)
 
@@ -433,7 +433,7 @@ For the grey Saturday when the forecast turns, the hot springs are full, and you
 
 Peninsula Insider   April 2026   7 min read
 
-- ### [The Market Saturday: Two Peninsula Weekends Built Around the Right Hour at the Right Stall](<https://peninsulainsider.com.au/explore/plans/the-market-saturday/>)
+- ### [The Market Saturday: Peninsula Weekends Built Around the Right Hour at the Right Stall](<https://peninsulainsider.com.au/explore/plans/the-market-saturday/>)
 
 Mornington, Hill & Ridge, Balnarring and Somers: check each organiser's current calendar, then build a Peninsula weekend around a confirmed market.
 

@@ -7,9 +7,9 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Service  7 August 2026  5 min read
 
-# Indoor Play on the Mornington Peninsula: The Four Worth Driving To
+# Indoor Play on the Mornington Peninsula: Where to Go When the Weather Turns
 
-When the weather turns and the kids need to run, there are four indoor play venues on the Peninsula that actually hold up. Here is what each one is good for, and the five things to check before you leave the house.
+When the weather turns and the kids need to run, these Peninsula indoor play venues give the day a plan. Here is what each one is good for, and what to check before you leave the house.
 
 Keep this for later
 
@@ -17,7 +17,7 @@ Keep this for later
 
 Family  Kids  Rainy Day  Indoor
 
-Cape Schanck, Mornington Peninsula   Photo · Courtesy of Visit Victoria
+Trofeo Estate, Dromana, Mornington Peninsula   Photo · Courtesy of Visit Victoria
 
 There is a particular kind of Peninsula weather - grey, wet, and not committed enough to be dramatic - that turns a normal Saturday into a problem. The beach is out. The garden is out. The kids have been circling the kitchen since eight.
 
@@ -47,7 +47,7 @@ Purpose-built for children on the autism spectrum: suspended swings for vestibul
 
 Best for: sensory-sensitive kids, and families who have found that mainstream play centres do not work for them.
 
-## Five things to check before you leave
+## Before you leave
 
 Every one of these venues changes its hours between school term and holidays, and none of them appreciate a carload arriving to a locked door.
 

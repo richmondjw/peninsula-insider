@@ -17,7 +17,7 @@ Cellar doors in this corridor are generally more accessible from Melbourne and o
 
 Editorial ranking · 2026
 
-## 3 producers
+## Producers to explore
 
 Ordered by editorial authority and Halliday score.
 

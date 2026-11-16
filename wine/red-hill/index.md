@@ -21,14 +21,6 @@ Most cellar doors are open weekends. Several require bookings, particularly in w
 
 Photo · Two Palms Australia, courtesy of Visit Victoria
 
-**Producers mapped**
-
-11
-
-**Hatted producers**
-
-4
-
 **Top Halliday**
 
 98
@@ -79,21 +71,21 @@ A more intimate cellar-door alternative to the estate-scale neighbours. Sam Cove
 
 What's mapped here
 
-- [**11** cellar doors & producers](<https://peninsulainsider.com.au/wine/red-hill/#producers>)
+- [Cellar doors & producers](<https://peninsulainsider.com.au/wine/red-hill/#producers>)
 
-- [**3** editor's anchors](<https://peninsulainsider.com.au/wine/red-hill/#anchors>)
+- [Editor's anchors](<https://peninsulainsider.com.au/wine/red-hill/#anchors>)
 
-- [**4** hatted producers](<https://peninsulainsider.com.au/wine/red-hill/#producers>)
+- [Hatted producers](<https://peninsulainsider.com.au/wine/red-hill/#producers>)
 
-- [**3** journal pieces](<https://peninsulainsider.com.au/wine/red-hill/#journal>)
+- [Journal pieces](<https://peninsulainsider.com.au/wine/red-hill/#journal>)
 
-- [**3** nearby sub-regions](<https://peninsulainsider.com.au/wine/red-hill/#nearby>)
+- [Nearby sub-regions](<https://peninsulainsider.com.au/wine/red-hill/#nearby>)
 
-- [**4** answered questions](<https://peninsulainsider.com.au/wine/red-hill/#faqs>)
+- [Answered questions](<https://peninsulainsider.com.au/wine/red-hill/#faqs>)
 
 Every producer · 2026
 
-## 11 cellar doors and producers in Red Hill
+## Cellar doors and producers in Red Hill
 
 Ordered by editorial authority and Halliday score. Each card opens the full editor's note.
 
@@ -313,7 +305,7 @@ Long-form writing connected to the producers above.
 
 ### The cellar-door short list
 
-The seven cellar doors I send people to first, with Red Hill anchoring the list.](<https://peninsulainsider.com.au/journal/the-cellar-door-short-list/>)[Journal
+The cellar doors I send people to first, with Red Hill anchoring the list.](<https://peninsulainsider.com.au/journal/the-cellar-door-short-list/>)[Journal
 
 ### The Chardonnay case
 

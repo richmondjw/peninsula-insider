@@ -13,7 +13,7 @@ Aerial view of green cliffs dropping to a rocky shore, with the Cape Schanck lig
 
 Photo · Courtesy of Visit Victoria
 
-Cape Schanck in 12 photographs
+Cape Schanck in photographs
 
 1  / 12
 
@@ -75,7 +75,7 @@ Expecting facilities - it's a national park, not a township.
 
 Cape Schanck in brief
 
-## Cape Schanck in 4 points
+## Cape Schanck at a glance
 
 - 01   Cape Schanck is the Peninsula's most cinematic short walk - an 1859 lighthouse, basalt sea stacks, and the open Southern Ocean to the south.
 
@@ -97,15 +97,15 @@ If you arrive after 4pm outside summer, the light is better and most of the buse
 
 What's mapped here
 
-- [**1** places to eat](<https://peninsulainsider.com.au/explore/places/cape-schanck/#eat-drink>)
+- [Places to eat](<https://peninsulainsider.com.au/explore/places/cape-schanck/#eat-drink>)
 
-- [**1** stays](<https://peninsulainsider.com.au/explore/places/cape-schanck/#stay>)
+- [Stays](<https://peninsulainsider.com.au/explore/places/cape-schanck/#stay>)
 
-- [**9** ways to explore](<https://peninsulainsider.com.au/explore/places/cape-schanck/#explore>)
+- [Ways to explore](<https://peninsulainsider.com.au/explore/places/cape-schanck/#explore>)
 
-- [**3** escape plans](<https://peninsulainsider.com.au/explore/places/cape-schanck/#escapes>)
+- [Escape plans](<https://peninsulainsider.com.au/explore/places/cape-schanck/#escapes>)
 
-- [**4** journal pieces](<https://peninsulainsider.com.au/explore/places/cape-schanck/#journal>)
+- [Journal pieces](<https://peninsulainsider.com.au/explore/places/cape-schanck/#journal>)
 
 Eat & drink
 

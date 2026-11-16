@@ -17,7 +17,7 @@ Researched from published sources. Every venue listed was reviewed April 2026 or
 
 Seafood shortlist
 
-## 4 seafood venues ranked
+## Seafood venues ranked
 
 The hatted kitchen first, then the waterfront dining options, then the best casual stops.
 

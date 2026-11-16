@@ -19,7 +19,7 @@ Researched from published sources. Every venue listed was reviewed April 2026 or
 
 Long lunch shortlist
 
-## 10 rooms that carry the whole afternoon
+## Rooms that carry the whole afternoon
 
 Ordered by editorial authority. Hatted rooms first, then the places doing the strongest quiet work below them.
 

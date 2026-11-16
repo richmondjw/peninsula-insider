@@ -459,7 +459,7 @@ Long light, warm bay water and the busiest roads of the year. A local's plan for
 
 [Sorrento & Portsea   Limestone cliffs, ocean baths, the Heads ferry, the Peninsula's most iconic edge.](<https://peninsulainsider.com.au/explore/regions/peninsula-tip/>)[Red Hill & Merricks   The Peninsula's wine heartland: cool-climate pinot, long lunches, and unhurried cellar doors.](<https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/>)
 
-Flinders & the Ocean Coast in 13 photographs
+Flinders & the Ocean Coast in photographs
 
 1  / 13
 

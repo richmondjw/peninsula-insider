@@ -9,7 +9,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Rye
 
-Rye in 6 photographs
+Rye in photographs
 
 1  / 6
 
@@ -71,7 +71,7 @@ The busiest stretch of the front beach in peak season - head further along the s
 
 Rye in brief
 
-## Rye in 4 points
+## Rye at a glance
 
 - 01   Rye is a two-coast base: a sheltered bay foreshore and a separate ocean back beach, with Fingal hot springs a drive inland.
 
@@ -93,13 +93,13 @@ If you want Rye at its best, use it as a base and leave the beach-hopping to the
 
 What's mapped here
 
-- [**2** places to eat](<https://peninsulainsider.com.au/explore/places/rye/#eat-drink>)
+- [Places to eat](<https://peninsulainsider.com.au/explore/places/rye/#eat-drink>)
 
-- [**3** stays](<https://peninsulainsider.com.au/explore/places/rye/#stay>)
+- [Stays](<https://peninsulainsider.com.au/explore/places/rye/#stay>)
 
-- [**2** ways to explore](<https://peninsulainsider.com.au/explore/places/rye/#explore>)
+- [Ways to explore](<https://peninsulainsider.com.au/explore/places/rye/#explore>)
 
-- [**4** journal pieces](<https://peninsulainsider.com.au/explore/places/rye/#journal>)
+- [Journal pieces](<https://peninsulainsider.com.au/explore/places/rye/#journal>)
 
 Eat & drink
 

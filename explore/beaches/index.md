@@ -73,7 +73,7 @@ Bay side · Port Phillip
 
 ## Bay beaches - calm water, family-safe
 
-5 bay beaches we recommend, ordered by editorial weight. Each one is for swimming, not just looking.
+Bay beaches we recommend, ordered by editorial weight. Each one is for swimming, not just looking.
 
 [Beach](<https://peninsulainsider.com.au/explore/dromana-beach/>)
 

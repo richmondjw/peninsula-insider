@@ -7,7 +7,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Service
 
-# One More Hour: Three After-Five Peninsula Plans
+# One More Hour: After-Five Peninsula Plans
 
 Daylight saving begins on 4 October. Choose the evening by the time, weather and energy you actually have, then keep one useful fallback.
 

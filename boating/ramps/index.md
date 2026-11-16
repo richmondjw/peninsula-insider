@@ -15,7 +15,7 @@ Tide guidance is editorial framing. Always check live conditions at [Willyweathe
 
 Port Phillip Bay
 
-## 4 ramps
+## Boat ramps
 
 ### [Mornington Park Boat Ramp](<https://peninsulainsider.com.au/boating/ramps/mornington-park-boat-ramp/>)
 
@@ -51,7 +51,7 @@ Three-lane concrete ramp at Sorrento, the southern bay's all-tide launching poin
 
 Western Port
 
-## 2 ramps
+## Boat ramps
 
 ### [Hastings Boat Ramp](<https://peninsulainsider.com.au/boating/ramps/hastings-boat-ramp/>)
 

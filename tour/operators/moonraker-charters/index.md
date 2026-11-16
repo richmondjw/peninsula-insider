@@ -57,7 +57,7 @@ Pricing, seasonal departures, and group bookings are managed on the operator's o
 
 Tours by Moonraker Charters
 
-## 1 tour listed
+## Tours listed
 
 Half day   All guests
 

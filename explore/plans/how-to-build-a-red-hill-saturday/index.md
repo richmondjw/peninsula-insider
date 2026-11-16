@@ -71,7 +71,7 @@ If the Saturday is built around a long lunch, yes - staying overnight at Lindend
 
 Read alongside
 
-- [The Cellar Door Short List - Five Producers Worth the Appointment](<https://peninsulainsider.com.au/journal/the-cellar-door-short-list/>)
+- [The Cellar Door Short List - Producers Worth the Appointment](<https://peninsulainsider.com.au/journal/the-cellar-door-short-list/>)
 
 - [How to Plan a Peninsula Weekend](<https://peninsulainsider.com.au/explore/plans/how-to-plan-a-peninsula-weekend/>)
 

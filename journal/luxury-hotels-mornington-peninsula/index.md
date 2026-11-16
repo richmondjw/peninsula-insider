@@ -19,7 +19,7 @@ Luxury Hotels  Accommodation  Boutique Hotels  Michelin
 
 Jackalope Hotel, Merricks North, Mornington Peninsula   Photo · Peter Foster, courtesy of Visit Victoria
 
-Luxury Hotels on the Mornington Peninsula - The Honest Guide in 8 photographs
+Luxury Hotels on the Mornington Peninsula - The Honest Guide in photographs
 
 1  / 8
 

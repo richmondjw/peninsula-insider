@@ -73,15 +73,15 @@ Long Lunch List   8 min
 
 15 March 2026
 
-Three hatted restaurants, a bay view, and nowhere you need to be until Monday. This is the case for staying the whole weekend.
+Hatted restaurants, a bay view, and nowhere you need to be until Monday. This is the case for staying the whole weekend.
 
 Insider Edit   9 min
 
-### [Tedesca, Tractor, Laura: The Three Peninsula Dinners and the Argument Between Them](<https://peninsulainsider.com.au/journal/three-italian-dinners/>)
+### [Tedesca, Tractor, Laura: Peninsula Dinners and the Argument Between Them](<https://peninsulainsider.com.au/journal/three-italian-dinners/>)
 
 7 April 2026
 
-A comparative review of the three most serious dining rooms on the Mornington Peninsula, and a specific case for which one is which occasion.
+A comparative review of the most serious dining rooms on the Mornington Peninsula, and a specific case for which one is which occasion.
 
 Weekend Picker   3 min
 
@@ -113,7 +113,7 @@ Insider Edit   7 min
 
 10 April 2026
 
-The bay side goes gold at about five. The ocean side goes pink at about half past. You need a glass in your hand for both versions, and these are the seven places that understand the assignment.
+The bay side goes gold at about five. The ocean side goes pink at about half past. You need a glass in your hand for both versions, and these are the places that understand the assignment.
 
 Mentioned in this piece
 

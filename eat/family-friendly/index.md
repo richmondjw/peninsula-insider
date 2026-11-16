@@ -17,7 +17,7 @@ Researched from published sources. Every venue listed was reviewed April 2026 or
 
 Family-friendly shortlist
 
-## 8 venues that work with kids
+## Venues that work with kids
 
 The outdoor, relaxed-format venues first. Hatted rooms are generally not on this list.
 

@@ -19,7 +19,7 @@ Researched from published sources. Every venue listed was reviewed April 2026 or
 
 Brunch shortlist
 
-## 6 brunch spots worth knowing about
+## Brunch spots worth knowing about
 
 The specialty coffee benchmark first, then the village cafes organised by where they are on the Peninsula.
 
@@ -125,7 +125,7 @@ The specialty coffee destination and the village cafes - from Commonfolk to Flin
 
 ### [Best Bakeries](<https://peninsulainsider.com.au/eat/bakeries/>)
 
-Six Peninsula bakeries - where each is and what makes each one worth knowing.
+Peninsula bakeries - where each is and what makes each one worth knowing.
 
 [See the list →](<https://peninsulainsider.com.au/eat/bakeries/>)
 

@@ -99,11 +99,11 @@ The solstice weekend moves from Sorrento's festival foreshore on Saturday to the
 
 Insider Edit   7 min
 
-### [The Peninsula Pub Guide: Five Hotels That Still Know What a Pub Is For](<https://peninsulainsider.com.au/journal/the-pub-guide/>)
+### [The Peninsula Pub Guide: Hotels That Still Know What a Pub Is For](<https://peninsulainsider.com.au/journal/the-pub-guide/>)
 
 10 April 2026
 
-Not a gastropub ranking. Not a beer list. A guide to the five Peninsula pubs that still operate as the social centre of a town, where the food is good, the beer is cold, the rooms are clean, and nobody is trying to be anything else.
+Not a gastropub ranking. Not a beer list. A guide to the Peninsula pubs that still operate as the social centre of a town, where the food is good, the beer is cold, the rooms are clean, and nobody is trying to be anything else.
 
 Insider Edit   7 min
 
@@ -119,11 +119,11 @@ Insider Edit   7 min
 
 10 April 2026
 
-The bay side goes gold at about five. The ocean side goes pink at about half past. You need a glass in your hand for both versions, and these are the seven places that understand the assignment.
+The bay side goes gold at about five. The ocean side goes pink at about half past. You need a glass in your hand for both versions, and these are the places that understand the assignment.
 
 Insider Edit   7 min
 
-### [Breakfast Before the Crowds: Four Peninsula Mornings](<https://peninsulainsider.com.au/journal/breakfast-before-the-crowds/>)
+### [Breakfast Before the Crowds: Peninsula Mornings Worth an Early Start](<https://peninsulainsider.com.au/journal/breakfast-before-the-crowds/>)
 
 9 April 2026
 

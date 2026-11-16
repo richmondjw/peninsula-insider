@@ -13,7 +13,7 @@ Dromana Pier reaches into Port Phillip Bay beside moored boats at sunset
 
 Photo · Peter Tarasiuk, courtesy of Visit Victoria
 
-Dromana in 13 photographs
+Dromana in photographs
 
 1  / 13
 
@@ -75,7 +75,7 @@ Spending a whole day here - it's better as a base or a stop than a destination.
 
 Dromana in brief
 
-## Dromana in 4 points
+## Dromana at a glance
 
 - 01   Dromana is the practical hinge between the bay and the hinterland - base camp for Arthurs Seat, the gondola, and the wine country immediately behind it.
 
@@ -97,15 +97,15 @@ The beach west of the pier is usually quieter than the central foreshore and sti
 
 What's mapped here
 
-- [**3** places to eat](<https://peninsulainsider.com.au/explore/places/dromana/#eat-drink>)
+- [Places to eat](<https://peninsulainsider.com.au/explore/places/dromana/#eat-drink>)
 
-- [**2** cellar doors & makers](<https://peninsulainsider.com.au/explore/places/dromana/#wine>)
+- [Cellar doors & makers](<https://peninsulainsider.com.au/explore/places/dromana/#wine>)
 
-- [**2** stays](<https://peninsulainsider.com.au/explore/places/dromana/#stay>)
+- [Stays](<https://peninsulainsider.com.au/explore/places/dromana/#stay>)
 
-- [**1** ways to explore](<https://peninsulainsider.com.au/explore/places/dromana/#explore>)
+- [Ways to explore](<https://peninsulainsider.com.au/explore/places/dromana/#explore>)
 
-- [**4** journal pieces](<https://peninsulainsider.com.au/explore/places/dromana/#journal>)
+- [Journal pieces](<https://peninsulainsider.com.au/explore/places/dromana/#journal>)
 
 Eat & drink
 

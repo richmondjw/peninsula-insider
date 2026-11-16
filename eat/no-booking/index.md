@@ -17,7 +17,7 @@ Researched from published sources. Every venue listed was reviewed April 2026 or
 
 Walk-in options
 
-## 8 venues you can walk into
+## Venues you can walk into
 
 Hatted walk-in-only venues first, then casual options by format.
 

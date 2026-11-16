@@ -7,9 +7,9 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Cellar Door Dispatch  6 April 2026  6 min read
 
-# The Cellar Door Short List: Four Producers Worth the Stop
+# The Cellar Door Short List: Producers Worth the Stop
 
-Not the biggest estates, not the flashiest rooms. The four Peninsula cellar doors where the wines - and the people pouring them - actually change how you think about the region.
+Not the biggest estates, not the flashiest rooms. The Peninsula cellar doors where the wines - and the people pouring them - actually change how you think about the region.
 
 Keep this for later
 
@@ -111,7 +111,7 @@ Long Lunch List   8 min
 
 15 March 2026
 
-Three hatted restaurants, a bay view, and nowhere you need to be until Monday. This is the case for staying the whole weekend.
+Hatted restaurants, a bay view, and nowhere you need to be until Monday. This is the case for staying the whole weekend.
 
 Cellar Door Dispatch   6 min
 

@@ -87,7 +87,7 @@ When Red Hill is booked out and Sorrento feels like a queue, there is another ve
 
 Insider Edit   7 min
 
-### [Breakfast Before the Crowds: Four Peninsula Mornings](<https://peninsulainsider.com.au/journal/breakfast-before-the-crowds/>)
+### [Breakfast Before the Crowds: Peninsula Mornings Worth an Early Start](<https://peninsulainsider.com.au/journal/breakfast-before-the-crowds/>)
 
 9 April 2026
 

@@ -55,7 +55,7 @@ Do not navigate to Boneo Discovery Park by town name alone. Its entrance is in F
 
 Boneo in brief
 
-## Boneo in 5 points
+## Boneo at a glance
 
 - 01   Boneo is farm and bush country inland from the bay, with no town-centre shopping strip.
 
@@ -79,9 +79,9 @@ For an easy planning check: Hawkes Farm is in Boneo; Boneo Discovery Park is in 
 
 What's mapped here
 
-- [**1** ways to explore](<https://peninsulainsider.com.au/explore/places/boneo/#explore>)
+- [Ways to explore](<https://peninsulainsider.com.au/explore/places/boneo/#explore>)
 
-- [**4** journal pieces](<https://peninsulainsider.com.au/explore/places/boneo/#journal>)
+- [Journal pieces](<https://peninsulainsider.com.au/explore/places/boneo/#journal>)
 
 Get outside
 

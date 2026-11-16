@@ -17,7 +17,7 @@ Known for   Halliday Top 100 Winery Polperro and Even Keel Wines One-Hat Cool-Cl
 
 Polperro · Red Hill
 
-Polperro in 4 photographs
+Polperro in photographs
 
 1  / 4
 

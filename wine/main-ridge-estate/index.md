@@ -163,11 +163,11 @@ A ridge morning, one properly chosen cellar door, and a lunch that earns the dri
 
 Cellar Door Dispatch   6 min
 
-### [The Cellar Door Short List: Four Producers Worth the Stop](<https://peninsulainsider.com.au/journal/the-cellar-door-short-list/>)
+### [The Cellar Door Short List: Producers Worth the Stop](<https://peninsulainsider.com.au/journal/the-cellar-door-short-list/>)
 
 6 April 2026
 
-Not the biggest estates, not the flashiest rooms. The four Peninsula cellar doors where the wines - and the people pouring them - actually change how you think about the region.
+Not the biggest estates, not the flashiest rooms. The Peninsula cellar doors where the wines - and the people pouring them - actually change how you think about the region.
 
 More to explore
 

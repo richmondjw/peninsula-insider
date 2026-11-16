@@ -67,7 +67,7 @@ Rushing - Main Ridge rewards slow, intentional visits.
 
 Main Ridge in brief
 
-## Main Ridge in 4 points
+## Main Ridge at a glance
 
 - 01   Main Ridge is a rural wine-country locality with cellar doors and farm-gate stops, rather than a compact shopping village.
 
@@ -89,15 +89,15 @@ Book lunch first and build the wine stops around it - that is how locals avoid w
 
 What's mapped here
 
-- [**3** places to eat](<https://peninsulainsider.com.au/explore/places/main-ridge/#eat-drink>)
+- [Places to eat](<https://peninsulainsider.com.au/explore/places/main-ridge/#eat-drink>)
 
-- [**3** cellar doors & makers](<https://peninsulainsider.com.au/explore/places/main-ridge/#wine>)
+- [Cellar doors & makers](<https://peninsulainsider.com.au/explore/places/main-ridge/#wine>)
 
-- [**2** ways to explore](<https://peninsulainsider.com.au/explore/places/main-ridge/#explore>)
+- [Ways to explore](<https://peninsulainsider.com.au/explore/places/main-ridge/#explore>)
 
-- [**1** escape plans](<https://peninsulainsider.com.au/explore/places/main-ridge/#escapes>)
+- [Escape plans](<https://peninsulainsider.com.au/explore/places/main-ridge/#escapes>)
 
-- [**4** journal pieces](<https://peninsulainsider.com.au/explore/places/main-ridge/#journal>)
+- [Journal pieces](<https://peninsulainsider.com.au/explore/places/main-ridge/#journal>)
 
 Explore Main Ridge by experience
 

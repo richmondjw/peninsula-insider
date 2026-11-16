@@ -165,7 +165,7 @@ Long Lunch List   8 min
 
 15 March 2026
 
-Three hatted restaurants, a bay view, and nowhere you need to be until Monday. This is the case for staying the whole weekend.
+Hatted restaurants, a bay view, and nowhere you need to be until Monday. This is the case for staying the whole weekend.
 
 Hub Guide   14 min
 
@@ -193,11 +193,11 @@ The Baths at Sorrento, The Rocks at Mornington, and the Portsea Hotel all have g
 
 Insider Edit   7 min
 
-### [The Peninsula Pub Guide: Five Hotels That Still Know What a Pub Is For](<https://peninsulainsider.com.au/journal/the-pub-guide/>)
+### [The Peninsula Pub Guide: Hotels That Still Know What a Pub Is For](<https://peninsulainsider.com.au/journal/the-pub-guide/>)
 
 10 April 2026
 
-Not a gastropub ranking. Not a beer list. A guide to the five Peninsula pubs that still operate as the social centre of a town, where the food is good, the beer is cold, the rooms are clean, and nobody is trying to be anything else.
+Not a gastropub ranking. Not a beer list. A guide to the Peninsula pubs that still operate as the social centre of a town, where the food is good, the beer is cold, the rooms are clean, and nobody is trying to be anything else.
 
 Service   6 min
 

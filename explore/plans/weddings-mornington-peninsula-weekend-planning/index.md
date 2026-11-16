@@ -25,7 +25,7 @@ The venue is the anchor, not the whole plan. The wedding weekend is everything a
 
 ## What makes a Peninsula wedding weekend work
 
-Four things matter most:
+Start with what matters most:
 
 - the right locality
 

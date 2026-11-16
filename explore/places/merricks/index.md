@@ -13,7 +13,7 @@ A visitor walks past the weatherboard facade of Merricks General Store, its pain
 
 Photo · Peter Foster, courtesy of Visit Victoria
 
-Merricks in 8 photographs
+Merricks in photographs
 
 1  / 8
 
@@ -75,7 +75,7 @@ Treating it as a destination rather than a stop - it's part of a day, not the wh
 
 Merricks in brief
 
-## Merricks in 4 points
+## Merricks at a glance
 
 - 01   Merricks is a small rural village that punches above its size - Pt Leo Estate alone makes it worth the detour.
 
@@ -97,15 +97,15 @@ If you want the best version of Merricks, anchor the day around the General Stor
 
 What's mapped here
 
-- [**3** places to eat](<https://peninsulainsider.com.au/explore/places/merricks/#eat-drink>)
+- [Places to eat](<https://peninsulainsider.com.au/explore/places/merricks/#eat-drink>)
 
-- [**3** cellar doors & makers](<https://peninsulainsider.com.au/explore/places/merricks/#wine>)
+- [Cellar doors & makers](<https://peninsulainsider.com.au/explore/places/merricks/#wine>)
 
-- [**1** ways to explore](<https://peninsulainsider.com.au/explore/places/merricks/#explore>)
+- [Ways to explore](<https://peninsulainsider.com.au/explore/places/merricks/#explore>)
 
-- [**3** escape plans](<https://peninsulainsider.com.au/explore/places/merricks/#escapes>)
+- [Escape plans](<https://peninsulainsider.com.au/explore/places/merricks/#escapes>)
 
-- [**4** journal pieces](<https://peninsulainsider.com.au/explore/places/merricks/#journal>)
+- [Journal pieces](<https://peninsulainsider.com.au/explore/places/merricks/#journal>)
 
 Explore Merricks by experience
 

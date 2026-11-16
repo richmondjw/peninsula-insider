@@ -63,7 +63,7 @@ Treating Point Leo Estate as just lunch - the sculpture park is the reason to be
 
 Point Leo in brief
 
-## Point Leo in 5 points
+## Point Leo at a glance
 
 - 01   Point Leo is two things - one of the Peninsula's most consistent surf breaks, and Point Leo Estate's hatted restaurant, cellar door and 16.5-acre sculpture park.
 

@@ -9,7 +9,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Sorrento
 
-Sorrento in 18 photographs
+Sorrento in photographs
 
 1  / 18
 
@@ -71,7 +71,7 @@ The main strip on a summer Saturday - too crowded to enjoy properly.
 
 Sorrento in brief
 
-## Sorrento in 5 points
+## Sorrento at a glance
 
 - 01   Sorrento is the Peninsula's most celebrated town - limestone cliffs, ocean baths carved from rock, a ferry to Queenscliff across the Heads, and a main street that has earned its reputation.
 
@@ -95,15 +95,15 @@ Stay Sunday night if you can - the town exhales and becomes far more like itself
 
 What's mapped here
 
-- [**3** places to eat](<https://peninsulainsider.com.au/explore/places/sorrento/#eat-drink>)
+- [Places to eat](<https://peninsulainsider.com.au/explore/places/sorrento/#eat-drink>)
 
-- [**2** stays](<https://peninsulainsider.com.au/explore/places/sorrento/#stay>)
+- [Stays](<https://peninsulainsider.com.au/explore/places/sorrento/#stay>)
 
-- [**6** ways to explore](<https://peninsulainsider.com.au/explore/places/sorrento/#explore>)
+- [Ways to explore](<https://peninsulainsider.com.au/explore/places/sorrento/#explore>)
 
-- [**2** escape plans](<https://peninsulainsider.com.au/explore/places/sorrento/#escapes>)
+- [Escape plans](<https://peninsulainsider.com.au/explore/places/sorrento/#escapes>)
 
-- [**4** journal pieces](<https://peninsulainsider.com.au/explore/places/sorrento/#journal>)
+- [Journal pieces](<https://peninsulainsider.com.au/explore/places/sorrento/#journal>)
 
 Eat & drink
 
@@ -315,7 +315,7 @@ Cool mornings, warm lunches, empty terraces, and the kind of light that makes ev
 
 Insider Edit   7 min
 
-### [Breakfast Before the Crowds: Four Peninsula Mornings](<https://peninsulainsider.com.au/journal/breakfast-before-the-crowds/>)
+### [Breakfast Before the Crowds: Peninsula Mornings Worth an Early Start](<https://peninsulainsider.com.au/journal/breakfast-before-the-crowds/>)
 
 9 April 2026
 

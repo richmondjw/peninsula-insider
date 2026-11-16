@@ -63,7 +63,7 @@ Dropping in without knowing where you are headed - Tuerong only works if you cho
 
 Tuerong in brief
 
-## Tuerong in 3 points
+## Tuerong at a glance
 
 - 01   Tuerong is a rural locality best known to wine enthusiasts as the address of Yabby Lake Vineyard and Dromana Estate.
 
@@ -83,11 +83,11 @@ This is the pocket where Melbourne sommeliers buy wine, which tells you more tha
 
 What's mapped here
 
-- [**1** places to eat](<https://peninsulainsider.com.au/explore/places/tuerong/#eat-drink>)
+- [Places to eat](<https://peninsulainsider.com.au/explore/places/tuerong/#eat-drink>)
 
-- [**3** cellar doors & makers](<https://peninsulainsider.com.au/explore/places/tuerong/#wine>)
+- [Cellar doors & makers](<https://peninsulainsider.com.au/explore/places/tuerong/#wine>)
 
-- [**2** journal pieces](<https://peninsulainsider.com.au/explore/places/tuerong/#journal>)
+- [Journal pieces](<https://peninsulainsider.com.au/explore/places/tuerong/#journal>)
 
 Eat & drink
 
@@ -175,7 +175,7 @@ Everyone sells the Mornington Peninsula as a pinot noir region. They are half ri
 
 Service   8 min
 
-### [The Peninsula Orientation Drive: Six Stops in One Day](<https://peninsulainsider.com.au/explore/plans/the-peninsula-orientation-drive/>)
+### [The Peninsula Orientation Drive: A First Visit in One Day](<https://peninsulainsider.com.au/explore/plans/the-peninsula-orientation-drive/>)
 
 10 April 2026
 

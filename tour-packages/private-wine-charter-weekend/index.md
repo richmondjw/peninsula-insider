@@ -15,7 +15,7 @@ Two nights at Lindenderry in Red Hill built around a private full-day wine chart
 
 Experiences
 
-1 operator-led experience
+Operator-led experiences
 
 Anchor stay
 

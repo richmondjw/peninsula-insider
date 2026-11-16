@@ -17,7 +17,7 @@ Photo · Peter Foster, courtesy of Visit Victoria
 
 ## Where to go for dinner on the Mornington Peninsula
 
-Two starting points with published evening sessions. These are dinner options, not a new ranking of every restaurant. Check the operator's booking calendar for your date.
+Dinner options with published evening sessions. This is not a new ranking of every restaurant. Check the operator's booking calendar for your date.
 
 Dinner in Mornington town
 
@@ -39,15 +39,15 @@ The operator lists restaurant dinner Thursday to Sunday from 5pm. Its weekend ba
 
  [Check dining sessions and book with Many Little →](<https://www.manylittle.com.au/contact>)
 
-These two venues' published dinner sessions were checked on 11 October 2026. The wider shortlist retains each venue's existing verification date.
+These venues' published dinner sessions were checked on 11 October 2026. The wider shortlist retains each venue's existing verification date.
 
 Editorial ranking · 2026
 
-## The top 15 dining rooms, by authority
+## Dining rooms, by authority
 
 Ordered by editorial weight. Rooms with a hat rating first, then the places doing the strongest quiet work.
 
- [All 63 venues →](<https://peninsulainsider.com.au/eat/>)
+ [Explore dining venues →](<https://peninsulainsider.com.au/eat/>)
 
 Photo: Courtesy of Visit Victoria
 

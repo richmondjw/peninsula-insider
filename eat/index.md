@@ -9,13 +9,13 @@ Eat & drink on the Peninsula
 
 # A long lunch, a village coffee, a table by the bay
 
-44 places to eat and drink, from ridge-top farm kitchens to bayside pubs, each with the reason it made our list.
+Places to eat and drink, from ridge-top farm kitchens to bayside pubs, each with the reason it made our list.
 
 Chosen by our editors, never paid for. [How we choose](<https://peninsulainsider.com.au/about/#how-we-choose>)
 
 Paringa Estate, Red Hill South, Mornington Peninsula. Photo courtesy of Visit Victoria.
 
-## Six starting points. Six different days.
+## Find a table to suit your day.
 
 - Merricks General Wine Store, Mornington Peninsula   Photo: Peter Foster, courtesy of Visit Victoria.
 
@@ -59,7 +59,7 @@ A seaside pub with dining areas overlooking Port Phillip Bay. Choose it for a co
 
 Portsea   Pub   Pub dining; check table availability
 
-## All 44 places to eat
+## Places to eat and drink
 
 Most details checked September 2026. Confirm hours with the venue before you go.
 
@@ -365,7 +365,7 @@ The Peninsula seafood story, from fishmongers near the pier to the bay-view dini
 
 7 min read
 
-## Six honest answers before you plan the day
+## Before you plan the day
 
 What are the best restaurants on the Mornington Peninsula?
 
@@ -393,4 +393,4 @@ A long lunch is one way into the Peninsula’s dining scene. Our long-lunch and 
 
 ## Still deciding? Ask PI
 
-Tell PI who's coming and what you feel like. You'll get two or three places that fit, with the reasons.
+Tell PI who's coming and what you feel like. You'll get places that fit, with the reasons.

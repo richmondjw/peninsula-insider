@@ -7,9 +7,9 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Insider Edit  7 April 2026  9 min read
 
-# Tedesca, Tractor, Laura: The Three Peninsula Dinners and the Argument Between Them
+# Tedesca, Tractor, Laura: Peninsula Dinners and the Argument Between Them
 
-A comparative review of the three most serious dining rooms on the Mornington Peninsula, and a specific case for which one is which occasion.
+A comparative review of the most serious dining rooms on the Mornington Peninsula, and a specific case for which one is which occasion.
 
 Keep this for later
 
@@ -111,11 +111,11 @@ Insider Edit   7 min
 
 10 April 2026
 
-The bay side goes gold at about five. The ocean side goes pink at about half past. You need a glass in your hand for both versions, and these are the seven places that understand the assignment.
+The bay side goes gold at about five. The ocean side goes pink at about half past. You need a glass in your hand for both versions, and these are the places that understand the assignment.
 
 Insider Edit   7 min
 
-### [Breakfast Before the Crowds: Four Peninsula Mornings](<https://peninsulainsider.com.au/journal/breakfast-before-the-crowds/>)
+### [Breakfast Before the Crowds: Peninsula Mornings Worth an Early Start](<https://peninsulainsider.com.au/journal/breakfast-before-the-crowds/>)
 
 9 April 2026
 
@@ -131,11 +131,11 @@ A sunset drink, a room worth dressing for and no long drive home. The Peninsula'
 
 Insider Edit   7 min
 
-### [The Peninsula Pub Guide: Five Hotels That Still Know What a Pub Is For](<https://peninsulainsider.com.au/journal/the-pub-guide/>)
+### [The Peninsula Pub Guide: Hotels That Still Know What a Pub Is For](<https://peninsulainsider.com.au/journal/the-pub-guide/>)
 
 10 April 2026
 
-Not a gastropub ranking. Not a beer list. A guide to the five Peninsula pubs that still operate as the social centre of a town, where the food is good, the beer is cold, the rooms are clean, and nobody is trying to be anything else.
+Not a gastropub ranking. Not a beer list. A guide to the Peninsula pubs that still operate as the social centre of a town, where the food is good, the beer is cold, the rooms are clean, and nobody is trying to be anything else.
 
 Insider Edit   7 min
 
@@ -151,7 +151,7 @@ Long Lunch List   8 min
 
 15 March 2026
 
-Three hatted restaurants, a bay view, and nowhere you need to be until Monday. This is the case for staying the whole weekend.
+Hatted restaurants, a bay view, and nowhere you need to be until Monday. This is the case for staying the whole weekend.
 
 ## The Insider Note
 

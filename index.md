@@ -15,7 +15,7 @@ Peninsula.
 
 An independent local guide to where to eat, stay and explore, and how to put the day together.
 
-117 places. Never paid for. [How we choose](<https://peninsulainsider.com.au/about/#how-we-choose>)
+Places chosen by our editors. Never paid for. [How we choose](<https://peninsulainsider.com.au/about/#how-we-choose>)
 
  [Ask PI Your Peninsula local](<https://peninsulainsider.com.au/ask/>) [Start with the coast  **Flinders & the Cape**  Coastal walks and one excellent meal.](<https://peninsulainsider.com.au/explore/plans/flinders-and-cape-reset/>)
 
@@ -75,7 +75,7 @@ Sat, 21 Nov   Mornington Community House   Exhibition
 
 Event details checked 9 Nov 2026 · [Organiser’s page](<https://www.eventbrite.com.au/e/create-pottery-for-your-table-tickets-2003897868468>)
 
-## Three ways into the Peninsula
+## Find your way into the Peninsula
 
 [Open the full map](<https://peninsulainsider.com.au/map/>)
 

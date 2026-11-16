@@ -9,7 +9,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Portsea
 
-Portsea in 9 photographs
+Portsea in photographs
 
 1  / 9
 
@@ -71,7 +71,7 @@ Coming without a booking in summer - the hotel fills fast and the town has limit
 
 Portsea in brief
 
-## Portsea in 4 points
+## Portsea at a glance
 
 - 01   Portsea is the Peninsula's final town and most quietly exclusive - old holiday houses behind gates, a pub on the foreshore, and Point Nepean National Park next door.
 
@@ -93,13 +93,13 @@ Portsea front beach is calmest early, before boat traffic and the Sorrento spill
 
 What's mapped here
 
-- [**1** places to eat](<https://peninsulainsider.com.au/explore/places/portsea/#eat-drink>)
+- [Places to eat](<https://peninsulainsider.com.au/explore/places/portsea/#eat-drink>)
 
-- [**1** stays](<https://peninsulainsider.com.au/explore/places/portsea/#stay>)
+- [Stays](<https://peninsulainsider.com.au/explore/places/portsea/#stay>)
 
-- [**2** ways to explore](<https://peninsulainsider.com.au/explore/places/portsea/#explore>)
+- [Ways to explore](<https://peninsulainsider.com.au/explore/places/portsea/#explore>)
 
-- [**4** journal pieces](<https://peninsulainsider.com.au/explore/places/portsea/#journal>)
+- [Journal pieces](<https://peninsulainsider.com.au/explore/places/portsea/#journal>)
 
 Eat & drink
 

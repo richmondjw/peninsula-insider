@@ -13,7 +13,7 @@ Two people walk along the sand past a row of brightly painted bathing boxes, ref
 
 Photo · Courtesy of Visit Victoria
 
-Mornington in 16 photographs
+Mornington in photographs
 
 1  / 16
 
@@ -75,7 +75,7 @@ Do not mistake the Wednesday Main Street Market for the separate monthly Farmers
 
 Mornington in brief
 
-## Mornington in 4 points
+## Mornington at a glance
 
 - 01   Mornington is the Peninsula's most complete town - a real main street, the Wednesday Main Street Market, bathing boxes, and serious restaurants all within reach of each other.
 
@@ -97,13 +97,13 @@ The stretch from Schnapper Point to Mothers Beach is the part worth walking; mos
 
 What's mapped here
 
-- [**3** places to eat](<https://peninsulainsider.com.au/explore/places/mornington/#eat-drink>)
+- [Places to eat](<https://peninsulainsider.com.au/explore/places/mornington/#eat-drink>)
 
-- [**3** ways to explore](<https://peninsulainsider.com.au/explore/places/mornington/#explore>)
+- [Ways to explore](<https://peninsulainsider.com.au/explore/places/mornington/#explore>)
 
-- [**3** escape plans](<https://peninsulainsider.com.au/explore/places/mornington/#escapes>)
+- [Escape plans](<https://peninsulainsider.com.au/explore/places/mornington/#escapes>)
 
-- [**4** journal pieces](<https://peninsulainsider.com.au/explore/places/mornington/#journal>)
+- [Journal pieces](<https://peninsulainsider.com.au/explore/places/mornington/#journal>)
 
 Explore Mornington by experience
 

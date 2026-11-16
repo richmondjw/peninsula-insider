@@ -19,7 +19,7 @@ Researched from published sources. Every venue listed was reviewed April 2026 or
 
 Cellar door lunch shortlist
 
-## 11 wineries with kitchens worth sitting down at
+## Wineries with kitchens worth sitting down at
 
 Ordered by editorial authority. Hatted rooms first, then the places doing the strongest quiet work.
 

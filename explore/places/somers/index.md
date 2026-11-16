@@ -63,7 +63,7 @@ Looking for nightlife or a polished main street - Somers is a residential villag
 
 Somers in brief
 
-## Somers in 5 points
+## Somers at a glance
 
 - 01   Somers is a deliberately quiet Western Port beach village - long sheltered beach, tea-tree dunes, a 1950s-era yacht club, and the Coolart wetlands on the edge.
 
@@ -87,9 +87,9 @@ Coolart's homestead and wetland walk is one of the Peninsula's most underrated f
 
 What's mapped here
 
-- [**1** places to eat](<https://peninsulainsider.com.au/explore/places/somers/#eat-drink>)
+- [Places to eat](<https://peninsulainsider.com.au/explore/places/somers/#eat-drink>)
 
-- [**4** journal pieces](<https://peninsulainsider.com.au/explore/places/somers/#journal>)
+- [Journal pieces](<https://peninsulainsider.com.au/explore/places/somers/#journal>)
 
 Eat & drink
 
@@ -131,7 +131,7 @@ Not every Peninsula lunch needs a degustation and four hours. The places that do
 
 Insider Edit   7 min
 
-### [Breakfast Before the Crowds: Four Peninsula Mornings](<https://peninsulainsider.com.au/journal/breakfast-before-the-crowds/>)
+### [Breakfast Before the Crowds: Peninsula Mornings Worth an Early Start](<https://peninsulainsider.com.au/journal/breakfast-before-the-crowds/>)
 
 9 April 2026
 

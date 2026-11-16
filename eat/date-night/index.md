@@ -17,7 +17,7 @@ Researched from published sources. Every venue listed was reviewed April 2026 or
 
 Date night shortlist
 
-## 8 rooms ranked for a Peninsula date night
+## Rooms ranked for a Peninsula date night
 
 Hatted and intimate rooms first, then the waterfront and atmosphere-led options below them.
 

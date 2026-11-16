@@ -101,11 +101,11 @@ Forget pressing on to the vineyards. A well-built day in Mornington - market, co
 
 Insider Edit   9 min
 
-### [Tedesca, Tractor, Laura: The Three Peninsula Dinners and the Argument Between Them](<https://peninsulainsider.com.au/journal/three-italian-dinners/>)
+### [Tedesca, Tractor, Laura: Peninsula Dinners and the Argument Between Them](<https://peninsulainsider.com.au/journal/three-italian-dinners/>)
 
 7 April 2026
 
-A comparative review of the three most serious dining rooms on the Mornington Peninsula, and a specific case for which one is which occasion.
+A comparative review of the most serious dining rooms on the Mornington Peninsula, and a specific case for which one is which occasion.
 
 Nearby picks
 

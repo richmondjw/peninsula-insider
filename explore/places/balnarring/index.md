@@ -67,7 +67,7 @@ Treating it like a shopping stop - the real point is the slower pace and the bea
 
 Balnarring in brief
 
-## Balnarring in 4 points
+## Balnarring at a glance
 
 - 01   Balnarring is the Peninsula's quietest genuine village - a monthly Saturday market in the warmer months, a village pub, a clean beach on Western Port, and wine-country roads nobody else is driving.
 
@@ -89,15 +89,15 @@ Balnarring Beach is one of the least crowded on the bay - most visitors don't kn
 
 What's mapped here
 
-- [**3** places to eat](<https://peninsulainsider.com.au/explore/places/balnarring/#eat-drink>)
+- [Places to eat](<https://peninsulainsider.com.au/explore/places/balnarring/#eat-drink>)
 
-- [**3** cellar doors & makers](<https://peninsulainsider.com.au/explore/places/balnarring/#wine>)
+- [Cellar doors & makers](<https://peninsulainsider.com.au/explore/places/balnarring/#wine>)
 
-- [**1** stays](<https://peninsulainsider.com.au/explore/places/balnarring/#stay>)
+- [Stays](<https://peninsulainsider.com.au/explore/places/balnarring/#stay>)
 
-- [**1** ways to explore](<https://peninsulainsider.com.au/explore/places/balnarring/#explore>)
+- [Ways to explore](<https://peninsulainsider.com.au/explore/places/balnarring/#explore>)
 
-- [**4** journal pieces](<https://peninsulainsider.com.au/explore/places/balnarring/#journal>)
+- [Journal pieces](<https://peninsulainsider.com.au/explore/places/balnarring/#journal>)
 
 Explore Balnarring by experience
 
@@ -251,7 +251,7 @@ Long-form editorial that builds the picture of a place beyond any single visit.
 
 Insider Edit   7 min
 
-### [Breakfast Before the Crowds: Four Peninsula Mornings](<https://peninsulainsider.com.au/journal/breakfast-before-the-crowds/>)
+### [Breakfast Before the Crowds: Peninsula Mornings Worth an Early Start](<https://peninsulainsider.com.au/journal/breakfast-before-the-crowds/>)
 
 9 April 2026
 

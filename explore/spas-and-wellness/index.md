@@ -61,7 +61,7 @@ Peninsula Hot Springs has an on-site spa treatment facility in addition to its b
 
 **Best for** Those already visiting Peninsula Hot Springs who want treatments added.
 
-Peninsula Hot Springs: spa treatments in 16 photographs
+Peninsula Hot Springs: spa treatments in photographs
 
 1  / 16
 
@@ -93,7 +93,7 @@ Alba combines geothermal bathing with massage, facials, body treatments and wate
 
 [View the operator's treatment menu →](<https://albathermalsprings.com.au/alba-experiences/spa/>)
 
-Alba Thermal Springs & Spa in 16 photographs
+Alba Thermal Springs & Spa in photographs
 
 1  / 16
 
@@ -117,7 +117,7 @@ Many Peninsula operators offer both. Peninsula Hot Springs bridges the two with 
 
 ## Building a spa day
 
-Three ways to structure it, from a single booking to a full weekend.
+Ways to structure it, from a single booking to a full weekend.
 
 ### The thermal-and-treatment day
 

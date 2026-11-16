@@ -103,7 +103,7 @@ Long Lunch List   8 min
 
 15 March 2026
 
-Three hatted restaurants, a bay view, and nowhere you need to be until Monday. This is the case for staying the whole weekend.
+Hatted restaurants, a bay view, and nowhere you need to be until Monday. This is the case for staying the whole weekend.
 
 More to explore
 

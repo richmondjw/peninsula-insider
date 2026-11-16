@@ -65,7 +65,7 @@ Trying to fit five cellar doors into a day - Merricks North rewards three at a s
 
 Merricks North in brief
 
-## Merricks North in 5 points
+## Merricks North at a glance
 
 - 01   Merricks North is a quiet rural locality with vineyard hospitality rather than a village centre.
 
@@ -89,15 +89,15 @@ Elgee Park's estate is closed to general visitors. Community groups can arrange 
 
 What's mapped here
 
-- [**2** places to eat](<https://peninsulainsider.com.au/explore/places/merricks-north/#eat-drink>)
+- [Places to eat](<https://peninsulainsider.com.au/explore/places/merricks-north/#eat-drink>)
 
-- [**2** cellar doors & makers](<https://peninsulainsider.com.au/explore/places/merricks-north/#wine>)
+- [Cellar doors & makers](<https://peninsulainsider.com.au/explore/places/merricks-north/#wine>)
 
-- [**1** stays](<https://peninsulainsider.com.au/explore/places/merricks-north/#stay>)
+- [Stays](<https://peninsulainsider.com.au/explore/places/merricks-north/#stay>)
 
-- [**3** escape plans](<https://peninsulainsider.com.au/explore/places/merricks-north/#escapes>)
+- [Escape plans](<https://peninsulainsider.com.au/explore/places/merricks-north/#escapes>)
 
-- [**4** journal pieces](<https://peninsulainsider.com.au/explore/places/merricks-north/#journal>)
+- [Journal pieces](<https://peninsulainsider.com.au/explore/places/merricks-north/#journal>)
 
 Eat & drink
 

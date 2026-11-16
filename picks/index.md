@@ -25,7 +25,7 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 
 - [Main Ridge Dairy, the Arthurs Seat wildflower loop, and the NWOP's last weekend](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-12/>) - Goat-milk gelato at a working farmgate, spring orchids on the Arthurs Seat Eagle trail network, and the National Works on Paper exhibition closing Sunday at Mornington Peninsula Regional Gallery.
 
-- [Three verified Peninsula stops: Moorooduc, Bushrangers Bay and Nazaaray](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-11/>) - Current practical information from the operators and Parks Victoria for a winery visit, a Cape Schanck walk and a Flinders cellar door.
+- [Verified Peninsula stops: Moorooduc, Bushrangers Bay and Nazaaray](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-11/>) - Current practical information from the operators and Parks Victoria for a winery visit, a Cape Schanck walk and a Flinders cellar door.
 
 - [Barragunda Dining and the Bushrangers Bay Walk](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-10/>) - Verified practical information for a Cape Schanck meal and the Bushrangers Bay Walk.
 

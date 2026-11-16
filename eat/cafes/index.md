@@ -17,7 +17,7 @@ Researched from published sources. Every venue listed was reviewed April 2026 or
 
 Peninsula cafes
 
-## 5 coffee rooms and village stops
+## Coffee rooms and village stops
 
 The specialty coffee destination first, then the village cafes worth knowing by location.
 
@@ -105,7 +105,7 @@ Related guides
 
 ### [Best Bakeries](<https://peninsulainsider.com.au/eat/bakeries/>)
 
-The six Peninsula bakeries worth knowing - where they are and what makes each one different.
+The Peninsula bakeries worth knowing - where they are and what makes each one different.
 
 [See the list →](<https://peninsulainsider.com.au/eat/bakeries/>)
 

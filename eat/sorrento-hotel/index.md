@@ -91,11 +91,11 @@ Service   8 min
 
 14 April 2026
 
-Thirty kilometres of Port Phillip coastline, fifteen kilometres of Bass Strait back beaches, and four distinct swimming moods that most visitors cannot tell apart. A proper guide to where to actually swim on the Mornington Peninsula, by conditions and by purpose.
+Thirty kilometres of Port Phillip coastline, fifteen kilometres of Bass Strait back beaches, and distinct swimming moods that most visitors cannot tell apart. A proper guide to where to actually swim on the Mornington Peninsula, by conditions and by purpose.
 
 Service   7 min
 
-### [The Peninsula Pub Crawl: Six Pubs, Three Routes, No Pretension](<https://peninsulainsider.com.au/explore/plans/the-pub-crawl/>)
+### [The Peninsula Pub Crawl: Local Pubs, Unhurried Routes](<https://peninsulainsider.com.au/explore/plans/the-pub-crawl/>)
 
 10 April 2026
 

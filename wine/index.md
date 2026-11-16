@@ -41,7 +41,7 @@ Build the day around a confirmed tasting time. Add another stop only after check
 
 ## Cellar doors to build a day around
 
-Six rooms worth the drive, chosen by our editors.
+Rooms worth the drive, chosen by our editors.
 
 - ### [Paringa Estate](<https://peninsulainsider.com.au/wine/paringa-estate/>)
 
@@ -79,7 +79,7 @@ The single-block tasting is a practical education in why micro-terroir matters, 
 
 Red Hill South   Walk-in welcome   Kitchen on site
 
-## All 44 wine-country places
+## Explore wine-country places
 
  [View the winery map](<https://peninsulainsider.com.au/map/?cat=winery>)
 
@@ -361,13 +361,13 @@ The case for Peninsula chardonnay, argued bottle by bottle.
 
 - ### [The Cellar Door Short List](<https://peninsulainsider.com.au/journal/the-cellar-door-short-list/>)
 
-The shortlist behind The Six: how we pick the rooms worth the drive.
+The shortlist behind our cellar-door picks: how we pick the rooms worth the drive.
 
 - ### [A Red Hill Saturday](<https://peninsulainsider.com.au/journal/how-to-build-a-red-hill-saturday/>)
 
 One ridge, one day: a suggested Saturday route around Red Hill.
 
-## Three honest answers before you book
+## Before you book
 
 What wine is the Mornington Peninsula known for?
 

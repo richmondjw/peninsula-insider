@@ -31,7 +31,7 @@ Pricing, seasonal departures, and group bookings are managed on the operator's o
 
 Tours by Bunyip Tours
 
-## 2 tours listed
+## Tours listed
 
 Full day   All guests
 

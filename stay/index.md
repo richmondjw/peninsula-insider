@@ -45,7 +45,7 @@ Bay foreshore days with a coastal village base.
 
 [Find stays](<https://peninsulainsider.com.au/stay/?place=sorrento,rye#browse-stay>)
 
-### Two more ways to base your trip
+### More ways to base your trip
 
 #### [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
@@ -73,7 +73,7 @@ Travelling without a car? Start with [the transport guide](<https://peninsulains
 
 ## Stays worth building a weekend around
 
-Six distinct ways in, chosen by our editors.
+Distinct ways in, chosen by our editors.
 
 - Jackalope Hotel, Merricks North   Photo: Peter Foster, courtesy of Visit Victoria.
 
@@ -117,7 +117,7 @@ Cottage accommodation in Rye for a bay-side base. Ask about the specific cottage
 
 Cottage   Rye   Dog-friendly
 
-## All 26 places to stay
+## Places to stay
 
 Details checked between September and October 2026.
 
@@ -309,7 +309,7 @@ The best Peninsula stay right now is not a design hotel. It is a cottage on a wo
 
 7 min read
 
-## Three honest answers before you book the bed
+## Before you book the bed
 
 Where is the best area to stay on the Mornington Peninsula?
 

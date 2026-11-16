@@ -651,7 +651,7 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [Boat Moorings and Berths on the Mornington Peninsula](<https://peninsulainsider.com.au/journal/boat-moorings-berths-mornington-peninsula/>)
 
-- [Breakfast Before the Crowds: Four Peninsula Mornings](<https://peninsulainsider.com.au/journal/breakfast-before-the-crowds/>)
+- [Breakfast Before the Crowds: Peninsula Mornings Worth an Early Start](<https://peninsulainsider.com.au/journal/breakfast-before-the-crowds/>)
 
 - [Cape Schanck - The Complete Guide](<https://peninsulainsider.com.au/journal/cape-schanck-guide/>)
 
@@ -683,7 +683,7 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [How to Plan a Peninsula Weekend: The Decision Framework](<https://peninsulainsider.com.au/journal/how-to-plan-a-peninsula-weekend/>)
 
-- [Indoor Play on the Mornington Peninsula: The Four Worth Driving To](<https://peninsulainsider.com.au/journal/indoor-play-mornington-peninsula/>)
+- [Indoor Play on the Mornington Peninsula: Where to Go When the Weather Turns](<https://peninsulainsider.com.au/journal/indoor-play-mornington-peninsula/>)
 
 - [Insider Picks - 5 July: The Winter Edit](<https://peninsulainsider.com.au/journal/insider-picks-2026-07-05/>)
 

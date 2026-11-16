@@ -53,7 +53,7 @@ The InterContinental room is a separate booking from [The Continental's restaura
 
 ## Make the room choice last.
 
-Once the hotel fits your group and your evening, check the individual room, rate inclusions and any current notices. These are two useful starting points, not a ranking of every Sorrento stay.
+Once the hotel fits your group and your evening, check the individual room, rate inclusions and any current notices. These are useful starting points, not a ranking of every Sorrento stay.
 
 [Explore Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)[Compare coastal stays](<https://peninsulainsider.com.au/stay/coastal-stays/>)[Browse all stays](<https://peninsulainsider.com.au/stay/>)
 

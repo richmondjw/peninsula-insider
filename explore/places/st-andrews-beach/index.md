@@ -65,7 +65,7 @@ Treating the unpatrolled ocean beach as a swimming spot; Parks Victoria advises 
 
 St Andrews Beach in brief
 
-## St Andrews Beach in 5 points
+## St Andrews Beach at a glance
 
 - 01   St Andrews Beach is a quiet ocean-coast base for dunes, rock pools and shore walks, rather than a village with a main street.
 
@@ -89,7 +89,7 @@ The sandy access path drops steeply from the car park, and the coast is exposed.
 
 What's mapped here
 
-- [**4** journal pieces](<https://peninsulainsider.com.au/explore/places/st-andrews-beach/#journal>)
+- [Journal pieces](<https://peninsulainsider.com.au/explore/places/st-andrews-beach/#journal>)
 
 Read this place properly
 

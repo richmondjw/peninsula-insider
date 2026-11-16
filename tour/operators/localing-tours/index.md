@@ -33,7 +33,7 @@ Pricing, seasonal departures, and group bookings are managed on the operator's o
 
 Tours by Localing Private Tours Melbourne
 
-## 1 tour listed
+## Tours listed
 
 Full day   Couples
 

@@ -67,7 +67,7 @@ Using it as a scenic stop on the highway - the point is the cellar doors, not th
 
 Moorooduc in brief
 
-## Moorooduc in 3 points
+## Moorooduc at a glance
 
 - 01   Moorooduc is a small hinterland locality that most visitors pass through on Moorooduc Highway rather than stop in - the ones who do stop find it quiet and unhurried.
 
@@ -87,13 +87,13 @@ Moorooduc is strongest as a first stop of the day, before you drift south into t
 
 What's mapped here
 
-- [**1** places to eat](<https://peninsulainsider.com.au/explore/places/moorooduc/#eat-drink>)
+- [Places to eat](<https://peninsulainsider.com.au/explore/places/moorooduc/#eat-drink>)
 
-- [**3** cellar doors & makers](<https://peninsulainsider.com.au/explore/places/moorooduc/#wine>)
+- [Cellar doors & makers](<https://peninsulainsider.com.au/explore/places/moorooduc/#wine>)
 
-- [**1** stays](<https://peninsulainsider.com.au/explore/places/moorooduc/#stay>)
+- [Stays](<https://peninsulainsider.com.au/explore/places/moorooduc/#stay>)
 
-- [**4** journal pieces](<https://peninsulainsider.com.au/explore/places/moorooduc/#journal>)
+- [Journal pieces](<https://peninsulainsider.com.au/explore/places/moorooduc/#journal>)
 
 Explore Moorooduc by experience
 
@@ -213,7 +213,7 @@ Elgee Park's 1972 Viognier vines hit spring form, the Moorooduc Plains grassland
 
 Insider Edit   4 min
 
-### [Three verified Peninsula stops: Moorooduc, Bushrangers Bay and Nazaaray](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-11/>)
+### [Verified Peninsula stops: Moorooduc, Bushrangers Bay and Nazaaray](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-11/>)
 
 11 November 2026
 
@@ -229,11 +229,11 @@ King's Birthday is the loudest winter weekend on the Peninsula. Two clear moves,
 
 Cellar Door Dispatch   6 min
 
-### [The Cellar Door Short List: Four Producers Worth the Stop](<https://peninsulainsider.com.au/journal/the-cellar-door-short-list/>)
+### [The Cellar Door Short List: Producers Worth the Stop](<https://peninsulainsider.com.au/journal/the-cellar-door-short-list/>)
 
 6 April 2026
 
-Not the biggest estates, not the flashiest rooms. The four Peninsula cellar doors where the wines - and the people pouring them - actually change how you think about the region.
+Not the biggest estates, not the flashiest rooms. The Peninsula cellar doors where the wines - and the people pouring them - actually change how you think about the region.
 
 Planning guides
 

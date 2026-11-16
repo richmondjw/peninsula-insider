@@ -9,7 +9,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Flinders
 
-Flinders in 9 photographs
+Flinders in photographs
 
 1  / 9
 
@@ -71,7 +71,7 @@ Expecting Sorrento - Flinders is quieter, more local, deliberately understated.
 
 Flinders in brief
 
-## Flinders in 4 points
+## Flinders at a glance
 
 - 01   Flinders is the Peninsula's most complete ocean-coast village - a bakery, a pub, a world-class golf course, and a marine sanctuary immediately offshore.
 
@@ -93,17 +93,17 @@ The village is at its best before 10am, when golfers and locals have it mostly t
 
 What's mapped here
 
-- [**3** places to eat](<https://peninsulainsider.com.au/explore/places/flinders/#eat-drink>)
+- [Places to eat](<https://peninsulainsider.com.au/explore/places/flinders/#eat-drink>)
 
-- [**1** cellar doors & makers](<https://peninsulainsider.com.au/explore/places/flinders/#wine>)
+- [Cellar doors & makers](<https://peninsulainsider.com.au/explore/places/flinders/#wine>)
 
-- [**1** stays](<https://peninsulainsider.com.au/explore/places/flinders/#stay>)
+- [Stays](<https://peninsulainsider.com.au/explore/places/flinders/#stay>)
 
-- [**1** ways to explore](<https://peninsulainsider.com.au/explore/places/flinders/#explore>)
+- [Ways to explore](<https://peninsulainsider.com.au/explore/places/flinders/#explore>)
 
-- [**1** escape plans](<https://peninsulainsider.com.au/explore/places/flinders/#escapes>)
+- [Escape plans](<https://peninsulainsider.com.au/explore/places/flinders/#escapes>)
 
-- [**4** journal pieces](<https://peninsulainsider.com.au/explore/places/flinders/#journal>)
+- [Journal pieces](<https://peninsulainsider.com.au/explore/places/flinders/#journal>)
 
 Explore Flinders by experience
 

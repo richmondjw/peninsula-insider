@@ -13,7 +13,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 - [Where to base yourself](<https://peninsulainsider.com.au/stay/best-accommodation/>) is the most important planning decision - Sorrento and Red Hill anchor different kinds of trips.
 
-- Six linked itineraries below - from the classic bay-and-hinterland weekend to couples and winter-specific formats.
+- Linked itineraries below - from the classic bay-and-hinterland weekend to couples and winter-specific formats.
 
 - Booking 4–6 weeks ahead for accommodation on summer weekends is realistic in most price brackets; earlier for premium properties.
 
@@ -23,7 +23,7 @@ A Peninsula weekend is a particular thing. It's not a resort holiday - there are
 
 Most Peninsula weekends work best as a 2-day, 1-night structure. Enough time to reach the southern end of the Peninsula (Sorrento, Flinders, Cape Schanck) without rushing, to have a proper dinner the night before, and to leave the following afternoon. The 3-day/2-night version ([the three-day Peninsula](<https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/>)) is available but the 2D/1N is the default.
 
-## Six weekend formats
+## Weekend formats
 
 ### 1. The default Peninsula weekend
 

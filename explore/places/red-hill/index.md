@@ -13,7 +13,7 @@ A grassy path between vine rows leads to the glass-fronted restaurant and umbrel
 
 Photo · Two Palms Australia, courtesy of Visit Victoria
 
-Red Hill in 10 photographs
+Red Hill in photographs
 
 1  / 10
 
@@ -75,7 +75,7 @@ Trying to do more than three cellar doors in a day - the road between them is na
 
 Red Hill in brief
 
-## Red Hill in 5 points
+## Red Hill at a glance
 
 - 01   Red Hill is the Mornington Peninsula's wine and food epicentre - specifically Pinot Noir, Chardonnay, and orchards producing apples and cherries.
 
@@ -99,17 +99,17 @@ Book lunch first, then choose a small number of cellar doors; check any market d
 
 What's mapped here
 
-- [**3** places to eat](<https://peninsulainsider.com.au/explore/places/red-hill/#eat-drink>)
+- [Places to eat](<https://peninsulainsider.com.au/explore/places/red-hill/#eat-drink>)
 
-- [**3** cellar doors & makers](<https://peninsulainsider.com.au/explore/places/red-hill/#wine>)
+- [Cellar doors & makers](<https://peninsulainsider.com.au/explore/places/red-hill/#wine>)
 
-- [**3** stays](<https://peninsulainsider.com.au/explore/places/red-hill/#stay>)
+- [Stays](<https://peninsulainsider.com.au/explore/places/red-hill/#stay>)
 
-- [**5** ways to explore](<https://peninsulainsider.com.au/explore/places/red-hill/#explore>)
+- [Ways to explore](<https://peninsulainsider.com.au/explore/places/red-hill/#explore>)
 
-- [**3** escape plans](<https://peninsulainsider.com.au/explore/places/red-hill/#escapes>)
+- [Escape plans](<https://peninsulainsider.com.au/explore/places/red-hill/#escapes>)
 
-- [**4** journal pieces](<https://peninsulainsider.com.au/explore/places/red-hill/#journal>)
+- [Journal pieces](<https://peninsulainsider.com.au/explore/places/red-hill/#journal>)
 
 Explore Red Hill by experience
 

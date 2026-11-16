@@ -21,7 +21,7 @@ The first decision
 
 ## How do you want to stay?
 
-All six choices below are on vineyard or winery estates. Choose the format first, then compare the actual properties.
+The choices below are on vineyard or winery estates. Choose the format first, then compare the actual properties.
 
 [01 / A door of your own  **Estate villas**  For an independent stay on winery grounds. Check the exact villa for cooking, spa and minimum-night details.   Explore estate villas](<https://peninsulainsider.com.au/stay/vineyard-stays/#estate-villas>)[02 / A room on the estate  **Rooms on the estate**  Sleep at the vineyard, then plan dining around the operator’s current service rather than assuming it is open every day.   Explore rooms on the estate](<https://peninsulainsider.com.au/stay/vineyard-stays/#winery-suites>)[03 / A full hotel stay  **Vineyard hotels**  Choose a hotel when you want rooms, service and an estate setting together. Room types and dining arrangements still differ.   Explore vineyard hotels](<https://peninsulainsider.com.au/stay/vineyard-stays/#vineyard-hotels>)
 

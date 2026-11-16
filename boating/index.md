@@ -11,13 +11,13 @@ Two coastlines, two very different tides. Pick the ramp that suits the water tod
 
 [Find a ramp](<https://peninsulainsider.com.au/boating/#ramps>) [No boat? Hire or charter](<https://peninsulainsider.com.au/boating/#no-boat>)
 
-6 public ramps, all free to launch. Last reviewed  30 April 2026.
+Public ramps, all free to launch. Last reviewed  30 April 2026.
 
 Dromana Pier, Mornington Peninsula   Photo · Peter Tarasiuk, courtesy of Visit Victoria
 
 ## Choose your ramp
 
-All 6 are free to launch. The tide decides more than the drive does: 3 work at any tide, the rest need the water up. Heading for the Heads? Read [Before you launch](<https://peninsulainsider.com.au/boating/#before-you-launch>) first.
+The ramps in this guide are free to launch. The tide decides more than the drive does: 3 work at any tide, the rest need the water up. Heading for the Heads? Read [Before you launch](<https://peninsulainsider.com.au/boating/#before-you-launch>) first.
 
 ### Port Phillip Bay
 
@@ -139,7 +139,7 @@ The boats stay in the mid-bay, roughly Mount Martha to Dromana, and never go nea
 
 ### Fish from a pier
 
-No boat at all? Our [fishing spots guide](<https://peninsulainsider.com.au/fishing/locations/>) covers 8 piers and jetties, with tide notes for each and any current closure.
+No boat at all? Our [fishing spots guide](<https://peninsulainsider.com.au/fishing/locations/>) covers piers and jetties, with tide notes for each and any current closure.
 
 ### Skippered fishing charters
 

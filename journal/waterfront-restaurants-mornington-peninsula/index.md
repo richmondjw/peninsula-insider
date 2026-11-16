@@ -19,9 +19,9 @@ Waterfront  Seafood  Restaurants  Sorrento
 
 Sorrento Ferry, Mornington Peninsula   Photo · Courtesy of Visit Victoria
 
-The Mornington Peninsula’s waterfront dining is concentrated on Port Phillip Bay, the calmer, bay-facing side of the Peninsula rather than the ocean. Three venues define the category: The Baths at Sorrento for special occasion seafood with panoramic bay views, The Rocks at Mornington for casual waterfront dining at the marina, and the Portsea Hotel for a pub setting with the best bay views of any pub on the Peninsula.
+The Mornington Peninsula’s waterfront dining is concentrated on Port Phillip Bay, the calmer, bay-facing side of the Peninsula rather than the ocean. Start with the setting that suits your day: The Baths at Sorrento for special occasion seafood with panoramic bay views, The Rocks at Mornington for casual waterfront dining at the marina, and the Portsea Hotel for a pub setting with the best bay views of any pub on the Peninsula.
 
-None of these venues are hatted. All three have legitimate waterfront positions.
+None of these venues are hatted. Each has a legitimate waterfront position.
 
 ## The Baths, Sorrento
 
@@ -149,11 +149,11 @@ Annual mooring waiting lists, seasonal moorings you can actually book this seaso
 
 Service   5 min
 
-### [Indoor Play on the Mornington Peninsula: The Four Worth Driving To](<https://peninsulainsider.com.au/journal/indoor-play-mornington-peninsula/>)
+### [Indoor Play on the Mornington Peninsula: Where to Go When the Weather Turns](<https://peninsulainsider.com.au/journal/indoor-play-mornington-peninsula/>)
 
 7 August 2026
 
-When the weather turns and the kids need to run, there are four indoor play venues on the Peninsula that actually hold up. Here is what each one is good for, and the five things to check before you leave the house.
+When the weather turns and the kids need to run, these Peninsula indoor play venues give the day a plan. Here is what each one is good for, and what to check before you leave the house.
 
 ## The Insider Note
 

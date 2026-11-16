@@ -17,7 +17,7 @@ Ten Minutes by Tractor and Kooyong made the reputations early. The generation th
 
 Editorial ranking · 2026
 
-## 12 producers
+## Producers to explore
 
 Ordered by editorial authority and Halliday score.
 

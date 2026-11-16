@@ -7,7 +7,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # The best walks on the Mornington Peninsula
 
-Bay-side foreshore paths, clifftop boardwalks over Bass Strait, national-park bush and a 26 km coast-to-coast route. Eleven walks, ranked by what they demand and what they give back.
+Bay-side foreshore paths, clifftop boardwalks over Bass Strait, national-park bush and a 26 km coast-to-coast route. Walks ranked by what they demand and what they give back.
 
 ## The short version
 

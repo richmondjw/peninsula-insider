@@ -17,7 +17,7 @@ What separates the best Peninsula Pinot from the rest of Victoria isn't power - 
 
 Editorial ranking · 2026
 
-## 15 producers
+## Producers to explore
 
 Ordered by editorial authority and Halliday score.
 

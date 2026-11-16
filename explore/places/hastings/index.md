@@ -63,7 +63,7 @@ Assuming the Phillip Island ferry leaves from Hastings Pier; the operator lists 
 
 Hastings in brief
 
-## Hastings in 3 points
+## Hastings at a glance
 
 - 01   Hastings is a working Western Port town with a foreshore, commercial harbour and public pier. The French Island and Phillip Island ferry boards at Stony Point in Crib Point, not at Hastings Pier.
 
@@ -83,7 +83,7 @@ Peninsula Fresh Seafood lists a weather-dependent Friday Hastings Foreshore truc
 
 What's mapped here
 
-- [**4** journal pieces](<https://peninsulainsider.com.au/explore/places/hastings/#journal>)
+- [Journal pieces](<https://peninsulainsider.com.au/explore/places/hastings/#journal>)
 
 Read this place properly
 
@@ -95,11 +95,11 @@ Long-form editorial that builds the picture of a place beyond any single visit.
 
 Service   5 min
 
-### [Indoor Play on the Mornington Peninsula: The Four Worth Driving To](<https://peninsulainsider.com.au/journal/indoor-play-mornington-peninsula/>)
+### [Indoor Play on the Mornington Peninsula: Where to Go When the Weather Turns](<https://peninsulainsider.com.au/journal/indoor-play-mornington-peninsula/>)
 
 7 August 2026
 
-When the weather turns and the kids need to run, there are four indoor play venues on the Peninsula that actually hold up. Here is what each one is good for, and the five things to check before you leave the house.
+When the weather turns and the kids need to run, these Peninsula indoor play venues give the day a plan. Here is what each one is good for, and what to check before you leave the house.
 
 Insider Edit   4 min
 

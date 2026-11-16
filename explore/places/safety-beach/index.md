@@ -67,7 +67,7 @@ Expecting a village atmosphere - Safety Beach works as a foreshore, not a town.
 
 Safety Beach in brief
 
-## Safety Beach in 4 points
+## Safety Beach at a glance
 
 - 01   Safety Beach is a long, calm bay foreshore between Mount Martha and Dromana - shallow water makes it the Peninsula's best swimming spot for young children.
 
@@ -89,11 +89,11 @@ The water stays shallower for longer here than almost anywhere else on the bay s
 
 What's mapped here
 
-- [**1** places to eat](<https://peninsulainsider.com.au/explore/places/safety-beach/#eat-drink>)
+- [Places to eat](<https://peninsulainsider.com.au/explore/places/safety-beach/#eat-drink>)
 
-- [**1** ways to explore](<https://peninsulainsider.com.au/explore/places/safety-beach/#explore>)
+- [Ways to explore](<https://peninsulainsider.com.au/explore/places/safety-beach/#explore>)
 
-- [**4** journal pieces](<https://peninsulainsider.com.au/explore/places/safety-beach/#journal>)
+- [Journal pieces](<https://peninsulainsider.com.au/explore/places/safety-beach/#journal>)
 
 Eat & drink
 
@@ -153,7 +153,7 @@ Long light, warm bay water and the busiest roads of the year. A local's plan for
 
 Service   5 min
 
-### [One More Hour: Three After-Five Peninsula Plans](<https://peninsulainsider.com.au/explore/plans/one-more-hour-after-five-peninsula/>)
+### [One More Hour: After-Five Peninsula Plans](<https://peninsulainsider.com.au/explore/plans/one-more-hour-after-five-peninsula/>)
 
 26 September 2026
 
@@ -173,7 +173,7 @@ Service   8 min
 
 14 April 2026
 
-Thirty kilometres of Port Phillip coastline, fifteen kilometres of Bass Strait back beaches, and four distinct swimming moods that most visitors cannot tell apart. A proper guide to where to actually swim on the Mornington Peninsula, by conditions and by purpose.
+Thirty kilometres of Port Phillip coastline, fifteen kilometres of Bass Strait back beaches, and distinct swimming moods that most visitors cannot tell apart. A proper guide to where to actually swim on the Mornington Peninsula, by conditions and by purpose.
 
 Planning guides
 

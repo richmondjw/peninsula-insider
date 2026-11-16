@@ -15,7 +15,7 @@ An assessment is built from the operator's own published product, its public rev
 
 All operators
 
-## 19 tour operators on the Peninsula
+## Tour operators on the Peninsula
 
 Sorted by assessment status, then alphabetically.
 

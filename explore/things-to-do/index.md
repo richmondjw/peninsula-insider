@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-# 25 Best Things to Do on the Mornington Peninsula
+# Best Things to Do on the Mornington Peninsula
 
 **TL;DR**
 
@@ -19,9 +19,9 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 - The hinterland (Red Hill, Main Ridge) is for wine, food, and unhurried Saturdays - not for ticking off in an afternoon.
 
-The Mornington Peninsula, Victoria, Australia sits at the southern rim of Port Phillip Bay - roughly 60–110 km from Melbourne depending where you're headed. It's narrow enough that the bay side and the ocean side are sometimes five minutes apart by car. That geographic compression is what makes it work: a single day can include a bay swim in the morning, a winery lunch at noon, and a thermal soak by late afternoon. This page ranks the 25 best things to do in editorial order - meaning what's most worth your time, not what's most famous.
+The Mornington Peninsula, Victoria, Australia sits at the southern rim of Port Phillip Bay - roughly 60–110 km from Melbourne depending where you're headed. It's narrow enough that the bay side and the ocean side are sometimes five minutes apart by car. That geographic compression is what makes it work: a single day can include a bay swim in the morning, a winery lunch at noon, and a thermal soak by late afternoon. This page ranks the best things to do in editorial order - meaning what's most worth your time, not what's most famous.
 
-## The 25 best things to do
+## The best things to do
 
 ### 1. Peninsula Hot Springs
 

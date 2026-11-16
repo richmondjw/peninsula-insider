@@ -15,7 +15,7 @@ Check each operator's minimum age policy before booking. Some experiences have a
 
 Family tours
 
-## 5 Peninsula family-friendly tours
+## Peninsula family-friendly tours
 
 Under 2 hours   Families
 

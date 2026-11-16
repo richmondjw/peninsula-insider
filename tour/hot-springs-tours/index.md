@@ -19,7 +19,7 @@ If you are staying on the Peninsula, book directly with Peninsula Hot Springs. T
 
 Hot springs tours
 
-## 2 Peninsula hot springs tours
+## Peninsula hot springs tours
 
 Full day   All guests
 

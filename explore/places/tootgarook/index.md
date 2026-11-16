@@ -57,7 +57,7 @@ Do not assume the whole wetland is publicly walkable; use the boardwalks and gra
 
 Tootgarook in brief
 
-## Tootgarook in 5 points
+## Tootgarook at a glance
 
 - 01   Tootgarook is a quiet bayside village beside the significant Tootgarook Wetland.
 
@@ -81,7 +81,7 @@ The reserve's main access is via Truemans Road Recreation Reserve; dogs are proh
 
 What's mapped here
 
-- [**1** stays](<https://peninsulainsider.com.au/explore/places/tootgarook/#stay>)
+- [Stays](<https://peninsulainsider.com.au/explore/places/tootgarook/#stay>)
 
 Stay
 

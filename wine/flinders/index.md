@@ -21,10 +21,6 @@ Most people who visit Flinders for wine come for one cellar door plus the villag
 
 Photo · Daniel Kabel / Wikimedia Commons (CC-BY-SA-4.0)
 
-**Producers mapped**
-
-2
-
 **Top Halliday**
 
 97
@@ -67,19 +63,19 @@ A small, family-run estate making cool-climate Chardonnay, Pinot Noir and Cabern
 
 What's mapped here
 
-- [**2** cellar doors & producers](<https://peninsulainsider.com.au/wine/flinders/#producers>)
+- [Cellar doors & producers](<https://peninsulainsider.com.au/wine/flinders/#producers>)
 
-- [**1** editor's anchors](<https://peninsulainsider.com.au/wine/flinders/#anchors>)
+- [Editor's anchors](<https://peninsulainsider.com.au/wine/flinders/#anchors>)
 
-- [**3** journal pieces](<https://peninsulainsider.com.au/wine/flinders/#journal>)
+- [Journal pieces](<https://peninsulainsider.com.au/wine/flinders/#journal>)
 
-- [**3** nearby sub-regions](<https://peninsulainsider.com.au/wine/flinders/#nearby>)
+- [Nearby sub-regions](<https://peninsulainsider.com.au/wine/flinders/#nearby>)
 
-- [**3** answered questions](<https://peninsulainsider.com.au/wine/flinders/#faqs>)
+- [Answered questions](<https://peninsulainsider.com.au/wine/flinders/#faqs>)
 
 Every producer · 2026
 
-## 2 cellar doors and producers in Flinders
+## Cellar doors and producers in Flinders
 
 Ordered by editorial authority and Halliday score. Each card opens the full editor's note.
 
@@ -175,7 +171,7 @@ Long-form writing connected to the producers above.
 
 ### The cellar-door short list
 
-The seven cellar doors I send people to first across the Peninsula.](<https://peninsulainsider.com.au/journal/the-cellar-door-short-list/>)[Journal
+The cellar doors I send people to first across the Peninsula.](<https://peninsulainsider.com.au/journal/the-cellar-door-short-list/>)[Journal
 
 ### The Chardonnay case
 

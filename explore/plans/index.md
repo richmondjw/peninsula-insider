@@ -105,7 +105,7 @@ Stop googling.
 
 One room, one dinner, one slow morning.
 
-### [One More Hour: Three After-Five Peninsula Plans](<https://peninsulainsider.com.au/explore/plans/one-more-hour-after-five-peninsula/>)
+### [One More Hour: After-Five Peninsula Plans](<https://peninsulainsider.com.au/explore/plans/one-more-hour-after-five-peninsula/>)
 
 Daylight saving begins on 4 October.
 

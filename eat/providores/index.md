@@ -11,7 +11,7 @@ The farmgate shops, cheesemongers, fishmongers, and produce stores selling direc
 
 Peninsula providores
 
-## 2 providores on the Peninsula
+## Providores on the Peninsula
 
 Cheesemongers, fishmongers, and farmgate stores, by what they sell.
 

@@ -99,7 +99,7 @@ You leave the city at four. You hit the freeway. You arrive at six with nothing 
 
 Service   7 min
 
-### [The Peninsula Pub Crawl: Six Pubs, Three Routes, No Pretension](<https://peninsulainsider.com.au/explore/plans/the-pub-crawl/>)
+### [The Peninsula Pub Crawl: Local Pubs, Unhurried Routes](<https://peninsulainsider.com.au/explore/plans/the-pub-crawl/>)
 
 10 April 2026
 

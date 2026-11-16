@@ -15,7 +15,7 @@ They work best for couples or small parties travelling independently who want to
 
 Small-group tours
 
-## 10 Peninsula small-group tours
+## Peninsula small-group tours
 
 Full day   All guests
 

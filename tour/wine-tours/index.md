@@ -27,7 +27,7 @@ Half-day formats exist but are rarer. They suit guests staying on the Peninsula 
 
 Wine tours
 
-## 7 Peninsula wine tours
+## Peninsula wine tours
 
 Sorted by publication date. Each entry includes a guide to who the tour suits.
 
@@ -113,7 +113,7 @@ The cellar door guide - every estate we've assessed, with honest tasting notes a
 
 ### [Winery guide](<https://peninsulainsider.com.au/journal/mornington-peninsula-winery-guide/>)
 
-200+ vineyards, 9 sub-regions, and where to go for Pinot Noir, Chardonnay, and dog-friendly cellar doors. The editorial overview before you book.
+Peninsula vineyards and wine regions, and where to go for Pinot Noir, Chardonnay, and dog-friendly cellar doors. The editorial overview before you book.
 
 [Read the guide →](<https://peninsulainsider.com.au/journal/mornington-peninsula-winery-guide/>)
 

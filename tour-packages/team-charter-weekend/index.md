@@ -15,7 +15,7 @@ Two nights at Lindenderry in Red Hill for corporate teams of 10 to 25, built aro
 
 Experiences
 
-1 operator-led experience
+Operator-led experiences
 
 Anchor stay
 

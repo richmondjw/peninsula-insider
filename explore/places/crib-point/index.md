@@ -63,7 +63,7 @@ Looking for a meal - eat in Hastings and walk in Crib Point.
 
 Crib Point in brief
 
-## Crib Point in 5 points
+## Crib Point at a glance
 
 - 01   Crib Point is the small residential village between Hastings and Stony Point - Woolleys Beach, a train station and a long foreshore walk toward the ferry.
 

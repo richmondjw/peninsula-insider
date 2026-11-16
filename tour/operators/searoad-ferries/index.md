@@ -33,7 +33,7 @@ Pricing, seasonal departures, and group bookings are managed on the operator's o
 
 Tours by Searoad Ferries
 
-## 1 tour listed
+## Tours listed
 
 Under 2 hours   Families
 

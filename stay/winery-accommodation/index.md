@@ -9,9 +9,9 @@ Winery accommodation
 
 # Stay in wine country.
 
-Choose an estate villa, winery suite or hotel base. Compare seven stays, then check the exact address and inclusions.
+Choose an estate villa, winery suite or hotel base. Compare wine-country stays, then check the exact address and inclusions.
 
-[Compare seven stays ↓](<https://peninsulainsider.com.au/stay/winery-accommodation/#rankings>) [Choose by format →](<https://peninsulainsider.com.au/stay/winery-accommodation/#choose-your-base>)
+[Compare wine-country stays ↓](<https://peninsulainsider.com.au/stay/winery-accommodation/#rankings>) [Choose by format →](<https://peninsulainsider.com.au/stay/winery-accommodation/#choose-your-base>)
 
 A good first decision
 
@@ -21,7 +21,7 @@ If tasting is part of the plan, arrange a driver or transport before you go.
 
 Choose your base
 
-## Four ways to do a wine weekend
+## Find your wine weekend
 
 01 / Vineyard villas
 
@@ -49,7 +49,7 @@ Cassis is a villa base near wineries, not an on-estate winery stay. Pool and out
 
 Wine-country stays
 
-## Compare the seven stays
+## Compare the stays
 
 Look at the stay itself, then confirm current dining, tasting and room details with the operator.
 

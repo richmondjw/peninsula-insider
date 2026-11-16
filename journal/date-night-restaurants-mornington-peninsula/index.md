@@ -65,7 +65,7 @@ A restaurant and wine bar on the Esplanade, just off Main Street, with views tow
 
 Some nights call for more than a good dinner.
 
-**Laura at Pt. Leo, Merricks.** The estate’s fine-dining room, for up to 40 guests, with four-course and eight-course menus. Dinner is on Saturday from 6pm; lunch runs Friday to Monday. Reservations are required on weekends. This is the anniversary booking. Our [three dinners comparison](<https://peninsulainsider.com.au/journal/three-italian-dinners/>) weighs it against Tedesca and Ten Minutes by Tractor.
+**Laura at Pt. Leo, Merricks.** The estate’s fine-dining room, for up to 40 guests, with four-course and eight-course menus. Dinner is on Saturday from 6pm; lunch runs Friday to Monday. Reservations are required on weekends. This is the anniversary booking. Our [dining comparison](<https://peninsulainsider.com.au/journal/three-italian-dinners/>) weighs it against Tedesca and Ten Minutes by Tractor.
 
 **Doot Doot Doot at Jackalope, Merricks North.** Jackalope’s signature multi-course dining room, one of the most dramatic spaces on the Peninsula. Book it with a night at the hotel and the whole evening takes care of itself. Check current service dates and dietary arrangements with Jackalope before booking.
 
@@ -139,11 +139,11 @@ The Peninsula's evenings are its most under-scheduled hours. Where to stand, sit
 
 Insider Edit   9 min
 
-### [Tedesca, Tractor, Laura: The Three Peninsula Dinners and the Argument Between Them](<https://peninsulainsider.com.au/journal/three-italian-dinners/>)
+### [Tedesca, Tractor, Laura: Peninsula Dinners and the Argument Between Them](<https://peninsulainsider.com.au/journal/three-italian-dinners/>)
 
 7 April 2026
 
-A comparative review of the three most serious dining rooms on the Mornington Peninsula, and a specific case for which one is which occasion.
+A comparative review of the most serious dining rooms on the Mornington Peninsula, and a specific case for which one is which occasion.
 
 Service   9 min
 
@@ -163,11 +163,11 @@ The Baths at Sorrento, The Rocks at Mornington, and the Portsea Hotel all have g
 
 Insider Edit   7 min
 
-### [The Peninsula Pub Guide: Five Hotels That Still Know What a Pub Is For](<https://peninsulainsider.com.au/journal/the-pub-guide/>)
+### [The Peninsula Pub Guide: Hotels That Still Know What a Pub Is For](<https://peninsulainsider.com.au/journal/the-pub-guide/>)
 
 10 April 2026
 
-Not a gastropub ranking. Not a beer list. A guide to the five Peninsula pubs that still operate as the social centre of a town, where the food is good, the beer is cold, the rooms are clean, and nobody is trying to be anything else.
+Not a gastropub ranking. Not a beer list. A guide to the Peninsula pubs that still operate as the social centre of a town, where the food is good, the beer is cold, the rooms are clean, and nobody is trying to be anything else.
 
 Insider Edit   7 min
 

@@ -11,15 +11,15 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 - A day trip to the Mornington Peninsula from Melbourne works with a car and an early start.
 
-- Five distinct day-trip routes below: Hinterland loop, Bay coast, Sorrento tip, Wine crawl, Walk + hot springs.
+- Distinct day-trip routes below: Hinterland loop, Bay coast, Sorrento tip, Wine crawl, Walk + hot springs.
 
 - Allow at least 5–6 hours of on-Peninsula time; 7–8 hours is better.
 
 - Check the Hill and Ridge market schedule before a first-Saturday visit; the original Red Hill Community Market is closed.
 
-The Mornington Peninsula, Victoria, Australia is 60–110 km from central Melbourne - a range that makes a day trip genuinely worthwhile but requires clear pre-thinking to avoid the driving-for-driving's-sake trap. This page gives you five distinct day-trip routes based on what kind of day you want.
+The Mornington Peninsula, Victoria, Australia is 60–110 km from central Melbourne - a range that makes a day trip genuinely worthwhile but requires clear pre-thinking to avoid the driving-for-driving's-sake trap. This page gives you distinct day-trip routes based on what kind of day you want.
 
-## Five day-trip routes
+## Day-trip routes
 
 ### Route 1 - The Hinterland Loop
 
@@ -117,7 +117,7 @@ Mornington is about 60 km (50–60 min). Sorrento is about 110 km by road (1 hr 
 
 ### Is a day trip to the Mornington Peninsula worth it?
 
-Yes, with a plan. A generic drive with no itinerary tends to result in an afternoon in a car park in Sorrento. The five routes above give structure that makes the day work.
+Yes, with a plan. A generic drive with no itinerary tends to result in an afternoon in a car park in Sorrento. The routes above give structure that makes the day work.
 
 ### Can you do the Mornington Peninsula as a day trip from Melbourne without a car?
 

@@ -9,7 +9,7 @@ Eat & drink · Mornington Peninsula
 
 # Find your brewery afternoon.
 
-A taproom, a beer garden or a table for lunch. Explore 5 breweries and choose the stop that fits your day.
+A taproom, a beer garden or a table for lunch. Explore the breweries and choose the stop that fits your day.
 
 [Find a brewery](<https://peninsulainsider.com.au/eat/breweries/#breweries>)
 
@@ -19,7 +19,7 @@ Food and beer at St Andrews Beach Brewery, Fingal. Courtesy of Visit Victoria. [
 
 Choose your patch
 
-## 5 breweries. 4 places.
+## Find breweries by place.
 
 Jump to a place, or browse the full list below.
 

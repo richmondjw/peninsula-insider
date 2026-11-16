@@ -9,7 +9,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Point Nepean
 
-Point Nepean in 18 photographs
+Point Nepean in photographs
 
 1  / 18
 
@@ -71,7 +71,7 @@ Driving in and rushing the forts - Point Nepean only works if you give it time a
 
 Point Nepean in brief
 
-## Point Nepean in 5 points
+## Point Nepean at a glance
 
 - 01   Point Nepean National Park is the Peninsula's most dramatic walk - quarantine station ruins, gun emplacements, and views across Port Phillip Heads at the continent's edge.
 
@@ -95,11 +95,11 @@ Most people turn back too early; the final stretch to Fort Nepean is the part th
 
 What's mapped here
 
-- [**3** ways to explore](<https://peninsulainsider.com.au/explore/places/point-nepean/#explore>)
+- [Ways to explore](<https://peninsulainsider.com.au/explore/places/point-nepean/#explore>)
 
-- [**2** escape plans](<https://peninsulainsider.com.au/explore/places/point-nepean/#escapes>)
+- [Escape plans](<https://peninsulainsider.com.au/explore/places/point-nepean/#escapes>)
 
-- [**4** journal pieces](<https://peninsulainsider.com.au/explore/places/point-nepean/#journal>)
+- [Journal pieces](<https://peninsulainsider.com.au/explore/places/point-nepean/#journal>)
 
 Get outside
 

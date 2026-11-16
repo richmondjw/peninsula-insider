@@ -11,7 +11,7 @@ Tours     Wildlife & Nature
 
 Polperro's dolphin swim tour puts participants in the water alongside wild bottlenose dolphins in Port Phillip Bay, departing from Sorrento Pier in groups of up to 12. Encounters are guided by licensed marine naturalists who position swimmers near dolphin pods while the RIB holds station nearby. The tour runs year-round, though summer and autumn offer the warmest water temperatures.
 
-Polperro Dolphin Swim in 9 photographs
+Polperro Dolphin Swim in photographs
 
 1  / 9
 

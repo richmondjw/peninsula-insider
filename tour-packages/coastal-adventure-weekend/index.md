@@ -15,7 +15,7 @@ Two nights in Sorrento built around a family snorkel tour at Portsea, a return f
 
 Experiences
 
-2 operator-led experiences
+Operator-led experiences
 
 Duration
 

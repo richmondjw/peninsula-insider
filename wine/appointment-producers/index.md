@@ -10,7 +10,7 @@ Wine country · The producer shortlist
 # Small producers.
 A little planning.
 
-Go beyond the familiar cellar-door circuit. Explore 8 Peninsula producers and make the visiting arrangements part of the plan.
+Go beyond the familiar cellar-door circuit. Explore Peninsula producers and make the visiting arrangements part of the plan.
 
  [Explore the producers](<https://peninsulainsider.com.au/wine/appointment-producers/#producers>)
 
@@ -36,7 +36,7 @@ Confirm group size, access needs and non-drinking options directly, and arrange 
 
 Your shortlist
 
-## 8 producers to explore
+## Producers to explore
 
 Listed alphabetically. Visiting arrangements vary by producer.
 

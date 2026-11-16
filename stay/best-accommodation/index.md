@@ -17,7 +17,7 @@ Choose your direction
 
 ## Start with the shape of your stay
 
-Four useful ways into the accommodation guide.
+Find your way into the accommodation guide.
 
  [All stays →](<https://peninsulainsider.com.au/stay/>)
 
@@ -55,7 +55,7 @@ Choose your village or beach base before comparing stays.
 
 A stay built around bathing
 
-## Three distinct thermal stays
+## Distinct thermal stays
 
 These operators describe different accommodation formats. Check the booking you choose for current inclusions and conditions.
 

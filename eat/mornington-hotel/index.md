@@ -87,7 +87,7 @@ You leave the city at four. You hit the freeway. You arrive at six with nothing 
 
 Service   7 min
 
-### [The Peninsula Pub Crawl: Six Pubs, Three Routes, No Pretension](<https://peninsulainsider.com.au/explore/plans/the-pub-crawl/>)
+### [The Peninsula Pub Crawl: Local Pubs, Unhurried Routes](<https://peninsulainsider.com.au/explore/plans/the-pub-crawl/>)
 
 10 April 2026
 
@@ -95,11 +95,11 @@ A drinking guide to the Mornington Peninsula's public houses - the fires, the bi
 
 Insider Edit   7 min
 
-### [The Peninsula Pub Guide: Five Hotels That Still Know What a Pub Is For](<https://peninsulainsider.com.au/journal/the-pub-guide/>)
+### [The Peninsula Pub Guide: Hotels That Still Know What a Pub Is For](<https://peninsulainsider.com.au/journal/the-pub-guide/>)
 
 10 April 2026
 
-Not a gastropub ranking. Not a beer list. A guide to the five Peninsula pubs that still operate as the social centre of a town, where the food is good, the beer is cold, the rooms are clean, and nobody is trying to be anything else.
+Not a gastropub ranking. Not a beer list. A guide to the Peninsula pubs that still operate as the social centre of a town, where the food is good, the beer is cold, the rooms are clean, and nobody is trying to be anything else.
 
 Nearby picks
 

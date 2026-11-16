@@ -11,7 +11,7 @@ The Journal · November
 
 Relaxed midday meals across the Peninsula, sorted by where you will be and who you are with.
 
-87 stories, written by our editors. Never paid for. [How we choose](<https://peninsulainsider.com.au/about/#how-we-choose>)
+Stories written by our editors. Never paid for. [How we choose](<https://peninsulainsider.com.au/about/#how-we-choose>)
 
 Rare Hare at Willow Creek, Merricks North, Mornington Peninsula. Photo courtesy of Visit Victoria.
 
@@ -151,7 +151,7 @@ Month
 
 7 Aug 2026
 
-### [Indoor Play on the Mornington Peninsula: The Four Worth Driving To](<https://peninsulainsider.com.au/journal/indoor-play-mornington-peninsula/>)
+### [Indoor Play on the Mornington Peninsula: Where to Go When the Weather Turns](<https://peninsulainsider.com.au/journal/indoor-play-mornington-peninsula/>)
 
  Towns & places
 
@@ -523,7 +523,7 @@ Month
 
 10 Apr 2026
 
-### [The Peninsula Pub Guide: Five Hotels That Still Know What a Pub Is For](<https://peninsulainsider.com.au/journal/the-pub-guide/>)
+### [The Peninsula Pub Guide: Hotels That Still Know What a Pub Is For](<https://peninsulainsider.com.au/journal/the-pub-guide/>)
 
  Food & wine
 
@@ -559,7 +559,7 @@ Month
 
 9 Apr 2026
 
-### [Breakfast Before the Crowds: Four Peninsula Mornings](<https://peninsulainsider.com.au/journal/breakfast-before-the-crowds/>)
+### [Breakfast Before the Crowds: Peninsula Mornings Worth an Early Start](<https://peninsulainsider.com.au/journal/breakfast-before-the-crowds/>)
 
  Food & wine
 
@@ -589,13 +589,13 @@ Month
 
 7 Apr 2026
 
-### [Tedesca, Tractor, Laura: The Three Peninsula Dinners and the Argument Between Them](<https://peninsulainsider.com.au/journal/three-italian-dinners/>)
+### [Tedesca, Tractor, Laura: Peninsula Dinners and the Argument Between Them](<https://peninsulainsider.com.au/journal/three-italian-dinners/>)
 
  Food & wine
 
 6 Apr 2026
 
-### [The Cellar Door Short List: Four Producers Worth the Stop](<https://peninsulainsider.com.au/journal/the-cellar-door-short-list/>)
+### [The Cellar Door Short List: Producers Worth the Stop](<https://peninsulainsider.com.au/journal/the-cellar-door-short-list/>)
 
  Food & wine
 

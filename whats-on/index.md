@@ -11,7 +11,7 @@ Fri 20 – Sun 22 November  · Mornington Peninsula
 
 Find the date, place and reason to go, then check with the organiser before you head out.
 
-## Three reasons to go
+## Reasons to go
 
 - Mornington Peninsula Regional Gallery, Mornington   Photo: pru\_mitchell / Wikimedia Commons, CC BY 2.0.
 

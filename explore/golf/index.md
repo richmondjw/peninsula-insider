@@ -13,7 +13,7 @@ A rare mix of visitor-bookable coastal courses and private-club architecture, al
 
  [Choose your round](<https://peninsulainsider.com.au/explore/golf/#choose-your-round>)
 
-11 golf venues  Public and private access
+Peninsula golf  Public and private access
 
 Photo · Gary Lisbon, courtesy of Visit Victoria
 
@@ -21,7 +21,7 @@ Compare the courses
 
 ## Choose by course character, access and location
 
-Start with four distinct fits, or compare all 11 venues before opening the course details and current visitor-access source.
+Start with the shortlist, or compare the venues before opening the course details and current visitor-access source.
 
 [Public architecture  **St Andrews Beach** Strategic dunes · Public green fees · Fingal](<https://peninsulainsider.com.au/explore/golf/#course-st-andrews-beach-golf-course>)[Two-course resort  **Moonah Links** Open and Legends courses · Public green fees · Fingal](<https://peninsulainsider.com.au/explore/golf/#course-moonah-links>)[Clifftop coast  **Flinders** Coastal course · Visitor windows · Flinders](<https://peninsulainsider.com.au/explore/golf/#course-flinders-golf-club>)[Southern bayside  **Portsea** Coastal dunes and Moonah · Visitor windows · Portsea](<https://peninsulainsider.com.au/explore/golf/#course-portsea-golf-club>)
 
@@ -31,7 +31,7 @@ Choose a base
 
 Use an area to narrow the drive, then check the live route for your actual tee time.
 
-4 venues
+Southern courses
 
 #### [Fingal + Cape Schanck](<https://peninsulainsider.com.au/explore/golf/#cape-courses>)
 
@@ -39,7 +39,7 @@ The strongest concentration of courses, including public resorts and private-clu
 
  [Open area map ↗](<https://www.google.com/maps/search/?api=1&query=golf+courses+Fingal+Cape+Schanck+Victoria>)
 
-3 venues
+Across the southern towns
 
 #### [Boneo + Rye + Rosebud](<https://peninsulainsider.com.au/explore/golf/#course-eagle-ridge-golf-course>)
 
@@ -47,7 +47,7 @@ A practical central cluster for Eagle Ridge, The Dunes and Rosebud Country Club.
 
  [Open area map ↗](<https://www.google.com/maps/search/?api=1&query=golf+courses+Boneo+Rye+Rosebud+Victoria>)
 
-2 venues
+Coastal courses
 
 #### [Sorrento + Portsea](<https://peninsulainsider.com.au/explore/golf/#course-sorrento-golf-club>)
 
@@ -55,7 +55,7 @@ Southern bayside clubs with limited visitor windows and nearby town bases.
 
  [Open area map ↗](<https://www.google.com/maps/search/?api=1&query=golf+courses+Sorrento+Portsea+Victoria>)
 
-2 venues
+Coastal courses
 
 #### [Mornington + Flinders](<https://peninsulainsider.com.au/explore/golf/#course-mornington-golf-club>)
 
@@ -67,7 +67,7 @@ Compare all 11 courses  Course character · visitor access · town
 
 [**St Andrews Beach**  Strategic dunes   Public green fees   Fingal](<https://peninsulainsider.com.au/explore/golf/#course-st-andrews-beach-golf-course>)[**Moonah Links**  Two resort courses   Public green fees   Fingal](<https://peninsulainsider.com.au/explore/golf/#course-moonah-links>)[**The National**  Private multi-course club   Eligibility rules apply   Cape Schanck](<https://peninsulainsider.com.au/explore/golf/#course-the-national-golf-club>)[**The Dunes**  Links and nine-hole option   Public green fees   Rye](<https://peninsulainsider.com.au/explore/golf/#course-the-dunes-golf-links>)[**RACV Cape Schanck**  Resort course   Public green fees   Cape Schanck](<https://peninsulainsider.com.au/explore/golf/#course-racv-cape-schanck-golf-course>)[**Eagle Ridge**  Inland public course   Public green fees   Boneo](<https://peninsulainsider.com.au/explore/golf/#course-eagle-ridge-golf-course>)[**Mornington**  Bay-side parkland   Public green fees   Mornington](<https://peninsulainsider.com.au/explore/golf/#course-mornington-golf-club>)[**Rosebud**  Two 18-hole courses   Public green fees   Rosebud](<https://peninsulainsider.com.au/explore/golf/#course-rosebud-country-club>)[**Flinders**  Clifftop coastal course   Visitor windows   Flinders](<https://peninsulainsider.com.au/explore/golf/#course-flinders-golf-club>)[**Sorrento**  Private parkland   Limited visitor times   Sorrento](<https://peninsulainsider.com.au/explore/golf/#course-sorrento-golf-club>)[**Portsea**  Coastal dunes and Moonah   Visitor windows   Portsea](<https://peninsulainsider.com.au/explore/golf/#course-portsea-golf-club>)
 
-Mornington Peninsula golf courses in 10 photographs
+Mornington Peninsula golf courses in photographs
 
 1  / 10
 
@@ -77,7 +77,7 @@ Cape Schanck / Fingal cluster
 
 ## Cape Schanck and Fingal courses
 
-Four southern Peninsula golf venues with different access rules and playing styles.
+Southern Peninsula golf venues with different access rules and playing styles.
 
 Public green fees
 
@@ -151,7 +151,7 @@ Across the Peninsula
 
 ## More ways to play
 
-Seven golf venues across several towns and coastlines. Compare visitor access and check the drive from your base before choosing a round.
+Golf venues across Peninsula towns and coastlines. Compare visitor access and check the drive from your base before choosing a round.
 
 Semi-private
 
@@ -277,7 +277,7 @@ Go deeper   Course architecture + mixed-group ideas   Open the supporting guide
 
 The architects
 
-## Five designers, one peninsula
+## The designers behind the courses
 
 The Peninsula's concentration of serious course architecture is not accidental. Here is who built it and what they were trying to do.
 
@@ -373,7 +373,7 @@ Stay beside the course
 
 ### I want the simplest golf-weekend base
 
-Start with the two venues in this guide that put accommodation beside the course.
+Start with the venues in this guide that put accommodation beside the course.
 
 [Moonah Links](<https://peninsulainsider.com.au/explore/golf/#course-moonah-links>) [RACV Cape Schanck](<https://peninsulainsider.com.au/explore/golf/#course-racv-cape-schanck-golf-course>)
 

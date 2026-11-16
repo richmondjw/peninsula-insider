@@ -417,7 +417,7 @@ Six weeks, one Peninsula and a car full of children. The calm beaches, the outin
 
 [Red Hill & Merricks   The Peninsula's wine heartland: cool-climate pinot, long lunches, and unhurried cellar doors.](<https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/>)[Western Port   The quieter side: mangroves, French Island ferries, and a genuinely local pace of life.](<https://peninsulainsider.com.au/explore/regions/western-port/>)
 
-Mornington & the Bay in 13 photographs
+Mornington & the Bay in photographs
 
 1  / 13
 

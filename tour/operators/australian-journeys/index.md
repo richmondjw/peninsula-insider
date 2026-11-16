@@ -31,7 +31,7 @@ Pricing, seasonal departures, and group bookings are managed on the operator's o
 
 Tours by Australian Journeys
 
-## 1 tour listed
+## Tours listed
 
 Full day   Couples
 

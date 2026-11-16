@@ -9,7 +9,7 @@ Peninsula This Weekend   Fri 20 – Sun 22 November
 
 # What’s on this weekend
 
-3 source-checked events for Fri 20 – Sun 22 November. Confirm details with the organiser before travelling.
+Source-checked events for Fri 20 – Sun 22 November. Confirm details with the organiser before travelling.
 
 Cape Schanck at dawn. [Marshlung / source](<https://commons.wikimedia.org/wiki/File:Cape_schanck_looking_towards_pulpit_rock_at_dawn.jpg>) · [CC BY-SA 4.0](<https://creativecommons.org/licenses/by-sa/4.0/>) · cropped and converted to WebP.
 

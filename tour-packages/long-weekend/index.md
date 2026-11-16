@@ -15,7 +15,7 @@ Two nights at Jackalope built around a Saturday morning Peninsula produce trail,
 
 Experiences
 
-2 operator-led experiences
+Operator-led experiences
 
 Anchor stay
 

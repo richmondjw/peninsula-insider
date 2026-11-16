@@ -15,7 +15,7 @@ Private charters suit couples who want a more intimate experience or who are mar
 
 Tours for couples
 
-## 4 Peninsula tours for couples
+## Peninsula tours for couples
 
 Full day   Couples
 

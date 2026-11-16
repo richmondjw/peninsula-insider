@@ -41,7 +41,7 @@ midsummer mid-afternoons
 
 Insider  Time a visit around the Tyabb Air Show in early March - the warbirds in flight are the headline, but the Packing House the day before is open and well-stocked.
 
-The Peninsula's antiques district and grass-strip airshow town - two reasons to take the back road.
+The Peninsula's antiques district and grass-strip airshow town - reasons to take the back road.
 
 Peninsula Insider - editor's note
 
@@ -67,7 +67,7 @@ Assuming there is nothing here - Tyabb Packing House alone earns the detour.
 
 Tyabb in brief
 
-## Tyabb in 5 points
+## Tyabb at a glance
 
 - 01   Tyabb has two anchors most visitors don't know about - Tyabb Packing House, the Peninsula's antique district, and the Tyabb Air Show on the grass airfield.
 

@@ -19,7 +19,7 @@ Researched from published sources. Every venue listed was reviewed April 2026 or
 
 Ranked by Good Food Guide recognition
 
-## 15 hatted and hatted-adjacent rooms
+## Hatted and hatted-adjacent rooms
 
 Two-hat venues first, then one-hat, then the AGFG-recognised rooms working below the GFG list.
 

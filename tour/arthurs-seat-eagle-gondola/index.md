@@ -11,7 +11,7 @@ Tours     Scenic Sightseeing
 
 The Arthurs Seat Eagle gondola connects its Base Station on Arthurs Seat Road in Dromana to the 305-metre summit of Arthurs Seat in a 15-minute one-way ride, delivering panoramic views over Port Phillip Bay and the Peninsula hinterland along the way. Level boarding accommodates wheelchairs and prams that fit the 80cm cabin doorway; oversized equipment may not fit, and mobility scooters cannot enter the cabins. Return tickets are standard; one-way tickets are available for those who want to walk one leg.
 
-Arthurs Seat Eagle Gondola Ride in 9 photographs
+Arthurs Seat Eagle Gondola Ride in photographs
 
 1  / 9
 
