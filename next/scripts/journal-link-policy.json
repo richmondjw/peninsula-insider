@@ -235,5 +235,56 @@
         "href": "/wine/yabby-lake/"
       }
     ]
+  },
+  "maintenance": {
+    "base": "1ba073325177ee40652761164b31fc076762e867",
+    "required": {
+      "area-guide-dromana": [
+        {
+          "name": "Foxeys Hangout",
+          "href": "/wine/foxeys-hangout/"
+        }
+      ],
+      "area-guide-flinders": [
+        {
+          "name": "Flinders Sourdough",
+          "href": "/eat/flinders-sourdough/"
+        },
+        {
+          "name": "Flinders General Store",
+          "href": "/eat/flinders-general-store/"
+        }
+      ],
+      "area-guide-main-ridge": [
+        {
+          "name": "Ten Minutes by Tractor",
+          "href": "/wine/ten-minutes-by-tractor/"
+        },
+        {
+          "name": "Red Hill Estate",
+          "href": "/wine/red-hill-estate/"
+        },
+        {
+          "name": "Paringa Estate",
+          "href": "/wine/paringa-estate/"
+        }
+      ],
+      "area-guide-merricks": [
+        {
+          "name": "Merricks General Wine Store",
+          "href": "/eat/merricks-general-wine-store/"
+        },
+        {
+          "name": "Merricks Estate",
+          "href": "/wine/merricks-estate/"
+        }
+      ],
+      "area-guide-portsea": [
+        {
+          "name": "Portsea Hotel",
+          "href": "/eat/portsea-hotel/"
+        }
+      ]
+    }
   }
 }

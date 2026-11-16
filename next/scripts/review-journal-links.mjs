@@ -7,9 +7,10 @@ const out='review/journal-links';
 await fs.mkdir(out,{recursive:true});
 const report={head:process.env.REVIEW_HEAD_SHA ?? null,mode:'built-site with harness CMS fixtures; live CMS acceptance still required',pages:[]};
 const entities=await catalogue(new URL('../src/content/',import.meta.url),policy);
+const requiredLinks={...policy.required,...policy.maintenance?.required};
 const site=await Site.open();
 try {
- for(const slug of policy.pilots) for(const width of [390,1440]) {
+ for(const slug of Object.keys(requiredLinks)) for(const width of [390,1440]) {
   const reader=await site.reader(); const {page}=reader;
   try {
    await page.setViewport({width,height:900}); await reader.load(`/journal/${slug}/`);
@@ -19,7 +20,7 @@ try {
     links:[...document.querySelectorAll('[data-pi-prose-root] a')].map(a=>({text:a.textContent,href:a.getAttribute('href')}))}));
    assert.equal(observed.overflow,false);
    const internal=observed.links.filter(a=>a.href.startsWith('/'));
-   for (const required of policy.required[slug]) assert.ok(internal.some(a=>a.text===required.name && a.href===required.href), `Missing approved link: ${slug}: ${required.name}`);
+   for (const required of requiredLinks[slug]) assert.ok(internal.some(a=>a.text===required.name && a.href===required.href), `Missing approved link: ${slug}: ${required.name}`);
    for(const link of internal) {
     assert.ok(link.text.trim(),'Descriptive link text');
     const url=new URL(link.href,site.origin); const response=await fetch(url); assert.equal(response.status,200,link.href);

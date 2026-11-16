@@ -74,7 +74,7 @@ If you are choosing between making Flinders a base or a detour, choose the base 
 
 ### Start at the bakery
 
-**Flinders Sourdough** is the right opening move. It is how you tune yourself to the place. Get there before the middle of the morning, buy what looks best, and eat it outside if the weather allows.
+**[Flinders Sourdough](/eat/flinders-sourdough/)** is the right opening move. It is how you tune yourself to the place. Get there before the middle of the morning, buy what looks best, and eat it outside if the weather allows.
 
 ### The local pub
 
@@ -82,7 +82,7 @@ If you are choosing between making Flinders a base or a detour, choose the base 
 
 ### Other supporting addresses
 
-**The Flinders General Store** is ideal for provisions, coffee and low-fuss staples.
+**The [Flinders General Store](/eat/flinders-general-store/)** is ideal for provisions, coffee and low-fuss staples.
 
 In Flinders, local usually wins. Inland drives for a more theatrical dining experience tend to complicate rather than improve the day.
 
