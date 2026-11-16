@@ -49,4 +49,4 @@ Use the website's table-booking link for a meal reservation. Its general enquiry
 
 194 Nepean Highway, Dromana. [Official venue, menu and bookings](https://www.hickinbotham.biz/).
 
-Researched guide, not a first-hand review. Operator information checked 16 November 2026.
+Based on published operator information, checked 16 November 2026. This guide does not report a visit.

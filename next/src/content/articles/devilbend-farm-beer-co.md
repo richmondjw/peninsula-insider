@@ -50,4 +50,4 @@ For an ordinary visit, use the venue's table-booking option. VineHop has separat
 
 990 Stumpy Gully Road, Tuerong. [Official venue and bookings](https://devilbend.beer/).
 
-Researched guide, not a first-hand review. Operator information checked 16 November 2026.
+Based on published operator information, checked 16 November 2026. This guide does not report a visit.

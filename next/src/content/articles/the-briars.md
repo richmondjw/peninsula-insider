@@ -50,4 +50,4 @@ The council currently lists the Heritage Homestead as closed for restoration and
 
 450 Nepean Highway, Mount Martha. [Council visitor information and closure notices](https://www.mornpen.vic.gov.au/Things-to-do/The-Briars/About-The-Briars).
 
-Researched guide, not a first-hand review. Operator information checked 16 November 2026.
+Based on published council information, checked 16 November 2026. This guide does not report a visit.

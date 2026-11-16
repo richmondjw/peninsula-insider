@@ -50,4 +50,4 @@ Choose it for an orchard-produce stop or a cider-lounge visit. VineHop is a sepa
 
 1103 Mornington-Flinders Road, Red Hill. [Official farmgate and visitor information](https://www.mockredhill.com.au/).
 
-Researched guide, not a first-hand review. Operator information checked 16 November 2026.
+Based on published operator information, checked 16 November 2026. This guide does not report a visit.
