@@ -14,7 +14,7 @@ node ops/ask-pi-quality/validate-manifest.mjs /path/to/manifest.json
 
 No install or network call is needed. The report records exact Git HEAD, dirty state, fixture/evaluator versions, input hashes, frozen clocks, category denominators, one trial, separate answerable and abstention results, code-test output and untested surfaces. Code-test durations are observational and vary; expectations, fixture observations and hashes are reproducible. Do not count overlapping category totals as independent samples. The report exits nonzero on a fixture failure. It deliberately always declares releaseEligible=false: this offline package cannot certify the other gates.
 
-The current development baseline is 23/24: overnight-still-running expects a still-running event after local midnight, but the existing promotion helper skips its previous start day. Keep this failure; do not edit the expected outcome to make a release green. Three additional passing baseline assertions reproduce known writer defects (recurrence dropped, suburb lost, cancellation admitted). A passing defect-reproduction test means the defect is still present, not fixed.
+The original development baseline at c7fe845f154 was 23/24: overnight-still-running expected a still-running event after local midnight, but the promotion helper skipped its previous start day. The candidate now fixes that shared helper while preserving the original fixture expectation; rerun the report to verify the exact candidate. Three additional passing baseline assertions still reproduce known writer defects (recurrence dropped, suburb lost, cancellation admitted). A passing defect-reproduction test means the defect is still present, not fixed.
 
 ## Fixture schema and evaluator limits
 
