@@ -27,8 +27,7 @@
 "tags":
   - "food"
   - "music"
-"relatedPlaces":
-  - "main-ridge"
+"relatedPlaces": []
 "relatedEvents":
   - "peninsula-vinehop-festival-2026"
 "readingTimeMinutes": 1
@@ -38,6 +37,7 @@
   "method": "researched"
   "checkedOn": "2026-11-16"
   "checkedBy": "desk"
+  "source": "https://www.thepigandwhistle.com.au/ ; https://vinehopfestival.com.au/the-venues/"
 "clusterLinks":
   - "label": "VineHop Festival 2026"
     "href": "/whats-on/peninsula-vinehop-festival-2026/"

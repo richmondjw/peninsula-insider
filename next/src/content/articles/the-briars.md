@@ -28,8 +28,7 @@
 "tags":
   - "walks"
   - "nature"
-"relatedPlaces":
-  - "mount-martha"
+"relatedPlaces": []
 "relatedEvents":
   - "peninsula-vinehop-festival-2026"
 "readingTimeMinutes": 1
@@ -39,6 +38,7 @@
   "method": "researched"
   "checkedOn": "2026-11-16"
   "checkedBy": "desk"
+  "source": "https://www.mornpen.vic.gov.au/Things-to-do/The-Briars/About-The-Briars ; https://vinehopfestival.com.au/the-venues/"
 "clusterLinks":
   - "label": "VineHop Festival 2026"
     "href": "/whats-on/peninsula-vinehop-festival-2026/"
