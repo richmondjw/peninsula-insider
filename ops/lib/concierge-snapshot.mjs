@@ -11,6 +11,8 @@ function validateRecords(records) {
  const text=v=>typeof v==='string'&&v.trim().length>0;
  const instant=v=>text(v)&&/^\d{4}-\d{2}-\d{2}T/.test(v)&&Number.isFinite(Date.parse(v));
  if(records.some(r=>!object(r)||!text(r.id)||!text(r.revision)||!object(r.data)||(r.verifiedAt!==null&&!instant(r.verifiedAt))||(r.validUntil!==undefined&&!instant(r.validUntil))||(r.liveAvailability!==undefined&&(!object(r.liveAvailability)||typeof r.liveAvailability.available!=='boolean'||!instant(r.liveAvailability.checkedAt)||!instant(r.liveAvailability.validUntil)))))return ['record-schema'];
+ if(records.some(r=>r.sourceVerificationDate!==undefined&&(
+  typeof r.sourceVerificationDate!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(r.sourceVerificationDate)||!Number.isFinite(Date.parse(r.sourceVerificationDate))||new Date(r.sourceVerificationDate).toISOString().slice(0,10)!==r.sourceVerificationDate||r.verifiedAt!==null||r.sourceVerificationDate!==(r.data.lastVerifiedAt??r.data.lastCheckedDate))))return ['source-verification-day-binding'];
  return [];
 }
 

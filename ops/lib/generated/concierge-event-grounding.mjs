@@ -141,6 +141,7 @@ function validateRecords(records) {
   const text = (v) => typeof v === "string" && v.trim().length > 0;
   const instant2 = (v) => text(v) && /^\d{4}-\d{2}-\d{2}T/.test(v) && Number.isFinite(Date.parse(v));
   if (records.some((r) => !object(r) || !text(r.id) || !text(r.revision) || !object(r.data) || r.verifiedAt !== null && !instant2(r.verifiedAt) || r.validUntil !== void 0 && !instant2(r.validUntil) || r.liveAvailability !== void 0 && (!object(r.liveAvailability) || typeof r.liveAvailability.available !== "boolean" || !instant2(r.liveAvailability.checkedAt) || !instant2(r.liveAvailability.validUntil)))) return ["record-schema"];
+  if (records.some((r) => r.sourceVerificationDate !== void 0 && (typeof r.sourceVerificationDate !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(r.sourceVerificationDate) || !Number.isFinite(Date.parse(r.sourceVerificationDate)) || new Date(r.sourceVerificationDate).toISOString().slice(0, 10) !== r.sourceVerificationDate || r.verifiedAt !== null || r.sourceVerificationDate !== (r.data.lastVerifiedAt ?? r.data.lastCheckedDate)))) return ["source-verification-day-binding"];
   return [];
 }
 function validateBindings(manifest, records) {
@@ -906,7 +907,7 @@ function groundEventRecords(records, context, now = /* @__PURE__ */ new Date()) 
   if (!context || !context.resolved) return { disposition: "clarify", matches: [], season: null };
   const days = (Date.parse(context.end) - Date.parse(context.start)) / 864e5 + 1;
   if (context.timezone !== "Australia/Melbourne" || !Number.isInteger(days) || days < 1 || days > 366 || !context.place || !Number.isFinite(+now)) throw Error("invalid-event-context");
-  const eligible = records.filter((r) => r.verifiedAt && Number.isFinite(Date.parse(r.verifiedAt)) && Date.parse(r.verifiedAt) <= +now && (!r.validUntil || Date.parse(r.validUntil) > +now) && eventContentKind(r.data) === "event");
+  const eligible = records.filter((r) => (r.verifiedAt && Number.isFinite(Date.parse(r.verifiedAt)) && Date.parse(r.verifiedAt) <= +now || r.verifiedAt === null && typeof r.sourceVerificationDate === "string" && /^\d{4}-\d{2}-\d{2}$/.test(r.sourceVerificationDate) && Number.isFinite(Date.parse(r.sourceVerificationDate)) && new Date(r.sourceVerificationDate).toISOString().slice(0, 10) === r.sourceVerificationDate && r.sourceVerificationDate === (r.data.lastVerifiedAt ?? r.data.lastCheckedDate) && r.sourceVerificationDate <= isoDate(now)) && (!r.validUntil || Date.parse(r.validUntil) > +now) && eventContentKind(r.data) === "event");
   const selected = selectEventPromotions(eligible, { now, windowStart: /* @__PURE__ */ new Date(context.start + "T00:00:00Z"), windowDays: days, placeId: context.place });
   const matches = selected.map((hit) => ({ id: hit.originalEvent.id, revision: hit.originalEvent.revision, title: hit.event.data.title, occurrence: hit.day, href: hit.href, place: context.place, startsAt: hit.occurrence.startsAt.toISOString(), endsAt: hit.occurrence.endsAt.toISOString() }));
   return { disposition: matches.length ? "answer" : "abstain", matches, season: getAustralianSeasonLower(/* @__PURE__ */ new Date(context.start + "T12:00:00Z")) };

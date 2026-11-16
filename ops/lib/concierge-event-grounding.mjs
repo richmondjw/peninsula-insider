@@ -5,6 +5,7 @@ export {readPrepared} from './concierge-snapshot.mjs';
 import {selectEventPromotions} from '../../next/src/lib/event-discovery.mjs';
 import {eventContentKind} from '../../next/src/lib/event-publication.mjs';
 import {getAustralianSeasonLower} from '../../next/src/lib/season.ts';
+import {isoDate} from '../../next/src/lib/event-schedule.ts';
 const months='january february march april may june july august september october november december'.split(' ');
 export function resolveMonthPlace(query,now=new Date()) {
  const q=String(query).toLowerCase().replaceAll('’',"'").trim().replace(/[?.!]$/,'');
@@ -21,7 +22,9 @@ export function groundEventRecords(records,context,now=new Date()) {
  if(!context||!context.resolved)return {disposition:'clarify',matches:[],season:null};
  const days=(Date.parse(context.end)-Date.parse(context.start))/86400000+1;
  if(context.timezone!=='Australia/Melbourne'||!Number.isInteger(days)||days<1||days>366||!context.place||!Number.isFinite(+now))throw Error('invalid-event-context');
- const eligible=records.filter(r=>r.verifiedAt&&Number.isFinite(Date.parse(r.verifiedAt))&&Date.parse(r.verifiedAt)<=+now&&(!r.validUntil||Date.parse(r.validUntil)>+now)&&eventContentKind(r.data)==='event');
+ const eligible=records.filter(r=>((r.verifiedAt&&Number.isFinite(Date.parse(r.verifiedAt))&&Date.parse(r.verifiedAt)<=+now)||
+  (r.verifiedAt===null&&typeof r.sourceVerificationDate==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(r.sourceVerificationDate)&&Number.isFinite(Date.parse(r.sourceVerificationDate))&&new Date(r.sourceVerificationDate).toISOString().slice(0,10)===r.sourceVerificationDate&&r.sourceVerificationDate===(r.data.lastVerifiedAt??r.data.lastCheckedDate)&&r.sourceVerificationDate<=isoDate(now)))&&
+  (!r.validUntil||Date.parse(r.validUntil)>+now)&&eventContentKind(r.data)==='event');
  const selected=selectEventPromotions(eligible,{now,windowStart:new Date(context.start+'T00:00:00Z'),windowDays:days,placeId:context.place});
  const matches=selected.map(hit=>({id:hit.originalEvent.id,revision:hit.originalEvent.revision,title:hit.event.data.title,occurrence:hit.day,href:hit.href,place:context.place,startsAt:hit.occurrence.startsAt.toISOString(),endsAt:hit.occurrence.endsAt.toISOString()}));
  return {disposition:matches.length?'answer':'abstain',matches,season:getAustralianSeasonLower(new Date(context.start+'T12:00:00Z'))};

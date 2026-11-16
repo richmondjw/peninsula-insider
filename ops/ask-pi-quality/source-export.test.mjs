@@ -4,6 +4,7 @@ import {createHash} from 'node:crypto';
 import {execFileSync} from 'node:child_process';
 import {baseline,bundle} from './staging-fixtures.mjs';
 import {prepareSnapshot} from '../lib/concierge-snapshot.mjs';
+import {groundEventRecords} from '../lib/concierge-event-grounding.mjs';
 import {readPinnedEventSources,validateCmsEventSnapshot,readCmsEventSnapshot,exportEventManifest} from '../lib/concierge-source-export.mjs';
 const now=new Date(baseline.now),sha=text=>createHash('sha256').update(text).digest('hex');
 const source=()=>({slug:baseline.records[0].id,data:{...structuredClone(baseline.records[0].data),lastVerifiedAt:baseline.records[0].verifiedAt}});
@@ -24,6 +25,13 @@ test('published CMS title wins with distinct raw/effective revision and complete
 });
 test('unknown source verification stays unknown rather than becoming ingestion time',()=>{
  const s=source();delete s.data.lastVerifiedAt;const result=build({pinned:pinned([s])});assert.equal(result.records[0].verifiedAt,null);assert.equal(result.manifest.sourceVerifiedAt,null);
+});
+test('date-only verification preserves Melbourne day precision without fabricating UTC midnight',async()=>{
+ const s=source();delete s.data.lastVerifiedAt;s.data.lastCheckedDate='2026-11-17';
+ const result=build({pinned:pinned([s])});assert.equal(result.records[0].verifiedAt,null);assert.equal(result.records[0].sourceVerificationDate,'2026-11-17');
+ assert.equal(result.manifest.sourceVerifiedAt,null);assert.equal(groundEventRecords(result.records,baseline.context,now).disposition,'answer');
+ await prepareSnapshot(null,result.manifest,result.records,{dimensions:2,embed:async()=>[1,0]});
+ s.data.lastCheckedDate='2026-11-18';assert.throws(()=>build({pinned:pinned([s])}),/verification clock/);
 });
 test('CMS title or summary cannot change source-derived monthly cadence',()=>{
  const s=source();s.data.recurrence='monthly';s.data.title='Second Saturday market';s.data.startDate='2026-01-10';s.data.endDate='2027-12-31';

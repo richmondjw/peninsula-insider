@@ -7,7 +7,7 @@ import {readPrepared,prepareSnapshot,commitPrepared} from './concierge-snapshot.
 import {connectSnapshotWriter} from './concierge-snapshot-transport.mjs';
 import {projectEventInventory,validateEventSource} from '../scripts/concierge-events.mjs';
 import {publicEventData} from '../../next/src/lib/event-publication.mjs';
-import {ruleFor} from '../../next/src/lib/event-schedule.ts';
+import {ruleFor,isoDate} from '../../next/src/lib/event-schedule.ts';
 const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
 const clock=value=>typeof value==='string'&&Number.isFinite(Date.parse(value));
 const fail=message=>{throw Error(message);};
@@ -87,10 +87,15 @@ export function exportEventManifest({pinned,cms,previous=null,bundle,now=new Dat
  const inventory=projectEventInventory(sources,now);
  if(!inventory.complete)fail('canonical event source projection failed');
  const records=sources.map(source=>{
-  const data=publicEventData(source.data),effectiveRevision=hash([source.rawRevision,cms.rows.filter(r=>r.entity_slug===source.slug),data]);
+  const data=publicEventData(source.data);
   const verified=source.data.lastVerifiedAt??source.data.lastCheckedDate??null;
-  if(verified!==null&&(!clock(verified)||Date.parse(verified)>+now))fail('source verification clock invalid');
-  return {id:source.slug,revision:effectiveRevision,verifiedAt:verified===null?null:new Date(verified).toISOString(),...(data.expiresAt?{validUntil:new Date(data.expiresAt).toISOString()}:{}),data};
+  const dayPrecision=typeof verified==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(verified);
+  if(verified!==null&&(!clock(verified)||(dayPrecision?verified>isoDate(now):Date.parse(verified)>+now)))fail('source verification clock invalid');
+  // Preserve a documented day as a day. publicEventData normalizes these fields
+  // to UTC; that must not invent an instant or make today's Melbourne date future.
+  if(dayPrecision)data[source.data.lastVerifiedAt!==undefined?'lastVerifiedAt':'lastCheckedDate']=verified;
+  const effectiveRevision=hash([source.rawRevision,cms.rows.filter(r=>r.entity_slug===source.slug),data]);
+  return {id:source.slug,revision:effectiveRevision,verifiedAt:verified===null||dayPrecision?null:new Date(verified).toISOString(),...(dayPrecision?{sourceVerificationDate:verified}:{}),...(data.expiresAt?{validUntil:new Date(data.expiresAt).toISOString()}:{}),data};
  });
  const sourceRecords=records.map((record,i)=>{
   const outcome=inventory.outcomes[i];return {id:record.id,revision:sources[i].rawRevision,effectiveRevision:record.revision,payloadDigest:hash(record),admission:outcome.status==='projected'?'index':'exclude',...(outcome.status==='excluded'?{exclusionReason:outcome.reason}:{})};

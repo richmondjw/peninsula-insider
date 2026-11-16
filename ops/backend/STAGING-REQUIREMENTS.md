@@ -36,13 +36,18 @@ canonical admission, accounts for every source and CMS row, prepares embeddings,
 then checks CMS revision again before commit. Unsupported/ambiguous published
 overrides, malformed files, missing inventories and CMS drift abort before any
 write. Deleted-source CMS rows and empty display overrides have explicit reasons.
+Title/summary overrides are also rejected if they change the full canonical
+source-derived recurrence rule: legacy cadence inference can read those texts.
 CMS changes after the final check remain a cross-project race; the next existing
 refresh must reconcile them. No distributed transaction is claimed.
 
 Unknown source-verification/publication times remain explicit null, separate
 from inventory observation and ingestion. Per-record verification is never
-inferred from scraping, CMS edit time or ingestion. The active event reader
-omits records without sufficient source evidence. The top-level null-clock
+inferred from scraping, CMS edit time or ingestion. Date-only verification keeps
+its original field/value in `data`, a bound `sourceVerificationDate`, and a null
+`verifiedAt`. The reader compares that documented day with the Melbourne calendar
+day without manufacturing an instant. Invalid/future days and genuinely unknown
+evidence fail closed. The top-level null-clock
 contract must ship with the paired reader bundle; old readers must not be used
 with a newly configured incompatible bundle.
 
