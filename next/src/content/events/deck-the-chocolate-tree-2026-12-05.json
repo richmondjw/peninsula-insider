@@ -2,7 +2,7 @@
   "slug": "deck-the-chocolate-tree-2026-12-05",
   "eventId": "MP-EVT-0126",
   "title": "Deck the Chocolate Tree",
-  "summary": "Decorate a milk couverture Christmas Tree with delicious ingredients. Starts 9am.",
+  "summary": "Decorate a chocolate Christmas tree to take home in Flinders on 5–6 or 12–24 December. Drop in between 9am and 4pm; participation is subject to availability.",
   "heroImage": {
     "src": "/images/generated/events/chocolate.webp",
     "alt": "Conceptual illustration of a broken chocolate bar with two squares standing apart",
@@ -27,13 +27,186 @@
   "venueName": "The Chocolateries Mornington Peninsula",
   "suburb": "Flinders",
   "category": "food-wine",
-  "recurrence": "one-off",
+  "recurrence": "seasonal",
   "bookingUrl": "https://www.mpchoc.com.au/events/deck-the-chocolate-tree/",
   "officialEventUrl": "https://www.mpchoc.com.au/events/deck-the-chocolate-tree/",
   "source": "venue:mornington-peninsula-chocolates",
   "sourceUrl": "https://www.mpchoc.com.au/whats-on/",
   "discoveredAt": "2026-11-09T00:47:50.828Z",
   "publishedAt": "2026-11-09T01:01:23.556Z",
-  "lastCheckedDate": "2026-11-09",
-  "provenance": "auto-published by promote-candidates.mjs from JSON-LD event feed; not editorially rewritten"
+  "lastCheckedDate": "2026-11-16",
+  "provenance": "Original PI correction prepared from the operator event page checked 16 November 2026. Consolidates duplicate MP-EVT-0173 into MP-EVT-0126; exact independent candidate review and release checks remain separate. No Firecrawl scan or authenticated publication receipt is claimed.",
+  "startTime": "09:00",
+  "endTime": "16:00",
+  "timezone": "Australia/Melbourne",
+  "occurrencePolicy": "confirmed-only",
+  "recurrenceNote": "Confirmed dates: 5–6 and 12–24 December 2026, 9am–4pm. No sessions are listed for 7–11 December.",
+  "nextOccurrence": "2026-12-05",
+  "bookingRequired": "No",
+  "bookingStatus": "not-required",
+  "bookingStatusNote": "No bookings required; subject to availability. This is not confirmation that a place is available.",
+  "bookingStatusSourceUrl": "https://www.mpchoc.com.au/events/deck-the-chocolate-tree/",
+  "bookingStatusCheckedAt": "2026-11-16T08:58:40.000Z",
+  "primarySourceUrl": "https://www.mpchoc.com.au/events/deck-the-chocolate-tree/",
+  "verification": "tentative",
+  "verificationNote": "Single-primary-source correction: operator event page checked through web retrieval on 16 November 2026. Its event dates specify two blocks; image description identifies December 2026. No second independent provenance chain or live inventory confirmation is established.",
+  "verifiedPrice": {
+    "label": "$14 per person",
+    "sourceUrl": "https://www.mpchoc.com.au/events/deck-the-chocolate-tree/",
+    "checkedAt": "2026-11-16T08:58:40.000Z",
+    "validUntil": "2026-11-17T08:58:40.000Z"
+  },
+  "editorNote": "This is a drop-in chocolate-decorating activity at the Mornington Peninsula Chocolaterie in Flinders. You decorate a milk chocolate Christmas tree and take it home in a gift box. It suits a stop for an activity rather than a booked workshop with an allocated session.\n\nThe operator lists two date blocks: 5–6 December and 12–24 December 2026, from 9am to 4pm. There are no listed sessions on 7–11 December. Booking is not required, but participation depends on availability. Check the official page for the current price and any changes before travelling.",
+  "seriesOccurrences": [
+    {
+      "id": "MP-EVT-0126:2026-12-05",
+      "originalDate": "2026-12-05",
+      "date": "2026-12-05",
+      "status": "scheduled",
+      "startTime": "09:00",
+      "endTime": "16:00",
+      "venueName": "The Chocolateries Mornington Peninsula",
+      "sourceUrl": "https://www.mpchoc.com.au/events/deck-the-chocolate-tree/"
+    },
+    {
+      "id": "MP-EVT-0126:2026-12-06",
+      "originalDate": "2026-12-06",
+      "date": "2026-12-06",
+      "status": "scheduled",
+      "startTime": "09:00",
+      "endTime": "16:00",
+      "venueName": "The Chocolateries Mornington Peninsula",
+      "sourceUrl": "https://www.mpchoc.com.au/events/deck-the-chocolate-tree/"
+    },
+    {
+      "id": "MP-EVT-0126:2026-12-12",
+      "originalDate": "2026-12-12",
+      "date": "2026-12-12",
+      "status": "scheduled",
+      "startTime": "09:00",
+      "endTime": "16:00",
+      "venueName": "The Chocolateries Mornington Peninsula",
+      "sourceUrl": "https://www.mpchoc.com.au/events/deck-the-chocolate-tree/"
+    },
+    {
+      "id": "MP-EVT-0126:2026-12-13",
+      "originalDate": "2026-12-13",
+      "date": "2026-12-13",
+      "status": "scheduled",
+      "startTime": "09:00",
+      "endTime": "16:00",
+      "venueName": "The Chocolateries Mornington Peninsula",
+      "sourceUrl": "https://www.mpchoc.com.au/events/deck-the-chocolate-tree/"
+    },
+    {
+      "id": "MP-EVT-0126:2026-12-14",
+      "originalDate": "2026-12-14",
+      "date": "2026-12-14",
+      "status": "scheduled",
+      "startTime": "09:00",
+      "endTime": "16:00",
+      "venueName": "The Chocolateries Mornington Peninsula",
+      "sourceUrl": "https://www.mpchoc.com.au/events/deck-the-chocolate-tree/"
+    },
+    {
+      "id": "MP-EVT-0126:2026-12-15",
+      "originalDate": "2026-12-15",
+      "date": "2026-12-15",
+      "status": "scheduled",
+      "startTime": "09:00",
+      "endTime": "16:00",
+      "venueName": "The Chocolateries Mornington Peninsula",
+      "sourceUrl": "https://www.mpchoc.com.au/events/deck-the-chocolate-tree/"
+    },
+    {
+      "id": "MP-EVT-0126:2026-12-16",
+      "originalDate": "2026-12-16",
+      "date": "2026-12-16",
+      "status": "scheduled",
+      "startTime": "09:00",
+      "endTime": "16:00",
+      "venueName": "The Chocolateries Mornington Peninsula",
+      "sourceUrl": "https://www.mpchoc.com.au/events/deck-the-chocolate-tree/"
+    },
+    {
+      "id": "MP-EVT-0126:2026-12-17",
+      "originalDate": "2026-12-17",
+      "date": "2026-12-17",
+      "status": "scheduled",
+      "startTime": "09:00",
+      "endTime": "16:00",
+      "venueName": "The Chocolateries Mornington Peninsula",
+      "sourceUrl": "https://www.mpchoc.com.au/events/deck-the-chocolate-tree/"
+    },
+    {
+      "id": "MP-EVT-0126:2026-12-18",
+      "originalDate": "2026-12-18",
+      "date": "2026-12-18",
+      "status": "scheduled",
+      "startTime": "09:00",
+      "endTime": "16:00",
+      "venueName": "The Chocolateries Mornington Peninsula",
+      "sourceUrl": "https://www.mpchoc.com.au/events/deck-the-chocolate-tree/"
+    },
+    {
+      "id": "MP-EVT-0126:2026-12-19",
+      "originalDate": "2026-12-19",
+      "date": "2026-12-19",
+      "status": "scheduled",
+      "startTime": "09:00",
+      "endTime": "16:00",
+      "venueName": "The Chocolateries Mornington Peninsula",
+      "sourceUrl": "https://www.mpchoc.com.au/events/deck-the-chocolate-tree/"
+    },
+    {
+      "id": "MP-EVT-0126:2026-12-20",
+      "originalDate": "2026-12-20",
+      "date": "2026-12-20",
+      "status": "scheduled",
+      "startTime": "09:00",
+      "endTime": "16:00",
+      "venueName": "The Chocolateries Mornington Peninsula",
+      "sourceUrl": "https://www.mpchoc.com.au/events/deck-the-chocolate-tree/"
+    },
+    {
+      "id": "MP-EVT-0126:2026-12-21",
+      "originalDate": "2026-12-21",
+      "date": "2026-12-21",
+      "status": "scheduled",
+      "startTime": "09:00",
+      "endTime": "16:00",
+      "venueName": "The Chocolateries Mornington Peninsula",
+      "sourceUrl": "https://www.mpchoc.com.au/events/deck-the-chocolate-tree/"
+    },
+    {
+      "id": "MP-EVT-0126:2026-12-22",
+      "originalDate": "2026-12-22",
+      "date": "2026-12-22",
+      "status": "scheduled",
+      "startTime": "09:00",
+      "endTime": "16:00",
+      "venueName": "The Chocolateries Mornington Peninsula",
+      "sourceUrl": "https://www.mpchoc.com.au/events/deck-the-chocolate-tree/"
+    },
+    {
+      "id": "MP-EVT-0126:2026-12-23",
+      "originalDate": "2026-12-23",
+      "date": "2026-12-23",
+      "status": "scheduled",
+      "startTime": "09:00",
+      "endTime": "16:00",
+      "venueName": "The Chocolateries Mornington Peninsula",
+      "sourceUrl": "https://www.mpchoc.com.au/events/deck-the-chocolate-tree/"
+    },
+    {
+      "id": "MP-EVT-0126:2026-12-24",
+      "originalDate": "2026-12-24",
+      "date": "2026-12-24",
+      "status": "scheduled",
+      "startTime": "09:00",
+      "endTime": "16:00",
+      "venueName": "The Chocolateries Mornington Peninsula",
+      "sourceUrl": "https://www.mpchoc.com.au/events/deck-the-chocolate-tree/"
+    }
+  ]
 }
