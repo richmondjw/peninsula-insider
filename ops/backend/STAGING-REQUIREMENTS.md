@@ -109,3 +109,35 @@ reviewed and exercised through managed PostgREST, this remains a release blocker
 Managed roles, exhaustive role-visible CMS export, actual scheduler provenance,
 paired rollback and live answers remain separate gates. A manual run is never
 proof of daily execution.
+
+## Proposed fail-closed request policy (inactive)
+
+`answerWithCmsConsistency` buffers deterministic event-answer preparation between
+two uncached, bounded full CMS export reads. Both envelopes must validate their
+count/digest and equal the snapshot's CMS revision. Missing adapter/revision,
+transport failure, timeout, malformed/truncated or stale receipt, or mismatch
+returns a fixed unavailable answer with no recommendations and no legacy/model
+fallback. No partial answer may be emitted before the second check. Index data
+is retained for diagnosis/recovery; serving stale event recommendations is not
+allowed by this policy. No automatic rollback or repeated refresh is triggered.
+
+Success means verified against CMS as of the final receipt's observation time,
+not continuously current. A subsequent CMS edit can still occur before delivery.
+The response must retain that observation time and cannot promise availability.
+The policy bounds each read to two seconds and permits one second of measured
+clock skew; managed tests must validate this allowance. It is not a cache TTL.
+Underlying transport must cancel timed-out requests and bypass caches. The helper
+bounds waiting but does not itself cancel an injected transport operation.
+
+This is an offline policy implementation, not API wiring. The current API has no
+established authorized CMS revision adapter; importing the producer module into
+the Worker would also pull Node source-reader dependencies. Before integration,
+extract the pure envelope validator into a compatible shared bundle, verify the
+actual intended CMS role's complete view, and supply a direct no-store transport
+with cancellation. Do not add credentials, grants or public exposure implicitly.
+
+Decision: accept explicit as-of semantics for buffered JSON/SSE event answers,
+or require strict coordinated publication across both stores. The latter requires
+an editor/publication protocol change and cannot be achieved by repeated reads.
+If neither is accepted, leave the event snapshot path inactive. Existing daily
+writer, API flag, production and CMS remain unchanged.
