@@ -24,6 +24,17 @@ try {
         await reader.load(route);
       }
       await page.evaluate(() => document.fonts.ready);
+      // Trigger native lazy images and intersection-based reveals throughout
+      // the document before inspecting the full page, then restore its cover.
+      await page.evaluate(async () => {
+        for (let y = 0; y < document.documentElement.scrollHeight; y += innerHeight * 0.8) {
+          scrollTo(0, y);
+          await new Promise(resolve => setTimeout(resolve, 120));
+        }
+        await Promise.all([...document.images].filter(img => img.currentSrc).map(img => img.decode().catch(() => {})));
+        scrollTo(0, 0);
+        await new Promise(resolve => setTimeout(resolve, 800));
+      });
       const observed = await page.evaluate(() => ({
         title: document.title,
         description: document.querySelector('meta[name="description"]')?.content,

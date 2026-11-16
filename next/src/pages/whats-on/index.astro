@@ -53,7 +53,7 @@ const nextWeekend = weekendWindow(now, 1);
 const holidays = schoolHolidayWindow(now);
 
 const picks = await getPicks(calendarEvents, weekend, now);
-const pickHeading = ['A reason to go', 'A reason to go', 'Two reasons to go', 'Three reasons to go'][Math.min(picks.length, 3)];
+const pickHeading = 'Reasons to go';
 const pickSlugs = new Set(picks.map((p) => p.live.slug));
 
 const dayGroups = groupByDay(calendarEvents, weekend, now);

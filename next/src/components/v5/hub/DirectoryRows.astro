@@ -110,10 +110,8 @@ const {
 
 const headingId = `${id ?? `directory-${surface}`}-heading`;
 const featuredCount = items.filter((item) => item.featured).length;
-const words = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
-const featuredWord = words[featuredCount] ?? String(featuredCount);
 const featuredNote = featuredCount > 0
-  ? `${featuredWord[0]?.toUpperCase()}${featuredWord.slice(1)} are featured above; the other ${items.length - featuredCount} follow.`
+  ? 'Our featured picks are above; browse the rest below.'
   : '';
 ---
 

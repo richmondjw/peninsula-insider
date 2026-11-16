@@ -111,7 +111,7 @@ const label = `Photographs of ${subject}`;
     {n > 1 && (
       <div class="pstage__strip-wrap">
         {variant === 'strip' && (
-          <p class="pstage__strip-title">{subject} in {n} photographs</p>
+          <p class="pstage__strip-title">{subject} in photographs</p>
         )}
         <ul class="pstage__strip" aria-label={variant === 'stage' ? 'Choose a photograph' : label}>
           {items.map((item) => (
