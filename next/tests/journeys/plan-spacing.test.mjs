@@ -33,7 +33,8 @@ test('every plan detail retains full-width bands and padded reading content', as
           };
         });
         const context=`${route} at ${width}px`;
-        assert.ok(measured.scroll <= width, `${context}: horizontal overflow`);
+        // Browser scroll extents round fractional font/layout pixels upward.
+        assert.ok(measured.scroll <= width + 1, `${context}: horizontal overflow (${measured.scroll}px)`);
         for (const band of measured.bands) {
           assert.ok(Math.abs(band.left)<1 && Math.abs(band.right-width)<1, `${context}: inset background`);
         }
