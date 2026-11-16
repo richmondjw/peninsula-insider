@@ -257,10 +257,10 @@ jobs:
         run: |
           node --test scripts/count-semantics.test.mjs
           node scripts/assert-count-semantics.mjs
-          node scripts/review-count-free-copy.mjs
           npm run pdfs
           mkdir -p review/count-free-copy/downloads
           cp public/downloads/*.pdf review/count-free-copy/downloads/
+          node scripts/review-count-free-copy.mjs
 
       - name: Upload count-free editorial review
         if: always() && github.event_name == 'pull_request' && github.head_ref == 'codex/count-free-editorial-20261117'
