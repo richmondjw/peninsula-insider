@@ -1,6 +1,8 @@
 ---
 import { categoryHero } from '../../lib/category-heroes';
 import { pageImage } from '../../lib/page-images';
+import HubEntry from '../../components/v5/hub/HubEntry.astro';
+import { checkedSpan } from '../../lib/checked-span';
 /**
  * Explore hub (v5 redesign, T-504) - page-redesigns-hubs.md section 5.
  *
@@ -193,6 +195,7 @@ const venueRows: Row[] = exploreVenues.map((v) => {
 const directoryRows: Row[] = [...rows, ...venueRows].sort((a, b) =>
   a.name.localeCompare(b.name),
 );
+const exploreChecked = checkedSpan(directoryRows.map((r) => r.data));
 
 // Live-count parity with lib/v5-filter-state itemMatches: AND across facet
 // keys, OR within a key. "All N" always equals what the filter will show.
@@ -354,27 +357,23 @@ export const prerender = true;
   description="Explore the Mornington Peninsula by activity and area: coastal walks, beaches, hot springs, golf and cultural places. Find an experience and plan your visit."
   section="explore"
   canonical="https://peninsulainsider.com.au/explore/"
-  ogImage={categoryHero('explore').src}
+  ogImage={pageImage('explore-hero').src}
 >
   <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 
-  <header class="x-hero" aria-labelledby="explore-title">
-    <div class="container x-hero__grid">
-      <div class="x-hero__copy">
-        <h1 id="explore-title">Things to do on the Mornington Peninsula</h1>
-        <p>Walks, beaches, galleries, golf and day spas, each with the reason it earns a place.</p>
-        <nav class="x-hero__actions" aria-label="Start exploring">
-          <a class="x-hero__primary" href="#directory" data-open-directory>Browse every experience <span class="x-hero__arrow x-hero__arrow--down" aria-hidden="true"></span></a>
-          <a class="x-hero__secondary" href="/map/">Open the map</a>
-        </nav>
-      </div>
-      <figure class="x-hero__media">
-        <img src={categoryHero('explore').src} alt={categoryHero('explore').alt} width="800" height="1200" loading="eager" fetchpriority="high" decoding="async" data-pi-responsive="(max-width: 760px) 100vw, 650px" />
-      </figure>
-    </div>
-  </header>
+  <HubEntry
+    kicker="Things to do"
+    title="Sea air, sandy tracks and somewhere to soak"
+    dek="Pick a coast walk, a swimming beach or a hot spring by the time you have, with the reason each one earns its place."
+    primary={{ label: `Browse all ${directoryRows.length} things to do`, href: '#directory', arrow: 'down' }}
+    secondary={{ label: 'See them on the map', href: '/map/' }}
+    trust={exploreChecked ? `${exploreChecked[0].toUpperCase()}${exploreChecked.slice(1)}. Chosen by our editors, never paid for.` : 'Chosen by our editors, never paid for.'}
+    image={pageImage('explore-hero')}
+    focal={{ desktop: '50% 55%', mobile: '50% 55%' }}
+    headingId="explore-title"
+  />
 
   <!-- The one browse route: filter chips sit directly above the complete,
        server-rendered and countable directory they filter. -->
