@@ -1,6 +1,8 @@
 import {recordDisposition,resolveOccurrence,dayIsoOf,isCancelledRecord,occurrenceBounds,isoOffsetFor} from './event-occurrence.mjs';
 import {ruleFor,occursOnDay,startOfDay,addDays,isoDate} from './event-schedule.ts';
-export function hasExplicitSeries(data){return !!data?.intelligence && Array.isArray(data?.seriesOccurrences) && data.seriesOccurrences.length>0;}
+// Schedule representation does not create an intelligence approval receipt.
+// Editorial confirmed-only sessions use the same occurrence model.
+export function hasExplicitSeries(data){return (!!data?.intelligence || data?.occurrencePolicy==='confirmed-only') && Array.isArray(data?.seriesOccurrences) && data.seriesOccurrences.length>0;}
 export function hasLegacyExceptions(data){return !hasExplicitSeries(data) && Array.isArray((data?._seriesBase??data)?.occurrenceExceptions) && (data._seriesBase??data).occurrenceExceptions.length>0;}
 function legacyRule(data,now){
  const dated={...data};for(const key of ['startDate','endDate','nextOccurrence'])if(dated[key])dated[key]=new Date(dated[key]);
@@ -80,3 +82,4 @@ export function nextSeriesData(data,now=new Date()){
  const next=sessions.find(s=>!['cancelled','postponed'].includes(s.status)&&explicitOccurrence(data,s.date,now).phase!=='past');
  return occurrenceData(data,(next??sessions.at(-1)).date);
 }
+
