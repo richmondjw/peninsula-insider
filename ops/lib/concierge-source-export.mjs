@@ -121,8 +121,15 @@ export function exportEventManifest({pinned,cms,previous=null,bundle,now=new Dat
  * is not claimed: subsequent CMS edits require the next existing refresh.
  */
 export async function refreshPublishedEvents({repo,sourceCommit,cmsRpc,indexRpc,bundle,id,embed,now=new Date()}) {
+ return refreshPinnedEvents({pinned:readPinnedEventSources(repo,sourceCommit),cmsRpc,indexRpc,bundle,id,embed,now});
+}
+
+/** Dependency boundary for offline orchestration tests; caller must supply an
+ * inventory read from the verified published commit, never a moving worktree. */
+export async function refreshPinnedEvents({pinned,cmsRpc,indexRpc,bundle,id,embed,now=new Date()}) {
+ const sourceCommit=pinned.revision;
  const storage=await connectSnapshotWriter(indexRpc),previous=await storage.read();
- const pinned=readPinnedEventSources(repo,sourceCommit),cms=await readCmsEventSnapshot(cmsRpc);
+ const cms=await readCmsEventSnapshot(cmsRpc);
  const exported=exportEventManifest({pinned,cms,previous,bundle,now,id});
  const prepared=await prepareSnapshot(previous,exported.manifest,exported.records,{embed,dimensions:1024});
  const latestCms=await readCmsEventSnapshot(cmsRpc);

@@ -6,13 +6,49 @@ import {fileURLToPath} from 'node:url';
 import {baseline,bundle} from './staging-fixtures.mjs';
 import {prepareSnapshot} from '../lib/concierge-snapshot.mjs';
 import {groundEventRecords} from '../lib/concierge-event-grounding.mjs';
-import {readPinnedEventSources,validateCmsEventSnapshot,readCmsEventSnapshot,exportEventManifest} from '../lib/concierge-source-export.mjs';
+import {readPinnedEventSources,validateCmsEventSnapshot,readCmsEventSnapshot,exportEventManifest,refreshPinnedEvents} from '../lib/concierge-source-export.mjs';
+import {planEventRefresh} from '../lib/concierge-refresh-plan.mjs';
 const now=new Date(baseline.now),sha=text=>createHash('sha256').update(text).digest('hex');
 const source=()=>({slug:baseline.records[0].id,data:{...structuredClone(baseline.records[0].data),lastVerifiedAt:baseline.records[0].verifiedAt}});
 const pinned=sources=>({revision:'a'.repeat(40),sources:sources??[source()]});
 const cms=(rows=[])=>{const rows_payload=JSON.stringify(rows);return {version:1,revision:sha(rows_payload),rows_payload,row_count:rows.length,observed_at:now.toISOString()};};
 const row=(overrides={})=>({id:'001',entity_type:'event',entity_slug:source().slug,field_path:'title',field_kind:'text',locale:null,value:'Published CMS title',status:'published',updated_at:now.toISOString(),...overrides});
 const build=(overrides={})=>exportEventManifest({pinned:pinned(),cms:cms(),bundle,id:'export-1',now,...overrides});
+test('offline daily and post-publish plans bind successful publication and cannot activate',()=>{
+ const publication={environment:'production',conclusion:'success',sourceCommit:'a'.repeat(40),receiptUrl:'https://example.invalid/deploy/123'};
+ for(const trigger of ['daily','post-publish']){
+  const args={trigger,publication,checkedOutCommit:publication.sourceCommit,runId:'synthetic-123'};
+  const plan=planEventRefresh(args);assert.equal(plan.activationAllowed,false);assert.equal(plan.concurrencyGroup,'concierge-corpus');
+  assert.throws(()=>planEventRefresh({...args,checkedOutCommit:'b'.repeat(40)}),/differs/);
+  assert.throws(()=>planEventRefresh({...args,publication:{...publication,conclusion:'failure'}}),/receipt/);
+ }
+});
+test('CMS changes before final check abort; changes after check demonstrate bounded cross-project race',async()=>{
+ for(const changeAt of ['embedding','commit']){
+  let current=null,receipt=cms(),commits=0;
+  const edited=cms([row()]);
+  const indexRpc=async(name,args)=>{
+   if(name.endsWith('capabilities'))return [{protocol:'concierge-snapshot-v1',atomicCommit:true,retainedRollback:true}];
+   if(name.endsWith('read'))return current?[current]:[];
+   assert(name.endsWith('commit'));commits++;
+   if(changeAt==='commit')receipt=edited;
+   current={token:args.snapshot_token,payload:args.snapshot_payload};
+   return [{committed:true,retry:false,token:current.token}];
+  };
+  const execute=()=>refreshPinnedEvents({pinned:pinned(),cmsRpc:async()=>[receipt],indexRpc,bundle,id:'race-1',now,
+   embed:async()=>{if(changeAt==='embedding')receipt=edited;return Array(1024).fill(0.1);}});
+  if(changeAt==='embedding'){
+   await assert.rejects(execute(),/CMS changed/);assert.equal(commits,0);assert.equal(current,null);
+  }else{
+   const result=await execute();assert.equal(commits,1);assert.notEqual(result.cmsRevision,receipt.revision);
+   // A successful atomic index commit is NOT proof of current CMS consistency.
+   assert.equal(JSON.parse(current.payload).manifest.cmsRevision,cms().revision);
+   const repaired=await refreshPinnedEvents({pinned:pinned(),cmsRpc:async()=>[receipt],indexRpc,bundle,id:'race-2',now,
+    embed:async()=>Array(1024).fill(0.1)});
+   assert.equal(repaired.cmsRevision,receipt.revision);assert.equal(commits,2);
+  }
+ }
+});
 test('pinned reader enumerates committed recursive sources without worktree or network dependence',()=>{
  const revision=execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim();
  const result=readPinnedEventSources(process.cwd(),revision);assert.equal(result.revision,revision);assert(result.sources.length>100);assert(result.sources.every(r=>r.blob.length===40&&r.path.startsWith('next/src/content/events/')));

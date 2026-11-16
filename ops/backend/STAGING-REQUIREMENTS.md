@@ -82,3 +82,30 @@ to `refreshPublishedEvents`, using a source commit proven to match the published
 site. The legacy writer remains unchanged today. Live answer acceptance and an
 actual subsequent scheduled run remain separate release gates. No private API
 CI, deployment, paid embedding calls or infrastructure creation is authorized.
+
+## Offline workflow preparation and CMS race release decision
+
+`planEventRefresh` is a pure, inactive plan builder for the existing daily run
+and a future successful post-publish event. Both require an immutable commit
+matching a successful production publication receipt and share the existing
+`concierge-corpus` concurrency group. The receipt is caller-provided evidence:
+this helper does not authenticate GitHub deployments, prove which deployment is
+latest, dispatch jobs or activate the writer. No workflow YAML has changed.
+A future adapter must obtain the latest successful production receipt from the
+actual publisher and verify its provenance and checkout before calling the writer.
+
+The synthetic orchestration regression changes CMS at two precise boundaries.
+During embeddings, the final revision check rejects publication without a commit.
+After that check, a CMS change during index commit produces a valid atomic index
+snapshot with an older CMS revision. The next refresh reconciles it. This test
+intentionally proves the limitation; it does not certify cross-project freshness.
+
+Release requires an explicit consistency policy. A second check after commit can
+report drift but cannot eliminate it; blind rollback can overwrite a concurrent
+valid refresh. Strict current-CMS answers require request-time revision checking
+with fail-closed behaviour, or a coordinated publication mechanism covering both
+stores. Neither is installed or accepted here. Until a policy is implemented,
+reviewed and exercised through managed PostgREST, this remains a release blocker.
+Managed roles, exhaustive role-visible CMS export, actual scheduler provenance,
+paired rollback and live answers remain separate gates. A manual run is never
+proof of daily execution.
