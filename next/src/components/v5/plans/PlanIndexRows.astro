@@ -18,7 +18,7 @@ const caption = (image: { caption?: string; credit?: string } | null) => image?.
 <section class="plan-index" id="all-plans" aria-labelledby="all-plans-heading" data-plan-index>
   <div class="container">
     <div class:list={['plan-index__lead', pickInGrid && 'plan-index__lead--plain']}>
-      {pickInGrid && <h2 id="all-plans-heading">All {itineraries.length} plans</h2>}
+      {pickInGrid && <h2 id="all-plans-heading">Ready-made itineraries</h2>}
       <div class="plan-index__open">
         <slot name="intro" />
         {!pickInGrid && <p class="plan-index__trust">{itineraries.length} ready-made days and weekends{planChecked ? `, ${planChecked}` : ''}. Never paid for. <a href="/about/#how-we-choose">How we choose</a></p>}
@@ -32,7 +32,7 @@ const caption = (image: { caption?: string; credit?: string } | null) => image?.
           <p>{pick.editorialReason}</p>
           <p class="plan-index__meta">{pick.meta.join(' · ')}</p>
           <a class="plan-index__go" href={pick.href} data-evt="card_click" data-entity-type={pick.entityType} data-entity-slug={pick.slug} data-surface="plans-index-cta">See the {pick.displayTitle} plan <span aria-hidden="true">→</span></a>
-          <button class="pi-btn pi-btn--text plan-index__use" type="button" data-plan-fork={pick.id} aria-label={`Add to My Trip: ${pick.title}`}>Add to My Trip</button>
+          <button class="pi-btn pi-btn--text plan-index__use" type="button" data-plan-fork={pick.id} aria-label={`Use this itinerary: ${pick.title}`}>Use this itinerary</button>
         </div>
         {pick.image && <figure class="plan-index__media">
           <img src={pick.image.src} alt={pick.image.alt} loading="eager" fetchpriority="high" decoding="async" width="720" height="480" data-pi-responsive="(max-width: 720px) calc(100vw - 32px), (max-width: 1280px) 50vw, 640px"
@@ -52,6 +52,7 @@ const caption = (image: { caption?: string; credit?: string } | null) => image?.
         <h3><a href={plan.href} data-evt="card_click" data-entity-type={plan.entityType} data-entity-slug={plan.slug} data-surface="plans-index">{plan.displayTitle}</a></h3>
         <p>{plan.editorialReason}</p>
         <p class="plan-index__meta">{plan.meta.join(' · ')}</p>
+        {pickInGrid && <button class="pi-btn pi-btn--text plan-index__use plan-card__use" type="button" data-plan-fork={plan.id} aria-label={`Use this itinerary: ${plan.title}`}>Use this itinerary</button>}
       </article>)}
     </div>
   </div>
@@ -95,6 +96,8 @@ const caption = (image: { caption?: string; credit?: string } | null) => image?.
   .plan-index__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-7) var(--space-6);margin-top:var(--space-8)}
   /* The whole card is the link: the title's hit area covers the card. */
   .plan-card{position:relative;min-width:0}
+  /* The trip action sits above the card-wide title link so it stays clickable. */
+  .plan-card__use{position:relative;z-index:1;margin-inline-start:0}
   .plan-card__media{margin-bottom:var(--space-4)}
   .plan-card h3 a::after{content:'';position:absolute;inset:0}
   .plan-card h3 a:focus-visible{outline:none}.plan-card:has(h3 a:focus-visible){outline:2px solid var(--accent);outline-offset:6px;border-radius:var(--radius-s)}
