@@ -60,3 +60,7 @@ The projection deliberately represents only the next verified occurrence within 
 Run `node --test ops/scripts/concierge-events.integration.test.mjs` for the actual CLI with all network calls intercepted, including 2001 existing rows and a failed write that suppresses pruning. Run `node ops/scripts/audit-concierge-events.mjs --now ISO_INSTANT --out OUTSIDE_REPO.json` to account for current local source records without credentials, database access or model calls. A projected outcome is NOT an indexed receipt.
 
 The writer remains sequential and is not an atomic last-known-good system. Suppressing prune after an error does not roll back earlier writes or a crash. This candidate is held from release until staged inventory/retrieval evidence, exact-head independent review and CI pass. Live calls that incur embedding/model cost are not authorised by this package. No post-publish trigger or duplicate job is added, and no live freshness or answer-grounding improvement is claimed.
+
+## Failure-safe staging prototype
+
+[STAGING.md](./STAGING.md) describes the isolated SQLite crash/retry integration, snapshot-bound synthetic retrieval and supported staging options. This prototype does not replace the non-atomic production writer or connect to a service. Run it with `node --test ops/ask-pi-quality/staged-index.test.mjs`; Python 3 with sqlite3 is required. The report runner now includes this test suite.
