@@ -52,7 +52,7 @@ export function selectEventPromotions(entries, { now = new Date(), windowDays = 
       const day = isoDate(date), occurrence = resolveListingOccurrence(data, rule, day, now);
       if (!occurrence?.bookable || occurrence.phase === 'past') continue;
       if (date < firstDay && (occurrence.phase !== 'running' || !occurrence.crossesMidnight ||
-          (rule.kind === 'range' && isoDate(rule.start) !== isoDate(rule.end)) ||
+          (rule.kind === 'range' && isoDate(rule.start) !== isoDate(rule.end) && occursOnDay(rule, firstDay)) ||
           isoDate(occurrence.endsAt) < isoDate(start))) continue;
       const effective = occurrence.data ?? data;
       // Explicit moved sessions remove their old location. No shared receipt

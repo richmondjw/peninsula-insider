@@ -27,6 +27,19 @@ test('multi-day running range retains current-day selection, not the new overnig
   const entry=fixture({startDate:new Date('2026-12-10'),endDate:new Date('2026-12-14')});
   assert.equal(selectEventPromotions([entry],{now:new Date('2026-12-12T13:30:00Z'),windowDays:1})[0].day,'2026-12-13');
 });
+test('confirmed-only and multi-day final overnight sessions remain only until their actual finish',()=>{
+  const clock=new Date('2026-12-12T13:30:00Z');
+  const records=[
+    fixture({startDate:new Date('2026-05-09'),endDate:new Date('2026-05-09'),nextOccurrence:new Date('2026-12-12'),occurrencePolicy:'confirmed-only',recurrence:'monthly',startTime:'23:00',endTime:'02:00',endsNextDay:true}),
+    fixture({startDate:new Date('2026-12-10'),endDate:new Date('2026-12-12'),startTime:'23:00',endTime:'02:00',endsNextDay:true})
+  ];
+  for(const entry of records){
+    const [hit]=selectEventPromotions([entry],{now:clock,windowDays:1});
+    assert.equal(hit.day,'2026-12-12');assert.equal(hit.occurrence.phase,'running');
+    assert.equal(selectEventPromotions([entry],{now:new Date('2026-12-12T15:00:01Z'),windowDays:1}).length,0);
+    for(const patch of [{cancelled:true},{postponed:true},{endTime:undefined,endsNextDay:undefined}])assert.equal(selectEventPromotions([{...entry,data:{...entry.data,...patch}}],{now:clock,windowDays:1}).length,0);
+  }
+});
 function fixture(extra={}) {return {id:'synthetic-session',data:{slug:'synthetic-session',title:'Synthetic session',status:'published',venueName:'Synthetic venue',suburb:'Mornington',place:{id:'mornington'},venue:{id:'synthetic-venue'},startDate:new Date('2026-10-10'),endDate:new Date('2026-10-10'),startTime:'10:00',endTime:'17:00',summary:'Synthetic fixture only',...extra}};}
 function approved(extra={}) {const e=fixture({...extra,intelligence:{revision:'fixture-revision',approvedBy:'James',approvedAt:'2026-10-09T10:00:00Z',reviewedAt:'2026-10-09T10:00:00Z',factScore:100,evidenceIds:['fixture-evidence'],geography:{shireConfirmed:true,verifiedBy:'James',evidenceId:'fixture-location',checkedAt:'2026-10-09T10:00:00Z'}}});e.data.intelligence.approvedContent=approvedEventContent(e.data);return e;}
 

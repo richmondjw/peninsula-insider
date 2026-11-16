@@ -38,7 +38,8 @@ export function validateManifest(m) {
   if (!m.pages.length || m.pages[0].cursor !== null || m.pages.at(-1).nextCursor !== null ||
       m.pages.some((p,i) => p.snapshot !== m.sourceRevision || !Array.isArray(p.ids) || (i > 0 && (p.cursor == null || p.cursor !== m.pages[i-1].nextCursor))) ||
       new Set(m.pages.map(p => p.cursor)).size !== m.pages.length || JSON.stringify(pageIds) !== JSON.stringify(ids)) errors.push('pagination-not-exhaustive');
-  if (!Array.isArray(m.previousIndexedIds) || !Array.isArray(m.removedIds)) errors.push('deletion-schema');
+  if (!Array.isArray(m.previousIndexedIds) || !Array.isArray(m.removedIds) ||
+      [m.previousIndexedIds,m.removedIds].some(ids=>ids.some(id=>!nonempty(id))||new Set(ids).size!==ids.length)) errors.push('deletion-schema');
   else {
     const removed = m.previousIndexedIds.filter(id => !rowIds.includes(id)).sort();
     if (JSON.stringify(removed) !== JSON.stringify([...m.removedIds].sort())) errors.push('deletion-accounting');
@@ -49,6 +50,16 @@ export function validateManifest(m) {
 export function cacheKey(m) { return hash([m.id,m.sourceDigest,bundleKey(m.bundle)]); }
 export function promote(previous, candidate) {
   const errors = validateManifest(candidate);
+  if(previous!==null&&validateManifest(previous).length)errors.push('invalid-predecessor');
+  if(errors.length) return {active:previous,promoted:false,errors};
+  // A replay of the exact active immutable snapshot is an idempotent no-op.
+  // A reused ID with different bytes is never a retry.
+  if(previous && candidate.id===previous.id) return hash(candidate)===hash(previous)
+    ? {active:previous,promoted:true,errors:[]}
+    : {active:previous,promoted:false,errors:['snapshot-id-reused']};
+  const previousIds=previous?previous.indexRows.map(r=>r.id).sort():[];
+  if(candidate.previousManifestDigest!==(previous?hash(previous):null)||
+    JSON.stringify([...candidate.previousIndexedIds].sort())!==JSON.stringify(previousIds)) errors.push('predecessor-binding');
   if (errors.length) return { active: previous, promoted: false, errors };
   // Return a detached, immutable-by-contract copy; no mutation of the old snapshot.
   return { active: structuredClone(candidate), promoted: true, errors: [] };

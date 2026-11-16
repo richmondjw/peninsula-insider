@@ -22,6 +22,16 @@ test('development fixture schema rejects invalid clock, duplicate identity and i
   for (const f of fixtures.cases) assert.deepEqual(validateFixture(f),[]);
   for (const patch of [{now:'not-a-date'}, {context:{...baseline.context,start:'2026-02-30'}}, {records:[...baseline.records,...baseline.records]}]) assert(validateFixture({...baseline,...patch}).length);
 });
+test('malformed fixture shapes and missing evidence revisions fail closed',()=>{
+  for(const f of [null,{}, {...baseline,now:42},{...baseline,records:{}},{...baseline,records:[null]},{...baseline,records:[{...baseline.records[0],revision:undefined}]}]) {
+    assert(validateFixture(f).length);assert.equal(evaluateClaims(f,{disposition:'abstain',claims:[]}).pass,false);
+  }
+});
+test('malformed candidate claims and side-effect containers cannot pass',()=>{
+  const good=candidateFor(baseline);
+  for(const candidate of [null,{...good,actions:{}},{...good,privateData:{secret:'synthetic'}},{...good,unknownField:true},{...good,claims:[null]},
+    ...[{revision:undefined},{bookingAvailable:'yes'},{bookingAvailable:1},{startTime:900},{place:{id:'red-hill'}}].map(patch=>({...good,claims:[{...good.claims[0],...patch}]}))])assert.equal(evaluateClaims(baseline,candidate).pass,false);
+});
 test('valid grounded answer is accepted; blanket abstention on answerable task fails', () => {
   assert.equal(evaluateClaims(baseline,candidateFor(baseline)).pass,true);
   assert.equal(evaluateClaims(baseline,{disposition:'abstain',claims:[]}).pass,false);
@@ -63,7 +73,7 @@ const mutations = [
   ['old source instead of CMS override',m=>m.indexRows[0].revision='source-v1'],
   ['duplicate index identity',m=>m.indexRows.push(m.indexRows[0])],
   ['unexpected stale row',m=>m.indexRows.push({id:'deleted-c',revision:'old'})],
-  ['missing delete receipt',m=>m.removedIds=[]],
+  ['incorrect delete receipt',m=>m.removedIds=['unexpected-delete']],
   ['partial source traversal',m=>m.pages[0].nextCursor='page-2'],
   ['mixed snapshot pagination',m=>m.pages[0].snapshot='old-commit'],
   ['page cap drops source id',m=>m.pages[0].ids.pop()],
@@ -76,7 +86,9 @@ const mutations = [
   ['retrieval predates ingestion',m=>m.retrievedAt='2026-10-01T00:00:00Z'],
 ];
 for(const [label,mutate] of mutations) test(`manifest rejects ${label} and preserves last-known-good`,()=>{
-  const previous=manifest(),before=hash(previous),candidate=manifest();mutate(candidate);
+  const previous=manifest(),before=hash(previous),candidate=manifest();
+  candidate.id='snapshot-3';candidate.previousManifestDigest=hash(previous);candidate.previousIndexedIds=previous.indexRows.map(r=>r.id);candidate.removedIds=[];
+  mutate(candidate);assert(validateManifest(candidate).length);
   const result=promote(previous,candidate);
   assert.equal(result.promoted,false);assert.equal(result.active,previous);assert.equal(hash(previous),before);
 });
@@ -89,8 +101,22 @@ test('pagination exhausts more than 1000 records without losing any identities',
 });
 test('retry is idempotent; successful promotion never mutates previous snapshot',()=>{
   const previous=manifest(),before=hash(previous),candidate=manifest();candidate.id='snapshot-3';
+  candidate.previousManifestDigest=hash(previous);candidate.previousIndexedIds=previous.indexRows.map(r=>r.id);candidate.removedIds=[];
   const a=promote(previous,candidate),b=promote(a.active,candidate);
   assert.equal(a.promoted,true);assert.deepEqual(a.active,b.active);assert.equal(hash(previous),before);
+});
+test('promotion requires actual predecessor digest, ID parity and deletion receipts',()=>{
+  const previous=manifest();
+  const extra={id:'deleted-d',revision:'v1',effectiveRevision:'v1',admission:'index'};
+  previous.sourceRecords.push(extra);previous.sourceDigest=hash(previous.sourceRecords);previous.pages[0].ids.push(extra.id);
+  previous.outcomes.push({id:extra.id,revision:'v1',status:'indexed'});previous.indexRows.push({id:extra.id,revision:'v1'});
+  assert.deepEqual(validateManifest(previous),[]);
+  const candidate=manifest();candidate.id='snapshot-3';candidate.previousManifestDigest=hash(previous);candidate.previousIndexedIds=[];candidate.removedIds=[];
+  assert.deepEqual(validateManifest(candidate),[]);assert.equal(promote(previous,candidate).promoted,false);
+  candidate.previousIndexedIds=previous.indexRows.map(r=>r.id);candidate.removedIds=['deleted-d'];
+  assert.equal(promote(previous,candidate).promoted,true);
+  candidate.previousManifestDigest='fabricated';assert.equal(promote(previous,candidate).promoted,false);
+  candidate.previousManifestDigest=hash(previous);candidate.id=previous.id;assert.equal(promote(previous,candidate).promoted,false);
 });
 test('cache binding changes after correction and rollback needs compatible whole bundle receipt',()=>{
   const old=manifest(),current=manifest();current.id='snapshot-3';current.bundle.promptRevision='prompt-v2';
