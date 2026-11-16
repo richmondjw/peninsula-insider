@@ -71,13 +71,13 @@ World-renowned whip artist Nathan “Whippy” Griggs brings his Aussie Tour to 
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/whippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13/>)
 
-Arts  5 Dec
+Arts  6 Dec
 
-### [Deck the Chocolate Tree at The Chocolateries Mornington Peninsula](<https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-at-the-chocolateries-mornington-peninsula-2026-12-05/>)
+### [Sunday Sessions: Pottery Workshops at Peachy Keen Ceramics](<https://peninsulainsider.com.au/whats-on/sunday-sessions-pottery-workshops-at-peachy-keen-ceramics-2026-12-06/>)
 
-Looking for a truly sweet experience this Christmas?
+New to clay or returning to it?
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-at-the-chocolateries-mornington-peninsula-2026-12-05/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/sunday-sessions-pottery-workshops-at-peachy-keen-ceramics-2026-12-06/>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 

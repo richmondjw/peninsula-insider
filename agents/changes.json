@@ -1,20 +1,76 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-16T09:37:13.024Z",
+  "generatedAt": "2026-11-16T10:38:41.876Z",
   "baselineAvailable": true,
-  "fromSnapshot": "ca482d2b59eb2b493eaf6dbb5d5d0de81bdf3abf0357f232a0ea58744e9d4bd2",
-  "toSnapshot": "1da66225e7f9ace4cadcdfb5b3f630336dca541d381d7afa8453ec0db0ba164f",
-  "previousGeneratedAt": "2026-11-16T05:32:19.388Z",
+  "fromSnapshot": "1da66225e7f9ace4cadcdfb5b3f630336dca541d381d7afa8453ec0db0ba164f",
+  "toSnapshot": "63cda8c7d3fc6b38f30cf439a31ae4cd605bc83655e9bbbe13664a746220f257",
+  "previousGeneratedAt": "2026-11-16T09:37:13.024Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 1,
+  "count": 8,
   "changes": [
     {
-      "id": "https://peninsulainsider.com.au/explore/golf/",
+      "id": "https://peninsulainsider.com.au/explore/places/flinders/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/golf/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/golf/index.md",
-      "contentSha256": "7e678461abe59a38c2826c6119758d8971758184129be7539c2c077ea43af94f",
-      "previousContentSha256": "966179ce573b9247d2c5b90ea72e3d271b34afa9ddbc0c72d5fb8139c3140218"
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/flinders/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/flinders/index.md",
+      "contentSha256": "c836d0dc69e3181aecaa28813fd5e2069d7bdb7d4757f4746ee23a747669bea8",
+      "previousContentSha256": "7829931ce56bf1a343ed13862cfbac3993c37ba856bb997d229d726c0184620d"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/site-index/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/site-index/",
+      "markdownUrl": "https://peninsulainsider.com.au/site-index/index.md",
+      "contentSha256": "98bc97dc0b08e3e59f3b0908c5478a77fa0298c76720c038b832f49a78897e03",
+      "previousContentSha256": "3a016440fff4046b7c73099357cabb7669058f7f42f45174695695a6adaf8d97"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-2026-12-05/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-2026-12-05/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-2026-12-05/index.md",
+      "contentSha256": "ef8e30e6bdb6db66273850b35f091a09992d222d0a1c7e8d3724ec0a7c5c3550",
+      "previousContentSha256": "1994b7508b353c23c6ccd2d26bb7d871cf8755b6b30571d81a297d8204a01e79"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/improv-comedy-show-at-the-bay-hotel-mornington-2026-11-25/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/improv-comedy-show-at-the-bay-hotel-mornington-2026-11-25/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/improv-comedy-show-at-the-bay-hotel-mornington-2026-11-25/index.md",
+      "contentSha256": "1a25ce4cc02f71032d52a126cd7878123671499cf64c53a4f5aaf5d49dad3bf0",
+      "previousContentSha256": "6d2a0ca3d1222a9826ebdae29c38a1c615eb7a11505322d98bad8fc9ad3a4ccd"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/index.md",
+      "contentSha256": "672081501769d762a3df4f8570081aa3fe2ccf04d7ccb96ef8c5f99cb928d80c",
+      "previousContentSha256": "4eabd48468ee2a5000a106f8302b0d62080ab71eff9374d52d02c6d0bf4dcb1c"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/sunday-sessions-pottery-workshops-at-peachy-keen-ceramics-2026-12-06/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/sunday-sessions-pottery-workshops-at-peachy-keen-ceramics-2026-12-06/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/sunday-sessions-pottery-workshops-at-peachy-keen-ceramics-2026-12-06/index.md",
+      "contentSha256": "321790d84af2f972beaa69fd69aadc0560e91b5df23f14f22323018f9f2c705d",
+      "previousContentSha256": "3e8dfbe89d19e77bd729aa49ae5e63af5985b7f45443b014f835620644c5c121"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/whippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/whippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/whippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13/index.md",
+      "contentSha256": "8b82444decd920dbfd6c4495e35126c2864841397d91c17d7c0de5fc8ce90774",
+      "previousContentSha256": "9af0805c94557052732df1695af35920736f92f7ed0ebe6a2dff0e76e87e7916"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-at-the-chocolateries-mornington-peninsula-2026-12-05/",
+      "kind": "representation-removed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-at-the-chocolateries-mornington-peninsula-2026-12-05/",
+      "markdownUrl": null,
+      "contentSha256": null,
+      "previousContentSha256": "c540126da58f32688739a7acc20e9efcf7894b09f92e595eeec1d9d4e4cfb48b"
     }
   ]
 }

@@ -523,8 +523,6 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [Deck the Chocolate Tree](<https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-2026-12-05/>)
 
-- [Deck the Chocolate Tree at The Chocolateries Mornington Peninsula](<https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-at-the-chocolateries-mornington-peninsula-2026-12-05/>)
-
 - [Dee - Calmer Miles Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/dee-calmer-miles-live-at-peninsula-beer-garden-2026-11-20/>)
 
 - [Deja Vu Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/deja-vu-live-at-peninsula-beer-garden-2026-11-21/>)

@@ -379,19 +379,9 @@ Coming up in Flinders, pulled from the events registry.
 
 Flinders
 
-Decorate a milk couverture Christmas Tree with delicious ingredients. Starts 9am.
+Decorate a chocolate Christmas tree to take home in Flinders on 5–6 or 12–24 December. Drop in between 9am and 4pm; participation is subject to availability.
 
  Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-2026-12-05/>)
-
-- [Sat, 5 Dec
-
-### Deck the Chocolate Tree at The Chocolateries Mornington Peninsula
-
-Flinders
-
-Looking for a truly sweet experience this Christmas? Create the wonder of your own Christmas Chocolate Tree at The Chocolateries Mornington Peninsula. Starts 9am.
-
- Event · Arts](<https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-at-the-chocolateries-mornington-peninsula-2026-12-05/>)
 
 - [Sat, 21 Nov
 
