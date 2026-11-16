@@ -27,11 +27,15 @@ try {
       // Trigger native lazy images and intersection-based reveals throughout
       // the document before inspecting the full page, then restore its cover.
       await page.evaluate(async () => {
+        for (const img of document.images) img.loading = 'eager';
         for (let y = 0; y < document.documentElement.scrollHeight; y += innerHeight * 0.8) {
           scrollTo(0, y);
           await new Promise(resolve => setTimeout(resolve, 120));
         }
-        await Promise.all([...document.images].filter(img => img.currentSrc).map(img => img.decode().catch(() => {})));
+        await Promise.race([
+          Promise.all([...document.images].filter(img => img.currentSrc).map(img => img.decode().catch(() => {}))),
+          new Promise(resolve => setTimeout(resolve, 8000)),
+        ]);
         scrollTo(0, 0);
         await new Promise(resolve => setTimeout(resolve, 800));
       });
@@ -39,6 +43,7 @@ try {
         title: document.title,
         description: document.querySelector('meta[name="description"]')?.content,
         overflow: document.documentElement.scrollWidth > innerWidth,
+        unloadedImages: [...document.images].filter(img => img.getBoundingClientRect().width > 0 && (!img.complete || img.naturalWidth === 0)).map(img => ({ src: img.currentSrc || img.src, alt: img.alt })),
         headings: [...document.querySelectorAll('h1,h2')].map(el => el.textContent.trim()),
         actions: [...document.querySelectorAll('header a,.hub-entry a,.category-browse a')].map(el => ({ text: el.textContent.trim(), href: el.getAttribute('href') })),
         counts: [...document.querySelectorAll('[data-filter-count],[data-directory-progress-count],#result-count')].map(el => el.textContent.trim()),
