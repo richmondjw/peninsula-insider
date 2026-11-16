@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/explore/golf/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-11-02
+Modified: 2026-11-16
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -315,7 +315,7 @@ The mixed group question
 
 ## When one person plays, what does everyone else do?
 
-The Peninsula solves this better than almost anywhere else in Australia. The non-golfer's day can be as good as the golfer's - if you plan it properly.
+A golfer and non-golfer can build parallel plans here if the route, opening times and meeting point are agreed before either booking is made.
 
 ### Cape Schanck / Fingal golf
 
@@ -395,7 +395,7 @@ What is the best golf course on the Mornington Peninsula?
 
 Moonah Links Open Course for championship pedigree and full public access. St Andrews Beach for Tom Doak architecture at a public green fee. The National is a private club at Cape Schanck; eligible visitors should confirm access with the club before making plans.
 
-For a mid-handicapper who wants the best round rather than the most famous address: Moonah Links Open Course is the correct answer. The challenge is real, the conditioning is excellent, and the round does not end with the score card as the main memory.
+**PI view:** for a mid-handicapper who values a visitor-bookable championship layout, Moonah Links Open Course is a strong starting point. Compare its live tee times and playing demands with St Andrews Beach and The Dunes before choosing.
 
 Can you play golf on the Mornington Peninsula without a club membership?
 
@@ -423,9 +423,9 @@ Check a live route for the exact tee time before booking. Allow extra margin on 
 
 What is the best time of year for golf on the Mornington Peninsula?
 
-Autumn (March–May) and spring (September–November) are the strongest seasons - stable weather, firm course conditions, and shoulder-season pricing on green fees and accommodation. The coastal light in autumn is genuinely extraordinary on the Cape Schanck courses.
+There is no single best season. Check the forecast, daylight, course conditions, visitor availability and the club's current booking advice for your date.
 
-Summer (December–February) is busy and can be windy at coastal courses. Winter is playable on dry days but expect some course closures after heavy rain. Links-style courses like St Andrews Beach and The Dunes drain faster than parkland courses and often stay open when inland layouts close.
+Coastal courses can be exposed to wind, and conditions after heavy rain vary by venue. Confirm the live tee time, course status and cancellation policy directly with the club before travelling.
 
 Researched from published sources. Every course listed was reviewed April 2026 or later. The dated club links cover visitor access only. Green fees, opening hours, and visitor access policies change - verify directly with each course before booking.
 
