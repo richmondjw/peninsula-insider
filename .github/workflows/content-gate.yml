@@ -257,7 +257,6 @@ jobs:
         run: |
           node --test scripts/count-semantics.test.mjs
           node scripts/assert-count-semantics.mjs
-          npm run pdfs
           mkdir -p review/count-free-copy/downloads
           cp public/downloads/*.pdf review/count-free-copy/downloads/
           node scripts/review-count-free-copy.mjs

@@ -7,7 +7,7 @@ publishedAt: 2026-05-18T07:02:00+10:00
 expiresAt: 2026-05-19T06:00:00+10:00
 verifiedAt: 2026-05-18T06:57:00+10:00
 verifiedBy: quick-note-desk
-verdict: "Thermal circuit today, Chloe Gill Showcase Friday. Two reasons to be at the Springs this week - book both early."
+verdict: "Thermal circuit today, Chloe Gill Showcase Friday. Reasons to be at the Springs this week - book both early."
 sources:
   - kind: venue-site
     url: "https://www.peninsulahotsprings.com/whats-on/"

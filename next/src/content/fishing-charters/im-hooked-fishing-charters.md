@@ -53,7 +53,7 @@ The vessel is a 2024-built 24-foot Devil Cat catamaran, a twin-engine platform t
 
 ## Why we chose this charter
 
-Two reasons. First, the Oct to Dec snapper focus: I'm Hooked is one of the few operators who build the entire seasonal calendar around the southern bay's warm-water snapper run, rather than running snapper sessions as one of many product lines. Second, the catamaran platform: stability on a marginal-weather autumn morning is a genuine guest-experience advantage, not marketing copy. Skipper Mal's 40-plus years of Peninsula experience is real, and the multi-ramp operational model reflects deep knowledge of where the fish are at any given point in the season.
+First, the Oct to Dec snapper focus: I'm Hooked is one of the few operators who build the entire seasonal calendar around the southern bay's warm-water snapper run, rather than running snapper sessions as one of many product lines. Second, the catamaran platform: stability on a marginal-weather autumn morning is a genuine guest-experience advantage, not marketing copy. Skipper Mal's 40-plus years of Peninsula experience is real, and the multi-ramp operational model reflects deep knowledge of where the fish are at any given point in the season.
 
 The honest caveat: capacity caps at 8 passengers (6 offshore), so this is not the right call for a corporate group of 15 or a large event booking. For groups of two to eight wanting a genuinely skilled snapper session or a flexible mixed-bag day, this is a strong choice.
 

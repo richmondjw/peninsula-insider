@@ -53,6 +53,19 @@ try {
       const key = route === '/' ? 'home' : route.slice(1,-1).replaceAll('/','-');
       await page.screenshot({ path: `${out}/${key}-${width}.png`, fullPage: true });
       await page.screenshot({ path: `${out}/${key}-${width}-top.png` });
+      // Chromium can leave very tall full-page textures blank below 16k px.
+      // Retain real viewport captures for every lower segment as well.
+      const documentHeight = await page.evaluate(() => document.documentElement.scrollHeight);
+      observed.lowerSegments = [];
+      if (documentHeight > 15000) {
+        for (let y = 13500; y < documentHeight; y += 800) {
+          await page.evaluate(y => scrollTo(0, y), y);
+          await new Promise(resolve => setTimeout(resolve, 150));
+          const file = `${key}-${width}-lower-${y}.png`;
+          await page.screenshot({ path: `${out}/${file}` });
+          observed.lowerSegments.push(file);
+        }
+      }
       if (['/eat/', '/wine/', '/stay/', '/explore/'].includes(route)) {
         const contract = checkPage(route, await page.content());
         assert.equal(contract.skipped, false, 'directory total contract is present');

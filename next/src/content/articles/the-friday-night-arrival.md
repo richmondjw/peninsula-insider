@@ -111,12 +111,12 @@ The provisions-stop dinner looks like this: bread torn from a loaf, cheese on a 
 
 If you have a dinner reservation, Friday can start at the table.
 
-Check the restaurant's current Friday dinner service and allow for traffic before choosing a reservation time. These are two options with advertised Friday dinner service:
+Check the restaurant's current Friday dinner service and allow for traffic before choosing a reservation time. These options advertise Friday dinner service:
 
 - **Bistro Elba.** Sorrento's Southern French bistro. Reserve or check availability before leaving; the village is outside the window.
 - **Red Gum BBQ.** A relaxed barbecue dinner in Red Hill. Check the current Friday dining hours and book or order ahead if the venue recommends it.
 
-The booked dinner is the Friday arrival for couples without kids who want the weekend to start at the table rather than on the couch. It works. It just requires the forward planning that the other two options do not.
+The booked dinner is the Friday arrival for couples without kids who want the weekend to start at the table rather than on the couch. It works. It just requires the forward planning that the other options do not.
 
 ## The Saturday-morning dividend
 
