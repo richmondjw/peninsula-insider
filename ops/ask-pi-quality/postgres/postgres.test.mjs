@@ -6,9 +6,25 @@ import {fileURLToPath} from 'node:url';
 import {fixtures,baseline,input,bundle} from '../staging-fixtures.mjs';
 import {prepareSnapshot,retrieveGrounded,prepareRollback,commitPrepared} from '../staged-index.mjs';
 import {assertCiTarget,query,initialize,identifier,read,commit,storage,rankedCandidates} from './adapter.mjs';
+import {refreshConciergeSnapshot,SNAPSHOT_PROTOCOL} from '../../lib/concierge-snapshot-transport.mjs';
 const pgBundle={...bundle,embeddingModel:'synthetic-1024'};
 const vector=Array.from({length:1024},(_,i)=>i===0?1:0);
 const schemas=[];
+test('production writer RPC contract reaches the real transactional adapter and recovers lost acknowledgement',async()=>{
+ const db=await database();let commits=0;
+ const rpc=async(name,args)=>{
+  if(name==='concierge_snapshot_capabilities')return [{protocol:SNAPSHOT_PROTOCOL,atomicCommit:true,retainedRollback:true}];
+  if(name==='concierge_snapshot_read'){const value=await read(db,args.snapshot_token??undefined);return value?[value]:[];}
+  if(name==='concierge_snapshot_commit'){
+   commits++;await commit(db,{expectedToken:args.expected_token,token:args.snapshot_token,payload:args.snapshot_payload,operation:args.operation,runtimeBundle:args.runtime_bundle});
+   throw Error('synthetic lost HTTP acknowledgement');
+  }
+  throw Error('unsupported synthetic RPC');
+ };
+ const value=input();value.manifest.bundle=pgBundle;
+ const result=await refreshConciergeSnapshot({rpc,...value,dimensions:1024,embed:async()=>[...vector]});
+ assert.equal(result.recovered,true);assert.equal(commits,1);assert.equal((await read(db)).token,result.token);
+});
 async function database(){const name='pi_stage_'+randomUUID().replaceAll('-','');schemas.push(name);await initialize(name);return name;}
 async function prepare(f=baseline,previous=null,id='initial'){
  const value=input(f,previous,id);value.manifest.bundle=pgBundle;
