@@ -117,7 +117,7 @@ const featuredNote = featuredCount > 0
   : '';
 ---
 
-<section class:list={["v5-directory", { "v5-directory--columns-2": desktopColumns === 2, "v5-directory--full-verdicts": fullVerdicts }]} id={id} aria-labelledby={headingId} data-directory-rows data-noun={noun} data-directory-limit={initialLimit} data-directory-featured={featuredCount > 0 ? 'true' : undefined}>
+<section class:list={["v5-directory", { "v5-directory--columns-2": desktopColumns === 2, "v5-directory--full-verdicts": fullVerdicts }]} id={id} aria-labelledby={headingId} data-directory-rows data-noun={noun} data-directory-limit={initialLimit} data-directory-total={items.length} data-directory-featured-count={featuredCount} data-directory-featured={featuredCount > 0 ? 'true' : undefined}>
   <div class="container">
     <div class="v5-directory__header">
       <div>
@@ -207,7 +207,15 @@ const featuredNote = featuredCount > 0
     rows.forEach((row, index) => row.toggleAttribute('data-page-hidden', index >= shown));
     const progress = section.querySelector<HTMLElement>('[data-directory-progress]')!;
     progress.hidden = rows.length === 0;
-    progress.querySelector('[data-directory-progress-count]')!.textContent = `Showing ${Math.min(shown, rows.length)} of ${rows.length} ${section.dataset.noun || 'places'}`;
+    const noun = section.dataset.noun || 'places';
+    const visible = Math.min(shown, rows.length);
+    const total = Number(section.dataset.directoryTotal) || all.length;
+    const featured = Number(section.dataset.directoryFeaturedCount) || 0;
+    progress.querySelector('[data-directory-progress-count]')!.textContent = !narrowed && featured
+      ? `Showing ${visible} of ${rows.length} more ${noun} · ${featured} featured above · ${total} total`
+      : narrowed
+        ? `Showing ${visible} of ${rows.length} matching ${noun} · ${total} total`
+        : `Showing ${visible} of ${rows.length} ${noun}`;
     progress.querySelectorAll<HTMLButtonElement>('button').forEach((button) => (button.hidden = shown >= rows.length));
   }
 
