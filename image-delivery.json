@@ -9017,68 +9017,6 @@
       ]
     },
     {
-      "source": "/images/generated/coastal-punch-produce.webp",
-      "format": "webp",
-      "originalBytes": 92860,
-      "variants": [
-        {
-          "src": "/_media/9f9abb3a2054fb2319bd-480.webp",
-          "width": 480,
-          "height": 320,
-          "bytes": 16806
-        },
-        {
-          "src": "/_media/9f9abb3a2054fb2319bd-800.webp",
-          "width": 800,
-          "height": 533,
-          "bytes": 28364
-        },
-        {
-          "src": "/_media/9f9abb3a2054fb2319bd-1280.webp",
-          "width": 1280,
-          "height": 853,
-          "bytes": 45308
-        },
-        {
-          "src": "/_media/9f9abb3a2054fb2319bd-1536.webp",
-          "width": 1536,
-          "height": 1024,
-          "bytes": 60094
-        }
-      ]
-    },
-    {
-      "source": "/images/generated/coastal-punch-produce.webp",
-      "format": "avif",
-      "originalBytes": 92860,
-      "variants": [
-        {
-          "src": "/_media/13c68d4979f242c44edb-480.avif",
-          "width": 480,
-          "height": 320,
-          "bytes": 9519
-        },
-        {
-          "src": "/_media/13c68d4979f242c44edb-800.avif",
-          "width": 800,
-          "height": 533,
-          "bytes": 13727
-        },
-        {
-          "src": "/_media/13c68d4979f242c44edb-1280.avif",
-          "width": 1280,
-          "height": 853,
-          "bytes": 19155
-        },
-        {
-          "src": "/_media/13c68d4979f242c44edb-1536.avif",
-          "width": 1536,
-          "height": 1024,
-          "bytes": 24126
-        }
-      ]
-    },
-    {
       "source": "/images/visit-victoria/vv-143144-mornington-peninsula-regional-gallery.webp",
       "format": "avif",
       "originalBytes": 52460,
@@ -9286,6 +9224,68 @@
           "width": 1536,
           "height": 1024,
           "bytes": 11087
+        }
+      ]
+    },
+    {
+      "source": "/images/generated/events/wine.webp",
+      "format": "webp",
+      "originalBytes": 32106,
+      "variants": [
+        {
+          "src": "/_media/7ed23e9c0fa4a293b3a3-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 7928
+        },
+        {
+          "src": "/_media/7ed23e9c0fa4a293b3a3-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 13810
+        },
+        {
+          "src": "/_media/7ed23e9c0fa4a293b3a3-1280.webp",
+          "width": 1280,
+          "height": 853,
+          "bytes": 22548
+        },
+        {
+          "src": "/_media/7ed23e9c0fa4a293b3a3-1536.webp",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 30120
+        }
+      ]
+    },
+    {
+      "source": "/images/generated/events/wine.webp",
+      "format": "avif",
+      "originalBytes": 32106,
+      "variants": [
+        {
+          "src": "/_media/1c5c8a6cfd63e3c50353-480.avif",
+          "width": 480,
+          "height": 320,
+          "bytes": 4125
+        },
+        {
+          "src": "/_media/1c5c8a6cfd63e3c50353-800.avif",
+          "width": 800,
+          "height": 533,
+          "bytes": 6200
+        },
+        {
+          "src": "/_media/1c5c8a6cfd63e3c50353-1280.avif",
+          "width": 1280,
+          "height": 853,
+          "bytes": 8459
+        },
+        {
+          "src": "/_media/1c5c8a6cfd63e3c50353-1536.avif",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 11265
         }
       ]
     },
@@ -14169,6 +14169,37 @@
           "width": 1536,
           "height": 1024,
           "bytes": 32618
+        }
+      ]
+    },
+    {
+      "source": "/images/generated/events/cooking-class.webp",
+      "format": "webp",
+      "originalBytes": 56718,
+      "variants": [
+        {
+          "src": "/_media/6f43ccff2b4ee6db4ef7-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 13814
+        },
+        {
+          "src": "/_media/6f43ccff2b4ee6db4ef7-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 24436
+        },
+        {
+          "src": "/_media/6f43ccff2b4ee6db4ef7-1280.webp",
+          "width": 1280,
+          "height": 853,
+          "bytes": 39786
+        },
+        {
+          "src": "/_media/6f43ccff2b4ee6db4ef7-1536.webp",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 53522
         }
       ]
     },

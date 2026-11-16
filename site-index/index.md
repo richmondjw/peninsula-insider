@@ -605,8 +605,6 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [The Mount Martha Briars Twilight Market](<https://peninsulainsider.com.au/whats-on/the-mount-martha-briars-twilight-market-2026-12-27/>)
 
-- [The Peninsula Retreat at Alba Thermal Springs & Spa](<https://peninsulainsider.com.au/whats-on/the-peninsula-retreat-at-alba-thermal-springs-and-spa-2026-11-15/>)
-
 - [Tiana V Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/tiana-v-live-at-peninsula-beer-garden-2026-11-22/>)
 
 - [Tony J King Live at Fenian Wines](<https://peninsulainsider.com.au/whats-on/tony-j-king-live-at-fenian-wines-2026-12-19/>)

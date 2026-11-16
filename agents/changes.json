@@ -1,76 +1,60 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-16T10:38:41.876Z",
+  "generatedAt": "2026-11-16T13:51:58.005Z",
   "baselineAvailable": true,
-  "fromSnapshot": "1da66225e7f9ace4cadcdfb5b3f630336dca541d381d7afa8453ec0db0ba164f",
-  "toSnapshot": "63cda8c7d3fc6b38f30cf439a31ae4cd605bc83655e9bbbe13664a746220f257",
-  "previousGeneratedAt": "2026-11-16T09:37:13.024Z",
+  "fromSnapshot": "63cda8c7d3fc6b38f30cf439a31ae4cd605bc83655e9bbbe13664a746220f257",
+  "toSnapshot": "bf1c8b8e8a21ff0147f3a90b8f8703b05e3acd079523a39c52739da5799bf4f9",
+  "previousGeneratedAt": "2026-11-16T10:38:41.876Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 8,
+  "count": 6,
   "changes": [
     {
-      "id": "https://peninsulainsider.com.au/explore/places/flinders/",
+      "id": "https://peninsulainsider.com.au/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/flinders/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/flinders/index.md",
-      "contentSha256": "c836d0dc69e3181aecaa28813fd5e2069d7bdb7d4757f4746ee23a747669bea8",
-      "previousContentSha256": "7829931ce56bf1a343ed13862cfbac3993c37ba856bb997d229d726c0184620d"
+      "canonicalUrl": "https://peninsulainsider.com.au/",
+      "markdownUrl": "https://peninsulainsider.com.au/index.md",
+      "contentSha256": "84f36e95abe764861f3094ee394edcd350ecf2d666d70abe07269a24689f0836",
+      "previousContentSha256": "dc13b671a274b11a90bcf187bce9264354b664c5fd4d62ef37901e29dfe0baa4"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
+      "contentSha256": "fd1d6a202a44fcb6760c7b95bea24cebac871763e86ed4e745267cd1efbae9ce",
+      "previousContentSha256": "4829cc9dd248387df87c5f01812868c91184c7e26389a396e1644dd9c1bf4049"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/quick-note/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
+      "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
+      "contentSha256": "1da45953d76f782b222c6663b3e30ecd04f99c716246ab1a4dcebe56e4b47aa4",
+      "previousContentSha256": "c00851715734cab384f7d83baa2eaa0457854887364d114e236a4e1f07ef47bd"
     },
     {
       "id": "https://peninsulainsider.com.au/site-index/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/site-index/",
       "markdownUrl": "https://peninsulainsider.com.au/site-index/index.md",
-      "contentSha256": "98bc97dc0b08e3e59f3b0908c5478a77fa0298c76720c038b832f49a78897e03",
-      "previousContentSha256": "3a016440fff4046b7c73099357cabb7669058f7f42f45174695695a6adaf8d97"
+      "contentSha256": "408ee38ad825d2efa14eb86cd9337efcd7407cdfaa6130268f7f40f4b5b0c464",
+      "previousContentSha256": "98bc97dc0b08e3e59f3b0908c5478a77fa0298c76720c038b832f49a78897e03"
     },
     {
-      "id": "https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-2026-12-05/",
+      "id": "https://peninsulainsider.com.au/whats-on/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-2026-12-05/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-2026-12-05/index.md",
-      "contentSha256": "ef8e30e6bdb6db66273850b35f091a09992d222d0a1c7e8d3724ec0a7c5c3550",
-      "previousContentSha256": "1994b7508b353c23c6ccd2d26bb7d871cf8755b6b30571d81a297d8204a01e79"
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
+      "contentSha256": "5b90f3ac7ab441d1aaa7bb3ca41242c922bdda19e8fc3642c0e3eb086c8f5ad3",
+      "previousContentSha256": "9dd5c944619db5381e03011529a90c737874b858bd59762d5d989bbe7e725186"
     },
     {
-      "id": "https://peninsulainsider.com.au/whats-on/improv-comedy-show-at-the-bay-hotel-mornington-2026-11-25/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/improv-comedy-show-at-the-bay-hotel-mornington-2026-11-25/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/improv-comedy-show-at-the-bay-hotel-mornington-2026-11-25/index.md",
-      "contentSha256": "1a25ce4cc02f71032d52a126cd7878123671499cf64c53a4f5aaf5d49dad3bf0",
-      "previousContentSha256": "6d2a0ca3d1222a9826ebdae29c38a1c615eb7a11505322d98bad8fc9ad3a4ccd"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/index.md",
-      "contentSha256": "672081501769d762a3df4f8570081aa3fe2ccf04d7ccb96ef8c5f99cb928d80c",
-      "previousContentSha256": "4eabd48468ee2a5000a106f8302b0d62080ab71eff9374d52d02c6d0bf4dcb1c"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/sunday-sessions-pottery-workshops-at-peachy-keen-ceramics-2026-12-06/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/sunday-sessions-pottery-workshops-at-peachy-keen-ceramics-2026-12-06/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/sunday-sessions-pottery-workshops-at-peachy-keen-ceramics-2026-12-06/index.md",
-      "contentSha256": "321790d84af2f972beaa69fd69aadc0560e91b5df23f14f22323018f9f2c705d",
-      "previousContentSha256": "3e8dfbe89d19e77bd729aa49ae5e63af5985b7f45443b014f835620644c5c121"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/whippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/whippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/whippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13/index.md",
-      "contentSha256": "8b82444decd920dbfd6c4495e35126c2864841397d91c17d7c0de5fc8ce90774",
-      "previousContentSha256": "9af0805c94557052732df1695af35920736f92f7ed0ebe6a2dff0e76e87e7916"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-at-the-chocolateries-mornington-peninsula-2026-12-05/",
+      "id": "https://peninsulainsider.com.au/whats-on/the-peninsula-retreat-at-alba-thermal-springs-and-spa-2026-11-15/",
       "kind": "representation-removed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-at-the-chocolateries-mornington-peninsula-2026-12-05/",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/the-peninsula-retreat-at-alba-thermal-springs-and-spa-2026-11-15/",
       "markdownUrl": null,
       "contentSha256": null,
-      "previousContentSha256": "c540126da58f32688739a7acc20e9efcf7894b09f92e595eeec1d9d4e4cfb48b"
+      "previousContentSha256": "7a35598047bc86b824fd0206b8af1a22c77e9d56f0feace7f2eff2a7e3c4433d"
     }
   ]
 }

@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/whats-on/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-11-16
+Modified: 2026-11-17
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -12,14 +12,6 @@ Fri 20 – Sun 22 November  · Mornington Peninsula
 Find the date, place and reason to go, then check with the organiser before you head out.
 
 ## Three reasons to go
-
-- Sat, 21 Nov · 9am–2pm · Balnarring
-
-### [Emu Plains Market](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
-
-Emu Plains is the artisan market that actually feels like the Peninsula: stringybarks, music, makers you'd buy from twice.
-
-Markets
 
 - Mornington Peninsula Regional Gallery, Mornington   Photo: pru\_mitchell / Wikimedia Commons, CC BY 2.0.
 
@@ -38,6 +30,14 @@ Exhibitions
 Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery produce award-winning craft beers alongside diverse tastes as part of their whiskey and gin distillery.
 
 Live Music
+
+- Sun, 22 Nov · 11:30am–2pm · Merricks
+
+### [Culinary Garden Experience at Laura Pt Leo Estate](<https://peninsulainsider.com.au/whats-on/culinary-garden-experience-at-laura-pt-leo-estate-2026-11-22/>)
+
+For garden lovers, vegetarians and those with a passion for provenance, experience produce-to-plate at its most extraordinary. Once a year, Pt.
+
+Food & Wine
 
 ## Day by day
 
@@ -66,6 +66,14 @@ One-off chef’s lunch featuring an all-duck menu paired with pinot noir.
 Red Hill · Food & Wine
 
 ### Saturday 21 November
+
+- 9am
+
+[Emu Plains Market](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
+
+Emu Plains is the artisan market that actually feels like the Peninsula: stringybarks, music, makers you'd buy from twice.
+
+Balnarring · Markets · Recurring monthly
 
 - 10am
 
@@ -160,14 +168,6 @@ Moorooduc · Cellar Doors
 A VFMA-accredited village market with local growers and specialty makers, supported by the Mt Eliza Chamber of Commerce.
 
 Mount Eliza · Markets · Recurring monthly
-
-- 11.30am
-
-[Culinary Garden Experience at Laura Pt Leo Estate](<https://peninsulainsider.com.au/whats-on/culinary-garden-experience-at-laura-pt-leo-estate-2026-11-22/>)
-
-For garden lovers, vegetarians and those with a passion for provenance, experience produce-to-plate at its most extraordinary. Once a year, Pt.
-
-Merricks · Food & Wine
 
 - 1pm
 

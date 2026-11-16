@@ -627,16 +627,6 @@ Month
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
-- [Mon, 16 Nov
-
-### The Peninsula Retreat at Alba Thermal Springs & Spa
-
-Fingal
-
-Embrace the natural beauty of the Peninsula and the healing powers of water and nature with Alba’s two day Peninsula Retreat. The retreat includes a guided coastal hike, hot springs bathing across two days, wellness activities and all meals. Starts 11am.
-
- Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/the-peninsula-retreat-at-alba-thermal-springs-and-spa-2026-11-15/>)
-
 - [Wed, 18 Nov
 
 ### ✦ Mornington Wednesday Market (Main Street Market)
@@ -656,3 +646,13 @@ Mornington
 Join authors Anna Downes and Naima Brown as they discuss the art of storytelling and Anna's new book Dark Days Hotel.
 
  Event · Writers & Ideas](<https://peninsulainsider.com.au/whats-on/author-talk-anna-downes-naima-brown-mornington-library/>)
+
+- [Fri, 20 Nov
+
+### Dee - Calmer Miles Live at Peninsula Beer Garden
+
+Boneo
+
+Peninsula locals that are regulars on the music scene! Dee from The Calmer Miles exhibits a freshness and passion in her music.
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/dee-calmer-miles-live-at-peninsula-beer-garden-2026-11-20/>)

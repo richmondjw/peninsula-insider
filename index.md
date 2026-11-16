@@ -49,14 +49,6 @@ Red Hill wine country to the southern coast.
 
 Swipe or scroll through the picks
 
-- ### [Emu Plains Market](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
-
-Emu Plains is the artisan market that actually feels like the Peninsula: stringybarks, music, makers you'd buy from twice.
-
-Sat, 21 Nov   Emu Plains Reserve   Market
-
-Event details checked 16 Nov 2026 · [Organiser’s page](<https://www.emuplainsmarket.com.au/markets/november>)
-
 - Mornington Peninsula Regional Gallery, Mornington   Photo: Robert Blackburn, courtesy of Visit Victoria.
 
 ### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
@@ -74,6 +66,14 @@ Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery p
 Sat, 21 Nov   Tar Barrel   Live music
 
 Event details checked 9 Nov 2026 · [Organiser’s page](<https://tarbarrel.com.au/music/>)
+
+- ### [CREATE: Pottery for your table](<https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/>)
+
+Come along and make a charcuterie platter with Caitlin from Peachy Keen Ceramics.
+
+Sat, 21 Nov   Mornington Community House   Exhibition
+
+Event details checked 9 Nov 2026 · [Organiser’s page](<https://www.eventbrite.com.au/e/create-pottery-for-your-table-tickets-2003897868468>)
 
 ## Three ways into the Peninsula
 
