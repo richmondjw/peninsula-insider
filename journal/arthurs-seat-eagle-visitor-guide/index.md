@@ -121,45 +121,45 @@ Venue Guide   5 min
 
 Multiple travel websites still list Ashcombe as closed. It is not. The café re-opened January 2025, the maze is fully operating Thursday to Monday, and the lavender labyrinth uses 4,000 plants across 40+ varieties. Here is the accurate guide.
 
-Hub Guide   14 min
+Venue Guide   1 min
 
-### [The Mornington Peninsula Beach Guide](<https://peninsulainsider.com.au/journal/mornington-peninsula-beach-guide/>)
+### [Devilbend Farm Beer Co: a brewery on a working farm](<https://peninsulainsider.com.au/journal/devilbend-farm-beer-co/>)
 
-22 April 2026
+16 November 2026
 
-Front Beach, Back Beach and Western Port explained: which beaches are patrolled, where the dogs can go, what's currently closed, and how to plan the weekend around all three coastlines.
+Farm-grown brewing ingredients give this Tuerong taproom its particular reason to visit.
 
-Hub Guide   12 min
+Venue Guide   1 min
 
-### [Things to Do on the Mornington Peninsula](<https://peninsulainsider.com.au/journal/things-to-do-mornington-peninsula/>)
+### [Hickinbotham of Dromana: wine, beer and a restaurant](<https://peninsulainsider.com.au/journal/hickinbotham-of-dromana/>)
 
-22 April 2026
+16 November 2026
 
-From Australia's #1-ranked wildlife sanctuary to geothermal hot springs drawn from 637 metres underground, here's what's genuinely worth your time - including what's open, what's shut, and what's free.
+A Dromana estate for groups with more than one kind of tasting in mind.
 
-Service   8 min
+Venue Guide   1 min
 
-### [Dog-Friendly Beaches on the Mornington Peninsula](<https://peninsulainsider.com.au/journal/dog-friendly-beaches-mornington-peninsula/>)
+### [Mock Red Hill: the orchard farmgate and cider lounge](<https://peninsulainsider.com.au/journal/mock-red-hill/>)
 
-17 April 2026
+16 November 2026
 
-Six confirmed year-round off-leash beaches, the 9am–7pm rule every dog owner gets wrong, and the two active safety alerts that apply right now - including a poison baiting program active across the National Park until October 2026.
+Fruit, juice and cider put the family orchard at the centre of this Red Hill stop.
 
-Service   7 min
+Venue Guide   1 min
 
-### [The Peninsula with Kids: A Day That Doesn't Punish Anyone](<https://peninsulainsider.com.au/journal/the-peninsula-with-kids/>)
+### [The Briars: a walk and picnic in Mount Martha](<https://peninsulainsider.com.au/journal/the-briars/>)
 
-10 April 2026
+16 November 2026
 
-A working plan for parents who want the region to feel like a holiday, not a logistics problem. One lookout, one lunch with a garden, one beach, one coffee on the way home.
+A permanent conservation precinct with practical closure notices to read before choosing a walk.
 
-Service   7 min
+Venue Guide   1 min
 
-### [Casual Lunch on the Mornington Peninsula: Where to Eat Well Without Making a Day of It](<https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/>)
+### [The Pig & Whistle: pub meals and the Shed Theatre](<https://peninsulainsider.com.au/journal/the-pig-and-whistle/>)
 
-10 November 2026
+16 November 2026
 
-Not every Peninsula lunch needs a degustation and four hours. The places that do a relaxed, good midday meal, sorted by where you will be and who you are with.
+Plan a Main Ridge meal or a show using the pub’s separate booking channels.
 
 ## The Insider Note
 

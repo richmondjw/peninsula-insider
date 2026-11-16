@@ -315,7 +315,7 @@ Merricks   Walk-in welcome
 
 - ### [Stumpy Gully Vineyard](<https://peninsulainsider.com.au/wine/stumpy-gully-vineyard/>)
 
-A family-run estate with one of the Peninsula's broadest varietal ranges, Sangiovese, Marzemino, and Picolit alongside cool-climate classics.
+Seated wine tastings and Asian-fusion share plates at the Zantvoort family vineyard in Moorooduc.
 
 Moorooduc   Check ahead
 

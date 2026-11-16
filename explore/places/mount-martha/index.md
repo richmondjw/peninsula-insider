@@ -159,13 +159,13 @@ Weekend Picker   3 min
 
 Autumn closes and winter opens on the same patch of Main Ridge on Saturday: the Peninsula marking its own calendar.
 
-Service   7 min
+Venue Guide   1 min
 
-### [The Easter Peninsula: How to Do the Long Weekend Without Losing It to the Crowds](<https://peninsulainsider.com.au/explore/plans/the-easter-peninsula/>)
+### [The Briars: a walk and picnic in Mount Martha](<https://peninsulainsider.com.au/journal/the-briars/>)
 
-17 April 2026
+16 November 2026
 
-Easter is the Peninsula's first big four-day stress test of the year. Cars from town arrive Thursday afternoon, the cellar doors are full by Friday morning, and the bakeries run out of hot cross buns by Saturday lunch. Here is how to plan a long weekend that uses the holiday properly instead of fighting it.
+A permanent conservation precinct with practical closure notices to read before choosing a walk.
 
 Planning guides
 

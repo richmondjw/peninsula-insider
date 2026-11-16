@@ -25,17 +25,13 @@ Worth knowing
 
 **Best for**
 
-Cellar door visits · Wine lovers · Couples
+Cellar door visits · Wine lovers
 
 If you only do one thing
 
 Confirm current cellar-door hours and directions on the operator's site before travelling.
 
-Works well with
-
-Crittenden Restaurant
-
-Filed under   Cellar Door Slow All Year Couples Solo
+Filed under   Cellar Door Slow Couples Solo
 
 At a glance
 

@@ -13,18 +13,16 @@ Short daily briefs on openings, menu changes, booking windows and weather.
 
 No new notes yet this morning, so here is the latest from the Journal.
 
-Rare Hare at Willow Creek, Merricks North, Mornington Peninsula   Photo · Courtesy of Visit Victoria
+- [### Devilbend Farm Beer Co: a brewery on a working farm
 
-- [### Casual Lunch on the Mornington Peninsula: Where to Eat Well Without Making a Day of It
+Farm-grown brewing ingredients give this Tuerong taproom its particular reason to visit.](<https://peninsulainsider.com.au/journal/devilbend-farm-beer-co/>)
 
-Not every Peninsula lunch needs a degustation and four hours. The places that do a relaxed, good midday meal, sorted by where you will be and who you are with.](<https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/>)
+- [### Hickinbotham of Dromana: wine, beer and a restaurant
 
-- [### Date Night on the Mornington Peninsula: Where to Book for Two
+A Dromana estate for groups with more than one kind of tasting in mind.](<https://peninsulainsider.com.au/journal/hickinbotham-of-dromana/>)
 
-A sunset drink, a room worth dressing for and no long drive home. The Peninsula's best dinners for two, from a Sri Lankan wine bar on the ridge to a set menu in Flinders, and how to build the evening around them.](<https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/>)
+- [### Mock Red Hill: the orchard farmgate and cider lounge
 
-- [### The Mornington Peninsula in Summer: How to Do It Well
-
-Long light, warm bay water and the busiest roads of the year. A local's plan for summer on the Peninsula: which side to swim, when to move, what to book and what to leave loose.](<https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/>)
+Fruit, juice and cider put the family orchard at the centre of this Red Hill stop.](<https://peninsulainsider.com.au/journal/mock-red-hill/>)
 
 [See all Journal stories](<https://peninsulainsider.com.au/journal/>)

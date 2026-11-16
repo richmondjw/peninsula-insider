@@ -7,27 +7,25 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 The Journal · November
 
-# A good lunch without the four-hour degustation
+# Devilbend Farm Beer Co: a brewery on a working farm
 
-Relaxed midday meals across the Peninsula, sorted by where you will be and who you are with.
+Farm-grown brewing ingredients give this Tuerong taproom its particular reason to visit.
 
 Stories written by our editors. Never paid for. [How we choose](<https://peninsulainsider.com.au/about/#how-we-choose>)
 
-Rare Hare at Willow Creek, Merricks North, Mornington Peninsula. Photo courtesy of Visit Victoria.
-
 ## Latest stories
 
-### [Date Night on the Mornington Peninsula: Where to Book for Two](<https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/>)
+### [Hickinbotham of Dromana: wine, beer and a restaurant](<https://peninsulainsider.com.au/journal/hickinbotham-of-dromana/>)
 
-A sunset drink, a room worth dressing for and no long drive home. The Peninsula's best dinners for two, from a Sri Lankan wine bar on the ridge to a set menu in Flinders, and how to build the evening around them.
+A Dromana estate for groups with more than one kind of tasting in mind.
 
-10 Nov 2026
+16 Nov 2026
 
-### [The Mornington Peninsula in Summer: How to Do It Well](<https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/>)
+### [Mock Red Hill: the orchard farmgate and cider lounge](<https://peninsulainsider.com.au/journal/mock-red-hill/>)
 
-Long light, warm bay water and the busiest roads of the year. A local's plan for summer on the Peninsula: which side to swim, when to move, what to book and what to leave loose.
+Fruit, juice and cider put the family orchard at the centre of this Red Hill stop.
 
-10 Nov 2026
+16 Nov 2026
 
 ### [A spring visit to National Works on Paper](<https://peninsulainsider.com.au/journal/practical-spring-visit-national-works-on-paper/>)
 
@@ -53,17 +51,25 @@ The first coffee. A good breakfast. The day still ahead.
 
 9 Apr 2026
 
-Cape Schanck, Mornington Peninsula   Photo · Courtesy of Visit Victoria
+Rare Hare at Willow Creek, Merricks North, Mornington Peninsula   Photo · Courtesy of Visit Victoria
 
-### [Peninsula This Weekend - 11 to 12 July](<https://peninsulainsider.com.au/journal/peninsula-this-weekend-jul-11/>)
+### [A good lunch without the four-hour degustation](<https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/>)
 
-A proper wet winter weekend concentrates everything. The answer on a day like this is one indoor booking with some real weight to it - truffle country, a long lunch, or the pools when the air outside is genuinely cold.
+Relaxed midday meals across the Peninsula, sorted by where you will be and who you are with.
 
-10 July 2026
+10 Nov 2026
 
 ## Out & about
 
 [All places & weekends](<https://peninsulainsider.com.au/journal/?theme=towns-and-places#archive>)
+
+Cape Schanck, Mornington Peninsula   Photo · Courtesy of Visit Victoria
+
+### [The Peninsula's Best Late-Afternoon Walks](<https://peninsulainsider.com.au/journal/the-peninsulas-best-late-afternoon-walks/>)
+
+When lunch is over and the light starts improving, these are the walks that make the region feel larger, wilder, and worth staying for.
+
+8 Apr 2026
 
 Flinders Golf Club, Mornington Peninsula   Photo · Gary Lisbon, courtesy of Visit Victoria
 
@@ -81,14 +87,6 @@ A stay that shapes the trip, rather than simply hosts it.
 
 2 Apr 2026
 
-Sorrento, Mornington Peninsula   Photo · Courtesy of Visit Victoria
-
-### [A weekend beyond the summer strip](<https://peninsulainsider.com.au/journal/the-sorrento-weekend/>)
-
-Another way to spend a few days at the tip.
-
-12 Apr 2026
-
 ## Find your next read
 
 [Insider Picks archive](<https://peninsulainsider.com.au/picks/>)
@@ -99,7 +97,37 @@ Theme
 
 Month
 
-87 stories
+92 stories
+
+16 Nov 2026
+
+### [Devilbend Farm Beer Co: a brewery on a working farm](<https://peninsulainsider.com.au/journal/devilbend-farm-beer-co/>)
+
+ Food & wine
+
+16 Nov 2026
+
+### [Hickinbotham of Dromana: wine, beer and a restaurant](<https://peninsulainsider.com.au/journal/hickinbotham-of-dromana/>)
+
+ Food & wine
+
+16 Nov 2026
+
+### [Mock Red Hill: the orchard farmgate and cider lounge](<https://peninsulainsider.com.au/journal/mock-red-hill/>)
+
+ Food & wine
+
+16 Nov 2026
+
+### [The Briars: a walk and picnic in Mount Martha](<https://peninsulainsider.com.au/journal/the-briars/>)
+
+ Walks & outdoors
+
+16 Nov 2026
+
+### [The Pig & Whistle: pub meals and the Shed Theatre](<https://peninsulainsider.com.au/journal/the-pig-and-whistle/>)
+
+ Food & wine
 
 10 Nov 2026
 

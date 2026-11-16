@@ -17,15 +17,15 @@ Worth the drive   First timer
 
 Editor's verdict
 
-The shuttle ticket is the cleanest way to make a day of VineHop. The Festival Hub works better if you want one venue, parking and the main stage.
+Choose a shuttle ticket for four venues on one route, or the Festival Hub for a single-site day with parking and the main stage.
 
-VineHop is a one-day, adults-only craft drinks festival spread across seven venues on the Mornington Peninsula. The 2026 edition runs on Saturday 21 November from 11am to 7pm, with tastings, food trucks, bars and live music. The Festival Hub at The Briars is the largest base, while the other venues are designed to be reached by the festival buses or private transport.
+VineHop is a one-day, adults-only craft drinks festival spread across seven venues on the Mornington Peninsula. The 2026 edition runs on Saturday 21 November from 11am to 7pm, with tastings, food trucks, bars and live music. The six smaller venues close at 5.30pm; The Briars hub continues until 7pm. The Festival Hub at The Briars is the largest base, while the other venues are designed to be reached by the festival buses or private transport.
 
-The seven venues are Festival Hub at The Briars in Mount Martha, Devilbend Farm Beer, Phaedrus Estate, Stumpy Gully, Hickinbotham of Dromana, Mock Red Hill, and The Pig and Whistle Tavern featuring Tallarida. North and South shuttle tickets cover four venues on their route, transport and tastings. The published pickup times are around 10.30am to 11.15am, depending on the stop. Buses begin circulating between venues from 11.30am.
+The seven venues are Festival Hub at The Briars in Mount Martha, Devilbend Farm Beer, Phaedrus Estate, Stumpy Gully, Hickinbotham of Dromana, Mock Red Hill, and The Pig and Whistle Tavern, where Tallarida is listed among the bars. North and South shuttle tickets cover four venues on their route, transport and tastings. Confirm your departure stop and time with the organiser when choosing a shuttle ticket.
 
-General admission covers all seven venues but not transport. It suits a group with a private VineHop bus or a clear plan for taxis between stops. Drivers cannot attend as patrons, there is no parking at the smaller venues, and groups of 12 or more must use a VineHop private or shuttle bus. The event is strictly 18+, with no refunds listed on the ticket page.
+General admission covers all seven venues but not transport. It suits a group with a private VineHop bus or a clear plan for taxis between stops. Drivers of independently arranged private buses cannot attend as patrons, there is no parking at the smaller venues, and groups of 12 or more must use a VineHop private or shuttle bus. The event is strictly 18+, with no refunds listed on the ticket page.
 
-Ticket tiers and availability can change, so check Humanitix before booking. The practical choice for a first visit is a shuttle ticket, unless the Festival Hub's music and parking are the main draw.
+Ticket tiers and availability can change, so check Humanitix before booking.
 
 [Check the latest details at the source →](<https://vinehopfestival.com.au/>)
 

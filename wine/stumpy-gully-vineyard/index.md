@@ -9,39 +9,27 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Stumpy Gully Vineyard
 
-A family-run estate with one of the Peninsula's broadest varietal ranges, Sangiovese, Marzemino, and Picolit alongside cool-climate classics.
+Seated wine tastings and Asian-fusion share plates at the Zantvoort family vineyard in Moorooduc.
 
-Known for   Zuber family estate, among the Peninsula's most genuinely family-run operations Sangiovese, Marzemino, and Picolit alongside cool-climate Chardonnay and Pinot Noir One of the broadest varietal ranges of any Peninsula cellar door Relaxed, no-performance welcome, as genuine as the wine list is unusual Marzemino: the bottle to buy if it's available
+Known for   Zantvoort family vineyard Seated cellar-door tastings Blak Salt restaurant
 
-[Book a tasting](<https://stumpygully.com.au/>)  +61 3 5978 8429
+[Book a tasting](<https://stumpygully.com.au/>)  1800 788 679
 
 Stumpy Gully Vineyard · Moorooduc
 
-Why we’d go
+Stumpy Gully combines a cellar door with Blak Salt, its Asian-fusion restaurant, at 1247 Stumpy Gully Road in Moorooduc. The estate identifies Frank and Wendy Zantvoort as its founders and their son Michael as its winemaker.
 
-Every other cellar door on the Peninsula is built around Chardonnay and Pinot Noir. Stumpy Gully is the one that went somewhere else entirely, and got there with a genuine welcome.
+For a day with fewer stops, plan a tasting and lunch at the same estate. The cellar door requires bookings for groups of six or more. Festival admission and arrangements are separate from an ordinary cellar-door or restaurant booking.
 
-Stumpy Gully is the Zuber family's estate, and it shows in the way the place operates, not as a polished hospitality business but as a working vineyard where the people who grow the grapes are usually the people pouring the wine. That distinction matters when you're trying to understand what you're tasting.
-
-The varietal range is the estate's most distinctive feature. Where most Peninsula producers lean hard into Chardonnay and Pinot Noir, Stumpy Gully runs Sangiovese, Marzemino, and Picolit alongside the cool-climate staples. The Marzemino, a northern Italian variety rarely seen in Australian cellars, is the one to ask about specifically. Buy a bottle if it's available; it won't be easy to find elsewhere on the Peninsula, or anywhere else in Victoria for that matter.
-
-Book a tasting and don't rush it. The welcome here is genuine in a way that rewards the slower approach, stay long enough for a proper glass after the flight, and ask whatever questions you have about the varieties on the table.
+This is a researched venue guide based on the operator's published information, not a first-hand dining or tasting review.
 
 Worth knowing
 
 **Best for**
 
-Wine lovers · Cellar door visits · Couples · Family outings
+Cellar door visits · Wine lovers
 
-If you only do one thing
-
-Ask specifically about the Marzemino, and buy a bottle to take home if there's one available.
-
-Works well with
-
-Barmah Park Farm Kitchen · Barmah Park Vineyard
-
-Filed under   Cellar Door Slow All Year Couples Solo
+Filed under   Cellar Door Slow Couples Solo
 
 At a glance
 
@@ -55,11 +43,7 @@ Winery
 
 **Call**
 
-+61 3 5978 8429
-
-**Awards**
-
-Unusual Varietal Focus for the Peninsula
+1800 788 679
 
 **Website**
 
@@ -67,7 +51,7 @@ Unusual Varietal Focus for the Peninsula
 
 **Directions**
 
-[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.2923%2C145.1403>)
+[Get directions](<https://www.google.com/maps/dir/?api=1&destination=Stumpy%20Gully%20Vineyard%2C%201247%20Stumpy%20Gully%20Rd%2C%20Moorooduc%20VIC%203933>)
 
 **Live status**
 

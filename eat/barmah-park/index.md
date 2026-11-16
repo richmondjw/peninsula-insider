@@ -101,6 +101,8 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/eat/moorooduc-estate/>) [Book](<https://moorooducestate.com.au/>)
 
+Photo: Illustration: Peninsula Insider
+
 Winery  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
 ### [Phaedrus Estate](<https://peninsulainsider.com.au/eat/phaedrus-estate/>)

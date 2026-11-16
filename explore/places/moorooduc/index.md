@@ -157,6 +157,8 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/wine/moorooduc-estate/>) [Book](<https://moorooducestate.com.au/>)
 
+Photo: Illustration: Peninsula Insider
+
 Winery  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
 ### [Phaedrus Estate](<https://peninsulainsider.com.au/wine/phaedrus-estate/>)
@@ -316,8 +318,6 @@ Browse locations as a list
 - [Barmah Park Vineyard](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>) · winery
 
 - [Moorooduc Estate](<https://peninsulainsider.com.au/wine/moorooduc-estate/>) · winery
-
-- [Stumpy Gully Vineyard](<https://peninsulainsider.com.au/wine/stumpy-gully-vineyard/>) · winery
 
 - [Chalet Un at Woodman Estate](<https://peninsulainsider.com.au/stay/woodman-estate/>) · villa
 

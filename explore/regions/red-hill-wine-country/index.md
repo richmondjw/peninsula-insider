@@ -551,6 +551,8 @@ cellar door  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/wine/paringa-estate/>) [Book](<https://www.sevenrooms.com/reservations/paringaestatewineryrestaurant>)
 
+Photo: Illustration: Peninsula Insider
+
 Winery  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
 ### [Phaedrus Estate](<https://peninsulainsider.com.au/wine/phaedrus-estate/>)
@@ -765,13 +767,15 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/wine/stonier-wines/>) [Book](<https://www.stonier.com.au/visit>)
 
+Photo: Illustration: Peninsula Insider
+
 Winery  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
 ### [Stumpy Gully Vineyard](<https://peninsulainsider.com.au/wine/stumpy-gully-vineyard/>)
 
 1247 Stumpy Gully Rd, Moorooduc VIC 3933
 
-A family-run estate with one of the Peninsula's broadest varietal ranges, Sangiovese, Marzemino, and Picolit alongside cool-climate classics.
+Seated wine tastings and Asian-fusion share plates at the Zantvoort family vineyard in Moorooduc.
 
 cellar door  slow
 

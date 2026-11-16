@@ -117,45 +117,45 @@ Venue Guide   6 min
 
 The gondola ride to the highest point on the Mornington Peninsula is ticketed - several travel publications still list an outdated fare, so book direct for current prices. Everything else you need to know: hours, the Enchanted Adventure Garden, accessibility, and how to combine the visit.
 
-Service   8 min
+Venue Guide   1 min
 
-### [Dog-Friendly Beaches on the Mornington Peninsula](<https://peninsulainsider.com.au/journal/dog-friendly-beaches-mornington-peninsula/>)
+### [Devilbend Farm Beer Co: a brewery on a working farm](<https://peninsulainsider.com.au/journal/devilbend-farm-beer-co/>)
 
-17 April 2026
+16 November 2026
 
-Six confirmed year-round off-leash beaches, the 9am–7pm rule every dog owner gets wrong, and the two active safety alerts that apply right now - including a poison baiting program active across the National Park until October 2026.
+Farm-grown brewing ingredients give this Tuerong taproom its particular reason to visit.
 
-Service   7 min
+Venue Guide   1 min
 
-### [Casual Lunch on the Mornington Peninsula: Where to Eat Well Without Making a Day of It](<https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/>)
+### [Hickinbotham of Dromana: wine, beer and a restaurant](<https://peninsulainsider.com.au/journal/hickinbotham-of-dromana/>)
 
-10 November 2026
+16 November 2026
 
-Not every Peninsula lunch needs a degustation and four hours. The places that do a relaxed, good midday meal, sorted by where you will be and who you are with.
+A Dromana estate for groups with more than one kind of tasting in mind.
 
-Service   7 min
+Venue Guide   1 min
 
-### [The Mornington Peninsula in Summer: How to Do It Well](<https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/>)
+### [Mock Red Hill: the orchard farmgate and cider lounge](<https://peninsulainsider.com.au/journal/mock-red-hill/>)
 
-10 November 2026
+16 November 2026
 
-Long light, warm bay water and the busiest roads of the year. A local's plan for summer on the Peninsula: which side to swim, when to move, what to book and what to leave loose.
+Fruit, juice and cider put the family orchard at the centre of this Red Hill stop.
 
-Service   6 min
+Venue Guide   1 min
 
-### [Summer School Holidays on the Mornington Peninsula, 2026-27](<https://peninsulainsider.com.au/journal/summer-school-holidays-2026/>)
+### [The Briars: a walk and picnic in Mount Martha](<https://peninsulainsider.com.au/journal/the-briars/>)
 
-10 November 2026
+16 November 2026
 
-Six weeks, one Peninsula and a car full of children. The calm beaches, the outings worth the drive, the rainy-day backups and the timing that keeps the whole thing pleasant, from 19 December to late January.
+A permanent conservation precinct with practical closure notices to read before choosing a walk.
 
-Service   5 min
+Venue Guide   1 min
 
-### [Indoor Play on the Mornington Peninsula: Where to Go When the Weather Turns](<https://peninsulainsider.com.au/journal/indoor-play-mornington-peninsula/>)
+### [The Pig & Whistle: pub meals and the Shed Theatre](<https://peninsulainsider.com.au/journal/the-pig-and-whistle/>)
 
-7 August 2026
+16 November 2026
 
-When the weather turns and the kids need to run, these Peninsula indoor play venues give the day a plan. Here is what each one is good for, and what to check before you leave the house.
+Plan a Main Ridge meal or a show using the pub’s separate booking channels.
 
 ## The Insider Note
 

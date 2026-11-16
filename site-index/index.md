@@ -661,6 +661,8 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [Date Night on the Mornington Peninsula: Where to Book for Two](<https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/>)
 
+- [Devilbend Farm Beer Co: a brewery on a working farm](<https://peninsulainsider.com.au/journal/devilbend-farm-beer-co/>)
+
 - [Dog Daycare, Boarding, Groomers and Pet Shops on the Mornington Peninsula](<https://peninsulainsider.com.au/journal/dog-daycare-boarding-groomers-pet-shops-mornington-peninsula/>)
 
 - [Dog-Friendly Accommodation on the Mornington Peninsula](<https://peninsulainsider.com.au/journal/dog-friendly-accommodation-mornington-peninsula/>)
@@ -678,6 +680,8 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 - [Free Things to Do on the Mornington Peninsula](<https://peninsulainsider.com.au/journal/free-things-to-do-mornington-peninsula/>)
 
 - [The Hatted Restaurants of the Mornington Peninsula](<https://peninsulainsider.com.au/journal/hatted-restaurants-mornington-peninsula-2025/>)
+
+- [Hickinbotham of Dromana: wine, beer and a restaurant](<https://peninsulainsider.com.au/journal/hickinbotham-of-dromana/>)
 
 - [What to Do in Red Hill This Weekend: The Saturday Plan](<https://peninsulainsider.com.au/journal/how-to-build-a-red-hill-saturday/>)
 
@@ -716,7 +720,3 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 - [Insider Picks - 17 August 2026](<https://peninsulainsider.com.au/journal/insider-picks-2026-08-17/>)
 
 - [The Last Weekend of Winter](<https://peninsulainsider.com.au/journal/insider-picks-2026-08-27/>)
-
-- [Insider Picks: 1 September 2026](<https://peninsulainsider.com.au/journal/insider-picks-2026-09-01/>)
-
-- [Insider Picks: 2 September 2026](<https://peninsulainsider.com.au/journal/insider-picks-2026-09-02/>)

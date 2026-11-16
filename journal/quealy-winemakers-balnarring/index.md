@@ -97,6 +97,14 @@ Cellar Door Dispatch   6 min
 
 Not the biggest estates, not the flashiest rooms. The Peninsula cellar doors where the wines - and the people pouring them - actually change how you think about the region.
 
+Venue Guide   1 min
+
+### [Hickinbotham of Dromana: wine, beer and a restaurant](<https://peninsulainsider.com.au/journal/hickinbotham-of-dromana/>)
+
+16 November 2026
+
+A Dromana estate for groups with more than one kind of tasting in mind.
+
 Long Lunch List   7 min
 
 ### [The Winter Long Lunch: Vineyard Dining Room or Coastal Pub](<https://peninsulainsider.com.au/journal/the-winter-long-lunch/>)
@@ -120,14 +128,6 @@ Weekend Picker   3 min
 7 June 2026
 
 The week after King's Birthday: truffle season at its most available, cellar doors open and unhurried, and the Peninsula genuinely itself again.
-
-Editor's Letter   6 min
-
-### [Why the Peninsula Works Better in Winter](<https://peninsulainsider.com.au/journal/why-winter-works-on-the-peninsula/>)
-
-1 June 2026
-
-Empty dining rooms, cheaper rooms, and the particular quality of light that makes the ridge look like a different country. The case for coming in July rather than January.
 
 Mentioned in this piece
 

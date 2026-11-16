@@ -279,13 +279,13 @@ Service   7 min
 
 Not every Peninsula lunch needs a degustation and four hours. The places that do a relaxed, good midday meal, sorted by where you will be and who you are with.
 
-Service   8 min
+Venue Guide   1 min
 
-### [How to Plan a Peninsula Weekend: The Decision Framework](<https://peninsulainsider.com.au/explore/plans/how-to-plan-a-peninsula-weekend/>)
+### [Hickinbotham of Dromana: wine, beer and a restaurant](<https://peninsulainsider.com.au/journal/hickinbotham-of-dromana/>)
 
-10 April 2026
+16 November 2026
 
-Stop googling. Start here. A step-by-step planning guide that turns 'we should go to the Peninsula' into an actual weekend, with the decisions in the right order.
+A Dromana estate for groups with more than one kind of tasting in mind.
 
 Planning guides
 

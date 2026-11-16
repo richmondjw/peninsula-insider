@@ -9,7 +9,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Explore the Peninsula by location. Events show the next 30 days where the event location has been verified. [See all upcoming listings](<https://peninsulainsider.com.au/whats-on/>).
 
-166 on the map
+165 on the map
 
 - [View : Arthurs Seat](<https://peninsulainsider.com.au/explore/places/arthurs-seat/>)
 
@@ -228,8 +228,6 @@ Explore the Peninsula by location. Events show the next 30 days where the event 
 - [View : Stonier Wines](<https://peninsulainsider.com.au/wine/stonier-wines/>)
 
 - [View : Stringers Sorrento](<https://peninsulainsider.com.au/eat/stringers-sorrento/>)
-
-- [View : Stumpy Gully Vineyard](<https://peninsulainsider.com.au/wine/stumpy-gully-vineyard/>)
 
 - [View : T'Gallant](<https://peninsulainsider.com.au/wine/t-gallant/>)
 

@@ -95,7 +95,7 @@ Red Hill · Food & Wine
 
 [Peninsula VineHop Festival 2026](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
 
-The shuttle ticket is the cleanest way to make a day of VineHop. The Festival Hub works better if you want one venue, parking and the main stage.
+Choose a shuttle ticket for four venues on one route, or the Festival Hub for a single-site day with parking and the main stage.
 
 Mount Martha · Festivals
 
