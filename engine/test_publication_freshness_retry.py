@@ -29,6 +29,7 @@ class PublicationFreshnessRetryTest(unittest.TestCase):
         trigger = workflow.split("  workflow_run:\n", 1)[1].split("  workflow_dispatch:", 1)[0]
         watched = json.loads(re.search(r"workflows: (\[.*\])", trigger).group(1))
         self.assertEqual(watched, [deployment_name])
+        self.assertIn('--event "${GITHUB_EVENT_NAME:-}"', workflow)
         self.assertRegex(trigger, r"types: \[completed\]")
         # Failed deployment completion must not silence the source/live probe.
         job = workflow.split("  verify-publication:\n", 1)[1]
@@ -39,7 +40,7 @@ class PublicationFreshnessRetryTest(unittest.TestCase):
         self.assertIn("if: failure()", alert)
         self.assertIn("--dedup publication-freshness --severity fatal", alert)
 
-    def run_sequence(self, statuses, expected_status, attempts, sleeps, message):
+    def run_sequence(self, statuses, expected_status, attempts, sleeps, message, event="workflow_run"):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             probe = root / "python"
@@ -58,7 +59,7 @@ exit "${codes[count-1]:-99}"
             sleep.chmod(0o755)
             env = dict(os.environ, PATH=str(root) + os.pathsep + os.environ["PATH"],
                        ATTEMPT_LOG=str(root / "attempts"), SLEEP_LOG=str(root / "sleeps"),
-                       FRESHNESS_EXIT_CODES=" ".join(map(str, statuses)))
+                       FRESHNESS_EXIT_CODES=" ".join(map(str, statuses)), GITHUB_EVENT_NAME=event)
             result = subprocess.run(["bash", "-e", "-c", retry_script()], env=env,
                                     cwd=ROOT, capture_output=True, text=True, timeout=10)
             self.assertEqual(result.returncode, expected_status, result.stdout + result.stderr)
@@ -79,6 +80,12 @@ exit "${codes[count-1]:-99}"
 
     def test_fatal_source_failure(self):
         self.run_sequence([2], 2, 1, 0, "Source record failure (exit 2)")
+
+    def test_manual_success(self):
+        self.run_sequence([0], 0, 1, 0, "passed on attempt 1", event="workflow_dispatch")
+
+    def test_scheduled_source_failure_remains_fatal(self):
+        self.run_sequence([2], 2, 1, 0, "Source record failure (exit 2)", event="schedule")
 
     def test_unexpected_failure_is_not_retried(self):
         self.run_sequence([3], 3, 1, 0, "Unexpected freshness failure (exit 3)")
