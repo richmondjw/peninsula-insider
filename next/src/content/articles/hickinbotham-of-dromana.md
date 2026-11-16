@@ -1,61 +1,52 @@
 ---
-title: "Hickinbotham of Dromana: A Peninsula producer to verify before you build the day around it"
-dek: "Hickinbotham of Dromana sits in the long tail of Peninsula wine addresses that do not advertise themselves loudly. That usually means either a small producer worth seeking out or a venue whose current public access needs checking before you commit the drive."
-author: "editorial"
-houseByline: true
-publishedAt: 2026-05-02
-heroImage:
-  src: "/images/sourced/article-hickinbotham-of-dromana-01.webp"
-  alt: "Hickinbotham of Dromana vineyard and cellar-door setting on the Mornington Peninsula"
-  credit: "Peninsula Insider"
-  license: "tmp-wikimedia"
-format: "cellar-door-dispatch"
-tags: ["wine", "cellar-door", "dromana"]
-relatedVenues: ["hickinbotham-of-dromana"]
-readingTimeMinutes: 4
-featured: false
-status: "draft"
-lastVerified: 2026-05-02
-clusterLinks:
-  - label: "The Cellar Door Short List"
-    href: "/journal/the-cellar-door-short-list/"
-  - label: "Mornington Peninsula Winery Guide"
-    href: "/journal/mornington-peninsula-winery-guide/"
-faq:
-  - question: "What is Hickinbotham of Dromana known for?"
-    answer: "A smaller-scale Peninsula wine identity that merits direct verification before planning a dedicated visit."
-  - question: "Is Hickinbotham of Dromana worth visiting?"
-    answer: "Potentially yes - especially if you prefer small producers to big estate theatre - but confirm current tasting access before building a day around it."
-  - question: "Where is Hickinbotham of Dromana?"
-    answer: "Dromana, Mornington Peninsula - roughly 75 to 90 minutes from Melbourne depending on traffic."
+"title": "Hickinbotham of Dromana: wine, beer and a restaurant"
+"dek": "A Dromana estate for groups with more than one kind of tasting in mind."
+"author": "editorial"
+"houseByline": true
+"publishedAt": "2026-11-16"
+"heroImage":
+  "src": "/images/editorial/journal-backstop.svg"
+  "alt": "Original illustration of layered coastal hills, vineyard rows and a
+    sailboat under a warm sun"
+  "credit": "Peninsula Insider"
+  "caption": ""
+  "depicts": "a conceptual coastal landscape"
+  "depictionStatus": "illustrative"
+  "license": "other-licensed"
+  "creator": "Peninsula Insider"
+  "permission": "Original SVG artwork authored for Peninsula Insider on 8 October 2026."
+  "permittedUses":
+    - "website"
+    - "social"
+  "rightsHolder": "Peninsula Insider"
+  "rightsEstablishedOn": "2026-10-08"
+  "rightsStatus": "recorded"
+  "provenanceReview": "verified"
+  "decorative": false
+"format": "venue-guide"
+"tags":
+  - "wine"
+  - "food"
+"relatedPlaces":
+  - "dromana"
+"relatedEvents":
+  - "peninsula-vinehop-festival-2026"
+"readingTimeMinutes": 1
+"featured": false
+"status": "published"
+"editorialProvenance":
+  "method": "researched"
+  "checkedOn": "2026-11-16"
+  "checkedBy": "desk"
+"clusterLinks":
+  - "label": "VineHop Festival 2026"
+    "href": "/whats-on/peninsula-vinehop-festival-2026/"
 ---
 
-Public information on Hickinbotham of Dromana is thinner than it is for the Peninsula's headline estates, and that usually tells you something useful straight away. It reads as a smaller-scale producer, a private tasting setup, or a venue whose best use is for readers who already know why they are going.
+Wine, beer and a restaurant share the address at Hickinbotham of Dromana. The family says its wines are grown, made and bottled onsite; Hix adds a microbrewery to the same property. It is a useful option for a group whose interests extend beyond a wine tasting.
 
-Some of the Peninsula's most interesting wine experiences sit behind modest websites, irregular opening hours, and a phone-first booking culture. It does change the recommendation though. Hickinbotham of Dromana is not the kind of place to send a first-time visitor without a little homework first.
+Use the website's table-booking link for a meal reservation. Its general enquiry form is not the restaurant booking channel.
 
-## Why it may still be worth your time
+194 Nepean Highway, Dromana. [Official venue, menu and bookings](https://www.hickinbotham.biz/).
 
-The reason to keep venues like this on the list is simple: the Peninsula works best when it is not reduced to the same handful of big estates. Smaller operators often give you the part that matters most: a clearer sense of who made the wine, what scale they work at, and whether the visit is actually about the bottle rather than the backdrop.
-
-If Hickinbotham of Dromana is open for tastings when you want to go, expect a visit that is tighter, quieter, and more specific than the region's major hospitality estates. That is usually a good sign.
-
-### How to approach the visit
-
-Treat Hickinbotham of Dromana as a call-ahead address. Worth confirming current access, tasting format, and whether the venue is set up for walk-ins before building a day around it. If the answer is yes, slot it in as one of two stops (not five) and keep lunch elsewhere. That structure gives smaller producers room to be what they are good at.
-
-## How it fits
-
-For readers who like discovering low-profile Peninsula producers, Hickinbotham of Dromana is worth keeping on the working list. For first-timers chasing the cleanest possible day out, it is better used as a second-trip address after the regional benchmarks are covered.
-
-### What to confirm before you drive
-
-Check whether tastings are by appointment, whether wine sales are direct-to-door only, and whether the venue is operating as a true public cellar door at the moment. Small Peninsula wineries change rhythm seasonally and not all of them update that rhythm clearly online.
-
-## What you need to know
-
-- **Status:** Needs verification before visit.
-- **Best for:** Readers who prefer smaller producers to polished estates.
-- **Approach:** Contact first, then fold it into a two-stop day.
-- **Location:** Dromana, Mornington Peninsula region.
-- **Bottom line:** Interesting enough to keep on the radar, not yet confirmed enough to recommend blindly.
+Researched guide, not a first-hand review. Operator information checked 16 November 2026.

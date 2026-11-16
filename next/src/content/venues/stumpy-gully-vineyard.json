@@ -4,10 +4,6 @@
   "type": "winery",
   "place": "moorooduc",
   "zone": "hinterland",
-  "coordinates": {
-    "lat": -38.2923,
-    "lng": 145.1403
-  },
   "address": "1247 Stumpy Gully Rd, Moorooduc VIC 3933",
   "phone": "1800 788 679",
   "website": "https://stumpygully.com.au",
@@ -15,35 +11,38 @@
   "signature": "Seated wine tastings and Asian-fusion share plates at the Zantvoort family vineyard in Moorooduc.",
   "editorNote": "Stumpy Gully combines a cellar door with Blak Salt, its Asian-fusion restaurant, at 1247 Stumpy Gully Road in Moorooduc. The estate identifies Frank and Wendy Zantvoort as its founders and their son Michael as its winemaker.\n\nFor a day with fewer stops, plan a tasting and lunch at the same estate. The cellar door requires bookings for groups of six or more. Festival admission and arrangements are separate from an ordinary cellar-door or restaurant booking.\n\nThis is a researched venue guide based on the operator's published information, not a first-hand dining or tasting review.",
   "bestFor": [
-    "Wine lovers",
     "Cellar door visits",
-    "Couples",
-    "Family outings"
-  ],
-  "pairWith": [
-    "Barmah Park Farm Kitchen",
-    "Barmah Park Vineyard"
+    "Wine lovers"
   ],
   "tags": {
     "mood": [
       "cellar-door",
       "slow"
     ],
-    "season": [
-      "all-year"
-    ],
+    "season": [],
     "audience": [
       "couples",
       "solo"
     ]
   },
   "heroImage": {
-    "src": "/images/sourced/place-moorooduc-01.webp",
-    "alt": "Bunches of white wine grapes hanging on the vine among broad green leaves.",
-    "depicts": "bunches of white wine grapes on the vine",
+    "src": "/images/generated/events/wine.webp",
+    "alt": "Conceptual illustration of a stemmed glass of white wine beside a bunch of grapes",
+    "credit": "Illustration: Peninsula Insider",
+    "license": "other-licensed",
+    "caption": "",
+    "depicts": "a glass of white wine with grapes",
     "depictionStatus": "illustrative",
-    "credit": "Peninsula Insider",
-    "license": "other-licensed"
+    "creator": "Peninsula Insider, AI-assisted",
+    "permission": "Original AI-assisted artwork generated for Peninsula Insider event listings on 2026-11-09 (Higgsfield, Nano Banana 2.1, Coastal Punch house references), at James's instruction to fill missing event images. No third-party photographs, logos or artwork were incorporated.",
+    "permittedUses": [
+      "website"
+    ],
+    "rightsHolder": "Peninsula Insider",
+    "rightsEstablishedOn": "2026-11-09",
+    "rightsStatus": "recorded",
+    "provenanceReview": "verified",
+    "decorative": false
   },
   "gallery": [],
   "featuredPartner": false,
