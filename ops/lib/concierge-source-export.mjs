@@ -18,7 +18,8 @@ export function readPinnedEventSources(repo,revision) {
  const git=(args,options={})=>execFileSync('git',args,{cwd:repo,maxBuffer:32*1024*1024,...options});
  if(git(['cat-file','-t',revision],{encoding:'utf8'}).trim()!=='commit')fail('source revision is not a commit');
  const entries=git(['ls-tree','-rz',revision,'--','next/src/content/events/'],{encoding:'utf8'}).split('\0').filter(Boolean).map(line=>{
-  const [metadata,path]=line.split('\t'),[mode,type,blob]=metadata.split(' ');return {mode,type,blob,path};
+  const separator=line.indexOf('\t');if(separator<0)fail('source tree framing');
+  const metadata=line.slice(0,separator),path=line.slice(separator+1),[mode,type,blob]=metadata.split(' ');return {mode,type,blob,path};
  }).filter(row=>row.path.endsWith('.json'));
  if(!entries.length||entries.some(r=>r.type!=='blob'||r.mode!=='100644'||!r.path.startsWith('next/src/content/events/')))fail('source tree empty or unsupported entry');
  const output=git(['cat-file','--batch'],{input:entries.map(r=>r.blob).join('\n')+'\n'});let offset=0;
