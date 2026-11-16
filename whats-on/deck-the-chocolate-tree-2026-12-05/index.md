@@ -51,6 +51,10 @@ Weather flexible
 
 [Book or check details](<https://www.mpchoc.com.au/events/deck-the-chocolate-tree/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Deck+the+Chocolate+Tree&dates=20261204T220000Z%2F20261205T050000Z&details=Decorate+a+chocolate+Christmas+tree+to+take+home+in+Flinders+on+5%E2%80%936+or+12%E2%80%9324+December.+Drop+in+between+9am+and+4pm%3B+participation+is+subject+to+availability.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fdeck-the-chocolate-tree-2026-12-05%2F&location=The+Chocolateries+Mornington+Peninsula%2C+Flinders%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
+Filed under
+
+- Walk-In
+
 Keep planning
 
 ## More from What's On
