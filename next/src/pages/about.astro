@@ -222,7 +222,7 @@ const checkingSteps = [
   .pi-about__eyebrow > span { width: 2rem; height: 2px; background: var(--gold-text); flex: none; }
   .pi-about__eyebrow--light { color: #c6dce9; }
   .pi-about__hero-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(19rem, .6fr); gap: clamp(2rem, 5vw, 5.5rem); align-items: end; margin-top: 2rem; }
-  .pi-about__hero h1 { max-width: 12ch; margin: 0; font: 600 clamp(3.5rem, 6.5vw, 6.8rem)/1.04 var(--font-display); letter-spacing: -.065em; text-wrap: balance; }
+  .pi-about__hero h1 { max-width: 12ch; margin: 0; font: 600 clamp(3.5rem, 6.5vw, 6.8rem)/1.04 var(--font-display); letter-spacing: -.035em; text-wrap: balance; }
   .pi-about__intro { padding: 0 0 .4rem clamp(1.5rem, 2.5vw, 2.75rem); border-left: 1px solid #b8c4c8; }
   .pi-about__intro p { max-width: 36ch; margin: 0; font: 400 1rem/1.65 var(--font-ui); color: var(--soft); }
   .pi-about__intro .pi-about__standfirst { margin-bottom: 1rem; color: var(--text); font: 600 clamp(1.2rem, 1.65vw, 1.55rem)/1.45 var(--font-display); letter-spacing: -.025em; }
@@ -232,6 +232,8 @@ const checkingSteps = [
   .pi-about__jump > span { margin-right: auto; font: 700 .72rem/1.4 var(--font-ui); letter-spacing: .14em; text-transform: uppercase; color: var(--soft); }
   .pi-about__jump a, .pi-about__text-link { color: var(--accent); font: 700 .95rem/1.4 var(--font-ui); text-decoration: none; text-underline-offset: .25em; display: inline-flex; align-items: center; min-height: 44px; }
   .pi-about__jump a:hover, .pi-about__text-link:hover { text-decoration: underline; }
+  .pi-about__jump a { margin-inline: -.55rem; padding-inline: .55rem; border-radius: 999px; }
+  .pi-about__jump a[aria-current="location"] { color: var(--text); background: #e4ecec; text-decoration: none; }
   .pi-about__jump a span, .pi-about__text-link span { display: inline-block; margin-left: .15rem; }
   .pi-about__hero-photo { margin: clamp(1.5rem, 3vw, 2.5rem) 0 0; }
   .pi-about__hero-photo img { display: block; width: 100%; height: auto; aspect-ratio: 2.15; object-fit: cover; object-position: center 55%; border-radius: .35rem; }
@@ -240,24 +242,24 @@ const checkingSteps = [
   .pi-about__promise { background: #0b2e4a; color: #fff; padding: clamp(4rem, 6vw, 6rem) 0; }
   .pi-about__promise-grid { display: grid; grid-template-columns: minmax(12rem, .55fr) minmax(0, 1.45fr); gap: 3rem; }
   .pi-about__promise .pi-about__eyebrow { padding-top: .55rem; }
-  .pi-about__promise h2 { max-width: 18ch; margin: 0; color: #fff; font: 600 clamp(2.4rem, 4.1vw, 4.7rem)/1.13 var(--font-display); letter-spacing: -.055em; text-wrap: balance; }
+  .pi-about__promise h2 { max-width: 18ch; margin: 0; color: #fff; font: 600 clamp(2.4rem, 4.1vw, 4.7rem)/1.13 var(--font-display); letter-spacing: -.03em; text-wrap: balance; }
   .pi-about__promise p:last-child { max-width: 43ch; margin: 1.5rem 0 0; color: #d4e3ed; font: 400 clamp(1.05rem, 1.5vw, 1.3rem)/1.55 var(--font-ui); }
 
   .pi-about__method { padding: clamp(5rem, 8vw, 8.5rem) 0; scroll-margin-top: 8.25rem; }
   .pi-about__section-head { display: grid; grid-template-columns: minmax(12rem, .55fr) minmax(0, 1.45fr); gap: 3rem; align-items: start; }
   .pi-about__section-head .pi-about__eyebrow { padding-top: .5rem; }
-  .pi-about__section-head h2, .pi-about__current h2, .pi-about__next h2 { margin: 0; font: 600 clamp(2.5rem, 4vw, 4.5rem)/1.13 var(--font-display); letter-spacing: -.055em; text-wrap: balance; }
+  .pi-about__section-head h2, .pi-about__current h2, .pi-about__next h2 { margin: 0; font: 600 clamp(2.5rem, 4vw, 4.5rem)/1.13 var(--font-display); letter-spacing: -.03em; text-wrap: balance; }
   .pi-about__section-head p:last-child { max-width: 58ch; margin: 1.25rem 0 0; color: var(--soft); font: 400 clamp(1.1rem, 1.4vw, 1.3rem)/1.62 var(--font-ui); }
   .pi-about__questions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(3rem, 8vw, 9rem); margin: clamp(3.5rem, 6vw, 6rem) 0 0; padding: 0; list-style: none; border-bottom: 1px solid #ccd6d9; }
   .pi-about__questions li { display: grid; grid-template-columns: 3.5rem minmax(0, 1fr); column-gap: 1rem; align-content: start; padding: 1.8rem 0 2.5rem; border-top: 1px solid #ccd6d9; }
   .pi-about__number { grid-row: span 2; padding-top: .22rem; color: var(--gold-text); font: 700 .82rem/1.5 var(--font-ui); letter-spacing: .12em; }
-  .pi-about__questions h3 { margin: 0; font: 600 clamp(1.3rem, 2vw, 1.8rem)/1.25 var(--font-display); letter-spacing: -.035em; }
+  .pi-about__questions h3 { margin: 0; font: 600 clamp(1.3rem, 2vw, 1.8rem)/1.25 var(--font-display); letter-spacing: -.02em; }
   .pi-about__questions p { grid-column: 2; max-width: 40ch; margin: .7rem 0 0; color: var(--soft); font: 400 1.03rem/1.62 var(--font-ui); }
 
   .pi-about__check-standard { margin-top: clamp(3rem, 5vw, 5rem); padding: clamp(2rem, 4vw, 3.5rem); color: #fff; background: #0b2e4a; border-radius: .35rem; }
   .pi-about__check-standard-head { display: grid; grid-template-columns: minmax(12rem, .55fr) minmax(0, 1.45fr); gap: 3rem; }
   .pi-about__check-standard .pi-about__eyebrow { align-self: start; padding-top: .4rem; color: #c6dce9; }
-  .pi-about__check-standard h3 { max-width: 18ch; margin: 0; color: #fff; font: 600 clamp(2rem, 3.2vw, 3.5rem)/1.12 var(--font-display); letter-spacing: -.05em; }
+  .pi-about__check-standard h3 { max-width: 18ch; margin: 0; color: #fff; font: 600 clamp(2rem, 3.2vw, 3.5rem)/1.12 var(--font-display); letter-spacing: -.03em; }
   .pi-about__check-standard-head > div > p { max-width: 55ch; margin: 1rem 0 0; color: #d4e3ed; font: 400 1.05rem/1.62 var(--font-ui); }
   .pi-about__check-standard > ol { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 2.5rem; margin: 2.5rem 0 0; padding: 0; list-style: none; border-bottom: 1px solid #67879b; }
   .pi-about__check-standard > ol li { display: grid; grid-template-columns: 2.4rem minmax(0, 1fr); gap: .9rem; padding: 1.4rem 0 1.7rem; border-top: 1px solid #67879b; }
@@ -269,7 +271,7 @@ const checkingSteps = [
   .pi-about__example { display: grid; grid-template-columns: minmax(12rem, .55fr) minmax(0, 1.45fr); gap: 3rem; margin-top: clamp(3rem, 5vw, 5rem); padding: clamp(2rem, 4vw, 3rem); background: var(--bg-alt); border-radius: .35rem; }
   .pi-about__example .pi-about__eyebrow { align-self: start; padding-top: .4rem; }
   .pi-about__example blockquote { margin: 0; }
-  .pi-about__example blockquote p { max-width: 40ch; margin: 0; font: 500 clamp(1.3rem, 2vw, 1.8rem)/1.42 var(--font-display); letter-spacing: -.035em; }
+  .pi-about__example blockquote p { max-width: 40ch; margin: 0; font: 500 clamp(1.3rem, 2vw, 1.8rem)/1.45 var(--font-display); letter-spacing: -.02em; }
   .pi-about__example dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 2rem; margin: 1.5rem 0 0; }
   .pi-about__example dl div { padding-top: .8rem; border-top: 1px solid #ccd6d9; }
   .pi-about__example dt { color: var(--accent); font: 700 .72rem/1.4 var(--font-ui); letter-spacing: .12em; text-transform: uppercase; }
@@ -279,7 +281,7 @@ const checkingSteps = [
 
   .pi-about__independence { background: #123b56; color: #fff; padding: clamp(4.5rem, 7vw, 7rem) 0; scroll-margin-top: 8.25rem; }
   .pi-about__independence-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .9fr); gap: clamp(3rem, 7vw, 8rem); }
-  .pi-about__independence h2 { max-width: 13ch; margin: 1.6rem 0 0; color: #fff; font: 600 clamp(2.5rem, 4.2vw, 4.8rem)/1.1 var(--font-display); letter-spacing: -.055em; text-wrap: balance; }
+  .pi-about__independence h2 { max-width: 13ch; margin: 1.6rem 0 0; color: #fff; font: 600 clamp(2.5rem, 4.2vw, 4.8rem)/1.1 var(--font-display); letter-spacing: -.03em; text-wrap: balance; }
   .pi-about__independence-points { border-top: 1px solid #67879b; }
   .pi-about__independence-points > div { padding: 1.3rem 0 1.6rem; border-bottom: 1px solid #67879b; }
   .pi-about__independence-points h3 { margin: 0 0 .6rem; color: #f2c177; font: 700 .78rem/1.4 var(--font-ui); letter-spacing: .14em; text-transform: uppercase; }
@@ -315,7 +317,7 @@ const checkingSteps = [
   @media (max-width: 640px) {
     .pi-about__hero { padding: 2.5rem 0 3.5rem; }
     .pi-about__hero-grid { gap: 1.6rem; margin-top: 1.25rem; }
-    .pi-about__hero h1 { max-width: 12ch; font-size: clamp(2.8rem, 11.8vw, 4.2rem); letter-spacing: -.06em; }
+    .pi-about__hero h1 { max-width: 12ch; font-size: clamp(2.8rem, 11.8vw, 4.2rem); letter-spacing: -.035em; }
     .pi-about__intro { padding: 0; border-left: 0; }
     .pi-about__intro .pi-about__standfirst { font-size: 1.2rem; }
     .pi-about__jump { gap: .9rem 1.2rem; margin-top: 2.25rem; }
@@ -343,3 +345,33 @@ const checkingSteps = [
     .pi-about__next { padding: 4.5rem 0; }
   }
 </style>
+
+<script>
+  const jumpLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>('.pi-about__jump a[href^="#"]'));
+  const jumpTargets = jumpLinks
+    .map((link) => document.querySelector<HTMLElement>(link.hash))
+    .filter((target): target is HTMLElement => Boolean(target));
+
+  const markCurrentSection = (id: string) => {
+    jumpLinks.forEach((link) => {
+      if (link.hash === `#${id}`) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    });
+  };
+
+  if (jumpLinks.length && jumpTargets.length) {
+    if (location.hash && jumpTargets.some((target) => `#${target.id}` === location.hash)) {
+      markCurrentSection(location.hash.slice(1));
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (visible?.target.id) markCurrentSection(visible.target.id);
+    }, { rootMargin: '-22% 0px -58% 0px', threshold: [0, 0.1, 0.35] });
+
+    jumpTargets.forEach((target) => observer.observe(target));
+    jumpLinks.forEach((link) => link.addEventListener('click', () => markCurrentSection(link.hash.slice(1))));
+  }
+</script>
