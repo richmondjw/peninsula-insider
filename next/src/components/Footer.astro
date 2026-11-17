@@ -5,7 +5,7 @@
  * Editorial-publication footer with newsletter band, 5-column link grid
  * (Sections / The Insider / Work with Us / Readers / Contact + Social),
  * Acknowledgement of Country, and a full legal line naming the trading
- * sole trader (James William Richmond) with ABN.
+ * publisher trading name with ABN.
  *
  * Replaces the prior V2 colophon. Namespaced .pi-foot-* for clean
  * cohabitation; CSS inline so the component is self-contained.
@@ -176,7 +176,7 @@ const legalLinks: Link[] = [
 
     <div class="pi-foot__legal">
       <div class="pi-foot__legal-copy">
-        &copy; {year} James William Richmond trading as <strong>Peninsula Insider</strong>
+        &copy; {year} <a href="https://optiflows.com.au">OptiFlows</a> trading as <strong>Peninsula Insider</strong>
         <span class="pi-foot__dot">·</span> ABN 71 155 199 637
       </div>
       <ul class="pi-foot__legal-links">
@@ -387,6 +387,8 @@ const legalLinks: Link[] = [
     color: var(--ink-soft, #3A3531);
     font-weight: 500;
   }
+  .pi-foot__legal-copy a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+  .pi-foot__legal-copy a:focus-visible { outline: 2px solid var(--ochre, #26997e); outline-offset: 2px; }
   .pi-foot__dot {
     color: var(--ochre, #26997e);
     margin: 0 0.2rem;
