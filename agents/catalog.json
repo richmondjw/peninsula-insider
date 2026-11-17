@@ -1,7 +1,7 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-11-17T09:15:06.164Z",
-  "snapshotId": "afaec0f0de1ad1bdb16db9266972558755341ceb0ab9b59e2a221eedfb66906b",
+  "generatedAt": "2026-11-17T09:42:01.160Z",
+  "snapshotId": "1851e6bfa8305104edac26f820c31dddfcd41b563e6eab90e40d80f83b87fd30",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
@@ -642,7 +642,7 @@
       "section": "eat",
       "canonicalUrl": "https://peninsulainsider.com.au/eat/barmah-park/",
       "markdownUrl": "https://peninsulainsider.com.au/eat/barmah-park/index.md",
-      "contentSha256": "c34a4c0c8cfba8c96fa87a20c14048777e08cd003a1ea6eff20d9c06b6c1e01c",
+      "contentSha256": "6859c7fe280cf027777b084d2f60ae8a6dd28d26897be62937e3c92a454c895b",
       "citation": {
         "title": "Barmah Park Restaurant & Cellar Door",
         "publisher": "Peninsula Insider",
@@ -650,8 +650,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 157516,
-      "markdownBytes": 5333
+      "htmlBytes": 157414,
+      "markdownBytes": 5293
     },
     {
       "id": "https://peninsulainsider.com.au/eat/barragunda-dining/",
@@ -1772,7 +1772,7 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 159604,
+      "htmlBytes": 159812,
       "markdownBytes": 7389
     },
     {
@@ -2112,7 +2112,7 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 194413,
+      "htmlBytes": 194637,
       "markdownBytes": 8856
     },
     {
@@ -2248,7 +2248,7 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 249163,
+      "htmlBytes": 249371,
       "markdownBytes": 17541
     },
     {
@@ -2393,7 +2393,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/moorooduc/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/moorooduc/index.md",
-      "contentSha256": "a124a84dcb3fc78e7a38783dcabdd25e4bfb73022e039504ec4d0903cd3ea8a1",
+      "contentSha256": "a79e4c98f10dab7380c50a9e92c9458640e41019b9bdfc7a64e0bcd0ff87fa74",
       "citation": {
         "title": "Moorooduc",
         "publisher": "Peninsula Insider",
@@ -2401,8 +2401,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 203923,
-      "markdownBytes": 13664
+      "htmlBytes": 203821,
+      "markdownBytes": 13624
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/mornington/",
@@ -2571,7 +2571,7 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 223763,
+      "htmlBytes": 224263,
       "markdownBytes": 15413
     },
     {
@@ -3438,7 +3438,7 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 277375,
+      "htmlBytes": 277599,
       "markdownBytes": 24945
     },
     {
@@ -3455,7 +3455,7 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 295970,
+      "htmlBytes": 295986,
       "markdownBytes": 30862
     },
     {
@@ -3472,7 +3472,7 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 276725,
+      "htmlBytes": 277205,
       "markdownBytes": 28195
     },
     {
@@ -3481,7 +3481,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/index.md",
-      "contentSha256": "cb4e9acf5c5119186196a8e77b23c0cd19873d0a52f837f0336a64a7f739a0c7",
+      "contentSha256": "752d075b1dcbc90289ca02948be50342f72318ea684e9425845484da3f9b1a99",
       "citation": {
         "title": "Red Hill & Merricks",
         "publisher": "Peninsula Insider",
@@ -3489,8 +3489,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 445727,
-      "markdownBytes": 53277
+      "htmlBytes": 445751,
+      "markdownBytes": 53197
     },
     {
       "id": "https://peninsulainsider.com.au/explore/regions/western-port/",
@@ -3506,7 +3506,7 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 152882,
+      "htmlBytes": 152898,
       "markdownBytes": 7088
     },
     {
@@ -3540,7 +3540,7 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 159642,
+      "htmlBytes": 160106,
       "markdownBytes": 7455
     },
     {
@@ -3727,7 +3727,7 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 197586,
+      "htmlBytes": 198050,
       "markdownBytes": 8054
     },
     {
@@ -7459,7 +7459,7 @@
       "section": "stay",
       "canonicalUrl": "https://peninsulainsider.com.au/stay/arthurs-views/",
       "markdownUrl": "https://peninsulainsider.com.au/stay/arthurs-views/index.md",
-      "contentSha256": "a489d7c811dfe2ca6ad79a6fe672780403f872ab98fba58c60e4c3f3b9b3fb40",
+      "contentSha256": "52d92e530bd14fb550c5ae618890d93e6dad2d1e2a2b15e23d0408e1bb3694b2",
       "citation": {
         "title": "Arthurs Views",
         "publisher": "Peninsula Insider",
@@ -7467,8 +7467,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 162740,
-      "markdownBytes": 6918
+      "htmlBytes": 162670,
+      "markdownBytes": 6890
     },
     {
       "id": "https://peninsulainsider.com.au/stay/best-accommodation/",
@@ -7493,7 +7493,7 @@
       "section": "stay",
       "canonicalUrl": "https://peninsulainsider.com.au/stay/birch-creek/",
       "markdownUrl": "https://peninsulainsider.com.au/stay/birch-creek/index.md",
-      "contentSha256": "5a6ead820a53407635f9c820178e5c3b9e05d7ac250501689d60066db8459e42",
+      "contentSha256": "464b5de69cf559689fe0b9f32757d480384c0bb067ba155bf3cf64aaf7ba5eed",
       "citation": {
         "title": "Birch Creek",
         "publisher": "Peninsula Insider",
@@ -7501,8 +7501,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 159886,
-      "markdownBytes": 5912
+      "htmlBytes": 160133,
+      "markdownBytes": 5884
     },
     {
       "id": "https://peninsulainsider.com.au/stay/blue-moon-cottages/",
@@ -7510,7 +7510,7 @@
       "section": "stay",
       "canonicalUrl": "https://peninsulainsider.com.au/stay/blue-moon-cottages/",
       "markdownUrl": "https://peninsulainsider.com.au/stay/blue-moon-cottages/index.md",
-      "contentSha256": "d6903a1e71259777704f2b9de80f45e82e698997d7d211fe3de7892a4161dde4",
+      "contentSha256": "46f080eea99f1f057f23962f3234080621627bcee210d9ef58a0c64c9d43cf96",
       "citation": {
         "title": "Blue Moon Cottages",
         "publisher": "Peninsula Insider",
@@ -7518,8 +7518,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 162172,
-      "markdownBytes": 6787
+      "htmlBytes": 162698,
+      "markdownBytes": 6759
     },
     {
       "id": "https://peninsulainsider.com.au/stay/boutique-hotels/",
@@ -7654,7 +7654,7 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 173541,
+      "htmlBytes": 173971,
       "markdownBytes": 8973
     },
     {
@@ -7807,7 +7807,7 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 227738,
+      "htmlBytes": 227950,
       "markdownBytes": 10719
     },
     {
@@ -7824,7 +7824,7 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 162220,
+      "htmlBytes": 162892,
       "markdownBytes": 6740
     },
     {
@@ -7935,7 +7935,7 @@
       "section": "stay",
       "canonicalUrl": "https://peninsulainsider.com.au/stay/plantation-house-whitecliffs/",
       "markdownUrl": "https://peninsulainsider.com.au/stay/plantation-house-whitecliffs/index.md",
-      "contentSha256": "45d690152e3af8647224ace42c84182f41d7009d2132f439ffae7b963d8bf4ed",
+      "contentSha256": "cf6cd109f2f8866663ca0579f431140ad253e2060af2276879791fc76947e668",
       "citation": {
         "title": "Plantation House at Whitecliffs",
         "publisher": "Peninsula Insider",
@@ -7943,8 +7943,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 160014,
-      "markdownBytes": 6010
+      "htmlBytes": 160573,
+      "markdownBytes": 5982
     },
     {
       "id": "https://peninsulainsider.com.au/stay/point-nepean-discovery-tents/",

@@ -17,8 +17,6 @@ Known for   Two adjoining farm cottages Open fireplaces Outdoor baths No pets
 
 Birch Creek · Dromana
 
-Photo · Peninsula Insider
-
 Why we’d go
 
 A working-farm setting with two cottage sizes, open fires and a clear choice between a stay for two or four.

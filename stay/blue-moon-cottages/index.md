@@ -17,8 +17,6 @@ Known for   Rye bay beach location Pet-welcoming cottages Sandpiper log fire and
 
 Blue Moon Cottages · Rye
 
-Photo · Peninsula Insider
-
 Why we’d go
 
 A Rye cottage base near the bay with pet-welcoming rules and a log fire in Sandpiper.

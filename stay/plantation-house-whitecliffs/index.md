@@ -17,8 +17,6 @@ Known for   Five named rooms and suites Included cooked breakfast 1932 sandstone
 
 Plantation House at Whitecliffs · Rye
 
-Photo · Peninsula Insider
-
 Why we’d go
 
 A hosted Rye B&B with included cooked breakfast and a choice of room and suite formats.

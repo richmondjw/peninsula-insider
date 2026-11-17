@@ -551,8 +551,6 @@ cellar door  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/wine/paringa-estate/>) [Book](<https://www.sevenrooms.com/reservations/paringaestatewineryrestaurant>)
 
-Photo: Illustration: Peninsula Insider
-
 Winery  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
 ### [Phaedrus Estate](<https://peninsulainsider.com.au/wine/phaedrus-estate/>)
@@ -766,8 +764,6 @@ One of the Peninsula's founding estates, planted in 1978, grown-up, unflashy, wi
 cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/wine/stonier-wines/>) [Book](<https://www.stonier.com.au/visit>)
-
-Photo: Illustration: Peninsula Insider
 
 Winery  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 

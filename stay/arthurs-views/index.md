@@ -17,8 +17,6 @@ Known for   Five couples-only suites Arthurs Seat bay views Optional breakfast p
 
 Arthurs Views · Arthurs Seat
 
-Photo · Peninsula Insider
-
 Why we’d go
 
 A bay-view suite stay for two, with a clear choice between spa suites and penthouse formats.
