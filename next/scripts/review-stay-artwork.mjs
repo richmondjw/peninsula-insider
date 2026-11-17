@@ -1,0 +1,35 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+import { Site } from '../tests/journeys/harness.mjs';
+const out='review/stay-artwork';
+await fs.mkdir(out,{recursive:true});
+const slugs=['arthurs-views','birch-creek'];
+const routes=['kanasta-retro-caravans',...slugs];
+const report={head:process.env.REVIEW_HEAD_SHA,scope:'Rendered original artwork; synthetic CMS override fixtures, not production CMS evidence',checks:[]};
+const site=await Site.open();
+try {
+ for(const viewport of [{width:390,height:844,deviceScaleFactor:1},{width:390,height:844,deviceScaleFactor:2},{width:1440,height:1000,deviceScaleFactor:1}]) {
+  const reader=await site.reader({supabase:[{match:'/cms_image_slots',body:slugs.map(entity_slug=>({entity_type:'venue',entity_slug,field_path:'heroImage',public_url:'/images/sourced/home-cover.webp',alt_text:'Unreviewed replacement',credit:'Synthetic fixture'}))}]});
+  try {
+   await reader.page.setViewport(viewport);
+   for(const slug of routes){
+    const route=`/stay/${slug}/`;await reader.load(route);
+    await reader.page.evaluate(()=>document.fonts.ready);
+    const selector=slug==='kanasta-retro-caravans'?'.venue-card__hero[data-pi-entity-slug="arthurs-views"]':'.venue-detail__hero';
+    await reader.page.$eval(selector,e=>e.scrollIntoView({block:'center'}));
+    await reader.page.waitForFunction((names,isCards)=>names.every(name=>{const img=document.querySelector(isCards?`.venue-card__hero[data-pi-entity-slug="${name}"] img`:'.venue-detail__hero img');return img?.complete&&img.naturalWidth>0}),{},slug==='kanasta-retro-caravans'?slugs:[slug],slug==='kanasta-retro-caravans');
+    const observed=await reader.page.evaluate((names,isCards)=>({overflow:document.documentElement.scrollWidth>innerWidth+1,canonical:document.querySelector('link[rel="canonical"]')?.href,images:names.map(name=>{const frame=document.querySelector(isCards?`.venue-card__hero[data-pi-entity-slug="${name}"]`:'.venue-detail__hero');const img=frame.querySelector('img');const box=img.getBoundingClientRect();return {name,src:img.getAttribute('src'),currentSrc:img.currentSrc,alt:img.alt,width:box.width,height:box.height,naturalWidth:img.naturalWidth,credit:frame.closest('.venue-card')?.querySelector('.venue-card__photo-credit')?.textContent||frame.querySelector('figcaption')?.textContent||'',placeholder:frame.classList.contains('venue-card__hero--placeholder')};})}),slug==='kanasta-retro-caravans'?slugs:[slug],slug==='kanasta-retro-caravans');
+    report.checks.push({route,viewport,...observed});
+    assert.equal(observed.overflow,false,route+' no horizontal overflow');
+    assert.equal(observed.canonical,'https://peninsulainsider.com.au'+route);
+    for(const i of observed.images){assert.equal(new URL(i.src,site.origin).pathname,`/images/generated/stays/${i.name}-regional-illustration.webp`);assert.ok(i.width>100&&i.height>50);assert.ok(i.naturalWidth>=i.width*viewport.deviceScaleFactor,'sufficient source resolution');assert.equal(i.placeholder,false);assert.equal(i.credit.trim(),'','own artwork has no photo credit');if(slug!=='kanasta-retro-caravans')assert.match(i.alt,/^Graphic illustration/);}
+    await reader.page.screenshot({path:`${out}/${slug}-${viewport.width}-${viewport.deviceScaleFactor}x.png`,fullPage:true});
+    // A later hydration pass must not swap in the synthetic unreviewed CMS photo.
+    await reader.page.evaluate(()=>document.dispatchEvent(new Event('astro:page-load')));
+    await reader.page.waitForNetworkIdle({idleTime:300,timeout:5000});
+    for(const i of observed.images){const checkSelector=slug==='kanasta-retro-caravans'?`.venue-card__hero[data-pi-entity-slug="${i.name}"] img`:'.venue-detail__hero img';assert.equal(await reader.page.$eval(checkSelector,e=>e.getAttribute('src')),i.src);}
+   }
+  }finally{await reader.close();}
+ }
+ report.result='passed';
+}finally{await fs.writeFile(`${out}/report.json`,JSON.stringify(report,null,2));await site.close();}
