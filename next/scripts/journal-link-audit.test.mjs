@@ -99,3 +99,5 @@ test('own-page references preserve ambiguity and status holds',()=>{
  assert.equal(contextualMentions(page,[own,{...own,id:'venue:other',href:'/eat/other/'}],pages).mentions[0].status,'ambiguous');
  assert.equal(contextualMentions(page,[{...own,hold:'closed-or-paused'}],pages).mentions[0].status,'closed-or-paused');
 });
+test('relationship panels never become new body mention evidence',()=>{assert.equal(audit('<section data-venue-relationships="test"><p><a href="/eat/test/">Test Venue</a></p></section>').mentions.length,0);});
+test('plan body evidence is opt-in and does not widen the maintenance default',()=>{const page=()=>pageFacts('<link rel="canonical" href="/explore/plans/test/"><div class="prose"><p><a href="/eat/test/">Test Venue</a></p></div>','/explore/plans/test/');assert.equal(contextualMentions(page(),[entity],targets()).excluded,true);assert.equal(contextualMentions(page(),[entity],targets(),{allowPlans:true}).mentions[0].status,'linked');});

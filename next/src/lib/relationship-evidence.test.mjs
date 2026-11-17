@@ -1,0 +1,11 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {relationshipEvidenceDefects} from './relationship-evidence.mjs';
+const edge={href:'/journal/story/'};
+const bucket={mentions:[],selections:[edge],plans:[],nearby:[],events:[]};
+const index={byVenue:new Map([['venue',bucket]])};
+const panel=edges=>({venueId:'venue',edges});
+test('eligible destinations do not excuse falsely labelled textual mentions',()=>{const d=relationshipEvidenceDefects(index,[panel([{kind:'mentions',...edge}])],[]);assert.ok(d.some(x=>x.reason==='unsupported-rendered-edge'));assert.ok(d.some(x=>x.reason==='missing-rendered-edge'));});
+test('missing panels and anchor-target disagreements fail acceptance',()=>{assert.equal(relationshipEvidenceDefects(index,[],[],{requiredVenueIds:['venue']})[0].reason,'missing-relationship-panel');assert.ok(relationshipEvidenceDefects(index,[panel([{kind:'selections',...edge,actualHrefs:['/journal/other/']}])],[]).some(x=>x.reason==='edge-anchor-mismatch'));});
+test('measured distances must match the independently reconstructed index',()=>{const i={byVenue:new Map([['venue',{...bucket,selections:[],nearby:[{href:'/stay/near/',distanceKm:1.2}]}]])};assert.equal(relationshipEvidenceDefects(i,[panel([{kind:'nearby',href:'/stay/near/',distanceKm:4.5}])],[])[0].reason,'distance-evidence-mismatch');});
+test('event panels require physical venue, occurrence day and actual canonical href',()=>{const i={byVenue:new Map([['venue',{...bucket,selections:[],events:[{id:'session',data:{_promotionDay:'2026-10-10'}}]}]])};for(const e of [{id:'festival',day:'2026-10-10',href:'/whats-on/festival/'},{id:'session',day:'2026-10-11',href:'/whats-on/session/'},{id:'session',day:'2026-10-10',href:'/whats-on/other/'}])assert.ok(relationshipEvidenceDefects(i,[],[{venueId:'venue',events:[e]}]).some(x=>x.reason==='unsupported-rendered-event-location-or-day'));assert.deepEqual(relationshipEvidenceDefects(i,[],[{venueId:'venue',events:[{id:'session',day:'2026-10-10',href:'/whats-on/session/'}]}]),[]);});
+test('matching evidence passes without changing input',()=>{const p=panel([{kind:'selections',...edge,actualHrefs:[edge.href]}]);const before=JSON.stringify(p);assert.deepEqual(relationshipEvidenceDefects(index,[p],[],{requiredVenueIds:['venue']}),[]);assert.equal(JSON.stringify(p),before);});

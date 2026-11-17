@@ -71,15 +71,15 @@ function runs(block) {
   visit(block); return { value, spans };
 }
 /** Apply only the renderer's supplied overrides in memory; never write CMS/source. */
-export function contextualMentions(page, entities, pages) {
+export function contextualMentions(page, entities, pages, {allowPlans = false} = {}) {
   const nodes = descendants(page.dom);
   const marked = nodes.filter(n => attr(n, 'data-pi-prose-root') !== undefined);
   const classes = n => (attr(n, 'class') ?? '').split(/\s+/);
   const isExcluded = n => {
-    for (let p=n; p; p=p.parentNode) if (['nav','aside','header','footer'].includes(p.tagName) || classes(p).some(c => /^(faq-section|venue-card|experience-card|journal-card)(--|$)/.test(c))) return true;
+    for (let p=n; p; p=p.parentNode) if (attr(p,'data-venue-relationships') !== undefined || ['nav','aside','header','footer'].includes(p.tagName) || classes(p).some(c => /^(faq-section|venue-card|experience-card|journal-card)(--|$)/.test(c))) return true;
     return false;
   };
-  const supported = /^\/(journal|explore|eat|wine|stay|guides)\//.test(page.url) && !page.url.startsWith('/explore/plans/');
+  const supported = /^\/(journal|explore|eat|wine|stay|guides)\//.test(page.url) && (allowPlans || !page.url.startsWith('/explore/plans/'));
   const candidates = !supported ? [] : marked.length ? marked : !page.url.startsWith('/journal/') ? nodes.filter(n => classes(n).includes('prose') || classes(n).some(c => ['pdv2-lede__factual','pdv2-lede__intro'].includes(c))) : [];
   const roots = candidates.filter(n => !isExcluded(n) && !candidates.some(other => other !== n && descendants(other).includes(n)));
   if (!roots.length || page.stub || page.noindex || page.canonical !== page.url) return { excluded:true, reason:page.stub ? 'redirect' : page.noindex ? 'noindex' : page.canonical !== page.url ? 'noncanonical' : 'no supported contextual body (plans excluded for active work)', mentions:[] };
