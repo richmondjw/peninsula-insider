@@ -117,7 +117,9 @@ const cards = await Promise.all(
       href: `/whats-on/${slug}/`,
       image,
       plateLabel,
-      verdict: slug === 'hill-ridge-community-market-september-2026-restart'
+      verdict: slug === 'coco-michelle-live-at-tar-barrel-2026-11-21'
+        ? 'Live music from Coco Michelle at Tar Barrel in Mornington.'
+        : slug === 'hill-ridge-community-market-september-2026-restart'
         ? 'Local produce and makers at Red Hill Recreation Reserve, Saturday 9am–2pm.'
         : verdict,
       meta,

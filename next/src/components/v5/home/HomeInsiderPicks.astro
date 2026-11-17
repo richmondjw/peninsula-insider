@@ -1,0 +1,32 @@
+---
+import { getCollection } from 'astro:content';
+import { routeSlug, venueHref, isListableVenue } from '../../../lib/editorial';
+import Card from '../Card.astro';
+const venues = await getCollection('venues', ({data}) => isListableVenue(data) && !data.sourceStatus);
+const choices = [
+  {slug:'crittenden-estate', note:'Seated wine tastings beside the lake. Choose Crittenden for an unhurried introduction to Dromana wine country.', place:'Dromana'},
+  {slug:'alba-thermal-springs', note:'Thermal pools in Fingal. Choose Alba when you want the bathing session, rather than a busy itinerary, to be the occasion.', place:'Fingal'},
+  {slug:'merricks-general-wine-store', note:'A village bistro and wine store. Choose Merricks for a relaxed meal with local wine before exploring the ridge.', place:'Merricks'},
+];
+const picks = choices.flatMap(choice => {
+  const venue = venues.find(v => routeSlug(v) === choice.slug);
+  const image = venue?.data.gallery?.find(i => i.rightsStatus === 'recorded' && i.provenanceReview === 'verified' && i.permittedUses?.includes('website'));
+  return venue && image ? [{...choice, venue, image}] : [];
+});
+---
+<section class="home-picks" aria-labelledby="home-picks-title">
+ <div class="container">
+  <header><h2 id="home-picks-title">Insider Picks</h2><p>Three places worth building a stop around. Choose the one that fits your day.</p></header>
+  <p class="home-picks__hint">Scroll to see all three places →</p>
+  <ul class="home-picks__grid" role="list" tabindex="0" aria-label="Insider Picks, three places">
+   {picks.map(({slug,note,place,venue,image}) => <Card variant="venue" title={venue.data.name} href={venueHref(venue)} entityType="venue" entitySlug={slug} image={{...image, sourceUrl: /^https?:\/\//.test(image.sourceUrl ?? '') ? image.sourceUrl : undefined}} lockImageEditing={true} verdict={note} meta={[place]} showEyebrow={false} partnerLabel={venue.data.featuredPartner ? 'Partner' : undefined} />)}
+  </ul>
+ </div>
+</section>
+<style>
+.home-picks{padding-block:var(--space-6);background:var(--bg)}
+header{margin-bottom:var(--space-5);max-width:42rem}h2{font:var(--fw-display) var(--fs-600)/var(--lh-heading) var(--font-display);margin:0 0 var(--space-3)}header p{color:var(--soft);margin:0;line-height:var(--lh-body)}
+.home-picks__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-5);padding:0;margin:0;list-style:none}
+.home-picks__grid::-webkit-scrollbar{display:none}.home-picks__hint{display:none}.home-picks__grid:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+@media(max-width:47.99em){.home-picks__hint{display:block;margin:0 0 var(--space-3);color:var(--soft);font-size:var(--fs-200)}.home-picks__grid{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:85%;gap:var(--space-4);overflow-x:auto;scrollbar-width:none;scroll-snap-type:x proximity;padding-bottom:var(--space-3)}.home-picks__grid :global(.pi-card){min-width:0;scroll-snap-align:start}}
+</style>
