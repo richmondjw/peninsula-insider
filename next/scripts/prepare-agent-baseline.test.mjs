@@ -158,6 +158,17 @@ test('invalid JSON, schema, source identities and snapshot hashes are terminal',
   }
 });
 
+test('malformed UTF-8 cannot expand the accepted output beyond the 10MB bound', async context => {
+  const { output, directory } = await fixture(context);
+  const bytes = Buffer.concat([Buffer.from(body.slice(0, -1) + ',"extra":"'), Buffer.alloc(3_400_000, 0xff), Buffer.from('"}')]);
+  assert.ok(bytes.length < BASELINE_POLICY.maxBytes);
+  assert.ok(Buffer.byteLength(bytes.toString('utf8')) > BASELINE_POLICY.maxBytes);
+  const h = harness(output, [new Response(bytes)]);
+  await assert.rejects(prepareAgentBaseline(output, h.options), { code: 'SIZE_LIMIT' });
+  assert.equal(h.calls.length, 1); assert.deepEqual(h.waits, []);
+  assert.deepEqual(await readdir(directory), []);
+});
+
 test('total fetch budget rejects late success and refuses another request after deadline', async context => {
   const { output } = await fixture(context);
   const h = harness(output, [() => { h.advance(BASELINE_POLICY.totalMs); return new Response(body); }]);

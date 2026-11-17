@@ -44,7 +44,11 @@ async function boundedBody(response) {
       if (bytes > BASELINE_POLICY.maxBytes) throw failure('SIZE_LIMIT');
       chunks.push(value);
     }
-    return Buffer.concat(chunks, bytes).toString('utf8');
+    const body = Buffer.concat(chunks, bytes).toString('utf8');
+    // Replacement characters can expand malformed UTF-8. Preserve the original
+    // decoded-byte acceptance bound as well as the streaming allocation bound.
+    if (Buffer.byteLength(body) > BASELINE_POLICY.maxBytes) throw failure('SIZE_LIMIT');
+    return body;
   } catch (error) {
     await reader.cancel().catch(() => {});
     throw error;
