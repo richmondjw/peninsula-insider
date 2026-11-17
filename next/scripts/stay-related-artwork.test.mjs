@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
 import { isArtwork, cleanCaption } from '../src/lib/image-caption.mjs';
 const read = p => fs.readFileSync(new URL(p, import.meta.url), 'utf8');
@@ -13,7 +14,7 @@ for (const slug of ['arthurs-views', 'birch-creek', 'blue-moon-cottages', 'plant
   assert.match(i.permission,/No third-party photographs/);
   for(const width of [1536,960,480]) {
    const src=width===1536?i.src:i.src.replace('.webp',`-${width}.webp`);
-   const meta=await sharp(new URL('../public'+src,import.meta.url).pathname).metadata();
+   const meta=await sharp(fileURLToPath(new URL('../public'+src,import.meta.url))).metadata();
    assert.equal(meta.width,width); assert.equal(meta.height,width*2/3); assert.equal(meta.format,'webp');
   }
  });

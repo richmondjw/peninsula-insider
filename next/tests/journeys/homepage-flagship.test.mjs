@@ -305,3 +305,37 @@ test('weekend replaces expired rendered cards and shows discovery after Melbourn
     assert.equal(await reader.page.$eval('#home-weekend-title',node=>node.textContent),'Weekend picks');
   } finally {await reader.close();}
 });
+
+
+test('homepage narrow masthead preserves search, menu and enlarged text without overflow',async()=>{
+ const reader=await site.reader();
+ try {for(const width of [320,360,390]) for(const enlarged of [false,true]) {
+  await reader.page.setViewport({width,height:844});await reader.load('/');await reader.page.evaluate(()=>document.fonts.ready);
+  if(enlarged)await reader.page.addStyleTag({content:'html{font-size:200%!important}'});
+  const state=await reader.page.evaluate(()=>({overflow:document.documentElement.scrollWidth>innerWidth+1,controls:[...document.querySelectorAll('.header-actions > .search-link,.header-actions > .mobile-menu')].map(el=>{const r=el.getBoundingClientRect();return {width:r.width,height:r.height,left:r.left,right:r.right,visible:getComputedStyle(el).visibility,display:getComputedStyle(el).display};})}));
+  assert.equal(state.overflow,false,JSON.stringify({width,enlarged,state}));assert.equal(state.controls.length,2);
+  assert.ok(state.controls.every(r=>r.width>=44&&r.height>=44&&r.left>=0&&r.right<=width&&r.display!=='none'&&r.visible!=='hidden'),JSON.stringify({width,enlarged,state}));
+  await reader.page.focus('.header-actions > .search-link');await reader.page.keyboard.press('Enter');
+  await reader.waitFor(()=>document.querySelector('#siteSearchOverlayInput')===document.activeElement,'homepage search did not receive focus');
+  await reader.page.keyboard.press('Escape');
+  await reader.waitFor(()=>document.activeElement?.matches('.header-actions > .search-link'),'search Escape did not restore its opener');
+  await reader.page.focus('.mobile-menu');await reader.page.keyboard.press('Enter');
+  await reader.waitFor(()=>document.querySelector('#mobile-drawer')?.open,'mobile navigation did not open');
+  await reader.page.keyboard.press('Escape');await reader.waitFor(()=>!document.querySelector('#mobile-drawer')?.open&&document.activeElement?.matches('.mobile-menu'),'menu did not close and restore focus');
+ }}finally{await reader.close();}
+});
+
+test('homepage seasonal reading links are live local routes',async()=>{
+ const reader=await site.reader();try{await reader.load('/');const links=await reader.page.$$eval('.home-season a',els=>els.map(e=>e.getAttribute('href')));assert.equal(links.length,3);for(const href of links){const response=await reader.page.goto(site.origin+href,{waitUntil:'domcontentloaded'});assert.equal(response.status(),200,href);assert.ok(await reader.page.$('main h1'),href);}}
+ finally{await reader.close();}
+});
+
+
+test('homepage desktop masthead reflows at 200 percent root text sizing',async()=>{
+ const reader=await site.reader();try{for(const enlarged of [false,true]){
+ await reader.page.setViewport({width:1440,height:1000});await reader.load('/');await reader.page.evaluate(()=>document.fonts.ready);
+ if(enlarged)await reader.page.addStyleTag({content:'html{font-size:200%!important}'});
+ const result=await reader.page.evaluate(()=>({overflow:document.documentElement.scrollWidth>innerWidth+1,controls:[...document.querySelectorAll('.site-nav .pillar-menu__trigger > a,.header-actions > .search-link,.header-actions > .ask-link')].map(el=>{const r=el.getBoundingClientRect();return {text:el.textContent,width:r.width,height:r.height,left:r.left,right:r.right};})}));
+ assert.equal(result.overflow,false,JSON.stringify({enlarged,result}));assert.ok(result.controls.length>=8);assert.ok(result.controls.every(r=>r.left>=0&&r.right<=1440&&r.height>=44),JSON.stringify(result));
+ }}finally{await reader.close();}
+});

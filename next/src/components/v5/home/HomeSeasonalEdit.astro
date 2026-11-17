@@ -1,0 +1,19 @@
+---
+import { getAustralianSeason } from '../../../lib/season';
+const season = getAustralianSeason();
+const edits = {
+ Spring: {intro:'Make room for a walk, a village stop and a wet-weather alternative.', links:[['Point Nepean in the spring light','/journal/point-nepean-national-park-guide/','Use a longer spring afternoon for the coast and historic forts. Check park conditions before setting out.'],['Walk after lunch','/journal/the-peninsulas-best-late-afternoon-walks/','Leave time before sunset for a walk at Cape Schanck, Sorrento or Point Nepean.'],['A spring-shower backup','/journal/the-rainy-day-peninsula-without-a-booking/','An indoor alternative when the forecast changes and you have nothing booked.']]},
+ Summer: {intro:'Start with the coast and leave room to slow down.', links:[['Choose your beach','/journal/mornington-peninsula-beach-guide/','Find a stretch of coast that suits your day.'],['A summer visit','/journal/mornington-peninsula-in-summer/','Plan the season beyond the beach.'],['A village afternoon','/journal/area-guide-merricks/','Explore Merricks at your own pace.']]},
+ Autumn: {intro:'Take the scenic way, with a village stop along the route.', links:[['The autumn edit','/journal/autumn-weekend-edit/','Ideas for a change-of-season weekend.'],['Explore Merricks','/journal/area-guide-merricks/','A village guide for an unhurried afternoon.'],['A coastal walk','/journal/point-nepean-national-park-guide/','Make time for Point Nepean.']]},
+ Winter: {intro:'Build a day around indoor discoveries and a generous lunch break.', links:[['A winter weekend','/journal/a-winter-peninsula-weekend/','Put together a slower Peninsula escape.'],['Rainy-day ideas','/journal/rainy-day-peninsula/','Keep exploring when the weather changes.'],['Explore Merricks','/journal/area-guide-merricks/','Find a village stop along the way.']]},
+};
+const edit = edits[season];
+---
+<section class="home-season" aria-labelledby="home-season-title"><div class="container home-season__layout">
+ <header><p class="home-season__label">This season · {season}</p><h2 id="home-season-title">A few good reasons to get out.</h2><p>{edit.intro}</p></header>
+ <ul role="list">{edit.links.map(([title,href,description]) => <li><a href={href}>{title}<span aria-hidden="true"> ↗</span></a><p>{description}</p></li>)}</ul>
+</div></section>
+<style>
+.home-season{background:var(--bg-alt);padding-block:var(--space-6)}.home-season__layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:var(--space-6)}h2{font:var(--fw-display) var(--fs-600)/var(--lh-heading) var(--font-display);margin:0 0 var(--space-3);text-wrap:balance}p{line-height:var(--lh-body);color:var(--soft);margin:0}.home-season__label{font-weight:600;margin-bottom:var(--space-3);color:var(--text)}ul{list-style:none;padding:0;margin:0}li{padding-block:var(--space-3);border-bottom:1px solid var(--border)}li:first-child{padding-top:0}a{display:flex;justify-content:space-between;align-items:center;min-height:44px;font-weight:600;color:var(--text);text-underline-offset:.2em}a:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+@media(max-width:47.99em){.home-season__layout{grid-template-columns:1fr;gap:var(--space-4)}}
+</style>

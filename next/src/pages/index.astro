@@ -1,12 +1,12 @@
 ---
-/** Home, six sections (Phase 5 "say it once", 2026-11-10):
- * welcome → plan your day (chooser + three plans) → this weekend →
- * three ways in (orientation map) → one Journal feature → the Insider Note.
- * Interest doors were removed (they repeated the header nav and the plan
- * photographs); Play lives in the masthead and footer.
- * Published image overrides retain their own metadata. SEO identity is preserved.
+/** Home editorial sequence: welcome, day planner, curated venues, weekend events,
+ * seasonal reading, orientation, flagship story and newsletter.
+ * 2026-11-17: add two bounded discovery sections without replacing the planner.
+ * Published image metadata and SEO identity are preserved.
  */
 import ImageFormatFallback from '../components/ImageFormatFallback.astro';
+import HomeInsiderPicks from '../components/v5/home/HomeInsiderPicks.astro';
+import HomeSeasonalEdit from '../components/v5/home/HomeSeasonalEdit.astro';
 import HomeCover from '../components/v5/home/HomeCover.astro';
 import HomeWeekend from '../components/v5/home/HomeWeekend.astro';
 import HomeOrientation from '../components/v5/home/HomeOrientation.astro';
@@ -27,8 +27,19 @@ export const prerender = true;
   <ImageFormatFallback />
   <HomeCover />
   <HomePlan />
+  <HomeInsiderPicks />
   <HomeWeekend />
+  <HomeSeasonalEdit />
   <HomeOrientation />
   <HomeJournalFeature />
   <HomeDispatch />
 </BaseLayout>
+
+<style>
+/* Allow enlarged type to reflow the homepage masthead instead of pushing controls offscreen. */
+:global(body[data-path="/"] .masthead-row){flex-wrap:wrap;height:auto;row-gap:var(--space-2)}
+ :global(body[data-path="/"] .brand-lockup){min-width:0;max-width:100%}
+ :global(body[data-path="/"] .brand){white-space:normal;overflow-wrap:anywhere}
+ :global(body[data-path="/"] .site-nav){flex-wrap:wrap;max-width:100%;row-gap:0}
+@media(max-width:767px){:global(body[data-path="/"] .masthead-row){padding-block:var(--space-2)}}
+</style>
