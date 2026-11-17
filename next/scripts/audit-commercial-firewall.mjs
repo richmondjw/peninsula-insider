@@ -248,6 +248,11 @@ const ALLOWED_SORT_KEYS = new Set([
  */
 const COMMERCIAL_READ_ALLOWLIST = [
   {
+    file: 'components/v5/home/HomeInsiderPicks.astro',
+    field: 'featuredPartner',
+    reason: 'Adds a visible Partner label only. The fixed editorial choices and source/closure filters never read commercial fields.',
+  },
+  {
     file: 'pages/boating/hire/[slug].astro',
     field: 'affiliateUrl',
     reason:
