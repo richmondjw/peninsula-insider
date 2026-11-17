@@ -1,0 +1,68 @@
+{
+  "slug": "garden-designfest-mornington-peninsula-2026",
+  "eventId": "MP-EVT-GDF-2026",
+  "title": "Garden DesignFest: Mornington Peninsula gardens",
+  "summary": "Visit designer gardens on the Peninsula on 21-22 November, 10am-5pm. Choose your stops from the organiser's garden directory and check entry arrangements before travelling.",
+  "contentKind": "event",
+  "status": "draft",
+  "startDate": "2026-11-21",
+  "endDate": "2026-11-22",
+  "startTime": "10:00",
+  "endTime": "17:00",
+  "timezone": "Australia/Melbourne",
+  "venueName": "Participating gardens across Mornington Peninsula Shire",
+  "venueRegion": "Mornington Peninsula Shire",
+  "category": "nature",
+  "recurrence": "seasonal",
+  "occurrencePolicy": "confirmed-only",
+  "recurrenceNote": "21-22 November 2026, 10am-5pm. Peninsula gardens only.",
+  "officialEventUrl": "https://gardendesignfest.com.au/",
+  "primarySourceUrl": "https://gardendesignfest.com.au/",
+  "bookingStatus": "unknown",
+  "verification": "tentative",
+  "verificationNote": "Programme dates and hours checked against the organiser on 17 November 2026. Single organiser provenance chain; independent editorial review and release acceptance are separate. Individual-site arrangements, admission and availability are not verified.",
+  "lastCheckedDate": "2026-11-17",
+  "editorNote": "Garden DesignFest opens designer gardens across Melbourne and the Mornington Peninsula on 21-22 November 2026. This listing covers the Peninsula gardens only. The organiser's current directory lists gardens in Merricks, Mount Martha, Mornington, McCrae, Rye, Merricks North and Blairgowrie.\n\nUse the garden directory to choose a manageable route and check each garden's address and entry arrangements. The programme hours are 10am to 5pm on both days. These are separate gardens, not a single festival site or an invitation to arrive at a regional map pin. Check the organiser for current ticket details and any changes before setting out.",
+  "provenance": "Original PI editorial draft from current organiser information. Held for regional discovery support, independent exact-candidate review and rendered release checks. No automated scan or publication receipt claimed.",
+  "heroImage": {
+    "src": "/images/generated/events/garden-walk.webp",
+    "alt": "Conceptual illustration of a winding garden path between two rounded eucalyptus shrubs",
+    "credit": "Illustration: Peninsula Insider",
+    "license": "other-licensed",
+    "caption": "",
+    "depicts": "a winding garden path between shrubs",
+    "depictionStatus": "illustrative",
+    "creator": "Peninsula Insider, AI-assisted",
+    "permission": "Original AI-assisted artwork generated for Peninsula Insider event listings on 2026-11-09 (Higgsfield, Nano Banana 2.1, Coastal Punch house references), at James's instruction to fill missing event images. No third-party photographs, logos or artwork were incorporated.",
+    "permittedUses": [
+      "website"
+    ],
+    "rightsHolder": "Peninsula Insider",
+    "rightsEstablishedOn": "2026-11-09",
+    "rightsStatus": "recorded",
+    "provenanceReview": "verified",
+    "decorative": false
+  },
+  "seriesOccurrences": [
+    {
+      "id": "MP-EVT-GDF-2026:2026-11-21",
+      "originalDate": "2026-11-21",
+      "date": "2026-11-21",
+      "status": "scheduled",
+      "startTime": "10:00",
+      "endTime": "17:00",
+      "venueName": "Participating gardens across Mornington Peninsula Shire",
+      "sourceUrl": "https://gardendesignfest.com.au/"
+    },
+    {
+      "id": "MP-EVT-GDF-2026:2026-11-22",
+      "originalDate": "2026-11-22",
+      "date": "2026-11-22",
+      "status": "scheduled",
+      "startTime": "10:00",
+      "endTime": "17:00",
+      "venueName": "Participating gardens across Mornington Peninsula Shire",
+      "sourceUrl": "https://gardendesignfest.com.au/"
+    }
+  ]
+}
