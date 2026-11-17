@@ -1597,6 +1597,9 @@ const events = defineCollection({
     nearbyAttractions: z.string().optional(),
     suggestedItineraryPairing: z.string().optional(),
     nearestVenues: z.array(reference('venues')).default([]),
+    // Confirmed event hosts with existing PI coverage; distinct from nearby suggestions.
+    hostVenues: z.array(reference('venues')).default([]),
+    hostGuides: z.array(reference('articles')).default([]),
 
     // ─── Derived occurrence fields (cron-recomputed for recurring) ────────
     nextOccurrence: z.coerce.date().optional(),

@@ -74,11 +74,11 @@ Merricks also works well as an overnight base because it places you close to Red
 
 ### The place that explains the area
 
-**Merricks General Wine Store** is the address that tells you what Merricks is about. Local without being scruffy, smart without self-conscious, exactly the kind of room you wish more regions had. If you only have one booking here, make it this.
+**[Merricks General Wine Store](/eat/merricks-general-wine-store/)** is the address that tells you what Merricks is about. Local without being scruffy, smart without self-conscious, exactly the kind of room you wish more regions had. If you only have one booking here, make it this.
 
 ### The estate move
 
-**Merricks Estate** is worth your time when you want a quieter tasting and a proper sense of the district's wine logic. It fits the area's tone: measured, unforced.
+**[Merricks Estate](/wine/merricks-estate/)** is worth your time when you want a quieter tasting and a proper sense of the district's wine logic. It fits the area's tone: measured, unforced.
 
 ### The pub answer
 

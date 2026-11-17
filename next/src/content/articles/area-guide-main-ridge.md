@@ -78,15 +78,15 @@ This is not the area for a last-minute wing-it day. The best version of Main Rid
 
 ### The benchmark table
 
-**Ten Minutes by Tractor** is the Main Ridge lunch to build around if food matters most. The wine, the point of view, and the confidence all justify the drive. Give it room rather than bolting three more bookings around it.
+**[Ten Minutes by Tractor](/wine/ten-minutes-by-tractor/)** is the Main Ridge lunch to build around if food matters most. The wine, the point of view, and the confidence all justify the drive. Give it room rather than bolting three more bookings around it.
 
 ### The local estate institution
 
-**Red Hill Estate** is a Main Ridge cellar door with a long view across the Peninsula. It feels properly of the place: less polished than some neighbours, more convincing for it. For a tasting that still feels like wine country rather than a production, start here.
+**[Red Hill Estate](/wine/red-hill-estate/)** is a Main Ridge cellar door with a long view across the Peninsula. It feels properly of the place: less polished than some neighbours, more convincing for it. For a tasting that still feels like wine country rather than a production, start here.
 
 ### Nearby support
 
-**Paringa Estate** is in Red Hill South, while **Quealy** is in Balnarring. Both require a separate drive if you want to extend the day beyond Main Ridge.
+**[Paringa Estate](/wine/paringa-estate/)** is in Red Hill South, while **Quealy** is in Balnarring. Both require a separate drive if you want to extend the day beyond Main Ridge.
 
 ### If you want something simpler
 
