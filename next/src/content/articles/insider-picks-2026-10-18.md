@@ -27,7 +27,7 @@ clusterLinks:
     href: "/journal/things-to-do-mornington-peninsula/"
 faq:
   - question: "Where is Main Ridge Dairy and when is it open?"
-    answer: "Main Ridge Dairy is on 289-295 Main Creek Road, Main Ridge. Check the website for current opening days and hours, as farm operations affect the schedule."
+    answer: "Main Ridge Dairy is at 289-295 Main Creek Road, Main Ridge. Check the website for current opening days and hours, as farm operations affect the schedule."
   - question: "Where is The Pig & Whistle Tavern and how do I book for British Comedy Trivia on Thursday?"
     answer: "The Pig & Whistle Tavern is on Mornington-Flinders Road, Main Ridge. British Comedy Trivia runs Thursday 22 October from 6:00 pm to 9:30 pm. Book via events.humanitix.com/trivia-night-british-comedy."
 ---

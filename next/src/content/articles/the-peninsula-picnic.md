@@ -75,13 +75,13 @@ Buy a whole loaf. You will use it.
 
 ### Stop two: cheese
 
-The Peninsula has two serious farmgate cheese producers and both are worth the stop.
+Build this stop around farm-made goat cheeses at Main Ridge Dairy.
 
 Our Red Hill Cheese listing is paused while current visitor information is checked. Confirm the operator, location and offering before planning a visit.
 
 **Main Ridge Dairy** makes cheeses from its own goat herd. Pick up fresh chèvre, feta or another cheese from the current range at Billies for your picnic.
 
-Pick one, or visit both if they are on the same loop.
+Check current opening days before adding a cheese stop to your loop.
 
 ### Stop three: charcuterie, olives, and the rest
 

@@ -85,7 +85,6 @@ Twenty minutes here, including the chat at the counter. They will tell you what 
 
 Our Red Hill Cheese listing is paused while current visitor details are checked. Do not plan this stop without confirming the operator, location and offering.
 
-Add another twenty minutes. You are now thirty-five minutes into the day with two cheeses, a small wine, and the producer-day rhythm settling in.
 
 ### Stop three: Sunny Ridge Strawberry Farm
 

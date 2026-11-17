@@ -31,7 +31,7 @@ faq:
   - question: "How do I book the Point Nepean Number 2 Rifle Range track?"
     answer: "Entry to Point Nepean National Park is free. No booking is needed for walking. Optional services such as the park shuttle are charged separately. Arrive early on spring weekends to reduce parking pressure."
   - question: "Is the Red Hill Truffles season really finishing soon?"
-    answer: "The truffle hunt season at Red Hill Truffles, 235 Arthurs Seat Road, Red Hill, runs until 30 September 2026. Book directly at redhilltruffles.com/hunts - sessions book out, and almost nothing remains at this point in the season."
+    answer: "This dated guide concerns the 2026 winter and spring programme. Red Hill Truffles also offers summer and autumn hunts at 235 Arthurs Seat Road, Red Hill. Check redhilltruffles.com/calendar for current dates, packages and availability."
 ---
 
 *Visitor update, 17 November 2026: Red Hill Truffles is at 235 Arthurs Seat Road, Red Hill, and offers hunts across several seasons. The September references below concern the winter and spring programme, not the end of all annual visits. Check the [operator calendar](https://redhilltruffles.com/calendar) for current dates and availability.*
@@ -66,7 +66,7 @@ The truffle hunt season at Red Hill Truffles closes 30 September. That is eleven
 
 The hunts run on the property at 235 Arthurs Seat Road, Red Hill, using trained dogs working the rows of inoculated oak and hazelnut trees. The autumn and early-winter hunts get more attention, but the late-season hunts have their own logic: the ground is warming, the dogs work differently in the lighter air, and the guides are in a reflective mood at the end of a long season. You come back with truffles and a working understanding of why they cost what they cost.
 
-This is not a locals-only secret in the strict sense - but most people treat it as a winter thing and miss the final weeks entirely. Book directly at redhilltruffles.com/hunts. Sessions are timed, group sizes are small, and bookings are essential. Red Hill Truffles is on 235 Arthurs Seat Road, Red Hill.
+This is not a locals-only secret in the strict sense - but most people treat it as a winter thing and miss the final weeks entirely. Book directly at redhilltruffles.com/hunts. Sessions are timed, group sizes are small, and bookings are essential. Red Hill Truffles is at 235 Arthurs Seat Road, Red Hill.
 
 Pair it with a stop at a Red Hill cellar door on the way back - the Pinot Noir made within a kilometre of the truffle ground is not a coincidence worth ignoring.
 

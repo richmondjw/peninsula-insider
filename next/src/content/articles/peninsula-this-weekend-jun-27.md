@@ -87,7 +87,7 @@ Périgord black season is still at peak. The solstice weekend has passed, so Sat
 **Flinders Truffles winter hunt, Flinders**
 Saturday 27 or Sunday 28 June. Booking required for hunts; farmgate days run without booking.
 
-The Flinders farm is the quieter alternative to Main Ridge. Hunts run through winter, then warm up with truffle soup and a toastie by the fire. If the hunt is full, the farmgate days still let you buy fresh truffles to take home. Dates and bookings drop on their website and social channels, so check directly before driving.
+The Flinders farm is the quieter alternative to Red Hill Truffles. Hunts run through winter, then warm up with truffle soup and a toastie by the fire. If the hunt is full, the farmgate days still let you buy fresh truffles to take home. Dates and bookings drop on their website and social channels, so check directly before driving.
 
 ---
 

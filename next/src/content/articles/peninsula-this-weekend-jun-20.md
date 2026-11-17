@@ -74,7 +74,7 @@ sourceStatusNote: "404 on Humanitix. The ticket listing was removed after the ev
 
 The longest night of the year falls on Saturday, and the Peninsula is not pretending it doesn't matter. The Sorrento Solstice Festival is the one winter weekend when the foreshore stops feeling empty and starts feeling purposeful: two music stages, fire performers on the promenade, a lantern walk through the village, and the six-metre effigy burn on the bay at 6:30pm. It is free, ticketed, and worth planning around.
 
-Sunday is quieter by design. The festival crowd has gone home. The hot springs are running their afternoon sessions with live music. The truffle season is at peak across the ridges, and Sunday morning slots at Main Ridge are the calmest of the solstice week.
+Sunday is quieter by design. The festival crowd has gone home. The hot springs are running their afternoon sessions with live music. The truffle season is at peak across the ridges, and Sunday morning slots at Red Hill Truffles are the calmest of the solstice week.
 
 ## The booking worth locking in
 

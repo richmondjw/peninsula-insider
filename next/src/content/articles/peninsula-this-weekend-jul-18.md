@@ -29,8 +29,8 @@ dispatch:
   lead:
     title: "Red Hill Truffles: Winter Truffle Hunt Season"
     when: "Saturday 18 or Sunday 19 July, sessions available"
-    where: "Main Ridge"
-    summary: "Peak Périgord black truffle season runs through July, and Main Ridge is where to spend it. The guided hunt-plus-lunch at Red Hill Estate puts you in the grove with a trained dog, and at a table afterwards. It is the most considered way to spend a cold Peninsula morning. Saturday spots do fill - check what sessions are available and book before you head down."
+    where: "Red Hill"
+    summary: "Peak Périgord black truffle season runs through July, and Red Hill is where to spend it. The guided hunt-plus-lunch at Red Hill Estate puts you in the grove with a trained dog, and at a table afterwards. It is the most considered way to spend a cold Peninsula morning. Saturday spots do fill - check what sessions are available and book before you head down."
     bookingLabel: "Book via redhilltruffles.com"
     bookingUrl: "https://redhilltruffles.com/hunts"
     eventRef: "red-hill-truffles-winter-truffle-hunt-season"
