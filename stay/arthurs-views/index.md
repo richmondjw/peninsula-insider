@@ -73,7 +73,23 @@ Not sure how to build a day around Arthurs Views?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-More to explore
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Crittenden Estate](<https://peninsulainsider.com.au/wine/crittenden-estate/>) · 3.4 km
+
+- [Crittenden Estate Villas](<https://peninsulainsider.com.au/stay/crittenden-villas/>) · 3.4 km
+
+- [Paradigm Hill](<https://peninsulainsider.com.au/wine/paradigm-hill/>) · 3.9 km
+
+- [T'Gallant](<https://peninsulainsider.com.au/wine/t-gallant/>) · 4.1 km
+
+- [Crittenden Restaurant](<https://peninsulainsider.com.au/eat/crittenden-restaurant/>) · 4.1 km
+
+- [Tedesca Osteria](<https://peninsulainsider.com.au/eat/tedesca-osteria/>) · 4.7 km
+
+Related picks
 
 ## Other stays to compare
 

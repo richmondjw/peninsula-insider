@@ -195,11 +195,11 @@ Service   5 min
 
 The stays that genuinely work with a dog on the Peninsula - where fencing, policy clarity, and beach proximity matter more than brochure charm. What the Peninsula's accommodation landscape actually looks like for dog owners.
 
-Mentioned in this piece
+Related editorial selections
 
-## Venues worth opening in a new tab
+## Related places in the PI guide
 
-Every venue referenced has its own page with editor notes, booking links, and nearby picks.
+Related places selected for this story, with their own PI pages. These recommendations are separate from mentions in the text.
 
 Photo: Two Palms Australia, courtesy of Visit Victoria
 

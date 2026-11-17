@@ -81,7 +81,33 @@ Not sure how to build a day around Merricks Estate?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-More to explore
+## Guides that link to this place
+
+Hub Guide   8 min
+
+### [Merricks: The Peninsula Insider Guide](<https://peninsulainsider.com.au/journal/area-guide-merricks/>)
+
+2 May 2026
+
+Merricks is the understated corridor between bay and ridge where the Peninsula's wine country starts to feel private. Come for the general store, the estates, the pub and the rare pleasure of a district that seems to know exactly how little fuss it needs.
+
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Stonier Wines](<https://peninsulainsider.com.au/wine/stonier-wines/>) · 1.0 km
+
+- [Scorpo Wines](<https://peninsulainsider.com.au/wine/scorpo-wines/>) · 1.0 km
+
+- [Quealy Winemakers](<https://peninsulainsider.com.au/wine/quealy-winemakers/>) · 1.2 km
+
+- [Hideaways at Red Hill](<https://peninsulainsider.com.au/stay/hideaways-red-hill/>) · 1.6 km
+
+- [Merricks General Wine Store](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>) · 1.9 km
+
+- [Laura at Pt. Leo](<https://peninsulainsider.com.au/eat/laura-pt-leo/>) · 2.2 km
+
+Related picks
 
 ## Other wine experiences to compare
 

@@ -73,13 +73,9 @@ Not sure how to build a day around The Bay Hotel Mornington?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Related editorial selections
 
-## Stories that mention The Bay Hotel Mornington
-
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
-
- [Journal →](<https://peninsulainsider.com.au/journal/>)
+Selected as related reading; these pieces may not mention this place in their text.
 
 Service   5 min
 
@@ -105,7 +101,21 @@ Service   7 min
 
 A drinking guide to the Mornington Peninsula's public houses - the fires, the bistros, the beer gardens, the locals, and the argument for building a whole day around them.
 
-Nearby picks
+More reading (1)
+
+- [The Peninsula Pub Guide: Hotels That Still Know What a Pub Is For](<https://peninsulainsider.com.au/journal/the-pub-guide/>)
+
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Mornington Main Street Market](<https://peninsulainsider.com.au/eat/mornington-main-street-market/>) · under 100 m
+
+- [The Rocks Mornington](<https://peninsulainsider.com.au/eat/the-rocks-mornington/>) · 0.3 km
+
+- [Commonfolk Coffee](<https://peninsulainsider.com.au/eat/commonfolk-coffee/>) · 0.4 km
+
+Related picks
 
 ## More from Mornington
 

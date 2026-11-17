@@ -183,45 +183,87 @@ Not sure how to build a day around Montalto Vineyard & Olive Grove?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Guides that link to this place
 
-## Stories that mention Montalto Vineyard & Olive Grove
+Service   4 min
 
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
-
- [Journal →](<https://peninsulainsider.com.au/journal/>)
-
-Editor's Letter   8 min
-
-### [A Winter Peninsula Weekend: The Case for Coming in July](<https://peninsulainsider.com.au/journal/a-winter-peninsula-weekend/>)
-
-13 April 2026
-
-Short days, cheap rooms, empty dining rooms, a fire in every cellar door with a hearth, and a coast that looks like a different country in a southerly. Winter is the Peninsula's most underrated season and the one that gives the region back to the people who actually live here.
-
-Editor's Letter   8 min
-
-### [The Autumn Weekend Edit: Why April on the Peninsula Feels Most Earned](<https://peninsulainsider.com.au/journal/autumn-weekend-edit/>)
+### [The One-Night Peninsula Escape](<https://peninsulainsider.com.au/explore/plans/the-one-night-escape/>)
 
 9 April 2026
 
-Cool mornings, warm lunches, empty terraces, and the kind of light that makes every terrace look serious. This is the month the region stops performing and starts meaning something.
+One room, one dinner, one slow morning. Choose the right Peninsula base and a single overnight can feel like a proper break.
 
-Service   9 min
+Hub Guide   8 min
 
-### [First Time on the Peninsula: The Honest Starter Guide](<https://peninsulainsider.com.au/journal/first-time-peninsula/>)
+### [Red Hill: The Peninsula Insider Guide](<https://peninsulainsider.com.au/journal/area-guide-red-hill/>)
+
+2 May 2026
+
+Red Hill is the Peninsula's food-and-wine centre of gravity, but the best version of it is narrower than most visitors think. This is a place for one market morning, one properly chosen cellar door, and one lunch that gets the whole day.
+
+Investigation   7 min
+
+### [St Andrews Beach Golf Course - The World-Ranked Course Anyone Can Book](<https://peninsulainsider.com.au/journal/st-andrews-beach-golf-course/>)
+
+14 April 2026
+
+If you want one golf story that explains the Peninsula properly, start here. Tom Doak architecture, genuine global ranking, and public-access bookings that turn prestige into a real weekend.
+
+## Related editorial selections
+
+Selected as related reading; these pieces may not mention this place in their text.
+
+Service   6 min
+
+### [What to Do in Red Hill This Weekend: The Saturday Plan](<https://peninsulainsider.com.au/explore/plans/how-to-build-a-red-hill-saturday/>)
+
+8 April 2026
+
+A ridge morning, one properly chosen cellar door, and a lunch that earns the drive. The clearest version of a Red Hill Saturday.
+
+Service   8 min
+
+### [How to Plan a Peninsula Weekend: The Decision Framework](<https://peninsulainsider.com.au/explore/plans/how-to-plan-a-peninsula-weekend/>)
 
 10 April 2026
 
-You have never been to the Mornington Peninsula. You have a free weekend. You want to know what is actually good, what is overrated, and what the people who live here would tell you to do. This is that guide.
+Stop googling. Start here. A step-by-step planning guide that turns 'we should go to the Peninsula' into an actual weekend, with the decisions in the right order.
 
-Part of an escape
+Service   7 min
 
-## Weekend plans that already include Montalto Vineyard & Olive Grove
+### [The Peninsula Birthday Weekend: A Two-Night Plan That Actually Feels Celebratory](<https://peninsulainsider.com.au/explore/plans/the-birthday-weekend/>)
 
-Skip the planning - these itineraries sequence this venue into a proper Peninsula weekend.
+16 April 2026
 
- [All plans →](<https://peninsulainsider.com.au/explore/plans/>)
+A milestone birthday deserves more than a booking at the usual restaurant. Here is the two-night Peninsula plan that lands the celebration properly: one memorable dinner, one surprising morning, and a stay that makes the whole thing feel earned.
+
+More reading (12)
+
+- [A Two-Night Peninsula Weekend for Two](<https://peninsulainsider.com.au/explore/plans/the-couples-weekend/>)
+
+- [The Four-Hour Peninsula: A Surgical Strike for When the Weekend Is Half a Day](<https://peninsulainsider.com.au/explore/plans/the-four-hour-peninsula/>)
+
+- [The One Booking Peninsula Day](<https://peninsulainsider.com.au/explore/plans/the-one-booking-peninsula-day/>)
+
+- [A Winter Peninsula Weekend: The Case for Coming in July](<https://peninsulainsider.com.au/journal/a-winter-peninsula-weekend/>)
+
+- [The Autumn Weekend Edit: Why April on the Peninsula Feels Most Earned](<https://peninsulainsider.com.au/journal/autumn-weekend-edit/>)
+
+- [First Time on the Peninsula: The Honest Starter Guide](<https://peninsulainsider.com.au/journal/first-time-peninsula/>)
+
+- [The Long Lunch: Why the Mornington Peninsula Does Sunday Better Than Anywhere in Victoria](<https://peninsulainsider.com.au/journal/the-long-lunch/>)
+
+- [The Spring Peninsula: Why September and October Are the Region's Most Underrated Weekends](<https://peninsulainsider.com.au/journal/the-spring-peninsula/>)
+
+- [The Sunset Drink: Where to Watch the Light Drop on the Peninsula](<https://peninsulainsider.com.au/journal/the-sunset-drink/>)
+
+- [The Sunset Hour: Where to Be at the End of the Day](<https://peninsulainsider.com.au/journal/the-sunset-hour/>)
+
+- [The Winter Long Lunch: Vineyard Dining Room or Coastal Pub](<https://peninsulainsider.com.au/journal/the-winter-long-lunch/>)
+
+- [Why the Peninsula Works Better in Winter](<https://peninsulainsider.com.au/journal/why-winter-works-on-the-peninsula/>)
+
+## Plans with this stop or overnight stay
 
 Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula Photo: Two Palms Australia, courtesy of Visit Victoria
 
@@ -245,7 +287,23 @@ Two-night escape · Best for friends · Rye
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/the-peninsula-golf-weekend/>)
 
-More to explore
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Cassis Red Hill](<https://peninsulainsider.com.au/stay/cassis/>) · 0.7 km
+
+- [Port Phillip Estate](<https://peninsulainsider.com.au/wine/port-phillip-estate/>) · 0.9 km
+
+- [Prancing Horse Estate](<https://peninsulainsider.com.au/wine/prancing-horse-estate/>) · 1.0 km
+
+- [Red Gum BBQ](<https://peninsulainsider.com.au/eat/red-gum-bbq/>) · 1.2 km
+
+- [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>) · 1.3 km
+
+- [Lindenderry at Red Hill](<https://peninsulainsider.com.au/stay/lindenderry/>) · 1.5 km
+
+Related picks
 
 ## Other wine experiences to compare
 

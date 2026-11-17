@@ -73,13 +73,27 @@ Not sure how to build a day around Flinders General Store?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Guides that link to this place
 
-## Stories that mention Flinders General Store
+Hub Guide   8 min
 
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
+### [Flinders: The Peninsula Insider Guide](<https://peninsulainsider.com.au/journal/area-guide-flinders/>)
 
- [Journal →](<https://peninsulainsider.com.au/journal/>)
+2 May 2026
+
+Flinders is the quiet southern village that proves the Peninsula does not need theatre to be good. Come for the harder light, the ocean edge, and a day shaped by a walk, a bakery and one proper lunch rather than a schedule full of noise.
+
+## Related editorial selections
+
+Selected as related reading; these pieces may not mention this place in their text.
+
+Service   6 min
+
+### [The Friday Night Arrival](<https://peninsulainsider.com.au/explore/plans/the-friday-night-arrival/>)
+
+10 April 2026
+
+You leave the city at four. You hit the freeway. You arrive at six with nothing booked and nothing defrosted. Here is what to do with the first three hours, the ones that set the tone for everything that follows.
 
 Slow Peninsula   7 min
 
@@ -97,15 +111,15 @@ Service   7 min
 
 Not every Peninsula lunch needs a degustation and four hours. The places that do a relaxed, good midday meal, sorted by where you will be and who you are with.
 
-Insider Edit   7 min
+More reading (3)
 
-### [Breakfast Before the Crowds: Peninsula Mornings Worth an Early Start](<https://peninsulainsider.com.au/journal/breakfast-before-the-crowds/>)
+- [Breakfast Before the Crowds: Peninsula Mornings Worth an Early Start](<https://peninsulainsider.com.au/journal/breakfast-before-the-crowds/>)
 
-9 April 2026
+- [The Mornington Peninsula in Summer: How to Do It Well](<https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/>)
 
-The long lunches get the headlines. But the Peninsula's first hour of the day - the flat white, the croissant out of the oven, the eggs on a working bakery's sourdough - is the quieter, better-value half of the food story. Here is where locals go, and the order to do it in.
+- [Where to Eat Without a Booking](<https://peninsulainsider.com.au/journal/where-to-eat-without-a-booking/>)
 
-Nearby picks
+Related picks
 
 ## More from Flinders
 

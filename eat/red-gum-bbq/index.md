@@ -99,29 +99,9 @@ Not sure how to build a day around Red Gum BBQ?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Related editorial selections
 
-## Stories that mention Red Gum BBQ
-
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
-
- [Journal →](<https://peninsulainsider.com.au/journal/>)
-
-Service   7 min
-
-### [Casual Lunch on the Mornington Peninsula: Where to Eat Well Without Making a Day of It](<https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/>)
-
-10 November 2026
-
-Not every Peninsula lunch needs a degustation and four hours. The places that do a relaxed, good midday meal, sorted by where you will be and who you are with.
-
-Service   6 min
-
-### [Summer School Holidays on the Mornington Peninsula, 2026-27](<https://peninsulainsider.com.au/journal/summer-school-holidays-2026/>)
-
-10 November 2026
-
-Six weeks, one Peninsula and a car full of children. The calm beaches, the outings worth the drive, the rainy-day backups and the timing that keeps the whole thing pleasant, from 19 December to late January.
+Selected as related reading; these pieces may not mention this place in their text.
 
 Service   6 min
 
@@ -131,7 +111,45 @@ Service   6 min
 
 You leave the city at four. You hit the freeway. You arrive at six with nothing booked and nothing defrosted. Here is what to do with the first three hours, the ones that set the tone for everything that follows.
 
-Nearby picks
+Service   8 min
+
+### [School Holidays on the Peninsula](<https://peninsulainsider.com.au/explore/plans/the-school-holidays-survival-guide/>)
+
+10 April 2026
+
+One active morning, an easy lunch, a quieter afternoon, and a rainy-day fallback. A family plan for the Peninsula.
+
+Service   7 min
+
+### [Casual Lunch on the Mornington Peninsula: Where to Eat Well Without Making a Day of It](<https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/>)
+
+10 November 2026
+
+Not every Peninsula lunch needs a degustation and four hours. The places that do a relaxed, good midday meal, sorted by where you will be and who you are with.
+
+More reading (2)
+
+- [Summer School Holidays on the Mornington Peninsula, 2026-27](<https://peninsulainsider.com.au/journal/summer-school-holidays-2026/>)
+
+- [Where to Eat Without a Booking](<https://peninsulainsider.com.au/journal/where-to-eat-without-a-booking/>)
+
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Tuck's Ridge](<https://peninsulainsider.com.au/wine/tucks-ridge/>) · 0.9 km
+
+- [Cassis Red Hill](<https://peninsulainsider.com.au/stay/cassis/>) · 1.1 km
+
+- [Montalto Vineyard & Olive Grove](<https://peninsulainsider.com.au/wine/montalto/>) · 1.2 km
+
+- [The Orchard Luxury Accommodation](<https://peninsulainsider.com.au/stay/the-orchard-red-hill/>) · 1.2 km
+
+- [Port Phillip Estate](<https://peninsulainsider.com.au/wine/port-phillip-estate/>) · 1.5 km
+
+- [Eldridge Estate](<https://peninsulainsider.com.au/wine/eldridge-estate/>) · 2.2 km
+
+Related picks
 
 ## More from Red Hill
 
@@ -139,7 +157,7 @@ Nearby picks
 
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
-### [Eldridge Estate](<https://peninsulainsider.com.au/eat/eldridge-estate/>)
+### [Eldridge Estate](<https://peninsulainsider.com.au/wine/eldridge-estate/>)
 
 120 Arthurs Seat Rd, Red Hill VIC 3937
 
@@ -147,11 +165,11 @@ David Lloyd's tiny cult estate, single-clone Pinot Noirs from individual rows, p
 
 cellar door  slow
 
-[Read notes](<https://peninsulainsider.com.au/eat/eldridge-estate/>) [Book](<https://www.eldridge-estate.com.au/cellar-door/>)
+[Read notes](<https://peninsulainsider.com.au/wine/eldridge-estate/>) [Book](<https://www.eldridge-estate.com.au/cellar-door/>)
 
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
-### [Foxeys Hangout](<https://peninsulainsider.com.au/eat/foxeys-hangout/>)
+### [Foxeys Hangout](<https://peninsulainsider.com.au/wine/foxeys-hangout/>)
 
 795 White Hill Rd, Red Hill VIC 3937
 
@@ -159,7 +177,7 @@ Biodynamic Red Hill estate with an all-day deck, sunny long lunches, and a spark
 
 cellar door  long lunch
 
-[Read notes](<https://peninsulainsider.com.au/eat/foxeys-hangout/>) [Book](<https://foxeys-hangout.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/wine/foxeys-hangout/>) [Book](<https://foxeys-hangout.com.au/>)
 
 Photo: Two Palms Australia, courtesy of Visit Victoria
 

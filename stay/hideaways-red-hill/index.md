@@ -71,7 +71,23 @@ Not sure how to build a day around Hideaways at Red Hill?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-More to explore
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Quealy Winemakers](<https://peninsulainsider.com.au/wine/quealy-winemakers/>) · 1.1 km
+
+- [Polperro Villas](<https://peninsulainsider.com.au/stay/polperro-villas/>) · 1.1 km
+
+- [Polperro](<https://peninsulainsider.com.au/wine/polperro/>) · 1.2 km
+
+- [Hurley Vineyard](<https://peninsulainsider.com.au/wine/hurley-vineyard/>) · 1.4 km
+
+- [Scorpo Wines](<https://peninsulainsider.com.au/wine/scorpo-wines/>) · 1.5 km
+
+- [Merricks Estate](<https://peninsulainsider.com.au/wine/merricks-estate/>) · 1.6 km
+
+Related picks
 
 ## Other stays to compare
 

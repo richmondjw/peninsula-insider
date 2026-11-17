@@ -81,13 +81,9 @@ Not sure how to build a day around Morning Sun Vineyard?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Related editorial selections
 
-## Stories that mention Morning Sun Vineyard
-
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
-
- [Journal →](<https://peninsulainsider.com.au/journal/>)
+Selected as related reading; these pieces may not mention this place in their text.
 
 Editor's Letter   8 min
 
@@ -105,7 +101,23 @@ Long Lunch List   8 min
 
 Hatted restaurants, a bay view, and nowhere you need to be until Monday. This is the case for staying the whole weekend.
 
-More to explore
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Ten Minutes by Tractor Cellar Door Dining](<https://peninsulainsider.com.au/eat/allis-wine-bar/>) · 0.2 km
+
+- [Main Ridge Dairy](<https://peninsulainsider.com.au/eat/main-ridge-dairy/>) · 0.5 km
+
+- [Lightfoot Wines](<https://peninsulainsider.com.au/wine/lightfoot-wines/>) · 0.6 km
+
+- [Tedesca Osteria](<https://peninsulainsider.com.au/eat/tedesca-osteria/>) · 1.3 km
+
+- [Paradigm Hill](<https://peninsulainsider.com.au/wine/paradigm-hill/>) · 1.4 km
+
+- [T'Gallant](<https://peninsulainsider.com.au/wine/t-gallant/>) · 1.5 km
+
+Related picks
 
 ## Other wine experiences to compare
 

@@ -163,11 +163,11 @@ Service   7 min
 
 Long light, warm bay water and the busiest roads of the year. A local's plan for summer on the Peninsula: which side to swim, when to move, what to book and what to leave loose.
 
-Mentioned in this piece
+Related editorial selections
 
-## Venues worth opening in a new tab
+## Related places in the PI guide
 
-Every venue referenced has its own page with editor notes, booking links, and nearby picks.
+Related places selected for this story, with their own PI pages. These recommendations are separate from mentions in the text.
 
 Spa  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
@@ -179,7 +179,7 @@ Contemporary geothermal bathing and spa treatments in a landscaped Fingal settin
 
 wellness  rainy day
 
-[Read notes](<https://peninsulainsider.com.au/explore/spas-and-wellness/#alba-thermal-springs>) [View stay](<https://albathermalsprings.com.au/book>)
+[Read notes](<https://peninsulainsider.com.au/explore/spas-and-wellness/#alba-thermal-springs>) [Book](<https://albathermalsprings.com.au/book>)
 
 Photo: Peninsula Hot Springs
 
@@ -193,7 +193,7 @@ The original Peninsula thermal springs, still the biggest, still the most comple
 
 wellness  rainy day
 
-[Read notes](<https://peninsulainsider.com.au/explore/spas-and-wellness/#peninsula-hot-springs>) [View stay](<https://www.peninsulahotsprings.com/bathe>)
+[Read notes](<https://peninsulainsider.com.au/explore/spas-and-wellness/#peninsula-hot-springs>) [Book](<https://www.peninsulahotsprings.com/bathe>)
 
 Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 

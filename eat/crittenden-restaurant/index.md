@@ -85,13 +85,9 @@ Not sure how to build a day around Crittenden Restaurant?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Related editorial selections
 
-## Stories that mention Crittenden Restaurant
-
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
-
- [Journal →](<https://peninsulainsider.com.au/journal/>)
+Selected as related reading; these pieces may not mention this place in their text.
 
 Service   7 min
 
@@ -101,31 +97,33 @@ Service   7 min
 
 Not every Peninsula lunch needs a degustation and four hours. The places that do a relaxed, good midday meal, sorted by where you will be and who you are with.
 
-Nearby picks
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Crittenden Estate Villas](<https://peninsulainsider.com.au/stay/crittenden-villas/>) · 0.8 km
+
+- [Crittenden Estate](<https://peninsulainsider.com.au/wine/crittenden-estate/>) · 0.9 km
+
+- [Trofeo Estate](<https://peninsulainsider.com.au/wine/trofeo-estate/>) · 1.5 km
+
+- [T'Gallant](<https://peninsulainsider.com.au/wine/t-gallant/>) · 4.0 km
+
+- [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>) · 4.1 km
+
+- [Eldridge Estate](<https://peninsulainsider.com.au/wine/eldridge-estate/>) · 4.2 km
+
+Related picks
 
 ## More from Dromana
 
  [Back to Eat & Drink →](<https://peninsulainsider.com.au/eat/>)
 
-Photo: Two Palms Australia, courtesy of Visit Victoria
-
-Distillery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
-
-### [Bass & Flinders Distillery](<https://peninsulainsider.com.au/eat/bass-and-flinders/>)
-
-40 Collins Rd, Dromana VIC 3936
-
-A Peninsula gin distillery with a gin-school blending session that has quietly become one of the region's best wet-weather plans.
-
-rainy day  cellar door
-
-[Read notes](<https://peninsulainsider.com.au/eat/bass-and-flinders/>) [Book](<https://bassandflindersdistillery.com/>)
-
 Photo: Courtesy of Visit Victoria
 
 Winery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
-### [Crittenden Estate](<https://peninsulainsider.com.au/eat/crittenden-estate/>)
+### [Crittenden Estate](<https://peninsulainsider.com.au/wine/crittenden-estate/>)
 
 25 Harrisons Rd, Dromana VIC 3936
 
@@ -133,7 +131,7 @@ The Peninsula's pioneering estate, four decades of Crittenden family winemaking,
 
 cellar door  waterfront
 
-[Read notes](<https://peninsulainsider.com.au/eat/crittenden-estate/>) [Book](<https://www.crittendenwines.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/wine/crittenden-estate/>) [Book](<https://www.crittendenwines.com.au/>)
 
 Photo: Michael J Wyllie / Wikimedia Commons (CC BY-SA 4.0)
 
@@ -148,6 +146,20 @@ A Dromana foreshore hotel with a restaurant, bistro and indoor and outdoor bars.
 waterfront  family
 
 [Read notes](<https://peninsulainsider.com.au/eat/dromana-hotel/>) [Book](<https://stellasdromanahotel.com.au/contact/>)
+
+Photo: Courtesy of Visit Victoria
+
+Winery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+
+### [Trofeo Estate](<https://peninsulainsider.com.au/wine/trofeo-estate/>)
+
+85 Harrisons Road, Dromana VIC 3936
+
+The Peninsula's only amphora winery, terracotta-aged Sangiovese, Fiano, and Nebbiolo, and a cellar worth visiting on its own terms.
+
+cellar door  slow
+
+[Read notes](<https://peninsulainsider.com.au/wine/trofeo-estate/>) [Book](<https://www.trofeoestate.com.au/visit-us/>)
 
 Plan your Peninsula day
 

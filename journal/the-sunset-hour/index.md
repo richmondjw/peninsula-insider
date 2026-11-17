@@ -201,11 +201,11 @@ Service   6 min
 
 Six weeks, one Peninsula and a car full of children. The calm beaches, the outings worth the drive, the rainy-day backups and the timing that keeps the whole thing pleasant, from 19 December to late January.
 
-Mentioned in this piece
+Related editorial selections
 
-## Venues worth opening in a new tab
+## Related places in the PI guide
 
-Every venue referenced has its own page with editor notes, booking links, and nearby picks.
+Related places selected for this story, with their own PI pages. These recommendations are separate from mentions in the text.
 
 Exterior photographed in 2006. Photo: Biatch / Wikimedia Commons (public domain) [Source](<https://commons.wikimedia.org/wiki/File:Hotel_sorrento.jpg>)
 
@@ -219,7 +219,7 @@ A Sorrento clifftop hotel with restored limestone rooms, contemporary suites, a 
 
 weekend escape  waterfront
 
-[Read notes](<https://peninsulainsider.com.au/stay/hotel-sorrento/>) [View stay](<https://hotelsorrento.com.au/stay/>)
+[Read notes](<https://peninsulainsider.com.au/stay/hotel-sorrento/>) [Book](<https://hotelsorrento.com.au/stay/>)
 
 Pub  [Portsea](<https://peninsulainsider.com.au/explore/places/portsea/>)
 

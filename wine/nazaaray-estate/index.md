@@ -79,13 +79,9 @@ Not sure how to build a day around Nazaaray Estate?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Related editorial selections
 
-## Stories that mention Nazaaray Estate
-
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
-
- [Journal →](<https://peninsulainsider.com.au/journal/>)
+Selected as related reading; these pieces may not mention this place in their text.
 
 Slow Peninsula   7 min
 
@@ -95,7 +91,15 @@ Slow Peninsula   7 min
 
 When Red Hill is booked out and Sorrento feels like a queue, there is another version of the Peninsula weekend that runs south of everything, closer to the ocean, and slower on purpose.
 
-More to explore
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Flinders Sourdough](<https://peninsulainsider.com.au/eat/flinders-sourdough/>) · 1.4 km
+
+- [Moke Dining](<https://peninsulainsider.com.au/eat/moke-dining/>) · 2.0 km
+
+Related picks
 
 ## Other wine experiences to compare
 

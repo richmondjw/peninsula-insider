@@ -79,7 +79,15 @@ Not sure how to build a day around Barmah Park Vineyard?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-More to explore
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Moorooduc Estate](<https://peninsulainsider.com.au/wine/moorooduc-estate/>) · 4.5 km
+
+- [Commonfolk Coffee](<https://peninsulainsider.com.au/eat/commonfolk-coffee/>) · 4.9 km
+
+Related picks
 
 ## Other wine experiences to compare
 
@@ -109,19 +117,19 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>) [Book](<https://merricksstore.com.au/>)
 
-Photo: Two Palms Australia, courtesy of Visit Victoria
+Photo: Courtesy of Visit Victoria
 
-Distillery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+Winery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
-### [Bass & Flinders Distillery](<https://peninsulainsider.com.au/wine/bass-and-flinders/>)
+### [Crittenden Estate](<https://peninsulainsider.com.au/wine/crittenden-estate/>)
 
-40 Collins Rd, Dromana VIC 3936
+25 Harrisons Rd, Dromana VIC 3936
 
-A Peninsula gin distillery with a gin-school blending session that has quietly become one of the region's best wet-weather plans.
+The Peninsula's pioneering estate, four decades of Crittenden family winemaking, Pinot, Chardonnay, and the Spanish-Italian Los Hermanos range from a new lakeside wine centre.
 
-rainy day  cellar door
+cellar door  waterfront
 
-[Read notes](<https://peninsulainsider.com.au/wine/bass-and-flinders/>) [Book](<https://bassandflindersdistillery.com/>)
+[Read notes](<https://peninsulainsider.com.au/wine/crittenden-estate/>) [Book](<https://www.crittendenwines.com.au/>)
 
 Plan your Peninsula day
 

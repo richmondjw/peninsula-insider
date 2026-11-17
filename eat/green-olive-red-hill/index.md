@@ -99,21 +99,9 @@ Not sure how to build a day around Green Olive at Red Hill?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Related editorial selections
 
-## Stories that mention Green Olive at Red Hill
-
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
-
- [Journal →](<https://peninsulainsider.com.au/journal/>)
-
-Long Lunch List   8 min
-
-### [The Long Lunch: Why the Mornington Peninsula Does Sunday Better Than Anywhere in Victoria](<https://peninsulainsider.com.au/journal/the-long-lunch/>)
-
-15 March 2026
-
-Hatted restaurants, a bay view, and nowhere you need to be until Monday. This is the case for staying the whole weekend.
+Selected as related reading; these pieces may not mention this place in their text.
 
 Service   7 min
 
@@ -131,7 +119,15 @@ Service   8 min
 
 Past the cellar doors and the long lunches, the Peninsula has a quieter and more interesting layer: the people who grow, churn, smoke, ferment, and bake the things you eat at the dining rooms. A day built around four producer visits, with a clean route, a small lunch, and the cooler bag full by sundown.
 
-Nearby picks
+Long Lunch List   8 min
+
+### [The Long Lunch: Why the Mornington Peninsula Does Sunday Better Than Anywhere in Victoria](<https://peninsulainsider.com.au/journal/the-long-lunch/>)
+
+15 March 2026
+
+Hatted restaurants, a bay view, and nowhere you need to be until Monday. This is the case for staying the whole weekend.
+
+Related picks
 
 ## More from Red Hill
 
@@ -139,7 +135,7 @@ Nearby picks
 
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
-### [Eldridge Estate](<https://peninsulainsider.com.au/eat/eldridge-estate/>)
+### [Eldridge Estate](<https://peninsulainsider.com.au/wine/eldridge-estate/>)
 
 120 Arthurs Seat Rd, Red Hill VIC 3937
 
@@ -147,11 +143,11 @@ David Lloyd's tiny cult estate, single-clone Pinot Noirs from individual rows, p
 
 cellar door  slow
 
-[Read notes](<https://peninsulainsider.com.au/eat/eldridge-estate/>) [Book](<https://www.eldridge-estate.com.au/cellar-door/>)
+[Read notes](<https://peninsulainsider.com.au/wine/eldridge-estate/>) [Book](<https://www.eldridge-estate.com.au/cellar-door/>)
 
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
-### [Foxeys Hangout](<https://peninsulainsider.com.au/eat/foxeys-hangout/>)
+### [Foxeys Hangout](<https://peninsulainsider.com.au/wine/foxeys-hangout/>)
 
 795 White Hill Rd, Red Hill VIC 3937
 
@@ -159,11 +155,11 @@ Biodynamic Red Hill estate with an all-day deck, sunny long lunches, and a spark
 
 cellar door  long lunch
 
-[Read notes](<https://peninsulainsider.com.au/eat/foxeys-hangout/>) [Book](<https://foxeys-hangout.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/wine/foxeys-hangout/>) [Book](<https://foxeys-hangout.com.au/>)
 
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
-### [Main Ridge Estate](<https://peninsulainsider.com.au/eat/main-ridge-estate/>)
+### [Main Ridge Estate](<https://peninsulainsider.com.au/wine/main-ridge-estate/>)
 
 80 William Rd, Red Hill VIC 3937
 
@@ -171,7 +167,7 @@ Planted in 1975 by Nat and Rosalie White, the Peninsula's founding vineyard, sti
 
 cellar door  fireplace
 
-[Read notes](<https://peninsulainsider.com.au/eat/main-ridge-estate/>) [Book](<https://mre.com.au/visit>)
+[Read notes](<https://peninsulainsider.com.au/wine/main-ridge-estate/>) [Book](<https://mre.com.au/visit>)
 
 Plan your Peninsula day
 

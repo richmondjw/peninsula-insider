@@ -87,7 +87,21 @@ Not sure how to build a day around Onannon?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-More to explore
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Yabby Lake Vineyard](<https://peninsulainsider.com.au/wine/yabby-lake/>) · 0.4 km
+
+- [Moorooduc Estate](<https://peninsulainsider.com.au/wine/moorooduc-estate/>) · 2.5 km
+
+- [Dromana Estate](<https://peninsulainsider.com.au/wine/dromana-estate/>) · 3.3 km
+
+- [Chalet Un at Woodman Estate](<https://peninsulainsider.com.au/stay/woodman-estate/>) · 3.4 km
+
+- [Dexter Wines](<https://peninsulainsider.com.au/wine/dexter-wines/>) · 4.8 km
+
+Related picks
 
 ## Other wine experiences to compare
 

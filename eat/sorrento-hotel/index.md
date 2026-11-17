@@ -69,29 +69,9 @@ Not sure how to build a day around Hotel Sorrento?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Related editorial selections
 
-## Stories that mention Hotel Sorrento
-
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
-
- [Journal →](<https://peninsulainsider.com.au/journal/>)
-
-Service   9 min
-
-### [First Time on the Peninsula: The Honest Starter Guide](<https://peninsulainsider.com.au/journal/first-time-peninsula/>)
-
-10 April 2026
-
-You have never been to the Mornington Peninsula. You have a free weekend. You want to know what is actually good, what is overrated, and what the people who live here would tell you to do. This is that guide.
-
-Service   8 min
-
-### [The Peninsula Beach Swimming Guide: Which Beach for Which Swim, From Bay to Back Beach](<https://peninsulainsider.com.au/journal/the-peninsula-beach-swimming-guide/>)
-
-14 April 2026
-
-Thirty kilometres of Port Phillip coastline, fifteen kilometres of Bass Strait back beaches, and distinct swimming moods that most visitors cannot tell apart. A proper guide to where to actually swim on the Mornington Peninsula, by conditions and by purpose.
+Selected as related reading; these pieces may not mention this place in their text.
 
 Service   7 min
 
@@ -101,7 +81,45 @@ Service   7 min
 
 A drinking guide to the Mornington Peninsula's public houses - the fires, the bistros, the beer gardens, the locals, and the argument for building a whole day around them.
 
-Nearby picks
+Service   9 min
+
+### [First Time on the Peninsula: The Honest Starter Guide](<https://peninsulainsider.com.au/journal/first-time-peninsula/>)
+
+10 April 2026
+
+You have never been to the Mornington Peninsula. You have a free weekend. You want to know what is actually good, what is overrated, and what the people who live here would tell you to do. This is that guide.
+
+Insider Edit   7 min
+
+### [The Peninsula Pub Guide: Hotels That Still Know What a Pub Is For](<https://peninsulainsider.com.au/journal/the-pub-guide/>)
+
+10 April 2026
+
+Not a gastropub ranking. Not a beer list. A guide to the Peninsula pubs that still operate as the social centre of a town, where the food is good, the beer is cold, the rooms are clean, and nobody is trying to be anything else.
+
+More reading (2)
+
+- [The Sorrento Weekend: How to Do the Tip Without Treating It Like a Summer Strip](<https://peninsulainsider.com.au/journal/the-sorrento-weekend/>)
+
+- [Where to Eat Without a Booking](<https://peninsulainsider.com.au/journal/where-to-eat-without-a-booking/>)
+
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Stringers Sorrento](<https://peninsulainsider.com.au/eat/stringers-sorrento/>) · under 100 m
+
+- [Bistro Elba](<https://peninsulainsider.com.au/eat/bistro-elba/>) · under 100 m
+
+- [InterContinental Sorrento](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>) · 0.2 km
+
+- [Hotel Sorrento](<https://peninsulainsider.com.au/stay/hotel-sorrento/>) · 0.5 km
+
+- [The Baths Sorrento](<https://peninsulainsider.com.au/eat/the-baths-sorrento/>) · 0.6 km
+
+- [Portsea Hotel](<https://peninsulainsider.com.au/eat/portsea-hotel/>) · 3.3 km
+
+Related picks
 
 ## More from Sorrento
 

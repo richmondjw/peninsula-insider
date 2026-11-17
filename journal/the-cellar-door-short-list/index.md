@@ -137,11 +137,11 @@ Hub Guide   8 min
 
 Red Hill is the Peninsula's food-and-wine centre of gravity, but the best version of it is narrower than most visitors think. This is a place for one market morning, one properly chosen cellar door, and one lunch that gets the whole day.
 
-Mentioned in this piece
+Related editorial selections
 
-## Venues worth opening in a new tab
+## Related places in the PI guide
 
-Every venue referenced has its own page with editor notes, booking links, and nearby picks.
+Related places selected for this story, with their own PI pages. These recommendations are separate from mentions in the text.
 
 Winery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 

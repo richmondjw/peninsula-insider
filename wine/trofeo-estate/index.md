@@ -117,13 +117,9 @@ Not sure how to build a day around Trofeo Estate?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Related editorial selections
 
-## Stories that mention Trofeo Estate
-
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
-
- [Journal →](<https://peninsulainsider.com.au/journal/>)
+Selected as related reading; these pieces may not mention this place in their text.
 
 Insider Edit   3 min
 
@@ -133,7 +129,23 @@ Insider Edit   3 min
 
 A Thursday market in Hastings, Friday aperitivo at Trofeo Estate, and two final winter weeks at Mornington Peninsula Regional Gallery.
 
-More to explore
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Crittenden Restaurant](<https://peninsulainsider.com.au/eat/crittenden-restaurant/>) · 1.5 km
+
+- [Crittenden Estate Villas](<https://peninsulainsider.com.au/stay/crittenden-villas/>) · 2.2 km
+
+- [Crittenden Estate](<https://peninsulainsider.com.au/wine/crittenden-estate/>) · 2.3 km
+
+- [Foxeys Hangout](<https://peninsulainsider.com.au/wine/foxeys-hangout/>) · 3.2 km
+
+- [Port Phillip Estate](<https://peninsulainsider.com.au/wine/port-phillip-estate/>) · 3.6 km
+
+- [Lindenderry at Red Hill](<https://peninsulainsider.com.au/stay/lindenderry/>) · 3.7 km
+
+Related picks
 
 ## Other wine experiences to compare
 

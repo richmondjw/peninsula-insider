@@ -69,13 +69,15 @@ Not sure how to build a day around Flinders Sourdough?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Guides that link to this place
 
-## Stories that mention Flinders Sourdough
+Service   4 min
 
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
+### [The One-Night Peninsula Escape](<https://peninsulainsider.com.au/explore/plans/the-one-night-escape/>)
 
- [Journal →](<https://peninsulainsider.com.au/journal/>)
+9 April 2026
+
+One room, one dinner, one slow morning. Choose the right Peninsula base and a single overnight can feel like a proper break.
 
 Slow Peninsula   7 min
 
@@ -85,23 +87,71 @@ Slow Peninsula   7 min
 
 When Red Hill is booked out and Sorrento feels like a queue, there is another version of the Peninsula weekend that runs south of everything, closer to the ocean, and slower on purpose.
 
-Insider Edit   7 min
+Hub Guide   8 min
 
-### [Breakfast Before the Crowds: Peninsula Mornings Worth an Early Start](<https://peninsulainsider.com.au/journal/breakfast-before-the-crowds/>)
+### [Flinders: The Peninsula Insider Guide](<https://peninsulainsider.com.au/journal/area-guide-flinders/>)
 
-9 April 2026
+2 May 2026
 
-The long lunches get the headlines. But the Peninsula's first hour of the day - the flat white, the croissant out of the oven, the eggs on a working bakery's sourdough - is the quieter, better-value half of the food story. Here is where locals go, and the order to do it in.
+Flinders is the quiet southern village that proves the Peninsula does not need theatre to be good. Come for the harder light, the ocean edge, and a day shaped by a walk, a bakery and one proper lunch rather than a schedule full of noise.
 
-Service   9 min
+More reading (3)
 
-### [First Time on the Peninsula: The Honest Starter Guide](<https://peninsulainsider.com.au/journal/first-time-peninsula/>)
+- [Breakfast Before the Crowds: Peninsula Mornings Worth an Early Start](<https://peninsulainsider.com.au/journal/breakfast-before-the-crowds/>)
+
+- [The Peninsula Pantry: A Saturday Shopping List for Anyone Cooking in a Rental](<https://peninsulainsider.com.au/journal/the-peninsula-pantry/>)
+
+- [The Vineyard Villa Weekend: The Peninsula's Quietest Luxury](<https://peninsulainsider.com.au/journal/the-vineyard-villa-weekend/>)
+
+## Related editorial selections
+
+Selected as related reading; these pieces may not mention this place in their text.
+
+Slow Peninsula   8 min
+
+### [A Two-Night Peninsula Weekend for Two](<https://peninsulainsider.com.au/explore/plans/the-couples-weekend/>)
 
 10 April 2026
 
-You have never been to the Mornington Peninsula. You have a free weekend. You want to know what is actually good, what is overrated, and what the people who live here would tell you to do. This is that guide.
+One memorable dinner, a long lunch and an afternoon with no agenda. A slower Mornington Peninsula weekend for two.
 
-Nearby picks
+Service   7 min
+
+### [The Easter Peninsula: How to Do the Long Weekend Without Losing It to the Crowds](<https://peninsulainsider.com.au/explore/plans/the-easter-peninsula/>)
+
+17 April 2026
+
+Easter is the Peninsula's first big four-day stress test of the year. Cars from town arrive Thursday afternoon, the cellar doors are full by Friday morning, and the bakeries run out of hot cross buns by Saturday lunch. Here is how to plan a long weekend that uses the holiday properly instead of fighting it.
+
+Service   6 min
+
+### [The Four-Hour Peninsula: A Surgical Strike for When the Weekend Is Half a Day](<https://peninsulainsider.com.au/explore/plans/the-four-hour-peninsula/>)
+
+15 April 2026
+
+For the midweek visit, the work trip with a free morning, or the Melbourne friends who have a flight out of Tullamarine at five. Four hours, three stops, one decisive lunch, and no wasted drives. The Peninsula you can actually do in half a day.
+
+More reading (5)
+
+- [The Peninsula Orientation Drive: A First Visit in One Day](<https://peninsulainsider.com.au/explore/plans/the-peninsula-orientation-drive/>)
+
+- [The Peninsula Picnic: How to Assemble and Eat One Properly](<https://peninsulainsider.com.au/explore/plans/the-peninsula-picnic/>)
+
+- [The Peninsula Producer Trail: A Day Spent Closer to the Source](<https://peninsulainsider.com.au/explore/plans/the-producer-trail/>)
+
+- [First Time on the Peninsula: The Honest Starter Guide](<https://peninsulainsider.com.au/journal/first-time-peninsula/>)
+
+- [Where to Eat Without a Booking](<https://peninsulainsider.com.au/journal/where-to-eat-without-a-booking/>)
+
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Moke Dining](<https://peninsulainsider.com.au/eat/moke-dining/>) · 0.7 km
+
+- [Nazaaray Estate](<https://peninsulainsider.com.au/wine/nazaaray-estate/>) · 1.4 km
+
+Related picks
 
 ## More from Flinders
 

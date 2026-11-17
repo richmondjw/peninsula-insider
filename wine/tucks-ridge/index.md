@@ -73,7 +73,23 @@ Not sure how to build a day around Tuck's Ridge?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-More to explore
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Port Phillip Estate Restaurant](<https://peninsulainsider.com.au/wine/port-phillip-estate/>) · 0.8 km
+
+- [Red Gum BBQ](<https://peninsulainsider.com.au/eat/red-gum-bbq/>) · 0.9 km
+
+- [The Orchard Luxury Accommodation](<https://peninsulainsider.com.au/stay/the-orchard-red-hill/>) · 1.0 km
+
+- [Cassis Red Hill](<https://peninsulainsider.com.au/stay/cassis/>) · 1.2 km
+
+- [Eldridge Estate](<https://peninsulainsider.com.au/wine/eldridge-estate/>) · 1.3 km
+
+- [Montalto Vineyard & Olive Grove](<https://peninsulainsider.com.au/wine/montalto/>) · 1.6 km
+
+Related picks
 
 ## Other wine experiences to compare
 

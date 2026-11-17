@@ -121,39 +121,63 @@ Not sure how to build a day around Main Ridge Dairy?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Related editorial selections
 
-## Stories that mention Main Ridge Dairy
-
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
-
- [Journal →](<https://peninsulainsider.com.au/journal/>)
-
-Service   9 min
-
-### [First Time on the Peninsula: The Honest Starter Guide](<https://peninsulainsider.com.au/journal/first-time-peninsula/>)
-
-10 April 2026
-
-You have never been to the Mornington Peninsula. You have a free weekend. You want to know what is actually good, what is overrated, and what the people who live here would tell you to do. This is that guide.
-
-Insider Edit   4 min
-
-### [Main Ridge Dairy, Seawinds Gardens, and Pt. Leo's sculpture park](<https://peninsulainsider.com.au/journal/insider-picks-2026-09-23/>)
-
-23 September 2026
-
-Build a spring day around Main Ridge Dairy's goat cheeses, the short paths at Seawinds Gardens, and sculpture at Pt. Leo Estate.
+Selected as related reading; these pieces may not mention this place in their text.
 
 Service   6 min
 
-### [Summer School Holidays on the Mornington Peninsula, 2026-27](<https://peninsulainsider.com.au/journal/summer-school-holidays-2026/>)
+### [The Four-Hour Peninsula: A Surgical Strike for When the Weekend Is Half a Day](<https://peninsulainsider.com.au/explore/plans/the-four-hour-peninsula/>)
 
-10 November 2026
+15 April 2026
 
-Six weeks, one Peninsula and a car full of children. The calm beaches, the outings worth the drive, the rainy-day backups and the timing that keeps the whole thing pleasant, from 19 December to late January.
+For the midweek visit, the work trip with a free morning, or the Melbourne friends who have a flight out of Tullamarine at five. Four hours, three stops, one decisive lunch, and no wasted drives. The Peninsula you can actually do in half a day.
 
-Nearby picks
+Service   8 min
+
+### [The Market Saturday: Peninsula Weekends Built Around the Right Hour at the Right Stall](<https://peninsulainsider.com.au/explore/plans/the-market-saturday/>)
+
+13 April 2026
+
+Mornington, Hill & Ridge, Balnarring and Somers: check each organiser's current calendar, then build a Peninsula weekend around a confirmed market.
+
+Service   7 min
+
+### [The Peninsula Picnic: How to Assemble and Eat One Properly](<https://peninsulainsider.com.au/explore/plans/the-peninsula-picnic/>)
+
+10 April 2026
+
+The best picnic on the Mornington Peninsula is not a hamper from a winery gift shop. It is a morning circuit through three or four producers, a blanket on the right patch of grass, and a long afternoon that costs half a restaurant lunch.
+
+More reading (5)
+
+- [The Peninsula Producer Trail: A Day Spent Closer to the Source](<https://peninsulainsider.com.au/explore/plans/the-producer-trail/>)
+
+- [First Time on the Peninsula: The Honest Starter Guide](<https://peninsulainsider.com.au/journal/first-time-peninsula/>)
+
+- [Main Ridge Dairy, Seawinds Gardens, and Pt. Leo's sculpture park](<https://peninsulainsider.com.au/journal/insider-picks-2026-09-23/>)
+
+- [Summer School Holidays on the Mornington Peninsula, 2026-27](<https://peninsulainsider.com.au/journal/summer-school-holidays-2026/>)
+
+- [The Peninsula Pantry: A Saturday Shopping List for Anyone Cooking in a Rental](<https://peninsulainsider.com.au/journal/the-peninsula-pantry/>)
+
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Ten Minutes by Tractor Cellar Door Dining](<https://peninsulainsider.com.au/eat/allis-wine-bar/>) · 0.3 km
+
+- [Lightfoot Wines](<https://peninsulainsider.com.au/wine/lightfoot-wines/>) · 0.4 km
+
+- [Morning Sun Vineyard](<https://peninsulainsider.com.au/wine/morning-sun/>) · 0.5 km
+
+- [Tedesca Osteria](<https://peninsulainsider.com.au/eat/tedesca-osteria/>) · 0.9 km
+
+- [Paradigm Hill](<https://peninsulainsider.com.au/wine/paradigm-hill/>) · 0.9 km
+
+- [T'Gallant](<https://peninsulainsider.com.au/wine/t-gallant/>) · 1.1 km
+
+Related picks
 
 ## More from Main Ridge
 
@@ -171,21 +195,9 @@ first date  slow
 
 [Read notes](<https://peninsulainsider.com.au/eat/allis-wine-bar/>) [Book](<https://www.tenminutesbytractor.com.au/contact>)
 
-Restaurant  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
-
-### [La Baracca at T'Gallant](<https://peninsulainsider.com.au/eat/la-baracca-tgallant/>)
-
-1385 Mornington-Flinders Rd, Main Ridge VIC 3928
-
-The Peninsula's original winery pizza barn, wood-fired margheritas, handmade pasta, and T'Gallant's Pinot Grigio by the carafe.
-
-long lunch  big group
-
-[Read notes](<https://peninsulainsider.com.au/eat/la-baracca-tgallant/>) [Book](<https://tgallantvineyard.com.au/bookings/>)
-
 Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
-### [Lightfoot Wines](<https://peninsulainsider.com.au/eat/lightfoot-wines/>)
+### [Lightfoot Wines](<https://peninsulainsider.com.au/wine/lightfoot-wines/>)
 
 110 Myers Rd, Main Ridge VIC 3928
 
@@ -193,7 +205,19 @@ A small Main Ridge estate with a focused Pinot and Chardonnay range and one of t
 
 cellar door  slow
 
-[Read notes](<https://peninsulainsider.com.au/eat/lightfoot-wines/>)
+[Read notes](<https://peninsulainsider.com.au/wine/lightfoot-wines/>)
+
+Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
+
+### [Morning Sun Vineyard](<https://peninsulainsider.com.au/wine/morning-sun/>)
+
+337 Main Creek Rd, Main Ridge VIC 3928
+
+Foxeys' second, quieter Main Ridge site, Italian-feeling long lunches, valley views, and a Pinot Gris program that rewards attention.
+
+cellar door  long lunch
+
+[Read notes](<https://peninsulainsider.com.au/wine/morning-sun/>) [Book](<https://foxeys-hangout.com.au/Morning-Sun/About-Morning-Sun>)
 
 Plan your Peninsula day
 

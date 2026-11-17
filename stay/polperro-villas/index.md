@@ -77,13 +77,27 @@ Not sure how to build a day around Polperro Villas?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Guides that link to this place
 
-## Stories that mention Polperro Villas
+Service   5 min
 
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
+### [Mornington Peninsula Springs Weekend](<https://peninsulainsider.com.au/explore/plans/the-thermal-springs-weekend/>)
 
- [Journal →](<https://peninsulainsider.com.au/journal/>)
+9 April 2026
+
+One Fingal bathhouse, two nights and an unhurried Sunday.
+
+Stay Notes   7 min
+
+### [The Vineyard Villa Weekend: The Peninsula's Quietest Luxury](<https://peninsulainsider.com.au/journal/the-vineyard-villa-weekend/>)
+
+9 April 2026
+
+The best Peninsula stay right now is not a design hotel. It is a cottage on a working farm with a fire, a kitchen, and nobody checking on you. Here is the case, and the short list.
+
+## Related editorial selections
+
+Selected as related reading; these pieces may not mention this place in their text.
 
 Service   8 min
 
@@ -109,7 +123,31 @@ Slow Peninsula   8 min
 
 One memorable dinner, a long lunch and an afternoon with no agenda. A slower Mornington Peninsula weekend for two.
 
-More to explore
+More reading (3)
+
+- [The Easter Peninsula: How to Do the Long Weekend Without Losing It to the Crowds](<https://peninsulainsider.com.au/explore/plans/the-easter-peninsula/>)
+
+- [The Sorrento Weekend: How to Do the Tip Without Treating It Like a Summer Strip](<https://peninsulainsider.com.au/journal/the-sorrento-weekend/>)
+
+- [Where to Stay for a Two-Night Peninsula Escape](<https://peninsulainsider.com.au/journal/where-to-stay-for-a-two-night-escape/>)
+
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Polperro](<https://peninsulainsider.com.au/wine/polperro/>) · under 100 m
+
+- [Hideaways at Red Hill](<https://peninsulainsider.com.au/stay/hideaways-red-hill/>) · 1.1 km
+
+- [Hurley Vineyard](<https://peninsulainsider.com.au/wine/hurley-vineyard/>) · 1.3 km
+
+- [Quealy Winemakers](<https://peninsulainsider.com.au/wine/quealy-winemakers/>) · 1.6 km
+
+- [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>) · 1.9 km
+
+- [Scorpo Wines](<https://peninsulainsider.com.au/wine/scorpo-wines/>) · 2.0 km
+
+Related picks
 
 ## Other stays to compare
 

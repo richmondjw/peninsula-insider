@@ -207,11 +207,11 @@ Service   6 min
 
 Plan a winery visit with your dog: published policies at Stonier, Main Ridge Estate and Green Olive, plus venues whose pet access needs confirmation.
 
-Mentioned in this piece
+Related editorial selections
 
-## Venues worth opening in a new tab
+## Related places in the PI guide
 
-Every venue referenced has its own page with editor notes, booking links, and nearby picks.
+Related places selected for this story, with their own PI pages. These recommendations are separate from mentions in the text.
 
 Photo: Peter Foster, courtesy of Visit Victoria
 

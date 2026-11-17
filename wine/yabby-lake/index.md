@@ -143,21 +143,9 @@ Not sure how to build a day around Yabby Lake Vineyard?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Related editorial selections
 
-## Stories that mention Yabby Lake Vineyard
-
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
-
- [Journal →](<https://peninsulainsider.com.au/journal/>)
-
-Cellar Door Dispatch   8 min
-
-### [The Chardonnay Case: Why the Peninsula's Second Wine Deserves Top Billing](<https://peninsulainsider.com.au/journal/the-chardonnay-case/>)
-
-9 April 2026
-
-Everyone sells the Mornington Peninsula as a pinot noir region. They are half right. The quiet argument of the last three vintages is that the chardonnay is now the more interesting bottle on the table, and the one worth cellaring.
+Selected as related reading; these pieces may not mention this place in their text.
 
 Service   8 min
 
@@ -167,7 +155,29 @@ Service   8 min
 
 The drive to make on your first visit, or the one to send a friend on when you are out of time to explain why you keep coming back. Coffee, ridge, hinterland, ocean, village, bay - in that order, with most of a day to enjoy it.
 
-More to explore
+Cellar Door Dispatch   8 min
+
+### [The Chardonnay Case: Why the Peninsula's Second Wine Deserves Top Billing](<https://peninsulainsider.com.au/journal/the-chardonnay-case/>)
+
+9 April 2026
+
+Everyone sells the Mornington Peninsula as a pinot noir region. They are half right. The quiet argument of the last three vintages is that the chardonnay is now the more interesting bottle on the table, and the one worth cellaring.
+
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Onannon](<https://peninsulainsider.com.au/wine/onannon/>) · 0.4 km
+
+- [Moorooduc Estate](<https://peninsulainsider.com.au/wine/moorooduc-estate/>) · 2.8 km
+
+- [Dromana Estate](<https://peninsulainsider.com.au/wine/dromana-estate/>) · 3.0 km
+
+- [Chalet Un at Woodman Estate](<https://peninsulainsider.com.au/stay/woodman-estate/>) · 3.0 km
+
+- [Dexter Wines](<https://peninsulainsider.com.au/wine/dexter-wines/>) · 4.6 km
+
+Related picks
 
 ## Other wine experiences to compare
 

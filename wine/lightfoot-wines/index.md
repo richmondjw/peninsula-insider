@@ -59,7 +59,23 @@ Not sure how to build a day around Lightfoot Wines?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-More to explore
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Main Ridge Dairy](<https://peninsulainsider.com.au/eat/main-ridge-dairy/>) · 0.4 km
+
+- [Ten Minutes by Tractor Cellar Door Dining](<https://peninsulainsider.com.au/eat/allis-wine-bar/>) · 0.5 km
+
+- [Morning Sun Vineyard](<https://peninsulainsider.com.au/wine/morning-sun/>) · 0.6 km
+
+- [Tedesca Osteria](<https://peninsulainsider.com.au/eat/tedesca-osteria/>) · 0.7 km
+
+- [T'Gallant](<https://peninsulainsider.com.au/wine/t-gallant/>) · 1.1 km
+
+- [Paradigm Hill](<https://peninsulainsider.com.au/wine/paradigm-hill/>) · 1.3 km
+
+Related picks
 
 ## Other wine experiences to compare
 

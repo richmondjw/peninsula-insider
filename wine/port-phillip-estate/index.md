@@ -151,21 +151,9 @@ Not sure how to build a day around Port Phillip Estate?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Related editorial selections
 
-## Stories that mention Port Phillip Estate
-
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
-
- [Journal →](<https://peninsulainsider.com.au/journal/>)
-
-Cellar Door Dispatch   8 min
-
-### [The Chardonnay Case: Why the Peninsula's Second Wine Deserves Top Billing](<https://peninsulainsider.com.au/journal/the-chardonnay-case/>)
-
-9 April 2026
-
-Everyone sells the Mornington Peninsula as a pinot noir region. They are half right. The quiet argument of the last three vintages is that the chardonnay is now the more interesting bottle on the table, and the one worth cellaring.
+Selected as related reading; these pieces may not mention this place in their text.
 
 Service   4 min
 
@@ -175,6 +163,14 @@ Service   4 min
 
 One room, one dinner, one slow morning. Choose the right Peninsula base and a single overnight can feel like a proper break.
 
+Cellar Door Dispatch   8 min
+
+### [The Chardonnay Case: Why the Peninsula's Second Wine Deserves Top Billing](<https://peninsulainsider.com.au/journal/the-chardonnay-case/>)
+
+9 April 2026
+
+Everyone sells the Mornington Peninsula as a pinot noir region. They are half right. The quiet argument of the last three vintages is that the chardonnay is now the more interesting bottle on the table, and the one worth cellaring.
+
 Stay Notes   7 min
 
 ### [The Vineyard Villa Weekend: The Peninsula's Quietest Luxury](<https://peninsulainsider.com.au/journal/the-vineyard-villa-weekend/>)
@@ -183,7 +179,27 @@ Stay Notes   7 min
 
 The best Peninsula stay right now is not a design hotel. It is a cottage on a working farm with a fire, a kitchen, and nobody checking on you. Here is the case, and the short list.
 
-More to explore
+More reading (1)
+
+- [Where to Stay for a Two-Night Peninsula Escape](<https://peninsulainsider.com.au/journal/where-to-stay-for-a-two-night-escape/>)
+
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Cassis Red Hill](<https://peninsulainsider.com.au/stay/cassis/>) · 0.4 km
+
+- [Montalto Vineyard & Olive Grove](<https://peninsulainsider.com.au/wine/montalto/>) · 0.9 km
+
+- [Prancing Horse Estate](<https://peninsulainsider.com.au/wine/prancing-horse-estate/>) · 1.4 km
+
+- [Tuck's Ridge](<https://peninsulainsider.com.au/wine/tucks-ridge/>) · 1.5 km
+
+- [Red Gum BBQ](<https://peninsulainsider.com.au/eat/red-gum-bbq/>) · 1.5 km
+
+- [Foxeys Hangout](<https://peninsulainsider.com.au/wine/foxeys-hangout/>) · 1.7 km
+
+Related picks
 
 ## Other wine experiences to compare
 

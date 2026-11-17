@@ -167,29 +167,35 @@ Not sure how to build a day around Paringa Estate?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Guides that link to this place
 
-## Stories that mention Paringa Estate
+Hub Guide   8 min
 
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
+### [Main Ridge: The Peninsula Insider Guide](<https://peninsulainsider.com.au/journal/area-guide-main-ridge/>)
 
- [Journal →](<https://peninsulainsider.com.au/journal/>)
+2 May 2026
 
-Editor's Letter   8 min
+Main Ridge is an elevated, unhurried stretch of Peninsula wine country - less a village than a landscape of cellar doors and ridge roads. Come when you want the Peninsula stripped back to vineyards, fog, lunch and roads lined with trees rather than distractions.
 
-### [A Winter Peninsula Weekend: The Case for Coming in July](<https://peninsulainsider.com.au/journal/a-winter-peninsula-weekend/>)
+Hub Guide   8 min
 
-13 April 2026
+### [Red Hill: The Peninsula Insider Guide](<https://peninsulainsider.com.au/journal/area-guide-red-hill/>)
 
-Short days, cheap rooms, empty dining rooms, a fire in every cellar door with a hearth, and a coast that looks like a different country in a southerly. Winter is the Peninsula's most underrated season and the one that gives the region back to the people who actually live here.
+2 May 2026
 
-Editor's Letter   8 min
+Red Hill is the Peninsula's food-and-wine centre of gravity, but the best version of it is narrower than most visitors think. This is a place for one market morning, one properly chosen cellar door, and one lunch that gets the whole day.
 
-### [The Autumn Weekend Edit: Why April on the Peninsula Feels Most Earned](<https://peninsulainsider.com.au/journal/autumn-weekend-edit/>)
+Cellar Door Dispatch   8 min
+
+### [The Chardonnay Case: Why the Peninsula's Second Wine Deserves Top Billing](<https://peninsulainsider.com.au/journal/the-chardonnay-case/>)
 
 9 April 2026
 
-Cool mornings, warm lunches, empty terraces, and the kind of light that makes every terrace look serious. This is the month the region stops performing and starts meaning something.
+Everyone sells the Mornington Peninsula as a pinot noir region. They are half right. The quiet argument of the last three vintages is that the chardonnay is now the more interesting bottle on the table, and the one worth cellaring.
+
+## Related editorial selections
+
+Selected as related reading; these pieces may not mention this place in their text.
 
 Service   6 min
 
@@ -199,7 +205,35 @@ Service   6 min
 
 A ridge morning, one properly chosen cellar door, and a lunch that earns the drive. The clearest version of a Red Hill Saturday.
 
-More to explore
+Service   8 min
+
+### [How to Plan a Peninsula Weekend: The Decision Framework](<https://peninsulainsider.com.au/explore/plans/how-to-plan-a-peninsula-weekend/>)
+
+10 April 2026
+
+Stop googling. Start here. A step-by-step planning guide that turns 'we should go to the Peninsula' into an actual weekend, with the decisions in the right order.
+
+Editor's Letter   5 min
+
+### [The One Booking Peninsula Day](<https://peninsulainsider.com.au/explore/plans/the-one-booking-peninsula-day/>)
+
+1 June 2026
+
+Most Peninsula days are over-planned. The ones that work usually aren't. One table, one walk, one decision made in the morning about which direction the rest of the day will go.
+
+More reading (5)
+
+- [A Winter Peninsula Weekend: The Case for Coming in July](<https://peninsulainsider.com.au/journal/a-winter-peninsula-weekend/>)
+
+- [The Autumn Weekend Edit: Why April on the Peninsula Feels Most Earned](<https://peninsulainsider.com.au/journal/autumn-weekend-edit/>)
+
+- [The Long Lunch: Why the Mornington Peninsula Does Sunday Better Than Anywhere in Victoria](<https://peninsulainsider.com.au/journal/the-long-lunch/>)
+
+- [The Spring Peninsula: Why September and October Are the Region's Most Underrated Weekends](<https://peninsulainsider.com.au/journal/the-spring-peninsula/>)
+
+- [The Sunset Drink: Where to Watch the Light Drop on the Peninsula](<https://peninsulainsider.com.au/journal/the-sunset-drink/>)
+
+Related picks
 
 ## Other wine experiences to compare
 

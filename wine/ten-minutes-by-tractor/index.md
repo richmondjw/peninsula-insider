@@ -147,45 +147,75 @@ Not sure how to build a day around Ten Minutes by Tractor?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Guides that link to this place
 
-## Stories that mention Ten Minutes by Tractor
+Hub Guide   8 min
 
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
+### [Main Ridge: The Peninsula Insider Guide](<https://peninsulainsider.com.au/journal/area-guide-main-ridge/>)
 
- [Journal →](<https://peninsulainsider.com.au/journal/>)
+2 May 2026
 
-Editor's Letter   8 min
+Main Ridge is an elevated, unhurried stretch of Peninsula wine country - less a village than a landscape of cellar doors and ridge roads. Come when you want the Peninsula stripped back to vineyards, fog, lunch and roads lined with trees rather than distractions.
 
-### [A Winter Peninsula Weekend: The Case for Coming in July](<https://peninsulainsider.com.au/journal/a-winter-peninsula-weekend/>)
+Hub Guide   8 min
 
-13 April 2026
+### [Red Hill: The Peninsula Insider Guide](<https://peninsulainsider.com.au/journal/area-guide-red-hill/>)
 
-Short days, cheap rooms, empty dining rooms, a fire in every cellar door with a hearth, and a coast that looks like a different country in a southerly. Winter is the Peninsula's most underrated season and the one that gives the region back to the people who actually live here.
+2 May 2026
 
-Editor's Letter   8 min
+Red Hill is the Peninsula's food-and-wine centre of gravity, but the best version of it is narrower than most visitors think. This is a place for one market morning, one properly chosen cellar door, and one lunch that gets the whole day.
 
-### [The Autumn Weekend Edit: Why April on the Peninsula Feels Most Earned](<https://peninsulainsider.com.au/journal/autumn-weekend-edit/>)
+## Related editorial selections
 
-9 April 2026
+Selected as related reading; these pieces may not mention this place in their text.
 
-Cool mornings, warm lunches, empty terraces, and the kind of light that makes every terrace look serious. This is the month the region stops performing and starts meaning something.
+Service   6 min
 
-Service   9 min
+### [What to Do in Red Hill This Weekend: The Saturday Plan](<https://peninsulainsider.com.au/explore/plans/how-to-build-a-red-hill-saturday/>)
 
-### [First Time on the Peninsula: The Honest Starter Guide](<https://peninsulainsider.com.au/journal/first-time-peninsula/>)
+8 April 2026
+
+A ridge morning, one properly chosen cellar door, and a lunch that earns the drive. The clearest version of a Red Hill Saturday.
+
+Service   8 min
+
+### [How to Plan a Peninsula Weekend: The Decision Framework](<https://peninsulainsider.com.au/explore/plans/how-to-plan-a-peninsula-weekend/>)
 
 10 April 2026
 
-You have never been to the Mornington Peninsula. You have a free weekend. You want to know what is actually good, what is overrated, and what the people who live here would tell you to do. This is that guide.
+Stop googling. Start here. A step-by-step planning guide that turns 'we should go to the Peninsula' into an actual weekend, with the decisions in the right order.
 
-Part of an escape
+Service   7 min
 
-## Weekend plans that already include Ten Minutes by Tractor
+### [The Peninsula Birthday Weekend: A Two-Night Plan That Actually Feels Celebratory](<https://peninsulainsider.com.au/explore/plans/the-birthday-weekend/>)
 
-Skip the planning - these itineraries sequence this venue into a proper Peninsula weekend.
+16 April 2026
 
- [All plans →](<https://peninsulainsider.com.au/explore/plans/>)
+A milestone birthday deserves more than a booking at the usual restaurant. Here is the two-night Peninsula plan that lands the celebration properly: one memorable dinner, one surprising morning, and a stay that makes the whole thing feel earned.
+
+More reading (10)
+
+- [A Two-Night Peninsula Weekend for Two](<https://peninsulainsider.com.au/explore/plans/the-couples-weekend/>)
+
+- [A Winter Peninsula Weekend: The Case for Coming in July](<https://peninsulainsider.com.au/journal/a-winter-peninsula-weekend/>)
+
+- [The Autumn Weekend Edit: Why April on the Peninsula Feels Most Earned](<https://peninsulainsider.com.au/journal/autumn-weekend-edit/>)
+
+- [First Time on the Peninsula: The Honest Starter Guide](<https://peninsulainsider.com.au/journal/first-time-peninsula/>)
+
+- [The Chardonnay Case: Why the Peninsula's Second Wine Deserves Top Billing](<https://peninsulainsider.com.au/journal/the-chardonnay-case/>)
+
+- [The Long Lunch: Why the Mornington Peninsula Does Sunday Better Than Anywhere in Victoria](<https://peninsulainsider.com.au/journal/the-long-lunch/>)
+
+- [The Spring Peninsula: Why September and October Are the Region's Most Underrated Weekends](<https://peninsulainsider.com.au/journal/the-spring-peninsula/>)
+
+- [The Winter Long Lunch: Vineyard Dining Room or Coastal Pub](<https://peninsulainsider.com.au/journal/the-winter-long-lunch/>)
+
+- [Tedesca, Tractor, Laura: Peninsula Dinners and the Argument Between Them](<https://peninsulainsider.com.au/journal/three-italian-dinners/>)
+
+- [Why the Peninsula Works Better in Winter](<https://peninsulainsider.com.au/journal/why-winter-works-on-the-peninsula/>)
+
+## Plans with this stop or overnight stay
 
 Plan
 
@@ -197,7 +227,23 @@ Two-night escape · Best for friends · Rye
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/the-peninsula-golf-weekend/>)
 
-More to explore
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Lindenderry at Red Hill](<https://peninsulainsider.com.au/stay/lindenderry/>) · 0.5 km
+
+- [Prancing Horse Estate](<https://peninsulainsider.com.au/wine/prancing-horse-estate/>) · 0.9 km
+
+- [Foxeys Hangout](<https://peninsulainsider.com.au/wine/foxeys-hangout/>) · 0.9 km
+
+- [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>) · 1.2 km
+
+- [Montalto Vineyard & Olive Grove](<https://peninsulainsider.com.au/wine/montalto/>) · 1.9 km
+
+- [Hurley Vineyard](<https://peninsulainsider.com.au/wine/hurley-vineyard/>) · 2.2 km
+
+Related picks
 
 ## Other wine experiences to compare
 

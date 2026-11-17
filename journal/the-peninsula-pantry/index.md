@@ -197,11 +197,11 @@ Service   3 min
 
 Four exhibitions and a children's space at Mornington Peninsula Regional Gallery until 23 August, and how to build a full wet day around them.
 
-Mentioned in this piece
+Related editorial selections
 
-## Venues worth opening in a new tab
+## Related places in the PI guide
 
-Every venue referenced has its own page with editor notes, booking links, and nearby picks.
+Related places selected for this story, with their own PI pages. These recommendations are separate from mentions in the text.
 
 Photo: Robert Blackburn, courtesy of Visit Victoria
 

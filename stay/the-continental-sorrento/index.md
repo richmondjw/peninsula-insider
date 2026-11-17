@@ -75,13 +75,15 @@ Not sure how to build a day around InterContinental Sorrento?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Guides that link to this place
 
-## Stories that mention InterContinental Sorrento
+Service   4 min
 
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
+### [The One-Night Peninsula Escape](<https://peninsulainsider.com.au/explore/plans/the-one-night-escape/>)
 
- [Journal →](<https://peninsulainsider.com.au/journal/>)
+9 April 2026
+
+One room, one dinner, one slow morning. Choose the right Peninsula base and a single overnight can feel like a proper break.
 
 Insider Edit   7 min
 
@@ -91,6 +93,10 @@ Insider Edit   7 min
 
 The long lunches get the headlines. But the Peninsula's first hour of the day - the flat white, the croissant out of the oven, the eggs on a working bakery's sourdough - is the quieter, better-value half of the food story. Here is where locals go, and the order to do it in.
 
+## Related editorial selections
+
+Selected as related reading; these pieces may not mention this place in their text.
+
 Service   8 min
 
 ### [How to Plan a Peninsula Weekend: The Decision Framework](<https://peninsulainsider.com.au/explore/plans/how-to-plan-a-peninsula-weekend/>)
@@ -99,21 +105,37 @@ Service   8 min
 
 Stop googling. Start here. A step-by-step planning guide that turns 'we should go to the Peninsula' into an actual weekend, with the decisions in the right order.
 
-Insider Edit   7 min
+Service   7 min
 
-### [The Sorrento Solstice Festival: A Night When the Peninsula Burns](<https://peninsulainsider.com.au/journal/sorrento-solstice-festival-2026-guide/>)
+### [The Peninsula Birthday Weekend: A Two-Night Plan That Actually Feels Celebratory](<https://peninsulainsider.com.au/explore/plans/the-birthday-weekend/>)
 
-15 June 2026
+16 April 2026
 
-The longest night of the year deserves a proper send-off. Two days on the Sorrento foreshore, a six-metre effigy on the bay, and the particular magic of a winter festival done right.
+A milestone birthday deserves more than a booking at the usual restaurant. Here is the two-night Peninsula plan that lands the celebration properly: one memorable dinner, one surprising morning, and a stay that makes the whole thing feel earned.
 
-Part of an escape
+Slow Peninsula   8 min
 
-## Weekend plans that already include InterContinental Sorrento
+### [A Two-Night Peninsula Weekend for Two](<https://peninsulainsider.com.au/explore/plans/the-couples-weekend/>)
 
-Skip the planning - these itineraries sequence this venue into a proper Peninsula weekend.
+10 April 2026
 
- [All plans →](<https://peninsulainsider.com.au/explore/plans/>)
+One memorable dinner, a long lunch and an afternoon with no agenda. A slower Mornington Peninsula weekend for two.
+
+More reading (6)
+
+- [The Point Nepean Half-Day](<https://peninsulainsider.com.au/explore/plans/the-point-nepean-half-day/>)
+
+- [The Sorrento Solstice Festival: A Night When the Peninsula Burns](<https://peninsulainsider.com.au/journal/sorrento-solstice-festival-2026-guide/>)
+
+- [The Sorrento Weekend: How to Do the Tip Without Treating It Like a Summer Strip](<https://peninsulainsider.com.au/journal/the-sorrento-weekend/>)
+
+- [The Sunset Drink: Where to Watch the Light Drop on the Peninsula](<https://peninsulainsider.com.au/journal/the-sunset-drink/>)
+
+- [The Sunset Hour: Where to Be at the End of the Day](<https://peninsulainsider.com.au/journal/the-sunset-hour/>)
+
+- [Where to Stay for a Two-Night Peninsula Escape](<https://peninsulainsider.com.au/journal/where-to-stay-for-a-two-night-escape/>)
+
+## Plans with this stop or overnight stay
 
 Sorrento Back Beach, Mornington Peninsula Photo: SHERPA Projects Pty Ltd, courtesy of Visit Victoria
 
@@ -127,7 +149,23 @@ Two-night escape · Best for couple · Sorrento
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/sorrento-off-season-weekend/>)
 
-More to explore
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Stringers Sorrento](<https://peninsulainsider.com.au/eat/stringers-sorrento/>) · 0.1 km
+
+- [Hotel Sorrento](<https://peninsulainsider.com.au/eat/sorrento-hotel/>) · 0.2 km
+
+- [Bistro Elba](<https://peninsulainsider.com.au/eat/bistro-elba/>) · 0.2 km
+
+- [Hotel Sorrento](<https://peninsulainsider.com.au/stay/hotel-sorrento/>) · 0.3 km
+
+- [The Baths Sorrento](<https://peninsulainsider.com.au/eat/the-baths-sorrento/>) · 0.5 km
+
+- [Portsea Hotel](<https://peninsulainsider.com.au/eat/portsea-hotel/>) · 3.2 km
+
+Related picks
 
 ## Other stays to compare
 

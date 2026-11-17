@@ -145,13 +145,9 @@ Not sure how to build a day around Main Ridge Estate?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Related editorial selections
 
-## Stories that mention Main Ridge Estate
-
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
-
- [Journal →](<https://peninsulainsider.com.au/journal/>)
+Selected as related reading; these pieces may not mention this place in their text.
 
 Service   6 min
 
@@ -169,7 +165,7 @@ Cellar Door Dispatch   6 min
 
 Not the biggest estates, not the flashiest rooms. The Peninsula cellar doors where the wines - and the people pouring them - actually change how you think about the region.
 
-More to explore
+Related picks
 
 ## Other wine experiences to compare
 

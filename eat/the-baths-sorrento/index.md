@@ -73,13 +73,9 @@ Not sure how to build a day around The Baths Sorrento?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Related editorial selections
 
-## Stories that mention The Baths Sorrento
-
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
-
- [Journal →](<https://peninsulainsider.com.au/journal/>)
+Selected as related reading; these pieces may not mention this place in their text.
 
 Insider Edit   6 min
 
@@ -97,15 +93,37 @@ Service   7 min
 
 Long light, warm bay water and the busiest roads of the year. A local's plan for summer on the Peninsula: which side to swim, when to move, what to book and what to leave loose.
 
-Service   8 min
+Insider Edit   7 min
 
-### [The Peninsula Beach Swimming Guide: Which Beach for Which Swim, From Bay to Back Beach](<https://peninsulainsider.com.au/journal/the-peninsula-beach-swimming-guide/>)
+### [The Seafood List: Where the Fish Comes Off the Boat and Onto the Plate](<https://peninsulainsider.com.au/journal/the-seafood-list/>)
 
-14 April 2026
+10 April 2026
 
-Thirty kilometres of Port Phillip coastline, fifteen kilometres of Bass Strait back beaches, and distinct swimming moods that most visitors cannot tell apart. A proper guide to where to actually swim on the Mornington Peninsula, by conditions and by purpose.
+The Peninsula is a wine region that happens to be surrounded by water. The seafood story is quieter than the pinot story, but it is arguably the more honest one - and the best of it is very, very good.
 
-Nearby picks
+More reading (2)
+
+- [The Sorrento Weekend: How to Do the Tip Without Treating It Like a Summer Strip](<https://peninsulainsider.com.au/journal/the-sorrento-weekend/>)
+
+- [The Sunset Hour: Where to Be at the End of the Day](<https://peninsulainsider.com.au/journal/the-sunset-hour/>)
+
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Hotel Sorrento](<https://peninsulainsider.com.au/stay/hotel-sorrento/>) · 0.3 km
+
+- [InterContinental Sorrento](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>) · 0.5 km
+
+- [Hotel Sorrento](<https://peninsulainsider.com.au/eat/sorrento-hotel/>) · 0.6 km
+
+- [Stringers Sorrento](<https://peninsulainsider.com.au/eat/stringers-sorrento/>) · 0.6 km
+
+- [Bistro Elba](<https://peninsulainsider.com.au/eat/bistro-elba/>) · 0.7 km
+
+- [Portsea Hotel](<https://peninsulainsider.com.au/eat/portsea-hotel/>) · 3.1 km
+
+Related picks
 
 ## More from Sorrento
 

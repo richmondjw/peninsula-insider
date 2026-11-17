@@ -103,21 +103,9 @@ Not sure how to build a day around Rare Hare at Willow Creek?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Related editorial selections
 
-## Stories that mention Rare Hare at Willow Creek
-
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
-
- [Journal →](<https://peninsulainsider.com.au/journal/>)
-
-Service   7 min
-
-### [Casual Lunch on the Mornington Peninsula: Where to Eat Well Without Making a Day of It](<https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/>)
-
-10 November 2026
-
-Not every Peninsula lunch needs a degustation and four hours. The places that do a relaxed, good midday meal, sorted by where you will be and who you are with.
+Selected as related reading; these pieces may not mention this place in their text.
 
 Service   8 min
 
@@ -127,13 +115,15 @@ Service   8 min
 
 Stop googling. Start here. A step-by-step planning guide that turns 'we should go to the Peninsula' into an actual weekend, with the decisions in the right order.
 
-Part of an escape
+Service   7 min
 
-## Weekend plans that already include Rare Hare at Willow Creek
+### [Casual Lunch on the Mornington Peninsula: Where to Eat Well Without Making a Day of It](<https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/>)
 
-Skip the planning - these itineraries sequence this venue into a proper Peninsula weekend.
+10 November 2026
 
- [All plans →](<https://peninsulainsider.com.au/explore/plans/>)
+Not every Peninsula lunch needs a degustation and four hours. The places that do a relaxed, good midday meal, sorted by where you will be and who you are with.
+
+## Plans with this stop or overnight stay
 
 Alba Thermal Springs & Spa, Fingal, Mornington Peninsula Photo: Courtesy of Visit Victoria
 
@@ -147,7 +137,7 @@ Two-night escape · Best for couple · Peninsula
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/wellness-weekend/>)
 
-Nearby picks
+Related picks
 
 ## More from Merricks North
 
@@ -169,7 +159,7 @@ anniversary  first date
 
 Winery  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 
-### [Scorpo Wines](<https://peninsulainsider.com.au/eat/scorpo-wines/>)
+### [Scorpo Wines](<https://peninsulainsider.com.au/wine/scorpo-wines/>)
 
 23 Old Bittern-Dromana Rd, Merricks North VIC 3926
 
@@ -177,11 +167,11 @@ Paul Scorpo's tightly focused family estate, one of the Peninsula's most acclaim
 
 cellar door  slow
 
-[Read notes](<https://peninsulainsider.com.au/eat/scorpo-wines/>) [Book](<https://www.scorpowines.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/wine/scorpo-wines/>) [Book](<https://www.scorpowines.com.au/>)
 
 Winery  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 
-### [Willow Creek Vineyard](<https://peninsulainsider.com.au/eat/willow-creek-vineyard/>)
+### [Willow Creek Vineyard](<https://peninsulainsider.com.au/wine/willow-creek-vineyard/>)
 
 166 Balnarring Rd, Merricks North VIC 3926
 
@@ -189,7 +179,7 @@ The vineyard at the heart of Jackalope Hotel, a showpiece single-site program an
 
 cellar door  walk
 
-[Read notes](<https://peninsulainsider.com.au/eat/willow-creek-vineyard/>) [Book](<https://rarehare.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/wine/willow-creek-vineyard/>) [Book](<https://rarehare.com.au/>)
 
 Plan your Peninsula day
 

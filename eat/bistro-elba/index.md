@@ -79,39 +79,59 @@ Not sure how to build a day around Bistro Elba?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Related editorial selections
 
-## Stories that mention Bistro Elba
+Selected as related reading; these pieces may not mention this place in their text.
 
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
+Service   6 min
 
- [Journal →](<https://peninsulainsider.com.au/journal/>)
+### [The Four-Hour Peninsula: A Surgical Strike for When the Weekend Is Half a Day](<https://peninsulainsider.com.au/explore/plans/the-four-hour-peninsula/>)
 
-Editor's Letter   8 min
+15 April 2026
 
-### [A Winter Peninsula Weekend: The Case for Coming in July](<https://peninsulainsider.com.au/journal/a-winter-peninsula-weekend/>)
+For the midweek visit, the work trip with a free morning, or the Melbourne friends who have a flight out of Tullamarine at five. Four hours, three stops, one decisive lunch, and no wasted drives. The Peninsula you can actually do in half a day.
 
-13 April 2026
+Service   6 min
 
-Short days, cheap rooms, empty dining rooms, a fire in every cellar door with a hearth, and a coast that looks like a different country in a southerly. Winter is the Peninsula's most underrated season and the one that gives the region back to the people who actually live here.
+### [The Friday Night Arrival](<https://peninsulainsider.com.au/explore/plans/the-friday-night-arrival/>)
 
-Editor's Letter   8 min
+10 April 2026
 
-### [The Autumn Weekend Edit: Why April on the Peninsula Feels Most Earned](<https://peninsulainsider.com.au/journal/autumn-weekend-edit/>)
+You leave the city at four. You hit the freeway. You arrive at six with nothing booked and nothing defrosted. Here is what to do with the first three hours, the ones that set the tone for everything that follows.
+
+Service   4 min
+
+### [The One-Night Peninsula Escape](<https://peninsulainsider.com.au/explore/plans/the-one-night-escape/>)
 
 9 April 2026
 
-Cool mornings, warm lunches, empty terraces, and the kind of light that makes every terrace look serious. This is the month the region stops performing and starts meaning something.
+One room, one dinner, one slow morning. Choose the right Peninsula base and a single overnight can feel like a proper break.
 
-Insider Edit   6 min
+More reading (3)
 
-### [Date Night on the Mornington Peninsula: Where to Book for Two](<https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/>)
+- [A Winter Peninsula Weekend: The Case for Coming in July](<https://peninsulainsider.com.au/journal/a-winter-peninsula-weekend/>)
 
-10 November 2026
+- [The Autumn Weekend Edit: Why April on the Peninsula Feels Most Earned](<https://peninsulainsider.com.au/journal/autumn-weekend-edit/>)
 
-A sunset drink, a room worth dressing for and no long drive home. The Peninsula's best dinners for two, from a Sri Lankan wine bar on the ridge to a set menu in Flinders, and how to build the evening around them.
+- [Date Night on the Mornington Peninsula: Where to Book for Two](<https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/>)
 
-Nearby picks
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Stringers Sorrento](<https://peninsulainsider.com.au/eat/stringers-sorrento/>) · under 100 m
+
+- [Hotel Sorrento](<https://peninsulainsider.com.au/eat/sorrento-hotel/>) · under 100 m
+
+- [InterContinental Sorrento](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>) · 0.2 km
+
+- [Hotel Sorrento](<https://peninsulainsider.com.au/stay/hotel-sorrento/>) · 0.5 km
+
+- [The Baths Sorrento](<https://peninsulainsider.com.au/eat/the-baths-sorrento/>) · 0.7 km
+
+- [Portsea Hotel](<https://peninsulainsider.com.au/eat/portsea-hotel/>) · 3.3 km
+
+Related picks
 
 ## More from Sorrento
 

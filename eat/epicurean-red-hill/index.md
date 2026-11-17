@@ -87,13 +87,7 @@ Not sure how to build a day around The Epicurean?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
-
-## Stories that mention The Epicurean
-
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
-
- [Journal →](<https://peninsulainsider.com.au/journal/>)
+## Guides that link to this place
 
 Insider Edit   7 min
 
@@ -103,14 +97,6 @@ Insider Edit   7 min
 
 The long lunches get the headlines. But the Peninsula's first hour of the day - the flat white, the croissant out of the oven, the eggs on a working bakery's sourdough - is the quieter, better-value half of the food story. Here is where locals go, and the order to do it in.
 
-Service   6 min
-
-### [The Friday Night Arrival](<https://peninsulainsider.com.au/explore/plans/the-friday-night-arrival/>)
-
-10 April 2026
-
-You leave the city at four. You hit the freeway. You arrive at six with nothing booked and nothing defrosted. Here is what to do with the first three hours, the ones that set the tone for everything that follows.
-
 Service   9 min
 
 ### [The Peninsula Pantry: A Saturday Shopping List for Anyone Cooking in a Rental](<https://peninsulainsider.com.au/journal/the-peninsula-pantry/>)
@@ -119,7 +105,27 @@ Service   9 min
 
 If you've booked a villa with a kitchen, you've booked one of the great food sourcing weekends in Victoria. Here is the shopping circuit - market first, bakery second, wine last - that actually does the region justice.
 
-Nearby picks
+## Related editorial selections
+
+Selected as related reading; these pieces may not mention this place in their text.
+
+Service   6 min
+
+### [The Friday Night Arrival](<https://peninsulainsider.com.au/explore/plans/the-friday-night-arrival/>)
+
+10 April 2026
+
+You leave the city at four. You hit the freeway. You arrive at six with nothing booked and nothing defrosted. Here is what to do with the first three hours, the ones that set the tone for everything that follows.
+
+Service   8 min
+
+### [The Peninsula Producer Trail: A Day Spent Closer to the Source](<https://peninsulainsider.com.au/explore/plans/the-producer-trail/>)
+
+17 April 2026
+
+Past the cellar doors and the long lunches, the Peninsula has a quieter and more interesting layer: the people who grow, churn, smoke, ferment, and bake the things you eat at the dining rooms. A day built around four producer visits, with a clean route, a small lunch, and the cooler bag full by sundown.
+
+Related picks
 
 ## More from Red Hill South
 
@@ -127,7 +133,7 @@ Nearby picks
 
 Winery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
-### [Avani Wines](<https://peninsulainsider.com.au/eat/avani-wines/>)
+### [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>)
 
 98 Stanleys Road, Red Hill South VIC 3937
 
@@ -135,11 +141,11 @@ Shashi and Rohit Singh's biodynamic family estate, one of the Peninsula's only s
 
 cellar door  slow
 
-[Read notes](<https://peninsulainsider.com.au/eat/avani-wines/>)
+[Read notes](<https://peninsulainsider.com.au/wine/avani-wines/>)
 
 Winery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
-### [Kooyong](<https://peninsulainsider.com.au/eat/kooyong/>)
+### [Kooyong](<https://peninsulainsider.com.au/wine/kooyong/>)
 
 263 Red Hill Rd, Red Hill South VIC 3937
 
@@ -147,7 +153,7 @@ Single-vineyard pinot noir and chardonnay from one of the Peninsula's most decor
 
 cellar door  slow
 
-[Read notes](<https://peninsulainsider.com.au/eat/kooyong/>)
+[Read notes](<https://peninsulainsider.com.au/wine/kooyong/>)
 
 Restaurant  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 

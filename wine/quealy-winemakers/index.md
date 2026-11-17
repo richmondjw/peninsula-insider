@@ -129,13 +129,27 @@ Not sure how to build a day around Quealy Winemakers?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Guides that link to this place
 
-## Stories that mention Quealy Winemakers
+Cellar Door Dispatch   6 min
 
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
+### [The Cellar Door Short List: Producers Worth the Stop](<https://peninsulainsider.com.au/journal/the-cellar-door-short-list/>)
 
- [Journal →](<https://peninsulainsider.com.au/journal/>)
+6 April 2026
+
+Not the biggest estates, not the flashiest rooms. The Peninsula cellar doors where the wines - and the people pouring them - actually change how you think about the region.
+
+Service   9 min
+
+### [The Peninsula Pantry: A Saturday Shopping List for Anyone Cooking in a Rental](<https://peninsulainsider.com.au/journal/the-peninsula-pantry/>)
+
+9 April 2026
+
+If you've booked a villa with a kitchen, you've booked one of the great food sourcing weekends in Victoria. Here is the shopping circuit - market first, bakery second, wine last - that actually does the region justice.
+
+## Related editorial selections
+
+Selected as related reading; these pieces may not mention this place in their text.
 
 Insider Edit   4 min
 
@@ -153,15 +167,23 @@ Cellar Door Dispatch   6 min
 
 If you care about how the Mornington Peninsula became more than a pinot monoculture, start here. Quealy is not glossy and that is exactly the point - this is one of the region's formative tasting rooms, built on curiosity, Italian varieties, and a refusal to behave like a tourist estate.
 
-Cellar Door Dispatch   6 min
+## Nearby places
 
-### [The Cellar Door Short List: Producers Worth the Stop](<https://peninsulainsider.com.au/journal/the-cellar-door-short-list/>)
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
 
-6 April 2026
+- [Scorpo Wines](<https://peninsulainsider.com.au/wine/scorpo-wines/>) · 0.4 km
 
-Not the biggest estates, not the flashiest rooms. The Peninsula cellar doors where the wines - and the people pouring them - actually change how you think about the region.
+- [Hideaways at Red Hill](<https://peninsulainsider.com.au/stay/hideaways-red-hill/>) · 1.1 km
 
-More to explore
+- [Merricks Estate](<https://peninsulainsider.com.au/wine/merricks-estate/>) · 1.2 km
+
+- [Laura at Pt. Leo](<https://peninsulainsider.com.au/eat/laura-pt-leo/>) · 1.3 km
+
+- [Polperro Villas](<https://peninsulainsider.com.au/stay/polperro-villas/>) · 1.6 km
+
+- [Polperro](<https://peninsulainsider.com.au/wine/polperro/>) · 1.6 km
+
+Related picks
 
 ## Other wine experiences to compare
 

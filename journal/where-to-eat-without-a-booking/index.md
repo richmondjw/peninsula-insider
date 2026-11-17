@@ -203,25 +203,11 @@ Service   6 min
 
 Six weeks, one Peninsula and a car full of children. The calm beaches, the outings worth the drive, the rainy-day backups and the timing that keeps the whole thing pleasant, from 19 December to late January.
 
-Mentioned in this piece
+Related editorial selections
 
-## Venues worth opening in a new tab
+## Related places in the PI guide
 
-Every venue referenced has its own page with editor notes, booking links, and nearby picks.
-
-Photo: Peter Tarasiuk, courtesy of Visit Victoria
-
-Brewery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
-
-### [Red Hill Brewery](<https://peninsulainsider.com.au/eat/red-hill-brewery/>)
-
-88 Shoreham Rd, Red Hill South VIC 3937
-
-A brewery in Red Hill South with its own on-site hop yard, a deck and beer garden.
-
-cellar door  garden
-
-[Read notes](<https://peninsulainsider.com.au/eat/red-hill-brewery/>) [Book](<https://redhillbrewery.com.au/>)
+Related places selected for this story, with their own PI pages. These recommendations are separate from mentions in the text.
 
 Photo: Flinders Hotel frontage, photographed 2010 · Mattinbgn / Wikimedia Commons (CC BY-SA 3.0) [Source](<https://commons.wikimedia.org/wiki/File:Flinders_Hotel_001.JPG>) [Licence](<https://creativecommons.org/licenses/by-sa/3.0/>)
 
@@ -235,7 +221,7 @@ Quarters is a quiet village stay behind Flinders Hotel, with pub dining and the 
 
 weekend escape  slow
 
-[Read notes](<https://peninsulainsider.com.au/stay/flinders-hotel/>) [View stay](<https://flindershotel.com.au/accommodation/>)
+[Read notes](<https://peninsulainsider.com.au/stay/flinders-hotel/>) [Book](<https://flindershotel.com.au/accommodation/>)
 
 Photo: Michael J Wyllie / Wikimedia Commons (CC BY-SA 4.0)
 
@@ -250,6 +236,18 @@ A Dromana foreshore hotel with a restaurant, bistro and indoor and outdoor bars.
 waterfront  family
 
 [Read notes](<https://peninsulainsider.com.au/eat/dromana-hotel/>) [Book](<https://stellasdromanahotel.com.au/contact/>)
+
+Pub  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
+
+### [Rye Hotel](<https://peninsulainsider.com.au/eat/rye-hotel/>)
+
+2415 Point Nepean Rd, Rye VIC 3941
+
+An enormous foreshore pub a short walk from Rye's front beach, family-friendly, deck-oriented, and the right answer on a warm afternoon.
+
+family  big group
+
+[Read notes](<https://peninsulainsider.com.au/eat/rye-hotel/>) [Book](<https://ryehotel.com.au/>)
 
 Experiences in this piece
 

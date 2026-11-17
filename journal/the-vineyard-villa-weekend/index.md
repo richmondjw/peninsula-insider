@@ -149,11 +149,11 @@ Editor's Letter   8 min
 
 Short days, cheap rooms, empty dining rooms, a fire in every cellar door with a hearth, and a coast that looks like a different country in a southerly. Winter is the Peninsula's most underrated season and the one that gives the region back to the people who actually live here.
 
-Mentioned in this piece
+Related editorial selections
 
-## Venues worth opening in a new tab
+## Related places in the PI guide
 
-Every venue referenced has its own page with editor notes, booking links, and nearby picks.
+Related places selected for this story, with their own PI pages. These recommendations are separate from mentions in the text.
 
 Illustrative, not Polperro Villas. Photo: faVori rouge · Mornington Peninsula vineyard · resized and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_vineyard.jpg>) [Licence](<https://creativecommons.org/licenses/by-sa/2.0/>)
 
@@ -167,7 +167,7 @@ Four vineyard villas, each sleeping two with a king-size bed, indoor spa and ope
 
 anniversary  slow
 
-[Read notes](<https://peninsulainsider.com.au/stay/polperro-villas/>) [View stay](<https://www.polperrowines.com.au/escape/>)
+[Read notes](<https://peninsulainsider.com.au/stay/polperro-villas/>) [Book](<https://www.polperrowines.com.au/escape/>)
 
 Photo: Peter Foster, courtesy of Visit Victoria
 
@@ -181,7 +181,7 @@ A Red Hill hotel set on 34 acres of gardens and vines, with an on-site dining ro
 
 weekend escape  garden
 
-[Read notes](<https://peninsulainsider.com.au/stay/lindenderry/>) [View stay](<https://lancemore.com.au/hotels/lancemore-lindenderry-red-hill/>)
+[Read notes](<https://peninsulainsider.com.au/stay/lindenderry/>) [Book](<https://lancemore.com.au/hotels/lancemore-lindenderry-red-hill/>)
 
 Photo: Peter Foster, courtesy of Visit Victoria
 
@@ -195,7 +195,7 @@ An art-led vineyard hotel in Merricks North, with Doot Doot Doot dining and room
 
 anniversary  weekend escape
 
-[Read notes](<https://peninsulainsider.com.au/stay/jackalope/>) [View stay](<https://jackalopehotels.com/stay/>)
+[Read notes](<https://peninsulainsider.com.au/stay/jackalope/>) [Book](<https://jackalopehotels.com/stay/>)
 
 Experiences in this piece
 

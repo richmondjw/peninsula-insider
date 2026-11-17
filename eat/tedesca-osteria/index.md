@@ -79,39 +79,81 @@ Not sure how to build a day around Tedesca Osteria?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Guides that link to this place
 
-## Stories that mention Tedesca Osteria
+Service   4 min
 
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
-
- [Journal →](<https://peninsulainsider.com.au/journal/>)
-
-Slow Peninsula   7 min
-
-### [A Flinders Weekend: The Case for the Quiet Side of the Peninsula](<https://peninsulainsider.com.au/journal/a-flinders-weekend/>)
-
-4 April 2026
-
-When Red Hill is booked out and Sorrento feels like a queue, there is another version of the Peninsula weekend that runs south of everything, closer to the ocean, and slower on purpose.
-
-Editor's Letter   8 min
-
-### [A Winter Peninsula Weekend: The Case for Coming in July](<https://peninsulainsider.com.au/journal/a-winter-peninsula-weekend/>)
-
-13 April 2026
-
-Short days, cheap rooms, empty dining rooms, a fire in every cellar door with a hearth, and a coast that looks like a different country in a southerly. Winter is the Peninsula's most underrated season and the one that gives the region back to the people who actually live here.
-
-Editor's Letter   8 min
-
-### [The Autumn Weekend Edit: Why April on the Peninsula Feels Most Earned](<https://peninsulainsider.com.au/journal/autumn-weekend-edit/>)
+### [The One-Night Peninsula Escape](<https://peninsulainsider.com.au/explore/plans/the-one-night-escape/>)
 
 9 April 2026
 
-Cool mornings, warm lunches, empty terraces, and the kind of light that makes every terrace look serious. This is the month the region stops performing and starts meaning something.
+One room, one dinner, one slow morning. Choose the right Peninsula base and a single overnight can feel like a proper break.
 
-Nearby picks
+## Related editorial selections
+
+Selected as related reading; these pieces may not mention this place in their text.
+
+Service   8 min
+
+### [How to Plan a Peninsula Weekend: The Decision Framework](<https://peninsulainsider.com.au/explore/plans/how-to-plan-a-peninsula-weekend/>)
+
+10 April 2026
+
+Stop googling. Start here. A step-by-step planning guide that turns 'we should go to the Peninsula' into an actual weekend, with the decisions in the right order.
+
+Service   7 min
+
+### [The Peninsula Birthday Weekend: A Two-Night Plan That Actually Feels Celebratory](<https://peninsulainsider.com.au/explore/plans/the-birthday-weekend/>)
+
+16 April 2026
+
+A milestone birthday deserves more than a booking at the usual restaurant. Here is the two-night Peninsula plan that lands the celebration properly: one memorable dinner, one surprising morning, and a stay that makes the whole thing feel earned.
+
+Slow Peninsula   8 min
+
+### [A Two-Night Peninsula Weekend for Two](<https://peninsulainsider.com.au/explore/plans/the-couples-weekend/>)
+
+10 April 2026
+
+One memorable dinner, a long lunch and an afternoon with no agenda. A slower Mornington Peninsula weekend for two.
+
+More reading (9)
+
+- [Mornington Peninsula Springs Weekend](<https://peninsulainsider.com.au/explore/plans/the-thermal-springs-weekend/>)
+
+- [A Flinders Weekend: The Case for the Quiet Side of the Peninsula](<https://peninsulainsider.com.au/journal/a-flinders-weekend/>)
+
+- [A Winter Peninsula Weekend: The Case for Coming in July](<https://peninsulainsider.com.au/journal/a-winter-peninsula-weekend/>)
+
+- [The Autumn Weekend Edit: Why April on the Peninsula Feels Most Earned](<https://peninsulainsider.com.au/journal/autumn-weekend-edit/>)
+
+- [The Rainy Day Peninsula: Where to Go When the Weather Turns](<https://peninsulainsider.com.au/journal/rainy-day-peninsula/>)
+
+- [The Long Lunch: Why the Mornington Peninsula Does Sunday Better Than Anywhere in Victoria](<https://peninsulainsider.com.au/journal/the-long-lunch/>)
+
+- [The Spring Peninsula: Why September and October Are the Region's Most Underrated Weekends](<https://peninsulainsider.com.au/journal/the-spring-peninsula/>)
+
+- [Tedesca, Tractor, Laura: Peninsula Dinners and the Argument Between Them](<https://peninsulainsider.com.au/journal/three-italian-dinners/>)
+
+- [Why the Peninsula Works Better in Winter](<https://peninsulainsider.com.au/journal/why-winter-works-on-the-peninsula/>)
+
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [T'Gallant](<https://peninsulainsider.com.au/wine/t-gallant/>) · 0.6 km
+
+- [Lightfoot Wines](<https://peninsulainsider.com.au/wine/lightfoot-wines/>) · 0.7 km
+
+- [Main Ridge Dairy](<https://peninsulainsider.com.au/eat/main-ridge-dairy/>) · 0.9 km
+
+- [Ten Minutes by Tractor Cellar Door Dining](<https://peninsulainsider.com.au/eat/allis-wine-bar/>) · 1.2 km
+
+- [Morning Sun Vineyard](<https://peninsulainsider.com.au/wine/morning-sun/>) · 1.3 km
+
+- [Paradigm Hill](<https://peninsulainsider.com.au/wine/paradigm-hill/>) · 1.3 km
+
+Related picks
 
 ## More from Red Hill
 
@@ -119,7 +161,7 @@ Nearby picks
 
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
-### [Eldridge Estate](<https://peninsulainsider.com.au/eat/eldridge-estate/>)
+### [Eldridge Estate](<https://peninsulainsider.com.au/wine/eldridge-estate/>)
 
 120 Arthurs Seat Rd, Red Hill VIC 3937
 
@@ -127,11 +169,11 @@ David Lloyd's tiny cult estate, single-clone Pinot Noirs from individual rows, p
 
 cellar door  slow
 
-[Read notes](<https://peninsulainsider.com.au/eat/eldridge-estate/>) [Book](<https://www.eldridge-estate.com.au/cellar-door/>)
+[Read notes](<https://peninsulainsider.com.au/wine/eldridge-estate/>) [Book](<https://www.eldridge-estate.com.au/cellar-door/>)
 
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
-### [Foxeys Hangout](<https://peninsulainsider.com.au/eat/foxeys-hangout/>)
+### [Foxeys Hangout](<https://peninsulainsider.com.au/wine/foxeys-hangout/>)
 
 795 White Hill Rd, Red Hill VIC 3937
 
@@ -139,7 +181,7 @@ Biodynamic Red Hill estate with an all-day deck, sunny long lunches, and a spark
 
 cellar door  long lunch
 
-[Read notes](<https://peninsulainsider.com.au/eat/foxeys-hangout/>) [Book](<https://foxeys-hangout.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/wine/foxeys-hangout/>) [Book](<https://foxeys-hangout.com.au/>)
 
 Photo: Two Palms Australia, courtesy of Visit Victoria
 

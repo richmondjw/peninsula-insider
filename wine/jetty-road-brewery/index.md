@@ -91,31 +91,7 @@ Not sure how to build a day around Jetty Road Brewery?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
-
-## Stories that mention Jetty Road Brewery
-
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
-
- [Journal →](<https://peninsulainsider.com.au/journal/>)
-
-Service   7 min
-
-### [The Peninsula Pub Crawl: Local Pubs, Unhurried Routes](<https://peninsulainsider.com.au/explore/plans/the-pub-crawl/>)
-
-10 April 2026
-
-A drinking guide to the Mornington Peninsula's public houses - the fires, the bistros, the beer gardens, the locals, and the argument for building a whole day around them.
-
-Service   7 min
-
-### [Where to Eat Without a Booking](<https://peninsulainsider.com.au/journal/where-to-eat-without-a-booking/>)
-
-10 April 2026
-
-The walk-in dining guide to the Mornington Peninsula - the pubs, cafés, bakeries and bars where you can turn up hungry, without a reservation, and leave properly fed.
-
-More to explore
+Related picks
 
 ## Other wine experiences to compare
 

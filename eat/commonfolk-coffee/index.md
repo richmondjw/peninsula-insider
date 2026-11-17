@@ -69,13 +69,7 @@ Not sure how to build a day around Commonfolk Coffee?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
-
-## Stories that mention Commonfolk Coffee
-
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
-
- [Journal →](<https://peninsulainsider.com.au/journal/>)
+## Guides that link to this place
 
 Insider Edit   7 min
 
@@ -85,13 +79,9 @@ Insider Edit   7 min
 
 The long lunches get the headlines. But the Peninsula's first hour of the day - the flat white, the croissant out of the oven, the eggs on a working bakery's sourdough - is the quieter, better-value half of the food story. Here is where locals go, and the order to do it in.
 
-Service   9 min
+## Related editorial selections
 
-### [First Time on the Peninsula: The Honest Starter Guide](<https://peninsulainsider.com.au/journal/first-time-peninsula/>)
-
-10 April 2026
-
-You have never been to the Mornington Peninsula. You have a free weekend. You want to know what is actually good, what is overrated, and what the people who live here would tell you to do. This is that guide.
+Selected as related reading; these pieces may not mention this place in their text.
 
 Service   8 min
 
@@ -101,13 +91,41 @@ Service   8 min
 
 Stop googling. Start here. A step-by-step planning guide that turns 'we should go to the Peninsula' into an actual weekend, with the decisions in the right order.
 
-Part of an escape
+Service   5 min
 
-## Weekend plans that already include Commonfolk Coffee
+### [The Mornington Day: How to Treat the Gateway Town as the Destination](<https://peninsulainsider.com.au/explore/plans/mornington-day-guide/>)
 
-Skip the planning - these itineraries sequence this venue into a proper Peninsula weekend.
+5 April 2026
 
- [All plans →](<https://peninsulainsider.com.au/explore/plans/>)
+Forget pressing on to the vineyards. A well-built day in Mornington - market, coffee, gallery, foreshore - is one of the cleanest Peninsula visits you can make.
+
+Slow Peninsula   8 min
+
+### [A Two-Night Peninsula Weekend for Two](<https://peninsulainsider.com.au/explore/plans/the-couples-weekend/>)
+
+10 April 2026
+
+One memorable dinner, a long lunch and an afternoon with no agenda. A slower Mornington Peninsula weekend for two.
+
+More reading (8)
+
+- [The Four-Hour Peninsula: A Surgical Strike for When the Weekend Is Half a Day](<https://peninsulainsider.com.au/explore/plans/the-four-hour-peninsula/>)
+
+- [The Friday Night Arrival](<https://peninsulainsider.com.au/explore/plans/the-friday-night-arrival/>)
+
+- [The Market Saturday: Peninsula Weekends Built Around the Right Hour at the Right Stall](<https://peninsulainsider.com.au/explore/plans/the-market-saturday/>)
+
+- [The Peninsula Orientation Drive: A First Visit in One Day](<https://peninsulainsider.com.au/explore/plans/the-peninsula-orientation-drive/>)
+
+- [School Holidays on the Peninsula](<https://peninsulainsider.com.au/explore/plans/the-school-holidays-survival-guide/>)
+
+- [First Time on the Peninsula: The Honest Starter Guide](<https://peninsulainsider.com.au/journal/first-time-peninsula/>)
+
+- [The Peninsula Pantry: A Saturday Shopping List for Anyone Cooking in a Rental](<https://peninsulainsider.com.au/journal/the-peninsula-pantry/>)
+
+- [Where to Eat Without a Booking](<https://peninsulainsider.com.au/journal/where-to-eat-without-a-booking/>)
+
+## Plans with this stop or overnight stay
 
 Plan
 
@@ -129,7 +147,19 @@ Two-night escape · Best for friends · Rye
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/the-peninsula-golf-weekend/>)
 
-Nearby picks
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [The Bay Hotel Mornington](<https://peninsulainsider.com.au/eat/the-bay-hotel-mornington/>) · 0.4 km
+
+- [Mornington Main Street Market](<https://peninsulainsider.com.au/eat/mornington-main-street-market/>) · 0.4 km
+
+- [The Rocks Mornington](<https://peninsulainsider.com.au/eat/the-rocks-mornington/>) · 0.6 km
+
+- [Barmah Park Vineyard](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>) · 4.9 km
+
+Related picks
 
 ## More from Mornington
 

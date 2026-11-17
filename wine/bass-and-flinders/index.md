@@ -95,39 +95,7 @@ Not sure how to build a day around Bass & Flinders Distillery?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
-
-## Stories that mention Bass & Flinders Distillery
-
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
-
- [Journal →](<https://peninsulainsider.com.au/journal/>)
-
-Service   5 min
-
-### [The Mornington Day: How to Treat the Gateway Town as the Destination](<https://peninsulainsider.com.au/explore/plans/mornington-day-guide/>)
-
-5 April 2026
-
-Forget pressing on to the vineyards. A well-built day in Mornington - market, coffee, gallery, foreshore - is one of the cleanest Peninsula visits you can make.
-
-Service   6 min
-
-### [The Rainy Day Peninsula: Where to Go When the Weather Turns](<https://peninsulainsider.com.au/journal/rainy-day-peninsula/>)
-
-3 April 2026
-
-A cold, grey Peninsula weekend is not a ruined one, it is the version that gives you back the best rooms, the best fires, and the best reasons to stay inside.
-
-Service   9 min
-
-### [The Peninsula Pantry: A Saturday Shopping List for Anyone Cooking in a Rental](<https://peninsulainsider.com.au/journal/the-peninsula-pantry/>)
-
-9 April 2026
-
-If you've booked a villa with a kitchen, you've booked one of the great food sourcing weekends in Victoria. Here is the shopping circuit - market first, bakery second, wine last - that actually does the region justice.
-
-More to explore
+Related picks
 
 ## Other wine experiences to compare
 

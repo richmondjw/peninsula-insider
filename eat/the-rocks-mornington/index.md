@@ -73,21 +73,9 @@ Not sure how to build a day around The Rocks Mornington?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Related editorial selections
 
-## Stories that mention The Rocks Mornington
-
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
-
- [Journal →](<https://peninsulainsider.com.au/journal/>)
-
-Insider Edit   6 min
-
-### [Date Night on the Mornington Peninsula: Where to Book for Two](<https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/>)
-
-10 November 2026
-
-A sunset drink, a room worth dressing for and no long drive home. The Peninsula's best dinners for two, from a Sri Lankan wine bar on the ridge to a set menu in Flinders, and how to build the evening around them.
+Selected as related reading; these pieces may not mention this place in their text.
 
 Service   5 min
 
@@ -97,6 +85,14 @@ Service   5 min
 
 Forget pressing on to the vineyards. A well-built day in Mornington - market, coffee, gallery, foreshore - is one of the cleanest Peninsula visits you can make.
 
+Insider Edit   6 min
+
+### [Date Night on the Mornington Peninsula: Where to Book for Two](<https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/>)
+
+10 November 2026
+
+A sunset drink, a room worth dressing for and no long drive home. The Peninsula's best dinners for two, from a Sri Lankan wine bar on the ridge to a set menu in Flinders, and how to build the evening around them.
+
 Insider Edit   7 min
 
 ### [The Seafood List: Where the Fish Comes Off the Boat and Onto the Plate](<https://peninsulainsider.com.au/journal/the-seafood-list/>)
@@ -105,7 +101,17 @@ Insider Edit   7 min
 
 The Peninsula is a wine region that happens to be surrounded by water. The seafood story is quieter than the pinot story, but it is arguably the more honest one - and the best of it is very, very good.
 
-Nearby picks
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Mornington Main Street Market](<https://peninsulainsider.com.au/eat/mornington-main-street-market/>) · 0.3 km
+
+- [The Bay Hotel Mornington](<https://peninsulainsider.com.au/eat/the-bay-hotel-mornington/>) · 0.3 km
+
+- [Commonfolk Coffee](<https://peninsulainsider.com.au/eat/commonfolk-coffee/>) · 0.6 km
+
+Related picks
 
 ## More from Mornington
 

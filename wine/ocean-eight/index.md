@@ -141,13 +141,9 @@ Not sure how to build a day around Ocean Eight Vineyard?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Related editorial selections
 
-## Stories that mention Ocean Eight Vineyard
-
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
-
- [Journal →](<https://peninsulainsider.com.au/journal/>)
+Selected as related reading; these pieces may not mention this place in their text.
 
 Cellar Door Dispatch   6 min
 
@@ -173,7 +169,7 @@ Service   9 min
 
 If you've booked a villa with a kitchen, you've booked one of the great food sourcing weekends in Victoria. Here is the shopping circuit - market first, bakery second, wine last - that actually does the region justice.
 
-More to explore
+Related picks
 
 ## Other wine experiences to compare
 

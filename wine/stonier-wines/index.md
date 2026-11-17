@@ -133,13 +133,9 @@ Not sure how to build a day around Stonier Wines?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Related editorial selections
 
-## Stories that mention Stonier Wines
-
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
-
- [Journal →](<https://peninsulainsider.com.au/journal/>)
+Selected as related reading; these pieces may not mention this place in their text.
 
 Insider Edit   3 min
 
@@ -165,7 +161,23 @@ Cellar Door Dispatch   8 min
 
 Everyone sells the Mornington Peninsula as a pinot noir region. They are half right. The quiet argument of the last three vintages is that the chardonnay is now the more interesting bottle on the table, and the one worth cellaring.
 
-More to explore
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Merricks Estate](<https://peninsulainsider.com.au/wine/merricks-estate/>) · 1.0 km
+
+- [Merricks General Wine Store](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>) · 1.1 km
+
+- [Scorpo Wines](<https://peninsulainsider.com.au/wine/scorpo-wines/>) · 1.6 km
+
+- [Quealy Winemakers](<https://peninsulainsider.com.au/wine/quealy-winemakers/>) · 2.0 km
+
+- [Laura at Pt. Leo](<https://peninsulainsider.com.au/eat/laura-pt-leo/>) · 2.5 km
+
+- [Hideaways at Red Hill](<https://peninsulainsider.com.au/stay/hideaways-red-hill/>) · 2.6 km
+
+Related picks
 
 ## Other wine experiences to compare
 

@@ -139,13 +139,7 @@ Not sure how to build a day around Kooyong?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
-
-## Stories that mention Kooyong
-
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
-
- [Journal →](<https://peninsulainsider.com.au/journal/>)
+## Guides that link to this place
 
 Cellar Door Dispatch   6 min
 
@@ -163,6 +157,10 @@ Cellar Door Dispatch   8 min
 
 Everyone sells the Mornington Peninsula as a pinot noir region. They are half right. The quiet argument of the last three vintages is that the chardonnay is now the more interesting bottle on the table, and the one worth cellaring.
 
+## Related editorial selections
+
+Selected as related reading; these pieces may not mention this place in their text.
+
 Slow Peninsula   8 min
 
 ### [A Two-Night Peninsula Weekend for Two](<https://peninsulainsider.com.au/explore/plans/the-couples-weekend/>)
@@ -171,7 +169,7 @@ Slow Peninsula   8 min
 
 One memorable dinner, a long lunch and an afternoon with no agenda. A slower Mornington Peninsula weekend for two.
 
-More to explore
+Related picks
 
 ## Other wine experiences to compare
 

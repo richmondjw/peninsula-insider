@@ -67,13 +67,9 @@ Not sure how to build a day around Dexter Wines?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Related editorial selections
 
-## Stories that mention Dexter Wines
-
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
-
- [Journal →](<https://peninsulainsider.com.au/journal/>)
+Selected as related reading; these pieces may not mention this place in their text.
 
 Cellar Door Dispatch   8 min
 
@@ -83,7 +79,17 @@ Cellar Door Dispatch   8 min
 
 Everyone sells the Mornington Peninsula as a pinot noir region. They are half right. The quiet argument of the last three vintages is that the chardonnay is now the more interesting bottle on the table, and the one worth cellaring.
 
-More to explore
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Dromana Estate](<https://peninsulainsider.com.au/wine/dromana-estate/>) · 2.5 km
+
+- [Yabby Lake Vineyard](<https://peninsulainsider.com.au/wine/yabby-lake/>) · 4.6 km
+
+- [Onannon](<https://peninsulainsider.com.au/wine/onannon/>) · 4.8 km
+
+Related picks
 
 ## Other wine experiences to compare
 

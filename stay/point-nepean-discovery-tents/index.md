@@ -73,7 +73,15 @@ Not sure how to build a day around Point Nepean Discovery Tents?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-More to explore
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Portsea Hotel](<https://peninsulainsider.com.au/eat/portsea-hotel/>) · 2.0 km
+
+- [Hotel Sorrento](<https://peninsulainsider.com.au/stay/hotel-sorrento/>) · 4.9 km
+
+Related picks
 
 ## Other stays to compare
 

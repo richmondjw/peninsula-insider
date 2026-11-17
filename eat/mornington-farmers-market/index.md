@@ -83,21 +83,9 @@ Not sure how to build a day around Mornington Farmers' Market?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Related editorial selections
 
-## Stories that mention Mornington Farmers' Market
-
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
-
- [Journal →](<https://peninsulainsider.com.au/journal/>)
-
-Insider Edit   7 min
-
-### [Breakfast Before the Crowds: Peninsula Mornings Worth an Early Start](<https://peninsulainsider.com.au/journal/breakfast-before-the-crowds/>)
-
-9 April 2026
-
-The long lunches get the headlines. But the Peninsula's first hour of the day - the flat white, the croissant out of the oven, the eggs on a working bakery's sourdough - is the quieter, better-value half of the food story. Here is where locals go, and the order to do it in.
+Selected as related reading; these pieces may not mention this place in their text.
 
 Service   5 min
 
@@ -115,7 +103,23 @@ Service   8 min
 
 Mornington, Hill & Ridge, Balnarring and Somers: check each organiser's current calendar, then build a Peninsula weekend around a confirmed market.
 
-Nearby picks
+Service   7 min
+
+### [The Peninsula Picnic: How to Assemble and Eat One Properly](<https://peninsulainsider.com.au/explore/plans/the-peninsula-picnic/>)
+
+10 April 2026
+
+The best picnic on the Mornington Peninsula is not a hamper from a winery gift shop. It is a morning circuit through three or four producers, a blanket on the right patch of grass, and a long afternoon that costs half a restaurant lunch.
+
+More reading (3)
+
+- [Breakfast Before the Crowds: Peninsula Mornings Worth an Early Start](<https://peninsulainsider.com.au/journal/breakfast-before-the-crowds/>)
+
+- [The Peninsula Pantry: A Saturday Shopping List for Anyone Cooking in a Rental](<https://peninsulainsider.com.au/journal/the-peninsula-pantry/>)
+
+- [The Spring Peninsula: Why September and October Are the Region's Most Underrated Weekends](<https://peninsulainsider.com.au/journal/the-spring-peninsula/>)
+
+Related picks
 
 ## More from Mornington
 

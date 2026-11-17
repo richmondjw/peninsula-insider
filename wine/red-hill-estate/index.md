@@ -139,7 +139,17 @@ Not sure how to build a day around Red Hill Estate?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-More to explore
+## Guides that link to this place
+
+Hub Guide   8 min
+
+### [Main Ridge: The Peninsula Insider Guide](<https://peninsulainsider.com.au/journal/area-guide-main-ridge/>)
+
+2 May 2026
+
+Main Ridge is an elevated, unhurried stretch of Peninsula wine country - less a village than a landscape of cellar doors and ridge roads. Come when you want the Peninsula stripped back to vineyards, fog, lunch and roads lined with trees rather than distractions.
+
+Related picks
 
 ## Other wine experiences to compare
 

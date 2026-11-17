@@ -95,7 +95,33 @@ Not sure how to build a day around Peninsula Hot Springs Eco Lodges?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-More to explore
+## Guides that link to this place
+
+Service   5 min
+
+### [Mornington Peninsula Spa Stays](<https://peninsulainsider.com.au/explore/plans/mornington-peninsula-stay-and-soak/>)
+
+14 April 2026
+
+Sleep beside the springs, choose a base with a drive, or make the hotel spa your destination.
+
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Peninsula Hot Springs](<https://peninsulainsider.com.au/explore/spas-and-wellness/#peninsula-hot-springs>) · under 100 m
+
+- [Peninsula Hot Springs Glamping](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>) · under 100 m
+
+- [Alba Thermal Springs & Spa](<https://peninsulainsider.com.au/explore/spas-and-wellness/#alba-thermal-springs>) · 1.7 km
+
+- [The Sanctuary at Alba](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/>) · 1.7 km
+
+- [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>) · 3.8 km
+
+- [Rye Hotel](<https://peninsulainsider.com.au/eat/rye-hotel/>) · 4.0 km
+
+Related picks
 
 ## Other stays to compare
 

@@ -171,11 +171,11 @@ Service   7 min
 
 A working plan for parents who want the region to feel like a holiday, not a logistics problem. One lookout, one lunch with a garden, one beach, one coffee on the way home.
 
-Mentioned in this piece
+Related editorial selections
 
-## Venues worth opening in a new tab
+## Related places in the PI guide
 
-Every venue referenced has its own page with editor notes, booking links, and nearby picks.
+Related places selected for this story, with their own PI pages. These recommendations are separate from mentions in the text.
 
 Photo: Two Palms Australia, courtesy of Visit Victoria
 
@@ -191,18 +191,6 @@ long lunch  big group
 
 [Read notes](<https://peninsulainsider.com.au/eat/red-gum-bbq/>) [Book](<https://redgumbbq.com.au/>)
 
-Restaurant  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
-
-### [La Baracca at T'Gallant](<https://peninsulainsider.com.au/eat/la-baracca-tgallant/>)
-
-1385 Mornington-Flinders Rd, Main Ridge VIC 3928
-
-The Peninsula's original winery pizza barn, wood-fired margheritas, handmade pasta, and T'Gallant's Pinot Grigio by the carafe.
-
-long lunch  big group
-
-[Read notes](<https://peninsulainsider.com.au/eat/la-baracca-tgallant/>) [Book](<https://tgallantvineyard.com.au/bookings/>)
-
 providore  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
 ### [Main Ridge Dairy](<https://peninsulainsider.com.au/eat/main-ridge-dairy/>)
@@ -214,6 +202,18 @@ A working goat dairy with farm-made cheeses, seasonal sharing plates and cheese 
 family  garden
 
 [Read notes](<https://peninsulainsider.com.au/eat/main-ridge-dairy/>)
+
+Pub  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
+
+### [Rye Hotel](<https://peninsulainsider.com.au/eat/rye-hotel/>)
+
+2415 Point Nepean Rd, Rye VIC 3941
+
+An enormous foreshore pub a short walk from Rye's front beach, family-friendly, deck-oriented, and the right answer on a warm afternoon.
+
+family  big group
+
+[Read notes](<https://peninsulainsider.com.au/eat/rye-hotel/>) [Book](<https://ryehotel.com.au/>)
 
 Experiences in this piece
 

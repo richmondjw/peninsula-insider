@@ -41,7 +41,17 @@ Not sure how to build a day around Mornington Main Street Market?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-Nearby picks
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [The Bay Hotel Mornington](<https://peninsulainsider.com.au/eat/the-bay-hotel-mornington/>) · under 100 m
+
+- [The Rocks Mornington](<https://peninsulainsider.com.au/eat/the-rocks-mornington/>) · 0.3 km
+
+- [Commonfolk Coffee](<https://peninsulainsider.com.au/eat/commonfolk-coffee/>) · 0.4 km
+
+Related picks
 
 ## More from Mornington
 

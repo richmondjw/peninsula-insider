@@ -73,7 +73,7 @@ Not sure how to build a day around Treetops at Red Hill?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-More to explore
+Related picks
 
 ## Other stays to compare
 

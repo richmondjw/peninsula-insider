@@ -143,13 +143,9 @@ Not sure how to build a day around Paradigm Hill?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Related editorial selections
 
-## Stories that mention Paradigm Hill
-
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
-
- [Journal →](<https://peninsulainsider.com.au/journal/>)
+Selected as related reading; these pieces may not mention this place in their text.
 
 Cellar Door Dispatch   6 min
 
@@ -159,7 +155,23 @@ Cellar Door Dispatch   6 min
 
 Not the biggest estates, not the flashiest rooms. The Peninsula cellar doors where the wines - and the people pouring them - actually change how you think about the region.
 
-More to explore
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [T'Gallant](<https://peninsulainsider.com.au/wine/t-gallant/>) · 0.9 km
+
+- [Main Ridge Dairy](<https://peninsulainsider.com.au/eat/main-ridge-dairy/>) · 0.9 km
+
+- [Ten Minutes by Tractor Cellar Door Dining](<https://peninsulainsider.com.au/eat/allis-wine-bar/>) · 1.2 km
+
+- [Tedesca Osteria](<https://peninsulainsider.com.au/eat/tedesca-osteria/>) · 1.3 km
+
+- [Lightfoot Wines](<https://peninsulainsider.com.au/wine/lightfoot-wines/>) · 1.3 km
+
+- [Morning Sun Vineyard](<https://peninsulainsider.com.au/wine/morning-sun/>) · 1.4 km
+
+Related picks
 
 ## Other wine experiences to compare
 

@@ -95,57 +95,7 @@ Not sure how to build a day around Red Hill Brewery?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
-
-## Stories that mention Red Hill Brewery
-
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
-
- [Journal →](<https://peninsulainsider.com.au/journal/>)
-
-Editor's Letter   8 min
-
-### [A Winter Peninsula Weekend: The Case for Coming in July](<https://peninsulainsider.com.au/journal/a-winter-peninsula-weekend/>)
-
-13 April 2026
-
-Short days, cheap rooms, empty dining rooms, a fire in every cellar door with a hearth, and a coast that looks like a different country in a southerly. Winter is the Peninsula's most underrated season and the one that gives the region back to the people who actually live here.
-
-Service   7 min
-
-### [Casual Lunch on the Mornington Peninsula: Where to Eat Well Without Making a Day of It](<https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/>)
-
-10 November 2026
-
-Not every Peninsula lunch needs a degustation and four hours. The places that do a relaxed, good midday meal, sorted by where you will be and who you are with.
-
-Service   9 min
-
-### [First Time on the Peninsula: The Honest Starter Guide](<https://peninsulainsider.com.au/journal/first-time-peninsula/>)
-
-10 April 2026
-
-You have never been to the Mornington Peninsula. You have a free weekend. You want to know what is actually good, what is overrated, and what the people who live here would tell you to do. This is that guide.
-
-Part of an escape
-
-## Weekend plans that already include Red Hill Brewery
-
-Skip the planning - these itineraries sequence this venue into a proper Peninsula weekend.
-
- [All plans →](<https://peninsulainsider.com.au/explore/plans/>)
-
-Plan
-
-### [The Peninsula Family Day Out](<https://peninsulainsider.com.au/explore/plans/the-family-day-out/>)
-
-A gondola ride, a brewery lunch and a bay beach, with a coffee stop only if the day runs early.
-
-Day trip · Best for family · Mornington
-
-[View Plan →](<https://peninsulainsider.com.au/explore/plans/the-family-day-out/>)
-
-More to explore
+Related picks
 
 ## Other wine experiences to compare
 

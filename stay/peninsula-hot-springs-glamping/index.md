@@ -77,21 +77,19 @@ Not sure how to build a day around Peninsula Hot Springs Glamping?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Guides that link to this place
 
-## Stories that mention Peninsula Hot Springs Glamping
+Service   5 min
 
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
+### [Mornington Peninsula Spa Stays](<https://peninsulainsider.com.au/explore/plans/mornington-peninsula-stay-and-soak/>)
 
- [Journal →](<https://peninsulainsider.com.au/journal/>)
+14 April 2026
 
-Editor's Letter   8 min
+Sleep beside the springs, choose a base with a drive, or make the hotel spa your destination.
 
-### [A Winter Peninsula Weekend: The Case for Coming in July](<https://peninsulainsider.com.au/journal/a-winter-peninsula-weekend/>)
+## Related editorial selections
 
-13 April 2026
-
-Short days, cheap rooms, empty dining rooms, a fire in every cellar door with a hearth, and a coast that looks like a different country in a southerly. Winter is the Peninsula's most underrated season and the one that gives the region back to the people who actually live here.
+Selected as related reading; these pieces may not mention this place in their text.
 
 Service   7 min
 
@@ -109,7 +107,39 @@ Service   4 min
 
 One room, one dinner, one slow morning. Choose the right Peninsula base and a single overnight can feel like a proper break.
 
-More to explore
+Service   5 min
+
+### [Mornington Peninsula Springs Weekend](<https://peninsulainsider.com.au/explore/plans/the-thermal-springs-weekend/>)
+
+9 April 2026
+
+One Fingal bathhouse, two nights and an unhurried Sunday.
+
+More reading (3)
+
+- [A Winter Peninsula Weekend: The Case for Coming in July](<https://peninsulainsider.com.au/journal/a-winter-peninsula-weekend/>)
+
+- [The Vineyard Villa Weekend: The Peninsula's Quietest Luxury](<https://peninsulainsider.com.au/journal/the-vineyard-villa-weekend/>)
+
+- [Where to Stay for a Two-Night Peninsula Escape](<https://peninsulainsider.com.au/journal/where-to-stay-for-a-two-night-escape/>)
+
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Peninsula Hot Springs](<https://peninsulainsider.com.au/explore/spas-and-wellness/#peninsula-hot-springs>) · under 100 m
+
+- [Peninsula Hot Springs Eco Lodges](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-eco-lodges/>) · under 100 m
+
+- [Alba Thermal Springs & Spa](<https://peninsulainsider.com.au/explore/spas-and-wellness/#alba-thermal-springs>) · 1.7 km
+
+- [The Sanctuary at Alba](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/>) · 1.7 km
+
+- [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>) · 3.8 km
+
+- [Rye Hotel](<https://peninsulainsider.com.au/eat/rye-hotel/>) · 4.0 km
+
+Related picks
 
 ## Other stays to compare
 

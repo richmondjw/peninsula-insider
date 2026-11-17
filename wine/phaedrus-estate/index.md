@@ -59,7 +59,7 @@ Not sure how to build a day around Phaedrus Estate?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-More to explore
+Related picks
 
 ## Other wine experiences to compare
 

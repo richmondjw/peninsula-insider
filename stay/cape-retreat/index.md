@@ -71,7 +71,15 @@ Not sure how to build a day around The Cape Retreat?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-More to explore
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [One Spa at RACV Cape Schanck Resort](<https://peninsulainsider.com.au/explore/spas-and-wellness/#one-spa-racv-cape-schanck>) · 3.4 km
+
+- [Barragunda Dining](<https://peninsulainsider.com.au/eat/barragunda-dining/>) · 4.3 km
+
+Related picks
 
 ## Other stays to compare
 

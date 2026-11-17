@@ -73,13 +73,9 @@ Not sure how to build a day around The Heritage Balnarring?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Related editorial selections
 
-## Stories that mention The Heritage Balnarring
-
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
-
- [Journal →](<https://peninsulainsider.com.au/journal/>)
+Selected as related reading; these pieces may not mention this place in their text.
 
 Service   7 min
 
@@ -105,7 +101,35 @@ Service   8 min
 
 The drive to make on your first visit, or the one to send a friend on when you are out of time to explain why you keep coming back. Coffee, ridge, hinterland, ocean, village, bay - in that order, with most of a day to enjoy it.
 
-Nearby picks
+More reading (5)
+
+- [The Peninsula Producer Trail: A Day Spent Closer to the Source](<https://peninsulainsider.com.au/explore/plans/the-producer-trail/>)
+
+- [The Peninsula Pub Crawl: Local Pubs, Unhurried Routes](<https://peninsulainsider.com.au/explore/plans/the-pub-crawl/>)
+
+- [School Holidays on the Peninsula](<https://peninsulainsider.com.au/explore/plans/the-school-holidays-survival-guide/>)
+
+- [The Peninsula Pub Guide: Hotels That Still Know What a Pub Is For](<https://peninsulainsider.com.au/journal/the-pub-guide/>)
+
+- [The Winter Long Lunch: Vineyard Dining Room or Coastal Pub](<https://peninsulainsider.com.au/journal/the-winter-long-lunch/>)
+
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Balnarring Bakehouse](<https://peninsulainsider.com.au/eat/balnarring-bakehouse/>) · 0.2 km
+
+- [The Red Hill Baker](<https://peninsulainsider.com.au/eat/red-hill-bakery/>) · 0.2 km
+
+- [Elan Vineyard & Gallery](<https://peninsulainsider.com.au/wine/elan-vineyard/>) · 0.4 km
+
+- [Baillieu Vineyard](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>) · 2.5 km
+
+- [Merricks General Wine Store](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>) · 3.2 km
+
+- [Merricks Estate](<https://peninsulainsider.com.au/wine/merricks-estate/>) · 3.3 km
+
+Related picks
 
 ## More from Balnarring
 
@@ -125,7 +149,7 @@ quick bite  family
 
 Winery  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/>)
 
-### [Elan Vineyard & Gallery](<https://peninsulainsider.com.au/eat/elan-vineyard/>)
+### [Elan Vineyard & Gallery](<https://peninsulainsider.com.au/wine/elan-vineyard/>)
 
 17 Turners Rd, Bittern VIC 3918
 
@@ -133,11 +157,11 @@ Selma and Jonathan Lowther's 1981 planting, one of the oldest on the Peninsula, 
 
 cellar door  slow
 
-[Read notes](<https://peninsulainsider.com.au/eat/elan-vineyard/>) [Book](<https://elanvineyard.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/wine/elan-vineyard/>) [Book](<https://elanvineyard.com.au/>)
 
 Winery  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/>)
 
-### [Hurley Vineyard](<https://peninsulainsider.com.au/eat/hurley-vineyard/>)
+### [Hurley Vineyard](<https://peninsulainsider.com.au/wine/hurley-vineyard/>)
 
 101 Balnarring Rd, Balnarring VIC 3926
 
@@ -145,7 +169,7 @@ Kevin Bell's boutique single-vineyard Pinot project, three tiny blocks (Lodeston
 
 cellar door  slow
 
-[Read notes](<https://peninsulainsider.com.au/eat/hurley-vineyard/>) [Book](<https://www.hurleyvineyard.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/wine/hurley-vineyard/>) [Book](<https://www.hurleyvineyard.com.au/>)
 
 Plan your Peninsula day
 

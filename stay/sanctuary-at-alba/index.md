@@ -77,7 +77,41 @@ Not sure how to build a day around The Sanctuary at Alba?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-More to explore
+## Guides that link to this place
+
+Service   5 min
+
+### [Mornington Peninsula Spa Stays](<https://peninsulainsider.com.au/explore/plans/mornington-peninsula-stay-and-soak/>)
+
+14 April 2026
+
+Sleep beside the springs, choose a base with a drive, or make the hotel spa your destination.
+
+Service   5 min
+
+### [Mornington Peninsula Springs Weekend](<https://peninsulainsider.com.au/explore/plans/the-thermal-springs-weekend/>)
+
+9 April 2026
+
+One Fingal bathhouse, two nights and an unhurried Sunday.
+
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Alba Thermal Springs & Spa](<https://peninsulainsider.com.au/explore/spas-and-wellness/#alba-thermal-springs>) · under 100 m
+
+- [Peninsula Hot Springs](<https://peninsulainsider.com.au/explore/spas-and-wellness/#peninsula-hot-springs>) · 1.7 km
+
+- [Peninsula Hot Springs Eco Lodges](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-eco-lodges/>) · 1.7 km
+
+- [Peninsula Hot Springs Glamping](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>) · 1.7 km
+
+- [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>) · 2.2 km
+
+- [Rye Hotel](<https://peninsulainsider.com.au/eat/rye-hotel/>) · 2.6 km
+
+Related picks
 
 ## Other stays to compare
 

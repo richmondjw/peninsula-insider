@@ -79,7 +79,23 @@ Not sure how to build a day around Prancing Horse Estate?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-More to explore
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Lindenderry at Red Hill](<https://peninsulainsider.com.au/stay/lindenderry/>) · 0.5 km
+
+- [Foxeys Hangout](<https://peninsulainsider.com.au/wine/foxeys-hangout/>) · 0.7 km
+
+- [Ten Minutes by Tractor](<https://peninsulainsider.com.au/wine/ten-minutes-by-tractor/>) · 0.9 km
+
+- [Montalto Vineyard & Olive Grove](<https://peninsulainsider.com.au/wine/montalto/>) · 1.0 km
+
+- [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>) · 1.1 km
+
+- [Port Phillip Estate](<https://peninsulainsider.com.au/wine/port-phillip-estate/>) · 1.4 km
+
+Related picks
 
 ## Other wine experiences to compare
 

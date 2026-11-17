@@ -111,45 +111,77 @@ Not sure how to build a day around Lindenderry at Red Hill?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Guides that link to this place
 
-## Stories that mention Lindenderry at Red Hill
+Service   4 min
 
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
-
- [Journal →](<https://peninsulainsider.com.au/journal/>)
-
-Editor's Letter   8 min
-
-### [A Winter Peninsula Weekend: The Case for Coming in July](<https://peninsulainsider.com.au/journal/a-winter-peninsula-weekend/>)
-
-13 April 2026
-
-Short days, cheap rooms, empty dining rooms, a fire in every cellar door with a hearth, and a coast that looks like a different country in a southerly. Winter is the Peninsula's most underrated season and the one that gives the region back to the people who actually live here.
-
-Editor's Letter   8 min
-
-### [The Autumn Weekend Edit: Why April on the Peninsula Feels Most Earned](<https://peninsulainsider.com.au/journal/autumn-weekend-edit/>)
+### [The One-Night Peninsula Escape](<https://peninsulainsider.com.au/explore/plans/the-one-night-escape/>)
 
 9 April 2026
 
-Cool mornings, warm lunches, empty terraces, and the kind of light that makes every terrace look serious. This is the month the region stops performing and starts meaning something.
+One room, one dinner, one slow morning. Choose the right Peninsula base and a single overnight can feel like a proper break.
 
-Service   9 min
+Hub Guide   8 min
 
-### [First Time on the Peninsula: The Honest Starter Guide](<https://peninsulainsider.com.au/journal/first-time-peninsula/>)
+### [Red Hill: The Peninsula Insider Guide](<https://peninsulainsider.com.au/journal/area-guide-red-hill/>)
+
+2 May 2026
+
+Red Hill is the Peninsula's food-and-wine centre of gravity, but the best version of it is narrower than most visitors think. This is a place for one market morning, one properly chosen cellar door, and one lunch that gets the whole day.
+
+## Related editorial selections
+
+Selected as related reading; these pieces may not mention this place in their text.
+
+Service   6 min
+
+### [What to Do in Red Hill This Weekend: The Saturday Plan](<https://peninsulainsider.com.au/explore/plans/how-to-build-a-red-hill-saturday/>)
+
+8 April 2026
+
+A ridge morning, one properly chosen cellar door, and a lunch that earns the drive. The clearest version of a Red Hill Saturday.
+
+Service   8 min
+
+### [How to Plan a Peninsula Weekend: The Decision Framework](<https://peninsulainsider.com.au/explore/plans/how-to-plan-a-peninsula-weekend/>)
 
 10 April 2026
 
-You have never been to the Mornington Peninsula. You have a free weekend. You want to know what is actually good, what is overrated, and what the people who live here would tell you to do. This is that guide.
+Stop googling. Start here. A step-by-step planning guide that turns 'we should go to the Peninsula' into an actual weekend, with the decisions in the right order.
 
-Part of an escape
+Service   7 min
 
-## Weekend plans that already include Lindenderry at Red Hill
+### [The Peninsula Birthday Weekend: A Two-Night Plan That Actually Feels Celebratory](<https://peninsulainsider.com.au/explore/plans/the-birthday-weekend/>)
 
-Skip the planning - these itineraries sequence this venue into a proper Peninsula weekend.
+16 April 2026
 
- [All plans →](<https://peninsulainsider.com.au/explore/plans/>)
+A milestone birthday deserves more than a booking at the usual restaurant. Here is the two-night Peninsula plan that lands the celebration properly: one memorable dinner, one surprising morning, and a stay that makes the whole thing feel earned.
+
+More reading (11)
+
+- [A Two-Night Peninsula Weekend for Two](<https://peninsulainsider.com.au/explore/plans/the-couples-weekend/>)
+
+- [The Easter Peninsula: How to Do the Long Weekend Without Losing It to the Crowds](<https://peninsulainsider.com.au/explore/plans/the-easter-peninsula/>)
+
+- [Mornington Peninsula Springs Weekend](<https://peninsulainsider.com.au/explore/plans/the-thermal-springs-weekend/>)
+
+- [A Winter Peninsula Weekend: The Case for Coming in July](<https://peninsulainsider.com.au/journal/a-winter-peninsula-weekend/>)
+
+- [The Autumn Weekend Edit: Why April on the Peninsula Feels Most Earned](<https://peninsulainsider.com.au/journal/autumn-weekend-edit/>)
+
+- [First Time on the Peninsula: The Honest Starter Guide](<https://peninsulainsider.com.au/journal/first-time-peninsula/>)
+
+- [The Rainy Day Peninsula: Where to Go When the Weather Turns](<https://peninsulainsider.com.au/journal/rainy-day-peninsula/>)
+
+- [The Spring Peninsula: Why September and October Are the Region's Most Underrated Weekends](<https://peninsulainsider.com.au/journal/the-spring-peninsula/>)
+
+- [The Sunset Hour: Where to Be at the End of the Day](<https://peninsulainsider.com.au/journal/the-sunset-hour/>)
+
+- [The Vineyard Villa Weekend: The Peninsula's Quietest Luxury](<https://peninsulainsider.com.au/journal/the-vineyard-villa-weekend/>)
+
+- [Where to Stay for a Two-Night Peninsula Escape](<https://peninsulainsider.com.au/journal/where-to-stay-for-a-two-night-escape/>)
+
+## Plans with this stop or overnight stay
 
 Alba Thermal Springs & Spa, Fingal, Mornington Peninsula Photo: Courtesy of Visit Victoria
 
@@ -163,7 +195,23 @@ Two-night escape · Best for couple · Peninsula
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/wellness-weekend/>)
 
-More to explore
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Foxeys Hangout](<https://peninsulainsider.com.au/wine/foxeys-hangout/>) · 0.5 km
+
+- [Prancing Horse Estate](<https://peninsulainsider.com.au/wine/prancing-horse-estate/>) · 0.5 km
+
+- [Ten Minutes by Tractor](<https://peninsulainsider.com.au/wine/ten-minutes-by-tractor/>) · 0.5 km
+
+- [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>) · 1.3 km
+
+- [Montalto Vineyard & Olive Grove](<https://peninsulainsider.com.au/wine/montalto/>) · 1.5 km
+
+- [Port Phillip Estate](<https://peninsulainsider.com.au/wine/port-phillip-estate/>) · 1.8 km
+
+Related picks
 
 ## Other stays to compare
 

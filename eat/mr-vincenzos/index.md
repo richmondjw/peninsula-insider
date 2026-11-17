@@ -75,21 +75,9 @@ Not sure how to build a day around Mr Vincenzo's?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Related editorial selections
 
-## Stories that mention Mr Vincenzo's
-
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
-
- [Journal →](<https://peninsulainsider.com.au/journal/>)
-
-Insider Edit   6 min
-
-### [Date Night on the Mornington Peninsula: Where to Book for Two](<https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/>)
-
-10 November 2026
-
-A sunset drink, a room worth dressing for and no long drive home. The Peninsula's best dinners for two, from a Sri Lankan wine bar on the ridge to a set menu in Flinders, and how to build the evening around them.
+Selected as related reading; these pieces may not mention this place in their text.
 
 Service   5 min
 
@@ -99,6 +87,14 @@ Service   5 min
 
 Forget pressing on to the vineyards. A well-built day in Mornington - market, coffee, gallery, foreshore - is one of the cleanest Peninsula visits you can make.
 
+Insider Edit   6 min
+
+### [Date Night on the Mornington Peninsula: Where to Book for Two](<https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/>)
+
+10 November 2026
+
+A sunset drink, a room worth dressing for and no long drive home. The Peninsula's best dinners for two, from a Sri Lankan wine bar on the ridge to a set menu in Flinders, and how to build the evening around them.
+
 Insider Edit   9 min
 
 ### [Tedesca, Tractor, Laura: Peninsula Dinners and the Argument Between Them](<https://peninsulainsider.com.au/journal/three-italian-dinners/>)
@@ -107,7 +103,7 @@ Insider Edit   9 min
 
 A comparative review of the most serious dining rooms on the Mornington Peninsula, and a specific case for which one is which occasion.
 
-Nearby picks
+Related picks
 
 ## More from Mornington
 

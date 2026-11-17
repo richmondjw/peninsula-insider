@@ -69,7 +69,23 @@ Not sure how to build a day around Cassis Red Hill?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-More to explore
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Port Phillip Estate](<https://peninsulainsider.com.au/wine/port-phillip-estate/>) · 0.4 km
+
+- [Montalto Vineyard & Olive Grove](<https://peninsulainsider.com.au/wine/montalto/>) · 0.7 km
+
+- [Red Gum BBQ](<https://peninsulainsider.com.au/eat/red-gum-bbq/>) · 1.1 km
+
+- [Tuck's Ridge](<https://peninsulainsider.com.au/wine/tucks-ridge/>) · 1.2 km
+
+- [Prancing Horse Estate](<https://peninsulainsider.com.au/wine/prancing-horse-estate/>) · 1.5 km
+
+- [Eldridge Estate](<https://peninsulainsider.com.au/wine/eldridge-estate/>) · 1.8 km
+
+Related picks
 
 ## Other stays to compare
 

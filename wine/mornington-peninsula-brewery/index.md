@@ -73,23 +73,7 @@ Not sure how to build a day around Tar Barrel Brewery & Distillery?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
-
-## Stories that mention Tar Barrel Brewery & Distillery
-
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
-
- [Journal →](<https://peninsulainsider.com.au/journal/>)
-
-Service   7 min
-
-### [The Peninsula Pub Crawl: Local Pubs, Unhurried Routes](<https://peninsulainsider.com.au/explore/plans/the-pub-crawl/>)
-
-10 April 2026
-
-A drinking guide to the Mornington Peninsula's public houses - the fires, the bistros, the beer gardens, the locals, and the argument for building a whole day around them.
-
-More to explore
+Related picks
 
 ## Other wine experiences to compare
 

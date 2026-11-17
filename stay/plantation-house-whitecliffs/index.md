@@ -73,7 +73,7 @@ Not sure how to build a day around Plantation House at Whitecliffs?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-More to explore
+Related picks
 
 ## Other stays to compare
 

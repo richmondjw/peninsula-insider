@@ -61,21 +61,9 @@ Not sure how to build a day around Balnarring Bakehouse?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Related editorial selections
 
-## Stories that mention Balnarring Bakehouse
-
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
-
- [Journal →](<https://peninsulainsider.com.au/journal/>)
-
-Insider Edit   7 min
-
-### [Breakfast Before the Crowds: Peninsula Mornings Worth an Early Start](<https://peninsulainsider.com.au/journal/breakfast-before-the-crowds/>)
-
-9 April 2026
-
-The long lunches get the headlines. But the Peninsula's first hour of the day - the flat white, the croissant out of the oven, the eggs on a working bakery's sourdough - is the quieter, better-value half of the food story. Here is where locals go, and the order to do it in.
+Selected as related reading; these pieces may not mention this place in their text.
 
 Service   7 min
 
@@ -93,7 +81,39 @@ Service   8 min
 
 Mornington, Hill & Ridge, Balnarring and Somers: check each organiser's current calendar, then build a Peninsula weekend around a confirmed market.
 
-Nearby picks
+Service   7 min
+
+### [The Peninsula Picnic: How to Assemble and Eat One Properly](<https://peninsulainsider.com.au/explore/plans/the-peninsula-picnic/>)
+
+10 April 2026
+
+The best picnic on the Mornington Peninsula is not a hamper from a winery gift shop. It is a morning circuit through three or four producers, a blanket on the right patch of grass, and a long afternoon that costs half a restaurant lunch.
+
+More reading (3)
+
+- [The Peninsula Producer Trail: A Day Spent Closer to the Source](<https://peninsulainsider.com.au/explore/plans/the-producer-trail/>)
+
+- [Breakfast Before the Crowds: Peninsula Mornings Worth an Early Start](<https://peninsulainsider.com.au/journal/breakfast-before-the-crowds/>)
+
+- [Where to Eat Without a Booking](<https://peninsulainsider.com.au/journal/where-to-eat-without-a-booking/>)
+
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [The Red Hill Baker](<https://peninsulainsider.com.au/eat/red-hill-bakery/>) · under 100 m
+
+- [The Heritage Balnarring](<https://peninsulainsider.com.au/eat/balnarring-pub/>) · 0.2 km
+
+- [Elan Vineyard & Gallery](<https://peninsulainsider.com.au/wine/elan-vineyard/>) · 0.3 km
+
+- [Baillieu Vineyard](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>) · 2.6 km
+
+- [Merricks General Wine Store](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>) · 3.3 km
+
+- [Merricks Estate](<https://peninsulainsider.com.au/wine/merricks-estate/>) · 3.5 km
+
+Related picks
 
 ## More from Balnarring
 
@@ -113,7 +133,7 @@ fireplace  family
 
 Winery  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/>)
 
-### [Elan Vineyard & Gallery](<https://peninsulainsider.com.au/eat/elan-vineyard/>)
+### [Elan Vineyard & Gallery](<https://peninsulainsider.com.au/wine/elan-vineyard/>)
 
 17 Turners Rd, Bittern VIC 3918
 
@@ -121,11 +141,11 @@ Selma and Jonathan Lowther's 1981 planting, one of the oldest on the Peninsula, 
 
 cellar door  slow
 
-[Read notes](<https://peninsulainsider.com.au/eat/elan-vineyard/>) [Book](<https://elanvineyard.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/wine/elan-vineyard/>) [Book](<https://elanvineyard.com.au/>)
 
 Winery  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/>)
 
-### [Hurley Vineyard](<https://peninsulainsider.com.au/eat/hurley-vineyard/>)
+### [Hurley Vineyard](<https://peninsulainsider.com.au/wine/hurley-vineyard/>)
 
 101 Balnarring Rd, Balnarring VIC 3926
 
@@ -133,7 +153,7 @@ Kevin Bell's boutique single-vineyard Pinot project, three tiny blocks (Lodeston
 
 cellar door  slow
 
-[Read notes](<https://peninsulainsider.com.au/eat/hurley-vineyard/>) [Book](<https://www.hurleyvineyard.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/wine/hurley-vineyard/>) [Book](<https://www.hurleyvineyard.com.au/>)
 
 Plan your Peninsula day
 

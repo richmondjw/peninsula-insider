@@ -127,13 +127,9 @@ Not sure how to build a day around Hurley Vineyard?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Related editorial selections
 
-## Stories that mention Hurley Vineyard
-
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
-
- [Journal →](<https://peninsulainsider.com.au/journal/>)
+Selected as related reading; these pieces may not mention this place in their text.
 
 Cellar Door Dispatch   6 min
 
@@ -143,7 +139,23 @@ Cellar Door Dispatch   6 min
 
 Not the biggest estates, not the flashiest rooms. The Peninsula cellar doors where the wines - and the people pouring them - actually change how you think about the region.
 
-More to explore
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Polperro Villas](<https://peninsulainsider.com.au/stay/polperro-villas/>) · 1.3 km
+
+- [Polperro](<https://peninsulainsider.com.au/wine/polperro/>) · 1.3 km
+
+- [Hideaways at Red Hill](<https://peninsulainsider.com.au/stay/hideaways-red-hill/>) · 1.4 km
+
+- [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>) · 1.6 km
+
+- [Ten Minutes by Tractor](<https://peninsulainsider.com.au/wine/ten-minutes-by-tractor/>) · 2.2 km
+
+- [Quealy Winemakers](<https://peninsulainsider.com.au/wine/quealy-winemakers/>) · 2.4 km
+
+Related picks
 
 ## Other wine experiences to compare
 

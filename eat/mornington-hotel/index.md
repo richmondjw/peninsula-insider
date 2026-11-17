@@ -69,13 +69,9 @@ Not sure how to build a day around Mornington Hotel?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Related editorial selections
 
-## Stories that mention Mornington Hotel
-
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
-
- [Journal →](<https://peninsulainsider.com.au/journal/>)
+Selected as related reading; these pieces may not mention this place in their text.
 
 Service   6 min
 
@@ -101,7 +97,13 @@ Insider Edit   7 min
 
 Not a gastropub ranking. Not a beer list. A guide to the Peninsula pubs that still operate as the social centre of a town, where the food is good, the beer is cold, the rooms are clean, and nobody is trying to be anything else.
 
-Nearby picks
+More reading (2)
+
+- [The Sunset Drink: Where to Watch the Light Drop on the Peninsula](<https://peninsulainsider.com.au/journal/the-sunset-drink/>)
+
+- [Where to Eat Without a Booking](<https://peninsulainsider.com.au/journal/where-to-eat-without-a-booking/>)
+
+Related picks
 
 ## More from Mornington
 

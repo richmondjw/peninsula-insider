@@ -71,21 +71,9 @@ Not sure how to build a day around Ten Minutes by Tractor Cellar Door Dining?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Related editorial selections
 
-## Stories that mention Ten Minutes by Tractor Cellar Door Dining
-
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
-
- [Journal →](<https://peninsulainsider.com.au/journal/>)
-
-Editor's Letter   8 min
-
-### [The Autumn Weekend Edit: Why April on the Peninsula Feels Most Earned](<https://peninsulainsider.com.au/journal/autumn-weekend-edit/>)
-
-9 April 2026
-
-Cool mornings, warm lunches, empty terraces, and the kind of light that makes every terrace look serious. This is the month the region stops performing and starts meaning something.
+Selected as related reading; these pieces may not mention this place in their text.
 
 Service   6 min
 
@@ -103,27 +91,39 @@ Service   5 min
 
 One Fingal bathhouse, two nights and an unhurried Sunday.
 
-Nearby picks
+Editor's Letter   8 min
+
+### [The Autumn Weekend Edit: Why April on the Peninsula Feels Most Earned](<https://peninsulainsider.com.au/journal/autumn-weekend-edit/>)
+
+9 April 2026
+
+Cool mornings, warm lunches, empty terraces, and the kind of light that makes every terrace look serious. This is the month the region stops performing and starts meaning something.
+
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Morning Sun Vineyard](<https://peninsulainsider.com.au/wine/morning-sun/>) · 0.2 km
+
+- [Main Ridge Dairy](<https://peninsulainsider.com.au/eat/main-ridge-dairy/>) · 0.3 km
+
+- [Lightfoot Wines](<https://peninsulainsider.com.au/wine/lightfoot-wines/>) · 0.5 km
+
+- [Tedesca Osteria](<https://peninsulainsider.com.au/eat/tedesca-osteria/>) · 1.2 km
+
+- [Paradigm Hill](<https://peninsulainsider.com.au/wine/paradigm-hill/>) · 1.2 km
+
+- [T'Gallant](<https://peninsulainsider.com.au/wine/t-gallant/>) · 1.4 km
+
+Related picks
 
 ## More from Main Ridge
 
  [Back to Eat & Drink →](<https://peninsulainsider.com.au/eat/>)
 
-Restaurant  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
-
-### [La Baracca at T'Gallant](<https://peninsulainsider.com.au/eat/la-baracca-tgallant/>)
-
-1385 Mornington-Flinders Rd, Main Ridge VIC 3928
-
-The Peninsula's original winery pizza barn, wood-fired margheritas, handmade pasta, and T'Gallant's Pinot Grigio by the carafe.
-
-long lunch  big group
-
-[Read notes](<https://peninsulainsider.com.au/eat/la-baracca-tgallant/>) [Book](<https://tgallantvineyard.com.au/bookings/>)
-
 Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
-### [Lightfoot Wines](<https://peninsulainsider.com.au/eat/lightfoot-wines/>)
+### [Lightfoot Wines](<https://peninsulainsider.com.au/wine/lightfoot-wines/>)
 
 110 Myers Rd, Main Ridge VIC 3928
 
@@ -131,7 +131,7 @@ A small Main Ridge estate with a focused Pinot and Chardonnay range and one of t
 
 cellar door  slow
 
-[Read notes](<https://peninsulainsider.com.au/eat/lightfoot-wines/>)
+[Read notes](<https://peninsulainsider.com.au/wine/lightfoot-wines/>)
 
 providore  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
@@ -144,6 +144,18 @@ A working goat dairy with farm-made cheeses, seasonal sharing plates and cheese 
 family  garden
 
 [Read notes](<https://peninsulainsider.com.au/eat/main-ridge-dairy/>)
+
+Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
+
+### [Morning Sun Vineyard](<https://peninsulainsider.com.au/wine/morning-sun/>)
+
+337 Main Creek Rd, Main Ridge VIC 3928
+
+Foxeys' second, quieter Main Ridge site, Italian-feeling long lunches, valley views, and a Pinot Gris program that rewards attention.
+
+cellar door  long lunch
+
+[Read notes](<https://peninsulainsider.com.au/wine/morning-sun/>) [Book](<https://foxeys-hangout.com.au/Morning-Sun/About-Morning-Sun>)
 
 Plan your Peninsula day
 

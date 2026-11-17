@@ -95,13 +95,9 @@ Not sure how to build a day around Avani Wines?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Related editorial selections
 
-## Stories that mention Avani Wines
-
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
-
- [Journal →](<https://peninsulainsider.com.au/journal/>)
+Selected as related reading; these pieces may not mention this place in their text.
 
 Cellar Door Dispatch   6 min
 
@@ -111,7 +107,23 @@ Cellar Door Dispatch   6 min
 
 Not the biggest estates, not the flashiest rooms. The Peninsula cellar doors where the wines - and the people pouring them - actually change how you think about the region.
 
-More to explore
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Prancing Horse Estate](<https://peninsulainsider.com.au/wine/prancing-horse-estate/>) · 1.1 km
+
+- [Ten Minutes by Tractor](<https://peninsulainsider.com.au/wine/ten-minutes-by-tractor/>) · 1.2 km
+
+- [Lindenderry at Red Hill](<https://peninsulainsider.com.au/stay/lindenderry/>) · 1.3 km
+
+- [Montalto Vineyard & Olive Grove](<https://peninsulainsider.com.au/wine/montalto/>) · 1.3 km
+
+- [Hurley Vineyard](<https://peninsulainsider.com.au/wine/hurley-vineyard/>) · 1.6 km
+
+- [Foxeys Hangout](<https://peninsulainsider.com.au/wine/foxeys-hangout/>) · 1.7 km
+
+Related picks
 
 ## Other wine experiences to compare
 
@@ -141,19 +153,19 @@ cellar door  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>) [Book](<https://www.barmahparkwines.com.au/experiences>)
 
-Photo: Two Palms Australia, courtesy of Visit Victoria
+Photo: Courtesy of Visit Victoria
 
-Distillery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+Winery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
-### [Bass & Flinders Distillery](<https://peninsulainsider.com.au/wine/bass-and-flinders/>)
+### [Crittenden Estate](<https://peninsulainsider.com.au/wine/crittenden-estate/>)
 
-40 Collins Rd, Dromana VIC 3936
+25 Harrisons Rd, Dromana VIC 3936
 
-A Peninsula gin distillery with a gin-school blending session that has quietly become one of the region's best wet-weather plans.
+The Peninsula's pioneering estate, four decades of Crittenden family winemaking, Pinot, Chardonnay, and the Spanish-Italian Los Hermanos range from a new lakeside wine centre.
 
-rainy day  cellar door
+cellar door  waterfront
 
-[Read notes](<https://peninsulainsider.com.au/wine/bass-and-flinders/>) [Book](<https://bassandflindersdistillery.com/>)
+[Read notes](<https://peninsulainsider.com.au/wine/crittenden-estate/>) [Book](<https://www.crittendenwines.com.au/>)
 
 Plan your Peninsula day
 

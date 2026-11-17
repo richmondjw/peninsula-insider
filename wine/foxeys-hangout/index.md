@@ -137,13 +137,27 @@ Not sure how to build a day around Foxeys Hangout?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Guides that link to this place
 
-## Stories that mention Foxeys Hangout
+Hub Guide   8 min
 
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
+### [Dromana: The Peninsula Insider Guide](<https://peninsulainsider.com.au/journal/area-guide-dromana/>)
 
- [Journal →](<https://peninsulainsider.com.au/journal/>)
+2 May 2026
+
+Dromana is the Peninsula's practical gateway - a bay town at the foot of Arthurs Seat with easier edges than the famous villages further south. Come when you want a base that can do beach, ridge and family logistics without pretending to be something rarer than it is.
+
+Hub Guide   8 min
+
+### [Red Hill: The Peninsula Insider Guide](<https://peninsulainsider.com.au/journal/area-guide-red-hill/>)
+
+2 May 2026
+
+Red Hill is the Peninsula's food-and-wine centre of gravity, but the best version of it is narrower than most visitors think. This is a place for one market morning, one properly chosen cellar door, and one lunch that gets the whole day.
+
+## Related editorial selections
+
+Selected as related reading; these pieces may not mention this place in their text.
 
 Service   6 min
 
@@ -161,7 +175,23 @@ Insider Edit   7 min
 
 The bay side goes gold at about five. The ocean side goes pink at about half past. You need a glass in your hand for both versions, and these are the places that understand the assignment.
 
-More to explore
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Lindenderry at Red Hill](<https://peninsulainsider.com.au/stay/lindenderry/>) · 0.5 km
+
+- [Prancing Horse Estate](<https://peninsulainsider.com.au/wine/prancing-horse-estate/>) · 0.7 km
+
+- [Ten Minutes by Tractor](<https://peninsulainsider.com.au/wine/ten-minutes-by-tractor/>) · 0.9 km
+
+- [Montalto Vineyard & Olive Grove](<https://peninsulainsider.com.au/wine/montalto/>) · 1.6 km
+
+- [Port Phillip Estate](<https://peninsulainsider.com.au/wine/port-phillip-estate/>) · 1.7 km
+
+- [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>) · 1.7 km
+
+Related picks
 
 ## Other wine experiences to compare
 

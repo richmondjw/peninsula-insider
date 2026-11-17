@@ -77,21 +77,9 @@ Not sure how to build a day around Doot Doot Doot?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Related editorial selections
 
-## Stories that mention Doot Doot Doot
-
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
-
- [Journal →](<https://peninsulainsider.com.au/journal/>)
-
-Insider Edit   6 min
-
-### [Date Night on the Mornington Peninsula: Where to Book for Two](<https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/>)
-
-10 November 2026
-
-A sunset drink, a room worth dressing for and no long drive home. The Peninsula's best dinners for two, from a Sri Lankan wine bar on the ridge to a set menu in Flinders, and how to build the evening around them.
+Selected as related reading; these pieces may not mention this place in their text.
 
 Service   8 min
 
@@ -109,13 +97,21 @@ Service   7 min
 
 A milestone birthday deserves more than a booking at the usual restaurant. Here is the two-night Peninsula plan that lands the celebration properly: one memorable dinner, one surprising morning, and a stay that makes the whole thing feel earned.
 
-Part of an escape
+Slow Peninsula   8 min
 
-## Weekend plans that already include Doot Doot Doot
+### [A Two-Night Peninsula Weekend for Two](<https://peninsulainsider.com.au/explore/plans/the-couples-weekend/>)
 
-Skip the planning - these itineraries sequence this venue into a proper Peninsula weekend.
+10 April 2026
 
- [All plans →](<https://peninsulainsider.com.au/explore/plans/>)
+One memorable dinner, a long lunch and an afternoon with no agenda. A slower Mornington Peninsula weekend for two.
+
+More reading (2)
+
+- [Date Night on the Mornington Peninsula: Where to Book for Two](<https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/>)
+
+- [Tedesca, Tractor, Laura: Peninsula Dinners and the Argument Between Them](<https://peninsulainsider.com.au/journal/three-italian-dinners/>)
+
+## Plans with this stop or overnight stay
 
 Plan
 
@@ -127,7 +123,23 @@ Two-night escape · Best for friends · Rye
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/the-peninsula-golf-weekend/>)
 
-Nearby picks
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Point Leo Wine Terrace](<https://peninsulainsider.com.au/eat/point-leo-wine-terrace/>) · 0.8 km
+
+- [Pt. Leo Estate](<https://peninsulainsider.com.au/wine/pt-leo-estate/>) · 1.0 km
+
+- [The Orchard Luxury Accommodation](<https://peninsulainsider.com.au/stay/the-orchard-red-hill/>) · 1.6 km
+
+- [Tuck's Ridge](<https://peninsulainsider.com.au/wine/tucks-ridge/>) · 2.4 km
+
+- [Red Gum BBQ](<https://peninsulainsider.com.au/eat/red-gum-bbq/>) · 2.8 km
+
+- [Morning Sun Vineyard](<https://peninsulainsider.com.au/wine/morning-sun/>) · 2.9 km
+
+Related picks
 
 ## More from Merricks North
 
@@ -149,7 +161,7 @@ long lunch  cellar door
 
 Winery  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 
-### [Scorpo Wines](<https://peninsulainsider.com.au/eat/scorpo-wines/>)
+### [Scorpo Wines](<https://peninsulainsider.com.au/wine/scorpo-wines/>)
 
 23 Old Bittern-Dromana Rd, Merricks North VIC 3926
 
@@ -157,11 +169,11 @@ Paul Scorpo's tightly focused family estate, one of the Peninsula's most acclaim
 
 cellar door  slow
 
-[Read notes](<https://peninsulainsider.com.au/eat/scorpo-wines/>) [Book](<https://www.scorpowines.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/wine/scorpo-wines/>) [Book](<https://www.scorpowines.com.au/>)
 
 Winery  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 
-### [Willow Creek Vineyard](<https://peninsulainsider.com.au/eat/willow-creek-vineyard/>)
+### [Willow Creek Vineyard](<https://peninsulainsider.com.au/wine/willow-creek-vineyard/>)
 
 166 Balnarring Rd, Merricks North VIC 3926
 
@@ -169,7 +181,7 @@ The vineyard at the heart of Jackalope Hotel, a showpiece single-site program an
 
 cellar door  walk
 
-[Read notes](<https://peninsulainsider.com.au/eat/willow-creek-vineyard/>) [Book](<https://rarehare.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/wine/willow-creek-vineyard/>) [Book](<https://rarehare.com.au/>)
 
 Plan your Peninsula day
 

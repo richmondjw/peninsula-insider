@@ -115,29 +115,19 @@ Not sure how to build a day around Jackalope Hotel?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
-
-## Stories that mention Jackalope Hotel
-
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
-
- [Journal →](<https://peninsulainsider.com.au/journal/>)
-
-Insider Edit   6 min
-
-### [Date Night on the Mornington Peninsula: Where to Book for Two](<https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/>)
-
-10 November 2026
-
-A sunset drink, a room worth dressing for and no long drive home. The Peninsula's best dinners for two, from a Sri Lankan wine bar on the ridge to a set menu in Flinders, and how to build the evening around them.
+## Guides that link to this place
 
 Service   9 min
 
-### [First Time on the Peninsula: The Honest Starter Guide](<https://peninsulainsider.com.au/journal/first-time-peninsula/>)
+### [Mornington Peninsula Golf: Stay and Play](<https://peninsulainsider.com.au/explore/plans/mornington-peninsula-golf-stay-and-play/>)
 
-10 April 2026
+14 April 2026
 
-You have never been to the Mornington Peninsula. You have a free weekend. You want to know what is actually good, what is overrated, and what the people who live here would tell you to do. This is that guide.
+Peninsula golf courses, nearby stays, and the booking checks that make a trip work.
+
+## Related editorial selections
+
+Selected as related reading; these pieces may not mention this place in their text.
 
 Service   8 min
 
@@ -147,13 +137,33 @@ Service   8 min
 
 Stop googling. Start here. A step-by-step planning guide that turns 'we should go to the Peninsula' into an actual weekend, with the decisions in the right order.
 
-Part of an escape
+Service   7 min
 
-## Weekend plans that already include Jackalope Hotel
+### [The Peninsula Birthday Weekend: A Two-Night Plan That Actually Feels Celebratory](<https://peninsulainsider.com.au/explore/plans/the-birthday-weekend/>)
 
-Skip the planning - these itineraries sequence this venue into a proper Peninsula weekend.
+16 April 2026
 
- [All plans →](<https://peninsulainsider.com.au/explore/plans/>)
+A milestone birthday deserves more than a booking at the usual restaurant. Here is the two-night Peninsula plan that lands the celebration properly: one memorable dinner, one surprising morning, and a stay that makes the whole thing feel earned.
+
+Slow Peninsula   8 min
+
+### [A Two-Night Peninsula Weekend for Two](<https://peninsulainsider.com.au/explore/plans/the-couples-weekend/>)
+
+10 April 2026
+
+One memorable dinner, a long lunch and an afternoon with no agenda. A slower Mornington Peninsula weekend for two.
+
+More reading (4)
+
+- [Date Night on the Mornington Peninsula: Where to Book for Two](<https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/>)
+
+- [First Time on the Peninsula: The Honest Starter Guide](<https://peninsulainsider.com.au/journal/first-time-peninsula/>)
+
+- [The Vineyard Villa Weekend: The Peninsula's Quietest Luxury](<https://peninsulainsider.com.au/journal/the-vineyard-villa-weekend/>)
+
+- [Where to Stay for a Two-Night Peninsula Escape](<https://peninsulainsider.com.au/journal/where-to-stay-for-a-two-night-escape/>)
+
+## Plans with this stop or overnight stay
 
 Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula Photo: Two Palms Australia, courtesy of Visit Victoria
 
@@ -177,7 +187,7 @@ Two-night escape · Best for friends · Rye
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/the-peninsula-golf-weekend/>)
 
-More to explore
+Related picks
 
 ## Other stays to compare
 

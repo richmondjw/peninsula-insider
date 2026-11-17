@@ -81,13 +81,9 @@ Not sure how to build a day around Moke Dining?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Related editorial selections
 
-## Stories that mention Moke Dining
-
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
-
- [Journal →](<https://peninsulainsider.com.au/journal/>)
+Selected as related reading; these pieces may not mention this place in their text.
 
 Insider Edit   6 min
 
@@ -97,13 +93,7 @@ Insider Edit   6 min
 
 A sunset drink, a room worth dressing for and no long drive home. The Peninsula's best dinners for two, from a Sri Lankan wine bar on the ridge to a set menu in Flinders, and how to build the evening around them.
 
-Part of an escape
-
-## Weekend plans that already include Moke Dining
-
-Skip the planning - these itineraries sequence this venue into a proper Peninsula weekend.
-
- [All plans →](<https://peninsulainsider.com.au/explore/plans/>)
+## Plans with this stop or overnight stay
 
 Cape Schanck, Mornington Peninsula Photo: Courtesy of Visit Victoria
 
@@ -117,7 +107,15 @@ One-night escape · Best for couple · Flinders
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/flinders-and-cape-reset/>)
 
-Nearby picks
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Flinders Sourdough](<https://peninsulainsider.com.au/eat/flinders-sourdough/>) · 0.7 km
+
+- [Nazaaray Estate](<https://peninsulainsider.com.au/wine/nazaaray-estate/>) · 2.0 km
+
+Related picks
 
 ## More from Flinders
 

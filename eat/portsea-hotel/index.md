@@ -73,29 +73,19 @@ Not sure how to build a day around Portsea Hotel?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Guides that link to this place
 
-## Stories that mention Portsea Hotel
+Hub Guide   8 min
 
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
+### [Portsea: The Peninsula Insider Guide](<https://peninsulainsider.com.au/journal/area-guide-portsea/>)
 
- [Journal →](<https://peninsulainsider.com.au/journal/>)
+2 May 2026
 
-Service   9 min
+Portsea is the Peninsula's quiet final note - more private than Sorrento, less immediately legible, and better for visitors who already know how to read the tip. Come for Point Nepean, the back beaches and one of the most withheld village atmospheres in Victoria.
 
-### [First Time on the Peninsula: The Honest Starter Guide](<https://peninsulainsider.com.au/journal/first-time-peninsula/>)
+## Related editorial selections
 
-10 April 2026
-
-You have never been to the Mornington Peninsula. You have a free weekend. You want to know what is actually good, what is overrated, and what the people who live here would tell you to do. This is that guide.
-
-Service   7 min
-
-### [The Mornington Peninsula in Summer: How to Do It Well](<https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/>)
-
-10 November 2026
-
-Long light, warm bay water and the busiest roads of the year. A local's plan for summer on the Peninsula: which side to swim, when to move, what to book and what to leave loose.
+Selected as related reading; these pieces may not mention this place in their text.
 
 Service   6 min
 
@@ -104,6 +94,58 @@ Service   6 min
 10 April 2026
 
 You leave the city at four. You hit the freeway. You arrive at six with nothing booked and nothing defrosted. Here is what to do with the first three hours, the ones that set the tone for everything that follows.
+
+Service   7 min
+
+### [The Point Nepean Half-Day](<https://peninsulainsider.com.au/explore/plans/the-point-nepean-half-day/>)
+
+14 April 2026
+
+Fort Nepean, the Quarantine Station and open coast in one considered half-day. Choose a route that leaves time to linger.
+
+Service   7 min
+
+### [The Peninsula Pub Crawl: Local Pubs, Unhurried Routes](<https://peninsulainsider.com.au/explore/plans/the-pub-crawl/>)
+
+10 April 2026
+
+A drinking guide to the Mornington Peninsula's public houses - the fires, the bistros, the beer gardens, the locals, and the argument for building a whole day around them.
+
+More reading (9)
+
+- [First Time on the Peninsula: The Honest Starter Guide](<https://peninsulainsider.com.au/journal/first-time-peninsula/>)
+
+- [The Mornington Peninsula in Summer: How to Do It Well](<https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/>)
+
+- [The Peninsula Pub Guide: Hotels That Still Know What a Pub Is For](<https://peninsulainsider.com.au/journal/the-pub-guide/>)
+
+- [The Seafood List: Where the Fish Comes Off the Boat and Onto the Plate](<https://peninsulainsider.com.au/journal/the-seafood-list/>)
+
+- [The Sorrento Weekend: How to Do the Tip Without Treating It Like a Summer Strip](<https://peninsulainsider.com.au/journal/the-sorrento-weekend/>)
+
+- [The Sunset Drink: Where to Watch the Light Drop on the Peninsula](<https://peninsulainsider.com.au/journal/the-sunset-drink/>)
+
+- [The Sunset Hour: Where to Be at the End of the Day](<https://peninsulainsider.com.au/journal/the-sunset-hour/>)
+
+- [The Winter Long Lunch: Vineyard Dining Room or Coastal Pub](<https://peninsulainsider.com.au/journal/the-winter-long-lunch/>)
+
+- [Where to Eat Without a Booking](<https://peninsulainsider.com.au/journal/where-to-eat-without-a-booking/>)
+
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Point Nepean Discovery Tents](<https://peninsulainsider.com.au/stay/point-nepean-discovery-tents/>) · 2.0 km
+
+- [Hotel Sorrento](<https://peninsulainsider.com.au/stay/hotel-sorrento/>) · 2.9 km
+
+- [The Baths Sorrento](<https://peninsulainsider.com.au/eat/the-baths-sorrento/>) · 3.1 km
+
+- [InterContinental Sorrento](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>) · 3.2 km
+
+- [Stringers Sorrento](<https://peninsulainsider.com.au/eat/stringers-sorrento/>) · 3.3 km
+
+- [Hotel Sorrento](<https://peninsulainsider.com.au/eat/sorrento-hotel/>) · 3.3 km
 
 Plan your Peninsula day
 

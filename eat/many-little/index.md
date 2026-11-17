@@ -73,13 +73,17 @@ Not sure how to build a day around Many Little?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Related editorial selections
 
-## Stories that mention Many Little
+Selected as related reading; these pieces may not mention this place in their text.
 
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
+Service   6 min
 
- [Journal →](<https://peninsulainsider.com.au/journal/>)
+### [The Four-Hour Peninsula: A Surgical Strike for When the Weekend Is Half a Day](<https://peninsulainsider.com.au/explore/plans/the-four-hour-peninsula/>)
+
+15 April 2026
+
+For the midweek visit, the work trip with a free morning, or the Melbourne friends who have a flight out of Tullamarine at five. Four hours, three stops, one decisive lunch, and no wasted drives. The Peninsula you can actually do in half a day.
 
 Editor's Letter   8 min
 
@@ -97,15 +101,7 @@ Insider Edit   6 min
 
 A sunset drink, a room worth dressing for and no long drive home. The Peninsula's best dinners for two, from a Sri Lankan wine bar on the ridge to a set menu in Flinders, and how to build the evening around them.
 
-Service   6 min
-
-### [The Four-Hour Peninsula: A Surgical Strike for When the Weekend Is Half a Day](<https://peninsulainsider.com.au/explore/plans/the-four-hour-peninsula/>)
-
-15 April 2026
-
-For the midweek visit, the work trip with a free morning, or the Melbourne friends who have a flight out of Tullamarine at five. Four hours, three stops, one decisive lunch, and no wasted drives. The Peninsula you can actually do in half a day.
-
-Nearby picks
+Related picks
 
 ## More from Red Hill South
 
@@ -113,7 +109,7 @@ Nearby picks
 
 Winery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
-### [Avani Wines](<https://peninsulainsider.com.au/eat/avani-wines/>)
+### [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>)
 
 98 Stanleys Road, Red Hill South VIC 3937
 
@@ -121,7 +117,7 @@ Shashi and Rohit Singh's biodynamic family estate, one of the Peninsula's only s
 
 cellar door  slow
 
-[Read notes](<https://peninsulainsider.com.au/eat/avani-wines/>)
+[Read notes](<https://peninsulainsider.com.au/wine/avani-wines/>)
 
 Photo: Peter Foster, courtesy of Visit Victoria
 
@@ -139,7 +135,7 @@ long lunch
 
 Winery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
-### [Kooyong](<https://peninsulainsider.com.au/eat/kooyong/>)
+### [Kooyong](<https://peninsulainsider.com.au/wine/kooyong/>)
 
 263 Red Hill Rd, Red Hill South VIC 3937
 
@@ -147,7 +143,7 @@ Single-vineyard pinot noir and chardonnay from one of the Peninsula's most decor
 
 cellar door  slow
 
-[Read notes](<https://peninsulainsider.com.au/eat/kooyong/>)
+[Read notes](<https://peninsulainsider.com.au/wine/kooyong/>)
 
 Plan your Peninsula day
 

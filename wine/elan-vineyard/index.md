@@ -79,7 +79,23 @@ Not sure how to build a day around Elan Vineyard & Gallery?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-More to explore
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Balnarring Bakehouse](<https://peninsulainsider.com.au/eat/balnarring-bakehouse/>) · 0.3 km
+
+- [The Red Hill Baker](<https://peninsulainsider.com.au/eat/red-hill-bakery/>) · 0.3 km
+
+- [The Heritage Balnarring](<https://peninsulainsider.com.au/eat/balnarring-pub/>) · 0.4 km
+
+- [Baillieu Vineyard](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>) · 2.4 km
+
+- [Merricks General Wine Store](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>) · 3.6 km
+
+- [Merricks Estate](<https://peninsulainsider.com.au/wine/merricks-estate/>) · 3.7 km
+
+Related picks
 
 ## Other wine experiences to compare
 

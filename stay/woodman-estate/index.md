@@ -71,7 +71,17 @@ Not sure how to build a day around Chalet Un at Woodman Estate?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-More to explore
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Yabby Lake Vineyard](<https://peninsulainsider.com.au/wine/yabby-lake/>) · 3.0 km
+
+- [Dromana Estate](<https://peninsulainsider.com.au/wine/dromana-estate/>) · 3.1 km
+
+- [Onannon](<https://peninsulainsider.com.au/wine/onannon/>) · 3.4 km
+
+Related picks
 
 ## Other stays to compare
 

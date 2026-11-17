@@ -41,7 +41,23 @@ Not sure how to build a day around Rye Foreshore Market?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-Nearby picks
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Mornington Peninsula Retro Caravans](<https://peninsulainsider.com.au/stay/kanasta-retro-caravans/>) · 0.3 km
+
+- [Rye Hotel](<https://peninsulainsider.com.au/eat/rye-hotel/>) · 0.6 km
+
+- [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>) · 1.3 km
+
+- [Alba Thermal Springs & Spa](<https://peninsulainsider.com.au/explore/spas-and-wellness/#alba-thermal-springs>) · 2.9 km
+
+- [The Sanctuary at Alba](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/>) · 2.9 km
+
+- [Peninsula Hot Springs](<https://peninsulainsider.com.au/explore/spas-and-wellness/#peninsula-hot-springs>) · 4.1 km
+
+Related picks
 
 ## More from Rye
 

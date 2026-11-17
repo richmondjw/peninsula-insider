@@ -73,29 +73,9 @@ Not sure how to build a day around Somers General?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Related editorial selections
 
-## Stories that mention Somers General
-
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
-
- [Journal →](<https://peninsulainsider.com.au/journal/>)
-
-Service   7 min
-
-### [Casual Lunch on the Mornington Peninsula: Where to Eat Well Without Making a Day of It](<https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/>)
-
-10 November 2026
-
-Not every Peninsula lunch needs a degustation and four hours. The places that do a relaxed, good midday meal, sorted by where you will be and who you are with.
-
-Insider Edit   7 min
-
-### [Breakfast Before the Crowds: Peninsula Mornings Worth an Early Start](<https://peninsulainsider.com.au/journal/breakfast-before-the-crowds/>)
-
-9 April 2026
-
-The long lunches get the headlines. But the Peninsula's first hour of the day - the flat white, the croissant out of the oven, the eggs on a working bakery's sourdough - is the quieter, better-value half of the food story. Here is where locals go, and the order to do it in.
+Selected as related reading; these pieces may not mention this place in their text.
 
 Service   6 min
 
@@ -104,6 +84,50 @@ Service   6 min
 15 April 2026
 
 For the midweek visit, the work trip with a free morning, or the Melbourne friends who have a flight out of Tullamarine at five. Four hours, three stops, one decisive lunch, and no wasted drives. The Peninsula you can actually do in half a day.
+
+Service   8 min
+
+### [The Market Saturday: Peninsula Weekends Built Around the Right Hour at the Right Stall](<https://peninsulainsider.com.au/explore/plans/the-market-saturday/>)
+
+13 April 2026
+
+Mornington, Hill & Ridge, Balnarring and Somers: check each organiser's current calendar, then build a Peninsula weekend around a confirmed market.
+
+Service   8 min
+
+### [The Peninsula Orientation Drive: A First Visit in One Day](<https://peninsulainsider.com.au/explore/plans/the-peninsula-orientation-drive/>)
+
+10 April 2026
+
+The drive to make on your first visit, or the one to send a friend on when you are out of time to explain why you keep coming back. Coffee, ridge, hinterland, ocean, village, bay - in that order, with most of a day to enjoy it.
+
+More reading (6)
+
+- [The Peninsula Picnic: How to Assemble and Eat One Properly](<https://peninsulainsider.com.au/explore/plans/the-peninsula-picnic/>)
+
+- [The Peninsula Producer Trail: A Day Spent Closer to the Source](<https://peninsulainsider.com.au/explore/plans/the-producer-trail/>)
+
+- [Casual Lunch on the Mornington Peninsula: Where to Eat Well Without Making a Day of It](<https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/>)
+
+- [Breakfast Before the Crowds: Peninsula Mornings Worth an Early Start](<https://peninsulainsider.com.au/journal/breakfast-before-the-crowds/>)
+
+- [The Peninsula Pantry: A Saturday Shopping List for Anyone Cooking in a Rental](<https://peninsulainsider.com.au/journal/the-peninsula-pantry/>)
+
+- [Where to Eat Without a Booking](<https://peninsulainsider.com.au/journal/where-to-eat-without-a-booking/>)
+
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [The Red Hill Baker](<https://peninsulainsider.com.au/eat/red-hill-bakery/>) · 3.9 km
+
+- [Balnarring Bakehouse](<https://peninsulainsider.com.au/eat/balnarring-bakehouse/>) · 4.0 km
+
+- [The Heritage Balnarring](<https://peninsulainsider.com.au/eat/balnarring-pub/>) · 4.1 km
+
+- [Merricks General Wine Store](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>) · 4.2 km
+
+- [Elan Vineyard & Gallery](<https://peninsulainsider.com.au/wine/elan-vineyard/>) · 4.2 km
 
 Plan your Peninsula day
 

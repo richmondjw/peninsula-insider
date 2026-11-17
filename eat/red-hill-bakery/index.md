@@ -61,21 +61,9 @@ Not sure how to build a day around The Red Hill Baker?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Related editorial selections
 
-## Stories that mention The Red Hill Baker
-
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
-
- [Journal →](<https://peninsulainsider.com.au/journal/>)
-
-Insider Edit   7 min
-
-### [Breakfast Before the Crowds: Peninsula Mornings Worth an Early Start](<https://peninsulainsider.com.au/journal/breakfast-before-the-crowds/>)
-
-9 April 2026
-
-The long lunches get the headlines. But the Peninsula's first hour of the day - the flat white, the croissant out of the oven, the eggs on a working bakery's sourdough - is the quieter, better-value half of the food story. Here is where locals go, and the order to do it in.
+Selected as related reading; these pieces may not mention this place in their text.
 
 Service   6 min
 
@@ -93,7 +81,49 @@ Service   7 min
 
 Easter is the Peninsula's first big four-day stress test of the year. Cars from town arrive Thursday afternoon, the cellar doors are full by Friday morning, and the bakeries run out of hot cross buns by Saturday lunch. Here is how to plan a long weekend that uses the holiday properly instead of fighting it.
 
-Nearby picks
+Service   6 min
+
+### [The Four-Hour Peninsula: A Surgical Strike for When the Weekend Is Half a Day](<https://peninsulainsider.com.au/explore/plans/the-four-hour-peninsula/>)
+
+15 April 2026
+
+For the midweek visit, the work trip with a free morning, or the Melbourne friends who have a flight out of Tullamarine at five. Four hours, three stops, one decisive lunch, and no wasted drives. The Peninsula you can actually do in half a day.
+
+More reading (8)
+
+- [The Friday Night Arrival](<https://peninsulainsider.com.au/explore/plans/the-friday-night-arrival/>)
+
+- [The Market Saturday: Peninsula Weekends Built Around the Right Hour at the Right Stall](<https://peninsulainsider.com.au/explore/plans/the-market-saturday/>)
+
+- [The Peninsula Orientation Drive: A First Visit in One Day](<https://peninsulainsider.com.au/explore/plans/the-peninsula-orientation-drive/>)
+
+- [The Peninsula Picnic: How to Assemble and Eat One Properly](<https://peninsulainsider.com.au/explore/plans/the-peninsula-picnic/>)
+
+- [The Peninsula Producer Trail: A Day Spent Closer to the Source](<https://peninsulainsider.com.au/explore/plans/the-producer-trail/>)
+
+- [Breakfast Before the Crowds: Peninsula Mornings Worth an Early Start](<https://peninsulainsider.com.au/journal/breakfast-before-the-crowds/>)
+
+- [The Peninsula Pantry: A Saturday Shopping List for Anyone Cooking in a Rental](<https://peninsulainsider.com.au/journal/the-peninsula-pantry/>)
+
+- [Where to Eat Without a Booking](<https://peninsulainsider.com.au/journal/where-to-eat-without-a-booking/>)
+
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Balnarring Bakehouse](<https://peninsulainsider.com.au/eat/balnarring-bakehouse/>) · under 100 m
+
+- [The Heritage Balnarring](<https://peninsulainsider.com.au/eat/balnarring-pub/>) · 0.2 km
+
+- [Elan Vineyard & Gallery](<https://peninsulainsider.com.au/wine/elan-vineyard/>) · 0.3 km
+
+- [Baillieu Vineyard](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>) · 2.7 km
+
+- [Merricks General Wine Store](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>) · 3.3 km
+
+- [Merricks Estate](<https://peninsulainsider.com.au/wine/merricks-estate/>) · 3.5 km
+
+Related picks
 
 ## More from Balnarring
 
@@ -125,7 +155,7 @@ fireplace  family
 
 Winery  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/>)
 
-### [Elan Vineyard & Gallery](<https://peninsulainsider.com.au/eat/elan-vineyard/>)
+### [Elan Vineyard & Gallery](<https://peninsulainsider.com.au/wine/elan-vineyard/>)
 
 17 Turners Rd, Bittern VIC 3918
 
@@ -133,7 +163,7 @@ Selma and Jonathan Lowther's 1981 planting, one of the oldest on the Peninsula, 
 
 cellar door  slow
 
-[Read notes](<https://peninsulainsider.com.au/eat/elan-vineyard/>) [Book](<https://elanvineyard.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/wine/elan-vineyard/>) [Book](<https://elanvineyard.com.au/>)
 
 Plan your Peninsula day
 

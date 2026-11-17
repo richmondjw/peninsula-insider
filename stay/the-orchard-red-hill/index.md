@@ -71,7 +71,23 @@ Not sure how to build a day around The Orchard Luxury Accommodation?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-More to explore
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Tuck's Ridge](<https://peninsulainsider.com.au/wine/tucks-ridge/>) · 1.0 km
+
+- [Red Gum BBQ](<https://peninsulainsider.com.au/eat/red-gum-bbq/>) · 1.2 km
+
+- [Doot Doot Doot](<https://peninsulainsider.com.au/eat/doot-doot-doot/>) · 1.6 km
+
+- [Pt. Leo Estate](<https://peninsulainsider.com.au/wine/pt-leo-estate/>) · 1.6 km
+
+- [Port Phillip Estate Restaurant](<https://peninsulainsider.com.au/wine/port-phillip-estate/>) · 1.7 km
+
+- [Point Leo Wine Terrace](<https://peninsulainsider.com.au/eat/point-leo-wine-terrace/>) · 1.7 km
+
+Related picks
 
 ## Other stays to compare
 

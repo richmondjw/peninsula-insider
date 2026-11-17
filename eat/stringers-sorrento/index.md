@@ -69,13 +69,9 @@ Not sure how to build a day around Stringers Sorrento?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Related editorial selections
 
-## Stories that mention Stringers Sorrento
-
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
-
- [Journal →](<https://peninsulainsider.com.au/journal/>)
+Selected as related reading; these pieces may not mention this place in their text.
 
 Service   6 min
 
@@ -93,21 +89,15 @@ Service   9 min
 
 If you've booked a villa with a kitchen, you've booked one of the great food sourcing weekends in Victoria. Here is the shopping circuit - market first, bakery second, wine last - that actually does the region justice.
 
-Service   7 min
+Insider Edit   7 min
 
-### [The Rainy-Day Peninsula Without a Booking](<https://peninsulainsider.com.au/journal/the-rainy-day-peninsula-without-a-booking/>)
+### [The Seafood List: Where the Fish Comes Off the Boat and Onto the Plate](<https://peninsulainsider.com.au/journal/the-seafood-list/>)
 
-11 April 2026
+10 April 2026
 
-For the grey Saturday when the forecast turns, the hot springs are full, and you still want the region to feel worth the drive. Coffee, gallery, bakery, brewery, coast - in the right order.
+The Peninsula is a wine region that happens to be surrounded by water. The seafood story is quieter than the pinot story, but it is arguably the more honest one - and the best of it is very, very good.
 
-Part of an escape
-
-## Weekend plans that already include Stringers Sorrento
-
-Skip the planning - these itineraries sequence this venue into a proper Peninsula weekend.
-
- [All plans →](<https://peninsulainsider.com.au/explore/plans/>)
+## Plans with this stop or overnight stay
 
 Sorrento Back Beach, Mornington Peninsula Photo: SHERPA Projects Pty Ltd, courtesy of Visit Victoria
 
@@ -121,7 +111,23 @@ Two-night escape · Best for couple · Sorrento
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/sorrento-off-season-weekend/>)
 
-Nearby picks
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Bistro Elba](<https://peninsulainsider.com.au/eat/bistro-elba/>) · under 100 m
+
+- [Hotel Sorrento](<https://peninsulainsider.com.au/eat/sorrento-hotel/>) · under 100 m
+
+- [InterContinental Sorrento](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>) · 0.1 km
+
+- [Hotel Sorrento](<https://peninsulainsider.com.au/stay/hotel-sorrento/>) · 0.5 km
+
+- [The Baths Sorrento](<https://peninsulainsider.com.au/eat/the-baths-sorrento/>) · 0.6 km
+
+- [Portsea Hotel](<https://peninsulainsider.com.au/eat/portsea-hotel/>) · 3.3 km
+
+Related picks
 
 ## More from Sorrento
 

@@ -191,13 +191,9 @@ Not sure how to build a day around Pt. Leo Estate?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Related editorial selections
 
-## Stories that mention Pt. Leo Estate
-
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
-
- [Journal →](<https://peninsulainsider.com.au/journal/>)
+Selected as related reading; these pieces may not mention this place in their text.
 
 Service   8 min
 
@@ -207,14 +203,6 @@ Service   8 min
 
 Stop googling. Start here. A step-by-step planning guide that turns 'we should go to the Peninsula' into an actual weekend, with the decisions in the right order.
 
-Insider Edit   4 min
-
-### [Main Ridge Dairy, Seawinds Gardens, and Pt. Leo's sculpture park](<https://peninsulainsider.com.au/journal/insider-picks-2026-09-23/>)
-
-23 September 2026
-
-Build a spring day around Main Ridge Dairy's goat cheeses, the short paths at Seawinds Gardens, and sculpture at Pt. Leo Estate.
-
 Service   7 min
 
 ### [The Peninsula Birthday Weekend: A Two-Night Plan That Actually Feels Celebratory](<https://peninsulainsider.com.au/explore/plans/the-birthday-weekend/>)
@@ -223,13 +211,29 @@ Service   7 min
 
 A milestone birthday deserves more than a booking at the usual restaurant. Here is the two-night Peninsula plan that lands the celebration properly: one memorable dinner, one surprising morning, and a stay that makes the whole thing feel earned.
 
-Part of an escape
+Slow Peninsula   8 min
 
-## Weekend plans that already include Pt. Leo Estate
+### [A Two-Night Peninsula Weekend for Two](<https://peninsulainsider.com.au/explore/plans/the-couples-weekend/>)
 
-Skip the planning - these itineraries sequence this venue into a proper Peninsula weekend.
+10 April 2026
 
- [All plans →](<https://peninsulainsider.com.au/explore/plans/>)
+One memorable dinner, a long lunch and an afternoon with no agenda. A slower Mornington Peninsula weekend for two.
+
+More reading (6)
+
+- [Main Ridge Dairy, Seawinds Gardens, and Pt. Leo's sculpture park](<https://peninsulainsider.com.au/journal/insider-picks-2026-09-23/>)
+
+- [The Long Lunch: Why the Mornington Peninsula Does Sunday Better Than Anywhere in Victoria](<https://peninsulainsider.com.au/journal/the-long-lunch/>)
+
+- [The Sorrento Weekend: How to Do the Tip Without Treating It Like a Summer Strip](<https://peninsulainsider.com.au/journal/the-sorrento-weekend/>)
+
+- [The Spring Peninsula: Why September and October Are the Region's Most Underrated Weekends](<https://peninsulainsider.com.au/journal/the-spring-peninsula/>)
+
+- [The Sunset Drink: Where to Watch the Light Drop on the Peninsula](<https://peninsulainsider.com.au/journal/the-sunset-drink/>)
+
+- [The Winter Long Lunch: Vineyard Dining Room or Coastal Pub](<https://peninsulainsider.com.au/journal/the-winter-long-lunch/>)
+
+## Plans with this stop or overnight stay
 
 Cape Schanck, Mornington Peninsula Photo: Courtesy of Visit Victoria
 
@@ -255,7 +259,23 @@ Two-night escape · Best for couple · Sorrento
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/sorrento-off-season-weekend/>)
 
-More to explore
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Point Leo Wine Terrace](<https://peninsulainsider.com.au/eat/point-leo-wine-terrace/>) · 0.3 km
+
+- [Doot Doot Doot](<https://peninsulainsider.com.au/eat/doot-doot-doot/>) · 1.0 km
+
+- [The Orchard Luxury Accommodation](<https://peninsulainsider.com.au/stay/the-orchard-red-hill/>) · 1.6 km
+
+- [Morning Sun Vineyard](<https://peninsulainsider.com.au/wine/morning-sun/>) · 2.0 km
+
+- [Lightfoot Wines](<https://peninsulainsider.com.au/wine/lightfoot-wines/>) · 2.1 km
+
+- [Tuck's Ridge](<https://peninsulainsider.com.au/wine/tucks-ridge/>) · 2.1 km
+
+Related picks
 
 ## Other wine experiences to compare
 

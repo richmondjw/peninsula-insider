@@ -71,7 +71,23 @@ Not sure how to build a day around Mornington Peninsula Retro Caravans?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-More to explore
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Rye Foreshore Market](<https://peninsulainsider.com.au/eat/rye-beachside-market/>) · 0.3 km
+
+- [Rye Hotel](<https://peninsulainsider.com.au/eat/rye-hotel/>) · 0.9 km
+
+- [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>) · 1.6 km
+
+- [Alba Thermal Springs & Spa](<https://peninsulainsider.com.au/explore/spas-and-wellness/#alba-thermal-springs>) · 3.1 km
+
+- [The Sanctuary at Alba](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/>) · 3.1 km
+
+- [Peninsula Hot Springs](<https://peninsulainsider.com.au/explore/spas-and-wellness/#peninsula-hot-springs>) · 4.2 km
+
+Related picks
 
 ## Other stays to compare
 

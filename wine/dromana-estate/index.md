@@ -79,7 +79,19 @@ Not sure how to build a day around Dromana Estate?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-More to explore
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Dexter Wines](<https://peninsulainsider.com.au/wine/dexter-wines/>) · 2.5 km
+
+- [Yabby Lake Vineyard](<https://peninsulainsider.com.au/wine/yabby-lake/>) · 3.0 km
+
+- [Chalet Un at Woodman Estate](<https://peninsulainsider.com.au/stay/woodman-estate/>) · 3.1 km
+
+- [Onannon](<https://peninsulainsider.com.au/wine/onannon/>) · 3.3 km
+
+Related picks
 
 ## Other wine experiences to compare
 

@@ -71,13 +71,9 @@ Not sure how to build a day around Stella’s Hotel Dromana?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Related editorial selections
 
-## Stories that mention Stella’s Hotel Dromana
-
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
-
- [Journal →](<https://peninsulainsider.com.au/journal/>)
+Selected as related reading; these pieces may not mention this place in their text.
 
 Service   6 min
 
@@ -89,45 +85,43 @@ You leave the city at four. You hit the freeway. You arrive at six with nothing 
 
 Service   8 min
 
-### [The Peninsula Beach Swimming Guide: Which Beach for Which Swim, From Bay to Back Beach](<https://peninsulainsider.com.au/journal/the-peninsula-beach-swimming-guide/>)
-
-14 April 2026
-
-Thirty kilometres of Port Phillip coastline, fifteen kilometres of Bass Strait back beaches, and distinct swimming moods that most visitors cannot tell apart. A proper guide to where to actually swim on the Mornington Peninsula, by conditions and by purpose.
-
-Service   8 min
-
 ### [The Peninsula Orientation Drive: A First Visit in One Day](<https://peninsulainsider.com.au/explore/plans/the-peninsula-orientation-drive/>)
 
 10 April 2026
 
 The drive to make on your first visit, or the one to send a friend on when you are out of time to explain why you keep coming back. Coffee, ridge, hinterland, ocean, village, bay - in that order, with most of a day to enjoy it.
 
-Nearby picks
+Service   7 min
+
+### [The Peninsula Pub Crawl: Local Pubs, Unhurried Routes](<https://peninsulainsider.com.au/explore/plans/the-pub-crawl/>)
+
+10 April 2026
+
+A drinking guide to the Mornington Peninsula's public houses - the fires, the bistros, the beer gardens, the locals, and the argument for building a whole day around them.
+
+More reading (5)
+
+- [School Holidays on the Peninsula](<https://peninsulainsider.com.au/explore/plans/the-school-holidays-survival-guide/>)
+
+- [The Peninsula Pub Guide: Hotels That Still Know What a Pub Is For](<https://peninsulainsider.com.au/journal/the-pub-guide/>)
+
+- [The Sunset Drink: Where to Watch the Light Drop on the Peninsula](<https://peninsulainsider.com.au/journal/the-sunset-drink/>)
+
+- [The Winter Long Lunch: Vineyard Dining Room or Coastal Pub](<https://peninsulainsider.com.au/journal/the-winter-long-lunch/>)
+
+- [Where to Eat Without a Booking](<https://peninsulainsider.com.au/journal/where-to-eat-without-a-booking/>)
+
+Related picks
 
 ## More from Dromana
 
  [Back to Eat & Drink →](<https://peninsulainsider.com.au/eat/>)
 
-Photo: Two Palms Australia, courtesy of Visit Victoria
-
-Distillery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
-
-### [Bass & Flinders Distillery](<https://peninsulainsider.com.au/eat/bass-and-flinders/>)
-
-40 Collins Rd, Dromana VIC 3936
-
-A Peninsula gin distillery with a gin-school blending session that has quietly become one of the region's best wet-weather plans.
-
-rainy day  cellar door
-
-[Read notes](<https://peninsulainsider.com.au/eat/bass-and-flinders/>) [Book](<https://bassandflindersdistillery.com/>)
-
 Photo: Courtesy of Visit Victoria
 
 Winery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
-### [Crittenden Estate](<https://peninsulainsider.com.au/eat/crittenden-estate/>)
+### [Crittenden Estate](<https://peninsulainsider.com.au/wine/crittenden-estate/>)
 
 25 Harrisons Rd, Dromana VIC 3936
 
@@ -135,7 +129,7 @@ The Peninsula's pioneering estate, four decades of Crittenden family winemaking,
 
 cellar door  waterfront
 
-[Read notes](<https://peninsulainsider.com.au/eat/crittenden-estate/>) [Book](<https://www.crittendenwines.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/wine/crittenden-estate/>) [Book](<https://www.crittendenwines.com.au/>)
 
 Restaurant  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
@@ -148,6 +142,20 @@ Lakeside dining under a vine-strung pergola at one of the Peninsula's founding w
 long lunch  garden
 
 [Read notes](<https://peninsulainsider.com.au/eat/crittenden-restaurant/>) [Book](<https://www.crittendenwines.com.au/pages/restaurant>)
+
+Photo: Courtesy of Visit Victoria
+
+Winery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+
+### [Trofeo Estate](<https://peninsulainsider.com.au/wine/trofeo-estate/>)
+
+85 Harrisons Road, Dromana VIC 3936
+
+The Peninsula's only amphora winery, terracotta-aged Sangiovese, Fiano, and Nebbiolo, and a cellar worth visiting on its own terms.
+
+cellar door  slow
+
+[Read notes](<https://peninsulainsider.com.au/wine/trofeo-estate/>) [Book](<https://www.trofeoestate.com.au/visit-us/>)
 
 Plan your Peninsula day
 

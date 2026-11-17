@@ -71,39 +71,49 @@ Not sure how to build a day around The Chocolateries Mornington Peninsula?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Related editorial selections
 
-## Stories that mention The Chocolateries Mornington Peninsula
+Selected as related reading; these pieces may not mention this place in their text.
 
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
+Service   7 min
 
- [Journal →](<https://peninsulainsider.com.au/journal/>)
+### [The Easter Peninsula: How to Do the Long Weekend Without Losing It to the Crowds](<https://peninsulainsider.com.au/explore/plans/the-easter-peninsula/>)
 
-Slow Peninsula   7 min
+17 April 2026
 
-### [A Flinders Weekend: The Case for the Quiet Side of the Peninsula](<https://peninsulainsider.com.au/journal/a-flinders-weekend/>)
-
-4 April 2026
-
-When Red Hill is booked out and Sorrento feels like a queue, there is another version of the Peninsula weekend that runs south of everything, closer to the ocean, and slower on purpose.
-
-Editor's Letter   8 min
-
-### [A Winter Peninsula Weekend: The Case for Coming in July](<https://peninsulainsider.com.au/journal/a-winter-peninsula-weekend/>)
-
-13 April 2026
-
-Short days, cheap rooms, empty dining rooms, a fire in every cellar door with a hearth, and a coast that looks like a different country in a southerly. Winter is the Peninsula's most underrated season and the one that gives the region back to the people who actually live here.
+Easter is the Peninsula's first big four-day stress test of the year. Cars from town arrive Thursday afternoon, the cellar doors are full by Friday morning, and the bakeries run out of hot cross buns by Saturday lunch. Here is how to plan a long weekend that uses the holiday properly instead of fighting it.
 
 Service   6 min
 
-### [The Rainy Day Peninsula: Where to Go When the Weather Turns](<https://peninsulainsider.com.au/journal/rainy-day-peninsula/>)
+### [The Four-Hour Peninsula: A Surgical Strike for When the Weekend Is Half a Day](<https://peninsulainsider.com.au/explore/plans/the-four-hour-peninsula/>)
 
-3 April 2026
+15 April 2026
 
-A cold, grey Peninsula weekend is not a ruined one, it is the version that gives you back the best rooms, the best fires, and the best reasons to stay inside.
+For the midweek visit, the work trip with a free morning, or the Melbourne friends who have a flight out of Tullamarine at five. Four hours, three stops, one decisive lunch, and no wasted drives. The Peninsula you can actually do in half a day.
 
-Nearby picks
+Service   8 min
+
+### [The Market Saturday: Peninsula Weekends Built Around the Right Hour at the Right Stall](<https://peninsulainsider.com.au/explore/plans/the-market-saturday/>)
+
+13 April 2026
+
+Mornington, Hill & Ridge, Balnarring and Somers: check each organiser's current calendar, then build a Peninsula weekend around a confirmed market.
+
+More reading (6)
+
+- [The Peninsula Picnic: How to Assemble and Eat One Properly](<https://peninsulainsider.com.au/explore/plans/the-peninsula-picnic/>)
+
+- [The Peninsula Producer Trail: A Day Spent Closer to the Source](<https://peninsulainsider.com.au/explore/plans/the-producer-trail/>)
+
+- [School Holidays on the Peninsula](<https://peninsulainsider.com.au/explore/plans/the-school-holidays-survival-guide/>)
+
+- [A Flinders Weekend: The Case for the Quiet Side of the Peninsula](<https://peninsulainsider.com.au/journal/a-flinders-weekend/>)
+
+- [A Winter Peninsula Weekend: The Case for Coming in July](<https://peninsulainsider.com.au/journal/a-winter-peninsula-weekend/>)
+
+- [The Rainy Day Peninsula: Where to Go When the Weather Turns](<https://peninsulainsider.com.au/journal/rainy-day-peninsula/>)
+
+Related picks
 
 ## More from Flinders
 

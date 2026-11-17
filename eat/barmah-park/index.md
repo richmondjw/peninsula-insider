@@ -71,7 +71,7 @@ Not sure how to build a day around Barmah Park Restaurant & Cellar Door?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-Nearby picks
+Related picks
 
 ## More from Moorooduc
 
@@ -79,7 +79,7 @@ Nearby picks
 
 Winery  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
-### [Barmah Park Vineyard](<https://peninsulainsider.com.au/eat/barmah-park-vineyard/>)
+### [Barmah Park Vineyard](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>)
 
 945 Moorooduc Highway, Moorooduc VIC 3933
 
@@ -87,11 +87,11 @@ A rustic, intimate cellar door running a five-wine, five-canape pairing from a h
 
 cellar door  long lunch
 
-[Read notes](<https://peninsulainsider.com.au/eat/barmah-park-vineyard/>) [Book](<https://www.barmahparkwines.com.au/experiences>)
+[Read notes](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>) [Book](<https://www.barmahparkwines.com.au/experiences>)
 
 Winery  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
-### [Moorooduc Estate](<https://peninsulainsider.com.au/eat/moorooduc-estate/>)
+### [Moorooduc Estate](<https://peninsulainsider.com.au/wine/moorooduc-estate/>)
 
 501 Derril Rd, Moorooduc VIC 3933
 
@@ -99,13 +99,13 @@ Richard McIntyre's pioneering low-intervention estate, home to the Robinson Char
 
 cellar door  slow
 
-[Read notes](<https://peninsulainsider.com.au/eat/moorooduc-estate/>) [Book](<https://moorooducestate.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/wine/moorooduc-estate/>) [Book](<https://moorooducestate.com.au/>)
 
 Photo: Illustration: Peninsula Insider
 
 Winery  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
-### [Phaedrus Estate](<https://peninsulainsider.com.au/eat/phaedrus-estate/>)
+### [Phaedrus Estate](<https://peninsulainsider.com.au/wine/phaedrus-estate/>)
 
 220 Mornington-Tyabb Rd, Moorooduc VIC 3933
 
@@ -113,7 +113,7 @@ A family wine estate and cellar door in Moorooduc with Fiano, Pinot Gris, Chardo
 
 cellar door  slow
 
-[Read notes](<https://peninsulainsider.com.au/eat/phaedrus-estate/>)
+[Read notes](<https://peninsulainsider.com.au/wine/phaedrus-estate/>)
 
 Plan your Peninsula day
 

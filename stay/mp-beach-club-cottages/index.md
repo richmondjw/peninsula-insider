@@ -73,7 +73,7 @@ Not sure how to build a day around Mornington Peninsula Beach Club Cottages?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-More to explore
+Related picks
 
 ## Other stays to compare
 

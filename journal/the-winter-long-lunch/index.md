@@ -115,11 +115,11 @@ Insider Edit   7 min
 
 The bay side goes gold at about five. The ocean side goes pink at about half past. You need a glass in your hand for both versions, and these are the places that understand the assignment.
 
-Mentioned in this piece
+Related editorial selections
 
-## Venues worth opening in a new tab
+## Related places in the PI guide
 
-Every venue referenced has its own page with editor notes, booking links, and nearby picks.
+Related places selected for this story, with their own PI pages. These recommendations are separate from mentions in the text.
 
 Photo: Two Palms Australia, courtesy of Visit Victoria
 

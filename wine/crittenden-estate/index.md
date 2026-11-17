@@ -185,13 +185,9 @@ Not sure how to build a day around Crittenden Estate?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Related editorial selections
 
-## Stories that mention Crittenden Estate
-
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
-
- [Journal →](<https://peninsulainsider.com.au/journal/>)
+Selected as related reading; these pieces may not mention this place in their text.
 
 Service   8 min
 
@@ -209,7 +205,23 @@ Editor's Letter   7 min
 
 The vines coming back into leaf, the back beaches at their cleanest, the cellar doors quiet enough to actually talk to the winemakers, and the first warm afternoons of the year. The case for coming down in spring, before everyone else remembers to.
 
-More to explore
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Crittenden Estate Villas](<https://peninsulainsider.com.au/stay/crittenden-villas/>) · under 100 m
+
+- [Crittenden Restaurant](<https://peninsulainsider.com.au/eat/crittenden-restaurant/>) · 0.9 km
+
+- [Trofeo Estate](<https://peninsulainsider.com.au/wine/trofeo-estate/>) · 2.3 km
+
+- [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>) · 3.4 km
+
+- [T'Gallant](<https://peninsulainsider.com.au/wine/t-gallant/>) · 4.1 km
+
+- [Tedesca Osteria](<https://peninsulainsider.com.au/eat/tedesca-osteria/>) · 4.4 km
+
+Related picks
 
 ## Other wine experiences to compare
 

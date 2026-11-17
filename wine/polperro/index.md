@@ -161,29 +161,27 @@ Not sure how to build a day around Polperro?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Guides that link to this place
 
-## Stories that mention Polperro
+Hub Guide   8 min
 
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
+### [Red Hill: The Peninsula Insider Guide](<https://peninsulainsider.com.au/journal/area-guide-red-hill/>)
 
- [Journal →](<https://peninsulainsider.com.au/journal/>)
+2 May 2026
 
-Editor's Letter   8 min
+Red Hill is the Peninsula's food-and-wine centre of gravity, but the best version of it is narrower than most visitors think. This is a place for one market morning, one properly chosen cellar door, and one lunch that gets the whole day.
 
-### [A Winter Peninsula Weekend: The Case for Coming in July](<https://peninsulainsider.com.au/journal/a-winter-peninsula-weekend/>)
+Cellar Door Dispatch   6 min
 
-13 April 2026
+### [The Cellar Door Short List: Producers Worth the Stop](<https://peninsulainsider.com.au/journal/the-cellar-door-short-list/>)
 
-Short days, cheap rooms, empty dining rooms, a fire in every cellar door with a hearth, and a coast that looks like a different country in a southerly. Winter is the Peninsula's most underrated season and the one that gives the region back to the people who actually live here.
+6 April 2026
 
-Service   9 min
+Not the biggest estates, not the flashiest rooms. The Peninsula cellar doors where the wines - and the people pouring them - actually change how you think about the region.
 
-### [First Time on the Peninsula: The Honest Starter Guide](<https://peninsulainsider.com.au/journal/first-time-peninsula/>)
+## Related editorial selections
 
-10 April 2026
-
-You have never been to the Mornington Peninsula. You have a free weekend. You want to know what is actually good, what is overrated, and what the people who live here would tell you to do. This is that guide.
+Selected as related reading; these pieces may not mention this place in their text.
 
 Service   6 min
 
@@ -193,13 +191,39 @@ Service   6 min
 
 A ridge morning, one properly chosen cellar door, and a lunch that earns the drive. The clearest version of a Red Hill Saturday.
 
-Part of an escape
+Service   7 min
 
-## Weekend plans that already include Polperro
+### [The Peninsula Birthday Weekend: A Two-Night Plan That Actually Feels Celebratory](<https://peninsulainsider.com.au/explore/plans/the-birthday-weekend/>)
 
-Skip the planning - these itineraries sequence this venue into a proper Peninsula weekend.
+16 April 2026
 
- [All plans →](<https://peninsulainsider.com.au/explore/plans/>)
+A milestone birthday deserves more than a booking at the usual restaurant. Here is the two-night Peninsula plan that lands the celebration properly: one memorable dinner, one surprising morning, and a stay that makes the whole thing feel earned.
+
+Editor's Letter   5 min
+
+### [The One Booking Peninsula Day](<https://peninsulainsider.com.au/explore/plans/the-one-booking-peninsula-day/>)
+
+1 June 2026
+
+Most Peninsula days are over-planned. The ones that work usually aren't. One table, one walk, one decision made in the morning about which direction the rest of the day will go.
+
+More reading (7)
+
+- [A Winter Peninsula Weekend: The Case for Coming in July](<https://peninsulainsider.com.au/journal/a-winter-peninsula-weekend/>)
+
+- [First Time on the Peninsula: The Honest Starter Guide](<https://peninsulainsider.com.au/journal/first-time-peninsula/>)
+
+- [The Chardonnay Case: Why the Peninsula's Second Wine Deserves Top Billing](<https://peninsulainsider.com.au/journal/the-chardonnay-case/>)
+
+- [The Sorrento Weekend: How to Do the Tip Without Treating It Like a Summer Strip](<https://peninsulainsider.com.au/journal/the-sorrento-weekend/>)
+
+- [The Spring Peninsula: Why September and October Are the Region's Most Underrated Weekends](<https://peninsulainsider.com.au/journal/the-spring-peninsula/>)
+
+- [The Sunset Drink: Where to Watch the Light Drop on the Peninsula](<https://peninsulainsider.com.au/journal/the-sunset-drink/>)
+
+- [The Sunset Hour: Where to Be at the End of the Day](<https://peninsulainsider.com.au/journal/the-sunset-hour/>)
+
+## Plans with this stop or overnight stay
 
 Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula Photo: Two Palms Australia, courtesy of Visit Victoria
 
@@ -213,7 +237,23 @@ Two-night escape · Best for couple · Red Hill
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/>)
 
-More to explore
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Polperro Villas](<https://peninsulainsider.com.au/stay/polperro-villas/>) · under 100 m
+
+- [Hideaways at Red Hill](<https://peninsulainsider.com.au/stay/hideaways-red-hill/>) · 1.2 km
+
+- [Hurley Vineyard](<https://peninsulainsider.com.au/wine/hurley-vineyard/>) · 1.3 km
+
+- [Quealy Winemakers](<https://peninsulainsider.com.au/wine/quealy-winemakers/>) · 1.6 km
+
+- [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>) · 1.9 km
+
+- [Scorpo Wines](<https://peninsulainsider.com.au/wine/scorpo-wines/>) · 2.0 km
+
+Related picks
 
 ## Other wine experiences to compare
 

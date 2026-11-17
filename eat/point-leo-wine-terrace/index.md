@@ -73,13 +73,9 @@ Not sure how to build a day around Point Leo Wine Terrace?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Related editorial selections
 
-## Stories that mention Point Leo Wine Terrace
-
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
-
- [Journal →](<https://peninsulainsider.com.au/journal/>)
+Selected as related reading; these pieces may not mention this place in their text.
 
 Service   7 min
 
@@ -105,7 +101,23 @@ Service   6 min
 
 The Peninsula's evenings are its most under-scheduled hours. Where to stand, sit, drink, or walk in the forty minutes before dark - the guide to the best light on the Mornington Peninsula.
 
-Nearby picks
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Pt. Leo Estate](<https://peninsulainsider.com.au/wine/pt-leo-estate/>) · 0.3 km
+
+- [Doot Doot Doot](<https://peninsulainsider.com.au/eat/doot-doot-doot/>) · 0.8 km
+
+- [The Orchard Luxury Accommodation](<https://peninsulainsider.com.au/stay/the-orchard-red-hill/>) · 1.7 km
+
+- [Morning Sun Vineyard](<https://peninsulainsider.com.au/wine/morning-sun/>) · 2.1 km
+
+- [Lightfoot Wines](<https://peninsulainsider.com.au/wine/lightfoot-wines/>) · 2.3 km
+
+- [Ten Minutes by Tractor Cellar Door Dining](<https://peninsulainsider.com.au/eat/allis-wine-bar/>) · 2.3 km
+
+Related picks
 
 ## More from Merricks
 
@@ -113,7 +125,7 @@ Nearby picks
 
 Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
-### [Baillieu Vineyard](<https://peninsulainsider.com.au/eat/baillieu-vineyard/>)
+### [Baillieu Vineyard](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>)
 
 51 Stanleys Rd, Merricks VIC 3916
 
@@ -121,7 +133,7 @@ A thoughtfully managed Merricks estate making elegant Chardonnay and Pinot Noir 
 
 cellar door  slow
 
-[Read notes](<https://peninsulainsider.com.au/eat/baillieu-vineyard/>) [Book](<https://merricksstore.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>) [Book](<https://merricksstore.com.au/>)
 
 Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
@@ -137,7 +149,7 @@ anniversary  long lunch
 
 Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
-### [Merricks Estate](<https://peninsulainsider.com.au/eat/merricks-estate/>)
+### [Merricks Estate](<https://peninsulainsider.com.au/wine/merricks-estate/>)
 
 1 Merricks-Frankston Rd, Merricks VIC 3916
 
@@ -145,7 +157,7 @@ A small, long-standing Merricks estate making one of the Peninsula's rare seriou
 
 cellar door  slow
 
-[Read notes](<https://peninsulainsider.com.au/eat/merricks-estate/>) [Book](<https://merricksestate.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/wine/merricks-estate/>) [Book](<https://merricksestate.com.au/>)
 
 Plan your Peninsula day
 

@@ -97,45 +97,85 @@ Not sure how to build a day around Merricks General Wine Store?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Guides that link to this place
 
-## Stories that mention Merricks General Wine Store
+Hub Guide   8 min
 
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
+### [Merricks: The Peninsula Insider Guide](<https://peninsulainsider.com.au/journal/area-guide-merricks/>)
 
- [Journal →](<https://peninsulainsider.com.au/journal/>)
+2 May 2026
 
-Editor's Letter   8 min
-
-### [A Winter Peninsula Weekend: The Case for Coming in July](<https://peninsulainsider.com.au/journal/a-winter-peninsula-weekend/>)
-
-13 April 2026
-
-Short days, cheap rooms, empty dining rooms, a fire in every cellar door with a hearth, and a coast that looks like a different country in a southerly. Winter is the Peninsula's most underrated season and the one that gives the region back to the people who actually live here.
-
-Service   7 min
-
-### [Casual Lunch on the Mornington Peninsula: Where to Eat Well Without Making a Day of It](<https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/>)
-
-10 November 2026
-
-Not every Peninsula lunch needs a degustation and four hours. The places that do a relaxed, good midday meal, sorted by where you will be and who you are with.
+Merricks is the understated corridor between bay and ridge where the Peninsula's wine country starts to feel private. Come for the general store, the estates, the pub and the rare pleasure of a district that seems to know exactly how little fuss it needs.
 
 Service   9 min
 
-### [First Time on the Peninsula: The Honest Starter Guide](<https://peninsulainsider.com.au/journal/first-time-peninsula/>)
+### [The Peninsula Pantry: A Saturday Shopping List for Anyone Cooking in a Rental](<https://peninsulainsider.com.au/journal/the-peninsula-pantry/>)
+
+9 April 2026
+
+If you've booked a villa with a kitchen, you've booked one of the great food sourcing weekends in Victoria. Here is the shopping circuit - market first, bakery second, wine last - that actually does the region justice.
+
+Stay Notes   7 min
+
+### [The Vineyard Villa Weekend: The Peninsula's Quietest Luxury](<https://peninsulainsider.com.au/journal/the-vineyard-villa-weekend/>)
+
+9 April 2026
+
+The best Peninsula stay right now is not a design hotel. It is a cottage on a working farm with a fire, a kitchen, and nobody checking on you. Here is the case, and the short list.
+
+## Related editorial selections
+
+Selected as related reading; these pieces may not mention this place in their text.
+
+Service   8 min
+
+### [How to Plan a Peninsula Weekend: The Decision Framework](<https://peninsulainsider.com.au/explore/plans/how-to-plan-a-peninsula-weekend/>)
 
 10 April 2026
 
-You have never been to the Mornington Peninsula. You have a free weekend. You want to know what is actually good, what is overrated, and what the people who live here would tell you to do. This is that guide.
+Stop googling. Start here. A step-by-step planning guide that turns 'we should go to the Peninsula' into an actual weekend, with the decisions in the right order.
 
-Part of an escape
+Service   7 min
 
-## Weekend plans that already include Merricks General Wine Store
+### [The Easter Peninsula: How to Do the Long Weekend Without Losing It to the Crowds](<https://peninsulainsider.com.au/explore/plans/the-easter-peninsula/>)
 
-Skip the planning - these itineraries sequence this venue into a proper Peninsula weekend.
+17 April 2026
 
- [All plans →](<https://peninsulainsider.com.au/explore/plans/>)
+Easter is the Peninsula's first big four-day stress test of the year. Cars from town arrive Thursday afternoon, the cellar doors are full by Friday morning, and the bakeries run out of hot cross buns by Saturday lunch. Here is how to plan a long weekend that uses the holiday properly instead of fighting it.
+
+Service   6 min
+
+### [The Four-Hour Peninsula: A Surgical Strike for When the Weekend Is Half a Day](<https://peninsulainsider.com.au/explore/plans/the-four-hour-peninsula/>)
+
+15 April 2026
+
+For the midweek visit, the work trip with a free morning, or the Melbourne friends who have a flight out of Tullamarine at five. Four hours, three stops, one decisive lunch, and no wasted drives. The Peninsula you can actually do in half a day.
+
+More reading (11)
+
+- [The Friday Night Arrival](<https://peninsulainsider.com.au/explore/plans/the-friday-night-arrival/>)
+
+- [The Market Saturday: Peninsula Weekends Built Around the Right Hour at the Right Stall](<https://peninsulainsider.com.au/explore/plans/the-market-saturday/>)
+
+- [The One Booking Peninsula Day](<https://peninsulainsider.com.au/explore/plans/the-one-booking-peninsula-day/>)
+
+- [The Peninsula Orientation Drive: A First Visit in One Day](<https://peninsulainsider.com.au/explore/plans/the-peninsula-orientation-drive/>)
+
+- [The Peninsula Picnic: How to Assemble and Eat One Properly](<https://peninsulainsider.com.au/explore/plans/the-peninsula-picnic/>)
+
+- [The Peninsula Producer Trail: A Day Spent Closer to the Source](<https://peninsulainsider.com.au/explore/plans/the-producer-trail/>)
+
+- [A Winter Peninsula Weekend: The Case for Coming in July](<https://peninsulainsider.com.au/journal/a-winter-peninsula-weekend/>)
+
+- [Casual Lunch on the Mornington Peninsula: Where to Eat Well Without Making a Day of It](<https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/>)
+
+- [First Time on the Peninsula: The Honest Starter Guide](<https://peninsulainsider.com.au/journal/first-time-peninsula/>)
+
+- [The Spring Peninsula: Why September and October Are the Region's Most Underrated Weekends](<https://peninsulainsider.com.au/journal/the-spring-peninsula/>)
+
+- [Why the Peninsula Works Better in Winter](<https://peninsulainsider.com.au/journal/why-winter-works-on-the-peninsula/>)
+
+## Plans with this stop or overnight stay
 
 Alba Thermal Springs & Spa, Fingal, Mornington Peninsula Photo: Courtesy of Visit Victoria
 
@@ -149,7 +189,23 @@ Two-night escape · Best for couple · Peninsula
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/wellness-weekend/>)
 
-Nearby picks
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Stonier Wines](<https://peninsulainsider.com.au/wine/stonier-wines/>) · 1.1 km
+
+- [Merricks Estate](<https://peninsulainsider.com.au/wine/merricks-estate/>) · 1.9 km
+
+- [Scorpo Wines](<https://peninsulainsider.com.au/wine/scorpo-wines/>) · 2.7 km
+
+- [Quealy Winemakers](<https://peninsulainsider.com.au/wine/quealy-winemakers/>) · 3.0 km
+
+- [The Heritage Balnarring](<https://peninsulainsider.com.au/eat/balnarring-pub/>) · 3.2 km
+
+- [Balnarring Bakehouse](<https://peninsulainsider.com.au/eat/balnarring-bakehouse/>) · 3.3 km
+
+Related picks
 
 ## More from Merricks
 
@@ -157,7 +213,7 @@ Nearby picks
 
 Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
-### [Baillieu Vineyard](<https://peninsulainsider.com.au/eat/baillieu-vineyard/>)
+### [Baillieu Vineyard](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>)
 
 51 Stanleys Rd, Merricks VIC 3916
 
@@ -165,7 +221,7 @@ A thoughtfully managed Merricks estate making elegant Chardonnay and Pinot Noir 
 
 cellar door  slow
 
-[Read notes](<https://peninsulainsider.com.au/eat/baillieu-vineyard/>) [Book](<https://merricksstore.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>) [Book](<https://merricksstore.com.au/>)
 
 Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
@@ -181,7 +237,7 @@ anniversary  long lunch
 
 Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
-### [Merricks Estate](<https://peninsulainsider.com.au/eat/merricks-estate/>)
+### [Merricks Estate](<https://peninsulainsider.com.au/wine/merricks-estate/>)
 
 1 Merricks-Frankston Rd, Merricks VIC 3916
 
@@ -189,7 +245,7 @@ A small, long-standing Merricks estate making one of the Peninsula's rare seriou
 
 cellar door  slow
 
-[Read notes](<https://peninsulainsider.com.au/eat/merricks-estate/>) [Book](<https://merricksestate.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/wine/merricks-estate/>) [Book](<https://merricksestate.com.au/>)
 
 Plan your Peninsula day
 

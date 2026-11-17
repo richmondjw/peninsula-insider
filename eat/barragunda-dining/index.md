@@ -71,13 +71,9 @@ Not sure how to build a day around Barragunda Dining?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Related editorial selections
 
-## Stories that mention Barragunda Dining
-
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
-
- [Journal →](<https://peninsulainsider.com.au/journal/>)
+Selected as related reading; these pieces may not mention this place in their text.
 
 Service   7 min
 
@@ -87,6 +83,14 @@ Service   7 min
 
 A milestone birthday deserves more than a booking at the usual restaurant. Here is the two-night Peninsula plan that lands the celebration properly: one memorable dinner, one surprising morning, and a stay that makes the whole thing feel earned.
 
+Service   5 min
+
+### [Mornington Peninsula Springs Weekend](<https://peninsulainsider.com.au/explore/plans/the-thermal-springs-weekend/>)
+
+9 April 2026
+
+One Fingal bathhouse, two nights and an unhurried Sunday.
+
 Long Lunch List   8 min
 
 ### [The Long Lunch: Why the Mornington Peninsula Does Sunday Better Than Anywhere in Victoria](<https://peninsulainsider.com.au/journal/the-long-lunch/>)
@@ -95,13 +99,19 @@ Long Lunch List   8 min
 
 Hatted restaurants, a bay view, and nowhere you need to be until Monday. This is the case for staying the whole weekend.
 
-Insider Edit   7 min
+More reading (2)
 
-### [The Seafood List: Where the Fish Comes Off the Boat and Onto the Plate](<https://peninsulainsider.com.au/journal/the-seafood-list/>)
+- [The Seafood List: Where the Fish Comes Off the Boat and Onto the Plate](<https://peninsulainsider.com.au/journal/the-seafood-list/>)
 
-10 April 2026
+- [The Sorrento Weekend: How to Do the Tip Without Treating It Like a Summer Strip](<https://peninsulainsider.com.au/journal/the-sorrento-weekend/>)
 
-The Peninsula is a wine region that happens to be surrounded by water. The seafood story is quieter than the pinot story, but it is arguably the more honest one - and the best of it is very, very good.
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [One Spa at RACV Cape Schanck Resort](<https://peninsulainsider.com.au/explore/spas-and-wellness/#one-spa-racv-cape-schanck>) · 2.1 km
+
+- [The Cape Retreat](<https://peninsulainsider.com.au/stay/cape-retreat/>) · 4.3 km
 
 Plan your Peninsula day
 

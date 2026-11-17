@@ -33,6 +33,10 @@ The Peninsula's most architecturally considered spa experience, integrated into 
 
 **Best for** Couples seeking a design-led spa experience; those staying at Jackalope.
 
+### Guides that link to this place
+
+- [Mornington Peninsula Spa Stays](<https://peninsulainsider.com.au/explore/plans/mornington-peninsula-stay-and-soak/>)
+
 [Mornington](<https://peninsulainsider.com.au/explore/spas-and-wellness/#endota-spa-mornington>)
 
 ## [Endota Spa Mornington](<https://peninsulainsider.com.au/explore/spas-and-wellness/#endota-spa-mornington>)
@@ -67,6 +71,50 @@ Peninsula Hot Springs: spa treatments in photographs
 
 Peninsula Hot Springs, Cape Schanck, Mornington Peninsula  Photo · Two Palms Australia, courtesy of Visit Victoria
 
+### Guides that link to this place
+
+- [Mornington Peninsula Springs Weekend](<https://peninsulainsider.com.au/explore/plans/the-thermal-springs-weekend/>)
+
+### Related editorial selections
+
+Selected as related reading; these pieces may not mention this place in their text.
+
+- [How to Plan a Peninsula Weekend: The Decision Framework](<https://peninsulainsider.com.au/explore/plans/how-to-plan-a-peninsula-weekend/>)
+
+- [Mornington Peninsula Spa Stays](<https://peninsulainsider.com.au/explore/plans/mornington-peninsula-stay-and-soak/>)
+
+- [The Peninsula Birthday Weekend: A Two-Night Plan That Actually Feels Celebratory](<https://peninsulainsider.com.au/explore/plans/the-birthday-weekend/>)
+
+- [A Two-Night Peninsula Weekend for Two](<https://peninsulainsider.com.au/explore/plans/the-couples-weekend/>)
+
+- [The Easter Peninsula: How to Do the Long Weekend Without Losing It to the Crowds](<https://peninsulainsider.com.au/explore/plans/the-easter-peninsula/>)
+
+- [A Winter Peninsula Weekend: The Case for Coming in July](<https://peninsulainsider.com.au/journal/a-winter-peninsula-weekend/>)
+
+- [First Time on the Peninsula: The Honest Starter Guide](<https://peninsulainsider.com.au/journal/first-time-peninsula/>)
+
+- [Peninsula Hot Springs vs Alba Thermal Springs - Which One Should You Book?](<https://peninsulainsider.com.au/journal/peninsula-hot-springs-vs-alba/>)
+
+- [The Rainy Day Peninsula: Where to Go When the Weather Turns](<https://peninsulainsider.com.au/journal/rainy-day-peninsula/>)
+
+- [Why the Peninsula Works Better in Winter](<https://peninsulainsider.com.au/journal/why-winter-works-on-the-peninsula/>)
+
+### Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Peninsula Hot Springs Eco Lodges](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-eco-lodges/>) · under 100 m
+
+- [Peninsula Hot Springs Glamping](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>) · under 100 m
+
+- [Alba Thermal Springs & Spa](<https://peninsulainsider.com.au/explore/spas-and-wellness/#alba-thermal-springs>) · 1.7 km
+
+- [The Sanctuary at Alba](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/>) · 1.7 km
+
+- [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>) · 3.8 km
+
+- [Rye Hotel](<https://peninsulainsider.com.au/eat/rye-hotel/>) · 4.0 km
+
 [Cape Schanck](<https://peninsulainsider.com.au/explore/spas-and-wellness/#one-spa-racv-cape-schanck>)
 
 ## [One Spa at RACV Cape Schanck](<https://peninsulainsider.com.au/explore/spas-and-wellness/#one-spa-racv-cape-schanck>)
@@ -78,6 +126,22 @@ Peninsula Hot Springs, Cape Schanck, Mornington Peninsula  Photo · Two Palms Au
 Resort-integrated spa at the RACV Cape Schanck property. Good for those staying at the resort or wanting to combine golf with a treatment. Standard resort spa quality.
 
 **Best for** Resort guests; golf and spa combinations.
+
+### Related editorial selections
+
+Selected as related reading; these pieces may not mention this place in their text.
+
+- [Mornington Peninsula Spa Stays](<https://peninsulainsider.com.au/explore/plans/mornington-peninsula-stay-and-soak/>)
+
+- [Peninsula Hot Springs vs Alba Thermal Springs - Which One Should You Book?](<https://peninsulainsider.com.au/journal/peninsula-hot-springs-vs-alba/>)
+
+### Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Barragunda Dining](<https://peninsulainsider.com.au/eat/barragunda-dining/>) · 2.1 km
+
+- [The Cape Retreat](<https://peninsulainsider.com.au/stay/cape-retreat/>) · 3.4 km
 
 [Fingal](<https://peninsulainsider.com.au/explore/spas-and-wellness/#alba-thermal-springs>)
 
@@ -98,6 +162,54 @@ Alba Thermal Springs & Spa in photographs
 1  / 16
 
 Alba Thermal Springs & Spa, Fingal, Mornington Peninsula  Photo · Courtesy of Visit Victoria
+
+### Related editorial selections
+
+Selected as related reading; these pieces may not mention this place in their text.
+
+- [How to Plan a Peninsula Weekend: The Decision Framework](<https://peninsulainsider.com.au/explore/plans/how-to-plan-a-peninsula-weekend/>)
+
+- [Mornington Peninsula Spa Stays](<https://peninsulainsider.com.au/explore/plans/mornington-peninsula-stay-and-soak/>)
+
+- [The Peninsula Birthday Weekend: A Two-Night Plan That Actually Feels Celebratory](<https://peninsulainsider.com.au/explore/plans/the-birthday-weekend/>)
+
+- [A Two-Night Peninsula Weekend for Two](<https://peninsulainsider.com.au/explore/plans/the-couples-weekend/>)
+
+- [The Easter Peninsula: How to Do the Long Weekend Without Losing It to the Crowds](<https://peninsulainsider.com.au/explore/plans/the-easter-peninsula/>)
+
+- [The One-Night Peninsula Escape](<https://peninsulainsider.com.au/explore/plans/the-one-night-escape/>)
+
+- [Mornington Peninsula Springs Weekend](<https://peninsulainsider.com.au/explore/plans/the-thermal-springs-weekend/>)
+
+- [A Winter Peninsula Weekend: The Case for Coming in July](<https://peninsulainsider.com.au/journal/a-winter-peninsula-weekend/>)
+
+- [First Time on the Peninsula: The Honest Starter Guide](<https://peninsulainsider.com.au/journal/first-time-peninsula/>)
+
+- [Peninsula Hot Springs vs Alba Thermal Springs - Which One Should You Book?](<https://peninsulainsider.com.au/journal/peninsula-hot-springs-vs-alba/>)
+
+- [The Rainy Day Peninsula: Where to Go When the Weather Turns](<https://peninsulainsider.com.au/journal/rainy-day-peninsula/>)
+
+- [Why the Peninsula Works Better in Winter](<https://peninsulainsider.com.au/journal/why-winter-works-on-the-peninsula/>)
+
+### Plans with this stop or overnight stay
+
+- [A Peninsula Wellness Weekend](<https://peninsulainsider.com.au/explore/plans/wellness-weekend/>)
+
+### Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [The Sanctuary at Alba](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/>) · under 100 m
+
+- [Peninsula Hot Springs](<https://peninsulainsider.com.au/explore/spas-and-wellness/#peninsula-hot-springs>) · 1.7 km
+
+- [Peninsula Hot Springs Eco Lodges](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-eco-lodges/>) · 1.7 km
+
+- [Peninsula Hot Springs Glamping](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>) · 1.7 km
+
+- [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>) · 2.2 km
+
+- [Rye Hotel](<https://peninsulainsider.com.au/eat/rye-hotel/>) · 2.6 km
 
 ## Bathing or treatments?
 

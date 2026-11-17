@@ -165,11 +165,11 @@ Editor's Letter   6 min
 
 Empty dining rooms, cheaper rooms, and the particular quality of light that makes the ridge look like a different country. The case for coming in July rather than January.
 
-Mentioned in this piece
+Related editorial selections
 
-## Venues worth opening in a new tab
+## Related places in the PI guide
 
-Every venue referenced has its own page with editor notes, booking links, and nearby picks.
+Related places selected for this story, with their own PI pages. These recommendations are separate from mentions in the text.
 
 Winery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 

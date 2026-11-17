@@ -77,21 +77,9 @@ Not sure how to build a day around Laura at Pt. Leo?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-In the journal
+## Related editorial selections
 
-## Stories that mention Laura at Pt. Leo
-
-These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
-
- [Journal →](<https://peninsulainsider.com.au/journal/>)
-
-Insider Edit   6 min
-
-### [Date Night on the Mornington Peninsula: Where to Book for Two](<https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/>)
-
-10 November 2026
-
-A sunset drink, a room worth dressing for and no long drive home. The Peninsula's best dinners for two, from a Sri Lankan wine bar on the ridge to a set menu in Flinders, and how to build the evening around them.
+Selected as related reading; these pieces may not mention this place in their text.
 
 Service   7 min
 
@@ -109,7 +97,37 @@ Slow Peninsula   8 min
 
 One memorable dinner, a long lunch and an afternoon with no agenda. A slower Mornington Peninsula weekend for two.
 
-Nearby picks
+Insider Edit   6 min
+
+### [Date Night on the Mornington Peninsula: Where to Book for Two](<https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/>)
+
+10 November 2026
+
+A sunset drink, a room worth dressing for and no long drive home. The Peninsula's best dinners for two, from a Sri Lankan wine bar on the ridge to a set menu in Flinders, and how to build the evening around them.
+
+More reading (2)
+
+- [The Sunset Hour: Where to Be at the End of the Day](<https://peninsulainsider.com.au/journal/the-sunset-hour/>)
+
+- [Tedesca, Tractor, Laura: Peninsula Dinners and the Argument Between Them](<https://peninsulainsider.com.au/journal/three-italian-dinners/>)
+
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Scorpo Wines](<https://peninsulainsider.com.au/wine/scorpo-wines/>) · 1.2 km
+
+- [Quealy Winemakers](<https://peninsulainsider.com.au/wine/quealy-winemakers/>) · 1.3 km
+
+- [Polperro](<https://peninsulainsider.com.au/wine/polperro/>) · 2.2 km
+
+- [Merricks Estate](<https://peninsulainsider.com.au/wine/merricks-estate/>) · 2.2 km
+
+- [Polperro Villas](<https://peninsulainsider.com.au/stay/polperro-villas/>) · 2.3 km
+
+- [Hideaways at Red Hill](<https://peninsulainsider.com.au/stay/hideaways-red-hill/>) · 2.3 km
+
+Related picks
 
 ## More from Merricks
 
@@ -117,7 +135,7 @@ Nearby picks
 
 Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
-### [Baillieu Vineyard](<https://peninsulainsider.com.au/eat/baillieu-vineyard/>)
+### [Baillieu Vineyard](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>)
 
 51 Stanleys Rd, Merricks VIC 3916
 
@@ -125,11 +143,11 @@ A thoughtfully managed Merricks estate making elegant Chardonnay and Pinot Noir 
 
 cellar door  slow
 
-[Read notes](<https://peninsulainsider.com.au/eat/baillieu-vineyard/>) [Book](<https://merricksstore.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>) [Book](<https://merricksstore.com.au/>)
 
 Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
-### [Merricks Estate](<https://peninsulainsider.com.au/eat/merricks-estate/>)
+### [Merricks Estate](<https://peninsulainsider.com.au/wine/merricks-estate/>)
 
 1 Merricks-Frankston Rd, Merricks VIC 3916
 
@@ -137,7 +155,7 @@ A small, long-standing Merricks estate making one of the Peninsula's rare seriou
 
 cellar door  slow
 
-[Read notes](<https://peninsulainsider.com.au/eat/merricks-estate/>) [Book](<https://merricksestate.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/wine/merricks-estate/>) [Book](<https://merricksestate.com.au/>)
 
 Photo: Peter Foster, courtesy of Visit Victoria
 

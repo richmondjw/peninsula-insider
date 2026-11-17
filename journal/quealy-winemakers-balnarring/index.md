@@ -129,11 +129,11 @@ Weekend Picker   3 min
 
 The week after King's Birthday: truffle season at its most available, cellar doors open and unhurried, and the Peninsula genuinely itself again.
 
-Mentioned in this piece
+Related editorial selections
 
-## Venues worth opening in a new tab
+## Related places in the PI guide
 
-Every venue referenced has its own page with editor notes, booking links, and nearby picks.
+Related places selected for this story, with their own PI pages. These recommendations are separate from mentions in the text.
 
 Winery  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/>)
 
