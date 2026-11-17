@@ -35,6 +35,16 @@ try {
  }
  for(const path of recoveredSources)for(const width of [390,1440]){
   const reader=await site.reader();const {page}=reader;
-  try{await page.setViewport({width,height:900});await reader.load(path);await page.evaluate(()=>document.fonts.ready);const observed=await page.evaluate(()=>({title:document.querySelector('h1')?.textContent,prose:!!document.querySelector('.prose,[data-pi-prose-root]'),overflow:document.documentElement.scrollWidth>innerWidth}));assert.ok(observed.prose);assert.ok(observed.title);assert.equal(observed.overflow,false);await page.screenshot({path:`${out}/source-${path.split('/').filter(Boolean).at(-1)}-${width}.png`,fullPage:true});report.sourcePages.push({path,width,...observed});}finally{await reader.close();}
+  try{await page.setViewport({width,height:900});await reader.load(path);await page.evaluate(()=>document.fonts.ready);const observed=await page.evaluate(()=>({title:document.querySelector('h1')?.textContent,prose:!!document.querySelector('.prose,[data-pi-prose-root]'),overflow:document.documentElement.scrollWidth>innerWidth}));assert.ok(observed.prose);assert.ok(observed.title);assert.equal(observed.overflow,false);// Scroll the real page to exercise lazy visibility before capturing long sources.
+   await page.evaluate(async()=>{for(let y=0;y<document.documentElement.scrollHeight;y+=Math.max(300,innerHeight*.75)){scrollTo(0,y);await new Promise(r=>setTimeout(r,50));}scrollTo(0,0);await new Promise(r=>setTimeout(r,700));});
+   const stem=`source-${path.split('/').filter(Boolean).at(-1)}-${width}`;
+   await page.screenshot({path:`${out}/${stem}.png`,fullPage:true});
+   const viewports=[];
+   for(const fraction of [.45,.85]){
+    const position=await page.evaluate(f=>{const root=document.querySelector('.prose,[data-pi-prose-root]');const box=root.getBoundingClientRect();scrollTo(0,scrollY+box.top+box.height*f-innerHeight*.2);return {scrollY,documentHeight:document.documentElement.scrollHeight};},fraction);
+    await new Promise(r=>setTimeout(r,700));
+    const file=`${stem}-body-${Math.round(fraction*100)}.png`;await page.screenshot({path:`${out}/${file}`,fullPage:false});viewports.push({fraction,file,...position});
+   }
+   report.sourcePages.push({path,width,...observed,viewports});}finally{await reader.close();}
  }
 }finally{await fs.writeFile(`${out}/rendered.json`,JSON.stringify(report,null,2));await site.close();}
