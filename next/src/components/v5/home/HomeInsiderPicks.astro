@@ -14,19 +14,20 @@ const picks = choices.flatMap(choice => {
   return venue && image ? [{...choice, venue, image}] : [];
 });
 ---
-<section class="home-picks" aria-labelledby="home-picks-title">
+{picks.length > 0 && <section class="home-picks" aria-labelledby="home-picks-title">
  <div class="container">
-  <header><h2 id="home-picks-title">Insider Picks</h2><p>Three places worth building a stop around. Choose the one that fits your day.</p></header>
-  <p class="home-picks__hint">Scroll to see all three places →</p>
-  <ul class="home-picks__grid" role="list" tabindex="0" aria-label="Insider Picks, three places">
+  <header><h2 id="home-picks-title">Insider Picks</h2><p>Worth building a stop around. Find inspiration for your day.</p></header>
+  {picks.length > 1 && <p class="home-picks__hint">Scroll to explore the picks →</p>}
+  <ul class="home-picks__grid" class:list={{'home-picks__grid--single': picks.length === 1}} role="list" tabindex={picks.length > 1 ? '0' : undefined} aria-label="Insider Picks">
    {picks.map(({slug,note,place,venue,image}) => <Card variant="venue" title={venue.data.name} href={venueHref(venue)} entityType="venue" entitySlug={slug} image={{...image, sourceUrl: /^https?:\/\//.test(image.sourceUrl ?? '') ? image.sourceUrl : undefined}} lockImageEditing={true} verdict={note} meta={[place]} showEyebrow={false} partnerLabel={venue.data.featuredPartner ? 'Partner' : undefined} />)}
   </ul>
  </div>
-</section>
+</section>}
 <style>
 .home-picks{padding-block:var(--space-6);background:var(--bg)}
 header{margin-bottom:var(--space-5);max-width:42rem}h2{font:var(--fw-display) var(--fs-600)/var(--lh-heading) var(--font-display);margin:0 0 var(--space-3)}header p{color:var(--soft);margin:0;line-height:var(--lh-body)}
 .home-picks__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-5);padding:0;margin:0;list-style:none}
 .home-picks__grid::-webkit-scrollbar{display:none}.home-picks__hint{display:none}.home-picks__grid:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
 @media(max-width:47.99em){.home-picks__hint{display:block;margin:0 0 var(--space-3);color:var(--soft);font-size:var(--fs-200)}.home-picks__grid{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:85%;gap:var(--space-4);overflow-x:auto;scrollbar-width:none;scroll-snap-type:x proximity;padding-bottom:var(--space-3)}.home-picks__grid :global(.pi-card){min-width:0;scroll-snap-align:start}}
+@media(max-width:47.99em){.home-picks__grid--single{grid-auto-columns:100%}}
 </style>

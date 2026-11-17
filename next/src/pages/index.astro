@@ -37,15 +37,9 @@ export const prerender = true;
 
 <style>
 /* Allow enlarged type to reflow the homepage masthead instead of pushing controls offscreen. */
-@media(max-width:767px){
- :global(body[data-path="/"] .masthead-row){flex-wrap:wrap;height:auto;row-gap:var(--space-2);padding-block:var(--space-2)}
+:global(body[data-path="/"] .masthead-row){flex-wrap:wrap;height:auto;row-gap:var(--space-2)}
  :global(body[data-path="/"] .brand-lockup){min-width:0;max-width:100%}
  :global(body[data-path="/"] .brand){white-space:normal;overflow-wrap:anywhere}
-}
-/* On the narrowest phones, Search and Your Peninsula remain in the navigation
-   drawer. Keep the primary Ask PI and navigation controls beside the wordmark. */
-@media(max-width:400px){
- :global(body[data-path="/"] .header-actions > .search-link),
- :global(body[data-path="/"] .header-actions > .personal-menu){display:none}
-}
+ :global(body[data-path="/"] .site-nav){flex-wrap:wrap;max-width:100%;row-gap:0}
+@media(max-width:767px){:global(body[data-path="/"] .masthead-row){padding-block:var(--space-2)}}
 </style>
