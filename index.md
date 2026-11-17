@@ -17,7 +17,7 @@ An independent local guide to where to eat, stay and explore, and how to put the
 
 Places chosen by our editors. Never paid for. [How we choose](<https://peninsulainsider.com.au/about/#how-we-choose>)
 
- [Ask PI Your Peninsula local](<https://peninsulainsider.com.au/ask/>) [Start with the coast  **Flinders & the Cape**  Coastal walks and one excellent meal.](<https://peninsulainsider.com.au/explore/plans/flinders-and-cape-reset/>)
+ [Start with the coast  **Flinders & the Cape**  Coastal walks and one excellent meal.](<https://peninsulainsider.com.au/explore/plans/flinders-and-cape-reset/>)
 
 ## Plan your day
 
@@ -41,6 +41,36 @@ Red Hill wine country to the southern coast.
 
 3 days   Red Hill & Merricks   Couples
 
+## Insider Picks
+
+Worth building a stop around. Find inspiration for your day.
+
+Scroll to explore the picks →
+
+- Crittenden Estate, Dromana, Mornington Peninsula   Photo courtesy of Visit Victoria.
+
+### [Crittenden Estate](<https://peninsulainsider.com.au/wine/crittenden-estate/>)
+
+Seated wine tastings beside the lake. Choose Crittenden for an unhurried introduction to Dromana wine country.
+
+Dromana
+
+- Alba Thermal Springs & Spa, Fingal, Mornington Peninsula   Photo courtesy of Visit Victoria.
+
+### [Alba Thermal Springs & Spa](<https://peninsulainsider.com.au/explore/spas-and-wellness/#alba-thermal-springs>)
+
+Thermal pools in Fingal. Choose Alba when you want the bathing session, rather than a busy itinerary, to be the occasion.
+
+Fingal
+
+- Merricks General Wine Store, Mornington Peninsula   Photo: Peter Foster, courtesy of Visit Victoria.
+
+### [Merricks General Wine Store](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>)
+
+A village bistro and wine store. Choose Merricks for a relaxed meal with local wine before exploring the ridge.
+
+Merricks
+
 ## This weekend
 
 21–22 November
@@ -51,7 +81,7 @@ Swipe or scroll through the picks
 
 - ### [Coco Michelle Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/coco-michelle-live-at-tar-barrel-2026-11-21/>)
 
-Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery produce award-winning craft beers alongside diverse tastes as part of their whiskey and.
+Live music from Coco Michelle at Tar Barrel in Mornington.
 
 Sat, 21 Nov   Tar Barrel   Live music
 
@@ -72,6 +102,24 @@ Enjoy live music at Peninsula Beer Garden! Deja Vu are a dynamic duo playing upb
 Sat, 21 Nov   Peninsula Beer Garden   Live music
 
 Event details checked 9 Nov 2026 · [Organiser’s page](<https://peninsulabeergarden.com.au/live-music/>)
+
+This season · Spring
+
+## A few good reasons to get out.
+
+Make room for a walk, a village stop and a wet-weather alternative.
+
+- [Point Nepean in the spring light](<https://peninsulainsider.com.au/journal/point-nepean-national-park-guide/>)
+
+Use a longer spring afternoon for the coast and historic forts. Check park conditions before setting out.
+
+- [Walk after lunch](<https://peninsulainsider.com.au/journal/the-peninsulas-best-late-afternoon-walks/>)
+
+Leave time before sunset for a walk at Cape Schanck, Sorrento or Point Nepean.
+
+- [A spring-shower backup](<https://peninsulainsider.com.au/journal/the-rainy-day-peninsula-without-a-booking/>)
+
+An indoor alternative when the forecast changes and you have nothing booked.
 
 ## Find your way into the Peninsula
 
