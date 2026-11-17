@@ -365,6 +365,22 @@ jobs:
           if-no-files-found: error
           retention-days: 14
 
+      - name: Review Stay artwork
+        if: github.event_name == 'pull_request' && github.head_ref == 'fix/kanasta-related-art-20261117'
+        working-directory: next
+        env:
+          REVIEW_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: node scripts/review-stay-artwork.mjs
+
+      - name: Upload Stay artwork review
+        if: always() && github.event_name == 'pull_request' && github.head_ref == 'fix/kanasta-related-art-20261117'
+        uses: actions/upload-artifact@v4
+        with:
+          name: stay-artwork-${{ github.event.pull_request.head.sha }}
+          path: next/review/stay-artwork/
+          if-no-files-found: error
+          retention-days: 14
+
       - name: Journeys
         run: |
           cd next
