@@ -1,36 +1,11 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-17T13:40:56.638Z",
+  "generatedAt": "2026-11-17T14:28:11.487Z",
   "baselineAvailable": true,
-  "fromSnapshot": "39fff0215a21e3f54296194bdf96d812edbc69d817be5cc5bdaacacace0715de",
+  "fromSnapshot": "663620350aee97360c5440c80e402cd5808bfb022df68d455502f0d805ab4129",
   "toSnapshot": "663620350aee97360c5440c80e402cd5808bfb022df68d455502f0d805ab4129",
-  "previousGeneratedAt": "2026-11-17T12:38:20.663Z",
+  "previousGeneratedAt": "2026-11-17T13:40:56.638Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 3,
-  "changes": [
-    {
-      "id": "https://peninsulainsider.com.au/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/",
-      "markdownUrl": "https://peninsulainsider.com.au/index.md",
-      "contentSha256": "d30cda8fbb47d6ac926b6c821aad4eec5c5a6240f2547e61116ab5fc8c1ba1df",
-      "previousContentSha256": "23fe6eebf8fc030a6bf42071bd75422571cf2b2f43384ac6219dcce27bf6f922"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/quick-note/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
-      "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "4246c570d48bf5333c23a45520d816d7254aab94f04330e5f03a129a998d5324",
-      "previousContentSha256": "a918771537729f7da511c982dfca9832d419c5147dac11f3db0f9c1bcb51c0cc"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "cf25e068409ed829d4a7a62e212c293ff970452b686f7c83a980a3a1b6f8532d",
-      "previousContentSha256": "519e363e82eaaed97789c2b3d1155363271d1f35b1eda6bdd0bed1c126fb785a"
-    }
-  ]
+  "count": 0,
+  "changes": []
 }
