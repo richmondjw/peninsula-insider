@@ -1,20 +1,44 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-17T05:00:33.507Z",
+  "generatedAt": "2026-11-17T05:49:37.648Z",
   "baselineAvailable": true,
-  "fromSnapshot": "e632a8dfe48e0e18666c11149c766955695bf33c7a497bd43d02dc56c9b5eb1c",
-  "toSnapshot": "b11196a108acad4648ecd0094ab94813453ff82052cf793f38cec03ab91f38f6",
-  "previousGeneratedAt": "2026-11-17T03:54:17.100Z",
+  "fromSnapshot": "b11196a108acad4648ecd0094ab94813453ff82052cf793f38cec03ab91f38f6",
+  "toSnapshot": "a0c5e5501f446899c195c17f70477a4d5a0b8dd14cdb2628c691476648ace594",
+  "previousGeneratedAt": "2026-11-17T05:00:33.507Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 1,
+  "count": 4,
   "changes": [
     {
       "id": "https://peninsulainsider.com.au/eat/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/eat/",
       "markdownUrl": "https://peninsulainsider.com.au/eat/index.md",
-      "contentSha256": "09405aac1ede41e73308312acee5f7daeb5e15fe27a3cb600f2e4a5e6b153e1d",
-      "previousContentSha256": "538b708142db01f614256641d07c19465952ee371130b9e29522474a8229429f"
+      "contentSha256": "538b708142db01f614256641d07c19465952ee371130b9e29522474a8229429f",
+      "previousContentSha256": "09405aac1ede41e73308312acee5f7daeb5e15fe27a3cb600f2e4a5e6b153e1d"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/index.md",
+      "contentSha256": "f6bd08126d9b70b789c304db9290dd2398779f3af7221b77b6c172f513c5821a",
+      "previousContentSha256": "d983e02e2b835f84aaee07056516b044b7eb8598fc5693de2725d56b83943f57"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/index.md",
+      "contentSha256": "cee837c1067d1e65bc8897f34c8b7e4e0d5cf74e0e1eca9901eb4deb3d069579",
+      "previousContentSha256": "d924106e31d45c8ed972d09d3fa0fa62b9b8149ea7326c981d7af67f0ce31a0c"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/summer-school-holidays-2026/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/summer-school-holidays-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/summer-school-holidays-2026/index.md",
+      "contentSha256": "4ed5a0b57de868ef8ab17df1c8b2d78119cb2a8af9a0cbf8570e78bac5cb3f05",
+      "previousContentSha256": "0067628898b89d1a62bd973b1d2595ad75d52ad42d88e007d7cd247541f8ab56"
     }
   ]
 }

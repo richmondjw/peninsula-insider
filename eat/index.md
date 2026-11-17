@@ -25,7 +25,9 @@ Breakfast or lunch in Merricks, with local wines and fireside or deck tables. A 
 
 Merricks   Restaurant   Breakfast and lunch; reserve online
 
-- ### [Commonfolk Coffee](<https://peninsulainsider.com.au/eat/commonfolk-coffee/>)
+- Coffee production
+
+### [Commonfolk Coffee](<https://peninsulainsider.com.au/eat/commonfolk-coffee/>)
 
 A Mornington cafe beside its roastery, with a full menu and dog-friendly courtyard. Useful for coffee, brunch or a casual family stop.
 
