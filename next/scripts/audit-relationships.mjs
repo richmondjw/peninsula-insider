@@ -1,3 +1,4 @@
+import {staticRelationshipGuides} from '../src/lib/static-relationship-guides.mjs';
 /** Extends the existing link-graph inventory; never crawls or writes content. */
 import {relationshipEvidenceDefects} from '../src/lib/relationship-evidence.mjs';
 import {readFile,readdir} from 'node:fs/promises';
@@ -11,7 +12,7 @@ export async function auditRelationships(inventory,contentRoot,contextual,now=ne
   const articles=[];
   for(const file of (await readdir(new URL('articles/',contentRoot),{recursive:true})).filter(f=>/\.mdx?$/.test(f)).sort()) {
     const raw=await readFile(new URL('articles/'+file,contentRoot),'utf8');const match=raw.match(/^---\r?\n([\s\S]*?)\r?\n---/);
-    if(!match)continue;const data=yaml(match[1]);const id=data.slug??file.replace(/\.mdx?$/,'');articles.push({id,data,relationshipBodySupported:!file.endsWith('.mdx')});
+    if(!match)continue;const data=yaml(match[1]);const id=data.slug??file.replace(/\.mdx?$/,'');articles.push({id,data});
   }
   const facts=new Map([...inventory].map(([url,p])=>{const fact=pageFacts(p.html,url);delete fact.dom;return [url,fact];}));
   const bodyLinks=[];const panels=[];const eventPanels=[];const invalidRenderedLinks=[];const bodyHolds=[];
@@ -22,8 +23,7 @@ export async function auditRelationships(inventory,contentRoot,contextual,now=ne
     if(!page || page.noindex || page.stub || page.canonical!==path)a.relationshipHold='absent-noncanonical-or-noindex-page';
     if(!a.relationshipHold) {
       const evidence=contextualMentions(pageFacts(inventory.get(path).html,path),contextual.catalogue,facts,{allowPlans:true});a.relationshipBodyAvailable=!evidence.excluded;
-      if(!a.relationshipBodySupported)bodyHolds.push({id:a.id,reason:'MDX-body-not-available-to-runtime-index'});
-      for(const m of evidence.mentions)if(a.relationshipBodySupported && m.status==='linked' && m.entityId.startsWith('venue:'))bodyLinks.push({articleId:a.id,href:m.target});
+      for(const m of evidence.mentions)if(m.status==='linked' && m.entityId.startsWith('venue:'))bodyLinks.push({articleId:a.id,href:m.target});
     }
   }
   for(const [url,supplied] of inventory)for(const root of descendants(pageFacts(supplied.html,url).dom).filter(n=>attr(n,'data-venue-relationships')!==undefined)) {
@@ -42,8 +42,16 @@ export async function auditRelationships(inventory,contentRoot,contextual,now=ne
     for(const event of events){const href=event.href;if(!href || targetState({href},facts)!=='eligible')invalidRenderedLinks.push({url,href,state:'invalid-event-destination'});}
     eventPanels.push({url,venueId:attr(root,'data-venue-events'),events});
   }
-  const index=buildRelationshipIndex({venues,articles,itineraries,events,bodyLinks,now});
+  const guides=staticRelationshipGuides.map(guide=>{
+    const page=facts.get(guide.href);
+    const eligible=page && !page.noindex && !page.stub && page.canonical===guide.href;
+    if(!eligible)return {...guide,evidenceEligible:false};
+    const evidence=contextualMentions(pageFacts(inventory.get(guide.href).html,guide.href),contextual.catalogue,facts);
+    for(const m of evidence.mentions)if(m.status==='linked' && m.entityId.startsWith('venue:'))bodyLinks.push({articleId:guide.id,href:m.target});
+    return {...guide,evidenceEligible:!evidence.excluded};
+  });
+  const index=buildRelationshipIndex({venues,articles,itineraries,events,guides,bodyLinks,now});
   const requiredVenueIds=venues.filter(v=>{const e=contextual.catalogue.find(e=>e.id==='venue:'+v.id);if(!e || targetState(e,facts)!=='eligible')return false;const path=e.href.split('#')[0];return !e.href.includes('#') || facts.get(path)?.ids.includes(e.href.split('#')[1]);}).filter(v=>!venues.some(other=>other.id!==v.id && contextual.catalogue.find(e=>e.id==='venue:'+other.id)?.href===contextual.catalogue.find(e=>e.id==='venue:'+v.id)?.href && other.id===contextual.catalogue.find(e=>e.id==='venue:'+v.id)?.href.split('/').filter(Boolean).at(-1))).map(v=>v.id);
   const evidenceDefects=relationshipEvidenceDefects(index,panels,eventPanels,{requiredVenueIds});
-  return {...index.report,bodyHolds,evidenceDefects,eventPanels,mode:'Built evidence review queue; renderedPanels records actual UI coverage. Missing evidence is not permission to fabricate a relation.',renderedPanels:panels,unindexedContextualPages:contextual.articles.filter(a=>!a.excluded && !articles.some(entry=>articleRelationshipHref(entry)===a.url) && a.mentions.some(m=>m.status==='linked' && m.entityId.startsWith('venue:'))).map(a=>({url:a.url,reason:'rendered-guide-evidence-not-in-runtime-content-index',links:a.mentions.filter(m=>m.status==='linked' && m.entityId.startsWith('venue:')).map(m=>m.target)})),invalidRenderedLinks};
+  return {...index.report,bodyHolds,evidenceDefects,eventPanels,mode:'Built evidence review queue; renderedPanels records actual UI coverage. Missing evidence is not permission to fabricate a relation.',renderedPanels:panels,unindexedContextualPages:contextual.articles.filter(a=>!a.excluded && !articles.some(entry=>articleRelationshipHref(entry)===a.url) && !guides.some(g=>g.evidenceEligible && g.href===a.url) && a.mentions.some(m=>m.status==='linked' && m.entityId.startsWith('venue:'))).map(a=>({url:a.url,reason:'rendered-guide-evidence-not-in-runtime-content-index',links:a.mentions.filter(m=>m.status==='linked' && m.entityId.startsWith('venue:')).map(m=>m.target)})),invalidRenderedLinks};
 }

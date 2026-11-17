@@ -29,3 +29,17 @@ test('fixed-clock index is deterministic under repeated and reordered input',()=
 test('plan article CMS overrides cannot manufacture or remove rendered body evidence',()=>{const overrides={text:{'body.block:b1':'<p><a href="/eat/a/">a</a></p>','body.block:b2':'<p>Replacement without venue</p>'}};assert.deepEqual(relationshipBodyOverrides(article('p',{section:'plans'}),overrides),{});assert.deepEqual(Object.keys(relationshipBodyOverrides(article('j'),overrides)),['b1','b2']);});
 
 test('all six existing producer aliases resolve directly even with an Eat card prefix',async()=>{const {venueHref,venueHrefForSlug}=await import('./editorial.ts');for(const id of ['bass-and-flinders','red-hill-brewery','st-andrews-beach-brewery','mornington-peninsula-brewery','two-bays-brewing','jetty-road-brewery']){assert.equal(venueHrefForSlug(id,'/eat'),`/wine/${id}/`);assert.equal(venueHref(venue(id,{type:'brewery'}),'/eat'),`/wine/${id}/`);}});
+
+// Registered static routes must supply rendered eligibility, never metadata-only guesses.
+test('static guide canonical anchors gain mentions with route-owned labels and no editorial selections',()=>{
+ const guide={id:'guide:family-friendly',href:'/explore/family-friendly/',title:'Untrusted label',evidenceEligible:true};
+ const r=build({guides:[guide],bodyLinks:[{articleId:guide.id,href:'/eat/a/'}]});
+ assert.equal(r.byVenue.get('a').mentions[0].href,guide.href);
+ assert.equal(r.byVenue.get('a').mentions[0].label,'Family-Friendly Things to Do on the Mornington Peninsula');
+ assert.equal(r.byVenue.get('a').selections.length,0);
+});
+test('unregistered, redirected and noindex static evidence cannot create relationships',()=>{
+ for(const guide of [{id:'guide:family-friendly',href:'/journal/shadow/',evidenceEligible:true},{id:'guide:invented',href:'/explore/invented/',evidenceEligible:true},{id:'guide:family-friendly',href:'/explore/family-friendly/',evidenceEligible:false}]){
+ const r=build({guides:[guide],bodyLinks:[{articleId:guide.id,href:'/eat/a/'}]});assert.equal(r.byVenue.get('a').mentions.length,0);
+ }
+});
