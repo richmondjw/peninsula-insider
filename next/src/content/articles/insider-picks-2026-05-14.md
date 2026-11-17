@@ -37,7 +37,7 @@ Plan the week around a booking, an evening out, a walk and the long lunch you ke
 
 ## 1. Book the truffle hunt this week
 
-**Red Hill Truffles. Season opens Saturday 30 May. 1180 Mornington-Flinders Road, Main Ridge. Ticketed; current prices on the operator's site.**
+**Red Hill Truffles. Season opens Saturday 30 May. 235 Arthurs Seat Road, Red Hill. Ticketed; current prices on the operator's site.**
 
 This is the only genuinely time-sensitive pick on the list.
 

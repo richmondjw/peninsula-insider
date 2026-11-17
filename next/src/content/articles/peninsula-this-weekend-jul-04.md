@@ -27,9 +27,9 @@ dispatch:
   editorLine: "The first school-holiday weekend is not about trying to do everything. Book one proper winter move, leave room for a slow Sunday, and keep one indoor family option in reserve."
   weather: "Early July on the Peninsula is proper winter: cold mornings, early dark, and enough weather variation that an indoor backup matters. Check Friday's local forecast before locking in outdoor-only plans."
   lead:
-    title: "Red Hill Truffles: Winter Truffle Hunt Season, Main Ridge"
+    title: "Red Hill Truffles: Winter Truffle Hunt Season, Red Hill"
     when: "Saturday 4 or Sunday 5 July, booking required"
-    where: "Red Hill Truffles, 1180 Mornington-Flinders Road, Main Ridge"
+    where: "Red Hill Truffles, 235 Arthurs Seat Road, Red Hill"
     summary: "The cleanest winter booking on the Peninsula remains a Red Hill truffle hunt. The polished version is here: working dogs, oak grove, then lunch or pizza built into the shape of the day. If you want one thing this weekend that feels distinctly seasonal, this is it."
     bookingLabel: "Book via Red Hill Truffles"
     bookingUrl: "https://redhilltruffles.com/hunts"
@@ -54,7 +54,7 @@ dispatch:
   weekendShape: "Book the truffle hunt if you want the weekend to feel distinctly wintry. Keep Sunday for the railway or a slower Mornington day. If the weather turns, move indoors without pretending the day is lost."
 faq:
   - question: "What is on this weekend on the Mornington Peninsula, 4–5 July 2026?"
-    answer: "The clearest winter booking is Red Hill Truffles in Main Ridge, running through the weekend by reservation. On Sunday 5 July, Mornington Tourist Railway runs its school-holiday special services from Moorooduc. Through the school-holiday window, Mornington Peninsula Regional Gallery is also running family workshops from 1 to 10 July."
+    answer: "The clearest winter booking is Red Hill Truffles in Red Hill, running through the weekend by reservation. On Sunday 5 July, Mornington Tourist Railway runs its school-holiday special services from Moorooduc. Through the school-holiday window, Mornington Peninsula Regional Gallery is also running family workshops from 1 to 10 July."
   - question: "What is the best family plan for Sunday 5 July?"
     answer: "Mornington Tourist Railway is the simplest family pick for Sunday 5 July: heritage train rides from Moorooduc between 10am and 4pm. If the weather looks rough, switch to the Mornington Peninsula Regional Gallery school-holiday workshops instead."
   - question: "What is the best winter booking this weekend?"
@@ -69,7 +69,7 @@ This weekend, that means truffle country first, a heritage train run on Sunday, 
 
 ## The booking worth locking in
 
-### Red Hill Truffles, Main Ridge
+### Red Hill Truffles, Red Hill
 
 If you want the weekend to feel like winter on the Peninsula rather than a generic family outing, this is the booking. Red Hill Truffles is still the polished version of the season: working dogs in the oak grove, proper cold in the air, then lunch or pizza built into the day.
 
@@ -103,7 +103,7 @@ Book the truffle hunt if you want the weekend to have one clear centre. Keep Sun
 
 ### Red Hill Truffles
 
-Sat 4 or Sun 5 July · Main Ridge  
+Sat 4 or Sun 5 July · Red Hill  
 Booking required: redhilltruffles.com/hunts
 
 ### Mornington Tourist Railway, School Holiday Special Runs

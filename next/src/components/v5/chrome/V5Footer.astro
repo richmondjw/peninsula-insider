@@ -51,7 +51,7 @@ const editionLandmark = Astro.url.pathname === '/wine/best-cellar-doors/' ? 'Pen
 <a href="/contact/?type=correction">Corrections</a>
 <a href="#cookie-settings" data-pi-consent="open">Cookie settings</a>
 </div>
-<p class="company-line">© {new Date().getFullYear()} Peninsula Insider, a trading name of Optiflows Pty Ltd · ABN 71 155 199 637</p>
+<p class="company-line">© {new Date().getFullYear()} <a href="https://optiflows.com.au">OptiFlows</a> trading as Peninsula Insider · ABN 71 155 199 637</p>
 <p class="footer-edition" role={editionLandmark ? 'region' : undefined} aria-label={editionLandmark}>{strip.issue}{strip.sunset && <> · Sunset {strip.sunset}</>}</p>
 </div>
 </footer>
@@ -71,6 +71,7 @@ const editionLandmark = Astro.url.pathname === '/wine/best-cellar-doors/' ? 'Pen
  .legal-links{display:flex;flex-wrap:wrap;gap:0 var(--space-5);margin-top:var(--space-3)}
  .legal-links a{display:flex;align-items:center;min-height:44px;font:var(--fs-300)/1.3 var(--font-ui);color:var(--soft)}
  .footer-bottom>.company-line,.footer-bottom>.footer-edition{margin-top:var(--space-2);font-size:var(--fs-200)}
+ .company-line a{color:inherit;text-decoration:underline;text-underline-offset:3px}
  .footer a:focus-visible{outline:var(--focus-ring);outline-offset:3px}
  @media(max-width:900px){
   .footer-main{grid-template-columns:1fr 1fr;gap:var(--space-6) var(--space-5)}

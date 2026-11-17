@@ -85,7 +85,7 @@ Here is the weekend we would recommend for a first-time spring visitor.
 
 **12.30pm:** Cellar-door lunch. The heart of the day. The ridge cellar doors are reopen, the waiting lists are lenient, and the winemakers are often at the cellar doors themselves, which is an experience you cannot get in December or January. **Montalto** in spring is particularly good for the sculpture grounds; the gardens are at their freshest and the walking trail is pleasant. **Ten Minutes by Tractor** and **Polperro** are both running their winter release flights alongside the first spring tastings. **Paringa Estate** reopens its cellar-door dining space around September with one of the best value tasting menus on the Peninsula.
 
-**3pm:** Producer loop or lookout. A quick loop on the way back down the ridge: **Main Ridge Dairy**, **Red Hill Cheese**, and, if the day is warm enough, a quick stop at **Arthurs Seat Eagle** for the gondola ride. The spring view from the summit is among the clearest of the year, with the bay, the vineyards, and the horizon between Melbourne and the Bellarine in sharp focus.
+**3pm:** Producer loop or lookout. A quick loop on the way back down the ridge: **Main Ridge Dairy** and, if the day is warm enough, a quick stop at **Arthurs Seat Eagle** for the gondola ride. The spring view from the summit is among the clearest of the year, with the bay, the vineyards, and the horizon between Melbourne and the Bellarine in sharp focus.
 
 **4.30pm:** Back to the base. A nap, a glass of something cold, a slow afternoon in the spring garden of whichever stay you picked.
 
