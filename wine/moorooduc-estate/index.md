@@ -125,6 +125,16 @@ Not sure how to build a day around Moorooduc Estate?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
+## Guides that link to this place
+
+Hub Guide   13 min
+
+### [Planning a Mornington Peninsula Winery Visit](<https://peninsulainsider.com.au/journal/mornington-peninsula-winery-guide/>)
+
+22 April 2026
+
+Plan a Mornington Peninsula winery visit: choose an area, check tasting bookings and dog policies, and leave time for lunch between cellar doors.
+
 ## Related editorial selections
 
 Selected as related reading; these pieces may not mention this place in their text.

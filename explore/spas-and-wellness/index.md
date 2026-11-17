@@ -37,6 +37,8 @@ The Peninsula's most architecturally considered spa experience, integrated into 
 
 - [Mornington Peninsula Spa Stays](<https://peninsulainsider.com.au/explore/plans/mornington-peninsula-stay-and-soak/>)
 
+- [Rainy Day Activities on the Mornington Peninsula](<https://peninsulainsider.com.au/explore/rainy-day/>)
+
 [Mornington](<https://peninsulainsider.com.au/explore/spas-and-wellness/#endota-spa-mornington>)
 
 ## [Endota Spa Mornington](<https://peninsulainsider.com.au/explore/spas-and-wellness/#endota-spa-mornington>)
@@ -52,6 +54,10 @@ The Mornington outpost of the Endota chain - the Peninsula's strongest mid-marke
 **Visit** 30 Main St, Mornington VIC 3931 · +61 3 5977 1522
 
 [View the operator's treatment menu →](<https://endotaspa.com.au/pages/spa/mornington>)
+
+### Guides that link to this place
+
+- [Rainy Day Activities on the Mornington Peninsula](<https://peninsulainsider.com.au/explore/rainy-day/>)
 
 [Fingal](<https://peninsulainsider.com.au/explore/spas-and-wellness/#peninsula-hot-springs>)
 
@@ -75,6 +81,8 @@ Peninsula Hot Springs, Cape Schanck, Mornington Peninsula  Photo · Two Palms Au
 
 - [Mornington Peninsula Springs Weekend](<https://peninsulainsider.com.au/explore/plans/the-thermal-springs-weekend/>)
 
+- [Peninsula Hot Springs vs Alba Thermal Springs - Which One Should You Book?](<https://peninsulainsider.com.au/journal/peninsula-hot-springs-vs-alba/>)
+
 ### Related editorial selections
 
 Selected as related reading; these pieces may not mention this place in their text.
@@ -92,8 +100,6 @@ Selected as related reading; these pieces may not mention this place in their te
 - [A Winter Peninsula Weekend: The Case for Coming in July](<https://peninsulainsider.com.au/journal/a-winter-peninsula-weekend/>)
 
 - [First Time on the Peninsula: The Honest Starter Guide](<https://peninsulainsider.com.au/journal/first-time-peninsula/>)
-
-- [Peninsula Hot Springs vs Alba Thermal Springs - Which One Should You Book?](<https://peninsulainsider.com.au/journal/peninsula-hot-springs-vs-alba/>)
 
 - [The Rainy Day Peninsula: Where to Go When the Weather Turns](<https://peninsulainsider.com.au/journal/rainy-day-peninsula/>)
 

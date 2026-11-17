@@ -149,6 +149,14 @@ Hub Guide   8 min
 
 Main Ridge is an elevated, unhurried stretch of Peninsula wine country - less a village than a landscape of cellar doors and ridge roads. Come when you want the Peninsula stripped back to vineyards, fog, lunch and roads lined with trees rather than distractions.
 
+Hub Guide   13 min
+
+### [Planning a Mornington Peninsula Winery Visit](<https://peninsulainsider.com.au/journal/mornington-peninsula-winery-guide/>)
+
+22 April 2026
+
+Plan a Mornington Peninsula winery visit: choose an area, check tasting bookings and dog policies, and leave time for lunch between cellar doors.
+
 Related picks
 
 ## Other wine experiences to compare

@@ -201,13 +201,19 @@ Hub Guide   8 min
 
 Red Hill is the Peninsula's food-and-wine centre of gravity, but the best version of it is narrower than most visitors think. This is a place for one market morning, one properly chosen cellar door, and one lunch that gets the whole day.
 
-Investigation   7 min
+Service   9 min
 
-### [St Andrews Beach Golf Course - The World-Ranked Course Anyone Can Book](<https://peninsulainsider.com.au/journal/st-andrews-beach-golf-course/>)
+### [The Hatted Restaurants of the Mornington Peninsula](<https://peninsulainsider.com.au/journal/hatted-restaurants-mornington-peninsula-2025/>)
 
-14 April 2026
+22 April 2026
 
-If you want one golf story that explains the Peninsula properly, start here. Tom Doak architecture, genuine global ranking, and public-access bookings that turn prestige into a real weekend.
+Four two-hat venues, seven one-hat tables, and a debut two-hat restaurant that opened in February. The complete Good Food Guide hat list for the Peninsula, with booking realities and what each restaurant actually is.
+
+More reading (2)
+
+- [Planning a Mornington Peninsula Winery Visit](<https://peninsulainsider.com.au/journal/mornington-peninsula-winery-guide/>)
+
+- [St Andrews Beach Golf Course - The World-Ranked Course Anyone Can Book](<https://peninsulainsider.com.au/journal/st-andrews-beach-golf-course/>)
 
 ## Related editorial selections
 

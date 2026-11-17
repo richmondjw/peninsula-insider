@@ -79,6 +79,16 @@ Not sure how to build a day around Dromana Estate?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
+## Guides that link to this place
+
+Hub Guide   13 min
+
+### [Planning a Mornington Peninsula Winery Visit](<https://peninsulainsider.com.au/journal/mornington-peninsula-winery-guide/>)
+
+22 April 2026
+
+Plan a Mornington Peninsula winery visit: choose an area, check tasting bookings and dog policies, and leave time for lunch between cellar doors.
+
 ## Nearby places
 
 Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.

@@ -131,6 +131,14 @@ Not sure how to build a day around Quealy Winemakers?
 
 ## Guides that link to this place
 
+Hub Guide   13 min
+
+### [Planning a Mornington Peninsula Winery Visit](<https://peninsulainsider.com.au/journal/mornington-peninsula-winery-guide/>)
+
+22 April 2026
+
+Plan a Mornington Peninsula winery visit: choose an area, check tasting bookings and dog policies, and leave time for lunch between cellar doors.
+
 Cellar Door Dispatch   6 min
 
 ### [The Cellar Door Short List: Producers Worth the Stop](<https://peninsulainsider.com.au/journal/the-cellar-door-short-list/>)

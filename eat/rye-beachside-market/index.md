@@ -41,6 +41,10 @@ Not sure how to build a day around Rye Foreshore Market?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
+## Guides that link to this place
+
+[Family-Friendly Things to Do on the Mornington Peninsula](<https://peninsulainsider.com.au/explore/family-friendly/>)
+
 ## Nearby places
 
 Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.

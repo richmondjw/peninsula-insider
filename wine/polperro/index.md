@@ -171,13 +171,25 @@ Hub Guide   8 min
 
 Red Hill is the Peninsula's food-and-wine centre of gravity, but the best version of it is narrower than most visitors think. This is a place for one market morning, one properly chosen cellar door, and one lunch that gets the whole day.
 
-Cellar Door Dispatch   6 min
+Service   9 min
 
-### [The Cellar Door Short List: Producers Worth the Stop](<https://peninsulainsider.com.au/journal/the-cellar-door-short-list/>)
+### [The Hatted Restaurants of the Mornington Peninsula](<https://peninsulainsider.com.au/journal/hatted-restaurants-mornington-peninsula-2025/>)
 
-6 April 2026
+22 April 2026
 
-Not the biggest estates, not the flashiest rooms. The Peninsula cellar doors where the wines - and the people pouring them - actually change how you think about the region.
+Four two-hat venues, seven one-hat tables, and a debut two-hat restaurant that opened in February. The complete Good Food Guide hat list for the Peninsula, with booking realities and what each restaurant actually is.
+
+Hub Guide   13 min
+
+### [Planning a Mornington Peninsula Winery Visit](<https://peninsulainsider.com.au/journal/mornington-peninsula-winery-guide/>)
+
+22 April 2026
+
+Plan a Mornington Peninsula winery visit: choose an area, check tasting bookings and dog policies, and leave time for lunch between cellar doors.
+
+More reading (1)
+
+- [The Cellar Door Short List: Producers Worth the Stop](<https://peninsulainsider.com.au/journal/the-cellar-door-short-list/>)
 
 ## Related editorial selections
 

@@ -89,6 +89,14 @@ Service   4 min
 
 One room, one dinner, one slow morning. Choose the right Peninsula base and a single overnight can feel like a proper break.
 
+Service   9 min
+
+### [The Hatted Restaurants of the Mornington Peninsula](<https://peninsulainsider.com.au/journal/hatted-restaurants-mornington-peninsula-2025/>)
+
+22 April 2026
+
+Four two-hat venues, seven one-hat tables, and a debut two-hat restaurant that opened in February. The complete Good Food Guide hat list for the Peninsula, with booking realities and what each restaurant actually is.
+
 ## Related editorial selections
 
 Selected as related reading; these pieces may not mention this place in their text.

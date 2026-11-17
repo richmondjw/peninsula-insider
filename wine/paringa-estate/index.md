@@ -185,13 +185,19 @@ Hub Guide   8 min
 
 Red Hill is the Peninsula's food-and-wine centre of gravity, but the best version of it is narrower than most visitors think. This is a place for one market morning, one properly chosen cellar door, and one lunch that gets the whole day.
 
-Cellar Door Dispatch   8 min
+Service   9 min
 
-### [The Chardonnay Case: Why the Peninsula's Second Wine Deserves Top Billing](<https://peninsulainsider.com.au/journal/the-chardonnay-case/>)
+### [The Hatted Restaurants of the Mornington Peninsula](<https://peninsulainsider.com.au/journal/hatted-restaurants-mornington-peninsula-2025/>)
 
-9 April 2026
+22 April 2026
 
-Everyone sells the Mornington Peninsula as a pinot noir region. They are half right. The quiet argument of the last three vintages is that the chardonnay is now the more interesting bottle on the table, and the one worth cellaring.
+Four two-hat venues, seven one-hat tables, and a debut two-hat restaurant that opened in February. The complete Good Food Guide hat list for the Peninsula, with booking realities and what each restaurant actually is.
+
+More reading (2)
+
+- [Planning a Mornington Peninsula Winery Visit](<https://peninsulainsider.com.au/journal/mornington-peninsula-winery-guide/>)
+
+- [The Chardonnay Case: Why the Peninsula's Second Wine Deserves Top Billing](<https://peninsulainsider.com.au/journal/the-chardonnay-case/>)
 
 ## Related editorial selections
 

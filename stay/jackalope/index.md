@@ -125,6 +125,22 @@ Service   9 min
 
 Peninsula golf courses, nearby stays, and the booking checks that make a trip work.
 
+Service   9 min
+
+### [The Hatted Restaurants of the Mornington Peninsula](<https://peninsulainsider.com.au/journal/hatted-restaurants-mornington-peninsula-2025/>)
+
+22 April 2026
+
+Four two-hat venues, seven one-hat tables, and a debut two-hat restaurant that opened in February. The complete Good Food Guide hat list for the Peninsula, with booking realities and what each restaurant actually is.
+
+Hub Guide   13 min
+
+### [Planning a Mornington Peninsula Winery Visit](<https://peninsulainsider.com.au/journal/mornington-peninsula-winery-guide/>)
+
+22 April 2026
+
+Plan a Mornington Peninsula winery visit: choose an area, check tasting bookings and dog policies, and leave time for lunch between cellar doors.
+
 ## Related editorial selections
 
 Selected as related reading; these pieces may not mention this place in their text.
