@@ -1,0 +1,323 @@
+{
+  "baselineHead": "87b57def5d",
+  "evidenceHead": "431d19535a5211885e509e839385fbf550adbc47",
+  "evidenceArtifact": 14312847697,
+  "coordinateHolds": [
+    {
+      "id": "barmah-park",
+      "name": "Barmah Park Restaurant & Cellar Door",
+      "coordinates": null,
+      "reason": "missing-or-invalid-coordinates"
+    },
+    {
+      "id": "birch-creek",
+      "name": "Birch Creek",
+      "coordinates": null,
+      "reason": "missing-or-invalid-coordinates"
+    },
+    {
+      "id": "dromana-hotel",
+      "name": "Stella\u2019s Hotel Dromana",
+      "coordinates": null,
+      "reason": "missing-or-invalid-coordinates"
+    },
+    {
+      "id": "endota-spa-mornington",
+      "name": "Endota Spa Mornington",
+      "coordinates": null,
+      "reason": "missing-or-invalid-coordinates"
+    },
+    {
+      "id": "epicurean-red-hill",
+      "name": "The Epicurean",
+      "coordinates": null,
+      "reason": "missing-or-invalid-coordinates"
+    },
+    {
+      "id": "flinders-general-store",
+      "name": "Flinders General Store",
+      "coordinates": null,
+      "reason": "missing-or-invalid-coordinates"
+    },
+    {
+      "id": "flinders-hotel",
+      "name": "Quarters at Flinders Hotel",
+      "coordinates": null,
+      "reason": "missing-or-invalid-coordinates"
+    },
+    {
+      "id": "green-olive-red-hill",
+      "name": "Green Olive at Red Hill",
+      "coordinates": null,
+      "reason": "missing-or-invalid-coordinates"
+    },
+    {
+      "id": "happy-glamper",
+      "name": "Happy Glamper Balnarring Deluxe",
+      "coordinates": null,
+      "reason": "missing-or-invalid-coordinates"
+    },
+    {
+      "id": "iluka-retreat",
+      "name": "Iluka Retreat & Camp",
+      "coordinates": null,
+      "reason": "missing-or-invalid-coordinates"
+    },
+    {
+      "id": "jackalope",
+      "name": "Jackalope Hotel",
+      "coordinates": null,
+      "reason": "missing-or-invalid-coordinates"
+    },
+    {
+      "id": "kooyong",
+      "name": "Kooyong",
+      "coordinates": null,
+      "reason": "missing-or-invalid-coordinates"
+    },
+    {
+      "id": "main-ridge-estate",
+      "name": "Main Ridge Estate",
+      "coordinates": null,
+      "reason": "missing-or-invalid-coordinates"
+    },
+    {
+      "id": "mantons-creek-estate",
+      "name": "Mantons Creek Estate",
+      "coordinates": null,
+      "reason": "missing-or-invalid-coordinates"
+    },
+    {
+      "id": "many-little",
+      "name": "Many Little",
+      "coordinates": null,
+      "reason": "missing-or-invalid-coordinates"
+    },
+    {
+      "id": "martha-s-table",
+      "name": "Martha's Table",
+      "coordinates": null,
+      "reason": "missing-or-invalid-coordinates"
+    },
+    {
+      "id": "mornington-farmers-market",
+      "name": "Mornington Farmers' Market",
+      "coordinates": null,
+      "reason": "missing-or-invalid-coordinates"
+    },
+    {
+      "id": "mornington-hotel",
+      "name": "Mornington Hotel",
+      "coordinates": null,
+      "reason": "missing-or-invalid-coordinates"
+    },
+    {
+      "id": "mornington-peninsula-chocolates",
+      "name": "The Chocolateries Mornington Peninsula",
+      "coordinates": null,
+      "reason": "missing-or-invalid-coordinates"
+    },
+    {
+      "id": "mp-beach-club-cottages",
+      "name": "Mornington Peninsula Beach Club Cottages",
+      "coordinates": null,
+      "reason": "missing-or-invalid-coordinates"
+    },
+    {
+      "id": "mr-vincenzos",
+      "name": "Mr Vincenzo's",
+      "coordinates": null,
+      "reason": "missing-or-invalid-coordinates"
+    },
+    {
+      "id": "ocean-eight",
+      "name": "Ocean Eight Vineyard",
+      "coordinates": null,
+      "reason": "missing-or-invalid-coordinates"
+    },
+    {
+      "id": "paringa-estate",
+      "name": "Paringa Estate",
+      "coordinates": null,
+      "reason": "missing-or-invalid-coordinates"
+    },
+    {
+      "id": "phaedrus-estate",
+      "name": "Phaedrus Estate",
+      "coordinates": null,
+      "reason": "missing-or-invalid-coordinates"
+    },
+    {
+      "id": "plantation-house-whitecliffs",
+      "name": "Plantation House at Whitecliffs",
+      "coordinates": null,
+      "reason": "missing-or-invalid-coordinates"
+    },
+    {
+      "id": "rare-hare",
+      "name": "Rare Hare at Willow Creek",
+      "coordinates": null,
+      "reason": "missing-or-invalid-coordinates"
+    },
+    {
+      "id": "red-hill-estate",
+      "name": "Red Hill Estate",
+      "coordinates": null,
+      "reason": "missing-or-invalid-coordinates"
+    },
+    {
+      "id": "spa-by-jackalope",
+      "name": "Spa by Jackalope",
+      "coordinates": null,
+      "reason": "missing-or-invalid-coordinates"
+    },
+    {
+      "id": "stumpy-gully-vineyard",
+      "name": "Stumpy Gully Vineyard",
+      "coordinates": null,
+      "reason": "missing-or-invalid-coordinates"
+    },
+    {
+      "id": "treetops-red-hill",
+      "name": "Treetops at Red Hill",
+      "coordinates": null,
+      "reason": "missing-or-invalid-coordinates"
+    },
+    {
+      "id": "willow-creek-vineyard",
+      "name": "Willow Creek Vineyard",
+      "coordinates": null,
+      "reason": "missing-or-invalid-coordinates"
+    }
+  ],
+  "canonicalConflicts": [
+    {
+      "id": "bass-and-flinders",
+      "name": "Bass & Flinders Distillery",
+      "type": "distillery",
+      "currentResolver": "/eat/bass-and-flinders/",
+      "canonicalTemplate": "/wine/bass-and-flinders/",
+      "heldReferences": 3
+    },
+    {
+      "id": "red-hill-brewery",
+      "name": "Red Hill Brewery",
+      "type": "brewery",
+      "currentResolver": "/eat/red-hill-brewery/",
+      "canonicalTemplate": "/wine/red-hill-brewery/",
+      "heldReferences": 15
+    },
+    {
+      "id": "st-andrews-beach-brewery",
+      "name": "St Andrews Beach Brewery",
+      "type": "brewery",
+      "currentResolver": "/eat/st-andrews-beach-brewery/",
+      "canonicalTemplate": "/wine/st-andrews-beach-brewery/",
+      "heldReferences": 6
+    },
+    {
+      "id": "mornington-peninsula-brewery",
+      "name": "Tar Barrel Brewery & Distillery",
+      "type": "brewery",
+      "currentResolver": "/eat/mornington-peninsula-brewery/",
+      "canonicalTemplate": "/wine/mornington-peninsula-brewery/",
+      "heldReferences": 1
+    },
+    {
+      "id": "two-bays-brewing",
+      "name": "Two Bays Brewing Co",
+      "type": "brewery",
+      "currentResolver": "/eat/two-bays-brewing/",
+      "canonicalTemplate": "/wine/two-bays-brewing/",
+      "heldReferences": 3
+    },
+    {
+      "id": "jetty-road-brewery",
+      "name": "Jetty Road Brewery",
+      "type": "brewery",
+      "currentResolver": "/eat/jetty-road-brewery/",
+      "canonicalTemplate": "/wine/jetty-road-brewery/",
+      "heldReferences": 2
+    }
+  ],
+  "mdxBodyHolds": [
+    {
+      "id": "arthurs-seat-eagle-visitor-guide",
+      "reason": "MDX-body-not-available-to-runtime-index"
+    },
+    {
+      "id": "ashcombe-maze-visitor-guide",
+      "reason": "MDX-body-not-available-to-runtime-index"
+    },
+    {
+      "id": "cape-schanck-guide",
+      "reason": "MDX-body-not-available-to-runtime-index"
+    },
+    {
+      "id": "dog-friendly-beaches-mornington-peninsula",
+      "reason": "MDX-body-not-available-to-runtime-index"
+    },
+    {
+      "id": "dog-friendly-wineries-mornington-peninsula",
+      "reason": "MDX-body-not-available-to-runtime-index"
+    },
+    {
+      "id": "hatted-restaurants-mornington-peninsula-2025",
+      "reason": "MDX-body-not-available-to-runtime-index"
+    },
+    {
+      "id": "luxury-hotels-mornington-peninsula",
+      "reason": "MDX-body-not-available-to-runtime-index"
+    },
+    {
+      "id": "mornington-peninsula-winery-guide",
+      "reason": "MDX-body-not-available-to-runtime-index"
+    },
+    {
+      "id": "peninsula-hot-springs-vs-alba",
+      "reason": "MDX-body-not-available-to-runtime-index"
+    },
+    {
+      "id": "point-nepean-national-park-guide",
+      "reason": "MDX-body-not-available-to-runtime-index"
+    },
+    {
+      "id": "two-bays-walk-mornington-peninsula",
+      "reason": "MDX-body-not-available-to-runtime-index"
+    },
+    {
+      "id": "walks-bushrangers-bay-walk-guide",
+      "reason": "MDX-body-not-available-to-runtime-index"
+    },
+    {
+      "id": "walks-cape-schanck-hot-springs-day",
+      "reason": "MDX-body-not-available-to-runtime-index"
+    },
+    {
+      "id": "waterfront-restaurants-mornington-peninsula",
+      "reason": "MDX-body-not-available-to-runtime-index"
+    },
+    {
+      "id": "where-to-walk-the-dog-mornington-peninsula",
+      "reason": "MDX-body-not-available-to-runtime-index"
+    }
+  ],
+  "staticBodyHolds": [
+    {
+      "url": "/explore/family-friendly/",
+      "reason": "rendered-guide-evidence-not-in-runtime-content-index",
+      "links": [
+        "/eat/rye-beachside-market/"
+      ]
+    },
+    {
+      "url": "/explore/rainy-day/",
+      "reason": "rendered-guide-evidence-not-in-runtime-content-index",
+      "links": [
+        "/explore/spas-and-wellness/#spa-by-jackalope",
+        "/explore/spas-and-wellness/#endota-spa-mornington"
+      ]
+    }
+  ],
+  "scope": "Resolve six existing producer canonical routes. Coordinates remain null; no town-centroid substitutes. MDX and static source shadow records are not rendered evidence."
+}
