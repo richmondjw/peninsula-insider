@@ -15,15 +15,15 @@ try {
    await page.setViewport({width,height:900});await reader.load(path);await page.evaluate(()=>document.fonts.ready);
    const selector=`[data-venue-relationships="${id}"]`;
    assert.ok(await page.$(selector),`${path} relationship panel`);
-   const observed=await page.$eval(selector,root=>({headings:[...root.querySelectorAll('h2,h3')].map(h=>h.textContent),links:[...root.querySelectorAll('a[href]')].map(a=>({text:a.textContent.trim(),href:a.getAttribute('href')})),text:root.textContent,overflow:document.documentElement.scrollWidth>innerWidth}));
+   const observed=await page.$eval(selector,root=>({headings:[...root.querySelectorAll('h2,h3')].map(h=>h.textContent),links:[...root.querySelectorAll('a[href]')].map(a=>({text:(a.getAttribute('aria-label')||a.textContent).trim(),href:a.getAttribute('href'),decorative:a.getAttribute('aria-hidden')==='true'&&a.getAttribute('tabindex')==='-1'})),text:root.textContent,overflow:document.documentElement.scrollWidth>innerWidth}));
    assert.equal(observed.overflow,false);assert.ok(observed.links.length>0);
-   for(const {href,text} of observed.links){assert.ok(text);const u=new URL(href,site.origin);assert.equal(u.origin,site.origin);const res=await fetch(u);assert.equal(res.status,200,href);const facts=pageFacts(await res.text(),u.pathname);assert.equal(targetState({href},new Map([[u.pathname,facts]])),'eligible',href);}
+   for(const {href,text,decorative} of observed.links){if(decorative)assert.ok(observed.links.some(a=>a.href===href&&!a.decorative&&a.text),'Decorative link needs a labelled accessible counterpart');else assert.ok(text,`Accessible link needs a name: ${href}`);const u=new URL(href,site.origin);assert.equal(u.origin,site.origin);const res=await fetch(u);assert.equal(res.status,200,href);const facts=pageFacts(await res.text(),u.pathname);assert.equal(targetState({href},new Map([[u.pathname,facts]])),'eligible',href);}
    if(observed.headings.includes('Nearby places'))assert.match(observed.text,/straight-line/);
    const summary=await page.$(`${selector} details summary`);
    if(summary){await summary.focus();await page.keyboard.press('Enter');assert.equal(await page.$eval(`${selector} details`,d=>d.open),true);}
    await page.$eval(selector,root=>root.scrollIntoView());
    await page.screenshot({path:`${out}/${id}-${width}.png`,fullPage:true});
-   const first=observed.links[0];await page.focus(`${selector} a`);await page.keyboard.press('Enter');await page.waitForFunction(h=>location.pathname===new URL(h,location.origin).pathname,{},first.href);
+   const first=observed.links.find(a=>!a.decorative);assert.ok(first);await page.focus(`${selector} a:not([aria-hidden="true"])`);await page.keyboard.press('Enter');await page.waitForFunction(h=>location.pathname===new URL(h,location.origin).pathname,{},first.href);
    report.pages.push({path,id,width,...observed,keyboard:'First relationship link opened correct internal destination'});
   }finally{await reader.close();}
  }
