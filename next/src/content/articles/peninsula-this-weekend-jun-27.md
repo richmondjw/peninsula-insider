@@ -43,16 +43,16 @@ dispatch:
     bookingLabel: "Book bathing session"
     bookingUrl: "https://www.peninsulahotsprings.com/events/"
   localEdge:
-    title: "Red Hill Truffles winter hunt, Main Ridge"
+    title: "Red Hill Truffles winter hunt, Red Hill"
     when: "Saturday 27 or Sunday 28 June, booking required"
-    where: "Red Hill Truffles, Main Ridge"
+    where: "Red Hill Truffles, Red Hill"
     price: "Ticketed. Three formats: pizza hunt, lunch bundle, private hunt (minimum party). Current prices on redhilltruffles.com."
     summary: "Périgord black season is still at peak. Post-solstice weekend slots are generally easier to book than the festival weekend. Sunday morning remains the quietest hunt of the week."
     bookingLabel: "Book via Red Hill Truffles"
     bookingUrl: "https://redhilltruffles.com/hunts"
 faq:
   - question: "What is on the Mornington Peninsula this weekend, 27–28 June 2026?"
-    answer: "Saturday 27 June: Tootgarook Market at Tootgarook Primary School, 7:30am–12:30pm. Sunday 28 June: final Peninsula Hot Springs Sunday Sessions, 2–5pm, live music included with bathing. Both days: winter truffle hunts at Red Hill Truffles (Main Ridge) and Flinders Truffles (Flinders), booking required."
+    answer: "Saturday 27 June: Tootgarook Market at Tootgarook Primary School, 7:30am–12:30pm. Sunday 28 June: final Peninsula Hot Springs Sunday Sessions, 2–5pm, live music included with bathing. Both days: winter truffle hunts at Red Hill Truffles (Red Hill) and Flinders Truffles (Flinders), booking required."
   - question: "Is the Sorrento Solstice Festival on this weekend?"
     answer: "No. The Sorrento Solstice Festival was Saturday 20 June 2026. The 27–28 June weekend is the quieter post-solstice weekend."
   - question: "What is the best thing to book for a quiet Sunday?"
@@ -79,7 +79,7 @@ The 2026 Sunday Sessions run finishes this weekend. Live acoustic music from the
 
 ## The local edge
 
-**Red Hill Truffles winter hunt, Main Ridge**
+**Red Hill Truffles winter hunt, Red Hill**
 Saturday 27 or Sunday 28 June. Booking required.
 
 Périgord black season is still at peak. The solstice weekend has passed, so Saturday and Sunday slots are more available than they were a week ago. Sunday morning is the quietest hunt of the week: frosty forest, working dogs, and the hunt done before the lunch crowd arrives. Hunts run as a pizza hunt or a lunch bundle; current prices are on the operator's site.
@@ -104,7 +104,7 @@ Sun 28 June, 2pm–5pm, Rye
 Included with afternoon bathing session
 
 **Red Hill Truffles**
-Sat 27 or Sun 28 June, Main Ridge
+Sat 27 or Sun 28 June, Red Hill
 Three formats: pizza hunt, lunch bundle, private hunt. Current prices on the operator's site.
 Booking required: redhilltruffles.com/hunts
 

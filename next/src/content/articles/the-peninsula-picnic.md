@@ -25,7 +25,7 @@ heroImage:
   provenanceReview: "verified"
 format: "service"
 tags: ["picnic", "producers", "outdoor", "family", "couples", "budget", "autumn", "spring"]
-relatedVenues: ["red-hill-cheese", "main-ridge-dairy", "flinders-sourdough", "red-hill-bakery", "green-olive-red-hill", "mornington-peninsula-chocolates", "peninsula-fresh-organics", "balnarring-bakehouse", "somers-general", "johnny-ripe", "merricks-general-wine-store", "mornington-farmers-market"]
+relatedVenues: ["main-ridge-dairy", "flinders-sourdough", "red-hill-bakery", "green-olive-red-hill", "mornington-peninsula-chocolates", "peninsula-fresh-organics", "balnarring-bakehouse", "somers-general", "johnny-ripe", "merricks-general-wine-store", "mornington-farmers-market"]
 relatedExperiences: ["montalto-sculpture-trail", "pt-leo-sculpture-park", "arthurs-seat-lookout", "mount-martha-beach", "balnarring-beach", "point-nepean-national-park", "mornington-foreshore-walk"]
 readingTimeMinutes: 7
 featured: false
@@ -44,7 +44,7 @@ faq:
   - question: "Where are the best picnic spots on the Mornington Peninsula?"
     answer: "Pt Leo Estate sculpture park for the most scenic option - coastal hillside views over Western Port, ticketed entry, maintained grounds. Montalto's sculpture trail for the hinterland vineyard setting. Arthurs Seat summit for bay views and a family-friendly option with playground. Mount Martha Beach (northern end, near the bathing boxes) for a sheltered bay picnic. Point Nepean National Park near the fort for the most dramatic setting."
   - question: "How do I assemble a Peninsula picnic from the farm gate?"
-    answer: "Three stops: bread from Flinders Sourdough (walnut sourdough loaf, holds well for hours); cheese from Red Hill Cheese or Main Ridge Dairy (one washed-rind, one cheddar or halloumi); and olives, tapenade, and cured meats from Green Olive at Red Hill. Add fruit from Peninsula Fresh Organics and one bottle of local pinot from Merricks General Wine Store. One hour of shopping, and it costs about a single restaurant main and a glass of wine for two."
+    answer: "Three stops: bread from Flinders Sourdough (walnut sourdough loaf, holds well for hours); goat cheeses from Main Ridge Dairy (check the current range); and olives, tapenade, and cured meats from Green Olive at Red Hill. Add fruit from Peninsula Fresh Organics and one bottle of local pinot from Merricks General Wine Store. One hour of shopping, and it costs about a single restaurant main and a glass of wine for two."
   - question: "What time of year is best for a Peninsula picnic?"
     answer: "March to May and September to November. Summer is too hot and too crowded; the cheese sweats, the wine warms, and the good spots are taken. Autumn is the sweet spot - warm enough to sit on grass, cool enough to keep food fresh, quiet enough that the sculpture parks and beaches are not crowded. Arrive before noon, eat by 12:30, and pack up by 3pm before the autumn chill arrives."
 aiSummary:
@@ -77,9 +77,9 @@ Buy a whole loaf. You will use it.
 
 The Peninsula has two serious farmgate cheese producers and both are worth the stop.
 
-**Red Hill Cheese** is the more established operation, with a tasting counter and a retail case that covers a proper range of styles. For a picnic, the washed-rind is the flagship and the cheddar is the workhorse. Buy both, a wedge of each, and ask for them to be wrapped separately.
+Our Red Hill Cheese listing is paused while current visitor information is checked. Confirm the operator, location and offering before planning a visit.
 
-**Main Ridge Dairy** is the smaller producer with a narrower but more intensely local range. The halloumi is excellent and grills well on a portable stove if you are doing a beach picnic with a burner. The feta is clean and bright and the right thing for a salad component.
+**Main Ridge Dairy** makes cheeses from its own goat herd. Pick up fresh chèvre, feta or another cheese from the current range at Billies for your picnic.
 
 Pick one, or visit both if they are on the same loop.
 

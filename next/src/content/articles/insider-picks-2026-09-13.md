@@ -27,10 +27,12 @@ clusterLinks:
     href: "/explore/best-walks/"
 faq:
   - question: "When does the Red Hill Truffles hunt season close?"
-    answer: "The 2026 truffle hunt season at Red Hill Truffles in Main Ridge runs until 30 September 2026. Bookings are essential and Saturday slots in mid-September fill fast - book at redhilltruffles.com/hunts."
+    answer: "The 2026 truffle hunt season at Red Hill Truffles in Red Hill runs until 30 September 2026. Bookings are essential and Saturday slots in mid-September fill fast - book at redhilltruffles.com/hunts."
   - question: "Where are the spider orchids on the Moorooduc Plains?"
     answer: "The Moorooduc Plains Flora and Fauna Reserve is off Moorooduc Road near Moorooduc. The grassland loop trails are publicly accessible. Orchids typically peak mid-September; wear shoes you can get muddy and go on a morning after recent rain for the best display."
 ---
+
+*Visitor update, 17 November 2026: Red Hill Truffles is at 235 Arthurs Seat Road, Red Hill, and offers hunts across several seasons. The September references below concern the winter and spring programme, not the end of all annual visits. Check the [operator calendar](https://redhilltruffles.com/calendar) for current dates and availability.*
 
 ## EXPERIENCE - Spider Orchids, Moorooduc Plains Flora and Fauna Reserve
 

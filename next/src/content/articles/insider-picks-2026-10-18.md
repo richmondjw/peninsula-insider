@@ -1,6 +1,6 @@
 ---
 title: "Main Ridge Dairy Cheese Board, the Bloodroot Track in Spring Colour, and British Comedy Trivia at The Pig & Whistle"
-dek: "Goat-milk gelato at Main Ridge Dairy, wildflower season along the Bloodroot Track above Merricks, and a British Comedy Trivia night at The Pig & Whistle on Thursday."
+dek: "Goat cheeses at Main Ridge Dairy, wildflower season along the Bloodroot Track above Merricks, and a British Comedy Trivia night at The Pig & Whistle on Thursday."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-10-18
@@ -27,18 +27,16 @@ clusterLinks:
     href: "/journal/things-to-do-mornington-peninsula/"
 faq:
   - question: "Where is Main Ridge Dairy and when is it open?"
-    answer: "Main Ridge Dairy is on Browns Road, Main Ridge. Check the website for current opening days and hours, as farm operations affect the schedule."
+    answer: "Main Ridge Dairy is on 289-295 Main Creek Road, Main Ridge. Check the website for current opening days and hours, as farm operations affect the schedule."
   - question: "Where is The Pig & Whistle Tavern and how do I book for British Comedy Trivia on Thursday?"
     answer: "The Pig & Whistle Tavern is on Mornington-Flinders Road, Main Ridge. British Comedy Trivia runs Thursday 22 October from 6:00 pm to 9:30 pm. Book via events.humanitix.com/trivia-night-british-comedy."
 ---
 
-**Main Ridge Dairy** is the Peninsula's most direct farm-to-table stop, and spring is the right time to visit. The does are at peak milk production after kidding, which means the fresh chèvre and the goat-milk gelato are both in their best condition right now.
+**Main Ridge Dairy** makes cheeses from its own goat herd, with a seasonal menu and cheese grazing boards at Billies.
 
-Order the cheese board first. The range runs from young fresh rounds through to aged and ash-coated styles, and the staff will walk you through what is ready. Finish with a scoop of goat-milk gelato - it is lighter and sharper than cow-milk versions, and it works well alongside a salty aged cheese on the same visit.
+Order a cheese board to share, or pick up cheeses to take home. The visit centres on the produce and the bushland setting. Goat tours and feeding experiences are not currently offered.
 
-The dairy is a working farm, not a restaurant. Allow an hour. Kids understand the whole operation in under a minute because the animals are visible from the tasting area.
-
-Main Ridge Dairy, Browns Road, Main Ridge. Check the website for current opening days before you drive out.
+Find it at 289-295 Main Creek Road, Main Ridge. Check [the dairy website](https://www.mainridgedairy.com.au/billies/) for current opening days, menus and table bookings.
 
 Pair this with a bottle from Main Ridge Estate, which is minutes away on the same ridge road.
 
@@ -67,7 +65,7 @@ If you are making a night of it, the Main Ridge Dairy is a ten-minute drive for 
 ### This Week's Key Details
 
 **Main Ridge Dairy**
-Browns Road, Main Ridge
+289-295 Main Creek Road, Main Ridge
 Farm providore and tasting; working dairy. Check website for current opening days.
 mainridgedairy.com.au
 

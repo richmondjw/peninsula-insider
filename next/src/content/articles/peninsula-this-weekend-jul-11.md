@@ -122,7 +122,7 @@ Free entry · No booking required
 
 ### Red Hill Truffles
 
-Winter season through June–August · Main Ridge  
+Winter season through June–August · Red Hill  
 Booking required: redhilltruffles.com/hunts
 
 ### Flinders Truffles

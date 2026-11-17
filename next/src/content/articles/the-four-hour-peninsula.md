@@ -25,7 +25,7 @@ heroImage:
   provenanceReview: "verified"
 format: "service"
 tags: ["day-trip", "quick", "red-hill", "mornington", "first-timers", "explore", "all-year"]
-relatedVenues: ["merricks-general-wine-store", "red-hill-brewery", "commonfolk-coffee", "montalto", "main-ridge-dairy", "red-hill-cheese", "mornington-peninsula-chocolates", "flinders-sourdough", "red-hill-bakery", "johnny-ripe", "somers-general", "allis-wine-bar", "many-little", "bistro-elba"]
+relatedVenues: ["merricks-general-wine-store", "red-hill-brewery", "commonfolk-coffee", "montalto", "main-ridge-dairy", "mornington-peninsula-chocolates", "flinders-sourdough", "red-hill-bakery", "johnny-ripe", "somers-general", "allis-wine-bar", "many-little", "bistro-elba"]
 relatedExperiences: ["arthurs-seat-lookout", "mornington-foreshore-walk", "mornington-peninsula-gallery"]
 readingTimeMinutes: 6
 featured: false
@@ -86,7 +86,7 @@ This is the version that fits about seventy per cent of four-hour visits.
 
 **1.30pm, A short cellar door or a producer stop.** You have ninety minutes before you need to be heading back. Use forty of them at exactly one cellar door: **Montalto** for the sculpture grounds, **Polperro** for the more serious wine experience, **Ten Minutes by Tractor** for one of the Peninsula's most consistent tastings. Keep it short: four wines, one to take home, pay the tasting fee, move on.
 
-**2.15pm, The producer loop, condensed.** Twenty minutes is enough for one producer visit on the way down the ridge. **Red Hill Cheese** or **Main Ridge Dairy** for cheese, or **Mornington Peninsula Chocolates** for something more portable. Pick one, not both.
+**2.15pm, The producer loop, condensed.** Twenty minutes is enough for one producer visit on the way down the ridge. **Main Ridge Dairy** for cheese, or **Mornington Peninsula Chocolates** for something more portable. Pick one, not both.
 
 **2.45pm, Coffee and the foreshore in Mornington.** Park on the main street, walk to **Commonfolk** for a flat white in a cup you can actually sit with, and then walk the 200 metres to the Mornington pier for a ten-minute foreshore loop. This is the landscape move that makes the four-hour visit feel like a visit, not a lunch run.
 

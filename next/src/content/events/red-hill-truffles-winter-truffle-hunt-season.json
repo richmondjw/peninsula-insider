@@ -8,13 +8,9 @@
   "season": "autumn",
   "month": "May",
   "venueName": "Red Hill Truffles",
-  "venueRegion": "Main Ridge",
-  "suburb": "Main Ridge",
-  "streetAddress": "1180 Mornington-Flinders Road",
-  "coordinates": {
-    "lat": -38.396,
-    "lng": 145.115
-  },
+  "venueRegion": "Red Hill",
+  "suburb": "Red Hill",
+  "streetAddress": "235 Arthurs Seat Road",
   "indoorOutdoor": "Outdoor",
   "bookingUrl": "https://redhilltruffles.com/hunts",
   "ticketingUrl": "https://redhilltruffles.com/hunts",
@@ -59,11 +55,15 @@
     "worth-the-drive",
     "locals-know"
   ],
-  "place": "main-ridge",
+  "place": "red-hill",
   "heroImage": {
     "src": "/images/sourced/category-producer-02.webp",
     "alt": "Seasonal produce from a Mornington Peninsula farm",
     "credit": "Peninsula Insider",
     "license": "other-licensed"
+  },
+  "coordinates": {
+    "lat": -38.3704064,
+    "lng": 145.0076497
   }
 }

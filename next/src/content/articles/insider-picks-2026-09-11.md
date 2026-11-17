@@ -31,10 +31,12 @@ faq:
   - question: "How do I book a table at Green Olive at Red Hill?"
     answer: "Book directly through Green Olive at Red Hill's website or call the restaurant. The property is at 1180 Mornington-Flinders Road, Red Hill. Allow two to three hours for a Sunday lunch. Bookings are recommended, especially for outdoor tables under the grove."
   - question: "When does the Red Hill Truffles hunt season end in 2026?"
-    answer: "The season closes 30 September 2026. Hunts run at Red Hill Truffles, Main Ridge. Book ahead at redhilltruffles.com/hunts - Saturday and Sunday morning sessions fill several weeks out at this point in the season."
+    answer: "The season closes 30 September 2026. Hunts run at Red Hill Truffles, Red Hill. Book ahead at redhilltruffles.com/hunts - Saturday and Sunday morning sessions fill several weeks out at this point in the season."
   - question: "Is the Arthur's Seat Eagle running in spring 2026?"
     answer: "Yes. The gondola runs daily, weather permitting, from Arthur's Seat State Park, Arthurs Seat Road, Dromana. Check the website for current operating hours and to book a cabin, which is recommended on spring weekends when demand picks up."
 ---
+
+*Visitor update, 17 November 2026: Red Hill Truffles is at 235 Arthurs Seat Road, Red Hill, and offers hunts across several seasons. The September references below concern the winter and spring programme, not the end of all annual visits. Check the [operator calendar](https://redhilltruffles.com/calendar) for current dates and availability.*
 
 **Green Olive at Red Hill** runs its wood-fired kitchen off an estate olive grove that is doing its best work right now, as spring pulls the first real warmth back into the hill.
 
@@ -72,4 +74,4 @@ Pair it with a late lunch at Green Olive at Red Hill, five minutes' drive west o
 
 **Arthur's Seat Eagle** - Arthurs Seat Road, Dromana. Operates daily weather permitting. Book cabins at seateagle.com.au.
 
-**Red Hill Truffles Hunt Season** - Main Ridge. Season closes 30 September 2026. Book at redhilltruffles.com/hunts.
+**Red Hill Truffles Hunt Season** - Red Hill. Season closes 30 September 2026. Book at redhilltruffles.com/hunts.

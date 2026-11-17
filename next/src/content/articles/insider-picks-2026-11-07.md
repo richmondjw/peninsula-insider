@@ -27,7 +27,7 @@ clusterLinks:
     href: "/journal/things-to-do-mornington-peninsula/"
 faq:
   - question: "When is Somers General open for brunch?"
-    answer: "Somers General operates a weekend brunch menu. Check their current hours before visiting - the village is small and they can run out. Located in Somers Village, Somers VIC 3927."
+    answer: "Somers General operates a weekend brunch menu. Check their current hours before visiting - the village is small and they can run out. Located in 2 The Boulevard, Somers VIC 3927."
   - question: "Where does the Balcombe Creek estuary walk start?"
     answer: "Park at Balcombe Creek Reserve near Safety Beach. The estuary trail runs toward Mornington's harbour end. High tide in spring brings wading birds closest to the path. Allow 45–60 minutes one way."
   - question: "How do I book Acoustic Saturdays at Peppers Moonah Links?"
@@ -40,7 +40,7 @@ Somers General runs a weekend brunch menu that punches well above what a village
 
 The brunch menu changes, so there's no point naming a dish that may have rotated off - but the kitchen leans seasonal and the coffee is consistently good. The pantry section makes an easy second act: olive oils, local preserves, and wines from producers you won't find at a bottleshop. The crowd is locals on Sunday morning, not day-trippers, and the pace reflects that.
 
-Allow 45 minutes minimum. Somers Village, Somers VIC 3927. No bookings for brunch walk-ins - arrive by 10am on Sunday to avoid the wait.
+Allow 45 minutes minimum. 2 The Boulevard, Somers VIC 3927. No bookings for brunch walk-ins - arrive by 10am on Sunday to avoid the wait.
 
 Pair with a drive to Balnarring Reserve afterward if the stone fruit on the roadside stalls is running.
 
@@ -74,6 +74,6 @@ Pair with a walk along the Fingal coastal track before the set starts - the ligh
 
 | Pick | Venue | Address | Key detail |
 |---|---|---|---|
-| EAT | Somers General | Somers Village, Somers VIC 3927 | Weekend brunch, no bookings - arrive early |
+| EAT | Somers General | 2 The Boulevard, Somers VIC 3927 | Brunch; bookings available through the operator website |
 | WALK | Balcombe Creek Estuary | Balcombe Creek Reserve, Safety Beach | 45–60 min one way; best at high tide |
 | DISCOVERY | Acoustic Saturdays, Spike Bar | Peppers Moonah Links, Peter Thomson Drive, Fingal VIC 3939 | Every Saturday 5–8pm, through late December |

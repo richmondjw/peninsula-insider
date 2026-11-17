@@ -62,7 +62,7 @@ dispatch:
   weekendShape: "Lock in the Red Hill truffle hunt for Saturday morning - the lunch at the restaurant completes it. Pt. Leo Estate is about forty minutes south if you want a Saturday afternoon move. Sunday, head to Pt. Leo from 11am, walk both loops, and eat at the winery before heading home. If the weekend turns grey from the start, swap Saturday to MPRG in Mornington. Flinders Truffles needs no booking, so it works as a Sunday morning add-on for anyone staying south."
 faq:
   - question: "What is the best thing to do on the Mornington Peninsula this weekend, 18–19 July?"
-    answer: "The lead booking is a guided truffle hunt at Red Hill Truffles in Main Ridge - peak Périgord black truffle season, with a guided hunt and lunch option. Saturday spots fill, so book via redhilltruffles.com before heading down. Sunday, the Pt. Leo Estate Sculpture Park in Merricks is open daily from 11am with no booking required: sixty-plus contemporary works across sixteen acres of a working winery."
+    answer: "The lead booking is a guided truffle hunt at Red Hill Truffles in Red Hill - peak Périgord black truffle season, with a guided hunt and lunch option. Saturday spots fill, so book via redhilltruffles.com before heading down. Sunday, the Pt. Leo Estate Sculpture Park in Merricks is open daily from 11am with no booking required: sixty-plus contemporary works across sixteen acres of a working winery."
   - question: "What should you do on Sunday 19 July on the Mornington Peninsula?"
     answer: "The Pt. Leo Estate Sculpture Park in Merricks is the Sunday move - open daily from 11am to 5pm, no booking required. Two walking loops through a working winery with more than sixty contemporary works. Come mid-morning and take your time; the sculpture park rewards a slow pace."
   - question: "What is the best rainy-day plan on the Peninsula this weekend?"
@@ -79,7 +79,7 @@ This weekend, the lead booking is a truffle hunt at Red Hill. Sunday is for the 
 
 ### Red Hill Truffles: Winter Truffle Hunt Season
 
-Peak Périgord black truffle season runs through July, and Main Ridge is where to spend it. The guided hunt-plus-lunch at Red Hill Estate puts you in the grove with a trained dog, and at a table afterwards. It is the most considered way to spend a cold Peninsula morning.
+Peak Périgord black truffle season runs through July, and Red Hill is where to spend it. The guided hunt-plus-lunch at Red Hill Estate puts you in the grove with a trained dog, and at a table afterwards. It is the most considered way to spend a cold Peninsula morning.
 
 The hunt and the meal are booked together; check what sessions are running before you reserve. Périgord black truffles are at their peak right now, with the season running through late August, but Saturday spots do fill.
 
@@ -112,7 +112,7 @@ Lock in the Red Hill truffle hunt for Saturday morning; the lunch at the restaur
 ---
 
 ### Red Hill Truffles: Winter Truffle Hunt Season
-Saturday 18 or Sunday 19 July · Main Ridge
+Saturday 18 or Sunday 19 July · Red Hill
 Booking required: redhilltruffles.com/hunts
 
 ### Pt. Leo Estate Sculpture Park

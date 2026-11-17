@@ -94,7 +94,7 @@ Families do best at places with space to move and a menu that works for every ag
 
 - **Red Gum BBQ, Red Hill South.** Big room, generous plates and table service. It opens for lunch Tuesday to Saturday, with dinner Thursday to Saturday; book ahead in the holidays.
 - **La Baracca at T'Gallant, Main Ridge.** Wood-fired pizza, shaded outdoor tables and room for children to run. The Peninsula's most reliable easy group lunch.
-- **Main Ridge Dairy.** A working goat dairy with farm cheeses and goat-milk gelato. Children understand the whole operation in about thirty seconds.
+- **Main Ridge Dairy.** A working goat dairy with farm-made cheeses and seasonal sharing dishes at Billies. Goat tours and feeding experiences are not currently offered.
 - **The Rye Hotel.** A sprawling foreshore pub near the front beach, with a deck and a menu children recognise.
 
 For more, see [casual lunch on the Peninsula](/journal/best-casual-lunch-mornington-peninsula/).
