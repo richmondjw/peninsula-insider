@@ -55,15 +55,13 @@ The default Peninsula producer day runs through the upper ridge: Main Ridge, Red
 
 ### Stop one: Main Ridge Dairy
 
-**Main Ridge Dairy** is the obvious starting point. Tucked into a sloping paddock above the ridge, the dairy makes a small range of soft and washed-rind cheeses from a herd of mostly Jersey cows that produce the kind of rich milk the cheeses are built on. The farm shop is small and the opening hours are limited (usually Thursday through Sunday), but the cheese is the kind that makes you reconsider how cheese works on a Peninsula picnic plate. Buy the soft white, the washed rind, and a small wedge of whatever is on the counter.
+**Main Ridge Dairy** makes cheeses from its own goat herd at 289-295 Main Creek Road. Start with a cheese grazing board at Billies or choose cheeses to take home. The seasonal menu is built around the dairy’s cheeses; check current opening days and table bookings before visiting. Goat tours and feeding experiences are not currently offered.
 
 Twenty minutes here, including the chat at the counter. They will tell you what is good this week.
 
 ### Stop two: Red Hill Cheese
 
-A short five-minute drive south is **Red Hill Cheese**: older, more established, with a slightly larger range and a more developed farm-shop experience. This is the cheese many of the Peninsula’s restaurants use as their default, and the difference between the two dairies is part of the point of doing both in the same morning. Buy the goat cheese here. Maybe a bottle of their cellar wine to take home.
-
-Add another twenty minutes. You are now thirty-five minutes into the day with two cheeses, a small wine, and the producer-day rhythm settling in.
+Our Red Hill Cheese listing is paused while current visitor details are checked. Do not plan this stop without confirming the operator, location and offering.
 
 ### Stop three: Sunny Ridge Strawberry Farm
 
@@ -73,7 +71,7 @@ This is also the right stop for visitors with small children. Everywhere else on
 
 ### Stop four: Red Hill Truffles or Mornington Peninsula Chocolates
 
-The fourth stop depends on the season. **Red Hill Truffles** runs guided truffle-hunting experiences with their dogs from June through August, a memorable hour for anyone who has only ever seen truffles on a menu. Outside truffle season, drive ten minutes east to **Mornington Peninsula Chocolates**, a farm-style chocolaterie with a tasting bar, a small kid-friendly chocolate-making workshop area, and the kind of dessert produce that closes a producer day cleanly.
+The fourth stop depends on the season. **Red Hill Truffles** runs guided truffle hunts with trained dogs across summer, autumn, winter and spring varieties. Check the operator calendar for dates and packages at 235 Arthurs Seat Road, Red Hill. If a hunt does not fit your day, drive ten minutes east to **Mornington Peninsula Chocolates**, a farm-style chocolaterie with a tasting bar, a small kid-friendly chocolate-making workshop area, and the kind of dessert produce that closes a producer day cleanly.
 
 You are now four producers in, the cooler bag is full, and it is roughly 12.30pm.
 
@@ -91,15 +89,15 @@ Pick the one that matches the energy of the group. The producer day is the kind 
 
 ## The southern loop: Somers, Balnarring
 
-The other producer trail runs across the lower Peninsula, through the Western Port side, and is the day for visitors who want grain, organic produce, and craft food rather than cheese and strawberries. This is also the trail that almost no one does. The geography is less iconic than the ridge, and the producers are scattered across more roads, but the rewards are real.
+The other producer trail runs across the lower Peninsula, through the Western Port side, and is the day for visitors who want bread, cafe food and cider rather than cheese and strawberries. This is also the trail that almost no one does. The geography is less iconic than the ridge, and the producers are scattered across more roads, but the rewards are real.
 
-### Stop one: Peninsula Fresh Organics
+### Before adding an organic-produce stop
 
-Drive fifteen minutes south to the **Peninsula Fresh Organics** farm gate near Tuerong. This is the organic vegetable supplier that underwrites the produce side of half a dozen of the Peninsula’s serious dining rooms. The farm shop is open most weekends and stocks whatever has come out of the ground that week, plus local eggs, sourdough from the Balnarring Bakehouse, and seasonal preserves. Twenty minutes here is enough.
+Our Peninsula Fresh Organics visitor listing is paused because the farming business and affiliated Peninsula Organic Farmgate retail store are separate operations. The [operator website](<https://www.peninsulafresh.com/>) identifies the farm at 6 Henderson Road, Baxter, and the retail store at 94 Baxter-Tooradin Road, Baxter. Neither supports the previous Tuerong farmgate recommendation. Confirm the retail store’s current details directly before adding a separate Baxter stop; the listing pause is not a closure notice.
 
 ### Stop two: Balnarring Bakehouse and Somers General
 
-The next stop is a two-part visit. **Balnarring Bakehouse** is the village bakery: sourdough loaves, pastries, the kind of sausage roll that justifies the drive on its own. Pick up bread for tomorrow. Then walk or drive five minutes to the **Somers General** strip, a small cluster of producer-style shops at the village edge of Somers, including small-batch jam producers, an olive oil counter, and the General Store itself, which doubles as a wine bar in the afternoons.
+The next stop is a two-part visit. **Balnarring Bakehouse** is the village bakery: sourdough loaves, pastries, the kind of sausage roll that justifies the drive on its own. Pick up bread for tomorrow. Then drive to **The Somers General**, a beachside cafe and store at 2 The Boulevard, Somers, for dine-in or takeaway food and local provisions. Check current hours before setting out.
 
 ### Stop three: Mornington Peninsula Cider or Green Olive at Red Hill
 
@@ -145,11 +143,11 @@ Questions readers actually ask
 
 **What is the Peninsula producer trail?**
 
-A day built around four farm-gate and artisan producer visits in a single driving loop - cheese dairies, strawberry farms, olive groves, bakeries - rather than cellar doors and restaurants. The northern loop runs through Main Ridge and Red Hill (cheese, strawberries, truffles or chocolates). The southern loop runs through Somers and Balnarring (organic vegetables, bakehouse, cider). Each stop is 15–30 minutes.
+A day built around four farm-gate and artisan producer visits in a single driving loop - cheese dairies, strawberry farms, olive groves, bakeries - rather than cellar doors and restaurants. The northern loop runs through Main Ridge and Red Hill (cheese, strawberries, truffles or chocolates). The southern loop runs through Somers and Balnarring (bakehouse, cafe and cider). Each stop is 15–30 minutes.
 
 **Which Peninsula producers are open on weekends?**
 
-Main Ridge Dairy and Red Hill Cheese (Thursday–Sunday). Sunny Ridge Strawberry Farm (October–April, daily). Balnarring Bakehouse (most days). Peninsula Fresh Organics farm gate (weekends). Red Hill Truffles (guided experiences June–August by booking). Saturday is the strongest day for the full producer trail - most are open and at full stock.
+Main Ridge Dairy (check current opening days). Red Hill Cheese visitor information is under review. Sunny Ridge Strawberry Farm (October–April, daily). Balnarring Bakehouse (most days). Peninsula Fresh Organics visitor information is under review; do not assume a weekend farmgate stop. Red Hill Truffles (seasonal guided hunts; check the operator calendar and book ahead). Saturday is the strongest day for the full producer trail - most are open and at full stock.
 
 **What should I bring for a Peninsula producer trail day?**
 
@@ -171,9 +169,9 @@ providore  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-rid
 
 ### [Main Ridge Dairy](<https://peninsulainsider.com.au/eat/main-ridge-dairy/>)
 
-295 Main Creek Rd, Main Ridge VIC 3928
+289-295 Main Creek Rd, Main Ridge VIC 3928
 
-A working farmhouse goat dairy on the Main Ridge, farm-made cheeses, goat-milk gelato, and a café with views across the paddocks to the herd.
+A working goat dairy with farm-made cheeses, seasonal sharing plates and cheese grazing boards at Billies.
 
 family  garden
 

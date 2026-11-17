@@ -85,7 +85,7 @@ The Peninsula’s bakery and café circuit is the secret walk-in infrastructure.
 
 **Johnny Ripe.** A café and produce store in Red Hill that serves fast, seasonal, walk-in food. Good for the midday stop when the bigger kitchens are booked.
 
-**Somers General.** A café and general store in a town most visitors have never heard of. The kitchen rotates, the coffee is good, and the vibe is local in the best sense. Walk-in only.
+**Somers General.** A café and general store in a town most visitors have never heard of. The kitchen rotates, the coffee is good, and the vibe is local in the best sense. Bookings are available through the operator website; ask the cafe about walk-in availability.
 
 **Flinders General Store.** Counter food, coffee, and the same Flinders village ease that the hotel provides in a more casual format.
 

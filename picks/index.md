@@ -25,7 +25,7 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 
 - [Lindenderry's garden walk, the NWOP's final weekend, and live music at Fingal](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-13/>) - Red Hill estate gardens at their spring peak, the National Works on Paper closing Sunday at Mornington Peninsula Regional Gallery, and acoustic sets at Peppers Moonah Links in Fingal.
 
-- [Main Ridge Dairy, the Arthurs Seat wildflower loop, and the NWOP's last weekend](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-12/>) - Goat-milk gelato at a working farmgate, spring orchids on the Arthurs Seat Eagle trail network, and the National Works on Paper exhibition closing Sunday at Mornington Peninsula Regional Gallery.
+- [Main Ridge Dairy, the Arthurs Seat wildflower loop, and the NWOP's last weekend](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-12/>) - Goat cheeses at a working dairy, spring orchids on the Arthurs Seat Eagle trail network, and the National Works on Paper exhibition closing Sunday at Mornington Peninsula Regional Gallery.
 
 - [Verified Peninsula stops: Moorooduc, Bushrangers Bay and Nazaaray](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-11/>) - Current practical information from the operators and Parks Victoria for a winery visit, a Cape Schanck walk and a Flinders cellar door.
 

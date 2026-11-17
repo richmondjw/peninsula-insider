@@ -9,7 +9,7 @@ Insider Edit  11 September 2026  4 min read
 
 # Insider Picks: 11 September 2026
 
-Green Olive's wood-fired lamb under the spring grove, the Arthur's Seat Eagle gondola in the first clear-sky window of the season, and a truffle hunt at Main Ridge before the season closes on 30 September.
+Green Olive's wood-fired lamb under the spring grove, the Arthur's Seat Eagle gondola in the first clear-sky window of the season, and a truffle hunt at Red Hill before the season closes on 30 September.
 
 Keep this for later
 
@@ -18,6 +18,8 @@ Keep this for later
 Insider Picks  Spring
 
 Cape Schanck, Mornington Peninsula   Photo · Courtesy of Visit Victoria
+
+Visitor update, 17 November 2026: Red Hill Truffles is at 235 Arthurs Seat Road, Red Hill, and offers hunts across several seasons. The September references below concern the winter and spring programme, not the end of all annual visits. Check the [operator calendar](<https://redhilltruffles.com/calendar>) for current dates and availability.
 
 **Green Olive at Red Hill** runs its wood-fired kitchen off an estate olive grove that is doing its best work right now, as spring pulls the first real warmth back into the hill.
 
@@ -37,9 +39,9 @@ Pair it with a lunch at Crittenden Restaurant in Dromana on the way home, a ten-
 
 **Red Hill Truffles** closes its 2026 hunt season on 30 September, which means this weekend is one of four remaining.
 
-The truffle grounds at Main Ridge have been producing since late May, and by mid-September the orchard dogs - Lagotto Romagnolos trained specifically for this - have the rhythm of a season behind them, which makes the hunt faster and more direct than the early-season sessions. You find a truffle, you smell it fresh from the earth before it has been cleaned, and then the kitchen does something with it on the spot. That sequence is the point of coming. It doesn’t work as a concept in the abstract; it works because the smell of a fresh black truffle just out of red volcanic soil is genuinely different from anything you’ve encountered before. This is also not a small outing - allow a full morning and book the earliest available session.
+The truffle grounds at Red Hill have been producing since late May, and by mid-September the trained truffle dogs have the rhythm of a season behind them, which makes the hunt faster and more direct than the early-season sessions. You find a truffle, you smell it fresh from the earth before it has been cleaned, and then the kitchen does something with it on the spot. That sequence is the point of coming. It doesn’t work as a concept in the abstract; it works because the smell of a fresh black truffle just out of red volcanic soil is genuinely different from anything you’ve encountered before. This is also not a small outing - allow a full morning and book the earliest available session.
 
-Main Ridge. Book now at redhilltruffles.com/hunts - remaining September weekends are going fast.
+Red Hill. Book now at redhilltruffles.com/hunts - remaining September weekends are going fast.
 
 Pair it with a late lunch at Green Olive at Red Hill, five minutes’ drive west on Mornington-Flinders Road.
 
@@ -49,7 +51,7 @@ Pair it with a late lunch at Green Olive at Red Hill, five minutes’ drive west
 
 **Arthur’s Seat Eagle** - Arthurs Seat Road, Dromana. Operates daily weather permitting. Book cabins at seateagle.com.au.
 
-**Red Hill Truffles Hunt Season** - Main Ridge. Season closes 30 September 2026. Book at redhilltruffles.com/hunts.
+**Red Hill Truffles Hunt Season** - Red Hill. Season closes 30 September 2026. Book at redhilltruffles.com/hunts.
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 
@@ -63,7 +65,7 @@ Book directly through Green Olive at Red Hill's website or call the restaurant. 
 
 When does the Red Hill Truffles hunt season end in 2026?
 
-The season closes 30 September 2026. Hunts run at Red Hill Truffles, Main Ridge. Book ahead at redhilltruffles.com/hunts - Saturday and Sunday morning sessions fill several weeks out at this point in the season.
+This dated guide concerns the 2026 winter and spring programme. Red Hill Truffles also offers summer and autumn hunts at 235 Arthurs Seat Road, Red Hill. Check redhilltruffles.com/calendar for current dates, packages and availability.
 
 Is the Arthur's Seat Eagle running in spring 2026?
 

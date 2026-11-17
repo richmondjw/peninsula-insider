@@ -35,13 +35,13 @@ The 2026 Sunday Sessions run finishes this weekend. Live acoustic music from the
 
 ## The local edge
 
-**Red Hill Truffles winter hunt, Main Ridge** Saturday 27 or Sunday 28 June. Booking required.
+**Red Hill Truffles winter hunt, Red Hill** Saturday 27 or Sunday 28 June. Booking required.
 
 Périgord black season is still at peak. The solstice weekend has passed, so Saturday and Sunday slots are more available than they were a week ago. Sunday morning is the quietest hunt of the week: frosty forest, working dogs, and the hunt done before the lunch crowd arrives. Hunts run as a pizza hunt or a lunch bundle; current prices are on the operator’s site.
 
 **Flinders Truffles winter hunt, Flinders** Saturday 27 or Sunday 28 June. Booking required for hunts; farmgate days run without booking.
 
-The Flinders farm is the quieter alternative to Main Ridge. Hunts run through winter, then warm up with truffle soup and a toastie by the fire. If the hunt is full, the farmgate days still let you buy fresh truffles to take home. Dates and bookings drop on their website and social channels, so check directly before driving.
+The Flinders farm is the quieter alternative to Red Hill Truffles. Hunts run through winter, then warm up with truffle soup and a toastie by the fire. If the hunt is full, the farmgate days still let you buy fresh truffles to take home. Dates and bookings drop on their website and social channels, so check directly before driving.
 
 - Tootgarook Market is an outdoor school-grounds market. Bring cash for small stalls and a jacket for the morning cold.
 
@@ -53,7 +53,7 @@ The Flinders farm is the quieter alternative to Main Ridge. Hunts run through wi
 
 **Peninsula Hot Springs Sunday Sessions** Sun 28 June, 2pm–5pm, Rye Included with afternoon bathing session
 
-**Red Hill Truffles** Sat 27 or Sun 28 June, Main Ridge Three formats: pizza hunt, lunch bundle, private hunt. Current prices on the operator’s site. Booking required: redhilltruffles.com/hunts
+**Red Hill Truffles** Sat 27 or Sun 28 June, Red Hill Three formats: pizza hunt, lunch bundle, private hunt. Current prices on the operator’s site. Booking required: redhilltruffles.com/hunts
 
 **Flinders Truffles** Sat 27 or Sun 28 June, Flinders Hunt pricing via website; farmgate free entry flinderstruffles.com.au/events/
 
@@ -65,7 +65,7 @@ Questions readers actually ask
 
 What is on the Mornington Peninsula this weekend, 27–28 June 2026?
 
-Saturday 27 June: Tootgarook Market at Tootgarook Primary School, 7:30am–12:30pm. Sunday 28 June: final Peninsula Hot Springs Sunday Sessions, 2–5pm, live music included with bathing. Both days: winter truffle hunts at Red Hill Truffles (Main Ridge) and Flinders Truffles (Flinders), booking required.
+Saturday 27 June: Tootgarook Market at Tootgarook Primary School, 7:30am–12:30pm. Sunday 28 June: final Peninsula Hot Springs Sunday Sessions, 2–5pm, live music included with bathing. Both days: winter truffle hunts at Red Hill Truffles (Red Hill) and Flinders Truffles (Flinders), booking required.
 
 Is the Sorrento Solstice Festival on this weekend?
 

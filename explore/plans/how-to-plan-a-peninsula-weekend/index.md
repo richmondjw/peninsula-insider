@@ -99,7 +99,7 @@ With accommodation and the anchor meal locked in, fill the remaining time. The r
 
 - A cellar door, **Polperro**, **Montalto**, or **Crittenden** (45 minutes each)
 
-- A producer visit, **Red Hill Cheese**, **Main Ridge Dairy** (30 minutes)
+- A producer visit, **Main Ridge Dairy** (30 minutes)
 
 - **Hill & Ridge Community Market**, only on a confirmed organiser date (allow 1–2 hours; 3 October 2026 is currently listed, 9am–2pm)
 

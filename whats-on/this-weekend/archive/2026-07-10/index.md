@@ -76,7 +76,7 @@ Running through July · Dunns Road, Mornington
 
 ### Red Hill Truffles
 
-Winter season through June–August · Main Ridge
+Winter season through June–August · Red Hill
  Booking required: redhilltruffles.com/hunts
 
 ### Flinders Truffles

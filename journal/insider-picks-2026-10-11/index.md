@@ -27,7 +27,7 @@ This working smallholding on Mornington-Flinders Road runs olives, kitchen garde
 
 Book ahead for Sunday lunch. Green Olive at Red Hill, 1180 Mornington-Flinders Road, Red Hill. Allow two hours minimum.
 
-Pair a post-lunch walk with the Red Hill Truffles property nearby, which opens its grounds through spring.
+For a nearby producer visit, check Red Hill Truffles’ current hunt calendar and book ahead; do not assume the working farm is open for an unbooked walk.
 
 ## EXPERIENCE - Boardwalk Nature Circuit, Tootgarook Wetlands
 

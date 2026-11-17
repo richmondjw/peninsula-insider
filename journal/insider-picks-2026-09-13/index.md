@@ -19,6 +19,8 @@ Insider Picks  Spring
 
 Cape Schanck, Mornington Peninsula   Photo · Courtesy of Visit Victoria
 
+Visitor update, 17 November 2026: Red Hill Truffles is at 235 Arthurs Seat Road, Red Hill, and offers hunts across several seasons. The September references below concern the winter and spring programme, not the end of all annual visits. Check the [operator calendar](<https://redhilltruffles.com/calendar>) for current dates and availability.
+
 ## EXPERIENCE - Spider Orchids, Moorooduc Plains Flora and Fauna Reserve
 
 Mid-September is the one window each year when the Moorooduc Plains grassland loop earns the detour, and this weekend sits squarely inside it.
@@ -33,7 +35,7 @@ Afterwards, Barmah Park Farm Kitchen in Moorooduc is twelve minutes west - the c
 
 The Red Hill Truffles hunt season closes 30 September. There are fewer than three weekends left, and Saturday sessions in the closing fortnight reliably fill before Thursday.
 
-The property sits in Main Ridge and runs structured hunts with trained dogs through the hazelnut and oak plantation. The dogs locate the buried Périgord black truffle; you watch the find, handle the truffle, and the session finishes with a tasting component that puts the aroma in context alongside accompaniments. The truffle quality in mid-to-late September is at its dense, mature peak - this is not the tentative early-season product from late May. The hunt itself runs around ninety minutes on-site.
+The property sits in Red Hill and runs structured hunts with trained dogs through the hazelnut and oak plantation. The dogs locate the buried Périgord black truffle; you watch the find, handle the truffle, and the session finishes with a tasting component that puts the aroma in context alongside accompaniments. The truffle quality in mid-to-late September is at its dense, mature peak - this is not the tentative early-season product from late May. The hunt itself runs around ninety minutes on-site.
 
 Book directly at redhilltruffles.com/hunts - bookings are essential and the September close date is fixed. Weekday sessions exist if Saturday is sold out.
 
@@ -43,7 +45,7 @@ Johnny Ripe bakery in Main Ridge is five minutes away; a pie in the garden befor
 
 **Moorooduc Plains Flora and Fauna Reserve** Moorooduc Road, Moorooduc. Publicly accessible, no booking. Best visited mid-September mornings after rain. Forty-minute grassland loop. Wear boots.
 
-**Red Hill Truffles - Winter Truffle Hunt Season** Main Ridge. Season closes 30 September 2026. Book at redhilltruffles.com/hunts. Bookings essential - September Saturday sessions sell out early in the week.
+**Red Hill Truffles - Winter Truffle Hunt Season** Red Hill. Season closes 30 September 2026. Book at redhilltruffles.com/hunts. Bookings essential - September Saturday sessions sell out early in the week.
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 
@@ -53,7 +55,7 @@ Questions readers actually ask
 
 When does the Red Hill Truffles hunt season close?
 
-The 2026 truffle hunt season at Red Hill Truffles in Main Ridge runs until 30 September 2026. Bookings are essential and Saturday slots in mid-September fill fast - book at redhilltruffles.com/hunts.
+This dated guide concerns the 2026 winter and spring programme. Red Hill Truffles also offers summer and autumn hunts at 235 Arthurs Seat Road, Red Hill. Check redhilltruffles.com/calendar for current dates, packages and availability.
 
 Where are the spider orchids on the Moorooduc Plains?
 

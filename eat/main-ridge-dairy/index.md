@@ -9,21 +9,21 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Main Ridge Dairy
 
-A working farmhouse goat dairy on the Main Ridge, farm-made cheeses, goat-milk gelato, and a café with views across the paddocks to the herd.
+A working goat dairy with farm-made cheeses, seasonal sharing plates and cheese grazing boards at Billies.
 
-Known for   Goat Cheese Goat Milk Gelato Farmgate Experience Working Dairy
+Known for   Goat Cheese Billies Cheese Grazing Boards Farm-Made Produce Working Dairy
 
 [Reserve a table](<https://www.mainridgedairy.com.au/>)  +61 3 5989 6622
 
 Why we’d go
 
-The Peninsula's most legible farm-to-table stop, you see the animals, you eat the cheese, and the kids understand the whole thing in thirty seconds.
+Farm-made goat cheeses, a seasonal menu at Billies and a quiet bushland setting.
 
-Main Ridge Dairy is a working farmhouse goat dairy that has built a small but devoted following for its farm-made cheeses and, more recently, its goat-milk gelato. The setup is simple: a modest café with a view across the paddocks to the herd, a cheese board built around whatever is ready on the day, and a scoop window running gelato flavours made from the farm's own milk.
+Main Ridge Dairy makes cheeses from the milk of its own goat herd. At Billies, the seasonal menu puts those cheeses at the centre of sharing plates and grazing boards, with indoor and outdoor seating in a bushland setting.
 
-It is one of those Peninsula stops where the appeal is directly tied to how small the operation is. You see the paddock. You see the animals. You eat the cheese. The kids understand the whole thing in about thirty seconds. Everybody leaves slightly more informed and slightly better fed. There is no theatre here, just a working dairy that has figured out how to feed visitors without losing its purpose.
+Start with the cheese board, or pick up cheeses to take home. This is a cheese-focused visit: the dairy currently does not offer goat tours or goat feeding experiences. Check the operator website for current opening days and table bookings.
 
-A good fifteen-minute detour on a hinterland loop. Pair it with Red Hill Cheese around the corner or a cellar door on the ridge for a proper Peninsula food afternoon.
+Pair it with a cellar door on the ridge for a Peninsula food afternoon.
 
 Worth knowing
 
@@ -37,7 +37,7 @@ Autumn and winter
 
 **Timing**
 
-Weekday lunches are quieter; weekends fill early
+Check current opening days and book a table through the dairy website.
 
 **Atmosphere**
 
@@ -53,11 +53,11 @@ Families · Couples · Dog-friendly outings
 
 **Less ideal for**
 
-Those wanting a full restaurant experience - this is a farm café, not a sit-down lunch
+Goat tours or feeding experiences, which the dairy currently does not offer.
 
 If you only do one thing
 
-Order the cheese board first and finish with a scoop of goat-milk gelato.
+Start with the cheese grazing board at Billies.
 
 Works well with
 
@@ -73,7 +73,7 @@ Providore
 
 **Location**
 
-295 Main Creek Rd, Main Ridge VIC 3928 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Main%20Ridge%20Dairy%2C%20295%20Main%20Creek%20Rd%2C%20Main%20Ridge%20VIC%203928>)
+289-295 Main Creek Rd, Main Ridge VIC 3928 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Main%20Ridge%20Dairy%2C%20289-295%20Main%20Creek%20Rd%2C%20Main%20Ridge%20VIC%203928>)
 
 **Call**
 
@@ -93,7 +93,7 @@ Working Peninsula Goat Dairy
 
 **Live status**
 
-[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Main%20Ridge%20Dairy%2C%20295%20Main%20Creek%20Rd%2C%20Main%20Ridge%20VIC%203928%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
+[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Main%20Ridge%20Dairy%2C%20289-295%20Main%20Creek%20Rd%2C%20Main%20Ridge%20VIC%203928%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
 
  [Book now](<https://www.mainridgedairy.com.au/>)
 
@@ -111,11 +111,11 @@ Fireplace lunches and quieter roads make this one of the better cold-weather Pen
 
 Spring
 
-Kids can often see the goats at closer quarters in spring. Good on a weekday when it's not crowded.
+The seasonal menu at Billies keeps the focus on farm-made goat cheeses. Goat tours and feeding experiences are not currently offered.
 
 Summer
 
-Earlier visits work better in summer before the hinterland roads get busy. The gelato is the draw; the cheese boards can wait for cooler weather.
+Choose a cheese grazing board or seasonal sharing dishes at Billies, or take cheeses home. Check the current menu before visiting.
 
 Not sure how to build a day around Main Ridge Dairy?
 

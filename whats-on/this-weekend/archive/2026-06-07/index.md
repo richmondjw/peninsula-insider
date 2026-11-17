@@ -45,7 +45,7 @@ The launch weekend is done. The 2025 Pinot Noir is still there; the tasting room
 
 - Sorrento Solstice Festival is 20 to 21 June: free, foreshore, fire performers, a 6-metre burning effigy on Saturday evening, sunrise swim Sunday morning. For anyone who wants a set-piece winter event, it is the one immediately ahead.
 
-**Red Hill Truffles** Sat 13 or Sun 14 June, Main Ridge Three formats: pizza hunt, lunch bundle, private hunt. Current prices on the operator’s site. Booking required: redhilltruffles.com/hunts
+**Red Hill Truffles** Sat 13 or Sun 14 June, Red Hill Three formats: pizza hunt, lunch bundle, private hunt. Current prices on the operator’s site. Booking required: redhilltruffles.com/hunts
 
 **Foxeys Hangout Vegetable Feast** Saturday, Morning Sun Vineyard (confirm date via foxeys-hangout.com.au) Ticketed, matched wines included. Booking recommended; current price on the operator’s site.
 

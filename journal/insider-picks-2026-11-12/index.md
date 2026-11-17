@@ -9,7 +9,7 @@ Insider Edit  12 November 2026  4 min read
 
 # Main Ridge Dairy, the Arthurs Seat wildflower loop, and the NWOP's last weekend
 
-Goat-milk gelato at a working farmgate, spring orchids on the Arthurs Seat Eagle trail network, and the National Works on Paper exhibition closing Sunday at Mornington Peninsula Regional Gallery.
+Goat cheeses at a working dairy, spring orchids on the Arthurs Seat Eagle trail network, and the National Works on Paper exhibition closing Sunday at Mornington Peninsula Regional Gallery.
 
 Keep this for later
 
@@ -19,11 +19,11 @@ Insider Picks  Spring
 
 Trofeo Estate, Dromana, Mornington Peninsula   Photo · Courtesy of Visit Victoria
 
-**Main Ridge Dairy** earns its farmgate reputation in spring, when the goats are in full milk and the cheese boards reflect it.
+**Main Ridge Dairy** makes cheeses from its own goat herd, with a seasonal menu and cheese grazing boards at Billies.
 
-The cheese board here is not an afterthought. It arrives with fresh chèvre, an aged round, and usually something seasonal the dairy is trialling. You can watch the herd from the tasting area, which makes the whole proposition unusually legible. Kids grasp it immediately; adults slow down in a way they don’t at conventional cellar doors. The goat-milk gelato is the item that brings people back - lighter than dairy, clean, and made on site. Spring is the right season: kid goats are still visible, the pasture is green, and the dairy is running at full capacity rather than the leaner winter schedule.
+Order a cheese board to share, or pick up cheeses to take home. The visit centres on the produce and the bushland setting. Goat tours and feeding experiences are not currently offered.
 
-Allow 45 minutes minimum. It is a working farm, not a café - timing your visit for mid-morning gives you the fullest selection. Check their current opening days on the website before driving out.
+Find it at 289-295 Main Creek Road, Main Ridge. Check [the dairy website](<https://www.mainridgedairy.com.au/billies/>) for current opening days, menus and table bookings.
 
 Pair it with a glass of Pinot Gris at Main Ridge Estate, ten minutes up Mornington-Flinders Road.
 
@@ -45,7 +45,7 @@ Pair the gallery visit with lunch at one of the Mornington foreshore venues befo
 
 ### Quick Reference
 
-**Main Ridge Dairy** 14 Stanleys Road, Main Ridge - farmgate providore, cheese board and goat-milk gelato - check website for current opening days
+**Main Ridge Dairy** 289-295 Main Creek Road, Main Ridge - Billies cheese grazing boards and takeaway cheeses - check website for current opening days
 
 **Arthurs Seat State Park trail network** Arthurs Seat Road, Arthurs Seat - free, no booking - 90-minute ridge loop - orchids peaking now on the heathland corridor - Parks Victoria trail map recommended
 
@@ -59,7 +59,7 @@ Questions readers actually ask
 
 Where is Main Ridge Dairy and when is it open?
 
-Main Ridge Dairy is at 14 Stanleys Road, Main Ridge. Hours vary seasonally - check their website or social channels before visiting, as farmgate openings depend on the production schedule.
+Main Ridge Dairy is at 289-295 Main Creek Road, Main Ridge. Hours vary seasonally - check their website or social channels before visiting, as farmgate openings depend on the production schedule.
 
 When does the National Works on Paper 2026 exhibition close?
 

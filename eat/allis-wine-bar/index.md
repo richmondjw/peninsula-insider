@@ -137,9 +137,9 @@ providore  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-rid
 
 ### [Main Ridge Dairy](<https://peninsulainsider.com.au/eat/main-ridge-dairy/>)
 
-295 Main Creek Rd, Main Ridge VIC 3928
+289-295 Main Creek Rd, Main Ridge VIC 3928
 
-A working farmhouse goat dairy on the Main Ridge, farm-made cheeses, goat-milk gelato, and a café with views across the paddocks to the herd.
+A working goat dairy with farm-made cheeses, seasonal sharing plates and cheese grazing boards at Billies.
 
 family  garden
 

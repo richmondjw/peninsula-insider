@@ -417,9 +417,9 @@ providore  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-rid
 
 ### [Main Ridge Dairy](<https://peninsulainsider.com.au/eat/main-ridge-dairy/>)
 
-295 Main Creek Rd, Main Ridge VIC 3928
+289-295 Main Creek Rd, Main Ridge VIC 3928
 
-A working farmhouse goat dairy on the Main Ridge, farm-made cheeses, goat-milk gelato, and a café with views across the paddocks to the herd.
+A working goat dairy with farm-made cheeses, seasonal sharing plates and cheese grazing boards at Billies.
 
 family  garden
 
@@ -961,7 +961,7 @@ The rolling hills of the Red Hill hinterland are some of the most rewarding cycl
 
 ### [Red Hill Truffles](<https://peninsulainsider.com.au/explore/red-hill-truffles/>)
 
-Red Hill Truffles is a working truffière on the Red Hill ridge that opens for seasonal truffle hunts from late autumn through winter. The format is the one every winter food-obsessive eventually books: a morning in the field with trained dogs working each row and nosing out the black truffles hidden under the inoculated oaks, followed by a small tasting back at the shed where the truffles go into eggs, butter, and whatever the kitchen is running that week. The hunt itself, watching the dogs work, is as much the point as the truffle on the plate. Truffle seasons are short and weekend slots book out months in advance every year. June and July are the peak months. Dress for the field and understand that rain makes it better, not worse, the dogs work in all conditions and the atmosphere in a wet winter grove is its own reward. Fresh truffles are available for sale when they are up, and the product is excellent. One of the Peninsula's most unusual winter experiences. Book months in advance for weekends.
+Red Hill Truffles is a working truffle farm at 235 Arthurs Seat Road, Red Hill. Guided hunts follow trained dogs through the truffière, with tasting options depending on the package booked. The offering changes with the seasons: summer black truffles, Burgundy truffles in autumn, winter black truffles and spring white truffles. Check the operator calendar for current hunt dates, packages and availability rather than assuming visits are limited to winter. Wear closed footwear suitable for the paddocks and dress for the weather. Harvests depend on growing conditions, so neither ripe truffles nor the chance to dig one up can be guaranteed. Fresh truffles are sold when in season, alongside truffle products at the farmgate.
 
  [Open the guide →](<https://peninsulainsider.com.au/explore/red-hill-truffles/>)
 

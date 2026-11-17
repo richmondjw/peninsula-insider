@@ -69,7 +69,7 @@ Families do best at places with space to move and a menu that works for every ag
 
 - **La Baracca at T’Gallant, Main Ridge.** Wood-fired pizza, shaded outdoor tables and room for children to run. The Peninsula’s most reliable easy group lunch.
 
-- **Main Ridge Dairy.** A working goat dairy with farm cheeses and goat-milk gelato. Children understand the whole operation in about thirty seconds.
+- **Main Ridge Dairy.** A working goat dairy with farm-made cheeses and seasonal sharing dishes at Billies. Goat tours and feeding experiences are not currently offered.
 
 - **The Rye Hotel.** A sprawling foreshore pub near the front beach, with a deck and a menu children recognise.
 
@@ -207,9 +207,9 @@ providore  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-rid
 
 ### [Main Ridge Dairy](<https://peninsulainsider.com.au/eat/main-ridge-dairy/>)
 
-295 Main Creek Rd, Main Ridge VIC 3928
+289-295 Main Creek Rd, Main Ridge VIC 3928
 
-A working farmhouse goat dairy on the Main Ridge, farm-made cheeses, goat-milk gelato, and a café with views across the paddocks to the herd.
+A working goat dairy with farm-made cheeses, seasonal sharing plates and cheese grazing boards at Billies.
 
 family  garden
 

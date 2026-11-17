@@ -19,7 +19,7 @@ Photo · Courtesy of Visit Victoria
 
 The longest night of the year falls on Saturday, and the Peninsula is not pretending it doesn’t matter. The Sorrento Solstice Festival is the one winter weekend when the foreshore stops feeling empty and starts feeling purposeful: two music stages, fire performers on the promenade, a lantern walk through the village, and the six-metre effigy burn on the bay at 6:30pm. It is free, ticketed, and worth planning around.
 
-Sunday is quieter by design. The festival crowd has gone home. The hot springs are running their afternoon sessions with live music. The truffle season is at peak across the ridges, and Sunday morning slots at Main Ridge are the calmest of the solstice week.
+Sunday is quieter by design. The festival crowd has gone home. The hot springs are running their afternoon sessions with live music. The truffle season is at peak across the ridges, and Sunday morning slots at Red Hill Truffles are the calmest of the solstice week.
 
 ## The booking worth locking in
 
@@ -39,7 +39,7 @@ Live acoustic music from the amphitheatre pool stage, every Sunday through 28 Ju
 
 ## The local edge
 
-**Red Hill Truffles winter hunt, Main Ridge** Saturday 20 or Sunday 21 June. Booking required.
+**Red Hill Truffles winter hunt, Red Hill** Saturday 20 or Sunday 21 June. Booking required.
 
 Périgord black season is at peak. Hunts run as a pizza hunt, a lunch bundle, or a private hunt; current prices are on the operator’s site. The solstice weekend makes Saturday afternoon slots tighter than usual. Sunday morning is the quietest slot of the week: the forest is frosty, the dogs are working well, and the hunt finishes before the lunch crowd arrives. A good thing to build a Sunday around rather than a quick stop on the way through.
 
@@ -53,7 +53,7 @@ Périgord black season is at peak. Hunts run as a pizza hunt, a lunch bundle, or
 
 **Peninsula Hot Springs Sunday Sessions** Sun 21 June, 2pm–5pm, Rye Included with afternoon bathing session
 
-**Red Hill Truffles** Sat 20 or Sun 21 June, Main Ridge Three formats: pizza hunt, lunch bundle, private hunt. Current prices on the operator’s site. Booking required: redhilltruffles.com/hunts
+**Red Hill Truffles** Sat 20 or Sun 21 June, Red Hill Three formats: pizza hunt, lunch bundle, private hunt. Current prices on the operator’s site. Booking required: redhilltruffles.com/hunts
 
 Prices may change. Confirm current rates directly with each operator before booking.
 

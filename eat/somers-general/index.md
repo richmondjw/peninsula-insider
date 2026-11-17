@@ -13,7 +13,7 @@ A tiny, perfectly curated general store and café in sleepy Somers, sourdough, p
 
 Known for   Curated General Store Format Peninsula Wine Shelf Weekend Brunch Menu Sleepy Somers Village
 
-[Reserve a table](<https://www.thesomersgeneral.com.au/>)  +61 3 5983 0500
+[Reserve a table](<https://www.thesomersgeneral.com.au/>)  +61 416 484 855
 
 Why we’d go
 
@@ -49,11 +49,11 @@ Café
 
 **Location**
 
-1049 Frankston-Flinders Rd, Somers VIC 3927 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Somers%20General%2C%201049%20Frankston-Flinders%20Rd%2C%20Somers%20VIC%203927>)
+2 The Boulevard, Somers VIC 3927 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Somers%20General%2C%202%20The%20Boulevard%2C%20Somers%20VIC%203927>)
 
 **Call**
 
-+61 3 5983 0500
++61 416 484 855
 
 **Website**
 
@@ -61,11 +61,11 @@ Café
 
 **Directions**
 
-[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3853%2C145.1683>)
+[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3941254%2C145.1628072>)
 
 **Live status**
 
-[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Somers%20General%2C%201049%20Frankston-Flinders%20Rd%2C%20Somers%20VIC%203927%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
+[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Somers%20General%2C%202%20The%20Boulevard%2C%20Somers%20VIC%203927%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
 
  [Book now](<https://www.thesomersgeneral.com.au/>)
 

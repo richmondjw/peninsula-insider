@@ -53,13 +53,13 @@ Buy a whole loaf. You will use it.
 
 ### Stop two: cheese
 
-The Peninsula has two serious farmgate cheese producers and both are worth the stop.
+Build this stop around farm-made goat cheeses at Main Ridge Dairy.
 
-**Red Hill Cheese** is the more established operation, with a tasting counter and a retail case that covers a proper range of styles. For a picnic, the washed-rind is the flagship and the cheddar is the workhorse. Buy both, a wedge of each, and ask for them to be wrapped separately.
+Our Red Hill Cheese listing is paused while current visitor information is checked. Confirm the operator, location and offering before planning a visit.
 
-**Main Ridge Dairy** is the smaller producer with a narrower but more intensely local range. The halloumi is excellent and grills well on a portable stove if you are doing a beach picnic with a burner. The feta is clean and bright and the right thing for a salad component.
+**Main Ridge Dairy** makes cheeses from its own goat herd. Pick up fresh chèvre, feta or another cheese from the current range at Billies for your picnic.
 
-Pick one, or visit both if they are on the same loop.
+Check current opening days before adding a cheese stop to your loop.
 
 ### Stop three: charcuterie, olives, and the rest
 
@@ -143,7 +143,7 @@ Pt Leo Estate sculpture park for the most scenic option - coastal hillside views
 
 **How do I assemble a Peninsula picnic from the farm gate?**
 
-Three stops: bread from Flinders Sourdough (walnut sourdough loaf, holds well for hours); cheese from Red Hill Cheese or Main Ridge Dairy (one washed-rind, one cheddar or halloumi); and olives, tapenade, and cured meats from Green Olive at Red Hill. Add fruit from Peninsula Fresh Organics and one bottle of local pinot from Merricks General Wine Store. One hour of shopping, and it costs about a single restaurant main and a glass of wine for two.
+Three stops: bread from Flinders Sourdough (walnut sourdough loaf, holds well for hours); goat cheeses from Main Ridge Dairy (check the current range); and olives, tapenade, and cured meats from Green Olive at Red Hill. Add fruit from Peninsula Fresh Organics and one bottle of local pinot from Merricks General Wine Store. One hour of shopping, and it costs about a single restaurant main and a glass of wine for two.
 
 **What time of year is best for a Peninsula picnic?**
 
@@ -165,9 +165,9 @@ providore  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-rid
 
 ### [Main Ridge Dairy](<https://peninsulainsider.com.au/eat/main-ridge-dairy/>)
 
-295 Main Creek Rd, Main Ridge VIC 3928
+289-295 Main Creek Rd, Main Ridge VIC 3928
 
-A working farmhouse goat dairy on the Main Ridge, farm-made cheeses, goat-milk gelato, and a café with views across the paddocks to the herd.
+A working goat dairy with farm-made cheeses, seasonal sharing plates and cheese grazing boards at Billies.
 
 family  garden
 

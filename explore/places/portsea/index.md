@@ -203,7 +203,7 @@ Insider Edit   4 min
 
 19 September 2026
 
-The Portsea Hotel deck in first-spring warmth, the native orchids peaking along Point Nepean's Number 2 Rifle Range track, and the final truffle hunts of the season at Red Hill Truffles in Main Ridge.
+The Portsea Hotel deck in first-spring warmth, the native orchids peaking along Point Nepean's Number 2 Rifle Range track, and the final truffle hunts of the season at Red Hill Truffles in Red Hill.
 
 Insider Edit   3 min
 
