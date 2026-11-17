@@ -2,8 +2,16 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import { execFileSync } from 'node:child_process';
 import { Site } from '../tests/journeys/harness.mjs';
+import quarantine from '../src/data/cms-image-quarantine.json' with { type: 'json' };
 import { eatFeaturedRestoration } from '../src/lib/eat-featured-restoration.mjs';
 
+const historical = JSON.parse(await fs.readFile(new URL('../../ops/page-quality/assessments/eat-image-inventory-2026-10-03.json', import.meta.url), 'utf8'));
+const restoredSlugs = ['commonfolk-coffee', 'tedesca-osteria', 'barragunda-dining', 'portsea-hotel'];
+const originals = new Map(restoredSlugs.map(slug => [slug, historical.rows.find(row => row.slug === slug).renderedImageSrc]));
+const heldOriginal = slug => {
+  const src = originals.get(slug);
+  return src && quarantine.quarantined.some(hold => hold.storagePath === src.split('/cms-assets/')[1]);
+};
 const out = 'review/eat-featured-restoration';
 await fs.mkdir(out, { recursive: true });
 const head = execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim();
@@ -31,7 +39,7 @@ try {
       });
       await page.waitForFunction(() => {
         const images = [...document.querySelectorAll('#the-six .pi-card__media img')];
-        return images.length === 6 && images.every(img => img.complete && img.naturalWidth > 0);
+        return images.every(img => img.complete && img.naturalWidth > 0);
       });
       const slugs = await page.$$eval('#the-six .pi-card__title a', links => links.map(a => a.getAttribute('href').split('/')[2]));
       assert.equal(slugs.length, 6);
@@ -39,26 +47,36 @@ try {
       for (const slug of slugs) {
         const card = `#the-six .v5-six__item:has(a[href="/eat/${slug}/"])`;
         await page.$eval(card, el => el.scrollIntoView({ block: 'center', inline: 'center', behavior: 'instant' }));
-        await page.waitForFunction(selector => {
-          const img = document.querySelector(selector + ' .pi-card__media img');
-          return img?.complete && img.naturalWidth > 0;
-        }, {}, card);
-        const image = await page.$eval(card, el => {
-          const img = el.querySelector('.pi-card__media img');
-          return { src: img.getAttribute('src'), currentSrc: img.currentSrc,
-            original: img.getAttribute('data-pi-image-original-src'), alt: img.alt,
-            naturalWidth: img.naturalWidth, naturalHeight: img.naturalHeight,
-            noHydrate: img.dataset.piNoHydrate, text: el.innerText };
-        });
-        const result = { slug, ...image };
-        observed.cards.push(result);
-        assert.equal(image.noHydrate, 'true');
-        const restored = eatFeaturedRestoration(slug, '/eat/#the-six');
-        if (restored) {
-          assert.equal(image.original ?? image.src, restored.src, 'Exact historical original retained');
-          assert.equal(image.alt, restored.alt);
+        const held = heldOriginal(slug);
+        let result;
+        if (held) {
+          const sources = await page.$$eval(card + ' img', images => images.map(img => img.getAttribute('data-pi-image-original-src') ?? img.getAttribute('src')));
+          assert.ok(!sources.includes(originals.get(slug)), 'Quarantined original must not render');
+          result = { slug, quarantined: true, sources };
+          observed.cards.push(result);
+        } else {
+          await page.waitForFunction(selector => {
+            const img = document.querySelector(selector + ' .pi-card__media img');
+            return img?.complete && img.naturalWidth > 0;
+          }, {}, card);
+          const image = await page.$eval(card, el => {
+            const img = el.querySelector('.pi-card__media img');
+            return { src: img.getAttribute('src'), currentSrc: img.currentSrc,
+              original: img.getAttribute('data-pi-image-original-src'), alt: img.alt,
+              naturalWidth: img.naturalWidth, naturalHeight: img.naturalHeight,
+              noHydrate: img.dataset.piNoHydrate, text: el.innerText };
+          });
+          result = { slug, ...image };
+          observed.cards.push(result);
+          assert.equal(image.noHydrate, 'true');
+          if (originals.has(slug)) {
+            assert.equal(image.original ?? image.src, originals.get(slug), 'Exact historical original retained');
+            const restored = eatFeaturedRestoration(slug, '/eat/#the-six');
+            assert.ok(restored, 'Unheld owner exception remains available');
+            assert.equal(image.alt, restored.alt);
+          }
+          if (slug === 'commonfolk-coffee') assert.match(image.text, /Coffee production/);
         }
-        if (slug === 'commonfolk-coffee') assert.match(image.text, /Coffee production/);
         const save = card + ' [data-v5-save-btn]';
         const activate = selector => viewport.hasTouch ? page.tap(selector) : page.click(selector);
         await activate(save);
