@@ -9,10 +9,16 @@ test('Cape Retreat clearly restricts booking to groups without coupling eligibil
  assert.match(venue.ifOnlyOneThing, /individual rooms and suites are not available/);
  assert.deepEqual(venue.tags.audience, ['group']);
 });
-test('linked guides cannot imply individual-suite availability', () => {
- for (const path of ['villas', 'resorts', 'coastal-stays']) {
-  const page=read(`pages/stay/${path}.astro`);
-  assert.match(page, /[Gg]roup[- ]booking(?:s)?(?:[- ]only| only)/);
-  assert.doesNotMatch(page, /whether individual stays are available|dates allow an individual suite|whether your dates require a group booking/);
+test('Cape-specific guide sections preserve group-only booking', () => {
+ const blocks = [
+  read('pages/stay/villas.astro').match(/\{ slug: 'cape-retreat'[^\n]+/)[0],
+  read('pages/stay/coastal-stays.astro').match(/slug: 'cape-retreat',[\s\S]*?\}/)[0],
+  read('pages/stay/resorts.astro').match(/<h3>The Cape Retreat<\/h3>[\s\S]*?<div class="resorts-section__actions">/)[0],
+  read('pages/stay/resorts.astro').match(/\{ q: 'Does The Cape Retreat[^\n]+/)[0],
+  read('pages/stay/index.astro').match(/'cape-retreat':[^\n]+/)[0],
+ ];
+ for (const block of blocks) {
+  assert.match(block, /[Gg]roup[- ]booking(?:s)?(?:[- ]only| only)/);
+  assert.doesNotMatch(block, /whether individual stays are available|dates allow an individual suite|whether your dates require a group booking/);
  }
 });
