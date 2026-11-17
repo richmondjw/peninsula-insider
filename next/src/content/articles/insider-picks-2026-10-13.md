@@ -27,7 +27,7 @@ clusterLinks:
     href: "/explore/best-walks/"
 faq:
   - question: "Where is Somers General and when is it open?"
-    answer: "Somers General is on Eyre Street, Somers. It operates as a cafe and general store - check their Instagram or website for current trading hours before you go, as weekend hours can shift in spring."
+    answer: "Somers General is at 2 The Boulevard, Somers. It operates as a cafe and general store - check their Instagram or website for current trading hours before you go, as weekend hours can shift in spring."
   - question: "Where does the Bushrangers Bay trail start and how long is it?"
     answer: "The main trailhead is at the end of Cape Schank Road near Bushrangers Bay, Flinders. The loop to the bay and back via the clifftop is roughly 5 km and takes around 90 minutes at a comfortable pace."
   - question: "When does National Works on Paper 2026 close at Mornington Peninsula Regional Gallery?"
@@ -36,9 +36,9 @@ faq:
 
 ## EAT - Somers General, Somers
 
-Somers General runs a weekend brunch menu that has no business being this considered in a village this quiet - and that is precisely why it is worth the drive down Eyre Street on a Sunday morning. The general store format means you eat well and leave carrying something: the Peninsula wine shelf stocks producers you won't find in a Dan Murphy's, and the pantry section is genuinely curated rather than decorative. Spring is the right time because the verandah opens up, the village road is still calm before the summer crowds arrive from Christmas, and the kitchen runs through the brunch menu at full stretch on a Saturday or Sunday. Order whatever the eggs dish is - it changes - and stay long enough to browse the store shelves before you drive out. Pair the visit with a run up to Balnarring Bakehouse, ten minutes north, for something to take home.
+Somers General runs a weekend brunch menu that has no business being this considered in a village this quiet - and that is precisely why it is worth the drive to The Boulevard on a Sunday morning. The general store format means you eat well and leave carrying something: the Peninsula wine shelf stocks producers you won't find in a Dan Murphy's, and the pantry section is genuinely curated rather than decorative. Spring is the right time because the verandah opens up, the village road is still calm before the summer crowds arrive from Christmas, and the kitchen runs through the brunch menu at full stretch on a Saturday or Sunday. Order whatever the eggs dish is - it changes - and stay long enough to browse the store shelves before you drive out. Pair the visit with a run up to Balnarring Bakehouse, ten minutes north, for something to take home.
 
-**Somers General, Eyre Street, Somers. Allow 45–60 minutes. No booking required for casual brunch, though weekends fill early - arrive by 9:30am to be safe.**
+**Somers General, 2 The Boulevard, Somers. Allow 45–60 minutes. Bookings are available through the operator website; check current availability.**
 
 ---
 
@@ -62,6 +62,6 @@ The National Works on Paper survey - MPRG's annually contested open prize exhibi
 
 | | Venue | Address | Practical |
 |---|---|---|---|
-| **EAT** | Somers General | Eyre Street, Somers | Weekend brunch; arrive by 9:30am |
+| **EAT** | Somers General | 2 The Boulevard, Somers | Weekend brunch; arrive by 9:30am |
 | **WALK** | Bushrangers Bay Clifftop Loop | Cape Schank Road trailhead, Flinders | ~5 km, 90 min; dogs on lead permitted |
 | **DISCOVERY** | National Works on Paper 2026, MPRG | Dunns Road, Mornington | Daily 11am–4pm; free; closes 22 Nov |

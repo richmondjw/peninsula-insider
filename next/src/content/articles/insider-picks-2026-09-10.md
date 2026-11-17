@@ -34,8 +34,10 @@ faq:
   - question: "How do I get to the Greens Bush walking trails in Mornington Peninsula National Park?"
     answer: "Use Baldry's Crossing on Baldrys Road, Main Ridge. Parks Victoria lists a 1.6 km short circuit and a 3.6 km long circuit. No booking or day-use fee is required; check current park conditions before travelling."
   - question: "Is the Red Hill Truffles hunt season almost over, and how do I book?"
-    answer: "The Red Hill Truffles hunt season runs until 30 September 2026. With three weekends remaining, weekend spots are filling. Book directly at redhilltruffles.com/hunts. The property is in Main Ridge."
+    answer: "This dated guide concerns the 2026 winter and spring programme. Red Hill Truffles also offers summer and autumn hunts at 235 Arthurs Seat Road, Red Hill. Check redhilltruffles.com/calendar for current dates, packages and availability."
 ---
+
+*Visitor update, 17 November 2026: Red Hill Truffles is at 235 Arthurs Seat Road, Red Hill, and offers hunts across several seasons. The September references below concern the winter and spring programme, not the end of all annual visits. Check the [operator calendar](https://redhilltruffles.com/calendar) for current dates and availability.*
 
 **EAT / DRINK - St Andrews Beach Brewery, Rye**
 
@@ -61,15 +63,15 @@ Pair it with a late breakfast at Two Bays Brewing in Dromana on the way back - t
 
 ---
 
-**DISCOVERY - Red Hill Truffles Hunt, Main Ridge**
+**DISCOVERY - Red Hill Truffles Hunt, Red Hill**
 
 The Red Hill Truffles hunt season closes on 30 September 2026. There are three weekends left. This is a specific thing worth doing before the window shuts, not a general recommendation to think about sometime.
 
-The hunts run with trained dogs working through the truffle orchard at Main Ridge. You walk with the dog handler, watch the dog indicate, and dig the truffle out yourself. The guide explains maturity, fragrance, and grade on the spot. It is not theatrical - the dogs are working, the orchard smells like soil and rain, and the whole experience takes about ninety minutes on the ground.
+The hunts run with trained dogs working through the truffle orchard at Red Hill. You walk with the dog handler, watch the dog indicate, and dig the truffle out yourself. The guide explains maturity, fragrance, and grade on the spot. It is not theatrical - the dogs are working, the orchard smells like soil and rain, and the whole experience takes about ninety minutes on the ground.
 
 What makes September the right time rather than July or August is the late-season truffles: slightly smaller, more intensely perfumed, and closer to the end of their viable window. The quality argument for going now is real.
 
-Book directly at redhilltruffles.com/hunts; weekend sessions are filling with three weeks remaining. The property is in Main Ridge.
+Book directly at redhilltruffles.com/hunts; weekend sessions are filling with three weeks remaining. The property is in Red Hill.
 
 Pair the morning with lunch at a Red Hill cellar door - Merricks General Wine Store is fifteen minutes down Merricks Road.
 
@@ -81,4 +83,4 @@ Pair the morning with lunch at a Red Hill cellar door - Merricks General Wine St
 |---|---|---|
 | St Andrews Beach Brewery | 65 Boundary Rd, Rye | Sunday roast from midday; book online at standrewsbeachbrewery.com.au |
 | Greens Bush circuits | Baldry's Crossing, Baldrys Road, Main Ridge | 1.6 km short circuit or 3.6 km long circuit; no booking or day-use fee |
-| Red Hill Truffles Hunt | Main Ridge (address on booking confirmation) | Season ends 30 Sept 2026; book at redhilltruffles.com/hunts |
+| Red Hill Truffles Hunt | Red Hill (address on booking confirmation) | Season ends 30 Sept 2026; book at redhilltruffles.com/hunts |

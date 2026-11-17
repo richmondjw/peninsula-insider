@@ -54,9 +54,9 @@ dispatch:
     summary: "Live music every Sunday afternoon from the amphitheatre pool stage. Included with bathing, no separate ticket. The post-solstice Sunday reset: warm water, live acoustic set, and the quiet that follows Saturday's noise. Runs through 28 June."
     bookingLabel: "Book bathing session"
   localEdge:
-    title: "Red Hill Truffles winter truffle hunt, Main Ridge"
+    title: "Red Hill Truffles winter truffle hunt, Red Hill"
     when: "Saturday 20 or Sunday 21 June, booking required"
-    where: "Red Hill Truffles, Main Ridge"
+    where: "Red Hill Truffles, Red Hill"
     price: "Ticketed. Three formats: pizza hunt, lunch bundle, private hunt (minimum party). Current prices on redhilltruffles.com."
     summary: "Périgord black season is at peak. The solstice weekend booking window is still available, but the festival crowd makes Saturday afternoon slots tighter than usual. Book Sunday morning for the quietest hunt of the month."
     bookingLabel: "Book via Red Hill Truffles"
@@ -74,7 +74,7 @@ sourceStatusNote: "404 on Humanitix. The ticket listing was removed after the ev
 
 The longest night of the year falls on Saturday, and the Peninsula is not pretending it doesn't matter. The Sorrento Solstice Festival is the one winter weekend when the foreshore stops feeling empty and starts feeling purposeful: two music stages, fire performers on the promenade, a lantern walk through the village, and the six-metre effigy burn on the bay at 6:30pm. It is free, ticketed, and worth planning around.
 
-Sunday is quieter by design. The festival crowd has gone home. The hot springs are running their afternoon sessions with live music. The truffle season is at peak across the ridges, and Sunday morning slots at Main Ridge are the calmest of the solstice week.
+Sunday is quieter by design. The festival crowd has gone home. The hot springs are running their afternoon sessions with live music. The truffle season is at peak across the ridges, and Sunday morning slots at Red Hill Truffles are the calmest of the solstice week.
 
 ## The booking worth locking in
 
@@ -96,7 +96,7 @@ Live acoustic music from the amphitheatre pool stage, every Sunday through 28 Ju
 
 ## The local edge
 
-**Red Hill Truffles winter hunt, Main Ridge**
+**Red Hill Truffles winter hunt, Red Hill**
 Saturday 20 or Sunday 21 June. Booking required.
 
 Périgord black season is at peak. Hunts run as a pizza hunt, a lunch bundle, or a private hunt; current prices are on the operator's site. The solstice weekend makes Saturday afternoon slots tighter than usual. Sunday morning is the quietest slot of the week: the forest is frosty, the dogs are working well, and the hunt finishes before the lunch crowd arrives. A good thing to build a Sunday around rather than a quick stop on the way through.
@@ -116,7 +116,7 @@ Sun 21 June, 2pm–5pm, Rye
 Included with afternoon bathing session
 
 **Red Hill Truffles**
-Sat 20 or Sun 21 June, Main Ridge
+Sat 20 or Sun 21 June, Red Hill
 Three formats: pizza hunt, lunch bundle, private hunt. Current prices on the operator's site.
 Booking required: redhilltruffles.com/hunts
 
