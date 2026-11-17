@@ -45,8 +45,8 @@ test('noncanonical or noindex source is excluded',()=>{
  const p=pageFacts(html('<p>Test Venue</p>'),'/journal/other/'); assert.equal(contextualMentions(p,[entity],targets()).excluded,true);
 });
 test('shared routing keeps restaurant override, fragments, brewery and distillery truth',()=>{
- assert.equal(venueHref({id:'brew',data:{type:'brewery'}}),'/eat/brew/');
- assert.equal(venueHref({id:'gin',data:{type:'distillery'}}),'/eat/gin/');
+ assert.equal(venueHref({id:'brew',data:{type:'brewery'}}),'/wine/brew/');
+ assert.equal(venueHref({id:'gin',data:{type:'distillery'}}),'/wine/gin/');
  assert.equal(venueHrefForSlug('port-phillip-estate-restaurant'),'/wine/port-phillip-estate/');
  assert.equal(venueHrefForSlug('alba-thermal-springs'),'/explore/spas-and-wellness/#alba-thermal-springs');
  assert.equal(isListableVenue({status:'paused'}),false);

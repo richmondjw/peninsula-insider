@@ -8,9 +8,6 @@ export function venueRelationshipHold(entry) {
   const d=entry?.data ?? entry;
   if (!d || !isListableVenue(entry) || d.status === 'closed' || ['closed','temporarily-closed'].includes(d.operatingStatus)) return 'unavailable-venue';
   if (d.sitemapExclude || ['draft','review','archived','retired'].includes(d.status)) return 'excluded-venue';
-  // Current templates consolidate these /eat/ routes to /wine/, while the
-  // canonical resolver returns /eat/. Hold until route ownership is reconciled.
-  if (['brewery','distillery'].includes(d.type)) return 'canonical-route-conflict';
   return null;
 }
 export function validRelationshipCoordinates(c) {
