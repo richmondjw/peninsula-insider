@@ -17,3 +17,7 @@ Red Hill Cheese remains paused in its canonical venue record pending verificatio
 Started from main ff5d4287033e22c104051c04a307385f57558fa7, which includes legal-footer PR #763. No footer or legal changes in this patch. No action on PR #760 or #762.
 
 Read the public published CMS text rows before editing; no published overrides matched the initially affected entity/article slugs. No CMS rows were written. Images and rights metadata retained. Existing lastVerified dates are not advanced because this is a limited factual correction, not a complete review of every claim on each page.
+
+## Follow-up farmgate check
+
+At James's request, independently checked https://www.peninsulafresh.com/ on 17 November. It explicitly separates the Peninsula Fresh Organics farm at 6 Henderson Road, Baxter, from affiliated independent retailer Peninsula Organic Farmgate at 94 Baxter-Tooradin Road, Baxter. Corrected the already-affected Producer Trail's unsupported Tuerong/weekend-farmgate recommendation, removed its related-venue recommendation and preserved the canonical listing's verification pause. No closure, reopening or new visit availability is asserted. The Somers General phone was already corrected in the original patch to +61 416 484 855.

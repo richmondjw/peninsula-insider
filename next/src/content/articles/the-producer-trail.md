@@ -25,7 +25,7 @@ heroImage:
   provenanceReview: "verified"
 format: "service"
 tags: ["producers", "food", "day-trip", "red-hill", "main-ridge", "balnarring", "explore", "all-year"]
-relatedVenues: ["main-ridge-dairy", "peninsula-fresh-organics", "mornington-peninsula-chocolates", "balnarring-bakehouse", "flinders-sourdough", "red-hill-bakery", "somers-general", "green-olive-red-hill", "epicurean-red-hill", "merricks-general-wine-store", "balnarring-pub"]
+relatedVenues: ["main-ridge-dairy", "mornington-peninsula-chocolates", "balnarring-bakehouse", "flinders-sourdough", "red-hill-bakery", "somers-general", "green-olive-red-hill", "epicurean-red-hill", "merricks-general-wine-store", "balnarring-pub"]
 relatedExperiences: ["red-hill-hinterland-cycling", "balnarring-beach", "mornington-foreshore-walk"]
 readingTimeMinutes: 8
 featured: false
@@ -42,9 +42,9 @@ clusterLinks:
     href: "/explore/plans/the-market-saturday/"
 faq:
   - question: "What is the Peninsula producer trail?"
-    answer: "A day built around four farm-gate and artisan producer visits in a single driving loop - cheese dairies, strawberry farms, olive groves, bakeries - rather than cellar doors and restaurants. The northern loop runs through Main Ridge and Red Hill (cheese, strawberries, truffles or chocolates). The southern loop runs through Somers and Balnarring (organic vegetables, bakehouse, cider). Each stop is 15–30 minutes."
+    answer: "A day built around four farm-gate and artisan producer visits in a single driving loop - cheese dairies, strawberry farms, olive groves, bakeries - rather than cellar doors and restaurants. The northern loop runs through Main Ridge and Red Hill (cheese, strawberries, truffles or chocolates). The southern loop runs through Somers and Balnarring (bakehouse, cafe and cider). Each stop is 15–30 minutes."
   - question: "Which Peninsula producers are open on weekends?"
-    answer: "Main Ridge Dairy (check current opening days). Red Hill Cheese visitor information is under review. Sunny Ridge Strawberry Farm (October–April, daily). Balnarring Bakehouse (most days). Peninsula Fresh Organics farm gate (weekends). Red Hill Truffles (seasonal guided hunts; check the operator calendar and book ahead). Saturday is the strongest day for the full producer trail - most are open and at full stock."
+    answer: "Main Ridge Dairy (check current opening days). Red Hill Cheese visitor information is under review. Sunny Ridge Strawberry Farm (October–April, daily). Balnarring Bakehouse (most days). Peninsula Fresh Organics visitor information is under review; do not assume a weekend farmgate stop. Red Hill Truffles (seasonal guided hunts; check the operator calendar and book ahead). Saturday is the strongest day for the full producer trail - most are open and at full stock."
   - question: "What should I bring for a Peninsula producer trail day?"
     answer: "A hard-sided cooler bag with two large ice bricks for cheese and seafood. Paper bags for bread. Cash - the smallest producers occasionally do not run card readers on quiet days. A small notebook to track which cheese came from which dairy. And restraint - the producer trail works best with four stops and one light lunch, not six stops and a winery tasting. Bring the bag; let the producers fill it."
 aiSummary:
@@ -110,11 +110,11 @@ Pick the one that matches the energy of the group. The producer day is the kind 
 
 ## The southern loop: Somers, Balnarring
 
-The other producer trail runs across the lower Peninsula, through the Western Port side, and is the day for visitors who want grain, organic produce, and craft food rather than cheese and strawberries. This is also the trail that almost no one does. The geography is less iconic than the ridge, and the producers are scattered across more roads, but the rewards are real.
+The other producer trail runs across the lower Peninsula, through the Western Port side, and is the day for visitors who want bread, cafe food and cider rather than cheese and strawberries. This is also the trail that almost no one does. The geography is less iconic than the ridge, and the producers are scattered across more roads, but the rewards are real.
 
-### Stop one: Peninsula Fresh Organics
+### Before adding an organic-produce stop
 
-Drive fifteen minutes south to the **Peninsula Fresh Organics** farm gate near Tuerong. This is the organic vegetable supplier that underwrites the produce side of half a dozen of the Peninsula's serious dining rooms. The farm shop is open most weekends and stocks whatever has come out of the ground that week, plus local eggs, sourdough from the Balnarring Bakehouse, and seasonal preserves. Twenty minutes here is enough.
+Our Peninsula Fresh Organics visitor listing is paused because the farming business and affiliated Peninsula Organic Farmgate retail store are separate operations. The [operator website](https://www.peninsulafresh.com/) identifies the farm at 6 Henderson Road, Baxter, and the retail store at 94 Baxter-Tooradin Road, Baxter. Neither supports the previous Tuerong farmgate recommendation. Confirm the retail store's current details directly before adding a separate Baxter stop; the listing pause is not a closure notice.
 
 ### Stop two: Balnarring Bakehouse and Somers General
 
