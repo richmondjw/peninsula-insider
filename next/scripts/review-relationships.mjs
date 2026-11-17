@@ -8,8 +8,12 @@ assert.equal(graph.relationships.evidenceDefects.length,0,'Rendered relationship
 assert.equal(graph.relationships.invalidRenderedLinks.length,0,'Every relationship destination must be eligible');
 const producerIds=['bass-and-flinders','red-hill-brewery','st-andrews-beach-brewery','mornington-peninsula-brewery','two-bays-brewing','jetty-road-brewery'];
 for(const id of producerIds){const row=graph.relationships.venues.find(v=>v.id===id);assert.equal(row.href,`/wine/${id}/`);assert.ok(row.selections.length+row.mentions.length>0,`${id} recovered editorial references`);assert.ok(!graph.relationships.holds.some(h=>h.id===id&&h.reason==='canonical-route-conflict'));}
-const cases=[['/eat/flinders-sourdough/','flinders-sourdough'],['/wine/montalto/','montalto'],['/stay/kanasta-retro-caravans/','kanasta-retro-caravans'],['/explore/spas-and-wellness/','alba-thermal-springs'],...producerIds.map(id=>[`/wine/${id}/`,id])];
-const site=await Site.open();const report={head:process.env.REVIEW_HEAD_SHA??null,mode:'Built candidate with harness CMS fixtures; not live acceptance',pages:[],coverage:graph.relationships.coverage,holds:graph.relationships.holds};
+const recoveredSources=['/journal/hatted-restaurants-mornington-peninsula-2025/','/journal/mornington-peninsula-winery-guide/','/journal/peninsula-hot-springs-vs-alba/','/explore/family-friendly/','/explore/rainy-day/'];
+assert.equal(graph.relationships.bodyHolds.length,0);
+assert.equal(graph.relationships.unindexedContextualPages.length,0);
+for(const href of recoveredSources)assert.ok(graph.relationships.venues.some(v=>v.mentions.some(m=>m.href===href)),`Rendered reverse evidence for ${href}`);
+const cases=[['/eat/flinders-sourdough/','flinders-sourdough'],['/wine/montalto/','montalto'],['/stay/kanasta-retro-caravans/','kanasta-retro-caravans'],['/explore/spas-and-wellness/','alba-thermal-springs'],['/eat/barragunda-dining/','barragunda-dining'],['/eat/rye-beachside-market/','rye-beachside-market'],['/explore/spas-and-wellness/','spa-by-jackalope'],['/explore/spas-and-wellness/','endota-spa-mornington'],...producerIds.map(id=>[`/wine/${id}/`,id])];
+const site=await Site.open();const report={head:process.env.REVIEW_HEAD_SHA??null,mode:'Built candidate with harness CMS fixtures; not live acceptance',pages:[],sourcePages:[],coverage:graph.relationships.coverage,holds:graph.relationships.holds};
 try {
  for(const [path,id] of cases)for(const width of [390,1440]){
   const reader=await site.reader();const {page}=reader;
@@ -28,5 +32,19 @@ try {
    const first=observed.links.find(a=>!a.decorative);assert.ok(first);await page.focus(`${selector} a:not([aria-hidden="true"])`);await page.keyboard.press('Enter');await page.waitForFunction(h=>location.pathname===new URL(h,location.origin).pathname,{},first.href);
    report.pages.push({path,id,width,...observed,keyboard:'First relationship link opened correct internal destination'});
   }finally{await reader.close();}
+ }
+ for(const path of recoveredSources)for(const width of [390,1440]){
+  const reader=await site.reader();const {page}=reader;
+  try{await page.setViewport({width,height:900});await reader.load(path);await page.evaluate(()=>document.fonts.ready);const observed=await page.evaluate(()=>({title:document.querySelector('h1')?.textContent,prose:!!document.querySelector('.prose,[data-pi-prose-root]'),overflow:document.documentElement.scrollWidth>innerWidth}));assert.ok(observed.prose);assert.ok(observed.title);assert.equal(observed.overflow,false);// Scroll the real page to exercise lazy visibility before capturing long sources.
+   await page.evaluate(async()=>{for(let y=0;y<document.documentElement.scrollHeight;y+=Math.max(300,innerHeight*.75)){scrollTo(0,y);await new Promise(r=>setTimeout(r,50));}scrollTo(0,0);await new Promise(r=>setTimeout(r,700));});
+   const stem=`source-${path.split('/').filter(Boolean).at(-1)}-${width}`;
+   await page.screenshot({path:`${out}/${stem}.png`,fullPage:true});
+   const viewports=[];
+   for(const fraction of [.45,.85]){
+    const position=await page.evaluate(f=>{const root=document.querySelector('.prose,[data-pi-prose-root]');const box=root.getBoundingClientRect();scrollTo(0,scrollY+box.top+box.height*f-innerHeight*.2);return {scrollY,documentHeight:document.documentElement.scrollHeight};},fraction);
+    await new Promise(r=>setTimeout(r,700));
+    const file=`${stem}-body-${Math.round(fraction*100)}.png`;await page.screenshot({path:`${out}/${file}`,fullPage:false});viewports.push({fraction,file,...position});
+   }
+   report.sourcePages.push({path,width,...observed,viewports});}finally{await reader.close();}
  }
 }finally{await fs.writeFile(`${out}/rendered.json`,JSON.stringify(report,null,2));await site.close();}

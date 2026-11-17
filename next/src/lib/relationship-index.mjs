@@ -1,3 +1,4 @@
+import {eligibleStaticRelationshipGuide} from './static-relationship-guides.mjs';
 /** Evidence-only relationship projection. No requests, writes, fuzzy names or fallbacks. */
 import { venueHref, routeSlug, isListableVenue } from './editorial.ts';
 import { haversineKm } from './itinerary.ts';
@@ -14,6 +15,7 @@ export function validRelationshipCoordinates(c) {
   return typeof c?.lat==='number' && typeof c?.lng==='number' && Number.isFinite(c.lat) && Number.isFinite(c.lng) && c.lat>=-38.6 && c.lat<=-38.1 && c.lng>=144.6 && c.lng<=145.35;
 }
 export function articleRelationshipHref(a) {
+  if(a.relationshipKind==='static-guide') return a.href;
   return `/${a.data.section==='plans'?'explore/plans':'journal'}/${routeSlug(a)}/`;
 }
 export function publishedRelationshipContent(entry, now, article=false) {
@@ -24,7 +26,7 @@ export function relationshipBodyOverrides(article, overrides = {text:{}}) {
   if(article.data.section==='plans') return {}; // Actual plan article renderer does not apply body overrides.
   return Object.fromEntries(Object.entries(overrides.text??{}).filter(([key])=>key.startsWith('body.block:')).map(([key,value])=>[key.slice(11),value]));
 }
-export function buildRelationshipIndex({venues=[],articles=[],itineraries=[],events=[],bodyLinks=[],now=new Date(),radiusKm=5}={}) {
+export function buildRelationshipIndex({venues=[],articles=[],itineraries=[],events=[],guides=[],bodyLinks=[],now=new Date(),radiusKm=5}={}) {
   now=new Date(now); if (!Number.isFinite(+now) || !Number.isFinite(radiusKm) || radiusKm<=0 || radiusKm>10) throw new Error('Invalid relationship clock or radius');
   const byVenue=new Map(), byContent=new Map(), holds=[];
   const venueById=new Map(venues.map(v=>[String(routeSlug(v)),v]));
@@ -52,6 +54,7 @@ export function buildRelationshipIndex({venues=[],articles=[],itineraries=[],eve
     for(const r of a.data.relatedVenues??[]) add(a,articleRelationshipHref(a),refId(r),'selections','explicit-editorial-reference');
     if(!a.relationshipBodyAvailable) holds.push({kind:'article',id,reason:'rendered-body-evidence-unavailable'});
   }
+  for(const supplied of guides){const g=eligibleStaticRelationshipGuide(supplied);if(g)eligibleArticles.set(g.id,g);else holds.push({kind:'guide',id:supplied.id,reason:'unregistered-or-ineligible-rendered-guide'});}
   const byHref=new Map();
   for(const v of active) {const href=venueHref(v);byHref.set(href,[...(byHref.get(href)??[]),v]);}
   for(const link of bodyLinks) {
@@ -85,5 +88,5 @@ export function buildRelationshipIndex({venues=[],articles=[],itineraries=[],eve
   }
   for(const values of byContent.values())values.sort(order);
   holds.sort((a,b)=>JSON.stringify(a).localeCompare(JSON.stringify(b),'en'));
-  return {byVenue,byContent,report:{version:1,generatedAt:now.toISOString(),radiusKm,proximityEvidence:'Stored coordinates; approximate straight-line distance, not a route or independent location verification',coverage:{venues:venues.length,eligibleVenues:active.length,articles:articles.length,itineraries:itineraries.length,eligiblePromotions:promotions.length},venues:[...byVenue.values()].sort((a,b)=>a.id.localeCompare(b.id,'en')).map(v=>({id:v.id,href:v.href,mentions:v.mentions,selections:v.selections,plans:v.plans,events:v.events.map(e=>({id:routeSlug(e),day:e.data._promotionDay})),nearby:v.nearby,gaps:['mentions','selections','plans','events','nearby'].filter(k=>!v[k].length)})),holds}};
+  return {byVenue,byContent,report:{version:1,generatedAt:now.toISOString(),radiusKm,proximityEvidence:'Stored coordinates; approximate straight-line distance, not a route or independent location verification',coverage:{venues:venues.length,eligibleVenues:active.length,articles:articles.length,staticGuides:guides.filter(g=>eligibleStaticRelationshipGuide(g)).length,itineraries:itineraries.length,eligiblePromotions:promotions.length},venues:[...byVenue.values()].sort((a,b)=>a.id.localeCompare(b.id,'en')).map(v=>({id:v.id,href:v.href,mentions:v.mentions,selections:v.selections,plans:v.plans,events:v.events.map(e=>({id:routeSlug(e),day:e.data._promotionDay})),nearby:v.nearby,gaps:['mentions','selections','plans','events','nearby'].filter(k=>!v[k].length)})),holds}};
 }
