@@ -79,14 +79,6 @@ Merricks
 
 Swipe or scroll through the picks
 
-- ### [Coco Michelle Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/coco-michelle-live-at-tar-barrel-2026-11-21/>)
-
-Live music from Coco Michelle at Tar Barrel in Mornington.
-
-Sat, 21 Nov   Tar Barrel   Live music
-
-Event details checked 9 Nov 2026 · [Organiser’s page](<https://tarbarrel.com.au/music/>)
-
 - ### [CREATE: Pottery for your table](<https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/>)
 
 Come along and make a charcuterie platter with Caitlin from Peachy Keen Ceramics.
@@ -102,6 +94,14 @@ Enjoy live music at Peninsula Beer Garden! Deja Vu are a dynamic duo playing upb
 Sat, 21 Nov   Peninsula Beer Garden   Live music
 
 Event details checked 9 Nov 2026 · [Organiser’s page](<https://peninsulabeergarden.com.au/live-music/>)
+
+- ### [Felicity Urquhart & Josh Cunningham Live at The Pig & Whistle Tavern](<https://peninsulainsider.com.au/whats-on/felicity-urquhart-and-josh-cunningham-live-at-the-pig-and-whistle-tavern-2026-11-21/>)
+
+Multi-Award-winning singer-songwriters Felicity Urquhart & Josh Cunningham are hitting the road again to celebrate their chart-topping, third studio album, Everything Around You.
+
+Sat, 21 Nov   Pig & Whistle Tavern   Live music
+
+Event details checked 9 Nov 2026 · [Organiser’s page](<https://events.humanitix.com/felicity-urquhart-and-josh-cunningham-go-north-go-south-tour-vmywstka/tickets?fbclid=IwY2xjawVXVDdleHRuA2FlbQIxMABwZG9mAWJyaWQRMW53enpXazVpcnRMUEttdU9zcnRjBmFwcF9pZBAyMjIwMzkxNzg4MjAwODkyAAEfovC_arQeFoFji3FwDuu7-8BhsvgLaIeObhmJW6wiGJ-bu4khdisSr85gr0c_aem_IM1YqQU9WAVYwOZM4u2sXA>)
 
 This season · Spring
 
