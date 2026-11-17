@@ -150,7 +150,7 @@
     "test:event-heroes": "node --test scripts/event-hero.test.mjs",
     "assert:image-captions": "node scripts/assert-image-captions.mjs",
     "test:journal-links": "node --test scripts/journal-link-audit.test.mjs",
-    "test:relationships": "node --test src/lib/relationship-index.test.mjs src/lib/relationship-evidence.test.mjs"
+    "test:relationships": "node --test src/lib/relationship-index.test.mjs src/lib/relationship-evidence.test.mjs scripts/audit-relationships.test.mjs"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.0",
