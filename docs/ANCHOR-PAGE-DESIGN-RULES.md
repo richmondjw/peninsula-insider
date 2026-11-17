@@ -16,6 +16,10 @@ Applies to Home, Eat & Drink, Stay, Wine, Explore, Plans, What's On and Journal.
 - Use stable image dimensions and deliberate 3:2 or 16:9 crops. Avoid giant empty plates paired with tiny unrelated thumbnails. A photo cannot carry the only text or action.
 - Use a consistent section rhythm and a small family of card types. Editorial curation, practical discovery and deeper stories are recognisable layers rather than competing modules.
 
+### Scoped Eat photograph exception
+
+James explicitly directed restoration of the four historical Eat shortlist photographs on 15 November 2026 and reaffirmed it on 17 November after PR755 removed them. The exact four URLs and neutral descriptions in `next/src/lib/eat-featured-restoration.mjs` may render only on `/eat/#the-six` despite unresolved creator, rights-holder and website-use documentation. This direction is not proof of a licence; do not invent provenance or apply it to other assets or surfaces. Commonfolk remains captioned as coffee production, not the Mornington cafe. Exact asset quarantines take precedence. Preserve this scoped exception during routine audits unless a later owner instruction or an explicit asset hold changes it. CI and pre-publication browser checks guard the rendered shortlist.
+
 ## Interaction and mobile
 
 - Entry pages offer one clear primary discovery path, an editorial route and a map/context route. A person looking for a cafe should not need to read a restaurant feature first.

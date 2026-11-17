@@ -147,6 +147,23 @@ jobs:
       - name: Verify discovery and business journeys
         run: npm --prefix next run test:discovery-journeys
 
+      - name: Verify Eat featured photographs before publishing
+        working-directory: next
+        env:
+          REVIEW_HEAD_SHA: ${{ github.sha }}
+        run: |
+          node --test src/lib/eat-featured-restoration.test.mjs
+          node scripts/review-eat-featured-restoration.mjs
+
+      - name: Retain Eat featured photograph acceptance
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eat-featured-restoration-deploy-${{ github.sha }}
+          path: next/review/eat-featured-restoration/
+          if-no-files-found: warn
+          retention-days: 14
+
       - name: Verify itinerary planning and trip handoff
         run: npm --prefix next run test:planning-journeys
 

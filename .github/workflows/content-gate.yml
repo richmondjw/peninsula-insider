@@ -78,6 +78,7 @@ jobs:
             exit 1
           fi
           npm run test:media-provenance
+          node --test src/lib/eat-featured-restoration.test.mjs
           npm run lint:visit-victoria
           npm run test:commercial-firewall
           npm run test:link-health
@@ -243,7 +244,7 @@ jobs:
         # same.
         run: |
           cd next
-          if [ "${GITHUB_HEAD_REF:-}" = "codex/count-free-editorial-20261117" ] || [ "${GITHUB_HEAD_REF:-}" = "fix/eat-featured-photo-restoration-20261115" ] || [ "${GITHUB_HEAD_REF:-}" = "fix/home-weekend-selection-20261115" ]; then
+          if [ "${GITHUB_HEAD_REF:-}" = "codex/count-free-editorial-20261117" ] || [ "${GITHUB_HEAD_REF:-}" = "fix/eat-featured-photo-regression-20261117" ] || [ "${GITHUB_HEAD_REF:-}" = "fix/home-weekend-selection-20261115" ]; then
             npm run build
           else
             npx astro build
@@ -289,19 +290,18 @@ jobs:
           retention-days: 14
 
       - name: Review restored Eat featured photographs
-        if: github.event_name == 'pull_request' && github.head_ref == 'fix/eat-featured-photo-restoration-20261115'
         working-directory: next
         env:
-          REVIEW_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          REVIEW_HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
         run: |
           node --test src/lib/eat-featured-restoration.test.mjs src/lib/media-provenance.test.mjs scripts/media-rights.test.mjs
           node scripts/review-eat-featured-restoration.mjs
 
       - name: Upload Eat featured photograph review
-        if: always() && github.event_name == 'pull_request' && github.head_ref == 'fix/eat-featured-photo-restoration-20261115'
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: eat-featured-restoration-review-${{ github.event.pull_request.head.sha }}
+          name: eat-featured-restoration-review-${{ github.event.pull_request.head.sha || github.sha }}
           path: next/review/eat-featured-restoration/
           if-no-files-found: error
           retention-days: 14
