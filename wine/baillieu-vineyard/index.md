@@ -121,19 +121,19 @@ cellar door  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>) [Book](<https://www.barmahparkwines.com.au/experiences>)
 
-Photo: Courtesy of Visit Victoria
+Photo: Two Palms Australia, courtesy of Visit Victoria
 
-Winery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+Distillery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
-### [Crittenden Estate](<https://peninsulainsider.com.au/wine/crittenden-estate/>)
+### [Bass & Flinders Distillery](<https://peninsulainsider.com.au/wine/bass-and-flinders/>)
 
-25 Harrisons Rd, Dromana VIC 3936
+40 Collins Rd, Dromana VIC 3936
 
-The Peninsula's pioneering estate, four decades of Crittenden family winemaking, Pinot, Chardonnay, and the Spanish-Italian Los Hermanos range from a new lakeside wine centre.
+A Peninsula gin distillery with a gin-school blending session that has quietly become one of the region's best wet-weather plans.
 
-cellar door  waterfront
+rainy day  cellar door
 
-[Read notes](<https://peninsulainsider.com.au/wine/crittenden-estate/>) [Book](<https://www.crittendenwines.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/wine/bass-and-flinders/>) [Book](<https://bassandflindersdistillery.com/>)
 
 Plan your Peninsula day
 

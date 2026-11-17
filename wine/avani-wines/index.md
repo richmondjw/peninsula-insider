@@ -111,6 +111,8 @@ Not the biggest estates, not the flashiest rooms. The Peninsula cellar doors whe
 
 Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
 
+- [Red Hill Brewery](<https://peninsulainsider.com.au/wine/red-hill-brewery/>) · 1.1 km
+
 - [Prancing Horse Estate](<https://peninsulainsider.com.au/wine/prancing-horse-estate/>) · 1.1 km
 
 - [Ten Minutes by Tractor](<https://peninsulainsider.com.au/wine/ten-minutes-by-tractor/>) · 1.2 km
@@ -120,8 +122,6 @@ Within 5 km using stored map locations. Approximate straight-line distances, not
 - [Montalto Vineyard & Olive Grove](<https://peninsulainsider.com.au/wine/montalto/>) · 1.3 km
 
 - [Hurley Vineyard](<https://peninsulainsider.com.au/wine/hurley-vineyard/>) · 1.6 km
-
-- [Foxeys Hangout](<https://peninsulainsider.com.au/wine/foxeys-hangout/>) · 1.7 km
 
 Related picks
 
@@ -153,19 +153,19 @@ cellar door  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>) [Book](<https://www.barmahparkwines.com.au/experiences>)
 
-Photo: Courtesy of Visit Victoria
+Photo: Two Palms Australia, courtesy of Visit Victoria
 
-Winery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+Distillery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
-### [Crittenden Estate](<https://peninsulainsider.com.au/wine/crittenden-estate/>)
+### [Bass & Flinders Distillery](<https://peninsulainsider.com.au/wine/bass-and-flinders/>)
 
-25 Harrisons Rd, Dromana VIC 3936
+40 Collins Rd, Dromana VIC 3936
 
-The Peninsula's pioneering estate, four decades of Crittenden family winemaking, Pinot, Chardonnay, and the Spanish-Italian Los Hermanos range from a new lakeside wine centre.
+A Peninsula gin distillery with a gin-school blending session that has quietly become one of the region's best wet-weather plans.
 
-cellar door  waterfront
+rainy day  cellar door
 
-[Read notes](<https://peninsulainsider.com.au/wine/crittenden-estate/>) [Book](<https://www.crittendenwines.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/wine/bass-and-flinders/>) [Book](<https://bassandflindersdistillery.com/>)
 
 Plan your Peninsula day
 

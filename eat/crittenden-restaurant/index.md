@@ -107,17 +107,31 @@ Within 5 km using stored map locations. Approximate straight-line distances, not
 
 - [Trofeo Estate](<https://peninsulainsider.com.au/wine/trofeo-estate/>) · 1.5 km
 
+- [Jetty Road Brewery](<https://peninsulainsider.com.au/wine/jetty-road-brewery/>) · 2.7 km
+
+- [Two Bays Brewing Co](<https://peninsulainsider.com.au/wine/two-bays-brewing/>) · 2.8 km
+
 - [T'Gallant](<https://peninsulainsider.com.au/wine/t-gallant/>) · 4.0 km
-
-- [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>) · 4.1 km
-
-- [Eldridge Estate](<https://peninsulainsider.com.au/wine/eldridge-estate/>) · 4.2 km
 
 Related picks
 
 ## More from Dromana
 
  [Back to Eat & Drink →](<https://peninsulainsider.com.au/eat/>)
+
+Photo: Two Palms Australia, courtesy of Visit Victoria
+
+Distillery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+
+### [Bass & Flinders Distillery](<https://peninsulainsider.com.au/wine/bass-and-flinders/>)
+
+40 Collins Rd, Dromana VIC 3936
+
+A Peninsula gin distillery with a gin-school blending session that has quietly become one of the region's best wet-weather plans.
+
+rainy day  cellar door
+
+[Read notes](<https://peninsulainsider.com.au/wine/bass-and-flinders/>) [Book](<https://bassandflindersdistillery.com/>)
 
 Photo: Courtesy of Visit Victoria
 
@@ -146,20 +160,6 @@ A Dromana foreshore hotel with a restaurant, bistro and indoor and outdoor bars.
 waterfront  family
 
 [Read notes](<https://peninsulainsider.com.au/eat/dromana-hotel/>) [Book](<https://stellasdromanahotel.com.au/contact/>)
-
-Photo: Courtesy of Visit Victoria
-
-Winery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
-
-### [Trofeo Estate](<https://peninsulainsider.com.au/wine/trofeo-estate/>)
-
-85 Harrisons Road, Dromana VIC 3936
-
-The Peninsula's only amphora winery, terracotta-aged Sangiovese, Fiano, and Nebbiolo, and a cellar worth visiting on its own terms.
-
-cellar door  slow
-
-[Read notes](<https://peninsulainsider.com.au/wine/trofeo-estate/>) [Book](<https://www.trofeoestate.com.au/visit-us/>)
 
 Plan your Peninsula day
 

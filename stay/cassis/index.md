@@ -81,9 +81,9 @@ Within 5 km using stored map locations. Approximate straight-line distances, not
 
 - [Tuck's Ridge](<https://peninsulainsider.com.au/wine/tucks-ridge/>) · 1.2 km
 
-- [Prancing Horse Estate](<https://peninsulainsider.com.au/wine/prancing-horse-estate/>) · 1.5 km
+- [Red Hill Brewery](<https://peninsulainsider.com.au/wine/red-hill-brewery/>) · 1.2 km
 
-- [Eldridge Estate](<https://peninsulainsider.com.au/wine/eldridge-estate/>) · 1.8 km
+- [Prancing Horse Estate](<https://peninsulainsider.com.au/wine/prancing-horse-estate/>) · 1.5 km
 
 Related picks
 

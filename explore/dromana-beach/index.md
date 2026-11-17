@@ -47,7 +47,7 @@ Photo: Two Palms Australia, courtesy of Visit Victoria
 
 Distillery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
-### [Bass & Flinders Distillery](<https://peninsulainsider.com.au/eat/bass-and-flinders/>)
+### [Bass & Flinders Distillery](<https://peninsulainsider.com.au/wine/bass-and-flinders/>)
 
 40 Collins Rd, Dromana VIC 3936
 
@@ -55,7 +55,7 @@ A Peninsula gin distillery with a gin-school blending session that has quietly b
 
 rainy day  cellar door
 
-[Read notes](<https://peninsulainsider.com.au/eat/bass-and-flinders/>) [Book](<https://bassandflindersdistillery.com/>)
+[Read notes](<https://peninsulainsider.com.au/wine/bass-and-flinders/>) [Book](<https://bassandflindersdistillery.com/>)
 
 Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 

@@ -147,7 +147,7 @@ Within 5 km using stored map locations. Approximate straight-line distances, not
 
 - [Port Phillip Estate](<https://peninsulainsider.com.au/wine/port-phillip-estate/>) · 1.5 km
 
-- [Eldridge Estate](<https://peninsulainsider.com.au/wine/eldridge-estate/>) · 2.2 km
+- [Red Hill Brewery](<https://peninsulainsider.com.au/wine/red-hill-brewery/>) · 1.9 km
 
 Related picks
 

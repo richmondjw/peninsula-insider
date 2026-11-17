@@ -51,6 +51,8 @@ Within 5 km using stored map locations. Approximate straight-line distances, not
 
 - [Commonfolk Coffee](<https://peninsulainsider.com.au/eat/commonfolk-coffee/>) · 0.4 km
 
+- [Tar Barrel Brewery & Distillery](<https://peninsulainsider.com.au/wine/mornington-peninsula-brewery/>) · 1.4 km
+
 Related picks
 
 ## More from Mornington

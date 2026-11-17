@@ -139,7 +139,7 @@ Explore the Peninsula by location. Events show the next 30 days where the event 
 
 - [View : Hurley Vineyard](<https://peninsulainsider.com.au/wine/hurley-vineyard/>)
 
-- [View : Jetty Road Brewery](<https://peninsulainsider.com.au/eat/jetty-road-brewery/>)
+- [View : Jetty Road Brewery](<https://peninsulainsider.com.au/wine/jetty-road-brewery/>)
 
 - [View : Mornington Peninsula Retro Caravans](<https://peninsulainsider.com.au/stay/kanasta-retro-caravans/>)
 
@@ -167,7 +167,7 @@ Explore the Peninsula by location. Events show the next 30 days where the event 
 
 - [View : Mornington Main Street Market](<https://peninsulainsider.com.au/eat/mornington-main-street-market/>)
 
-- [View : Tar Barrel Brewery & Distillery](<https://peninsulainsider.com.au/eat/mornington-peninsula-brewery/>)
+- [View : Tar Barrel Brewery & Distillery](<https://peninsulainsider.com.au/wine/mornington-peninsula-brewery/>)
 
 - [View : Mount Eliza Farmers Market](<https://peninsulainsider.com.au/eat/mount-eliza-farmers-market/>)
 
@@ -209,7 +209,7 @@ Explore the Peninsula by location. Events show the next 30 days where the event 
 
 - [View : The Red Hill Baker](<https://peninsulainsider.com.au/eat/red-hill-bakery/>)
 
-- [View : Red Hill Brewery](<https://peninsulainsider.com.au/eat/red-hill-brewery/>)
+- [View : Red Hill Brewery](<https://peninsulainsider.com.au/wine/red-hill-brewery/>)
 
 - [View : Rye Foreshore Market](<https://peninsulainsider.com.au/eat/rye-beachside-market/>)
 
@@ -223,7 +223,7 @@ Explore the Peninsula by location. Events show the next 30 days where the event 
 
 - [View : Hotel Sorrento](<https://peninsulainsider.com.au/eat/sorrento-hotel/>)
 
-- [View : St Andrews Beach Brewery](<https://peninsulainsider.com.au/eat/st-andrews-beach-brewery/>)
+- [View : St Andrews Beach Brewery](<https://peninsulainsider.com.au/wine/st-andrews-beach-brewery/>)
 
 - [View : Stonier Wines](<https://peninsulainsider.com.au/wine/stonier-wines/>)
 
@@ -249,7 +249,7 @@ Explore the Peninsula by location. Events show the next 30 days where the event 
 
 - [View : Tuck's Ridge](<https://peninsulainsider.com.au/wine/tucks-ridge/>)
 
-- [View : Two Bays Brewing Co](<https://peninsulainsider.com.au/eat/two-bays-brewing/>)
+- [View : Two Bays Brewing Co](<https://peninsulainsider.com.au/wine/two-bays-brewing/>)
 
 - [View : Chalet Un at Woodman Estate](<https://peninsulainsider.com.au/stay/woodman-estate/>)
 

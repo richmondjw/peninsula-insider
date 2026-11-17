@@ -143,7 +143,7 @@ The pub-with-rooms model done right. A counter meal and a window seat is the ent
 
 $$ · Dromana
 
-Distillery whose gin botanical walks and tasting flights doubled as a Peninsula geography lesson.](<https://peninsulainsider.com.au/eat/bass-and-flinders/>)
+Distillery whose gin botanical walks and tasting flights doubled as a Peninsula geography lesson.](<https://peninsulainsider.com.au/wine/bass-and-flinders/>)
 
 - [17   wine
 

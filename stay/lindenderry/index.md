@@ -205,11 +205,11 @@ Within 5 km using stored map locations. Approximate straight-line distances, not
 
 - [Ten Minutes by Tractor](<https://peninsulainsider.com.au/wine/ten-minutes-by-tractor/>) · 0.5 km
 
+- [Red Hill Brewery](<https://peninsulainsider.com.au/wine/red-hill-brewery/>) · 0.8 km
+
 - [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>) · 1.3 km
 
 - [Montalto Vineyard & Olive Grove](<https://peninsulainsider.com.au/wine/montalto/>) · 1.5 km
-
-- [Port Phillip Estate](<https://peninsulainsider.com.au/wine/port-phillip-estate/>) · 1.8 km
 
 Related picks
 

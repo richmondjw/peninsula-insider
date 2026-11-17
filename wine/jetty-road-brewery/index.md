@@ -91,6 +91,42 @@ Not sure how to build a day around Jetty Road Brewery?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
+## Related editorial selections
+
+Selected as related reading; these pieces may not mention this place in their text.
+
+Service   7 min
+
+### [The Peninsula Pub Crawl: Local Pubs, Unhurried Routes](<https://peninsulainsider.com.au/explore/plans/the-pub-crawl/>)
+
+10 April 2026
+
+A drinking guide to the Mornington Peninsula's public houses - the fires, the bistros, the beer gardens, the locals, and the argument for building a whole day around them.
+
+Service   7 min
+
+### [Where to Eat Without a Booking](<https://peninsulainsider.com.au/journal/where-to-eat-without-a-booking/>)
+
+10 April 2026
+
+The walk-in dining guide to the Mornington Peninsula - the pubs, cafés, bakeries and bars where you can turn up hungry, without a reservation, and leave properly fed.
+
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Two Bays Brewing Co](<https://peninsulainsider.com.au/wine/two-bays-brewing/>) · 0.2 km
+
+- [Crittenden Estate](<https://peninsulainsider.com.au/wine/crittenden-estate/>) · 1.8 km
+
+- [Crittenden Estate Villas](<https://peninsulainsider.com.au/stay/crittenden-villas/>) · 1.8 km
+
+- [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>) · 1.9 km
+
+- [Crittenden Restaurant](<https://peninsulainsider.com.au/eat/crittenden-restaurant/>) · 2.7 km
+
+- [Trofeo Estate](<https://peninsulainsider.com.au/wine/trofeo-estate/>) · 4.1 km
+
 Related picks
 
 ## Other wine experiences to compare

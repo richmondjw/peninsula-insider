@@ -135,9 +135,9 @@ Within 5 km using stored map locations. Approximate straight-line distances, not
 
 - [The Sanctuary at Alba](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/>) · 1.7 km
 
-- [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>) · 3.8 km
+- [St Andrews Beach Brewery](<https://peninsulainsider.com.au/wine/st-andrews-beach-brewery/>) · 2.1 km
 
-- [Rye Hotel](<https://peninsulainsider.com.au/eat/rye-hotel/>) · 4.0 km
+- [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>) · 3.8 km
 
 Related picks
 

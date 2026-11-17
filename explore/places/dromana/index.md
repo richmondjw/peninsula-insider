@@ -119,7 +119,7 @@ Photo: Two Palms Australia, courtesy of Visit Victoria
 
 Distillery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
-### [Bass & Flinders Distillery](<https://peninsulainsider.com.au/eat/bass-and-flinders/>)
+### [Bass & Flinders Distillery](<https://peninsulainsider.com.au/wine/bass-and-flinders/>)
 
 40 Collins Rd, Dromana VIC 3936
 
@@ -127,7 +127,7 @@ A Peninsula gin distillery with a gin-school blending session that has quietly b
 
 rainy day  cellar door
 
-[Read notes](<https://peninsulainsider.com.au/eat/bass-and-flinders/>) [Book](<https://bassandflindersdistillery.com/>)
+[Read notes](<https://peninsulainsider.com.au/wine/bass-and-flinders/>) [Book](<https://bassandflindersdistillery.com/>)
 
 Restaurant  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
@@ -371,11 +371,11 @@ Browse locations as a list
 
 - [Crittenden Estate Villas](<https://peninsulainsider.com.au/stay/crittenden-villas/>) · villa
 
-- [Jetty Road Brewery](<https://peninsulainsider.com.au/eat/jetty-road-brewery/>) · brewery
+- [Jetty Road Brewery](<https://peninsulainsider.com.au/wine/jetty-road-brewery/>) · brewery
 
 - [Trofeo Estate](<https://peninsulainsider.com.au/wine/trofeo-estate/>) · winery
 
-- [Two Bays Brewing Co](<https://peninsulainsider.com.au/eat/two-bays-brewing/>) · brewery
+- [Two Bays Brewing Co](<https://peninsulainsider.com.au/wine/two-bays-brewing/>) · brewery
 
 - [Dromana Beach](<https://peninsulainsider.com.au/explore/dromana-beach/>) · beach
 

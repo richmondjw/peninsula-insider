@@ -161,7 +161,7 @@ Photo: Peter Tarasiuk, courtesy of Visit Victoria
 
 Brewery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
-### [Red Hill Brewery](<https://peninsulainsider.com.au/eat/red-hill-brewery/>)
+### [Red Hill Brewery](<https://peninsulainsider.com.au/wine/red-hill-brewery/>)
 
 88 Shoreham Rd, Red Hill South VIC 3937
 
@@ -169,7 +169,7 @@ A brewery in Red Hill South with its own on-site hop yard, a deck and beer garde
 
 cellar door  garden
 
-[Read notes](<https://peninsulainsider.com.au/eat/red-hill-brewery/>) [Book](<https://redhillbrewery.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/wine/red-hill-brewery/>) [Book](<https://redhillbrewery.com.au/>)
 
 ## The Insider Note
 

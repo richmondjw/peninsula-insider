@@ -213,13 +213,13 @@ Within 5 km using stored map locations. Approximate straight-line distances, not
 
 - [Crittenden Restaurant](<https://peninsulainsider.com.au/eat/crittenden-restaurant/>) · 0.9 km
 
+- [Jetty Road Brewery](<https://peninsulainsider.com.au/wine/jetty-road-brewery/>) · 1.8 km
+
+- [Two Bays Brewing Co](<https://peninsulainsider.com.au/wine/two-bays-brewing/>) · 1.9 km
+
 - [Trofeo Estate](<https://peninsulainsider.com.au/wine/trofeo-estate/>) · 2.3 km
 
 - [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>) · 3.4 km
-
-- [T'Gallant](<https://peninsulainsider.com.au/wine/t-gallant/>) · 4.1 km
-
-- [Tedesca Osteria](<https://peninsulainsider.com.au/eat/tedesca-osteria/>) · 4.4 km
 
 Related picks
 

@@ -109,7 +109,7 @@ Within 5 km using stored map locations. Approximate straight-line distances, not
 
 - [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>) · 2.2 km
 
-- [Rye Hotel](<https://peninsulainsider.com.au/eat/rye-hotel/>) · 2.6 km
+- [St Andrews Beach Brewery](<https://peninsulainsider.com.au/wine/st-andrews-beach-brewery/>) · 2.4 km
 
 Related picks
 

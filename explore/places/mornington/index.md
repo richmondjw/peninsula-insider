@@ -363,7 +363,7 @@ Browse locations as a list
 
 - [Mornington Main Street Market](<https://peninsulainsider.com.au/eat/mornington-main-street-market/>) · market
 
-- [Tar Barrel Brewery & Distillery](<https://peninsulainsider.com.au/eat/mornington-peninsula-brewery/>) · brewery
+- [Tar Barrel Brewery & Distillery](<https://peninsulainsider.com.au/wine/mornington-peninsula-brewery/>) · brewery
 
 - [The Bay Hotel Mornington](<https://peninsulainsider.com.au/eat/the-bay-hotel-mornington/>) · pub
 

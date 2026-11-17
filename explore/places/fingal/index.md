@@ -139,7 +139,7 @@ Photo: Courtesy of Visit Victoria
 
 Brewery  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
-### [St Andrews Beach Brewery](<https://peninsulainsider.com.au/eat/st-andrews-beach-brewery/>)
+### [St Andrews Beach Brewery](<https://peninsulainsider.com.au/wine/st-andrews-beach-brewery/>)
 
 160 Sandy Rd, Fingal VIC 3939
 
@@ -147,7 +147,7 @@ A Fingal brewery in former horse-training stables, with indoor and outdoor dinin
 
 big group  family
 
-[Read notes](<https://peninsulainsider.com.au/eat/st-andrews-beach-brewery/>) [Book](<https://www.standrewsbeachbrewery.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/wine/st-andrews-beach-brewery/>) [Book](<https://www.standrewsbeachbrewery.com.au/>)
 
 [See the editorial rankings → Best Restaurants on the Peninsula](<https://peninsulainsider.com.au/eat/best-restaurants/>)
 
@@ -393,7 +393,7 @@ Browse locations as a list
 
 - [The Sanctuary at Alba](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/>) · villa
 
-- [St Andrews Beach Brewery](<https://peninsulainsider.com.au/eat/st-andrews-beach-brewery/>) · brewery
+- [St Andrews Beach Brewery](<https://peninsulainsider.com.au/wine/st-andrews-beach-brewery/>) · brewery
 
 - [Moonah Links](<https://peninsulainsider.com.au/explore/moonah-links/>) · golf-course
 

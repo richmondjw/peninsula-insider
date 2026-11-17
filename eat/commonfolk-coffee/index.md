@@ -157,6 +157,8 @@ Within 5 km using stored map locations. Approximate straight-line distances, not
 
 - [The Rocks Mornington](<https://peninsulainsider.com.au/eat/the-rocks-mornington/>) · 0.6 km
 
+- [Tar Barrel Brewery & Distillery](<https://peninsulainsider.com.au/wine/mornington-peninsula-brewery/>) · 1.0 km
+
 - [Barmah Park Vineyard](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>) · 4.9 km
 
 Related picks

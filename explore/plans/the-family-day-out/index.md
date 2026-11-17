@@ -75,7 +75,7 @@ Start with a return gondola ride, about 15 minutes each way, and pause at the su
 
 - Midday
 
-### [Red Hill Brewery](<https://peninsulainsider.com.au/eat/red-hill-brewery/>)
+### [Red Hill Brewery](<https://peninsulainsider.com.au/wine/red-hill-brewery/>)
 
 The bar and kitchen are usually open Thursday to Sunday, with food from midday; menus vary, so check your chosen day's service before setting out. Date-specific note for Saturday 24 October 2026: the brewery advertised Oktoberfest from 11 am to 7 pm, overlapping this lunch stop. Seating availability and suitability for your family are unconfirmed; check with the brewery before making it your lunch plan.
 

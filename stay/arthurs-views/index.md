@@ -75,6 +75,10 @@ Not sure how to build a day around Arthurs Views?
 
 Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
 
+- [Jetty Road Brewery](<https://peninsulainsider.com.au/wine/jetty-road-brewery/>) · 1.9 km
+
+- [Two Bays Brewing Co](<https://peninsulainsider.com.au/wine/two-bays-brewing/>) · 2.0 km
+
 - [Crittenden Estate](<https://peninsulainsider.com.au/wine/crittenden-estate/>) · 3.4 km
 
 - [Crittenden Estate Villas](<https://peninsulainsider.com.au/stay/crittenden-villas/>) · 3.4 km
@@ -82,10 +86,6 @@ Within 5 km using stored map locations. Approximate straight-line distances, not
 - [Paradigm Hill](<https://peninsulainsider.com.au/wine/paradigm-hill/>) · 3.9 km
 
 - [T'Gallant](<https://peninsulainsider.com.au/wine/t-gallant/>) · 4.1 km
-
-- [Crittenden Restaurant](<https://peninsulainsider.com.au/eat/crittenden-restaurant/>) · 4.1 km
-
-- [Tedesca Osteria](<https://peninsulainsider.com.au/eat/tedesca-osteria/>) · 4.7 km
 
 Related picks
 

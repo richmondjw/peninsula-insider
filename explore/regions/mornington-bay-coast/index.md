@@ -71,7 +71,7 @@ Photo: Two Palms Australia, courtesy of Visit Victoria
 
 Distillery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
-### [Bass & Flinders Distillery](<https://peninsulainsider.com.au/eat/bass-and-flinders/>)
+### [Bass & Flinders Distillery](<https://peninsulainsider.com.au/wine/bass-and-flinders/>)
 
 40 Collins Rd, Dromana VIC 3936
 
@@ -79,7 +79,7 @@ A Peninsula gin distillery with a gin-school blending session that has quietly b
 
 rainy day  cellar door
 
-[Read notes](<https://peninsulainsider.com.au/eat/bass-and-flinders/>) [Book](<https://bassandflindersdistillery.com/>)
+[Read notes](<https://peninsulainsider.com.au/wine/bass-and-flinders/>) [Book](<https://bassandflindersdistillery.com/>)
 
 Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
@@ -171,7 +171,7 @@ wellness  slow
 
 Brewery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
-### [Jetty Road Brewery](<https://peninsulainsider.com.au/eat/jetty-road-brewery/>)
+### [Jetty Road Brewery](<https://peninsulainsider.com.au/wine/jetty-road-brewery/>)
 
 12-14 Brasser Ave, Dromana VIC 3936
 
@@ -179,7 +179,7 @@ A Dromana brewery with a beer hall, food menu and core and seasonal beers.
 
 big group  family
 
-[Read notes](<https://peninsulainsider.com.au/eat/jetty-road-brewery/>) [Book](<https://www.jettyroad.com.au/dromana>)
+[Read notes](<https://peninsulainsider.com.au/wine/jetty-road-brewery/>) [Book](<https://www.jettyroad.com.au/dromana>)
 
 Restaurant  [Safety Beach](<https://peninsulainsider.com.au/explore/places/safety-beach/>)
 
@@ -233,7 +233,7 @@ slow  quick bite
 
 Brewery  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
-### [Tar Barrel Brewery & Distillery](<https://peninsulainsider.com.au/eat/mornington-peninsula-brewery/>)
+### [Tar Barrel Brewery & Distillery](<https://peninsulainsider.com.au/wine/mornington-peninsula-brewery/>)
 
 72 Watt Rd, Mornington VIC 3931
 
@@ -241,7 +241,7 @@ The brewery and distillery at 72 Watt Road, with beer and spirit paddles and woo
 
 big group  garden
 
-[Read notes](<https://peninsulainsider.com.au/eat/mornington-peninsula-brewery/>) [Book](<https://tarbarrel.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/wine/mornington-peninsula-brewery/>) [Book](<https://tarbarrel.com.au/>)
 
 Market  [Mount Eliza](<https://peninsulainsider.com.au/explore/places/mount-eliza/>)
 
@@ -307,7 +307,7 @@ cellar door  slow
 
 Brewery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
-### [Two Bays Brewing Co](<https://peninsulainsider.com.au/eat/two-bays-brewing/>)
+### [Two Bays Brewing Co](<https://peninsulainsider.com.au/wine/two-bays-brewing/>)
 
 2/4 Brasser Ave, Dromana VIC 3936
 
@@ -315,7 +315,7 @@ Australia's first dedicated gluten-free brewery, unexpectedly good beer, a small
 
 slow
 
-[Read notes](<https://peninsulainsider.com.au/eat/two-bays-brewing/>) [Book](<https://www.twobays.beer/>)
+[Read notes](<https://peninsulainsider.com.au/wine/two-bays-brewing/>) [Book](<https://www.twobays.beer/>)
 
 [Beach](<https://peninsulainsider.com.au/explore/dromana-beach/>)
 

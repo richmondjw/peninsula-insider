@@ -73,6 +73,32 @@ Not sure how to build a day around Tar Barrel Brewery & Distillery?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
+## Related editorial selections
+
+Selected as related reading; these pieces may not mention this place in their text.
+
+Service   7 min
+
+### [The Peninsula Pub Crawl: Local Pubs, Unhurried Routes](<https://peninsulainsider.com.au/explore/plans/the-pub-crawl/>)
+
+10 April 2026
+
+A drinking guide to the Mornington Peninsula's public houses - the fires, the bistros, the beer gardens, the locals, and the argument for building a whole day around them.
+
+## Nearby places
+
+Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
+
+- [Commonfolk Coffee](<https://peninsulainsider.com.au/eat/commonfolk-coffee/>) · 1.0 km
+
+- [The Bay Hotel Mornington](<https://peninsulainsider.com.au/eat/the-bay-hotel-mornington/>) · 1.3 km
+
+- [Mornington Main Street Market](<https://peninsulainsider.com.au/eat/mornington-main-street-market/>) · 1.4 km
+
+- [The Rocks Mornington](<https://peninsulainsider.com.au/eat/the-rocks-mornington/>) · 1.6 km
+
+- [Barmah Park Vineyard](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>) · 4.1 km
+
 Related picks
 
 ## Other wine experiences to compare

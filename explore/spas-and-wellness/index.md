@@ -111,9 +111,9 @@ Within 5 km using stored map locations. Approximate straight-line distances, not
 
 - [The Sanctuary at Alba](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/>) · 1.7 km
 
-- [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>) · 3.8 km
+- [St Andrews Beach Brewery](<https://peninsulainsider.com.au/wine/st-andrews-beach-brewery/>) · 2.1 km
 
-- [Rye Hotel](<https://peninsulainsider.com.au/eat/rye-hotel/>) · 4.0 km
+- [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>) · 3.8 km
 
 [Cape Schanck](<https://peninsulainsider.com.au/explore/spas-and-wellness/#one-spa-racv-cape-schanck>)
 
@@ -209,7 +209,7 @@ Within 5 km using stored map locations. Approximate straight-line distances, not
 
 - [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>) · 2.2 km
 
-- [Rye Hotel](<https://peninsulainsider.com.au/eat/rye-hotel/>) · 2.6 km
+- [St Andrews Beach Brewery](<https://peninsulainsider.com.au/wine/st-andrews-beach-brewery/>) · 2.4 km
 
 ## Bathing or treatments?
 

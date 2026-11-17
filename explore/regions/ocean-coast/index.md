@@ -279,7 +279,7 @@ Photo: Courtesy of Visit Victoria
 
 Brewery  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
-### [St Andrews Beach Brewery](<https://peninsulainsider.com.au/eat/st-andrews-beach-brewery/>)
+### [St Andrews Beach Brewery](<https://peninsulainsider.com.au/wine/st-andrews-beach-brewery/>)
 
 160 Sandy Rd, Fingal VIC 3939
 
@@ -287,7 +287,7 @@ A Fingal brewery in former horse-training stables, with indoor and outdoor dinin
 
 big group  family
 
-[Read notes](<https://peninsulainsider.com.au/eat/st-andrews-beach-brewery/>) [Book](<https://www.standrewsbeachbrewery.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/wine/st-andrews-beach-brewery/>) [Book](<https://www.standrewsbeachbrewery.com.au/>)
 
 [Attraction](<https://peninsulainsider.com.au/explore/ashcombe-maze/>)
 

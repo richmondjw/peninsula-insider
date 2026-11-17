@@ -239,9 +239,9 @@ Within 5 km using stored map locations. Approximate straight-line distances, not
 
 - [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>) · 1.2 km
 
-- [Montalto Vineyard & Olive Grove](<https://peninsulainsider.com.au/wine/montalto/>) · 1.9 km
+- [Red Hill Brewery](<https://peninsulainsider.com.au/wine/red-hill-brewery/>) · 1.2 km
 
-- [Hurley Vineyard](<https://peninsulainsider.com.au/wine/hurley-vineyard/>) · 2.2 km
+- [Montalto Vineyard & Olive Grove](<https://peninsulainsider.com.au/wine/montalto/>) · 1.9 km
 
 Related picks
 

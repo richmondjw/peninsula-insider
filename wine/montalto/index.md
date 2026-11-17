@@ -293,6 +293,8 @@ Within 5 km using stored map locations. Approximate straight-line distances, not
 
 - [Cassis Red Hill](<https://peninsulainsider.com.au/stay/cassis/>) · 0.7 km
 
+- [Red Hill Brewery](<https://peninsulainsider.com.au/wine/red-hill-brewery/>) · 0.7 km
+
 - [Port Phillip Estate](<https://peninsulainsider.com.au/wine/port-phillip-estate/>) · 0.9 km
 
 - [Prancing Horse Estate](<https://peninsulainsider.com.au/wine/prancing-horse-estate/>) · 1.0 km
@@ -300,8 +302,6 @@ Within 5 km using stored map locations. Approximate straight-line distances, not
 - [Red Gum BBQ](<https://peninsulainsider.com.au/eat/red-gum-bbq/>) · 1.2 km
 
 - [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>) · 1.3 km
-
-- [Lindenderry at Red Hill](<https://peninsulainsider.com.au/stay/lindenderry/>) · 1.5 km
 
 Related picks
 
