@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import sharp from 'sharp';
 import { isArtwork, cleanCaption } from '../src/lib/image-caption.mjs';
 const read = p => fs.readFileSync(new URL(p, import.meta.url), 'utf8');
-for (const slug of ['arthurs-views', 'birch-creek']) {
+for (const slug of ['arthurs-views', 'birch-creek', 'blue-moon-cottages', 'plantation-house-whitecliffs']) {
  test(`${slug}: original regional artwork has honest recorded provenance and usable derivatives`, async () => {
   const {heroImage:i} = JSON.parse(read(`../src/content/venues/${slug}.json`));
   assert.equal(i.depictionStatus,'illustrative'); assert.equal(i.rightsStatus,'recorded');

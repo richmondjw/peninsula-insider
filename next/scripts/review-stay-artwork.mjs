@@ -3,7 +3,8 @@ import fs from 'node:fs/promises';
 import { Site } from '../tests/journeys/harness.mjs';
 const out='review/stay-artwork';
 await fs.mkdir(out,{recursive:true});
-const slugs=['arthurs-views','birch-creek'];
+const slugs=['arthurs-views','birch-creek','blue-moon-cottages','plantation-house-whitecliffs'];
+const relatedSlugs=['blue-moon-cottages','plantation-house-whitecliffs','birch-creek'];
 const routes=['kanasta-retro-caravans',...slugs];
 const report={head:process.env.REVIEW_HEAD_SHA,scope:'Rendered original artwork; synthetic CMS override fixtures, not production CMS evidence',checks:[]};
 const site=await Site.open();
@@ -31,10 +32,11 @@ try {
    for(const slug of routes){
     const route=`/stay/${slug}/`;await reader.load(route);
     await reader.page.evaluate(()=>document.fonts.ready);
-    const selector=slug==='kanasta-retro-caravans'?'.venue-card__hero[href="/stay/arthurs-views/"]':'.venue-detail__hero';
+    const selector=slug==='kanasta-retro-caravans'?'.venue-card__hero[href="/stay/blue-moon-cottages/"]':'.venue-detail__hero';
     await reader.page.$eval(selector,e=>e.scrollIntoView({block:'center'}));
-    await reader.page.waitForFunction((names,isCards)=>names.every(name=>{const img=document.querySelector(isCards?`.venue-card__hero[href="/stay/${name}/"] img`:'.venue-detail__hero img');return img?.complete&&img.naturalWidth>0}),{},slug==='kanasta-retro-caravans'?slugs:[slug],slug==='kanasta-retro-caravans');
-    const observed=await reader.page.evaluate((names,isCards)=>({overflow:document.documentElement.scrollWidth>innerWidth+1,canonical:document.querySelector('link[rel="canonical"]')?.href,images:names.map(name=>{const frame=document.querySelector(isCards?`.venue-card__hero[href="/stay/${name}/"]`:'.venue-detail__hero');const img=frame.querySelector('img');const box=frame.getBoundingClientRect();return {name,src:img.getAttribute('src'),currentSrc:img.currentSrc,alt:img.alt,width:box.width,height:box.height,naturalWidth:img.naturalWidth,credit:isCards?(frame.closest('.venue-card')?.querySelector('.venue-card__photo-credit')?.textContent||''):(document.querySelector('.venue-detail__hero-credit')?.textContent||''),placeholder:frame.classList.contains('venue-card__hero--placeholder')};})}),slug==='kanasta-retro-caravans'?slugs:[slug],slug==='kanasta-retro-caravans');
+    if(slug==='kanasta-retro-caravans') for(const name of relatedSlugs){await reader.page.$eval(`.venue-card__hero[href="/stay/${name}/"]`,e=>e.scrollIntoView({block:'center'}));await new Promise(r=>setTimeout(r,200));}
+    await reader.page.waitForFunction((names,isCards)=>names.every(name=>{const img=document.querySelector(isCards?`.venue-card__hero[href="/stay/${name}/"] img`:'.venue-detail__hero img');return img?.complete&&img.naturalWidth>0}),{},slug==='kanasta-retro-caravans'?relatedSlugs:[slug],slug==='kanasta-retro-caravans');
+    const observed=await reader.page.evaluate((names,isCards)=>({overflow:document.documentElement.scrollWidth>innerWidth+1,canonical:document.querySelector('link[rel="canonical"]')?.href,images:names.map(name=>{const frame=document.querySelector(isCards?`.venue-card__hero[href="/stay/${name}/"]`:'.venue-detail__hero');const img=frame.querySelector('img');const box=frame.getBoundingClientRect();return {name,src:img.getAttribute('src'),currentSrc:img.currentSrc,alt:img.alt,width:box.width,height:box.height,naturalWidth:img.naturalWidth,credit:isCards?(frame.closest('.venue-card')?.querySelector('.venue-card__photo-credit')?.textContent||''):(document.querySelector('.venue-detail__hero-credit')?.textContent||''),placeholder:frame.classList.contains('venue-card__hero--placeholder')};})}),slug==='kanasta-retro-caravans'?relatedSlugs:[slug],slug==='kanasta-retro-caravans');
     report.checks.push({route,viewport,...observed});
     assert.equal(observed.overflow,false,route+' no horizontal overflow');
     assert.equal(observed.canonical,'https://peninsulainsider.com.au'+route);
