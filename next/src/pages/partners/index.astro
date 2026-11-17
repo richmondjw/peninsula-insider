@@ -6,7 +6,7 @@ const paths=[
  {title:'Manage my listing',copy:'Already listed? Send changes, links and photos in one request.',href:'/partners/update/',cta:'Manage my listing'},
  {title:'Add my business',copy:'Not listed? Introduce your Peninsula business for free.',href:'/partners/add/',cta:'Add my business'},
  {title:'Enhance my page: AUD 99',copy:'Give visitors more useful detail about your business.',href:'#enhance',cta:'Explore an enhanced page'},
- {title:'Partnerships and campaigns',copy:'Work with PI on a campaign, story or seasonal opportunity.',href:'#partnerships',cta:'Explore partnerships'},
+ {title:'Collaborate With Us',copy:'Share an experience, explore a seasonal collaboration or suggest an idea.',href:'#partnerships',cta:'Explore partnerships'},
 ];
 ---
 <BaseLayout title="For Peninsula Businesses · Peninsula Insider" description="Manage your listing, add a business, enhance your page for AUD 99 or explore partnerships and campaigns." canonical="https://peninsulainsider.com.au/partners/">
@@ -14,10 +14,12 @@ const paths=[
 <header><h1 {...editableText({entityType:'page',entitySlug:'partners',fieldPath:'hero.title',label:'Business page title'})}>For Peninsula Businesses</h1><p class="business-intro" {...editableText({entityType:'page',entitySlug:'partners',fieldPath:'hero.dek',label:'Business page introduction'})}>Reach people planning time on the Mornington Peninsula.</p></header>
 <nav class="business-paths" aria-label="Business pathways">{paths.map(path=><article><h2>{path.title}</h2><p>{path.copy}</p><a href={path.href}>{path.cta}</a></article>)}</nav>
 <section class="business-enhance" id="enhance"><h2>Enhance my page <span>AUD 99</span></h2><p>A richer presence with additional photos, a fuller description, key visitor information, booking and website links, and social links.</p><p>Enhancement does not buy editorial recommendation, ranking or Insider Pick status.</p><a class="pi-btn pi-btn--solid" href="/partners/enquire/?interest=featured-profile">Enquire about an enhanced page</a></section>
-<section id="partnerships"><h2>Partnerships and campaigns</h2><ul><li>Campaign partnerships</li><li>Sponsored content</li><li>Newsletter opportunities</li><li>Event promotion</li><li>Bespoke collaborations</li></ul><a class="pi-btn pi-btn--solid" href="/partners/enquire/">Discuss a partnership</a></section>
+<section id="partnerships"><h2>Collaborate With Us</h2><p>Have an idea for working with Peninsula Insider? Start a conversation about your business, an experience or a seasonal opportunity.</p><ul><li>Enhanced presence through our existing enhanced business page</li><li>Share a dining, winery, accommodation, wellness or activity experience</li><li>Explore a clearly identified sponsored or seasonal collaboration</li><li>Suggest a celebration, event or another idea</li></ul><p>Enquiries are exploratory and do not promise exposure or editorial coverage. Any collaboration needs mutual agreement.</p><a class="pi-btn pi-btn--solid" href="/partners/enquire/">Discuss a collaboration</a></section>
 <section class="business-independence"><p>Paying Peninsula Insider never buys a recommendation, ranking or editorial inclusion. Commercial content is clearly identified.</p><a href="/about/#independent-editorial">Our editorial approach</a><p>Something incorrect on your listing? <a href="/contact/?type=correction#correction">Report a correction</a>.</p></section>
 </div>
 </BaseLayout>
 <style>
+.business-page .pi-btn{max-width:100%;white-space:normal;text-align:center;height:auto;min-height:44px}
+
 .business-page{max-width:70rem;padding-block:clamp(3rem,6vw,5rem)}header{max-width:52rem;margin-bottom:3rem}h1{font:500 clamp(2.6rem,5vw,4.6rem)/1.08 var(--font-display);letter-spacing:-.025em;margin:0 0 1.5rem}.business-intro{font:500 1.5rem/1.5 var(--font-display)}.business-paths{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem}.business-paths article{border-top:1px solid var(--border);padding-top:1.5rem}h2{font:500 clamp(1.5rem,3vw,2rem)/1.2 var(--font-display);margin:0 0 .8rem}p,li{line-height:1.65;max-width:65ch}.business-paths a{display:inline-block;padding-block:.6rem}section{margin-top:3.5rem;padding-top:2.5rem;border-top:1px solid var(--border)}.business-enhance{background:var(--bg-alt);padding:clamp(1.5rem,4vw,3rem)}.business-enhance h2 span{display:inline-block;margin-left:.5rem;color:var(--accent)}.business-independence{font-size:.95rem}ul{padding-left:1.3rem;margin-bottom:1.5rem}@media(max-width:40rem){.business-paths{grid-template-columns:1fr}}
 </style>

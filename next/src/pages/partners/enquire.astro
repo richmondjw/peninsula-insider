@@ -1,11 +1,13 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { BUSINESS_CATEGORIES, BUSINESS_CATEGORY_LABELS, ENQUIRY_INTERESTS, ENQUIRY_INTEREST_LABELS } from '../../lib/partner-enquiry';
+import { COLLABORATION_INTERESTS, DETAIL_FIELDS, ACKNOWLEDGEMENT, UPDATES_CONSENT } from '../../lib/collaboration-enquiry';
 export const prerender = true;
 ---
 <BaseLayout title="Business enquiry · Peninsula Insider" description="Enquire about an enhanced business page or a Peninsula Insider campaign." canonical="https://peninsulainsider.com.au/partners/enquire/">
-<section class="partners-section partners-enquiry"><div class="partners-section__inner partners-enquiry__inner"><a href="/partners/">For Peninsula Businesses</a><h1 class="partners-section__heading">Business enquiry</h1><p>Tell us what you have in mind. We'll confirm the details before you commit.</p>
-        <form class="partners-enquiry__form" data-partner-enquiry-form aria-label="Partnership enquiry">
+<section class="partners-section partners-enquiry"><div class="partners-section__inner partners-enquiry__inner"><a href="/partners/">For Peninsula Businesses</a><h1 class="partners-section__heading">Business enquiry</h1><p>Have an idea? Tell us about it. This is an exploratory enquiry; any collaboration needs mutual agreement.</p>
+        <form class="partners-enquiry__form" data-partner-enquiry-form method="post" aria-label="Partnership enquiry">
+          <fieldset data-enquiry-controls disabled aria-label="Enquiry details">
           <div class="partners-enquiry__row">
             <label class="partners-enquiry__field">
               <span class="partners-enquiry__label">Business name</span>
@@ -35,7 +37,7 @@ export const prerender = true;
 
           <div class="partners-enquiry__row">
             <label class="partners-enquiry__field partners-enquiry__field--full">
-              <span class="partners-enquiry__label">Website or Instagram</span>
+              <span class="partners-enquiry__label">Website or Instagram (optional)</span>
               <input type="text" name="website_or_instagram" maxlength="300" placeholder="https:// or @handle" />
             </label>
           </div>
@@ -54,10 +56,23 @@ export const prerender = true;
 
           <div class="partners-enquiry__row">
             <label class="partners-enquiry__field partners-enquiry__field--full">
-              <span class="partners-enquiry__label">Notes (optional)</span>
-              <textarea name="notes" rows="4" maxlength="2000" placeholder="Anything we should know - upcoming opening, season you want to target, audience you want to reach."></textarea>
+              <span class="partners-enquiry__label">Short description</span>
+              <textarea name="notes" required rows="4" maxlength="1200" placeholder="Anything we should know - upcoming opening, season you want to target, audience you want to reach."></textarea>
             </label>
           </div>
+
+          <fieldset class="collaboration-choices"><legend>Collaboration interests (optional, select all that apply)</legend>
+            {Object.entries(COLLABORATION_INTERESTS).map(([value, label]) => <label class="choice"><input type="checkbox" name="collaboration_interests" value={value} /><span>{label}</span></label>)}
+          </fieldset>
+          <fieldset data-collaboration-details hidden disabled><legend>Details, if known (all optional)</legend>
+            <p>Ideas for discussion, not a gift, booking or payment commitment.</p>
+            {Object.entries(DETAIL_FIELDS).map(([name,label]) => <label class="partners-enquiry__field"><span>{label} (optional)</span><input type="text" name={name} maxlength="200" /></label>)}
+          </fieldset>
+          <p>Keep personal or sensitive information out of your description. The description and details share a length limit; we will ask you to shorten them if needed.</p>
+          <label class="choice"><input type="checkbox" name="acknowledgement" value="yes" required /><span>{ACKNOWLEDGEMENT} (required)</span></label>
+          <label class="choice"><input type="checkbox" name="opportunity_updates" value="yes" /><span>{UPDATES_CONSENT}</span></label>
+          <p>We use your details to handle this enquiry. Your optional update preference is recorded for review; this form does not subscribe you to a mailing list. <a href="/privacy/">Privacy policy</a>.</p>
+          <noscript><p>JavaScript is needed to send this form. Please use the email link below instead.</p></noscript>
 
           {/*
             Spam control, and the whole of it: a honeypot and a timing check.
@@ -96,7 +111,8 @@ export const prerender = true;
             can never read as a confirmation is actually testing the words the
             reader sees.
           */}
-          <p class="partners-enquiry__status" data-partner-enquiry-status role="status" aria-live="polite" hidden></p>
+          <p class="partners-enquiry__status" data-partner-enquiry-status role="status" aria-live="polite" tabindex="-1" hidden></p>
+          </fieldset>
         </form>
 </div></section></BaseLayout>
 <script>
@@ -124,13 +140,11 @@ export const prerender = true;
    * Schema: ops/migrations/2026-09-14-pi-partner-enquiries.sql
    * Rules and tests: src/lib/partner-enquiry.ts, src/lib/partner-enquiry.test.mjs
    */
+  import { collaborationValues, prepareCollaboration, collaborationAnalytics, submitCollaboration } from '../../lib/collaboration-enquiry';
   import { getSupabase, isAuthEnabled } from '../../lib/auth';
   import { partnerEnquiryShape } from '../../lib/analytics-contract';
   import {
     PARTNERSHIPS_EMAIL,
-    buildContactRow,
-    buildEnquiryRow,
-    classifyOutcome,
     classifySubmission,
     describeMissingFields,
     generateEnquiryRef,
@@ -168,27 +182,6 @@ export const prerender = true;
     });
   }
 
-  /**
-   * Measurement shape. The envelope's sanitiser strips anything identifying
-   * that slips past, but the reduction happens here first: partnerEnquiryShape
-   * keeps the two closed-vocabulary selects, a has_website boolean and a note
-   * length bucket, and drops business name, contact name and email entirely.
-   *
-   * bot_trap and compose_ms are removed BEFORE the reduction rather than
-   * added to it. They are machinery, not answers: counting compose_ms as a
-   * provided field would inflate fields_provided by one on every enquiry and
-   * quietly move the baseline of a metric someone will later read as
-   * "how much of the form do people fill in".
-   */
-  function measurableEntries(data: FormData): [string, unknown][] {
-    const out: [string, unknown][] = [];
-    for (const [key, value] of data.entries()) {
-      if (key === 'bot_trap' || key === 'compose_ms') continue;
-      out.push([key, typeof value === 'string' ? value : '']);
-    }
-    return out;
-  }
-
   function init() {
     const form = document.querySelector('[data-partner-enquiry-form]') as HTMLFormElement | null;
     if (!form) return;
@@ -210,6 +203,13 @@ export const prerender = true;
     const interest = new URLSearchParams(location.search).get('interest');
     const interestField = form.querySelector<HTMLSelectElement>('[name=interest]');
     if (interestField && interest && Array.from(interestField.options).some(o => o.value === interest)) interestField.value = interest;
+    const details = form.querySelector<HTMLFieldSetElement>('[data-collaboration-details]');
+    function updateDetails() {
+      const selected = !!form?.querySelector('[name=collaboration_interests]:checked');
+      if (details) { details.hidden = !selected; details.disabled = !selected; }
+    }
+    form.addEventListener('change', updateDetails);
+    updateDetails();
     const status = form.querySelector('[data-partner-enquiry-status]') as HTMLParagraphElement | null;
     const button = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
     const composeField = form.querySelector('[data-compose-ms]') as HTMLInputElement | null;
@@ -232,6 +232,7 @@ export const prerender = true;
       status.textContent = message;
       status.setAttribute('data-status-kind', kind);
       status.removeAttribute('hidden');
+      status.focus();
     }
 
     function track(event: string, payload: Record<string, unknown>) {
@@ -242,29 +243,40 @@ export const prerender = true;
     }
 
     let busy = false;
-    let filedReference: string | null = null;
+    // Non-PII receipt only; preserve identity through router navigation/reload.
+    const receiptKey = 'pi:partner-enquiry:last-receipt';
+    let retainedMessage = '';
+    function remember(id: string, reference: string, message: string) {
+      retainedMessage = message;
+      try { sessionStorage.setItem(receiptKey, JSON.stringify({id, reference, message})); } catch { /* Page guard remains active. */ }
+    }
+    try {
+      const receipt = JSON.parse(sessionStorage.getItem(receiptKey) || 'null');
+      if (receipt && typeof receipt.message === 'string') retainedMessage = receipt.message;
+    } catch { /* Storage is optional. */ }
+    if (retainedMessage) {
+      setStatus('info', retainedMessage);
+      if (button) { button.disabled = true; button.textContent = 'Email us with your reference'; }
+    }
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       if (busy) return;
-      if (filedReference) {
-        setStatus('info', `Your enquiry is already recorded as ${filedReference}. Email ${PARTNERSHIPS_EMAIL} with this reference to add contact details.`);
-        return;
-      }
+      if (retainedMessage) { setStatus('info', retainedMessage); return; }
       busy = true;
       try {
 
       const data = new FormData(form);
-      const values: Record<string, string> = {};
-      for (const [key, value] of data.entries()) {
-        values[key] = typeof value === 'string' ? value : '';
-      }
+      const prepared = prepareCollaboration(collaborationValues(data));
+      if (prepared.error) { setStatus('error', prepared.error); return; }
+      const values = prepared.values;
+
 
       const elapsed = composeMs();
       if (composeField) composeField.value = String(elapsed);
 
       const w = window as unknown as { piAnalytics?: { newId: () => string } };
       const attempt = w.piAnalytics ? w.piAnalytics.newId() : String(Date.now());
-      const shape = partnerEnquiryShape(measurableEntries(data));
+      const shape = partnerEnquiryShape(collaborationAnalytics(values));
       shape.attempt_id = attempt;
       shape.surface = 'partners-page';
       track('partner_enquiry_started', shape);
@@ -342,62 +354,19 @@ export const prerender = true;
       const enquiryRef = generateEnquiryRef();
       const id = newEnquiryId();
 
-      // Both writes are awaited and both results are READ. Nothing below
-      // infers success from the absence of a thrown exception: supabase-js
-      // returns errors, it does not throw them, so a `try` with no error check
-      // is exactly how a form comes to congratulate someone on a failed
-      // insert.
-      let enquiryInserted = false;
-      let contactInserted = false;
-
-      try {
-        const { error } = await c
-          .from('partner_enquiries')
-          .insert(buildEnquiryRow(values, {
-            id,
-            enquiryRef,
-            composeMs: elapsed,
-            userId,
-            clientToken: clientToken(),
-          }));
-        if (error?.code === 'PGRST205') {
-          // The dedicated queue is not deployed everywhere. This definite
-          // non-write can safely use the existing private intake inbox.
-          const { error: fallbackError } = await c.from('submissions').insert({
-            id, category: 'other', title: `PARTNER ENQUIRY: ${enquiryRef}`,
-            body: `Intake type: partner-enquiry\nReference: ${enquiryRef}\nBusiness: ${values.business_name}\nCategory: ${values.business_category}\nInterest: ${values.interest || ''}\nWebsite/social: ${values.website_or_instagram || ''}\n\n${values.notes || ''}`,
-            submitter_name: values.contact_name, submitter_email: values.email,
-            photo_urls: [], client_token: clientToken(),
-          });
-          if (!fallbackError) { enquiryInserted = true; contactInserted = true; }
-        } else if (error) console.warn('[partners] enquiry insert failed:', error.message);
-        else enquiryInserted = true;
-      } catch (err) {
-        console.warn('[partners] enquiry insert threw:', err);
-      }
-
-      // Only attempted once the enquiry row exists: the contact row carries a
-      // foreign key to it, so writing it first is not an option, and writing
-      // it after a failed enquiry insert would fail anyway.
-      if (enquiryInserted && !contactInserted) {
-        const contact = buildContactRow(values, id);
-        if (contact) {
-          try {
-            const { error } = await c.from('partner_enquiry_contacts').insert(contact);
-            if (error) console.warn('[partners] contact insert failed:', error.message);
-            else contactInserted = true;
-          } catch (err) {
-            console.warn('[partners] contact insert threw:', err);
-          }
-        }
-      }
-
-      if (enquiryInserted) filedReference = enquiryRef;
-      const outcome = classifyOutcome({ enquiryInserted, contactInserted });
+      remember(id, enquiryRef, outcomeMessage('uncertain', enquiryRef));
+      const outcome = await submitCollaboration(c, values, {
+        id, enquiryRef, composeMs: elapsed, userId, clientToken: clientToken(),
+      });
       const message = outcomeMessage(outcome, enquiryRef);
+      if (outcome === 'failed') {
+        retainedMessage = '';
+        try { sessionStorage.removeItem(receiptKey); } catch { /* Optional storage. */ }
+      } else remember(id, enquiryRef, message);
 
       if (outcome === 'success') {
         form.reset();
+        updateDetails();
         setStatus('success', message);
         track('partner_enquiry_submitted', {
           attempt_id: attempt,
@@ -415,18 +384,30 @@ export const prerender = true;
       // 'unanswerable' is a partial: the enquiry is on the server, so the
       // form is NOT reset - retyping it would file it twice - but it is not
       // reported as a success either, because we cannot reply to it.
-      fail(outcome === 'unanswerable' ? 'contact_not_saved' : 'insert_failed', message);
+      fail(outcome, message);
+      if (retainedMessage && button) { button.disabled = true; button.textContent = 'Email us with your reference'; }
       } catch {
-        setStatus('error', 'We could not confirm delivery. Please email us before trying again.');
-        if (button) button.disabled = false;
+        setStatus('error', retainedMessage || 'The enquiry could not be started. Please try again or email us.');
+        if (button) button.disabled = !!retainedMessage;
       } finally { busy = false; }
     });
+    const controls = form.querySelector<HTMLFieldSetElement>('[data-enquiry-controls]');
+    if (controls) controls.disabled = false;
   }
 
   init();
   document.addEventListener('astro:page-load', init);
 </script>
 <style>
+  [data-enquiry-controls] { display:flex; flex-direction:column; gap:1.25rem; border:0; padding:0; }
+  fieldset { min-width:0; margin:0; border:1px solid var(--border-control); padding:1rem; }
+  fieldset[hidden] { display:none; }
+  .choice { display:flex; gap:.75rem; align-items:flex-start; min-height:44px; padding-block:.5rem; line-height:1.5; }
+  .choice input { flex:0 0 auto; width:20px; height:20px; margin-top:.2rem; }
+  input:focus-visible, select:focus-visible, textarea:focus-visible, button:focus-visible { outline:3px solid var(--accent) !important; outline-offset:3px; }
+  .partners-enquiry__fallback { overflow-wrap:anywhere; }
+  .partners-enquiry__form a { color:var(--accent); text-decoration:underline; text-underline-offset:3px; }
+
   /* ============================================================
      PARTNERS LANDING PAGE  -  Peninsula Insider
      Rewritten 2026-05-15 against Emma's brief.
@@ -779,10 +760,9 @@ export const prerender = true;
     margin: 0;
   }
   .partners-enquiry__fallback a {
-    color: var(--sage);
-    border-bottom: 1px solid rgba(107, 130, 100, 0.4);
-    text-decoration: none;
-    padding-bottom: 1px;
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
   }
   /* HONEYPOT.
      Off-screen rather than display:none or hidden, and with a real label, so
