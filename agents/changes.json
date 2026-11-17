@@ -1,188 +1,20 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-16T21:29:52.578Z",
+  "generatedAt": "2026-11-17T02:50:37.690Z",
   "baselineAvailable": true,
-  "fromSnapshot": "f84f695cc264d8c871b93e68639df1f4e289ff69d2cb434c24199a29621646e4",
-  "toSnapshot": "3e39cef484d29a902016205e531c3a71bc70b7e017200e4f9a5d70c87d923e1e",
-  "previousGeneratedAt": "2026-11-16T21:02:45.603Z",
+  "fromSnapshot": "3e39cef484d29a902016205e531c3a71bc70b7e017200e4f9a5d70c87d923e1e",
+  "toSnapshot": "4dc4a8fc499ebd6da6808b8c0d4c3b2c1b7827dac6719659b280f2a87d89e252",
+  "previousGeneratedAt": "2026-11-16T21:29:52.578Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 22,
+  "count": 1,
   "changes": [
     {
-      "id": "https://peninsulainsider.com.au/eat/barmah-park/",
+      "id": "https://peninsulainsider.com.au/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/eat/barmah-park/",
-      "markdownUrl": "https://peninsulainsider.com.au/eat/barmah-park/index.md",
-      "contentSha256": "19701da0b7d64e3765800fc27bc546043eb3bd09d4e3959ce0036a3877cb112b",
-      "previousContentSha256": "c8b79b0e32787353b3a056399f6688ac330b0ff03c79554d0604c3fffea0783f"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/places/dromana/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/dromana/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/dromana/index.md",
-      "contentSha256": "f8fa2734e3baa7d9c28c3cf38c58054de2af0fd7feaf1f00873dc8e79f68c80b",
-      "previousContentSha256": "cb6d83ecedbe89ca6d2ce24e0553304668b2f9f200006e0bf76e27ec5f2b562c"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/places/moorooduc/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/moorooduc/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/moorooduc/index.md",
-      "contentSha256": "a124a84dcb3fc78e7a38783dcabdd25e4bfb73022e039504ec4d0903cd3ea8a1",
-      "previousContentSha256": "523912ddf455d40c8e8d23faea9d33301b7afbd4d82b77c0bf53521612464090"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/places/mount-martha/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/mount-martha/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/mount-martha/index.md",
-      "contentSha256": "5156dc06ac6e02c8766ae7f9a144bfbc191a7d40a745debcb7f8b9b9a9b8933d",
-      "previousContentSha256": "3a9baf92545fb9cf3d078b7044803ab32906f723b7d569f5e71e4f8a7c77f799"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/index.md",
-      "contentSha256": "00082bd73e45c7aef73d7dd8e1715aaf1093a79f4870bf60b4d31e6f919e284a",
-      "previousContentSha256": "4edb617854e89f9d2f7d232a59700d427de56b3a45176b55ba36a7d251e55efe"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
-      "contentSha256": "a9840e4cc5a6a6defd93054d1edbb7e9bcc47675bfabbbf7ae08c5dc105c519c",
-      "previousContentSha256": "bc829a418c64ac73d3bd002b468ca5c5ead95859f7730a361b237b8a7effba9f"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/arthurs-seat-eagle-visitor-guide/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/arthurs-seat-eagle-visitor-guide/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/arthurs-seat-eagle-visitor-guide/index.md",
-      "contentSha256": "e1f2f0272b31617185279bc16f6ff3c88f801814f7b97c2c403f048b8ea05aa6",
-      "previousContentSha256": "322579810ac37dd03a20442d0bdf30216ab151d3d9728261fce47ef79d9b57c1"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/ashcombe-maze-visitor-guide/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/ashcombe-maze-visitor-guide/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/ashcombe-maze-visitor-guide/index.md",
-      "contentSha256": "93681c6a56571a12f490fb4cf82f76c0be5dbfb7c3fb069e668edd9addcc8ef4",
-      "previousContentSha256": "68fd68c76ac35b131baec94caf008b09ed68b75d8974ccf7ef00004eae72910e"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/devilbend-farm-beer-co/",
-      "kind": "representation-added",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/devilbend-farm-beer-co/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/devilbend-farm-beer-co/index.md",
-      "contentSha256": "2777849242f98e3b27af35d4902c552c757e54cb8acbffe3e732e442a64c6dd6",
-      "previousContentSha256": null
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/hickinbotham-of-dromana/",
-      "kind": "representation-added",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/hickinbotham-of-dromana/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/hickinbotham-of-dromana/index.md",
-      "contentSha256": "4e1f2be805211917e3a90067a4bc49b247d9f8a12b6038d476add76afd3ebb36",
-      "previousContentSha256": null
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/mock-red-hill/",
-      "kind": "representation-added",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/mock-red-hill/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/mock-red-hill/index.md",
-      "contentSha256": "d31a5b66776dd45b91cd7731d804b55bd1413f6f8a2bb86410238fe73064f62d",
-      "previousContentSha256": null
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/quealy-winemakers-balnarring/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/quealy-winemakers-balnarring/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/quealy-winemakers-balnarring/index.md",
-      "contentSha256": "d438950e2772ca5a391d5c05afd459432ee36e2322f6272541a762bc7b238a23",
-      "previousContentSha256": "e5e0f233693a251cfd262ac27aa10002b728dbe71ef96ed70c215e8a5de569a8"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/the-briars/",
-      "kind": "representation-added",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/the-briars/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/the-briars/index.md",
-      "contentSha256": "73e74427edb7e1461b44f4285aa75f37967f7ba437c29693589eecdac72656fe",
-      "previousContentSha256": null
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/the-pig-and-whistle/",
-      "kind": "representation-added",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/the-pig-and-whistle/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/the-pig-and-whistle/index.md",
-      "contentSha256": "de3646056edb495e7e6a3906f8941f53ee57ed4e6db0ca4050f6544aed3462a2",
-      "previousContentSha256": null
-    },
-    {
-      "id": "https://peninsulainsider.com.au/map/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/map/",
-      "markdownUrl": "https://peninsulainsider.com.au/map/index.md",
-      "contentSha256": "de10a22facc9b2200cc264a1f07447a3db2f0ffb67a6be287b0b7cb16d1b7548",
-      "previousContentSha256": "f2e2a2abb3c270d13e755a59feb69a8d5089706b3e73e4e8fbc3af27358dc3ac"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/quick-note/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
-      "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "a918771537729f7da511c982dfca9832d419c5147dac11f3db0f9c1bcb51c0cc",
-      "previousContentSha256": "1da45953d76f782b222c6663b3e30ecd04f99c716246ab1a4dcebe56e4b47aa4"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/site-index/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/site-index/",
-      "markdownUrl": "https://peninsulainsider.com.au/site-index/index.md",
-      "contentSha256": "debca3f1d518413558ff84d846c388661d3984e02751ccc49b6c14ab5ec10972",
-      "previousContentSha256": "6d22b2597d3bc462ef39ae1e50800f97b3e1c066b86408cc19eaf5470e517d6a"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "519e363e82eaaed97789c2b3d1155363271d1f35b1eda6bdd0bed1c126fb785a",
-      "previousContentSha256": "973a7168e69bd71d65c73bd655eb441729f4cf5c5a68535ad96a42320e8962f0"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/index.md",
-      "contentSha256": "db77173e78ba15ff10b6c09d65cb207493686fe35bb6fe1aba5d36b306800797",
-      "previousContentSha256": "958d7f70e9af71daa6b7c414ace094cee20440c257f2fbb22b5942c5e0d29d17"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/wine/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/wine/",
-      "markdownUrl": "https://peninsulainsider.com.au/wine/index.md",
-      "contentSha256": "e6c4800615941c5611a3b223e8502223318a400375d6f1042dc0539e078d3450",
-      "previousContentSha256": "56aca50a4a696e740b58cce49d113afa352c2b1418a27ef3bdf9b6713ab8fe96"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/wine/phaedrus-estate/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/wine/phaedrus-estate/",
-      "markdownUrl": "https://peninsulainsider.com.au/wine/phaedrus-estate/index.md",
-      "contentSha256": "c67347bee81e36c307a2e85203b1e4f1bfa35b962d9f21b69abdf36bb58f3098",
-      "previousContentSha256": "bf78629431def96952ce111c82a8dbd64b3d7f7cda9cadbf7fdc5431865624b9"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/wine/stumpy-gully-vineyard/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/wine/stumpy-gully-vineyard/",
-      "markdownUrl": "https://peninsulainsider.com.au/wine/stumpy-gully-vineyard/index.md",
-      "contentSha256": "98591a6a1b8874a53913b296dccd561d948f8b96f23c2a67593f593de210dc6d",
-      "previousContentSha256": "599eacddf138b575498b611db4e6eaa9f9bf3a79510bd85f5f100d2e23b65333"
+      "canonicalUrl": "https://peninsulainsider.com.au/",
+      "markdownUrl": "https://peninsulainsider.com.au/index.md",
+      "contentSha256": "c97ff7c8937df4a43a9807bc3285222f9daead4f261fb54f5cb3b1f01ecf9973",
+      "previousContentSha256": "59a957f0c0940e63e5a9b3479caf08e8f183840727ae9641978c560111493eba"
     }
   ]
 }

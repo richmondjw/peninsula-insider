@@ -49,16 +49,6 @@ Red Hill wine country to the southern coast.
 
 Swipe or scroll through the picks
 
-- Mornington Peninsula Regional Gallery, Mornington   Photo: Robert Blackburn, courtesy of Visit Victoria.
-
-### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
-
-Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
-
-Sat, 21 Nov   Mornington Peninsula Regional Gallery   Tuesday to Sunday, 11am to 4pm
-
-Event details checked 16 Nov 2026 · [Organiser’s page](<https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026>)
-
 - ### [Coco Michelle Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/coco-michelle-live-at-tar-barrel-2026-11-21/>)
 
 Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery produce award-winning craft beers alongside diverse tastes as part of their whiskey and.
@@ -74,6 +64,14 @@ Come along and make a charcuterie platter with Caitlin from Peachy Keen Ceramics
 Sat, 21 Nov   Mornington Community House   Exhibition
 
 Event details checked 9 Nov 2026 · [Organiser’s page](<https://www.eventbrite.com.au/e/create-pottery-for-your-table-tickets-2003897868468>)
+
+- ### [Deja Vu Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/deja-vu-live-at-peninsula-beer-garden-2026-11-21/>)
+
+Enjoy live music at Peninsula Beer Garden! Deja Vu are a dynamic duo playing upbeat covers, that make you want to get up and dance.
+
+Sat, 21 Nov   Peninsula Beer Garden   Live music
+
+Event details checked 9 Nov 2026 · [Organiser’s page](<https://peninsulabeergarden.com.au/live-music/>)
 
 ## Find your way into the Peninsula
 
