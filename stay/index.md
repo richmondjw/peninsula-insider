@@ -139,9 +139,9 @@ Glamping   Balnarring
 
 - ### [The Cape Retreat](<https://peninsulainsider.com.au/stay/cape-retreat/>)
 
-Twelve Cape Schanck suites suited to group retreats.
+Cape Schanck retreat for group bookings only.
 
-Suite   Cape Schanck
+Suite   Cape Schanck   Group
 
 - ### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
 

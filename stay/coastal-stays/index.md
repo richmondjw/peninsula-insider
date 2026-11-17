@@ -73,11 +73,11 @@ Quarters sits behind Flinders Hotel on Cook Street, with hotel dining nearby. Th
 
 [Read stay notes](<https://peninsulainsider.com.au/stay/flinders-hotel/>) [Check with operator](<https://flindershotel.com.au/accommodation/>)
 
-Suites · Cape Schanck
+Group retreat · Cape Schanck
 
 ### [The Cape Retreat](<https://peninsulainsider.com.au/stay/cape-retreat/>)
 
-A group-oriented retreat with suites and shared spaces at Cape Schanck. Confirm the booking arrangement, room format and view with the operator.
+A group-booking-only retreat with suites and shared spaces at Cape Schanck. Rooms and suites are not rented individually; confirm group availability with the operator.
 
 [Read stay notes](<https://peninsulainsider.com.au/stay/cape-retreat/>) [Check with operator](<https://www.thecaperetreat.com.au/book>)
 

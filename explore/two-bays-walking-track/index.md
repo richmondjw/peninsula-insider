@@ -71,7 +71,7 @@ Suite  [Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schan
 
 41 Trent Jones Drive, Cape Schanck VIC 3939
 
-Twelve guest suites and shared living spaces at a Cape Schanck retreat with Bass Strait and nearby golf-course outlooks.
+Group bookings only at a Cape Schanck retreat with guest suites, shared living spaces and coastal outlooks.
 
 view  wellness
 

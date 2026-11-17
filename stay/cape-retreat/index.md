@@ -9,7 +9,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # The Cape Retreat
 
-Twelve guest suites and shared living spaces at a Cape Schanck retreat with Bass Strait and nearby golf-course outlooks.
+Group bookings only at a Cape Schanck retreat with guest suites, shared living spaces and coastal outlooks.
 
 Known for   Twelve Guest Suites Shared Group Spaces Cape Schanck Outlook
 
@@ -21,11 +21,11 @@ Photo · Peninsula Insider
 
 Why we’d go
 
-A Cape Schanck retreat with suite accommodation and shared spaces suited to a group stay.
+A Cape Schanck base for a group stay, with guest suites and shared living spaces.
 
-The Cape Retreat presents twelve guest suites and shared living areas at Cape Schanck. The operator positions the property for group stays, wellness retreats, meetings and celebrations. Confirm the booking arrangement for your dates and party directly; do not assume that an individual suite can be reserved independently.
+The Cape Retreat is available for group bookings only. Rooms and suites cannot be booked individually. The Cape Schanck property has twelve guest suites and shared living areas for group stays, retreats, meetings and celebrations.
 
-The coastal outlook includes Bass Strait and nearby golf courses. This is a suite-led group property, not a self-contained villa. Ask the operator about room layout, booking terms and availability before making it the base for a trip.
+Bass Strait and nearby golf courses form the coastal outlook. Ask the operator about room allocation, group booking terms and availability before planning your stay.
 
 Worth knowing
 
@@ -35,13 +35,13 @@ Group stays · Wellness retreats · Meetings · Celebrations
 
 If you only do one thing
 
-Confirm the booking arrangement and room layout with the operator before planning around this property.
+Book as a group: individual rooms and suites are not available to rent.
 
 Works well with
 
 Barragunda Dining · Cape Schanck Lighthouse
 
-Filed under   View Wellness Slow All Year Couples Group
+Filed under   View Wellness Slow All Year Group
 
 At a glance
 

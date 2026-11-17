@@ -41,7 +41,7 @@ A retreat venue gives your group a place to gather. A facilitated program is a s
 
 The operator describes 12 guest suites and shared living, dining and meeting spaces at Cape Schanck. It markets the property for wellness retreats, meetings and celebrations, with Bass Strait and nearby golf-course outlooks.
 
-**Check before booking.** Ask whether your dates allow an individual suite or need a group booking. Confirm room allocation, catering, facilitator and timetable. A retreat program is not implied by the accommodation name.
+**Check before booking.** Group bookings only: rooms and suites are not rented individually. Confirm room allocation, catering, facilitator and timetable. A retreat program is not implied by the accommodation name.
 
 [Read The Cape Retreat notes](<https://peninsulainsider.com.au/stay/cape-retreat/>) [Ask the operator about your group](<https://www.thecaperetreat.com.au/book>)
 
@@ -63,7 +63,7 @@ Inclusions depend on the operator, room and package. Compare the exact bathing a
 
 ### Does The Cape Retreat include a facilitated program?
 
-The Cape Retreat is a group-oriented accommodation venue with guest suites and shared spaces. Its retreat setting does not establish a scheduled program for your booking. Confirm the facilitator, timetable, catering and whether your dates require a group booking with the operator.
+The Cape Retreat is a group-booking-only accommodation venue with guest suites and shared spaces. Its retreat setting does not establish a scheduled program for your booking. Confirm the facilitator, timetable, catering and group booking terms with the operator.
 
 Accommodation formats and venue use checked 1 October 2026 against [RACV Cape Schanck](<https://www.racv.com.au/travel-experiences/resorts/cape-schanck/accommodation.html>), [Peninsula Hot Springs](<https://www.peninsulahotsprings.com/accommodation>), [The Sanctuary at Alba](<https://albathermalsprings.com.au/alba-experiences/the-sanctuary/>) and [The Cape Retreat](<https://www.thecaperetreat.com.au/>). Ask each operator about current rooms, inclusions and dates.
 
