@@ -339,3 +339,40 @@ test('homepage desktop masthead reflows at 200 percent root text sizing',async()
  assert.equal(result.overflow,false,JSON.stringify({enlarged,result}));assert.ok(result.controls.length>=8);assert.ok(result.controls.every(r=>r.left>=0&&r.right<=1440&&r.height>=44),JSON.stringify(result));
  }}finally{await reader.close();}
 });
+
+
+test('homepage first-visit enlarged text keeps consent, footer and carousels within the viewport', async () => {
+  for (const width of [320, 390, 768, 1440]) {
+    const reader = await site.reader();
+    try {
+      await reader.page.setViewport({width,height:1000});
+      await reader.page.evaluateOnNewDocument(() => localStorage.removeItem('pi-consent-v1'));
+      await reader.load('/');
+      await reader.page.evaluate(() => document.fonts.ready);
+      await reader.page.addStyleTag({content:'html{font-size:200%!important}'});
+      const measure = () => reader.page.evaluate(() => {
+        const bounds = selector => [...document.querySelectorAll(selector)].map(e => {
+          const r=e.getBoundingClientRect();
+          return {selector:e.id || e.className,left:r.left,right:r.right,width:r.width,height:r.height};
+        }).filter(r=>r.width&&r.height);
+        return {width:innerWidth,scrollWidth:document.documentElement.scrollWidth,
+          cookie:document.querySelector('#cookie-banner').dataset.state,
+          bounds:bounds('#cookie-accept-all, #cookie-manage, .footer-lead, .footer-group, .home-plan__choices, .home-weekend__scroller')};
+      });
+      let layout=await measure();
+      assert.equal(layout.cookie,'visible');
+      assert.equal(layout.bounds.filter(r=>r.selector.startsWith('cookie-')).length,2);
+      assert.ok(layout.scrollWidth<=width+1,JSON.stringify(layout));
+      for(const r of layout.bounds) {
+        assert.ok(r.left>=-1&&r.right<=width+1,JSON.stringify({width,...r}));
+        if(r.selector.startsWith('cookie-')) assert.ok(r.height>=44,JSON.stringify(r));
+      }
+      await reader.page.focus('#cookie-manage');
+      await reader.page.keyboard.press('Enter');
+      await reader.waitFor(()=>!document.querySelector('.cookie-banner__manage').hidden,'preferences did not open');
+      layout=await measure();
+      assert.ok(layout.scrollWidth<=width+1,JSON.stringify(layout));
+      assert.equal(await reader.page.evaluate(()=>localStorage.getItem('pi-consent-v1')),null,'opening preferences must not grant consent');
+    } finally { await reader.close(); }
+  }
+});
