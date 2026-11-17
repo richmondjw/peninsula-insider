@@ -7,7 +7,7 @@ import { absUrl, buildBreadcrumbSchema, buildFaqSchema } from '../../lib/schema'
 const faqs = [
   { q: 'Is One Spa at RACV Cape Schanck a hot spring?', a: 'No. One Spa is the resort day spa. RACV offers rooms, suites and villas; arrange any spa treatment separately. For accommodation on a thermal springs estate, compare Peninsula Hot Springs and Alba in Fingal.' },
   { q: 'Does a room at the springs include every bathing experience?', a: 'Inclusions depend on the operator, room and package. Compare the exact bathing access, any private pool arrangement and separate treatments before you reserve. The hot springs accommodation guide explains the three on-site formats.' },
-  { q: 'Does The Cape Retreat include a facilitated program?', a: 'The Cape Retreat is a group-oriented accommodation venue with guest suites and shared spaces. Its retreat setting does not establish a scheduled program for your booking. Confirm the facilitator, timetable, catering and whether your dates require a group booking with the operator.' },
+  { q: 'Does The Cape Retreat include a facilitated program?', a: 'The Cape Retreat is a group-booking-only accommodation venue with guest suites and shared spaces. Its retreat setting does not establish a scheduled program for your booking. Confirm the facilitator, timetable, catering and group booking terms with the operator.' },
 ];
 const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Stay', href: '/stay/' }, { label: 'Resorts and retreats' }];
 export const prerender = true;
@@ -90,7 +90,7 @@ export const prerender = true;
       <div class="resorts-section__detail">
         <h3>The Cape Retreat</h3>
         <p>The operator describes 12 guest suites and shared living, dining and meeting spaces at Cape Schanck. It markets the property for wellness retreats, meetings and celebrations, with Bass Strait and nearby golf-course outlooks.</p>
-        <p class="resorts-section__check"><strong>Check before booking.</strong> Ask whether your dates allow an individual suite or need a group booking. Confirm room allocation, catering, facilitator and timetable. A retreat program is not implied by the accommodation name.</p>
+        <p class="resorts-section__check"><strong>Check before booking.</strong> Group bookings only: rooms and suites are not rented individually. Confirm room allocation, catering, facilitator and timetable. A retreat program is not implied by the accommodation name.</p>
         <div class="resorts-section__actions">
           <a class="pi-btn pi-btn--solid" href="/stay/cape-retreat/">Read The Cape Retreat notes</a>
           <a class="resorts-text-link" href="https://www.thecaperetreat.com.au/book" target="_blank" rel="noopener noreferrer">Ask the operator about your group</a>
