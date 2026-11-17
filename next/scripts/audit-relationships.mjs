@@ -6,7 +6,7 @@ import {parse as yaml} from 'yaml';
 import {buildRelationshipIndex,articleRelationshipHref} from '../src/lib/relationship-index.mjs';
 import {pageFacts,contextualMentions,descendants,attr,targetState} from './journal-link-audit.mjs';
 export async function auditRelationships(inventory,contentRoot,contextual,now=new Date()) {
-  const readJson=async folder=>Promise.all((await readdir(new URL(folder+'/',contentRoot))).filter(f=>f.endsWith('.json')).sort().map(async f=>({id:f.slice(0,-5),data:JSON.parse(await readFile(new URL(folder+'/'+f,contentRoot),'utf8'))})));
+  const readJson=async folder=>Promise.all((await readdir(new URL(folder+'/',contentRoot))).filter(f=>f.endsWith('.json')).sort().map(async f=>{const data=JSON.parse(await readFile(new URL(folder+'/'+f,contentRoot),'utf8'));return {id:data.slug || f.slice(0,-5),data};}));
   const [venues,itineraries,events]=await Promise.all(['venues','itineraries','events'].map(readJson));
   const articles=[];
   for(const file of (await readdir(new URL('articles/',contentRoot),{recursive:true})).filter(f=>/\.mdx?$/.test(f)).sort()) {
