@@ -1,0 +1,73 @@
+{
+  "schemaVersion": "1.0",
+  "page": "https://peninsulainsider.com.au/eat/",
+  "observedDeployment": {
+    "sourceSha": "d4563409f5ef72fb147fc4b3f1d691d4644d888d",
+    "runId": "43848650950",
+    "generatedAt": "2026-11-16T10:38:43.209Z"
+  },
+  "reviewedAt": "2026-11-17",
+  "rubric": "PI fixed 23-criterion 100-point rubric",
+  "independentScores": [
+    {
+      "lens": "visual-ux",
+      "score": 93.25,
+      "hardGate": false
+    },
+    {
+      "lens": "editorial-trust",
+      "score": 92.75,
+      "hardGate": true,
+      "reason": "Four exact historical CMS images were published without asset-specific creator, rights-holder or website-use-grant evidence."
+    },
+    {
+      "lens": "accessibility-technical",
+      "score": 94,
+      "hardGate": false,
+      "provisional": true
+    }
+  ],
+  "acceptedBaseline": {
+    "score": 92.75,
+    "status": "failed-hard-gate",
+    "reason": "Use the conservative independent score and the editorial rights hard gate; do not average away a gate."
+  },
+  "triage": [
+    {
+      "priority": 1,
+      "defect": "Unresolved historical CMS photographs on the public featured shortlist",
+      "decision": "stop",
+      "boundedChange": "Fail closed unless an exact asset carries an attributable website-use grant; fall back only to venue images already accepted by the media provenance gate."
+    },
+    {
+      "priority": 2,
+      "defect": "Visible count changed scope from 38 remaining rows to 44 total results without explaining the denominator",
+      "decision": "adapt",
+      "boundedChange": "Name remaining, featured, matching and total scopes in the visible directory progress text."
+    }
+  ],
+  "candidateEvidence": {
+    "branch": "fix/eat-rights-counts-20261116",
+    "targetedRightsTests": "63 passed, 0 failed",
+    "astroBuild": "1159 pages generated; 545 responsive image sources across 345 pages",
+    "aggregateBuild": "failed after successful Astro build at the date-sensitive agent-readiness gate because the run crossed into 2026-11-17 and the generated upcoming feed remained dated 2026-11-16",
+    "candidateBrowser": {
+      "viewports": ["390x844", "1440x900"],
+      "http": 200,
+      "horizontalOverflow": false,
+      "consoleErrors": 0,
+      "failedRequests": 0,
+      "unresolvedHistoricalImagesRendered": 0,
+      "initialProgress": "Showing 8 of 38 more places · 6 featured above · 44 total",
+      "filteredProgress": "Showing 8 of 14 matching places · 44 total",
+      "clearedProgress": "Showing 8 of 38 more places · 6 featured above · 44 total"
+    }
+  },
+  "limitations": [
+    "Candidate evidence is local and does not close the public hard gate.",
+    "Direct spoken NVDA or VoiceOver acceptance is not recorded.",
+    "Field Core Web Vitals are unavailable.",
+    "The 44-place directory still requires a complete current source recheck."
+  ],
+  "nextAction": "Publish only after CI is green on the exact head, verify deployment.json matches the merge SHA, then independently regrade the exact live page."
+}
