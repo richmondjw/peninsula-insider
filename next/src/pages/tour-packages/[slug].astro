@@ -1,4 +1,5 @@
 ---
+import { isPublishableTour } from '../../lib/tour-admission.mjs';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
@@ -22,7 +23,7 @@ const { pkg } = Astro.props;
 const data = pkg.data;
 const slug = pkg.id ?? data.slug;
 
-const allTours = await getCollection('tours');
+const allTours = await getCollection('tours', ({ data }) => isPublishableTour(data));
 const allOperators = await getCollection('tourOperators');
 const operatorMap = Object.fromEntries(allOperators.map(op => [op.data.slug, op.data]));
 
@@ -34,7 +35,7 @@ const allPackages = (await getCollection('tourPackages'))
   .filter(p => (p.id ?? p.data.slug) !== slug)
   .slice(0, 3);
 
-const packageSchema = buildTourPackageSchema(data, componentTours.map(t => t.data));
+const packageSchema = buildTourPackageSchema({ ...data, componentTourSlugs: componentTours.map(t => t.data.slug) }, componentTours.map(t => t.data));
 
 const occasionLabel: Record<string, string> = {
   'anniversary': 'Anniversary',

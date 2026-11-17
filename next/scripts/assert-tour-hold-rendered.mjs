@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+const read=(path)=>readFileSync(new URL(`../dist/${path}`,import.meta.url),'utf8');
+const slug='plunge-hot-springs-wine-tour';
+const held=read(`tour/${slug}/index.html`);
+assert.match(held,/data-tour-hold="true"/,'correction notice absent');
+assert.match(held,/name="robots" content="noindex, nofollow"/,'hold not noindex');
+for(const text of ['data-pagefind-body','data-pi-book="booking"','At a glance','TouristTrip','"@type":"Service"','property="og:image"'])assert.ok(!held.includes(text),`held page leaks ${text}`);
+assert.match(held,/not established that the operator has discontinued/);
+for(const route of ['tour','tour/hot-springs-tours','tour/full-day-tours','tour/private-tours','tour/operators/mornington-peninsula-plunge','tour-packages/adventure-weekend','tour-packages/thermal-springs-wine-weekend'])assert.ok(!read(`${route}/index.html`).includes(`/tour/${slug}`),`held recommendation leaks into ${route}`);
+assert.ok(!read('sitemap.xml').includes(`/tour/${slug}`),'hold in sitemap');
+const ordinary=read('tour/amour-of-the-grape-boutique-wine-tour/index.html');
+assert.match(ordinary,/At a glance/,'ordinary tour lost normal rendering');
+assert.ok(!ordinary.includes('data-tour-hold="true"'),'ordinary tour held');
+console.log('Tour hold rendered contract passed');

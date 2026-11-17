@@ -1,4 +1,5 @@
 ---
+import { isPublishableTour } from '../../lib/tour-admission.mjs';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
@@ -10,7 +11,7 @@ import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { buildCollectionPageSchema, buildItemListSchema, buildBreadcrumbSchema } from '../../lib/schema';
 import CorrectionNote from '../../components/CorrectionNote.astro';
 
-const allTours = (await getCollection('tours'))
+const allTours = (await getCollection('tours', ({ data }) => isPublishableTour(data)))
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 const allPackages = (await getCollection('tourPackages'))
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());

@@ -250,6 +250,26 @@ jobs:
             npx astro build
           fi
 
+      - name: Review exact tour corrections
+        if: github.event_name == 'pull_request' && github.head_ref == 'fix/plunge-unverified-hold-20261117'
+        working-directory: next
+        env:
+          REVIEW_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          TOUR_REVIEW_MODE: hold
+        run: |
+          node --test scripts/tour-admission.test.mjs
+          node scripts/assert-tour-hold-rendered.mjs
+          node scripts/review-tour-corrections.mjs
+
+      - name: Upload tour correction review
+        if: always() && github.event_name == 'pull_request' && github.head_ref == 'fix/plunge-unverified-hold-20261117'
+        uses: actions/upload-artifact@v4
+        with:
+          name: tour-corrections-${{ github.event.pull_request.head.sha }}
+          path: next/review/tour-corrections/
+          if-no-files-found: error
+          retention-days: 14
+
       - name: Review count-free editorial copy
         if: github.event_name == 'pull_request' && github.head_ref == 'codex/count-free-editorial-20261117'
         working-directory: next

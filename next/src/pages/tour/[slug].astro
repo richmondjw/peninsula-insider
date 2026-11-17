@@ -1,4 +1,5 @@
 ---
+import { isPublishableTour } from '../../lib/tour-admission.mjs';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
@@ -21,17 +22,18 @@ export async function getStaticPaths() {
 
 const { tour } = Astro.props;
 const data = tour.data;
+const held = !isPublishableTour(data);
 // The photograph rule (src/lib/photo-set.ts). SubpageHero keeps the single
 // hero when an editor has published one (its "hero" slot), so the same check
 // here keeps the in-text photograph from pointing at a viewer that is absent.
-const tourOverrides = await loadOverrides('tour', tour.id ?? data.slug);
+const tourOverrides = held ? { image: {} } : await loadOverrides('tour', tour.id ?? data.slug);
 const photoSet = photoPlan(data, { override: Boolean(tourOverrides.image['hero']), paragraphs: 1 });
 
 const allOperators = await getCollection('tourOperators');
 const operator = allOperators.find(op => op.data.slug === data.operatorSlug);
 const operatorData = operator?.data ?? null;
 
-const tourSchema = buildTourSchema(data, operatorData);
+const tourSchema = held ? null : buildTourSchema(data, operatorData);
 
 const experienceTypeLabel: Record<string, string> = {
   'food-wine': 'Food & Wine',
@@ -85,10 +87,31 @@ export const prerender = true;
 <BaseLayout
   title={`${data.name}${operatorData?.name ? ` with ${operatorData.name}` : ''} · Peninsula Insider`}
   description={data.intro}
+  noindex={held}
+  searchExclude={held}
+  suppressImageMeta={held}
   section="tour"
   canonical={`https://peninsulainsider.com.au/tour/${slug}/`}
   modifiedTime={data.lastVerified?.toISOString().split('T')[0]}
 >
+  {held ? (
+    <>
+      <Breadcrumbs items={breadcrumbItems} />
+      <section class="experience-index experience-index--plain" data-pagefind-ignore>
+        <div class="container prose" data-tour-hold="true">
+          <p class="label">Listing under review</p>
+          <h1>{data.name}</h1>
+          <p>{data.intro}</p>
+          <p>{data.whatHappens}</p>
+          <p>This is an editorial correction notice, not a current tour recommendation or booking offer. We have not established that the operator has discontinued this experience.</p>
+          {operatorData && <p><a href={operatorData.website} rel="external noopener">See the operator’s current published tours</a></p>}
+          <p><a href="/tour/">Browse other tour guides</a></p>
+          <CorrectionNote surface="tour-hold" />
+        </div>
+      </section>
+    </>
+  ) : (
+    <>
   <script type="application/ld+json" set:html={JSON.stringify(tourSchema)} />
 
   <Breadcrumbs items={breadcrumbItems} />
@@ -276,4 +299,6 @@ export const prerender = true;
   </div>
 
   <NewsletterBlock />
+    </>
+  )}
 </BaseLayout>
