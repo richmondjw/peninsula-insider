@@ -1,4 +1,5 @@
 ---
+import { isPublishableTour } from '../../lib/tour-admission.mjs';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
@@ -6,7 +7,7 @@ import SubpageHero from '../../components/SubpageHero.astro';
 import TourCard from '../../components/TourCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 
-const allTours = await getCollection('tours');
+const allTours = await getCollection('tours', ({ data }) => isPublishableTour(data));
 const allOperators = await getCollection('tourOperators');
 const operatorMap = Object.fromEntries(allOperators.map(op => [op.data.slug, op.data]));
 

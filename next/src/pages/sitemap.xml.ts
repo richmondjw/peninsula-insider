@@ -1,3 +1,4 @@
+import { isPublishableTour } from '../lib/tour-admission.mjs';
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 import { routeSlug, isStayVenue, isListableVenue } from '../lib/editorial';
@@ -185,7 +186,7 @@ export const GET: APIRoute = async () => {
     getCollection('regions'),
     getCollection('articles', ({ data }) => data.status === 'published'),
     getCollection('itineraries'),
-    getCollection('tours'),
+    getCollection('tours', ({ data }) => isPublishableTour(data)),
     getCollection('tourOperators'),
     getCollection('tourPackages'),
     getCollection('species', ({ data }) => data.status === 'published'),

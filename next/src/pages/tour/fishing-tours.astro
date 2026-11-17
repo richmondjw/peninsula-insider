@@ -1,4 +1,5 @@
 ---
+import { isPublishableTour } from '../../lib/tour-admission.mjs';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
@@ -27,7 +28,7 @@ const modifiedISO = provenance.stampISO ?? undefined;
 
 // Existing /tour/ entries with cruise-sailing, surf-water, or wildlife-nature
 // experience type that touch fishing intent - surfaced here as adjacent options.
-const allTours = await getCollection('tours');
+const allTours = await getCollection('tours', ({ data }) => isPublishableTour(data));
 const adjacentTours = allTours.filter((t) =>
   ['cruise-sailing', 'surf-water'].includes(t.data.experienceType),
 );
