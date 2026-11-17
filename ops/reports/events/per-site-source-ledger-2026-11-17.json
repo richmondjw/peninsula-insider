@@ -1,0 +1,158 @@
+{
+  "version": 1,
+  "observedOn": "2026-11-17",
+  "scope": "Private editorial research, not public records or runtime queue admission. Per-site addresses are publicly advertised event destinations. No coordinate inference.",
+  "sourceLimit": "Web observations include cached pages dated yesterday; no immutable raw capture or independent corroboration established.",
+  "gardenSites": [
+    {
+      "id": "sam-cox-merricks",
+      "name": "Sam Cox garden",
+      "suburb": "Merricks",
+      "streetAddress": "8 Yal Yal Road",
+      "sourceUrl": "https://gardendesignfest.com.au/garden/sam-cox-merricks/",
+      "decision": "candidate-not-approved",
+      "dates": [
+        "2026-11-21",
+        "2026-11-22"
+      ],
+      "startTime": "10:00",
+      "endTime": "17:00"
+    },
+    {
+      "id": "rob-mihailescu-mount-martha",
+      "name": "Rob Mihailescu garden",
+      "suburb": "Mount Martha",
+      "streetAddress": "1 Anita Court",
+      "sourceUrl": "https://gardendesignfest.com.au/garden/rob-mihailescu-mount-martha/",
+      "decision": "candidate-not-approved",
+      "dates": [
+        "2026-11-21",
+        "2026-11-22"
+      ],
+      "startTime": "10:00",
+      "endTime": "17:00"
+    },
+    {
+      "id": "craig-mclachlan-mornington",
+      "name": "Craig McLachlan garden",
+      "suburb": "Mornington",
+      "streetAddress": "5 Maple Court",
+      "sourceUrl": "https://gardendesignfest.com.au/garden/craig-mclachlan-mornington/",
+      "decision": "held-date-conflict",
+      "dates": [],
+      "startTime": null,
+      "endTime": null,
+      "conflict": "Address heading says 2026; Open Date says 21-22 November 24 and malformed 10:am. No assumption that 24 means 26."
+    },
+    {
+      "id": "clive-abben-mccrae",
+      "name": "Clive Abben garden",
+      "suburb": "McCrae",
+      "streetAddress": "14 Somers Avenue",
+      "sourceUrl": "https://gardendesignfest.com.au/garden/clive-abben-mccrae-2/",
+      "decision": "candidate-not-approved",
+      "dates": [
+        "2026-11-21",
+        "2026-11-22"
+      ],
+      "startTime": "10:00",
+      "endTime": "17:00"
+    },
+    {
+      "id": "steve-greenway-rye",
+      "name": "Steve Greenway garden",
+      "suburb": "Rye",
+      "streetAddress": "7 Galilee Court",
+      "sourceUrl": "https://gardendesignfest.com.au/garden/steve-greenway-rye/",
+      "decision": "candidate-not-approved",
+      "dates": [
+        "2026-11-21",
+        "2026-11-22"
+      ],
+      "startTime": "10:00",
+      "endTime": "17:00"
+    },
+    {
+      "id": "john-patrick-merricks-north",
+      "name": "John Patrick garden",
+      "suburb": "Merricks North",
+      "streetAddress": "218 Bittern Dromana Road",
+      "sourceUrl": "https://gardendesignfest.com.au/garden/john-patrick-merricks-north/",
+      "decision": "candidate-not-approved",
+      "dates": [
+        "2026-11-21",
+        "2026-11-22"
+      ],
+      "startTime": "10:00",
+      "endTime": "17:00"
+    },
+    {
+      "id": "phillip-withers-blairgowrie",
+      "name": "Phillip Withers garden",
+      "suburb": "Blairgowrie",
+      "streetAddress": "19 William Road",
+      "sourceUrl": "https://gardendesignfest.com.au/garden/phillip-withers-blairgowrie/",
+      "decision": "candidate-not-approved",
+      "dates": [
+        "2026-11-21",
+        "2026-11-22"
+      ],
+      "startTime": "10:00",
+      "endTime": "17:00"
+    }
+  ],
+  "studioSample": {
+    "coverage": "Three selected Shire studios, not a complete trail inventory. Programme dates do not replace individual exceptions.",
+    "sourceUrl": "https://www.peninsulastudiotrailinc.org/plan-your-trip-map",
+    "programmeSourceUrl": "https://www.peninsulastudiotrailinc.org/events",
+    "sites": [
+      {
+        "id": "narelle-callen",
+        "name": "Narelle Callen studio",
+        "suburb": "Mount Eliza",
+        "streetAddress": "101 Quinn's Parade",
+        "dates": [
+          "2026-11-21",
+          "2026-11-22",
+          "2026-11-28"
+        ],
+        "startTime": "10:00",
+        "endTime": "17:00",
+        "decision": "candidate-not-approved"
+      },
+      {
+        "id": "jennifer-fletcher",
+        "name": "Jennifer Fletcher studio",
+        "suburb": "Mount Martha",
+        "streetAddress": "3A Inga Parade",
+        "dates": [
+          "2026-11-28",
+          "2026-11-29"
+        ],
+        "startTime": "10:00",
+        "endTime": "17:00",
+        "decision": "candidate-not-approved"
+      },
+      {
+        "id": "brooke-ayton",
+        "name": "Brooke Ayton studio",
+        "suburb": "Rosebud",
+        "streetAddress": "33 Marion Street",
+        "dates": [
+          "2026-11-21",
+          "2026-11-28",
+          "2026-11-29"
+        ],
+        "startTime": "10:00",
+        "endTime": "17:00",
+        "decision": "candidate-not-approved"
+      }
+    ]
+  },
+  "releaseHolds": [
+    "Current runtime queue reconciliation unavailable through authorised connector; existing private owner handoff unanswered.",
+    "Independent exact-content source review and fresh evidence at release.",
+    "Admission, access arrangements and availability unverified; omit unsupported claims.",
+    "Full build and actual rendered per-site desktop/mobile detail, day-selection, calendars, cancellation, schema and feed acceptance."
+  ]
+}
