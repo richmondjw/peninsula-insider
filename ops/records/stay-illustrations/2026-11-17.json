@@ -1,0 +1,94 @@
+{
+  "date": "2026-11-17",
+  "scope": "Original regional illustrations for four Stay venues, including actual Kanasta related cards Blue Moon, Plantation House and Birch Creek; existing photos, facts and CMS controls preserved. No operator-photo reuse permission established.",
+  "assets": [
+    {
+      "venue": "arthurs-views",
+      "masterFilename": "exec-281d2680-d775-4f68-8175-7284f246a8ef.png",
+      "masterSha256": "07570acacabac9494f182609ff9b9ce036a935782abd2f62cb5c7d28c4f4816d",
+      "asset": "/images/generated/stays/arthurs-views-regional-illustration.webp",
+      "assetSha256": "afb48cf8bd2fb4043eec713bcd83b59c6faea310a45a13b2d8f1618d2ab37103",
+      "previousImage": {
+        "src": "/images/sourced/explore-arthurs-seat-lookout-01.webp",
+        "alt": "The view from the Arthurs Seat lookout over Port Phillip Bay, chairlift cables at left and visitors on the terrace above the car park.",
+        "depicts": "the view over Port Phillip Bay from the Arthurs Seat lookout",
+        "depictionStatus": "illustrative",
+        "credit": "Peninsula Insider",
+        "license": "other-licensed"
+      },
+      "depiction": "Abstract coastal bay and eucalyptus; no specific property or actual viewpoint.",
+      "review": "Independent concept review passed; release requires rendered desktop/mobile checks. No 99/100 claim.",
+      "generationMethod": "Built-in image_gen; original text-only prompt; Coastal Punch five-colour conceptual regional illustration; no property details, buildings, people, text or logos.",
+      "derivatives": [
+        "/images/generated/stays/arthurs-views-regional-illustration-480.webp",
+        "/images/generated/stays/arthurs-views-regional-illustration-960.webp"
+      ]
+    },
+    {
+      "venue": "birch-creek",
+      "masterFilename": "exec-9b4be905-171f-4d56-bc86-bed115f06cfb.png",
+      "masterSha256": "3413651ff4e5907d9c2cf8f6a750b625718992dab5093a633877a9364f519bee",
+      "asset": "/images/generated/stays/birch-creek-regional-illustration.webp",
+      "assetSha256": "5b3f9bc275fb017f95e667399352c94234b70e9b743832fb76855d565e84b629",
+      "previousImage": {
+        "src": "/images/sourced/place-red-hill-01.webp",
+        "alt": "Looking down a grassed row between trellised vines in full leaf, a treeline and paddocks beyond.",
+        "depicts": "a grassed row between trellised vines in full leaf",
+        "depictionStatus": "illustrative",
+        "credit": "Peninsula Insider",
+        "license": "other-licensed"
+      },
+      "depiction": "Abstract rolling farmland and eucalyptus; no specific property or actual farm layout.",
+      "review": "Independent concept review passed; release requires rendered desktop/mobile checks. No 99/100 claim.",
+      "generationMethod": "Built-in image_gen; original text-only prompt; Coastal Punch five-colour conceptual regional illustration; no property details, buildings, people, text or logos.",
+      "derivatives": [
+        "/images/generated/stays/birch-creek-regional-illustration-480.webp",
+        "/images/generated/stays/birch-creek-regional-illustration-960.webp"
+      ]
+    },
+    {
+      "venue": "blue-moon-cottages",
+      "masterFilename": "exec-2ca41925-997e-4a48-930a-55b705e757b6.png",
+      "masterSha256": "7f5e42c20d7f31efbbf3d6d6f6ffcca0a35f455e60695107af91d503531b2a87",
+      "asset": "/images/generated/stays/blue-moon-cottages-regional-illustration.webp",
+      "assetSha256": "60ba553f8deb7c9c5bc8cab5f429a8b0d17a9f757bf87598322a4e4e4ac37325",
+      "previousImage": {
+        "src": "/images/sourced/place-rye-01.webp",
+        "alt": "A wide calm bay beach with footprints in the sand, boats moored offshore and a wooded shoreline curving away.",
+        "depicts": "a calm bay beach with boats moored offshore",
+        "depictionStatus": "illustrative",
+        "credit": "Peninsula Insider",
+        "license": "other-licensed"
+      },
+      "depiction": "Conceptual coastal landscape; not an actual property, garden or viewpoint.",
+      "review": "Independent concept and rendered review required before release.",
+      "generationMethod": "Built-in image_gen, original text-only Coastal Punch prompt; no third-party inputs; no buildings or venue features.",
+      "derivatives": [
+        "/images/generated/stays/blue-moon-cottages-regional-illustration-480.webp",
+        "/images/generated/stays/blue-moon-cottages-regional-illustration-960.webp"
+      ]
+    },
+    {
+      "venue": "plantation-house-whitecliffs",
+      "masterFilename": "exec-c49c1001-6f2a-46bc-8d6a-1e1063d6a106.png",
+      "masterSha256": "8b4eb41a3b74bfb71ea90d01ebdd233b7f071f58d5a89723da0f192ac3c5c184",
+      "asset": "/images/generated/stays/plantation-house-whitecliffs-regional-illustration.webp",
+      "assetSha256": "933e130be8b19f71ea7ca767b34f41b088cc2c473649cc97c568066843a9636d",
+      "previousImage": {
+        "src": "/images/sourced/place-rye-01.webp",
+        "alt": "A wide calm bay beach with footprints in the sand, boats moored offshore and a wooded shoreline curving away.",
+        "depicts": "a calm bay beach with boats moored offshore",
+        "depictionStatus": "illustrative",
+        "credit": "Peninsula Insider",
+        "license": "other-licensed"
+      },
+      "depiction": "Conceptual coastal landscape; not an actual property, garden or viewpoint.",
+      "review": "Independent concept and rendered review required before release.",
+      "generationMethod": "Built-in image_gen, original text-only Coastal Punch prompt; no third-party inputs; no buildings or venue features.",
+      "derivatives": [
+        "/images/generated/stays/plantation-house-whitecliffs-regional-illustration-480.webp",
+        "/images/generated/stays/plantation-house-whitecliffs-regional-illustration-960.webp"
+      ]
+    }
+  ]
+}

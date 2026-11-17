@@ -11,6 +11,7 @@ import { informationCheckedOn } from '../lib/verification-date.mjs';
 import { routeSlug, venueHref } from '../lib/editorial';
 import PiSaveActions from './PiSaveActions.astro';
 import { editableImage } from '../lib/inline-edit/attrs';
+import { isArtwork } from '../lib/image-caption.mjs';
 import { resolveHero } from '../lib/inline-edit/resolve-hero';
 
 const typeLabel: Record<string, string> = {
@@ -101,7 +102,7 @@ const hasPhoto = (hero.hasPhoto || vettedStayIllustration) && (hero.override
   ? Boolean(hero.override.alt?.trim() && hero.override.credit?.trim())
   : Boolean(data.heroImage?.credit?.trim()));
 const photoCredit = hero.override ? hero.override.credit : data.heroImage?.credit;
-const photoNote = hasPhoto && photoCredit
+const photoNote = hasPhoto && photoCredit && !isArtwork(hero.override ?? data.heroImage)
   ? ((href.startsWith('/stay/') && !hero.override && data.heroImage?.depictionStatus === 'illustrative') ? `Illustrative, not ${data.name}. ` : slug === 'hotel-sorrento' && !hero.override ? 'Exterior photographed in 2006. ' : '') + 'Photo: ' + photoCredit
   : '';
 const flindersCommonsPhoto = slug === 'flinders-hotel' && !hero.override && hasPhoto;

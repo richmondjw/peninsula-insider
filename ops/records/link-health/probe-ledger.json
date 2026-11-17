@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-11-17T03:11:56.270Z",
+  "updatedAt": "2026-11-17T08:09:22.433Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -948,6 +948,22 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "GARAGIST"
+    },
+    {
+      "url": "https://github.com/richmondjw/peninsula-insider/blob/07e11d3df1e0ffc21d7eef7b8669023b16baf0ff/ops/records/stay-illustrations/2026-11-17.json",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "peninsula-insider/ops/records/stay-illustrations/2026-11-17.json at 07e11d3df1e0ffc21d7eef7b8669023b16baf0ff · richmondjw/peninsula-insider · GitHub",
+      "probedOn": "2026-11-17",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://github.com/richmondjw/peninsula-insider/blob/64949d741b25140f5440bc358eb112cef4a9b9f8/ops/records/stay-illustrations/2026-11-17.json",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-11-17",
+      "probedBy": "scripts/probe-link-health.mjs",
+      "pageTitle": "peninsula-insider/ops/records/stay-illustrations/2026-11-17.json at 64949d741b25140f5440bc358eb112cef4a9b9f8 · richmondjw/peninsula-insider · GitHub"
     },
     {
       "url": "https://greatprivatetours.com.au",
