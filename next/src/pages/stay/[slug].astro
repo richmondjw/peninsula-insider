@@ -1,10 +1,9 @@
 ---
-import { eventPromotionEntries } from '../../lib/event-discovery.mjs';
+import { venueRelationshipHold } from '../../lib/relationship-index.mjs';
 import { schemaImage } from '../../lib/photo-set';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import VenueDetailTemplate from '../../components/VenueDetailTemplate.astro';
-import EventStrip from '../../components/EventStrip.astro';
 import { routeSlug, isStayVenue, typeLabel, titleize, isUpcoming, placeLabel, isListableVenue } from '../../lib/editorial';
 import { buildKnownForProperties, buildBreadcrumbSchema, absUrl } from '../../lib/schema';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
@@ -23,7 +22,7 @@ const { venue } = Astro.props;
 const slug = routeSlug(venue);
 const isPaused = venue.data.status === 'paused';
 
-const allVenues = (await getCollection('venues')).filter(isListableVenue);
+const allVenues = (await getCollection('venues')).filter(entry => !venueRelationshipHold(entry));
 const relatedPlaceId = (entry: any) => String(entry.data.place?.id ?? entry.data.place ?? '');
 const relatedRank = (entry: any) => {
   if (relatedPlaceId(entry) === relatedPlaceId(venue)) return 0;
@@ -36,25 +35,6 @@ const related = allVenues
   .filter((entry) => isStayVenue(entry) && entry.data.type !== 'spa')
   .sort((a, b) => relatedRank(a) - relatedRank(b) || a.data.name.localeCompare(b.data.name))
   .slice(0, 3);
-
-// Cross-link articles that reference this venue
-const articles = (await getCollection('articles', ({ data }) => data.status === 'published'))
-  .filter((article) =>
-    article.data.relatedVenues.some((entry) => String(entry.id ?? entry) === slug)
-  )
-  .slice(0, 3);
-
-// Cross-link itineraries that include this venue as a stop
-const itineraries = (await getCollection('itineraries'))
-  .filter((itinerary) =>
-    itinerary.data.stops.some((stop) => String(stop.venue?.id ?? stop.venue ?? '') === slug)
-  )
-  .slice(0, 2);
-
-// Events at this venue, gated on a clean venue ref.
-const venueEvents = eventPromotionEntries((await getCollection('events'))
-  .sort((a, b) => (b.data.visitorAppealScore ?? 0) - (a.data.visitorAppealScore ?? 0)),
-  {now: new Date(), venueId: slug, limit: 3});
 
 const venuePlaceName = titleize(String(venue.data.place?.id ?? venue.data.place ?? ''));
 const venueTypeLabel = typeLabel[venue.data.type] ?? titleize(venue.data.type);
@@ -126,15 +106,7 @@ export const prerender = true;
 >
   {venueSchema && <script type="application/ld+json" set:html={JSON.stringify(venueSchema)} />}
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
-  <VenueDetailTemplate venue={venue} section="stay" related={related} articles={articles} itineraries={itineraries} />
+  <VenueDetailTemplate venue={venue} section="stay" related={related} />
 
-  <EventStrip
-    events={venueEvents}
-    eyebrow="On the calendar here"
-    heading={`${venue.data.name} is also a real event venue`}
-    intro={`Upcoming events at ${venue.data.name}, with editorial notes when we have them.`}
-    moreHref="/whats-on/"
-    moreLabel="All events"
-    variant="alt"
-  />
+
 </BaseLayout>

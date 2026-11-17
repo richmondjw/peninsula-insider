@@ -5,8 +5,7 @@ import { resolveLiveStatusUrl, verifiedFreshnessLabel } from '../lib/venues';
 import Breadcrumbs from './Breadcrumbs.astro';
 import NewsletterBlock from './NewsletterBlock.astro';
 import VenueCard from './VenueCard.astro';
-import ArticleCard from './ArticleCard.astro';
-import ItineraryCard from './ItineraryCard.astro';
+import VenueRelationships from './VenueRelationships.astro';
 import PiArticleActions from './PiArticleActions.astro';
 import { getCollection } from 'astro:content';
 import { resolveHero } from '../lib/inline-edit/resolve-hero';
@@ -863,59 +862,27 @@ const hoursSchema = hasOpeningHours && !isPaused && isCanonicalSurface && sectio
   </div>
 </section>
 
-{articles.length > 0 && (
-  <section class="venues venues--plain">
-    <div class="container">
-      <div class="venues__header">
-        <div>
-          <p class="label label--accent">In the journal</p>
-          <h2 class="venues__title">Stories that mention {data.name}</h2>
-          <p class="venues__sub">These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.</p>
-        </div>
-        <a href="/journal/" class="venues__link">Journal →</a>
-      </div>
-      <div class="venues__grid">
-        {articles.map((article) => <ArticleCard article={article} />)}
-      </div>
-    </div>
-  </section>
-)}
-
-{!isPaused && !isClosed && itineraries.length > 0 && (
-  <section class="escape-callout">
-    <div class="container">
-      <div class="venues__header">
-        <div>
-          <p class="label label--accent">Part of an escape</p>
-          <h2 class="venues__title">Weekend plans that already include {data.name}</h2>
-          <p class="venues__sub">Skip the planning  -  these itineraries sequence this venue into a proper Peninsula weekend.</p>
-        </div>
-        <a href="/explore/plans/" class="venues__link">All plans →</a>
-      </div>
-      <div class="itinerary-grid">
-        {itineraries.map((itinerary) => <ItineraryCard itinerary={itinerary} />)}
-      </div>
-    </div>
-  </section>
-)}
+<VenueRelationships venue={venue} />
 
 {related.length > 0 && (
   <section class="venues venues--plain">
     <div class="container">
       <div class="venues__header">
         <div>
-          <p class="label label--accent">{section === 'eat' ? 'Nearby picks' : 'More to explore'}</p>
+          <p class="label label--accent">{'Related picks'}</p>
           <h2 class="venues__title">{section === 'eat' ? (isUnverifiedPaused ? "Other places to consider" : `More from ${placeLabel(data.place)}`) : section === 'stay' ? 'Other stays to compare' : 'Other wine experiences to compare'}</h2>
           {section === 'stay' && <p class="venues__sub">Compare the town, setting and stay format before deciding.</p>}
         </div>
         <a href={sectionHref} class="venues__link">Back to {sectionLabel} →</a>
       </div>
       <div class="venues__grid">
-        {related.map((item) => <VenueCard venue={item} hrefPrefix={sectionHref} />)}
+        {related.map((item) => <VenueCard venue={item} href={venueHref(item)} />)}
       </div>
     </div>
   </section>
 )}
+
+
 
 {/* Planning pathways - connect this venue into broader Peninsula experiences */}
 <section class="venues venues--plain">

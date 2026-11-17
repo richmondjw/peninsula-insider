@@ -1,4 +1,5 @@
 ---
+import { venueRelationshipHold } from '../../lib/relationship-index.mjs';
 import {hasExplicitSeries,nextSeriesData,hasLegacyExceptions} from '../../lib/intelligence-series.mjs';
 import { getCollection, getEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
@@ -45,7 +46,7 @@ export async function getStaticPaths() {
 
 const { event: originalEvent } = Astro.props;
 const hostVenueEntries = await Promise.all((originalEvent.data.hostVenues ?? []).map((ref: { collection: 'venues'; id: string }) => getEntry(ref)));
-const hostVenueLinks = hostVenueEntries.filter((host) => host && isListableVenue(host)).map((host) => ({ label: host!.data.name, href: venueHref(host) }));
+const hostVenueLinks = hostVenueEntries.filter((host) => host && !venueRelationshipHold(host)).map((host) => ({ label: host!.data.name, href: venueHref(host) }));
 const hostGuideEntries = await Promise.all((originalEvent.data.hostGuides ?? []).map((ref: { collection: 'articles'; id: string }) => getEntry(ref)));
 const hostGuideLinks = hostGuideEntries.filter((guide) => guide?.data.status === 'published' && !guide.data.sitemapExclude).map((guide) => ({ label: guide!.data.title, href: `/journal/${routeSlug(guide)}/` }));
 const hostCoverageLinks = [...hostVenueLinks, ...hostGuideLinks];
@@ -78,7 +79,8 @@ const expiredRecord = disposition?.expired === true;
 // event nobody could attend.
 const bookingWithdrawn = cancelled || postponed || soldOut || expiredRecord || (explicitSeries && disposition?.unverified === true);
 const place = event.data.place ? await Promise.resolve(getEntry('places', event.data.place.id)).catch(() => null) : null;
-const venue = event.data.venue ? await Promise.resolve(getEntry('venues', event.data.venue.id)).catch(() => null) : null;
+const resolvedVenue = event.data.venue ? await Promise.resolve(getEntry('venues', event.data.venue.id)).catch(() => null) : null;
+const venue = resolvedVenue && !venueRelationshipHold(resolvedVenue) ? resolvedVenue : null;
 
 // Expired pages stay available for direct/backlink visits, but never link to
 // each other. That closes the stale-event crawl path while current series keep
