@@ -35,6 +35,7 @@
 import { readFile, readdir, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { auditJournalLinks } from './journal-link-audit.mjs';
+import { auditRelationships } from './audit-relationships.mjs';
 
 const SITE = 'https://peninsulainsider.com.au';
 const INDEX_SURFACE_MIN = 40;
@@ -238,6 +239,7 @@ async function main() {
   const contextual = await auditJournalLinks(pages, new URL('../src/content/', import.meta.url), policy);
   const report = {
     contextual,
+    relationships: await auditRelationships(pages, new URL('../src/content/', import.meta.url), contextual),
     generatedAt: new Date().toISOString(),
     dist: DIST,
     totals: {
@@ -328,6 +330,8 @@ async function main() {
 
   if (ASSERT) {
     const failures = [];
+    if(report.relationships.evidenceDefects.length) failures.push('Relationship evidence mismatch: '+JSON.stringify(report.relationships.evidenceDefects));
+    if(report.relationships.invalidRenderedLinks.length) failures.push('Invalid rendered relationship destinations: '+JSON.stringify(report.relationships.invalidRenderedLinks));
     if (t.fullDuplicateRenders > MAX_DUPLICATE_RENDERS) {
       failures.push(
         `full duplicate renders = ${t.fullDuplicateRenders} (max ${MAX_DUPLICATE_RENDERS})`

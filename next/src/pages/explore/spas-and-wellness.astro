@@ -10,6 +10,7 @@ import PiSaveActions from '../../components/PiSaveActions.astro';
 import { editableImage } from '../../lib/inline-edit/attrs';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
 import CorrectionNote from '../../components/CorrectionNote.astro';
+import VenueRelationships from '../../components/VenueRelationships.astro';
 import { isListableVenue } from '../../lib/editorial';
 import {
   buildCollectionPageSchema,
@@ -359,6 +360,7 @@ export const prerender = true;
               dek={s.verdict}
               imageUrl={hero?.src}
             />
+            {bySlug.get(s.slug) && <VenueRelationships venue={bySlug.get(s.slug)} compact />}
           </article>
         );
       })}

@@ -315,6 +315,7 @@ jobs:
           mkdir -p review/journal-links
           node scripts/audit-link-graph.mjs --dist dist --json review/journal-link-graph.json
           node scripts/review-journal-links.mjs
+          node scripts/review-relationships.mjs
 
       - name: Upload journal contextual link review
         if: always()

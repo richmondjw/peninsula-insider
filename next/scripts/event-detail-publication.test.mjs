@@ -1,3 +1,4 @@
+import {venueRelationshipHold} from '../src/lib/relationship-index.mjs';
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
@@ -12,13 +13,13 @@ test('event host coverage resolves canonical references and omits unavailable ve
   const predicates = editorial.slice(editorial.indexOf('export function isPermanentlyClosed'), editorial.indexOf('export const stayTypes'));
   const listable = new Function(`${stripTypeScriptTypes(predicates).replaceAll('export ', '')}; return isListableVenue;`)();
   const block = source.slice(source.indexOf('const hostVenueEntries ='), source.indexOf('const now ='));
-  const actual = new Function('originalEvent', 'getEntry', 'isListableVenue', 'venueHref', 'routeSlug', `return (async () => {${stripTypeScriptTypes(block)}; return hostCoverageLinks;})();`);
+  const actual = new Function('originalEvent', 'getEntry', 'venueRelationshipHold', 'venueHref', 'routeSlug', `return (async () => {${stripTypeScriptTypes(block)}; return hostCoverageLinks;})();`);
   const records = [undefined, {data:{name:'Paused',status:'paused'}}, {data:{name:'Closed',operatingStatus:'permanently-closed'}}, {data:{name:'Canonical',slug:'canonical'}}];
   const resolve = async ref => records[ref.id];
-  assert.deepEqual(await actual({data:{}}, resolve, listable, v => `/wine/${v.data.slug}/`), []);
-  assert.deepEqual(await actual({data:{hostVenues:records.map((_,id)=>({id}))}}, resolve, listable, v => `/wine/${v.data.slug}/`), [{label:'Canonical',href:'/wine/canonical/'}]);
+  assert.deepEqual(await actual({data:{}}, resolve, venueRelationshipHold, v => `/wine/${v.data.slug}/`), []);
+  assert.deepEqual(await actual({data:{hostVenues:records.map((_,id)=>({id}))}}, resolve, venueRelationshipHold, v => `/wine/${v.data.slug}/`), [{label:'Canonical',href:'/wine/canonical/'}]);
   const guides = [{id:'published',data:{title:'Guide',status:'published'}},{id:'draft',data:{title:'Draft',status:'draft'}},{id:'hidden',data:{title:'Hidden',status:'published',sitemapExclude:true}}];
-  assert.deepEqual(await actual({data:{hostGuides:guides.map((_,id)=>({id}))}}, async ref => guides[ref.id], listable, () => '', guide => guide.id), [{label:'Guide',href:'/journal/published/'}]);
+  assert.deepEqual(await actual({data:{hostGuides:guides.map((_,id)=>({id}))}}, async ref => guides[ref.id], venueRelationshipHold, () => '', guide => guide.id), [{label:'Guide',href:'/journal/published/'}]);
 });
 test('actual detail route generates approved/public URLs and refuses draft records', async () => {
   const body = source.match(/export async function getStaticPaths\(\) \{([\s\S]*?)\n\}/)?.[1];

@@ -1,9 +1,8 @@
 ---
-import { eventPromotionEntries } from '../../lib/event-discovery.mjs';
+import { venueRelationshipHold } from '../../lib/relationship-index.mjs';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import VenueDetailTemplate from '../../components/VenueDetailTemplate.astro';
-import EventStrip from '../../components/EventStrip.astro';
 import { routeSlug, typeLabel, titleize, isUpcoming, isListableVenue } from '../../lib/editorial';
 import {
   buildWinerySchema,
@@ -29,30 +28,11 @@ const wineTypes = ['winery', 'producer', 'brewery', 'distillery'];
 const { venue } = Astro.props;
 const slug = routeSlug(venue);
 
-const allVenues = (await getCollection('venues')).filter(isListableVenue);
+const allVenues = (await getCollection('venues')).filter(entry => !venueRelationshipHold(entry));
 const related = allVenues
   .filter((entry) => routeSlug(entry) !== slug)
   .filter((entry) => wineTypes.includes(entry.data.type))
   .slice(0, 3);
-
-// Cross-link articles that reference this venue
-const articles = (await getCollection('articles', ({ data }) => data.status === 'published'))
-  .filter((article) =>
-    article.data.relatedVenues.some((entry) => String(entry.id ?? entry) === slug)
-  )
-  .slice(0, 3);
-
-// Cross-link itineraries that include this venue as a stop
-const itineraries = (await getCollection('itineraries'))
-  .filter((itinerary) =>
-    itinerary.data.stops.some((stop) => String(stop.venue?.id ?? stop.venue ?? '') === slug)
-  )
-  .slice(0, 2);
-
-// Events at this venue, gated on a clean venue ref.
-const venueEvents = eventPromotionEntries((await getCollection('events'))
-  .sort((a, b) => (b.data.visitorAppealScore ?? 0) - (a.data.visitorAppealScore ?? 0)),
-  {now: new Date(), venueId: slug, limit: 3});
 
 const venuePlaceName = titleize(String(venue.data.place?.id ?? venue.data.place ?? ''));
 const venueTypeLabel = typeLabel[venue.data.type] ?? titleize(venue.data.type);
@@ -93,15 +73,7 @@ export const prerender = true;
   {schemas.map((s) => (
     <script type="application/ld+json" set:html={JSON.stringify(s)} />
   ))}
-  <VenueDetailTemplate venue={venue} section="wine" related={related} articles={articles} itineraries={itineraries} />
+  <VenueDetailTemplate venue={venue} section="wine" related={related} />
 
-  <EventStrip
-    events={venueEvents}
-    eyebrow="On the calendar here"
-    heading={`${venue.data.name} is also a real event venue`}
-    intro={`Upcoming events at ${venue.data.name}, with editorial notes when we have them.`}
-    moreHref="/whats-on/"
-    moreLabel="All events"
-    variant="alt"
-  />
+
 </BaseLayout>

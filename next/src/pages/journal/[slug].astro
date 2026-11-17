@@ -1,4 +1,5 @@
 ---
+import { venueRelationshipHold } from '../../lib/relationship-index.mjs';
 import EventStrip from '../../components/EventStrip.astro';
 import { selectEventPromotions } from '../../lib/event-discovery.mjs';
 import { getCollection, render } from 'astro:content';
@@ -19,7 +20,7 @@ import PhotoStage from '../../components/PhotoStage.astro';
 import { verifiedPhotos, STAGE_MIN } from '../../lib/photo-set';
 import HubGuideTOC from '../../components/HubGuideTOC.astro';
 import { visibleArticleTags, isJournalDiscovery } from '../../lib/journal-curation.mjs';
-import { formatLabel, routeSlug, venueHrefPrefix, titleize, isListableVenue } from '../../lib/editorial';
+import { formatLabel, routeSlug, venueHref, venueHrefPrefix, titleize, isListableVenue } from '../../lib/editorial';
 import { pickRelatedArticles, resolveRefs } from '../../lib/related';
 import { isPeninsulaThisWeekend, ptwArchivePath } from '../../lib/peninsula-this-weekend';
 import { editableText, editableImage } from '../../lib/inline-edit/attrs';
@@ -122,7 +123,7 @@ const relatedArticles = pickRelatedArticles(article, allArticles, {
   limit: 6,
 });
 
-const allVenues = (await getCollection('venues')).filter(isListableVenue);
+const allVenues = (await getCollection('venues')).filter(entry => !venueRelationshipHold(entry));
 const relatedVenues = resolveRefs(article.data.relatedVenues, allVenues).slice(0, 3);
 
 const allExperiences = await getCollection('experiences');
@@ -499,13 +500,13 @@ export const prerender = true;
       <div class="container">
         <div class="venues__header">
           <div>
-            <p class="label label--accent">Mentioned in this piece</p>
-            <h2 class="venues__title">Venues worth opening in a new tab</h2>
-            <p class="venues__sub">Every venue referenced has its own page with editor notes, booking links, and nearby picks.</p>
+            <p class="label label--accent">Related editorial selections</p>
+            <h2 class="venues__title">Related places in the PI guide</h2>
+            <p class="venues__sub">Related places selected for this story, with their own PI pages. These recommendations are separate from mentions in the text.</p>
           </div>
         </div>
         <div class="venues__grid">
-          {relatedVenues.map((venue) => <VenueCard venue={venue} hrefPrefix={venueHrefPrefix(venue.data.type)} />)}
+          {relatedVenues.map((venue) => <VenueCard venue={venue} href={venueHref(venue)} />)}
         </div>
       </div>
     </section>
