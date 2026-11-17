@@ -106,7 +106,7 @@ We may work through advertising, sponsored content and partnerships. We identify
 
 ### Responsibility
 
-Peninsula Insider is published by Optiflows Pty Ltd. Our [terms](<https://peninsulainsider.com.au/terms/>) explain the commercial boundary, and our [partner information](<https://peninsulainsider.com.au/partners/>) explains how businesses can work with us.
+Our publisher is OptiFlows trading as Peninsula Insider. Our [terms](<https://peninsulainsider.com.au/terms/>) explain the commercial boundary, and our [partner information](<https://peninsulainsider.com.au/partners/>) explains how businesses can work with us.
 
 Sorrento Ferry, Mornington Peninsula  Photography: Courtesy of Visit Victoria
 
