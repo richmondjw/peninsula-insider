@@ -1,0 +1,50 @@
+{
+  "date": "2026-11-17",
+  "scope": "Only Arthurs Views and Birch Creek missing Stay imagery. Existing photos, facts and CMS controls preserved. No operator-photo reuse permission established.",
+  "assets": [
+    {
+      "venue": "arthurs-views",
+      "masterFilename": "exec-281d2680-d775-4f68-8175-7284f246a8ef.png",
+      "masterSha256": "07570acacabac9494f182609ff9b9ce036a935782abd2f62cb5c7d28c4f4816d",
+      "asset": "/images/generated/stays/arthurs-views-regional-illustration.webp",
+      "assetSha256": "afb48cf8bd2fb4043eec713bcd83b59c6faea310a45a13b2d8f1618d2ab37103",
+      "previousImage": {
+        "src": "/images/sourced/explore-arthurs-seat-lookout-01.webp",
+        "alt": "The view from the Arthurs Seat lookout over Port Phillip Bay, chairlift cables at left and visitors on the terrace above the car park.",
+        "depicts": "the view over Port Phillip Bay from the Arthurs Seat lookout",
+        "depictionStatus": "illustrative",
+        "credit": "Peninsula Insider",
+        "license": "other-licensed"
+      },
+      "depiction": "Abstract coastal bay and eucalyptus; no specific property or actual viewpoint.",
+      "review": "Independent concept review passed; release requires rendered desktop/mobile checks. No 99/100 claim.",
+      "generationMethod": "Built-in image_gen; original text-only prompt; Coastal Punch five-colour conceptual regional illustration; no property details, buildings, people, text or logos.",
+      "derivatives": [
+        "/images/generated/stays/arthurs-views-regional-illustration-480.webp",
+        "/images/generated/stays/arthurs-views-regional-illustration-960.webp"
+      ]
+    },
+    {
+      "venue": "birch-creek",
+      "masterFilename": "exec-9b4be905-171f-4d56-bc86-bed115f06cfb.png",
+      "masterSha256": "3413651ff4e5907d9c2cf8f6a750b625718992dab5093a633877a9364f519bee",
+      "asset": "/images/generated/stays/birch-creek-regional-illustration.webp",
+      "assetSha256": "5b3f9bc275fb017f95e667399352c94234b70e9b743832fb76855d565e84b629",
+      "previousImage": {
+        "src": "/images/sourced/place-red-hill-01.webp",
+        "alt": "Looking down a grassed row between trellised vines in full leaf, a treeline and paddocks beyond.",
+        "depicts": "a grassed row between trellised vines in full leaf",
+        "depictionStatus": "illustrative",
+        "credit": "Peninsula Insider",
+        "license": "other-licensed"
+      },
+      "depiction": "Abstract rolling farmland and eucalyptus; no specific property or actual farm layout.",
+      "review": "Independent concept review passed; release requires rendered desktop/mobile checks. No 99/100 claim.",
+      "generationMethod": "Built-in image_gen; original text-only prompt; Coastal Punch five-colour conceptual regional illustration; no property details, buildings, people, text or logos.",
+      "derivatives": [
+        "/images/generated/stays/birch-creek-regional-illustration-480.webp",
+        "/images/generated/stays/birch-creek-regional-illustration-960.webp"
+      ]
+    }
+  ]
+}
