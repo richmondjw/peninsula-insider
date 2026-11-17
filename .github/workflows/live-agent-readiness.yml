@@ -22,7 +22,8 @@ jobs:
   verify-live-agent-readiness:
     if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    # Two bounded attempts: 2 x (70s provenance + 920s full audit), plus setup/artifacts.
+    timeout-minutes: 35
     env:
       TZ: Australia/Sydney
       EXPECTED_SHA: ${{ github.event.workflow_run.head_sha }}
@@ -41,15 +42,15 @@ jobs:
 
       - name: Verify deployed provenance and agent-facing surfaces
         run: |
-          node next/scripts/audit-live-agent-readiness.mjs
-          node next/scripts/audit-agent-welcome.mjs --base https://peninsulainsider.com.au --report ops/reports/seo/agent-welcome-live.json
+          node --test next/scripts/agent-audit-outcome.test.mjs
+          node next/scripts/run-live-agent-readiness.mjs
 
       - name: Retain live agent acceptance
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: agent-experience-live-${{ github.run_id }}
-          path: ops/reports/seo/agent-welcome-live.json
+          path: ops/reports/seo/live-agent-readiness/
           retention-days: 90
           if-no-files-found: warn
 
@@ -61,7 +62,8 @@ jobs:
           PI_REPO_ROOT: ${{ github.workspace }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
+          CATEGORY=$(cat ops/reports/seo/live-agent-readiness/category.txt 2>/dev/null || echo execution-failure)
           python3 engine/alert.py \
             --title "Live agent-readiness gate failed (run #${{ github.run_number }})" \
-            --body "The deployed site did not match the expected source commit or failed a semantic agent-readiness check. Run: ${RUN_URL}" \
+            --body "Category: ${CATEGORY}. The deployed site did not establish stable, complete acceptance. Available attempt reports and logs are retained in the workflow artifact. Run: ${RUN_URL}" \
             --dedup live-agent-readiness --severity fatal

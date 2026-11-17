@@ -1,3 +1,5 @@
+import { writeFileSync, mkdirSync } from 'node:fs';
+import { dirname, resolve } from 'node:path';
 import { validateFeedItemList } from './agent-feed-contract.mjs';
 import process from 'node:process';
 import { fileURLToPath } from 'node:url';
@@ -138,14 +140,14 @@ async function fetchResource(base, path, expectedStatus = 200) {
 }
 
 async function auditOnce(args) {
-  const [root, feedText, weekend, llms, llmsFull, sitemap, deploymentText, admin404, unknown404] = await Promise.all([
+  const deploymentText = await fetchResource(args.base, '/deployment.json');
+  const [root, feedText, weekend, llms, llmsFull, sitemap, admin404, unknown404] = await Promise.all([
     fetchResource(args.base, '/'),
     fetchResource(args.base, '/whats-on/upcoming.json'),
     fetchResource(args.base, '/whats-on/this-weekend/'),
     fetchResource(args.base, '/llms.txt'),
     fetchResource(args.base, '/llms-full.txt'),
     fetchResource(args.base, '/sitemap.xml'),
-    fetchResource(args.base, '/deployment.json'),
     fetchResource(args.base, '/admin/', 404),
     fetchResource(args.base, '/__pi-agent-readiness-not-found__/', 404),
   ]);
@@ -165,21 +167,32 @@ async function auditOnce(args) {
     throw new Error(`deployment provenance is not valid JSON: ${error.message}`);
   }
 
-  return validateLivePayloads(
+  const deploymentAfter = JSON.parse(await fetchResource(args.base, '/deployment.json'));
+  const failures = validateLivePayloads(
     { root, feed, weekend, llms, llmsFull, sitemap, deployment },
     { expectedDate: args.expectedDate, expectedSha: args.expectedSha },
   );
+  if (!['sourceSha', 'runId', 'generatedAt'].every(key => deployment?.[key] === deploymentAfter?.[key])) {
+    failures.push('Deployment changed during provenance/semantic audit');
+  }
+  return { deployment, deploymentAfter, failures };
 }
 
 async function main() {
   const args = parseArgs(process.argv.slice(2));
   let failures = [];
+  const argv=process.argv.slice(2);
+  const reportPath=argv.includes('--report')?resolve(argv[argv.indexOf('--report')+1]):null;
+  const receipts=[];
   for (let attempt = 1; attempt <= args.attempts; attempt += 1) {
+    let deployment=null, deploymentAfter=null;
     try {
-      failures = await auditOnce(args);
+      ({ failures, deployment, deploymentAfter } = await auditOnce(args));
     } catch (error) {
       failures = [error.message];
     }
+    receipts.push({attempt,deployment,deploymentAfter,failures});
+    if(reportPath){mkdirSync(dirname(reportPath),{recursive:true});writeFileSync(reportPath,JSON.stringify({deployment,deploymentAfter,failures,receipts},null,2)+'\n');}
     if (failures.length === 0) {
       console.log(
         `Live agent-readiness passed for ${args.expectedDate}${args.expectedSha ? ` at ${args.expectedSha}` : ''}.`,

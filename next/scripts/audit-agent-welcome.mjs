@@ -2,13 +2,15 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { resolve, join, dirname } from 'node:path';
 import { createHash } from 'node:crypto';
 import { createAuditTransport, forEachAuditItem } from './agent-audit-transport.mjs';
+import { classifyAudit, validDeployment, sameDeployment } from './agent-audit-outcome.mjs';
 import { agentRoutes, agentResources, agentDirectories, SITE } from '../src/lib/agent-guide.mjs';
 const args = process.argv.slice(2);
 const base = args.includes('--base') ? args[args.indexOf('--base')+1].replace(/\/$/,'') : null;
 const dist = resolve(args.includes('--dist') ? args[args.indexOf('--dist')+1] : 'dist');
 const transport=createAuditTransport();
+const failureDetails=[];
 const failures=[]; let checks=0; const cache=new Map(); const http=[];
-const check=(ok,message)=>{checks++;if(!ok)failures.push(message);};
+const check=(ok,message,category='gate-failure')=>{checks++;if(!ok){failures.push(message);failureDetails.push({message,category});}};
 async function read(path) {
  const pathname=new URL(path,SITE).pathname;
  if(!cache.has(path)) cache.set(path,(async()=>{
@@ -24,6 +26,11 @@ async function read(path) {
 const pool=(items,fn)=>forEachAuditItem(items,fn,error=>check(false,error.message));
 async function audit() {
 const deploymentBefore=base?JSON.parse(await read('/deployment.json')):null;
+if(base) {
+ check(validDeployment(deploymentBefore),'Invalid deployment provenance before audit');
+ const expectedSha=args.includes('--expected-sha')?args[args.indexOf('--expected-sha')+1]:process.env.EXPECTED_SHA;
+ check(!expectedSha||deploymentBefore?.sourceSha===expectedSha,'Unexpected deployment source before audit');
+}
 const llms=await read('/llms.txt');
 check(Buffer.byteLength(llms)<6500,'Agent entry point exceeds the 6.5KB budget');
 check(!/Peninsula Radar|reviewed on a daily\/weekly|—/.test(llms),'Outdated branding, unearned cadence claim or house-style violation');
@@ -43,7 +50,7 @@ check(catalog.schemaVersion==='2.0'&&catalog.count===catalog.records.length&&cat
 check(new Set(catalog.records.map(r=>r.id)).size===catalog.count,'Duplicate public identities');
 check(JSON.stringify(catalog.records.map(r=>r.canonicalUrl).sort())===JSON.stringify(sitemap),'Catalogue does not exactly cover the canonical sitemap');
 const snapshot=createHash('sha256').update(JSON.stringify(catalog.records.map(r=>[r.id,r.contentSha256]))).digest('hex');
-check(snapshot===catalog.snapshotId&&snapshot===manifest.snapshotId&&snapshot===changes.toSnapshot,'Snapshot identities disagree');
+check(snapshot===catalog.snapshotId&&snapshot===manifest.snapshotId&&snapshot===changes.toSnapshot,'Snapshot identities disagree','release-consistency');
 check(changes.count===changes.changes.length&&Boolean(changes.fromSnapshot)===changes.baselineAvailable,'Change-feed baseline contract inconsistent');
 check(changes.changes.every(r=>['representation-added','representation-changed','representation-removed'].includes(r.kind)),'Unrecognised change kind');
 const savings=[];
@@ -80,7 +87,8 @@ await pool(agentDirectories,async directory=>{
   check(llms.includes(expectedUrl)&&guideMarkdown.includes(expectedUrl)&&homeMarkdown.includes(expectedUrl),`Name directory ${format} absent from text entry points: ${directory.section}`);
   const body=await read(href);const shard=JSON.parse(body);
   const expected=catalog.records.filter(record=>record.section===directory.section).map(record=>format==='markdown'?{title:record.title,markdownUrl:record.markdownUrl}:{title:record.title,canonicalUrl:record.canonicalUrl});
-  check(shard.schemaVersion==='1.0'&&shard.snapshotId===snapshot&&shard.generatedAt===catalog.generatedAt&&shard.section===directory.section&&shard.destinationFormat===format,`Name directory ${format} source/snapshot mismatch: ${directory.section}`);
+  check(shard.schemaVersion==='1.0'&&shard.section===directory.section&&shard.destinationFormat===format,`Name directory ${format} schema/identity mismatch: ${directory.section}`);
+  check(shard.snapshotId===snapshot&&shard.generatedAt===catalog.generatedAt,`Name directory ${format} source/snapshot mismatch: ${directory.section}`,'release-consistency');
   check(shard.count===expected.length&&JSON.stringify(shard.records)===JSON.stringify(expected),`Name directory ${format} membership or projection mismatch: ${directory.section}`);
   const bytes=Buffer.byteLength(body,'utf8');const urls=new Set(body.match(/https?:\/\/[^\s"<>]+/g)||[]).size;
   check(bytes<=80000&&urls<=200&&advertised?.[bytesKey]===bytes&&advertised?.[urlsKey]===urls&&advertised?.count===expected.length,`Name directory ${format} exceeds native observation limits or manifest counts: ${directory.section}`);
@@ -101,7 +109,8 @@ if(base) {
   await read(path);const headers=http.find(r=>r.path===path);
   check(Boolean(headers?.etag)&&Boolean(headers?.cacheControl),`Missing cache validators: ${path}`);
   const paired=await transport.request(base+path);
-  check(paired.status===200&&paired.bodySha256===headers.bodySha256,`Representation changed during audit: ${path}`);
+  check(paired.status===200,`Paired representation HTTP failure: ${path}`);
+  check(paired.bodySha256===headers.bodySha256,`Representation changed during audit: ${path}`,'release-consistency');
   const pairedEtag=paired.headers.get('etag');
   check(Boolean(pairedEtag),`Missing paired cache validator: ${path}`);
   if(!pairedEtag)continue;
@@ -118,10 +127,11 @@ if(base) {
  const response=await transport.request(base+'/deployment.json');
  check(response.status===200,'Deployment provenance unavailable after audit');
  deploymentAfter=JSON.parse(response.body);
- check(Boolean(deploymentBefore?.sourceSha)&&['sourceSha','runId','generatedAt'].every(key=>deploymentBefore[key]===deploymentAfter[key]),'Deployment changed during audit; no single-release acceptance');
+ check(validDeployment(deploymentAfter),'Invalid deployment provenance after audit');
+ check(sameDeployment(deploymentBefore,deploymentAfter),'Deployment changed during audit; no single-release acceptance','deployment-change');
 }
 savings.sort((a,b)=>a-b);const mid=Math.floor(savings.length/2);const median=savings.length%2?savings[mid]:(savings[mid-1]+savings[mid])/2;
-const report={complete:true,schemaVersion:'2.1',observedAt:new Date().toISOString(),target:base||dist,scope:'All canonical sitemap pages, compact/citation parity, section catalogues, snapshot changes, event date contract and live cache probes',checks,passed:checks-failures.length,failures,metrics:{indexBytes:Buffer.byteLength(llms),compactPages:catalog.count,coveredPages:savings.length,sitemapPages:sitemap.length,medianByteReduction:median},snapshotId:snapshot,deploymentBefore,deploymentAfter,conditional,transport:base?{policy:transport.policy,attempts:transport.attempts,firstAttemptFailures:transport.attempts.filter(r=>r.attempt===1&&(r.error||[429,503].includes(r.status))).length,retries:transport.attempts.filter(r=>r.attempt>1).length}:null,fullRubricScore:null,unmeasured:['Independent factual accuracy of the corpus','30-task evaluation across three agent stacks and unseen questions','Actual throttling response under load','Search visibility and repeat retrieval outcomes']};
+const report={complete:true,schemaVersion:'2.1',observedAt:new Date().toISOString(),target:base||dist,scope:'All canonical sitemap pages, compact/citation parity, section catalogues, snapshot changes, event date contract and live cache probes',checks,passed:checks-failures.length,failures,failureDetails,metrics:{indexBytes:Buffer.byteLength(llms),compactPages:catalog.count,coveredPages:savings.length,sitemapPages:sitemap.length,medianByteReduction:median},snapshotId:snapshot,deploymentBefore,deploymentAfter,conditional,transport:base?{policy:transport.policy,attempts:transport.attempts,firstAttemptFailures:transport.attempts.filter(r=>r.attempt===1&&(r.error||[429,503].includes(r.status))).length,retries:transport.attempts.filter(r=>r.attempt>1).length}:null,fullRubricScore:null,unmeasured:['Independent factual accuracy of the corpus','30-task evaluation across three agent stacks and unseen questions','Actual throttling response under load','Search visibility and repeat retrieval outcomes']};
 return report;
 }
 let report;
@@ -129,8 +139,9 @@ try { report=await audit(); }
 catch(error) {
  check(false,error.message);
  report={schemaVersion:'2.1',complete:false,observedAt:new Date().toISOString(),target:base||dist,
-  scope:'Incomplete structural audit; no acceptance established',checks,passed:checks-failures.length,failures,
+  scope:'Incomplete structural audit; no acceptance established',checks,passed:checks-failures.length,failures,failureDetails,
   transport:{policy:transport.policy,attempts:transport.attempts},fullRubricScore:null};
 }
+report.outcome=base?classifyAudit(report):(report.complete&&!failures.length?'passed':'gate-failure');
 if(args.includes('--report')){const output=resolve(args[args.indexOf('--report')+1]);mkdirSync(dirname(output),{recursive:true});writeFileSync(output,JSON.stringify(report,null,2)+'\n');}
 if(failures.length){console.error(failures.join('\n'));process.exitCode=1;}else console.log(`Agent acceptance passed: ${checks} checks, ${report.metrics.compactPages} compact pages, full sitemap coverage. This structural gate alone is not a 99/100 site score.`);
