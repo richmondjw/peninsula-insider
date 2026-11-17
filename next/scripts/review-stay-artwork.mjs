@@ -8,6 +8,22 @@ const routes=['kanasta-retro-caravans',...slugs];
 const report={head:process.env.REVIEW_HEAD_SHA,scope:'Rendered original artwork; synthetic CMS override fixtures, not production CMS evidence',checks:[]};
 const site=await Site.open();
 try {
+ // Capture all actual routes before acceptance assertions so a changed related
+ // selection remains inspectable rather than leaving an empty failure artifact.
+ for (const viewport of [{width:390,height:844,deviceScaleFactor:1},{width:390,height:844,deviceScaleFactor:2},{width:1440,height:1000,deviceScaleFactor:1}]) {
+  const reader=await site.reader();
+  try {
+   await reader.page.setViewport(viewport);
+   for(const slug of routes) {
+    await reader.load(`/stay/${slug}/`);
+    await reader.page.evaluate(()=>document.fonts.ready);
+    await reader.page.evaluate(async()=>{for(let y=0;y<document.documentElement.scrollHeight;y+=innerHeight){scrollTo(0,y);await new Promise(r=>setTimeout(r,100));}scrollTo(0,0)});
+    await reader.page.waitForNetworkIdle({idleTime:300,timeout:10000});
+    await reader.page.screenshot({path:`${out}/observed-${slug}-${viewport.width}-${viewport.deviceScaleFactor}x.png`,fullPage:true});
+    await fs.writeFile(`${out}/observed-${slug}-${viewport.width}-${viewport.deviceScaleFactor}x.html`,await reader.page.content());
+   }
+  } finally { await reader.close(); }
+ }
  for(const viewport of [{width:390,height:844,deviceScaleFactor:1},{width:390,height:844,deviceScaleFactor:2},{width:1440,height:1000,deviceScaleFactor:1}]) {
   const reader=await site.reader({supabase:[{match:'/cms_image_slots',body:slugs.map(entity_slug=>({entity_type:'venue',entity_slug,field_path:'heroImage',public_url:'/images/sourced/home-cover.webp',alt_text:'Unreviewed replacement',credit:'Synthetic fixture'}))}]});
   try {
