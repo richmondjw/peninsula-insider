@@ -246,7 +246,7 @@ export function placeLabel(place: any) {
 
 export function venueHrefPrefix(type: string) {
   if (stayTypes.includes(type)) return baseHref('/stay');
-  if (wineTypes.includes(type)) return baseHref('/wine');
+  if (wineTypes.includes(type) || ['brewery', 'distillery'].includes(type)) return baseHref('/wine');
   return baseHref('/eat');
 }
 
@@ -259,6 +259,14 @@ export function routeSlug(entry: any) {
    body before navigation, so reaching it from a card can present as a blank
    page when the browser does not complete the script redirect promptly. */
 const venueRouteOverrides: Record<string, string> = {
+  // These producer pages are canonical under Wine; /eat/ is a redirect alias.
+  'bass-and-flinders': '/wine/bass-and-flinders/',
+  'red-hill-brewery': '/wine/red-hill-brewery/',
+  'st-andrews-beach-brewery': '/wine/st-andrews-beach-brewery/',
+  'mornington-peninsula-brewery': '/wine/mornington-peninsula-brewery/',
+  'two-bays-brewing': '/wine/two-bays-brewing/',
+  'jetty-road-brewery': '/wine/jetty-road-brewery/',
+
   // Dexter is a non-public wine producer; its information page lives under Wine.
   'dexter-wines': '/wine/dexter-wines/',
   'port-phillip-estate-restaurant': '/wine/port-phillip-estate/',

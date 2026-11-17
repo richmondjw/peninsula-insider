@@ -1,5 +1,5 @@
 {
-  "baselineHead": "87b57def5d",
+  "baselineHead": "87b57def5d3ec31b4665fdbe7c9a44be69f89eec",
   "evidenceHead": "431d19535a5211885e509e839385fbf550adbc47",
   "evidenceArtifact": 14312847697,
   "coordinateHolds": [
@@ -243,63 +243,135 @@
   "mdxBodyHolds": [
     {
       "id": "arthurs-seat-eagle-visitor-guide",
-      "reason": "MDX-body-not-available-to-runtime-index"
+      "reason": "MDX-body-not-available-to-runtime-index",
+      "linkedMentions": 0,
+      "linkedDestinations": []
     },
     {
       "id": "ashcombe-maze-visitor-guide",
-      "reason": "MDX-body-not-available-to-runtime-index"
+      "reason": "MDX-body-not-available-to-runtime-index",
+      "linkedMentions": 0,
+      "linkedDestinations": []
     },
     {
       "id": "cape-schanck-guide",
-      "reason": "MDX-body-not-available-to-runtime-index"
+      "reason": "MDX-body-not-available-to-runtime-index",
+      "linkedMentions": 0,
+      "linkedDestinations": []
     },
     {
       "id": "dog-friendly-beaches-mornington-peninsula",
-      "reason": "MDX-body-not-available-to-runtime-index"
+      "reason": "MDX-body-not-available-to-runtime-index",
+      "linkedMentions": 0,
+      "linkedDestinations": []
     },
     {
       "id": "dog-friendly-wineries-mornington-peninsula",
-      "reason": "MDX-body-not-available-to-runtime-index"
+      "reason": "MDX-body-not-available-to-runtime-index",
+      "linkedMentions": 0,
+      "linkedDestinations": []
     },
     {
       "id": "hatted-restaurants-mornington-peninsula-2025",
-      "reason": "MDX-body-not-available-to-runtime-index"
+      "reason": "MDX-body-not-available-to-runtime-index",
+      "linkedMentions": 17,
+      "linkedDestinations": [
+        "/eat/barragunda-dining/",
+        "/eat/doot-doot-doot/",
+        "/eat/laura-pt-leo/",
+        "/eat/many-little/",
+        "/eat/moke-dining/",
+        "/eat/rare-hare/",
+        "/eat/tedesca-osteria/",
+        "/stay/jackalope/",
+        "/wine/foxeys-hangout/",
+        "/wine/montalto/",
+        "/wine/paringa-estate/",
+        "/wine/polperro/",
+        "/wine/port-phillip-estate/",
+        "/wine/pt-leo-estate/",
+        "/wine/stonier-wines/",
+        "/wine/ten-minutes-by-tractor/",
+        "/wine/yabby-lake/"
+      ]
     },
     {
       "id": "luxury-hotels-mornington-peninsula",
-      "reason": "MDX-body-not-available-to-runtime-index"
+      "reason": "MDX-body-not-available-to-runtime-index",
+      "linkedMentions": 0,
+      "linkedDestinations": []
     },
     {
       "id": "mornington-peninsula-winery-guide",
-      "reason": "MDX-body-not-available-to-runtime-index"
+      "reason": "MDX-body-not-available-to-runtime-index",
+      "linkedMentions": 45,
+      "linkedDestinations": [
+        "/eat/green-olive-red-hill/",
+        "/eat/many-little/",
+        "/eat/rare-hare/",
+        "/stay/jackalope/",
+        "/wine/crittenden-estate/",
+        "/wine/dromana-estate/",
+        "/wine/foxeys-hangout/",
+        "/wine/main-ridge-estate/",
+        "/wine/montalto/",
+        "/wine/moorooduc-estate/",
+        "/wine/paringa-estate/",
+        "/wine/polperro/",
+        "/wine/port-phillip-estate/",
+        "/wine/pt-leo-estate/",
+        "/wine/quealy-winemakers/",
+        "/wine/red-hill-estate/",
+        "/wine/stonier-wines/",
+        "/wine/t-gallant/",
+        "/wine/ten-minutes-by-tractor/",
+        "/wine/willow-creek-vineyard/",
+        "/wine/yabby-lake/"
+      ]
     },
     {
       "id": "peninsula-hot-springs-vs-alba",
-      "reason": "MDX-body-not-available-to-runtime-index"
+      "reason": "MDX-body-not-available-to-runtime-index",
+      "linkedMentions": 3,
+      "linkedDestinations": [
+        "/explore/spas-and-wellness/#peninsula-hot-springs"
+      ]
     },
     {
       "id": "point-nepean-national-park-guide",
-      "reason": "MDX-body-not-available-to-runtime-index"
+      "reason": "MDX-body-not-available-to-runtime-index",
+      "linkedMentions": 0,
+      "linkedDestinations": []
     },
     {
       "id": "two-bays-walk-mornington-peninsula",
-      "reason": "MDX-body-not-available-to-runtime-index"
+      "reason": "MDX-body-not-available-to-runtime-index",
+      "linkedMentions": 0,
+      "linkedDestinations": []
     },
     {
       "id": "walks-bushrangers-bay-walk-guide",
-      "reason": "MDX-body-not-available-to-runtime-index"
+      "reason": "MDX-body-not-available-to-runtime-index",
+      "linkedMentions": 0,
+      "linkedDestinations": []
     },
     {
       "id": "walks-cape-schanck-hot-springs-day",
-      "reason": "MDX-body-not-available-to-runtime-index"
+      "reason": "MDX-body-not-available-to-runtime-index",
+      "linkedMentions": 0,
+      "linkedDestinations": []
     },
     {
       "id": "waterfront-restaurants-mornington-peninsula",
-      "reason": "MDX-body-not-available-to-runtime-index"
+      "reason": "MDX-body-not-available-to-runtime-index",
+      "linkedMentions": 0,
+      "linkedDestinations": []
     },
     {
       "id": "where-to-walk-the-dog-mornington-peninsula",
-      "reason": "MDX-body-not-available-to-runtime-index"
+      "reason": "MDX-body-not-available-to-runtime-index",
+      "linkedMentions": 0,
+      "linkedDestinations": []
     }
   ],
   "staticBodyHolds": [
@@ -319,5 +391,7 @@
       ]
     }
   ],
-  "scope": "Resolve six existing producer canonical routes. Coordinates remain null; no town-centroid substitutes. MDX and static source shadow records are not rendered evidence."
+  "scope": "Resolve six existing producer canonical routes. Coordinates remain null; no town-centroid substitutes. MDX and static source shadow records are not rendered evidence.",
+  "plannedResolution": "Align shared resolver and slug-only helper to existing /wine/ producer canonicals, then remove the relationship-only routing hold. Keep aliases and content unchanged.",
+  "bodyEvidenceNextStage": "Runtime MDX lacks rendered.html; render its actual Content component with the journal renderer/CMS override contract, or a build-final projection from the existing page inventory. Static guides need actual rendered prose and route-owned title metadata, never a source-shadow article. Do not import complete pages into the loader because it can recurse through venue panels."
 }
