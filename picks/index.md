@@ -15,6 +15,8 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 
 ## Recent selections
 
+- [Peninsula Insider Picks: 18 November 2026](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-18/>) - The Heritage Balnarring's beer garden in spring flower, the VineHop Festival across six Mount Martha venues on Saturday, and the National Works on Paper closing Sunday at MPRG.
+
 - [Flinders Sourdough, the Arthurs Seat ridge, and NWOP closing Sunday](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-17/>) - A Beach Bun from Flinders Sourdough's wood-fired oven, the Serafino Track on Arthurs Seat in full spring flower, and the National Works on Paper wrapping up at Mornington Peninsula Regional Gallery this Sunday.
 
 - [Crittenden's skin-contact experiments, a clifftop bloom walk, and the Emu Plains market before summer crowds](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-16/>) - Skin-contact amphora wines at Crittenden Estate in Dromana, coastal teatree in flower on the Cape Schanck boardwalk, and Saturday morning at Emu Plains Market in Balnarring.
@@ -36,8 +38,6 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 - [Portsea Hotel fish and chips, the Bushranger Bay snorkel trail, and live music at Moonah Links](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-08/>) - The Portsea Hotel's front-beach deck before the summer crowds, the Bushranger Bay underwater trail at peak spring visibility, and acoustic sets running every Saturday at Peppers Moonah Links through December.
 
 - [Somers General, the Mornington inlet run, and an acoustic set at Moonah Links](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-07/>) - Somers General's Sunday brunch spread, the Balcombe Creek estuary walk at high tide, and live music on the Moonah Links deck before the summer crowds land.
-
-- [Baillieu Vineyard, the Merricks vine walk, and National Works on Paper closing soon](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-06/>) - Baillieu Vineyard's Chardonnay opens up with time, the Merricks vine walk is at its best in new-growth spring, and the National Works on Paper show at MPRG closes 22 November.
 
 ## Planning a particular weekend?
 
