@@ -15,7 +15,7 @@ function report(changed = false, extra = []) {
   ] : [];
   details.push(...extra);
   return { complete: true, deploymentBefore: before, deploymentAfter: changed ? after : before,
-    failures: details.map(item => item.message), failureDetails: details, transport: { attempts: [] } };
+    failures: details.map(item => item.message), failureDetails: details, transport: { attempts: [{ status: 200 }] } };
 }
 const preflight = (deployment = before, failures = []) => ({ status: failures.length ? 2 : 0, report: { deployment, failures } });
 const welcome = value => ({ status: value.failures.length ? 1 : 0, report: value });
@@ -62,6 +62,18 @@ test('partial, malformed and untagged evidence fails closed', () => {
 test('passing first audit runs only one full attempt', async () => {
   const h = harness([preflight(), welcome(report())]);
   assert.equal((await h.result).outcome, 'passed'); assert.equal(h.calls.length, 2);
+});
+test('missing or malformed transport evidence cannot pass or authorize retry', async () => {
+  for (const transport of [undefined, null, {}, { attempts: null }, { attempts: {} },
+    { attempts: 'missing' }, { attempts: [] }, { attempts: [null] }, { attempts: ['receipt'] }]) {
+    for (const changed of [false, true]) {
+      const value = { ...report(changed), transport };
+      assert.equal(classifyAudit(value), 'invalid-evidence');
+      const h = harness([preflight(), welcome(value)]);
+      assert.equal((await h.result).passed, false);
+      assert.equal(h.calls.length, 2);
+    }
+  }
 });
 test('verified change runs one fresh preflight and full audit, preserving original failure', async () => {
   const stable = { ...report(), deploymentBefore: after, deploymentAfter: after };

@@ -17,11 +17,14 @@ export function classifyAudit(report) {
   const changed = !sameDeployment(report.deploymentBefore, report.deploymentAfter);
   const failures = report.failures;
   const details = report.failureDetails;
-  if (!Array.isArray(failures) || !Array.isArray(details) || failures.length !== details.length ||
-      details.some((item, index) => item.message !== failures[index])) return 'invalid-evidence';
+  const attempts = report.transport?.attempts;
+  if (!Array.isArray(attempts) || attempts.length === 0 ||
+      attempts.some(item => !item || typeof item !== 'object' || Array.isArray(item)) ||
+      !Array.isArray(failures) || !Array.isArray(details) || failures.length !== details.length ||
+      details.some((item, index) => item?.message !== failures[index])) return 'invalid-evidence';
   if (!changed) return failures.length ? 'gate-failure' : 'passed';
   if (!details.some(item => item.category === 'deployment-change') ||
       details.some(item => !['deployment-change', 'release-consistency'].includes(item.category)) ||
-      report.transport?.attempts?.some(item => item.error || [429, 503].includes(item.status))) return 'deployment-change-with-other-failures';
+      attempts.some(item => item.error || [429, 503].includes(item.status))) return 'deployment-change-with-other-failures';
   return 'deployment-change-inconclusive';
 }

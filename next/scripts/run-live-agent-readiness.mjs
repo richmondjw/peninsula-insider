@@ -64,9 +64,9 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
   if (process.env.GITHUB_STEP_SUMMARY) {
     const lines = [`Live readiness: **${result.outcome}**`, '',
       ...(result.attempts || []).map(receipt => `- Attempt ${receipt.attempt}: ${receipt.outcome || 'provenance-or-semantic-failure'}; ${receipt.welcome?.report?.failures?.length ?? receipt.provenance?.report?.failures?.length ?? 'unknown'} failed checks retained.`),
-      '', 'A deployment-change attempt is inconclusive, not accepted. Only a complete stable attempt can pass. Original JSON reports, transport receipts and execution logs remain in the artifact.', ''];
+      '', 'A deployment-change attempt is inconclusive, not accepted. Only a complete stable attempt can pass. Available JSON reports and execution logs remain in the artifact. A killed child may not flush its report or in-memory transport receipts; its execution record and captured logs are retained if the wrapper completes. Workflow cancellation can also prevent artifact upload.', ''];
     appendFileSync(process.env.GITHUB_STEP_SUMMARY, lines.join('\n'));
   }
-  console.log(`Live readiness: ${result.outcome}; original attempt reports and execution logs retained.`);
+  console.log(`Live readiness: ${result.outcome}; available attempt reports and execution logs retained. Interrupted children may lack transport receipts.`);
   process.exitCode = result.passed ? 0 : 1;
 }
