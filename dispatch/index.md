@@ -28,7 +28,3 @@ Useful observations and things you might otherwise miss.
 - ### From the Journal
 
 Selected guides and stories worth reading.
-
-## Don't miss the next Note.
-
-The Peninsula worth knowing.

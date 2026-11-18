@@ -11,86 +11,21 @@ About Peninsula Insider
 
 We choose places worth your time, say who they suit and explain why they make the cut.
 
-Peninsula Insider is an independently researched and reviewed guide shaped by official sources, local context and continuing checks.
+A guide to eating, drinking, staying and exploring on the Mornington Peninsula.
 
-[Explore our picks](<https://peninsulainsider.com.au/explore/places/>) [See how a pick is checked](<https://peninsulainsider.com.au/about/#how-we-choose>)
+[Explore our picks](<https://peninsulainsider.com.au/explore/places/>) [Our editorial approach](<https://peninsulainsider.com.au/about/#how-we-choose>)
 
 Cape Schanck, Mornington Peninsula  Photography: Courtesy of Visit Victoria
 
-Our point of view
+Our editorial approach
 
-## Every pick earns its place.
-Every verdict has a reason.
+## A reason to choose.
 
-You should know what makes a place right for your day before you leave home.
+We look for what makes a Peninsula place distinctive, who it suits and when it works best. Our recommendations bring together official sources, local context and editorial judgement to help you plan your day.
 
-The method
-
-## How we choose
-
-Independent research, official sources, local context and editorial judgement guide our choices. These are the questions behind a useful recommendation.
-
-- ### Is it worth your time?
-
-We look for the experience that makes a place worth choosing over the other options for your day.
-
-- ### Who is it right for?
-
-A great place still needs the right person and the right mood. We say who will get the most from it.
-
-- ### When does it work best?
-
-Season, weather, opening details and the pace of a visit can change the recommendation.
-
-- ### What is the reason?
-
-Every verdict should give you something useful to decide with, beyond a flattering description.
-
-The evidence trail
-
-### What “checked” means here
-
-A recommendation separates what a primary source confirms from the judgement Peninsula Insider adds. Time-sensitive listings carry a review date when a whole-record check has been completed.
-
-- #### Verify the practical facts
-
-We start with the operator or responsible authority for location, access, opening details, booking requirements and time-sensitive conditions.
-
-- #### Add the editorial judgement
-
-We say who a place suits, why it is worth choosing and what might make another option better for your day.
-
-- #### Show the limits
-
-A source check is not presented as a visit. Where evidence is partial, changing or unavailable, the recommendation says so.
-
-- #### Check again after publication
-
-Automated checks watch public pages and source links. When a material detail cannot be confirmed, we qualify it, direct you to the organiser or pause the listing.
+Practical details are checked against the operator or responsible authority. A source check is not a visit: we distinguish confirmed facts from our judgement and make material gaps clear. A whole-record review date shows when that check was completed, not a guarantee that nothing has changed.
 
 **Method reviewed:** 10 November 2026.
-
-A verdict in practice
-
-A properly wild coast walk with a steep descent and a real payoff. Check conditions before you go, then allow enough time for the climb back.
-
-**Why choose it**
-
-A dramatic coastal walk with a clear sense of reward.
-
-**Who it suits**
-
-Walkers comfortable with steps, uneven ground and a return climb.
-
-**The trade-off**
-
-It is a walking destination, not a swimming beach, and conditions can change the day.
-
-**Before leaving**
-
-Check the responsible authority for current access and conditions.
-
-  [Check the responsible authority](<https://www.parks.vic.gov.au/places-to-see/sites/bushrangers-bay-walk>) [See the Peninsula guide](<https://peninsulainsider.com.au/explore/bushrangers-bay-walk/>)
 
 Independent editorial
 
@@ -114,7 +49,7 @@ Keeping things current
 
 ## Places change. We keep checking.
 
-Time-sensitive details are checked against the responsible source, and public pages are monitored after publication. If something is inaccurate or out of date, tell us what needs fixing. The correction route returns a case reference.
+Automated checks monitor public pages and source links after publication. Where a material detail cannot be confirmed, we qualify it, link to the responsible source or pause the listing. Report anything inaccurate or out of date through our correction form; it returns a case reference.
 
  [Report a correction](<https://peninsulainsider.com.au/contact/?type=correction#correction>)
 

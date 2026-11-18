@@ -1,11 +1,36 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-18T07:10:38.918Z",
+  "generatedAt": "2026-11-18T10:25:27.494Z",
   "baselineAvailable": true,
   "fromSnapshot": "a664807f15311b89699d8b4cd7312f6c98771914df2d3770e471233660cabbb8",
-  "toSnapshot": "a664807f15311b89699d8b4cd7312f6c98771914df2d3770e471233660cabbb8",
-  "previousGeneratedAt": "2026-11-18T05:48:21.424Z",
+  "toSnapshot": "b9aec69c302b53c166e3ad7ce8ac29b7d4b34d4a1fd388a30f9367bbad491dbc",
+  "previousGeneratedAt": "2026-11-18T07:10:38.918Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 0,
-  "changes": []
+  "count": 3,
+  "changes": [
+    {
+      "id": "https://peninsulainsider.com.au/about/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/about/",
+      "markdownUrl": "https://peninsulainsider.com.au/about/index.md",
+      "contentSha256": "a9e85590adbeb481dc2bf7909ca5d34885616b7ef73ed3806563f672c5410eb7",
+      "previousContentSha256": "dc4d562a7d7cb6d909ee28b764e93c93c1c1cc9a17046204cb9f45b0627a7603"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/dispatch/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/dispatch/",
+      "markdownUrl": "https://peninsulainsider.com.au/dispatch/index.md",
+      "contentSha256": "938a659d4c43a7078aee7c0db000be39d2a46f6fe706a878ee8aa9c0ec11d940",
+      "previousContentSha256": "d19cd8cb84fed91734f5734db0bb7eb47351b884d58530fe1677cb3535e46eca"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
+      "contentSha256": "8a9dd39747f4ceb7244ec5270cd0e4792a24f1abeda45f172c11d5453efc6931",
+      "previousContentSha256": "becfd4c693d5b28d04d5dbfe331df629810ede96cb9ee98870a3f8b61f6f8ee5"
+    }
+  ]
 }
