@@ -13,8 +13,6 @@ A small Flinders bakery using its original wood-fired oven for naturally ferment
 
 Known for   Wood-Fired Sourdough Loaves Beach Buns Little Rebel Coffee Weekend Bakery
 
-+61 3 5989 0088
-
 Why we’d go
 
 Wood-fired sourdough, Beach Buns and coffee make the bakery a simple Flinders morning stop.
@@ -48,10 +46,6 @@ Bakery
 **Location**
 
 58 Cook Street, Flinders VIC 3929 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Flinders%20Sourdough%2C%2058%20Cook%20Street%2C%20Flinders%20VIC%203929>)
-
-**Call**
-
-+61 3 5989 0088
 
 **Website**
 

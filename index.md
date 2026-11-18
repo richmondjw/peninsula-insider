@@ -25,14 +25,6 @@ Places chosen by our editors. Never paid for. [How we choose](<https://peninsula
 
 Something more specific? [Ask PI](<https://peninsulainsider.com.au/ask/>)
 
-- Arthurs Seat Eagle Gondola Ride, Mornington Peninsula   Photo courtesy of Visit Victoria.
-
-### [The family day out](<https://peninsulainsider.com.au/explore/plans/the-family-day-out/>)
-
-A gondola, brewery lunch and a bay beach.
-
-One day   Red Hill & Merricks   Family
-
 - Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula   Photo: Two Palms Australia, courtesy of Visit Victoria.
 
 ### [Ridge to sea](<https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/>)
@@ -40,6 +32,14 @@ One day   Red Hill & Merricks   Family
 Red Hill wine country to the southern coast.
 
 3 days   Red Hill & Merricks   Couples
+
+- Arthurs Seat Eagle Gondola Ride, Mornington Peninsula   Photo courtesy of Visit Victoria.
+
+### [The family day out](<https://peninsulainsider.com.au/explore/plans/the-family-day-out/>)
+
+A gondola, brewery lunch and a bay beach.
+
+One day   Red Hill & Merricks   Family
 
 ## Insider Picks
 
@@ -79,14 +79,6 @@ Merricks
 
 Swipe or scroll through the picks
 
-- ### [CREATE: Pottery for your table](<https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/>)
-
-Come along and make a charcuterie platter with Caitlin from Peachy Keen Ceramics.
-
-Sat, 21 Nov   Mornington Community House   Exhibition
-
-Event details checked 9 Nov 2026 · [Organiser’s page](<https://www.eventbrite.com.au/e/create-pottery-for-your-table-tickets-2003897868468>)
-
 - ### [Deja Vu Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/deja-vu-live-at-peninsula-beer-garden-2026-11-21/>)
 
 Enjoy live music at Peninsula Beer Garden! Deja Vu are a dynamic duo playing upbeat covers, that make you want to get up and dance.
@@ -102,6 +94,14 @@ Multi-Award-winning singer-songwriters Felicity Urquhart & Josh Cunningham are h
 Sat, 21 Nov   Pig & Whistle Tavern   Live music
 
 Event details checked 9 Nov 2026 · [Organiser’s page](<https://events.humanitix.com/felicity-urquhart-and-josh-cunningham-go-north-go-south-tour-vmywstka/tickets?fbclid=IwY2xjawVXVDdleHRuA2FlbQIxMABwZG9mAWJyaWQRMW53enpXazVpcnRMUEttdU9zcnRjBmFwcF9pZBAyMjIwMzkxNzg4MjAwODkyAAEfovC_arQeFoFji3FwDuu7-8BhsvgLaIeObhmJW6wiGJ-bu4khdisSr85gr0c_aem_IM1YqQU9WAVYwOZM4u2sXA>)
+
+- ### [Peninsula VineHop Festival 2026](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
+
+Choose a shuttle ticket for four venues on one route, or the Festival Hub for a single-site day with parking and the main stage.
+
+Sat, 21 Nov   Festival Hub at The Briars and six linked venues   Festival
+
+Event details checked 25 Aug 2026 · [Organiser’s page](<https://vinehopfestival.com.au/>)
 
 This season · Spring
 

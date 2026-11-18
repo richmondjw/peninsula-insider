@@ -235,7 +235,7 @@ Cottage   Red Hill
 
 - ### [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>)
 
-Pet-welcoming Rye cottages; Sandpiper has a log fire.
+Pet-welcoming self-catering cottages near Rye bay beach. All cottages have log fires and fully fenced courtyards for pets.
 
 Cottage   Rye   Dog-friendly
 

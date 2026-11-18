@@ -51,7 +51,7 @@ Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 12 Blakiston Grove, Rye VIC 3941
 
-Pet-welcoming self-catering cottages near Rye bay beach. Sandpiper has a log fire and a fully fenced courtyard.
+Pet-welcoming self-catering cottages near Rye bay beach. All cottages have log fires and fully fenced courtyards for pets.
 
 beach  fireplace
 

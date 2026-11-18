@@ -33,7 +33,7 @@ Bay beach, working farm, brewery or vineyard: choose the setting first. Then che
 
 ### [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>)
 
-All Blue Moon cottages accept pets. Sandpiper has a log fire and a compact, enclosed courtyard.
+All Blue Moon cottages accept pets and have log fires and fully fenced courtyards.
 
 **Check before booking** Choose the exact cottage and read the pet conditions.
 
