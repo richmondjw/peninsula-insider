@@ -1,7 +1,7 @@
 {
   "slug": "the-family-day-out",
   "title": "The Peninsula Family Day Out",
-  "dek": "A gondola ride, a brewery lunch and a bay beach, with a coffee stop only if the day runs early.",
+  "dek": "Start at Arthurs Seat, head to Red Hill Brewery for lunch, then Mount Martha Beach, with an optional Mornington coffee stop.",
   "audience": "family",
   "mood": "mixed",
   "lengthNights": 0,
@@ -10,8 +10,9 @@
     "general",
     "coastal"
   ],
-  "anchorTown": "red-hill",
+  "anchorTown": "arthurs-seat",
   "baseTowns": [
+    "arthurs-seat",
     "red-hill",
     "mount-martha",
     "mornington"
@@ -42,14 +43,14 @@
       "day": 1,
       "order": 2,
       "venue": "red-hill-brewery",
-      "note": "The bar and kitchen are usually open Thursday to Sunday, with food from midday; menus vary, so check your chosen day's service before setting out. Date-specific note for Saturday 24 October 2026: the brewery advertised Oktoberfest from 11 am to 7 pm, overlapping this lunch stop. Seating availability and suitability for your family are unconfirmed; check with the brewery before making it your lunch plan.",
+      "note": "The bar and kitchen are usually open Thursday to Sunday, with food from midday; menus vary, so check your chosen day's service before setting out. Check seating availability and suitability for your family with the brewery before making it your lunch plan.",
       "timeOfDay": "midday"
     },
     {
       "day": 1,
       "order": 3,
       "experience": "mount-martha-beach",
-      "note": "Make the beach a shore-based afternoon pause. Only consider swimming if a suitable swimming area is operating between red and yellow flags and conditions suit your group; otherwise stay on shore. Supervise children near the water. Mount Martha's regular patrol season starts in November; at our 24 October 2026 check, PI had not confirmed a patrol for that day.",
+      "note": "Make the beach a shore-based afternoon pause. Only consider swimming if a suitable swimming area is operating between red and yellow flags and conditions suit your group; otherwise stay on shore. Supervise children near the water. Check current patrol information and local conditions for your visit; this itinerary does not confirm a patrol.",
       "timeOfDay": "afternoon"
     },
     {
