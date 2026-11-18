@@ -89,3 +89,23 @@ test('reported events keep their sourced occurrence identity and complete summar
   assert.equal(pottery.category,'arts'); assert.equal(pottery.subcategory,'workshop'); assert.match(pottery.summary,/workshop/);
   for(const e of [will,garden,pottery]) { assert.equal(e.lastCheckedDate,'2026-11-09'); assert.ok(e.eventId); }
 });
+
+import { selectEventPromotions } from '../src/lib/event-discovery.mjs';
+import { publicPlanningCatalog, projectSavedEvent } from '../src/lib/event-planning.mjs';
+test('CREATE date-review hold removes promotion and dated planning payloads while retaining reader notes', () => {
+  const data=JSON.parse(read('src/content/events/create-pottery-for-your-table.json'));
+  const entry={id:data.slug,data};
+  assert.equal(data.status,'archived');
+  assert.match(data.verificationStatus,/unverified - no future date confirmed/);
+  for(const date of ['2026-11-18T00:00:00Z','2026-11-21T00:00:00Z','2026-11-22T00:00:00Z']) {
+    const now=new Date(date);
+    assert.deepEqual(selectEventPromotions([entry],{now}),[]);
+    const catalog=publicPlanningCatalog([entry],now);
+    assert.equal(catalog.length,1);
+    assert.doesNotMatch(JSON.stringify(catalog),/2026-11-21|10:00|12:00|eventbrite/);
+    const saved=projectSavedEvent({kind:'event',slug:data.slug,title:'My saved workshop',note:'Keep my note'},catalog,{now});
+    assert.equal(saved.eventStatus,'Listing under review');
+    assert.equal(saved.note,'Keep my note');
+    assert.equal(saved.bookingAllowed,false);assert.equal(saved.calendarAllowed,false);
+  }
+});

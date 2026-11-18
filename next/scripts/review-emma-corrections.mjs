@@ -17,7 +17,13 @@ try {
    }
    if(path.includes('will-rounds')) {assert.match(facts.text,/Friday 20 November/);assert.doesNotMatch(facts.text,/each Saturday/);}
    if(path.includes('culinary-garden')) {assert.match(facts.text,/Ella Swann/);assert.match(facts.text,/vegetarian lunch/);assert.doesNotMatch(facts.text,/Once a year, Pt\./);}
-   if(path.includes('create-pottery')) {assert.match(facts.text,/hands-on pottery workshop/);assert.doesNotMatch(facts.text,/\bExhibition\b/);}
+   if(path.includes('create-pottery')) {
+    assert.match(facts.text,/Listing under review/i);assert.match(facts.text,/No future date confirmed/);
+    assert.match(facts.text,/Mornington Peninsula Shire CREATE/);
+    assert.doesNotMatch(facts.text,/21 November|10:00|12:00|Add to calendar|Book or check details|This event has ended/);
+    const held=await page.evaluate(()=>({robots:document.querySelector('meta[name="robots"]')?.content,eventSchema:[...document.querySelectorAll('script[type="application/ld+json"]')].some(s=>/"@type"\s*:\s*"Event"/.test(s.textContent)),actions:[...document.querySelectorAll('a[href]')].filter(a=>/eventbrite|calendar\.google/.test(a.href)).length}));
+    assert.match(held.robots,/noindex/);assert.equal(held.eventSchema,false);assert.equal(held.actions,0);
+   }
    if(path.includes('laura-pt-leo/') && path.startsWith('/eat')) {
     assert.ok(facts.links.some(l=>l.text==='hello@peninsulainsider.com.au'));
     assert.ok(facts.links.some(l=>l.href==='/contact/?type=correction'));

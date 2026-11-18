@@ -16,6 +16,8 @@ Sources retrieved 17 November 2026:
 
 Existing lastCheckedDate/lastVerified values retained: this is a scoped correction, not whole-record re-verification. Provenance appendices identify event field corrections.
 
+18 November pottery release hold: Caitlin's reply confirms the Shire CREATE programme, not a date. The existing clarification reply remains a draft for James and Emma. Reported conflicting Shire dates remain unresolved; direct Shire retrieval returned 403 and was stopped. Rather than republish the inherited date, reuse the existing archived/unverified schedule-review state. Preserve original dates, links, image and publication history as audit data; the existing public template retains the URL with a date-free review notice, no Event schema, booking or calendar actions, and no current promotions. The programme distinction in the notice is supported by Caitlin's reply. This is not a cancellation or a new date/availability claim. Rebase onto PR785 main 6a9e7d12f608e61f455e4c4bdc2056d4fe1e8e8f preserves its five unrelated files. No shared event template or publication rule changed.
+
 ## Coordination
 
 Emma's later Publication Content Refinement thread (17 November 21:46/21:47 AEDT) repeats Terms/public email consistency. This candidate owns only those exact address substitutions and removal of the duplicate corrections-address footer row (existing hello row retained). Other About, Contact form, newsletter, Journal and photography restructuring remains with its owner. No wholesale files copied from that workstream. Footer/layout changes are public address-only and must be reconciled at integration.
