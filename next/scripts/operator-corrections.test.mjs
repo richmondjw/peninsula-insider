@@ -25,3 +25,15 @@ test('Flinders Sourdough has no phone, including any replacement', () => {
   assert.doesNotMatch(JSON.stringify(venue), /5989\s*0088/);
   assert.equal(venue.website, 'https://flinderssourdough.com.au');
 });
+
+test('Iluka uses approved artwork and keeps practical booking limits', () => {
+  const v = JSON.parse(read('content/venues/iluka-retreat.json'));
+  assert.match(v.signature, /two group lodges.*36-acre/);
+  assert.match(v.editorNote, /raised timber decks/);
+  for (const constraint of [/tents are unpowered/, /shared camp kitchen and bathrooms/, /Pets are not permitted/, /steep and uneven/, /arrange any extra single beds/i, /does not mean exclusive use/]) assert.match(v.editorNote, constraint);
+  assert.equal(v.address, '20 Shoreham Rd, Shoreham VIC 3916');
+  assert.equal(v.heroImage.src, '/images/editorial/journal-backstop.svg');
+  assert.equal(v.heroImage.depictionStatus, 'illustrative');
+  assert.equal(v.heroImage.rightsHolder, 'Peninsula Insider');
+  assert.doesNotMatch(JSON.stringify(v), /balnarring-rural-sunrise|cms-assets/);
+});

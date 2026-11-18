@@ -33,3 +33,27 @@ for (const width of [390, 1440]) {
     } finally { await reader.close(); }
   });
 }
+
+for (const width of [390, 1440]) {
+  test(`Iluka facts, disclosure and booking survive rendering at ${width}px`, async () => {
+    const reader = await site.reader({supabase:[{match:'cms_image_slots',body:[{field_path:'heroImage',public_url:'https://example.invalid/unreviewed-property.jpg',alt_text:null,credit:null}]}]});
+    try {
+      await reader.page.setViewport({width, height: 900});
+      await reader.load('/stay/iluka-retreat/');
+      const text = await reader.page.$eval('main', el => el.textContent);
+      for (const fact of [/36 acres/, /Two group accommodation lodges/, /raised timber decks/, /tents are unpowered/, /Pets are not permitted/, /steep and uneven/, /does not mean exclusive use/, /Peninsula Insider editorial artwork. Property photography awaiting review/]) assert.match(text, fact);
+      const image = await reader.page.$eval('.venue-detail__hero img', el => ({src:el.getAttribute('src'),loaded:el.complete && el.naturalWidth>0,hold:el.hasAttribute('data-pi-no-hydrate')}));
+      assert.deepEqual(image, {src:'/images/editorial/journal-backstop.svg',loaded:true,hold:true});
+      assert.equal(await reader.page.$eval('.venue-detail__hero', el => el.hasAttribute('data-pi-no-hydrate')), true);
+      const schemas = await reader.page.$$eval('script[type="application/ld+json"]', els => els.map(el => JSON.parse(el.textContent)));
+      const business = schemas.flatMap(v => v['@graph'] ?? [v]).find(v => v['@type'] === 'LodgingBusiness');
+      assert.ok(business);
+      assert.match(business.description, /two group lodges/);
+      assert.equal(Object.hasOwn(business, 'image'), false, 'illustration is not property photography in schema');
+      assert.ok(await reader.page.$('main a[href="https://ilukaretreat.com.au/accommodation/glamping/"]'));
+      assert.equal(await reader.page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
+      await reader.load('/stay/');
+      assert.match(await reader.page.$eval('main', el => el.textContent), /Bell tents and two group lodges on 36 acres near Shoreham/);
+    } finally { await reader.close(); }
+  });
+}
