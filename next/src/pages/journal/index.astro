@@ -35,11 +35,8 @@ async function pick(slugs:string[],count:number,theme?:string,uniqueImages=false
  return result;
 }
 const [lead]=await pick(fresh?[curation.lead,curation.leadFallback]:[],1,undefined,true);
-// The rail shows only recent pieces: a curated slug older than 75 days gives way
-// to the newest stories (2026-11-16, it was showing April spring pieces in November).
-const RAIL_MAX_AGE=75*864e5;
-const recentDesk=curation.desk.filter(s=>{const a=discoveryArticles.find(x=>routeSlug(x)===s);return a&&Date.now()-a.data.publishedAt.getTime()<RAIL_MAX_AGE;});
-const desk=(await pick(recentDesk,3)).sort((a,b)=>b.data.publishedAt.getTime()-a.data.publishedAt.getTime());
+// Articles are already newest first; the lead is excluded by pick's used set.
+const desk=await pick([],3);
 // The lead story opens the page in the shared hub hero (2026-11-16).
 const leadImage=lead?await resolveJournalImage(routeSlug(lead),lead.data):null;
 const leadTitle=lead?(displayFor(lead).title||lead.data.title):'';

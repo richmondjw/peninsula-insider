@@ -70,13 +70,14 @@ const groups = [...byCredit.entries()]
   .map(([credit, items]) => ({ credit, items: items.sort((a, b) => (a.ref.caption ?? '').localeCompare(b.ref.caption ?? '')) }))
   .sort((a, b) => b.items.length - a.items.length || a.credit.localeCompare(b.credit));
 const total = photos.size;
+const creditId = (credit: string) => `photographer-${Array.from(credit, character => character.codePointAt(0)!.toString(16)).join('-')}`;
 ---
 <BaseLayout
   title="Photography credits · Peninsula Insider"
   description="The photographers behind the Peninsula Insider pictures, and where each photograph appears."
   canonical="https://peninsulainsider.com.au/photography/"
 >
-  <article class="credits container">
+  <article class="credits container" id="photography-top">
     <header>
       <h1>Photography credits</h1>
       <p class="standfirst">
@@ -86,9 +87,14 @@ const total = photos.size;
       </p>
     </header>
 
+    <nav class="credits__nav" aria-label="Photographers">
+      <p>Find a photographer</p>
+      <ul>{groups.map((group) => <li><a href={`#${creditId(group.credit)}`}>{group.credit.replace(/^Courtesy of Visit Victoria$/, 'Visit Victoria')}</a></li>)}</ul>
+    </nav>
     {groups.map((group) => (
-      <section class="credits__group">
-        <h2>{group.credit.replace(/^Courtesy of Visit Victoria$/, 'Visit Victoria')} <span class="credits__count">{group.items.length} {group.items.length === 1 ? 'photograph' : 'photographs'}</span></h2>
+      <section class="credits__group" id={creditId(group.credit)} aria-labelledby={`${creditId(group.credit)}-title`}>
+
+        <h2 id={`${creditId(group.credit)}-title`}>{group.credit.replace(/^Courtesy of Visit Victoria$/, 'Visit Victoria')} <span class="credits__count">{group.items.length} {group.items.length === 1 ? 'photograph' : 'photographs'}</span></h2>
         <ul class="credits__grid">
           {group.items.map(({ ref, uses }) => (
             <li>
@@ -103,6 +109,7 @@ const total = photos.size;
             </li>
           ))}
         </ul>
+        <a class="credits__back" href="#photography-top">Back to photographers</a>
       </section>
     ))}
 
@@ -119,7 +126,10 @@ const total = photos.size;
   .credits header { max-width: 52rem; }
   h1 { font: 600 clamp(2.5rem, 6vw, 4rem)/1.05 var(--font-display); letter-spacing: -0.025em; margin: 0 0 1.25rem; }
   .standfirst { font-size: var(--fs-500); line-height: 1.55; max-width: 62ch; color: var(--ink); }
-  .credits__group { margin-top: clamp(2.5rem, 5vw, 4rem); }
+  .credits__nav ul { display:flex; flex-wrap:wrap; gap:.5rem 1.5rem; padding:0; list-style:none; }
+  .credits__nav a, .credits__back { display:inline-flex; align-items:center; min-height:44px; color:var(--harbour); }
+  .credits a:focus-visible { outline:var(--focus-ring); outline-offset:3px; }
+  .credits__group { scroll-margin-top:8rem; margin-top: clamp(2.5rem, 5vw, 4rem); }
   h2 { font: 600 var(--fs-600)/1.2 var(--font-display); letter-spacing: -0.02em; margin: 0 0 1rem; }
   .credits__count { font: 400 var(--fs-200)/1 var(--font-ui); color: var(--muted); letter-spacing: 0.02em; margin-left: 0.5rem; }
   .credits__grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 13rem), 1fr)); gap: 1.25rem; }
