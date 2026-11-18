@@ -14,47 +14,6 @@ const methodReviewedLabel = new Date(`${editorialMethod.reviewedOn}T12:00:00Z`).
   year: 'numeric',
   timeZone: 'UTC',
 });
-const questions = [
-  {
-    number: '01',
-    title: 'Is it worth your time?',
-    copy: 'We look for the experience that makes a place worth choosing over the other options for your day.',
-  },
-  {
-    number: '02',
-    title: 'Who is it right for?',
-    copy: 'A great place still needs the right person and the right mood. We say who will get the most from it.',
-  },
-  {
-    number: '03',
-    title: 'When does it work best?',
-    copy: 'Season, weather, opening details and the pace of a visit can change the recommendation.',
-  },
-  {
-    number: '04',
-    title: 'What is the reason?',
-    copy: 'Every verdict should give you something useful to decide with, beyond a flattering description.',
-  },
-];
-
-const checkingSteps = [
-  {
-    title: 'Verify the practical facts',
-    copy: 'We start with the operator or responsible authority for location, access, opening details, booking requirements and time-sensitive conditions.',
-  },
-  {
-    title: 'Add the editorial judgement',
-    copy: 'We say who a place suits, why it is worth choosing and what might make another option better for your day.',
-  },
-  {
-    title: 'Show the limits',
-    copy: 'A source check is not presented as a visit. Where evidence is partial, changing or unavailable, the recommendation says so.',
-  },
-  {
-    title: 'Check again after publication',
-    copy: 'Automated checks watch public pages and source links. When a material detail cannot be confirmed, we qualify it, direct you to the organiser or pause the listing.',
-  },
-];
 ---
 
 <BaseLayout
@@ -71,16 +30,16 @@ const checkingSteps = [
           <h1 {...editableText({entityType:'page',entitySlug:'about',fieldPath:'hero.title',label:'About title'})}>The Peninsula, with a point of view.</h1>
           <div class="pi-about__intro">
             <p class="pi-about__standfirst" {...editableText({entityType:'page',entitySlug:'about',fieldPath:'hero.dek',label:'About introduction'})}>We choose places worth your time, say who they suit and explain why they make the cut.</p>
-            <p>Peninsula Insider is an independently researched and reviewed guide shaped by official sources, local context and continuing checks.</p>
+            <p>A guide to eating, drinking, staying and exploring on the Mornington Peninsula.</p>
             <div class="pi-about__hero-actions">
               <a class="pi-btn pi-btn--solid" href="/explore/places/">Explore our picks</a>
-              <a class="pi-about__text-link" href="#how-we-choose">See how a pick is checked <span aria-hidden="true">↓</span></a>
+              <a class="pi-about__text-link" href="#how-we-choose">Our editorial approach <span aria-hidden="true">↓</span></a>
             </div>
           </div>
         </div>
         <nav class="pi-about__jump" aria-label="On this page">
           <span>On this page</span>
-          <a href="#how-we-choose">How we choose <span aria-hidden="true">↗</span></a>
+          <a href="#how-we-choose">Editorial approach <span aria-hidden="true">↗</span></a>
           <a href="#independent-editorial">Our independence <span aria-hidden="true">↗</span></a>
           <a href="#keeping-current">Keeping current <span aria-hidden="true">↗</span></a>
         </nav>
@@ -91,70 +50,14 @@ const checkingSteps = [
       </div>
     </header>
 
-    <section class="pi-about__promise" aria-labelledby="about-promise-title">
-      <div class="container pi-about__promise-grid">
-        <p class="pi-about__eyebrow pi-about__eyebrow--light">Our point of view</p>
-        <div>
-          <h2 id="about-promise-title">Every pick earns its place.<br />Every verdict has a reason.</h2>
-          <p>You should know what makes a place right for your day before you leave home.</p>
-        </div>
-      </div>
-    </section>
-
     <section class="pi-about__method" id="how-we-choose" aria-labelledby="about-method-title">
-      <div class="container">
-        <div class="pi-about__section-head">
-          <p class="pi-about__eyebrow">The method</p>
-          <div>
-            <h2 id="about-method-title">How we choose</h2>
-            <p>Independent research, official sources, local context and editorial judgement guide our choices. These are the questions behind a useful recommendation.</p>
-          </div>
-        </div>
-        <ol class="pi-about__questions">
-          {questions.map((question) => (
-            <li>
-              <span class="pi-about__number" aria-hidden="true">{question.number}</span>
-              <h3>{question.title}</h3>
-              <p>{question.copy}</p>
-            </li>
-          ))}
-        </ol>
-        <div class="pi-about__check-standard" aria-labelledby="about-check-standard-title">
-          <div class="pi-about__check-standard-head">
-            <p class="pi-about__eyebrow">The evidence trail</p>
-            <div>
-              <h3 id="about-check-standard-title">What “checked” means here</h3>
-              <p>A recommendation separates what a primary source confirms from the judgement Peninsula Insider adds. Time-sensitive listings carry a review date when a whole-record check has been completed.</p>
-            </div>
-          </div>
-          <ol>
-            {checkingSteps.map((step, index) => (
-              <li>
-                <span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
-                <div>
-                  <h4>{step.title}</h4>
-                  <p>{step.copy}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
+      <div class="container pi-about__section-head">
+        <p class="pi-about__eyebrow">Our editorial approach</p>
+        <div>
+          <h2 id="about-method-title">A reason to choose.</h2>
+          <p>We look for what makes a Peninsula place distinctive, who it suits and when it works best. Our recommendations bring together official sources, local context and editorial judgement to help you plan your day.</p>
+          <p>Practical details are checked against the operator or responsible authority. A source check is not a visit: we distinguish confirmed facts from our judgement and make material gaps clear. A whole-record review date shows when that check was completed, not a guarantee that nothing has changed.</p>
           <p class="pi-about__method-review"><strong>Method reviewed:</strong> <time datetime={editorialMethod.reviewedOn}>{methodReviewedLabel}</time>.</p>
-        </div>
-        <div class="pi-about__example">
-          <p class="pi-about__eyebrow">A verdict in practice</p>
-          <blockquote>
-            <p>A properly wild coast walk with a steep descent and a real payoff. Check conditions before you go, then allow enough time for the climb back.</p>
-            <dl>
-              <div><dt>Why choose it</dt><dd>A dramatic coastal walk with a clear sense of reward.</dd></div>
-              <div><dt>Who it suits</dt><dd>Walkers comfortable with steps, uneven ground and a return climb.</dd></div>
-              <div><dt>The trade-off</dt><dd>It is a walking destination, not a swimming beach, and conditions can change the day.</dd></div>
-              <div><dt>Before leaving</dt><dd>Check the responsible authority for current access and conditions.</dd></div>
-            </dl>
-            <footer class="pi-about__example-links">
-              <a class="pi-about__text-link" href="https://www.parks.vic.gov.au/places-to-see/sites/bushrangers-bay-walk">Check the responsible authority <span aria-hidden="true">↗</span></a>
-              <a class="pi-about__text-link" href="/explore/bushrangers-bay-walk/">See the Peninsula guide <span aria-hidden="true">↗</span></a>
-            </footer>
-          </blockquote>
         </div>
       </div>
     </section>
@@ -191,7 +94,7 @@ const checkingSteps = [
         <div class="pi-about__current-copy">
           <p class="pi-about__eyebrow">Keeping things current</p>
           <h2 id="about-current-title">Places change. We keep checking.</h2>
-          <p>Time-sensitive details are checked against the responsible source, and public pages are monitored after publication. If something is inaccurate or out of date, tell us what needs fixing. The correction route returns a case reference.</p>
+          <p>Automated checks monitor public pages and source links after publication. Where a material detail cannot be confirmed, we qualify it, link to the responsible source or pause the listing. Report anything inaccurate or out of date through our correction form; it returns a case reference.</p>
           <a class="pi-about__text-link" href="/contact/?type=correction#correction">Report a correction <span aria-hidden="true">↗</span></a>
         </div>
       </div>
@@ -266,7 +169,7 @@ const checkingSteps = [
   .pi-about__check-standard > ol li > span { padding-top: .1rem; color: #f2c177; font: 700 .78rem/1.5 var(--font-ui); letter-spacing: .12em; }
   .pi-about__check-standard h4 { margin: 0; color: #fff; font: 600 1.2rem/1.3 var(--font-display); }
   .pi-about__check-standard li p { max-width: 42ch; margin: .55rem 0 0; color: #d4e3ed; font: 400 .98rem/1.6 var(--font-ui); }
-  .pi-about__method-review { margin: 1.25rem 0 0; color: #c6dce9; font: 500 .8rem/1.5 var(--font-ui); }
+  .pi-about__method-review { margin: 1.25rem 0 0; color: var(--soft); font: 500 .8rem/1.5 var(--font-ui); }
 
   .pi-about__example { display: grid; grid-template-columns: minmax(12rem, .55fr) minmax(0, 1.45fr); gap: 3rem; margin-top: clamp(3rem, 5vw, 5rem); padding: clamp(2rem, 4vw, 3rem); background: var(--bg-alt); border-radius: .35rem; }
   .pi-about__example .pi-about__eyebrow { align-self: start; padding-top: .4rem; }
