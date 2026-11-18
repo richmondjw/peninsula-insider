@@ -23,4 +23,16 @@ The initial 12 new browser tests and 12 existing site-simplification journeys pa
 
 Enquiry screenshots show one selected interest with optional details expanded; consent remains unchecked. Screenshots: [partners 320](partners-320.png), [partners 768](partners-768.png), [partners 1440](partners-1440.png), [enquiry 320](enquire-320.png), [enquiry 768](enquire-768.png), [enquiry 1440](enquire-1440.png).
 
-No current production intake/readback was performed. Mocked acceptance and historical September receipts are not current backend acceptance. Parent owns reconciliation with competing releases, final release gates and any supported synthetic production acceptance. No merge, deploy or outreach occurred.
+No current production intake/readback was performed. Mocked acceptance and historical September receipts are not current backend acceptance. Parent owns reconciliation with competing releases, final release gates and any supported synthetic production acceptance. No merge to main, deploy or outreach occurred.
+
+## 18 November reconciliation and acceptance plan
+
+Merged main `7162dce5f9` into this isolated branch after the operator corrections, Iluka correction and public catalogue retry releases. The only merge conflict was `next/package.json`; both the operator-correction build/journey tests and collaboration tests are retained. No collaboration page or library source changed during reconciliation. Earlier screenshots remain representative; the reconciled build and tests are recorded in the handoff.
+
+Read-only production metadata on 18 November confirms that `pi.submissions` has only a BEFORE UPDATE timestamp trigger, with no INSERT trigger. The project has neither pg_cron nor pg_net installed, and submissions is not in a publication. The two deployed Edge Functions are newsletter-subscribe and draw-enter; this form calls neither. These checks do not rule out an external polling integration and do not prove current write acceptance.
+
+The smallest supported acceptance test is one coordinated, clearly labelled `PI RELEASE QA - DO NOT PUBLISH` enquiry through the exact candidate's normal anonymous form, using `pi-collaboration-qa@example.invalid`, no uploads, and optional updates unchecked. An existing authorised inbox reviewer must first confirm that external integrations will not reply or market to the record. Retain the generated ID/reference, read back only that ID in the existing authorised Supabase review route, verify every selected interest, the valid legacy interest, separate contact fields, consent-off wording and private markers, then verify anonymous invisibility. Do not approve, publish, subscribe, retry an uncertain outcome, or use privileged INSERT to substitute for visitor-path acceptance. No synthetic write has been made.
+
+Reconciliation checks: 56 focused unit/privacy/analytics/operator/baseline tests and all 28 affected browser journeys passed (zero skipped). The independent reviewer also ran 52 combined unit checks and approved the refreshed 320px screenshot and acceptance plan. The first browser attempt could not launch Chromium inside the restricted environment; the approved run passed.
+
+The reconciled full `npm run build` completed successfully, including all post-build gates. Logs are retained in the task workspace evidence directory; CI for the resulting merge commit must be checked separately.

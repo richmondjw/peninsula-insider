@@ -171,6 +171,8 @@ const heroLicenceUrl = !hero.override ? data.heroImage?.licenseUrl ?? (flindersC
 // the editor note rather than dumped at the foot of the page.
 const editorParagraphs = paragraphsOf(data.editorNote);
 const photoSet = photoPlan(data, { override: Boolean(hero.override), paragraphs: editorParagraphs.length });
+// Iluka's operator rejected the regional stand-in; hold photography pending rights review.
+const ilukaIllustration = venueSlug === 'iluka-retreat' && isArtwork(data.heroImage);
 const eatHeroApproved = section !== 'eat' || hasWebsitePhotoEvidence(data.heroImage);
 
 // Sibling venues within a multi-venue estate (EstateCluster block).
@@ -395,7 +397,7 @@ const hoursSchema = hasOpeningHours && !isPaused && isCanonicalSurface && sectio
     ) : eatHeroApproved ? (
       <>
         <figure
-          class="venue-detail__hero"
+          class="venue-detail__hero" data-pi-no-hydrate={ilukaIllustration ? 'true' : undefined}
           {...(section === 'eat' ? {} : editableImage({
             entityType: 'venue',
             entitySlug: venueSlug,
@@ -404,10 +406,11 @@ const hoursSchema = hasOpeningHours && !isPaused && isCanonicalSurface && sectio
             purpose: 'hero',
           }))}
         >
-          <img src={hero.src} alt={heroAlt} role={heroPresentation ? 'presentation' : undefined} data-pi-no-hydrate={section === 'eat' ? 'true' : undefined} fetchpriority="high" decoding="async" />
+          <img src={hero.src} alt={heroAlt} role={heroPresentation ? 'presentation' : undefined} data-pi-no-hydrate={section === 'eat' || ilukaIllustration ? 'true' : undefined} fetchpriority="high" decoding="async" />
           <div class="venue-detail__hero-fog"></div>
-          {!isPaused && !isClosed && <span class="venue-detail__hero-label">{heroLabel}</span>}
+          {!isPaused && !isClosed && <span class="venue-detail__hero-label">{ilukaIllustration ? 'Editorial illustration' : heroLabel}</span>}
         </figure>
+        {ilukaIllustration && <p class="venue-detail__hero-credit">Peninsula Insider editorial artwork. Property photography awaiting review.</p>}
         {heroCredit && (
           <p class="venue-detail__hero-credit">{heroPlace && formatHeroCredit(heroCredit) && `${heroPlace}. `}{formatHeroCredit(heroCredit)}{heroSourceUrl && <span class="venue-detail__credit-links">{' '}<a class="venue-detail__credit-link" href={heroSourceUrl} aria-label={data.name + " image source"}>Source</a>{heroLicenceUrl && <><span aria-hidden="true">·</span><a class="venue-detail__credit-link" href={heroLicenceUrl} aria-label={data.name + " image licence"}>Licence</a></>}</span>}{flindersCommonsHero && <span> Resized and converted to WebP.</span>}</p>
         )}
