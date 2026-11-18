@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-11-17T08:09:22.433Z",
+  "updatedAt": "2026-11-18T04:54:24.788Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -1056,6 +1056,14 @@
       "pageTitle": "Best things to do in Sorrento, Australia"
     },
     {
+      "url": "https://ilukaretreat.com.au/accommodation/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "ACCOMMODATION | Iluka Retreat &amp; Camp | Mornington Peninsula",
+      "probedOn": "2026-11-18",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://ilukaretreat.com.au/accommodation/glamping/",
       "verdict": "ok",
       "httpCode": "200",
@@ -1069,6 +1077,14 @@
       "httpCode": "200",
       "pageTitle": "Contact Us | Iluka Retreat &amp; Camp | Mornington Peninsula | Book &amp; Enquire",
       "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://ilukaretreat.com.au/faq/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "FAQ | Iluka Retreat &amp; Camp | Mornington Peninsula",
+      "probedOn": "2026-11-18",
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {
