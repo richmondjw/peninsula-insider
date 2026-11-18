@@ -70,7 +70,7 @@ const groups = [...byCredit.entries()]
   .map(([credit, items]) => ({ credit, items: items.sort((a, b) => (a.ref.caption ?? '').localeCompare(b.ref.caption ?? '')) }))
   .sort((a, b) => b.items.length - a.items.length || a.credit.localeCompare(b.credit));
 const total = photos.size;
-const creditId = (credit: string) => `photographer-${encodeURIComponent(credit)}`;
+const creditId = (credit: string) => `photographer-${Array.from(credit, character => character.codePointAt(0)!.toString(16)).join('-')}`;
 ---
 <BaseLayout
   title="Photography credits · Peninsula Insider"
