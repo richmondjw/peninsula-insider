@@ -23,6 +23,8 @@ Compare the courses
 
 Start with the shortlist, or compare the venues before opening the course details and current visitor-access source.
 
+Prefer a quick shortlist or an area?
+
 [Public architecture  **St Andrews Beach** Strategic dunes · Public green fees · Fingal](<https://peninsulainsider.com.au/explore/golf/#course-st-andrews-beach-golf-course>)[Two-course resort  **Moonah Links** Open and Legends courses · Public green fees · Fingal](<https://peninsulainsider.com.au/explore/golf/#course-moonah-links>)[Clifftop coast  **Flinders** Coastal course · Visitor windows · Flinders](<https://peninsulainsider.com.au/explore/golf/#course-flinders-golf-club>)[Southern bayside  **Portsea** Coastal dunes and Moonah · Visitor windows · Portsea](<https://peninsulainsider.com.au/explore/golf/#course-portsea-golf-club>)
 
 Choose a base
