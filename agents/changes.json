@@ -1,20 +1,20 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-18T17:10:33.978Z",
+  "generatedAt": "2026-11-18T19:25:16.153Z",
   "baselineAvailable": true,
-  "fromSnapshot": "c8c0858398cb5ef27221fd65770c2ac8283f329731f6eb1c6460cd5ea1d63aca",
-  "toSnapshot": "57af89992ad00de7c6026310510e846b183f8c0f5e568e4381989f54f612798c",
-  "previousGeneratedAt": "2026-11-18T14:32:14.912Z",
+  "fromSnapshot": "57af89992ad00de7c6026310510e846b183f8c0f5e568e4381989f54f612798c",
+  "toSnapshot": "156b7bcad0964e8fa2644b2a3e67821551af5cf12538980c2ccc46c1b864307d",
+  "previousGeneratedAt": "2026-11-18T17:10:33.978Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
   "count": 1,
   "changes": [
     {
-      "id": "https://peninsulainsider.com.au/explore/golf/",
+      "id": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/golf/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/golf/index.md",
-      "contentSha256": "ff14d64af0d32c6059c7ae0b794b1b957a24d41cccf3504e95d3675c29daa07a",
-      "previousContentSha256": "cd72ed9db43440c59b96072c358569128a71cd95d5c9301b32eb6b12a8cce76a"
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/index.md",
+      "contentSha256": "ca12c7e1b617b83aee7c67c99a0cf4aeb7852bd98fd3f8f43507a74c6eb2ef00",
+      "previousContentSha256": "6b2b25e168495925df8a1ebc69c0aeb7ee6320f3dce090b84a6da2a68a51b9c2"
     }
   ]
 }
