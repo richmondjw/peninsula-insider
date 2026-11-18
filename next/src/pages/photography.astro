@@ -70,6 +70,7 @@ const groups = [...byCredit.entries()]
   .map(([credit, items]) => ({ credit, items: items.sort((a, b) => (a.ref.caption ?? '').localeCompare(b.ref.caption ?? '')) }))
   .sort((a, b) => b.items.length - a.items.length || a.credit.localeCompare(b.credit));
 const total = photos.size;
+const creditId = (credit: string) => `photographer-${encodeURIComponent(credit)}`;
 ---
 <BaseLayout
   title="Photography credits · Peninsula Insider"
@@ -88,12 +89,12 @@ const total = photos.size;
 
     <nav class="credits__nav" aria-label="Photographers">
       <p>Find a photographer</p>
-      <ul>{groups.map((group, index) => <li><a href={`#photographer-${index + 1}`}>{group.credit.replace(/^Courtesy of Visit Victoria$/, 'Visit Victoria')}</a></li>)}</ul>
+      <ul>{groups.map((group) => <li><a href={`#${creditId(group.credit)}`}>{group.credit.replace(/^Courtesy of Visit Victoria$/, 'Visit Victoria')}</a></li>)}</ul>
     </nav>
-    {groups.map((group, index) => (
-      <section class="credits__group" id={`photographer-${index + 1}`} aria-labelledby={`photographer-title-${index + 1}`}>
+    {groups.map((group) => (
+      <section class="credits__group" id={creditId(group.credit)} aria-labelledby={`${creditId(group.credit)}-title`}>
 
-        <h2 id={`photographer-title-${index + 1}`}>{group.credit.replace(/^Courtesy of Visit Victoria$/, 'Visit Victoria')} <span class="credits__count">{group.items.length} {group.items.length === 1 ? 'photograph' : 'photographs'}</span></h2>
+        <h2 id={`${creditId(group.credit)}-title`}>{group.credit.replace(/^Courtesy of Visit Victoria$/, 'Visit Victoria')} <span class="credits__count">{group.items.length} {group.items.length === 1 ? 'photograph' : 'photographs'}</span></h2>
         <ul class="credits__grid">
           {group.items.map(({ ref, uses }) => (
             <li>
