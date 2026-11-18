@@ -1,20 +1,28 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-18T19:25:16.153Z",
+  "generatedAt": "2026-11-18T20:22:56.361Z",
   "baselineAvailable": true,
-  "fromSnapshot": "57af89992ad00de7c6026310510e846b183f8c0f5e568e4381989f54f612798c",
-  "toSnapshot": "156b7bcad0964e8fa2644b2a3e67821551af5cf12538980c2ccc46c1b864307d",
-  "previousGeneratedAt": "2026-11-18T17:10:33.978Z",
+  "fromSnapshot": "156b7bcad0964e8fa2644b2a3e67821551af5cf12538980c2ccc46c1b864307d",
+  "toSnapshot": "7ff4bb9814356ab985c704446b5b1852b3d1a70b211f658cce73e73b658d6c51",
+  "previousGeneratedAt": "2026-11-18T19:25:16.153Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 1,
+  "count": 2,
   "changes": [
     {
-      "id": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-19/",
+      "kind": "representation-added",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-19/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-19/index.md",
+      "contentSha256": "c45ceb1ea2d47ddf8db2b801694b9394d2e8581b729f37ee003ee3cae4240d4a",
+      "previousContentSha256": null
+    },
+    {
+      "id": "https://peninsulainsider.com.au/picks/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/index.md",
-      "contentSha256": "ca12c7e1b617b83aee7c67c99a0cf4aeb7852bd98fd3f8f43507a74c6eb2ef00",
-      "previousContentSha256": "6b2b25e168495925df8a1ebc69c0aeb7ee6320f3dce090b84a6da2a68a51b9c2"
+      "canonicalUrl": "https://peninsulainsider.com.au/picks/",
+      "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
+      "contentSha256": "d41a78dd6b2263227920efc98c81fc275737d7850cd5a281a75f6e3a438df08c",
+      "previousContentSha256": "124ee29ecd0bf50532a786457b86f155fb347a515f08cff69b319de73b2c491e"
     }
   ]
 }
