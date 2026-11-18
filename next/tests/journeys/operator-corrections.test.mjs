@@ -1,6 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {Site} from './harness.mjs';
+import {Site, DIST} from './harness.mjs';
+import {readFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
 const site = await Site.open();
 test.after(() => site.close());
 
@@ -43,7 +45,11 @@ for (const width of [390, 1440]) {
       const text = await reader.page.$eval('main', el => el.textContent);
       for (const fact of [/36 acres/, /Two group accommodation lodges/, /raised timber decks/, /tents are unpowered/, /Pets are not permitted/, /steep and uneven/, /does not mean exclusive use/, /Peninsula Insider editorial artwork. Property photography awaiting review/]) assert.match(text, fact);
       const image = await reader.page.$eval('.venue-detail__hero img', el => ({src:el.getAttribute('src'),loaded:el.complete && el.naturalWidth>0,hold:el.hasAttribute('data-pi-no-hydrate')}));
-      assert.deepEqual(image, {src:'/images/editorial/journal-backstop.svg',loaded:true,hold:true});
+      const approvedSrc = '/images/editorial/journal-backstop.svg';
+      // The build versions local assets with the first eight SHA-1 characters.
+      const version = createHash('sha1').update(readFileSync(DIST + approvedSrc)).digest('hex').slice(0, 8);
+      assert.ok([approvedSrc, `${approvedSrc}?v=${version}`].includes(image.src), 'approved local artwork with its actual content hash');
+      assert.deepEqual({loaded:image.loaded, hold:image.hold}, {loaded:true, hold:true});
       assert.equal(await reader.page.$eval('.venue-detail__hero', el => el.hasAttribute('data-pi-no-hydrate')), true);
       const schemas = await reader.page.$$eval('script[type="application/ld+json"]', els => els.map(el => JSON.parse(el.textContent)));
       const business = schemas.flatMap(v => v['@graph'] ?? [v]).find(v => v['@type'] === 'LodgingBusiness');
