@@ -79,14 +79,6 @@ Merricks
 
 Swipe or scroll through the picks
 
-- ### [Deja Vu Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/deja-vu-live-at-peninsula-beer-garden-2026-11-21/>)
-
-Enjoy live music at Peninsula Beer Garden! Deja Vu are a dynamic duo playing upbeat covers, that make you want to get up and dance.
-
-Sat, 21 Nov   Peninsula Beer Garden   Live music
-
-Event details checked 9 Nov 2026 · [Organiser’s page](<https://peninsulabeergarden.com.au/live-music/>)
-
 - ### [Felicity Urquhart & Josh Cunningham Live at The Pig & Whistle Tavern](<https://peninsulainsider.com.au/whats-on/felicity-urquhart-and-josh-cunningham-live-at-the-pig-and-whistle-tavern-2026-11-21/>)
 
 Multi-Award-winning singer-songwriters Felicity Urquhart & Josh Cunningham are hitting the road again to celebrate their chart-topping, third studio album, Everything Around You.
@@ -102,6 +94,14 @@ Choose a shuttle ticket for four venues on one route, or the Festival Hub for a 
 Sat, 21 Nov   Festival Hub at The Briars and six linked venues   Festival
 
 Event details checked 25 Aug 2026 · [Organiser’s page](<https://vinehopfestival.com.au/>)
+
+- ### [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
+
+A VFMA-accredited village market with local growers and specialty makers, supported by the Mt Eliza Chamber of Commerce.
+
+Sun, 22 Nov   Mt Eliza Village Precinct   Market
+
+Event details checked 3 Oct 2026 · [Organiser’s page](<https://www.mtelizafarmersmarket.com.au/>)
 
 This season · Spring
 

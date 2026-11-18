@@ -188,3 +188,21 @@ Loading map…
 Browse locations as a list
 
 - [Hastings](<https://peninsulainsider.com.au/explore/places/hastings/>) · town
+
+On the calendar in this place
+
+## Events in Hastings
+
+Coming up in Hastings, pulled from the events registry.
+
+[All events →](<https://peninsulainsider.com.au/whats-on/>)
+
+- [Fri, 18 Dec
+
+### Soul Night Market at Hastings Foreshore
+
+Hastings
+
+Soul Night Market lights up your Friday nights this summer with a warm, vibrant atmosphere. Wander through a curated mix of makers and food stalls, grab a drink from the bar, and settle to watch spectacular sunsets and listen to Live Soul Music.
+
+ Event · Markets](<https://peninsulainsider.com.au/whats-on/soul-night-market-at-hastings-foreshore-2026-12-18/>)

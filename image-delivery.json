@@ -9017,68 +9017,6 @@
       ]
     },
     {
-      "source": "/images/generated/events/music-amp.webp",
-      "format": "webp",
-      "originalBytes": 36502,
-      "variants": [
-        {
-          "src": "/_media/1ca6d7e14fc7e30d6a68-480.webp",
-          "width": 480,
-          "height": 320,
-          "bytes": 8956
-        },
-        {
-          "src": "/_media/1ca6d7e14fc7e30d6a68-800.webp",
-          "width": 800,
-          "height": 533,
-          "bytes": 15504
-        },
-        {
-          "src": "/_media/1ca6d7e14fc7e30d6a68-1280.webp",
-          "width": 1280,
-          "height": 853,
-          "bytes": 25322
-        },
-        {
-          "src": "/_media/1ca6d7e14fc7e30d6a68-1536.webp",
-          "width": 1536,
-          "height": 1024,
-          "bytes": 34318
-        }
-      ]
-    },
-    {
-      "source": "/images/generated/events/music-amp.webp",
-      "format": "avif",
-      "originalBytes": 36502,
-      "variants": [
-        {
-          "src": "/_media/04c2144199f6c2986695-480.avif",
-          "width": 480,
-          "height": 320,
-          "bytes": 4252
-        },
-        {
-          "src": "/_media/04c2144199f6c2986695-800.avif",
-          "width": 800,
-          "height": 533,
-          "bytes": 6268
-        },
-        {
-          "src": "/_media/04c2144199f6c2986695-1280.avif",
-          "width": 1280,
-          "height": 853,
-          "bytes": 8411
-        },
-        {
-          "src": "/_media/04c2144199f6c2986695-1536.avif",
-          "width": 1536,
-          "height": 1024,
-          "bytes": 11087
-        }
-      ]
-    },
-    {
       "source": "/images/generated/events/music-microphone.webp",
       "format": "webp",
       "originalBytes": 24324,
@@ -9323,6 +9261,31 @@
           "width": 1680,
           "height": 1120,
           "bytes": 8456
+        }
+      ]
+    },
+    {
+      "source": "/images/visit-victoria/vv-143144-mornington-peninsula-regional-gallery.webp",
+      "format": "avif",
+      "originalBytes": 52460,
+      "variants": [
+        {
+          "src": "/_media/710a38e7545a24e2c966-480.avif",
+          "width": 480,
+          "height": 320,
+          "bytes": 7247
+        },
+        {
+          "src": "/_media/710a38e7545a24e2c966-800.avif",
+          "width": 800,
+          "height": 534,
+          "bytes": 13581
+        },
+        {
+          "src": "/_media/710a38e7545a24e2c966-1280.avif",
+          "width": 1280,
+          "height": 854,
+          "bytes": 27334
         }
       ]
     },
@@ -14150,37 +14113,6 @@
           "width": 1920,
           "height": 1280,
           "bytes": 108626
-        }
-      ]
-    },
-    {
-      "source": "/images/generated/events/music-guitar.webp",
-      "format": "webp",
-      "originalBytes": 34712,
-      "variants": [
-        {
-          "src": "/_media/d99f4b127e474f53ee3d-480.webp",
-          "width": 480,
-          "height": 320,
-          "bytes": 8456
-        },
-        {
-          "src": "/_media/d99f4b127e474f53ee3d-800.webp",
-          "width": 800,
-          "height": 533,
-          "bytes": 14884
-        },
-        {
-          "src": "/_media/d99f4b127e474f53ee3d-1280.webp",
-          "width": 1280,
-          "height": 853,
-          "bytes": 24198
-        },
-        {
-          "src": "/_media/d99f4b127e474f53ee3d-1536.webp",
-          "width": 1536,
-          "height": 1024,
-          "bytes": 32618
         }
       ]
     },

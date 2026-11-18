@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/whats-on/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-11-18
+Modified: 2026-11-19
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -13,9 +13,9 @@ Find the date, place and reason to go, then check with the organiser before you 
 
 ## Reasons to go
 
-- Sun, 22 Nov · 3pm–6pm · Mornington
+- Sat, 21 Nov · 6pm–9pm · Mornington
 
-### [Audio Replica Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/audio-replica-live-at-tar-barrel-2026-11-22/>)
+### [Coco Michelle Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/coco-michelle-live-at-tar-barrel-2026-11-21/>)
 
 Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery produce award-winning craft beers alongside diverse tastes as part of their whiskey and gin distillery.
 
@@ -123,14 +123,6 @@ Fingal · Live Music
 
 - 6pm
 
-[Coco Michelle Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/coco-michelle-live-at-tar-barrel-2026-11-21/>)
-
-Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery produce award-winning craft beers alongside diverse tastes as part of their whiskey and gin distillery. Enjoy a drink, taste the menu and stay for the live music on weekends!
-
-Mornington · Live Music
-
-- 6pm
-
 [Oskar Proy Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/oskar-proy-live-at-jetty-road-brewery-2026-11-21/>)
 
 Live music every weekend at Jetty Road Brewery! Kick-back and enjoy a freshly brewed beer and bite while listening to live local music at Jetty Road Brewery.
@@ -174,6 +166,14 @@ Mount Eliza · Markets · Recurring monthly
 Enjoy live music at Peninsula Beer Garden! Join the cool vibes and coastal tunes from Tiana V, a Mornington Peninsula based singer & guitarist who started out when she was only 8 years old.
 
 Boneo · Live Music
+
+- 3pm
+
+[Audio Replica Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/audio-replica-live-at-tar-barrel-2026-11-22/>)
+
+Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery produce award-winning craft beers alongside diverse tastes as part of their whiskey and gin distillery. Have a drink, enjoy the menu and experience live music on the weekends!
+
+Mornington · Live Music
 
 ## Book ahead
 
