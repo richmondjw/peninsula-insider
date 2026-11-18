@@ -119,7 +119,7 @@ Cottage   Rye   Dog-friendly
 
 ## Places to stay
 
-Details checked between September and October 2026.
+Details checked between September and November 2026.
 
  [View the stay map](<https://peninsulainsider.com.au/map/?cat=hotel,villa,suite,accommodation,cottage,lodge,glamping,farm-stay>)
 
@@ -253,7 +253,7 @@ Suite   Rye
 
 - ### [Iluka Retreat & Camp](<https://peninsulainsider.com.au/stay/iluka-retreat/>)
 
-Shoreham bell tents for two with shared camp facilities.
+Bell tents and two group lodges on 36 acres near Shoreham.
 
 Glamping   Shoreham
 

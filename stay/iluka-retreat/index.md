@@ -9,23 +9,25 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Iluka Retreat & Camp
 
-Styled bell tents for two on a 36-acre Shoreham property, with lake access and shared powered kitchen and bathrooms.
+Bell tents and two group lodges on a 36-acre property near Shoreham, with a lake and wetlands.
 
 Known for   Styled Bell Tents Lake and Wetlands Shared Camp Kitchen and Bathrooms Group Lodges Booked Separately
 
 [Check availability](<https://ilukaretreat.com.au/accommodation/glamping/>)
 
-Iluka Retreat & Camp · Shoreham
+Editorial illustration
 
-Photo · mattyv.au · P1030597, Balnarring rural sunrise · cropped and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:P1030597_-_Flickr_-_mattyv.au.jpg>) [Licence](<https://creativecommons.org/licenses/by-sa/2.0/>)
+Peninsula Insider editorial artwork. Property photography awaiting review.
 
 Why we’d go
 
 A Shoreham tent stay for couples or small groups who want the lake setting and are comfortable with shared camp facilities.
 
-Iluka offers styled bell tents for two with a queen bed, linen and towels. Extra single beds can be added for family or friends. The tents are unpowered; the shared camp kitchen and bathrooms have power. Bring a head torch for the walk back to your tent.
+Iluka occupies 36 acres on Shoreham Road, with eucalypts, lawns, a lake, wetlands and Stony Creek. Bell tents sit on raised timber decks and are prepared before arrival. Each tent has a queen bed, linen and towels; arrange any extra single beds for family or friends before arrival.
 
-The lake and wetlands are part of the 36-acre setting. The operator also offers group lodges and whole-property bookings as separate arrangements, so a tent booking does not mean exclusive use of the grounds. Check the tent configuration, availability and optional activities directly before planning your stay.
+The tents are unpowered; the shared camp kitchen and bathrooms have power. Bring a head torch for the walk back to your tent. The grounds include steep and uneven surfaces, so discuss access needs with the operator before booking. Pets are not permitted.
+
+Two group accommodation lodges cater for families, friends, school groups and retreats. Group lodges, special events and whole-property bookings are separate arrangements: a tent booking does not mean exclusive use of the grounds. Check the tent configuration, availability and optional activities directly before planning your stay.
 
 Worth knowing
 
@@ -133,7 +135,7 @@ Keep this for later
 
 [← Part of Shoreham - view the destination guide](<https://peninsulainsider.com.au/explore/places/shoreham/>)
 
-Information last checked 3 Oct 2026
+Information last checked 18 Nov 2026
 
 Is this your business? [Manage this listing](<https://peninsulainsider.com.au/partners/update/?venue=iluka-retreat>)
 

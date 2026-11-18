@@ -289,7 +289,7 @@ On the calendar
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
-- [Wed, 18 Nov
+- [Wed, 25 Nov
 
 ### ✦ Mornington Wednesday Market (Main Street Market)
 
@@ -299,7 +299,7 @@ Mornington's long-running artisan market fills Main Street every Wednesday, 9am 
 
  Event · Markets](<https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/>)
 
-- [Wed, 18 Nov
+- [Thu, 19 Nov
 
 ### ✦ National Works on Paper 2026 (NWOP)
 

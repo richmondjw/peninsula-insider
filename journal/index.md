@@ -655,16 +655,6 @@ Month
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
-- [Wed, 18 Nov
-
-### ✦ Mornington Wednesday Market (Main Street Market)
-
-Mornington
-
-Mornington's long-running artisan market fills Main Street every Wednesday, 9am to 3pm. Expect local makers, produce and food; severe weather can cancel the market or limit stalls.
-
- Event · Markets](<https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/>)
-
 - [Thu, 19 Nov
 
 ### Author Talk: Anna Downes & Naima Brown - Mornington Library
@@ -684,3 +674,13 @@ Boneo
 Peninsula locals that are regulars on the music scene! Dee from The Calmer Miles exhibits a freshness and passion in her music.
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/dee-calmer-miles-live-at-peninsula-beer-garden-2026-11-20/>)
+
+- [Fri, 20 Nov
+
+### The Lucky Duck & Pinot Lunch
+
+Red Hill
+
+One-off chef’s lunch featuring an all-duck menu paired with pinot noir.
+
+ Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/the-lucky-duck-and-pinot-lunch-2026-11-20/>)
