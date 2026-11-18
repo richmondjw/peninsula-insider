@@ -4,7 +4,7 @@
 
 **Loop health:** 🟢 healthy — Actions recorded but none re-measured yet — learning signal not flowing (expected until GSC re-crawls the actioned pages).
 
-**Generated:** 2026-11-18 07:05 AEDT  
+**Generated:** 2026-11-19 07:05 AEDT  
 **Season:** Spring  
 **Inputs used:** gsc-search-analytics, gsc-coverage, sitemap-inventory, events-calendar:78-upcoming, seasonal-calendar:spring  
 
@@ -23,7 +23,7 @@
 
 ## Day-over-day (is the strategy improving?)
 
-_Compared with 2026-11-17._
+_Compared with 2026-11-18._
 
 - Average position held by 0.00.
 - Clicks flat 0 vs last snapshot.
@@ -83,39 +83,39 @@ Ranked by the strategy model (performance + season + coverage + effort). The orc
 - **Why:** 'mornington cup 2026 date' ranks avg position 8.8 on 23 impressions — small, targeted improvement could reach page 1 and start earning clicks.
 - **Do:** Strengthen the ranking page for this exact query: expand the relevant section, add an FAQ answer, tighten the H1/intro, add internal links from related hub pages.
 
-### 6. [EVENT · score 2.992] Preview: Mornington Christmas Series at Mornington Racecourse (16d out)
+### 6. [EVENT · score 2.992] Preview: Mornington Christmas Series at Mornington Racecourse (15d out)
 - **Desk:** dispatch-desk
-- **Why:** Mornington Christmas Series at Mornington Racecourse is 16 days out (2026-12-04, Mornington) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Mornington Christmas Series at Mornington Racecourse is 15 days out (2026-12-04, Mornington) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 7. [EVENT · score 2.992] Preview: Coco Michelle Live at Peppers Moonah Links Resort (17d out)
+### 7. [EVENT · score 2.992] Preview: Coco Michelle Live at Peppers Moonah Links Resort (16d out)
 - **Desk:** dispatch-desk
-- **Why:** Coco Michelle Live at Peppers Moonah Links Resort is 17 days out (2026-12-05, Fingal) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Coco Michelle Live at Peppers Moonah Links Resort is 16 days out (2026-12-05, Fingal) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 8. [EVENT · score 2.992] Preview: Countdown Classics 70's & 80's Live at Peninsula Beer Garden (17d out)
+### 8. [EVENT · score 2.992] Preview: Countdown Classics 70's & 80's Live at Peninsula Beer Garden (16d out)
 - **Desk:** dispatch-desk
-- **Why:** Countdown Classics 70's & 80's Live at Peninsula Beer Garden is 17 days out (2026-12-05, Boneo) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Countdown Classics 70's & 80's Live at Peninsula Beer Garden is 16 days out (2026-12-05, Boneo) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 9. [EVENT · score 2.992] Preview: An Evening at BRASA by Montalto (17d out)
+### 9. [EVENT · score 2.992] Preview: An Evening at BRASA by Montalto (16d out)
 - **Desk:** dispatch-desk
-- **Why:** An Evening at BRASA by Montalto is 17 days out (2026-12-05, Red Hill South) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** An Evening at BRASA by Montalto is 16 days out (2026-12-05, Red Hill South) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 10. [EVENT · score 2.992] Preview: Deck the Chocolate Tree at The Chocolateries Mornington Peninsula (17d out)
+### 10. [EVENT · score 2.992] Preview: Deck the Chocolate Tree at The Chocolateries Mornington Peninsula (16d out)
 - **Desk:** dispatch-desk
-- **Why:** Deck the Chocolate Tree at The Chocolateries Mornington Peninsula is 17 days out (2026-12-05, Flinders) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Deck the Chocolate Tree at The Chocolateries Mornington Peninsula is 16 days out (2026-12-05, Flinders) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 11. [EVENT · score 2.992] Preview: Gareth Sansom at MPRG (17d out)
+### 11. [EVENT · score 2.992] Preview: Gareth Sansom at MPRG (16d out)
 - **Desk:** dispatch-desk
-- **Why:** Gareth Sansom at MPRG is 17 days out (2026-12-05, Mornington) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Gareth Sansom at MPRG is 16 days out (2026-12-05, Mornington) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 12. [EVENT · score 2.992] Preview: Whisky, Cheese & Storytelling at Chief's Son Distillery (17d out)
+### 12. [EVENT · score 2.992] Preview: Whisky, Cheese & Storytelling at Chief's Son Distillery (16d out)
 - **Desk:** dispatch-desk
-- **Why:** Whisky, Cheese & Storytelling at Chief's Son Distillery is 17 days out (2026-12-05, Somerville) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Whisky, Cheese & Storytelling at Chief's Son Distillery is 16 days out (2026-12-05, Somerville) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
 ## Coverage snapshot
