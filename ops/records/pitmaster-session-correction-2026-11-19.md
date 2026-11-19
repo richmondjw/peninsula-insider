@@ -1,0 +1,11 @@
+# Pitmaster Masterclass: dated session correction, 19 November 2026
+
+Scope: MP-EVT-0152, Saturday 21 November 2026. Preserve the date, 10:30 am start, event identity, imagery and other venue/event content; correct finish to 13:00 and replace ordinary table booking with the operator-linked ticket destination.
+
+Evidence: https://www.sevenrooms.com/events/redgumbbq, opened from the operator class ticket route. The rendered “PITMASTER MASTERCLASS November 2026” panel explicitly lists Saturday 21 November 2026, 10:30 AM–1:00 PM, describes 2.5 hours and gives Red Gum BBQ, 87 Arthurs Seat Rd, Red Hill. Checked 19 November 2026 by the correction author and independently by the source reviewer. Opening the panel leaves the public URL unchanged; no stable session-specific public URL was exposed, so use the permitted venue events URL. No checkout, booking or submission performed. Inventory and price are volatile and are not copied into PI.
+
+The tourism listing (https://www.visitmorningtonpeninsula.org/Whats-On/view/18556/pitmaster-masterclass-at-red-gum-bbq) supplied the previous 13:30 finish; retain it as secondary/import evidence. The generic operator class page (https://redgumbbq.com.au/shop/pitmaster-masterclass/) describes usual Thursdays, which does not override the dated Saturday seller panel. This correction neither cancels the event nor substitutes a Thursday.
+
+CMS/fallback: read-only checks found no matching cms_text_fields rows (including a value search for Pitmaster) and no cms_image_slots rows for this slug. No baked image override found. Canonical date/time/CTA data comes from the repository event collection; the derived calendar, JSON-LD and feeds share that record. No production CMS/config/security changes.
+
+Promotion check: no hardcoded Pitmaster mention or date-specific November 21 preview was found in current article or weekend-picks sources. The existing public event and generated current/weekend/feed surfaces need the corrected record on release; this draft does not change live output. No date-review hold is needed because the dated seller panel corroborates the Saturday session. Any newly prepared scheduled promotion must use 13:00 and the ticket destination, pending independent exact-head review and CI. No merge/deploy authority in this task.
