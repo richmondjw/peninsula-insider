@@ -393,16 +393,6 @@ Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery p
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/audio-replica-live-at-tar-barrel-2026-11-22/>)
 
-- [Thu, 19 Nov
-
-### Author Talk: Anna Downes & Naima Brown - Mornington Library
-
-Mornington
-
-Join authors Anna Downes and Naima Brown as they discuss the art of storytelling and Anna's new book Dark Days Hotel.
-
- Event · Writers & Ideas](<https://peninsulainsider.com.au/whats-on/author-talk-anna-downes-naima-brown-mornington-library/>)
-
 - [Thu, 26 Nov
 
 ### Author Talk: Jane Gilmore - Mornington Library
@@ -412,3 +402,13 @@ Mornington
 Hear journalist and author Jane Gilmore discuss her new book, helping adults talk to kids about consent, relationships and online life.
 
  Event · Writers & Ideas](<https://peninsulainsider.com.au/whats-on/author-talk-jane-gilmore-mornington-library/>)
+
+- [Fri, 27 Nov
+
+### Brown Sugar - Rolling Stones
+
+Mornington
+
+Rolling Stones tribute band Brown Sugar plays the upstairs Bandroom at The Bay Hotel. Standing show from 8.30pm, with pre-show dinner and drinks upstairs from 6pm. Access is by stairs only.
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/brown-sugar-rolling-stones-2026-11-27/>)

@@ -11,8 +11,6 @@ Event     Writers & Ideas     19 November 2026     One-off date
 
 Join authors Anna Downes and Naima Brown as they discuss the art of storytelling and Anna's new book Dark Days Hotel.
 
-[Book or check details](<https://www.eventbrite.com.au/e/author-talk-anna-downes-naima-brown-mornington-library-tickets-2002983195657>)
-
 Hosted at
 
 Mornington Library
@@ -43,7 +41,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.eventbrite.com.au/e/author-talk-anna-downes-naima-brown-mornington-library-tickets-2002983195657>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Author+Talk%3A+Anna+Downes+%26+Naima+Brown+-+Mornington+Library&dates=20261119T070000Z%2F20261119T080000Z&details=Join+authors+Anna+Downes+and+Naima+Brown+as+they+discuss+the+art+of+storytelling+and+Anna%27s+new+book+Dark+Days+Hotel.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fauthor-talk-anna-downes-naima-brown-mornington-library%2F&location=Mornington+Library%2C+Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+Booking and calendar links are withdrawn; this session has finished.
 
 Keep planning
 

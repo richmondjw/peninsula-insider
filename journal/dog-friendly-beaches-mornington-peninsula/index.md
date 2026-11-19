@@ -189,7 +189,7 @@ Service   6 min
 
 17 April 2026
 
-Find dog-friendly cafés, pubs, wineries and a brewery on the Mornington Peninsula, with official policy links, booking rules and clearly marked unknowns.
+Find dog-friendly cafés, pubs, wineries and a brewery on the Mornington Peninsula, with policy and contact links, booking rules and clearly marked unknowns.
 
 Service   4 min
 
