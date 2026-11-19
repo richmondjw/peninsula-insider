@@ -15,6 +15,8 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 
 ## Recent selections
 
+- [Many Little in spring, the VineHop Festival on Saturday, and the final Sunday at Emu Plains Market](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-20/>) - Sri Lankan-influenced sharing plates at Many Little in Red Hill South, the Peninsula VineHop Festival across six Mount Martha venues on Saturday, and the last Sunday session at Emu Plains Market in Balnarring.
+
 - [Tar Barrel paddles, the Peninsula VineHop loop, and the last day of NWOP 2026](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-19/>) - A beer-and-spirits paddle at Tar Barrel Brewery in Mornington, the six-venue VineHop Festival across Mount Martha on Saturday, and the final hours of National Works on Paper at Mornington Peninsula Regional Gallery on Sunday.
 
 - [Peninsula Insider Picks: 18 November 2026](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-18/>) - The Heritage Balnarring's beer garden in spring flower, the VineHop Festival across six Mount Martha venues on Saturday, and the National Works on Paper closing Sunday at MPRG.
@@ -36,8 +38,6 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 - [Barragunda Dining and the Bushrangers Bay Walk](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-10/>) - Verified practical information for a Cape Schanck meal and the Bushrangers Bay Walk.
 
 - [St Andrews Beach Brewery, the Cape Schanck heathland, and the Mt Eliza Farmers Market](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-09/>) - A Sunday roast in a converted racehorse stable, spring wildflowers at their densest on the Bushranger Bay heathland trail, and the last Saturday of the Mt Eliza market run.
-
-- [Portsea Hotel fish and chips, the Bushranger Bay snorkel trail, and live music at Moonah Links](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-08/>) - The Portsea Hotel's front-beach deck before the summer crowds, the Bushranger Bay underwater trail at peak spring visibility, and acoustic sets running every Saturday at Peppers Moonah Links through December.
 
 ## Planning a particular weekend?
 
