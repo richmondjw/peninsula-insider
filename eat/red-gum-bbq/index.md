@@ -11,9 +11,9 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Airy warehouse, picnic tables, and low-and-slow American barbecue, pulled pork, brisket, smoked chicken, the family-friendly antidote to the winery-restaurant circuit.
 
-Known for   Low-and-Slow American BBQ Red Gum Wood Smoker Counter-and-Tray Ordering Peninsula Brewery Taps
+Known for   Low-and-Slow American BBQ Red Gum Wood Smoker Peninsula Brewery Taps
 
-[Reserve a table](<https://redgumbbq.com.au/>)  +61 3 5989 2528
+[Reserve a table](<https://redgumbbq.com.au/>)  +61 3 5989 3156
 
 - Photo · Two Palms Australia, courtesy of Visit Victoria
 
@@ -39,7 +39,7 @@ Why we’d go
 
 Red Gum is the Peninsula's essential non-wine-restaurant lunch, the one that makes the ridge work for people who do not drink Pinot Noir.
 
-Red Gum is the Peninsula's essential non-wine-restaurant lunch. Martin Blunos and the team smoke low and slow over red gum in a big airy warehouse on the ridge, and for a decade now they have been pulling beef brisket, pork shoulder, and whole chickens out of the smokers at exactly the moment the tables are ready for them. The ordering system is counter-and-tray, the seating is picnic tables, and the vibe is the polar opposite of the hatted dining room across the road.
+Red Gum is the Peninsula's essential non-wine-restaurant lunch. Martin Blunos and the team smoke low and slow over red gum in a big airy warehouse on the ridge, and for a decade now they have been pulling beef brisket, pork shoulder, and whole chickens out of the smokers at exactly the moment the tables are ready for them. The seating is picnic tables, and the vibe is the polar opposite of the hatted dining room across the road.
 
 Photo · Two Palms Australia, courtesy of Visit Victoria
 
@@ -71,11 +71,11 @@ Restaurant
 
 **Location**
 
-51 Shoreham Rd, Red Hill South VIC 3937 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Red%20Gum%20BBQ%2C%2051%20Shoreham%20Rd%2C%20Red%20Hill%20South%20VIC%203937>)
+87 Arthurs Seat Road, Red Hill VIC 3937 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Red%20Gum%20BBQ%2C%2087%20Arthurs%20Seat%20Road%2C%20Red%20Hill%20VIC%203937>)
 
 **Call**
 
-+61 3 5989 2528
++61 3 5989 3156
 
 **Awards**
 
@@ -85,13 +85,17 @@ Time Out Best Regional Restaurant
 
 [redgumbbq.com.au](<https://redgumbbq.com.au/>)
 
+**Hours**
+
+Open Wednesday–Thursday 11 am–8 pm, Friday–Saturday 11 am–9 pm and Sunday 11 am–4 pm. Check holiday hours with the venue.
+
 **Directions**
 
-[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3849%2C145.0357>)
+[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3734864%2C145.0221385>)
 
 **Live status**
 
-[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Red%20Gum%20BBQ%2C%2051%20Shoreham%20Rd%2C%20Red%20Hill%20South%20VIC%203937%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
+[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Red%20Gum%20BBQ%2C%2087%20Arthurs%20Seat%20Road%2C%20Red%20Hill%20VIC%203937%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
 
  [Book now](<https://redgumbbq.com.au/>)
 
@@ -137,17 +141,17 @@ More reading (2)
 
 Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
 
-- [Tuck's Ridge](<https://peninsulainsider.com.au/wine/tucks-ridge/>) · 0.9 km
+- [Port Phillip Estate Restaurant](<https://peninsulainsider.com.au/wine/port-phillip-estate/>) · 0.7 km
 
-- [Cassis Red Hill](<https://peninsulainsider.com.au/stay/cassis/>) · 1.1 km
+- [Cassis Red Hill](<https://peninsulainsider.com.au/stay/cassis/>) · 0.9 km
 
-- [Montalto Vineyard & Olive Grove](<https://peninsulainsider.com.au/wine/montalto/>) · 1.2 km
+- [Eldridge Estate](<https://peninsulainsider.com.au/wine/eldridge-estate/>) · 1.1 km
 
-- [The Orchard Luxury Accommodation](<https://peninsulainsider.com.au/stay/the-orchard-red-hill/>) · 1.2 km
+- [Tuck's Ridge](<https://peninsulainsider.com.au/wine/tucks-ridge/>) · 1.2 km
 
-- [Port Phillip Estate](<https://peninsulainsider.com.au/wine/port-phillip-estate/>) · 1.5 km
+- [Montalto Vineyard & Olive Grove](<https://peninsulainsider.com.au/wine/montalto/>) · 1.6 km
 
-- [Red Hill Brewery](<https://peninsulainsider.com.au/wine/red-hill-brewery/>) · 1.9 km
+- [Red Hill Brewery](<https://peninsulainsider.com.au/wine/red-hill-brewery/>) · 2.0 km
 
 Related picks
 

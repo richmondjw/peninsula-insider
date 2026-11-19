@@ -79,11 +79,11 @@ Within 5 km using stored map locations. Approximate straight-line distances, not
 
 - [Port Phillip Estate Restaurant](<https://peninsulainsider.com.au/wine/port-phillip-estate/>) · 0.8 km
 
-- [Red Gum BBQ](<https://peninsulainsider.com.au/eat/red-gum-bbq/>) · 0.9 km
-
 - [The Orchard Luxury Accommodation](<https://peninsulainsider.com.au/stay/the-orchard-red-hill/>) · 1.0 km
 
 - [Cassis Red Hill](<https://peninsulainsider.com.au/stay/cassis/>) · 1.2 km
+
+- [Red Gum BBQ](<https://peninsulainsider.com.au/eat/red-gum-bbq/>) · 1.2 km
 
 - [Eldridge Estate](<https://peninsulainsider.com.au/wine/eldridge-estate/>) · 1.3 km
 

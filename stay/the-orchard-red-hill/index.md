@@ -77,8 +77,6 @@ Within 5 km using stored map locations. Approximate straight-line distances, not
 
 - [Tuck's Ridge](<https://peninsulainsider.com.au/wine/tucks-ridge/>) · 1.0 km
 
-- [Red Gum BBQ](<https://peninsulainsider.com.au/eat/red-gum-bbq/>) · 1.2 km
-
 - [Doot Doot Doot](<https://peninsulainsider.com.au/eat/doot-doot-doot/>) · 1.6 km
 
 - [Pt. Leo Estate](<https://peninsulainsider.com.au/wine/pt-leo-estate/>) · 1.6 km
@@ -86,6 +84,8 @@ Within 5 km using stored map locations. Approximate straight-line distances, not
 - [Port Phillip Estate Restaurant](<https://peninsulainsider.com.au/wine/port-phillip-estate/>) · 1.7 km
 
 - [Point Leo Wine Terrace](<https://peninsulainsider.com.au/eat/point-leo-wine-terrace/>) · 1.7 km
+
+- [Eldridge Estate](<https://peninsulainsider.com.au/wine/eldridge-estate/>) · 2.0 km
 
 Related picks
 

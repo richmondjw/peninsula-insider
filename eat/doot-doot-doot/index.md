@@ -145,9 +145,9 @@ Within 5 km using stored map locations. Approximate straight-line distances, not
 
 - [Tuck's Ridge](<https://peninsulainsider.com.au/wine/tucks-ridge/>) · 2.4 km
 
-- [Red Gum BBQ](<https://peninsulainsider.com.au/eat/red-gum-bbq/>) · 2.8 km
-
 - [Morning Sun Vineyard](<https://peninsulainsider.com.au/wine/morning-sun/>) · 2.9 km
+
+- [Port Phillip Estate Restaurant](<https://peninsulainsider.com.au/wine/port-phillip-estate/>) · 2.9 km
 
 Related picks
 

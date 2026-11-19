@@ -189,6 +189,8 @@ Within 5 km using stored map locations. Approximate straight-line distances, not
 
 - [Cassis Red Hill](<https://peninsulainsider.com.au/stay/cassis/>) · 0.4 km
 
+- [Red Gum BBQ](<https://peninsulainsider.com.au/eat/red-gum-bbq/>) · 0.8 km
+
 - [Montalto Vineyard & Olive Grove](<https://peninsulainsider.com.au/wine/montalto/>) · 0.9 km
 
 - [Red Hill Brewery](<https://peninsulainsider.com.au/wine/red-hill-brewery/>) · 1.2 km
@@ -196,8 +198,6 @@ Within 5 km using stored map locations. Approximate straight-line distances, not
 - [Prancing Horse Estate](<https://peninsulainsider.com.au/wine/prancing-horse-estate/>) · 1.4 km
 
 - [Tuck's Ridge](<https://peninsulainsider.com.au/wine/tucks-ridge/>) · 1.5 km
-
-- [Red Gum BBQ](<https://peninsulainsider.com.au/eat/red-gum-bbq/>) · 1.5 km
 
 Related picks
 

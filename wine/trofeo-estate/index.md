@@ -143,7 +143,7 @@ Within 5 km using stored map locations. Approximate straight-line distances, not
 
 - [Port Phillip Estate](<https://peninsulainsider.com.au/wine/port-phillip-estate/>) · 3.6 km
 
-- [Lindenderry at Red Hill](<https://peninsulainsider.com.au/stay/lindenderry/>) · 3.7 km
+- [Red Gum BBQ](<https://peninsulainsider.com.au/eat/red-gum-bbq/>) · 3.6 km
 
 Related picks
 

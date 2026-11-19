@@ -153,6 +153,8 @@ Within 5 km using stored map locations. Approximate straight-line distances, not
 
 - [Port Phillip Estate Restaurant](<https://peninsulainsider.com.au/wine/port-phillip-estate/>) · 0.6 km
 
+- [Red Gum BBQ](<https://peninsulainsider.com.au/eat/red-gum-bbq/>) · 1.1 km
+
 - [Tuck's Ridge](<https://peninsulainsider.com.au/wine/tucks-ridge/>) · 1.3 km
 
 - [Tedesca Osteria](<https://peninsulainsider.com.au/eat/tedesca-osteria/>) · 1.6 km
@@ -160,8 +162,6 @@ Within 5 km using stored map locations. Approximate straight-line distances, not
 - [Cassis Red Hill](<https://peninsulainsider.com.au/stay/cassis/>) · 1.8 km
 
 - [Lightfoot Wines](<https://peninsulainsider.com.au/wine/lightfoot-wines/>) · 2.0 km
-
-- [The Orchard Luxury Accommodation](<https://peninsulainsider.com.au/stay/the-orchard-red-hill/>) · 2.0 km
 
 Related picks
 

@@ -77,7 +77,7 @@ Within 5 km using stored map locations. Approximate straight-line distances, not
 
 - [Montalto Vineyard & Olive Grove](<https://peninsulainsider.com.au/wine/montalto/>) · 0.7 km
 
-- [Red Gum BBQ](<https://peninsulainsider.com.au/eat/red-gum-bbq/>) · 1.1 km
+- [Red Gum BBQ](<https://peninsulainsider.com.au/eat/red-gum-bbq/>) · 0.9 km
 
 - [Tuck's Ridge](<https://peninsulainsider.com.au/wine/tucks-ridge/>) · 1.2 km
 

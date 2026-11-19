@@ -111,7 +111,7 @@ Within 5 km using stored map locations. Approximate straight-line distances, not
 
 - [Two Bays Brewing Co](<https://peninsulainsider.com.au/wine/two-bays-brewing/>) · 2.8 km
 
-- [T'Gallant](<https://peninsulainsider.com.au/wine/t-gallant/>) · 4.0 km
+- [Red Gum BBQ](<https://peninsulainsider.com.au/eat/red-gum-bbq/>) · 3.9 km
 
 Related picks
 

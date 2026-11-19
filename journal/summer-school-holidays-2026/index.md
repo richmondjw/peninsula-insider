@@ -65,7 +65,7 @@ Pick one a day, do it in the morning, and you will have a good holiday.
 
 Families do best at places with space to move and a menu that works for every age.
 
-- **Red Gum BBQ, Red Hill South.** Big room, generous plates and table service. It opens for lunch Tuesday to Saturday, with dinner Thursday to Saturday; book ahead in the holidays.
+- **Red Gum BBQ, Red Hill.** Big room and generous plates. Opening hours are Wednesday–Thursday 11 am–8 pm, Friday–Saturday 11 am–9 pm and Sunday 11 am–4 pm. Book ahead in the holidays and check holiday hours.
 
 - **La Baracca at T’Gallant, Main Ridge.** Wood-fired pizza, shaded outdoor tables and room for children to run. The Peninsula’s most reliable easy group lunch.
 
@@ -183,7 +183,7 @@ Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/
 
 ### [Red Gum BBQ](<https://peninsulainsider.com.au/eat/red-gum-bbq/>)
 
-51 Shoreham Rd, Red Hill South VIC 3937
+87 Arthurs Seat Road, Red Hill VIC 3937
 
 Airy warehouse, picnic tables, and low-and-slow American barbecue, pulled pork, brisket, smoked chicken, the family-friendly antidote to the winery-restaurant circuit.
 

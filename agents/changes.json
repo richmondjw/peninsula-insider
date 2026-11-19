@@ -1,28 +1,148 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-18T20:22:56.361Z",
+  "generatedAt": "2026-11-19T03:48:14.281Z",
   "baselineAvailable": true,
-  "fromSnapshot": "156b7bcad0964e8fa2644b2a3e67821551af5cf12538980c2ccc46c1b864307d",
-  "toSnapshot": "7ff4bb9814356ab985c704446b5b1852b3d1a70b211f658cce73e73b658d6c51",
-  "previousGeneratedAt": "2026-11-18T19:25:16.153Z",
+  "fromSnapshot": "7ff4bb9814356ab985c704446b5b1852b3d1a70b211f658cce73e73b658d6c51",
+  "toSnapshot": "7cca4c9afcfba5a617dc9975e6bbfe847c0ecea35de0d724e34290e742bf4c24",
+  "previousGeneratedAt": "2026-11-18T20:22:56.361Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 2,
+  "count": 17,
   "changes": [
     {
-      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-19/",
-      "kind": "representation-added",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-19/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-19/index.md",
-      "contentSha256": "c45ceb1ea2d47ddf8db2b801694b9394d2e8581b729f37ee003ee3cae4240d4a",
-      "previousContentSha256": null
+      "id": "https://peninsulainsider.com.au/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/",
+      "markdownUrl": "https://peninsulainsider.com.au/index.md",
+      "contentSha256": "63c56da6fbc519898be2d0d16d29aa82c605ee075a79f65c976cb112a1004a84",
+      "previousContentSha256": "f80f089956b53fdf780ccdf266216e4c2db4991fedb9e09b5ee36cd8b7a9f02e"
     },
     {
-      "id": "https://peninsulainsider.com.au/picks/",
+      "id": "https://peninsulainsider.com.au/eat/crittenden-restaurant/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/picks/",
-      "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
-      "contentSha256": "d41a78dd6b2263227920efc98c81fc275737d7850cd5a281a75f6e3a438df08c",
-      "previousContentSha256": "124ee29ecd0bf50532a786457b86f155fb347a515f08cff69b319de73b2c491e"
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/crittenden-restaurant/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/crittenden-restaurant/index.md",
+      "contentSha256": "83899ef7c4fe926d82fcc9cdcaefe1a235a1710b50fcd69d526333c1dfe917da",
+      "previousContentSha256": "b2ee06616f4f5ca7848a2eeb082d9c48ff32f89b203669e43c0b9c6b77312f54"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/eat/doot-doot-doot/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/doot-doot-doot/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/doot-doot-doot/index.md",
+      "contentSha256": "e9887d9d7e090c8385a2a43ca39ba7e09942357226a902928be2e0d5cfc901cf",
+      "previousContentSha256": "52353374dbded23464482c37e63b981b88d29e9aa8d6410ab2e67f29845cb380"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/eat/family-friendly/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/family-friendly/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/family-friendly/index.md",
+      "contentSha256": "d2313b0c792cccd08a14ef4ba85d1b780976768c2c0fc22bd23e6139dda48847",
+      "previousContentSha256": "447c952d778fca399bbbdbb7aa244c0dc1af08e0c7872c84ee3d827a244406a6"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/eat/paddock-to-plate/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/paddock-to-plate/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/paddock-to-plate/index.md",
+      "contentSha256": "dcb5ff4a21eec5c5dddc5e3910288e7db1b8223d8557b64faec86e739bcd901d",
+      "previousContentSha256": "9264f393572718881457d993c3b8c7e61d957d72638d0ebeb0a71cd97acf5953"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/eat/red-gum-bbq/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/red-gum-bbq/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/red-gum-bbq/index.md",
+      "contentSha256": "6baaac2af0a367724eed82c42e0afc3fdc522b4689a39e617892ebde5b632f54",
+      "previousContentSha256": "7ba28871a672d9f7711f63663025b563d9992cda9342e56f586fd80d8a84c4d7"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/red-hill/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/red-hill/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/red-hill/index.md",
+      "contentSha256": "8a7dd21526544d16b1d33bfa1d0c4073ec82f504db7a406522135d5df12ee009",
+      "previousContentSha256": "5bed556081587075b2a30487611350fb10bf9d3c24dffb73ff9b3e95d641b93b"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/index.md",
+      "contentSha256": "c33785ca24b99c778607b891d29d3dcaf9c8f2bb2437428932d8fcf47f3f083a",
+      "previousContentSha256": "68198df5203791cf787137378c0c7ef4b99624724cd9200969022b8800a1ea38"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/index.md",
+      "contentSha256": "fcfe11c8ec714859a8faf507ee364d1bfdbd00e068e487a9d123cb7ede29c4cf",
+      "previousContentSha256": "d7b8e53effe42a909580c7d5411b64eb43b813ef7068467acc68e0ec353aed0a"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/summer-school-holidays-2026/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/summer-school-holidays-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/summer-school-holidays-2026/index.md",
+      "contentSha256": "35a71871a92063bc5abaadd51069fe8f1fbbb16428bc8f3853a96dab1684672c",
+      "previousContentSha256": "62280580555d9d78a3b919f83602c27d083a2bdb4976e905ac876ebdaebad9ea"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/cassis/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/cassis/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/cassis/index.md",
+      "contentSha256": "2b7f6c891e5568cd76ffd09d62863b208eaeffaa8aaac55a9f23b7562822c75b",
+      "previousContentSha256": "9f2e52815fc03a1eadaf80fc889679dd2d1b2b7cdd4c5dbe238b5a78835bff86"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/the-orchard-red-hill/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/the-orchard-red-hill/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/the-orchard-red-hill/index.md",
+      "contentSha256": "293008b97b198a515f001383d7785e91377b60f94056f206f9299c932fe0c9cd",
+      "previousContentSha256": "9476c6764bb0b06f9039aee6085ee787045e9ac39ec495c96674b9817ce5bbb7"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/eldridge-estate/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/eldridge-estate/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/eldridge-estate/index.md",
+      "contentSha256": "f429f60155eb7f356c5e91395d46e6da797d90c4c63a904a57ba09342dfc60e5",
+      "previousContentSha256": "0e13ffe6fa295a470bc900597372415a802a57f6ed3caef450236b3167602ab6"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/montalto/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/montalto/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/montalto/index.md",
+      "contentSha256": "b04f3d8f33fff7c04986add0eeaad2a07c32ef932ac81df5c3f54898121f4a89",
+      "previousContentSha256": "d55bf7468b5c4e34299ed3a594620ebd1e45dce583c71b1d4f7bb914cd080464"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/port-phillip-estate/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/port-phillip-estate/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/port-phillip-estate/index.md",
+      "contentSha256": "7797361fcc253b16388c40337b86eada048f1fe75cc39a1de0aa0d004d6fd3d2",
+      "previousContentSha256": "b142cd303565b968e26cd7b23d55d5121c4266f119ebe2eba8b2c32e8fe015f5"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/trofeo-estate/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/trofeo-estate/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/trofeo-estate/index.md",
+      "contentSha256": "3c860f3d80b31d79e6f5e0e97f238ab2b5da868f262320ff758b3d2e01264507",
+      "previousContentSha256": "463228a7a69a7b99de4cbd7695307952be733ec26b88321aed883f3e63f8bf0f"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/tucks-ridge/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/tucks-ridge/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/tucks-ridge/index.md",
+      "contentSha256": "a08818faea51fda9529e3b75b61c821dc8c47e8d6574c767cb984ac2b25f9873",
+      "previousContentSha256": "1943baa36fd8d0224912de1b1c0c75b67542bbae7091814aa550d79cfb3aa3a7"
     }
   ]
 }

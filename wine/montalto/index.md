@@ -305,9 +305,9 @@ Within 5 km using stored map locations. Approximate straight-line distances, not
 
 - [Prancing Horse Estate](<https://peninsulainsider.com.au/wine/prancing-horse-estate/>) · 1.0 km
 
-- [Red Gum BBQ](<https://peninsulainsider.com.au/eat/red-gum-bbq/>) · 1.2 km
-
 - [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>) · 1.3 km
+
+- [Lindenderry at Red Hill](<https://peninsulainsider.com.au/stay/lindenderry/>) · 1.5 km
 
 Related picks
 
