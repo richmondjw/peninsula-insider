@@ -665,16 +665,6 @@ Join authors Anna Downes and Naima Brown as they discuss the art of storytelling
 
  Event · Writers & Ideas](<https://peninsulainsider.com.au/whats-on/author-talk-anna-downes-naima-brown-mornington-library/>)
 
-- [Thu, 19 Nov
-
-### ✦ National Works on Paper 2026 (NWOP)
-
-Mornington
-
-National Works on Paper 2026 is MPRG's survey of contemporary Australian art made on and with paper. Visit 5 September to 22 November, Tuesday to Sunday, 11am to 4pm; the gallery is closed Mondays.
-
- Event · Exhibitions](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
-
 - [Fri, 20 Nov
 
 ### Dee - Calmer Miles Live at Peninsula Beer Garden
@@ -684,3 +674,13 @@ Boneo
 Peninsula locals that are regulars on the music scene! Dee from The Calmer Miles exhibits a freshness and passion in her music.
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/dee-calmer-miles-live-at-peninsula-beer-garden-2026-11-20/>)
+
+- [Fri, 20 Nov
+
+### ✦ National Works on Paper 2026 (NWOP)
+
+Mornington
+
+National Works on Paper 2026 is MPRG's survey of contemporary Australian art made on and with paper. Visit 5 September to 22 November, Tuesday to Sunday, 11am to 4pm; the gallery is closed Mondays.
+
+ Event · Exhibitions](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
