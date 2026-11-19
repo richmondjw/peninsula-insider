@@ -66,7 +66,7 @@ editorialProvenance:
   method: researched
   reviewedOn: 2026-11-09
   checkedBy: desk
-  source: "Red Gum BBQ hours and service checked against https://redgumbbq.com.au and Stringers Sorrento format against https://stringerssorrento.com.au on 2026-11-09. Other venue details drawn from Peninsula Insider venue records, including operator-checked service notes for Merricks General Wine Store and Point Leo Wine Terrace; readers are told to confirm current hours."
+  source: "Red Gum BBQ Red Hill opening hours checked against https://redgumbbq.com.au/ and https://redgumbbq.com.au/red-gum-bbq-red-hill-2/ on 2026-11-19; these are opening hours, not kitchen-service cut-offs. Earlier Red Gum service and Stringers Sorrento format checks were dated 2026-11-09 (https://stringerssorrento.com.au). Other venue details drawn from Peninsula Insider venue records, including operator-checked service notes for Merricks General Wine Store and Point Leo Wine Terrace; readers are told to confirm current hours."
 clusterLinks:
   - label: "Where to eat on the Mornington Peninsula"
     href: "/eat/"
@@ -76,7 +76,7 @@ clusterLinks:
     href: "/journal/where-to-eat-without-a-booking/"
 faq:
   - question: "Where is the best casual lunch on the Mornington Peninsula?"
-    answer: "It depends on where you are. On the Red Hill ridge, La Baracca at T'Gallant (wood-fired pizza and pasta) and Red Gum BBQ (barbecue, table service) are the easy group choices. In Merricks, Merricks General Wine Store serves breakfast and lunch daily. Near the back beaches, St Andrews Beach Brewery in Fingal does pizza, burgers and its own beer. Rare Hare at Jackalope is the relaxed vineyard lunch for a slower afternoon."
+    answer: "It depends on where you are. On the Red Hill ridge, La Baracca at T'Gallant (wood-fired pizza and pasta) and Red Gum BBQ (barbecue) are the easy group choices. In Merricks, Merricks General Wine Store serves breakfast and lunch daily. Near the back beaches, St Andrews Beach Brewery in Fingal does pizza, burgers and its own beer. Rare Hare at Jackalope is the relaxed vineyard lunch for a slower afternoon."
   - question: "Where can I have a winery lunch on the Mornington Peninsula without a degustation?"
     answer: "Rare Hare at Willow Creek, La Baracca at T'Gallant, Crittenden Restaurant at Dromana and the Point Leo Wine Terrace all offer relaxed winery lunches. The Wine Terrace lists lunch Friday to Sunday with walk-in and reserved options. Check each venue's current menu and service days."
   - question: "Do I need to book lunch on the Mornington Peninsula?"
@@ -106,9 +106,9 @@ The Peninsula's original winery pizza barn and still its most reliable easy lunc
 
 **Order:** too many pizzas, and the Pinot Grigio.
 
-### Red Gum BBQ, Red Hill South
+### Red Gum BBQ, Red Hill
 
-The ridge's antidote to its own seriousness. Low-and-slow barbecue in a big airy room, with table service, generous plates and sides that are genuinely good. It opens for lunch Tuesday to Saturday, with dinner Thursday to Saturday, and is closed Mondays. The kitchen recommends booking, and on holiday weekends you should.
+The ridge's antidote to its own seriousness. Low-and-slow barbecue in a big airy room, with generous plates and sides that are genuinely good. Opening hours are Wednesday–Thursday 11 am–8 pm, Friday–Saturday 11 am–9 pm and Sunday 11 am–4 pm. The kitchen recommends booking, and on holiday weekends you should.
 
 **Best for:** groups, families, and anyone who has had enough of tasting flights.
 

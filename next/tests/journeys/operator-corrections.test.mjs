@@ -63,3 +63,63 @@ for (const width of [390, 1440]) {
     } finally { await reader.close(); }
   });
 }
+
+for(const width of [390,1440]) {
+ test(`Red Gum corrections reach guides, detail, cards and map at ${width}px`,async()=>{
+  const reader=await site.reader();
+  try {
+   await reader.page.setViewport({width,height:1000});
+   for(const slug of ['best-casual-lunch-mornington-peninsula','summer-school-holidays-2026']) {
+    await reader.load('/journal/'+slug+'/');
+    const text=await reader.page.$eval('main',el=>el.textContent);
+    assert.match(text,/Wednesday[-–]Thursday 11 am[-–]8 pm, Friday[-–]Saturday 11 am[-–]9 pm and Sunday 11 am[-–]4 pm/);
+    assert.doesNotMatch(text,/lunch Tuesday to Saturday|dinner Thursday to Saturday|Red Gum BBQ, Red Hill South|table service|counter-and-tray/);
+   }
+   await reader.load('/eat/red-gum-bbq/');
+   const text=await reader.page.$eval('main',el=>el.textContent);
+   assert.match(text,/87 Arthurs Seat Road, Red Hill VIC 3937/);
+   assert.match(text,/5989 3156/);assert.match(text,/Sunday 11 am[-–]4 pm/);
+   assert.doesNotMatch(text,/51 Shoreham|5989 2528|table service|counter-and-tray/);
+   assert.ok(await reader.page.$('a[href="tel:+61359893156"]'));
+   const schemas=await reader.page.$$eval('script[type="application/ld+json"]',els=>els.map(el=>JSON.parse(el.textContent)));
+   const business=schemas.flatMap(s=>s['@graph']??[s]).find(s=>s.name==='Red Gum BBQ' && s.telephone);
+   assert.ok(business);assert.equal(business.telephone,'+61 3 5989 3156');
+   assert.equal(business.geo.latitude,-38.3734864);assert.equal(business.geo.longitude,145.0221385);
+   for(const route of ['/eat/family-friendly/','/explore/places/red-hill/']) {
+    await reader.load(route);
+    const link=await reader.page.$('a[href="/eat/red-gum-bbq/"]');assert.ok(link,route);
+    const card=await link.evaluate(el=>el.closest('article')?.textContent??el.parentElement.textContent);
+    assert.doesNotMatch(card,/Red Hill South|51 Shoreham/);
+   }
+   await reader.load('/map/');
+   const pin=await reader.page.$eval('[data-map-item][data-id="venue:red-gum-bbq"]',el=>({lat:Number(el.dataset.lat),lng:Number(el.dataset.lng)}));
+   assert.deepEqual(pin,{lat:-38.3734864,lng:145.0221385});
+  } finally {await reader.close();}
+ });
+}
+
+
+for (const width of [390,1440]) {
+ test(`Pitmaster Saturday session time, ticket CTA, schema and calendar at ${width}px`,async()=>{
+  const reader=await site.reader();
+  const slug='pitmaster-masterclass-at-red-gum-bbq-2026-11-21',ticket='https://www.sevenrooms.com/events/redgumbbq';
+  try {
+   await reader.page.setViewport({width,height:900});await reader.load('/whats-on/'+slug+'/');
+   const text=await reader.page.$eval('main',el=>el.textContent);
+   assert.match(text,/10:30 to 13:00/);assert.doesNotMatch(text,/13:30|1:30 pm/i);
+   assert.match(text,/current availability before booking/);
+   const links=await reader.page.$$eval('main a',els=>els.map(el=>el.href));
+   assert.ok(links.includes(ticket));assert.ok(!links.some(h=>h.includes('redgumbbq.com.au/make-a-booking')));
+   const schemas=await reader.page.$$eval('script[type="application/ld+json"]',els=>els.map(el=>JSON.parse(el.textContent)));
+   const event=schemas.flatMap(s=>s['@graph']??[s]).find(s=>s['@type']==='Event');assert.ok(event);
+   assert.equal(event.offers.url,ticket);
+   assert.equal(event.startDate,'2026-11-21T10:30:00+11:00');assert.equal(event.endDate,'2026-11-21T13:00:00+11:00');
+   const calendar=links.find(h=>h.startsWith('https://calendar.google.com/calendar/render'));
+   if(calendar) assert.equal(new URL(calendar).searchParams.get('dates'),'20261120T233000Z/20261121T020000Z');
+   if(Date.now()<Date.parse('2026-11-21T02:00:00Z')) assert.ok(calendar);
+   const feed=JSON.parse(readFileSync(DIST+'/whats-on/feed.json','utf8'));const row=feed.events.find(e=>e.slug===slug);
+   if(row) {assert.equal(row.statusData.endTime,'13:00');assert.equal(row.s,'2026-11-21');}
+   if(feed.generated<'2026-11-21') assert.ok(row,'future confirmed session stays on the calendar');
+  } finally {await reader.close();}
+ });
+}

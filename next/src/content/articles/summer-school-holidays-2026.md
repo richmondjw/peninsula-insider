@@ -36,7 +36,7 @@ editorialProvenance:
   method: researched
   reviewedOn: 2026-11-09
   checkedBy: desk
-  source: "Victorian 2026-27 school holiday dates checked against https://www.vic.gov.au/school-term-dates-holidays-victoria; peak foreshore camping season against https://www.mornpen.vic.gov.au/Things-to-do/Camping/Book-a-campsite; Point Nepean shuttle against https://www.parks.vic.gov.au/places-to-see/parks/point-nepean-national-park/things-to-do/shuttle-service; Red Gum BBQ hours against https://redgumbbq.com.au on 2026-11-09. Other venue and experience details from Peninsula Insider records; readers are told to confirm before travelling."
+  source: "Victorian 2026-27 school holiday dates checked against https://www.vic.gov.au/school-term-dates-holidays-victoria; peak foreshore camping season against https://www.mornpen.vic.gov.au/Things-to-do/Camping/Book-a-campsite; Point Nepean shuttle against https://www.parks.vic.gov.au/places-to-see/parks/point-nepean-national-park/things-to-do/shuttle-service; Red Gum BBQ Red Hill opening hours rechecked against https://redgumbbq.com.au/ and https://redgumbbq.com.au/red-gum-bbq-red-hill-2/ on 2026-11-19; these are opening hours, not kitchen-service cut-offs. Other cited checks were dated 2026-11-09. Other venue and experience details from Peninsula Insider records; readers are told to confirm before travelling."
 clusterLinks:
   - label: "The Mornington Peninsula in summer"
     href: "/journal/mornington-peninsula-in-summer/"
@@ -92,7 +92,7 @@ Pick one a day, do it in the morning, and you will have a good holiday.
 
 Families do best at places with space to move and a menu that works for every age.
 
-- **Red Gum BBQ, Red Hill South.** Big room, generous plates and table service. It opens for lunch Tuesday to Saturday, with dinner Thursday to Saturday; book ahead in the holidays.
+- **Red Gum BBQ, Red Hill.** Big room and generous plates. Opening hours are Wednesday–Thursday 11 am–8 pm, Friday–Saturday 11 am–9 pm and Sunday 11 am–4 pm. Book ahead in the holidays and check holiday hours.
 - **La Baracca at T'Gallant, Main Ridge.** Wood-fired pizza, shaded outdoor tables and room for children to run. The Peninsula's most reliable easy group lunch.
 - **Main Ridge Dairy.** A working goat dairy with farm-made cheeses and seasonal sharing dishes at Billies. Goat tours and feeding experiences are not currently offered.
 - **The Rye Hotel.** A sprawling foreshore pub near the front beach, with a deck and a menu children recognise.
