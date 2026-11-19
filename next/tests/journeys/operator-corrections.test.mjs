@@ -63,3 +63,37 @@ for (const width of [390, 1440]) {
     } finally { await reader.close(); }
   });
 }
+
+for(const width of [390,1440]) {
+ test(`Red Gum corrections reach guides, detail, cards and map at ${width}px`,async()=>{
+  const reader=await site.reader();
+  try {
+   await reader.page.setViewport({width,height:1000});
+   for(const slug of ['best-casual-lunch-mornington-peninsula','summer-school-holidays-2026']) {
+    await reader.load('/journal/'+slug+'/');
+    const text=await reader.page.$eval('main',el=>el.textContent);
+    assert.match(text,/Wednesday[-–]Thursday 11 am[-–]8 pm, Friday[-–]Saturday 11 am[-–]9 pm and Sunday 11 am[-–]4 pm/);
+    assert.doesNotMatch(text,/lunch Tuesday to Saturday|dinner Thursday to Saturday|Red Gum BBQ, Red Hill South|table service|counter-and-tray/);
+   }
+   await reader.load('/eat/red-gum-bbq/');
+   const text=await reader.page.$eval('main',el=>el.textContent);
+   assert.match(text,/87 Arthurs Seat Road, Red Hill VIC 3937/);
+   assert.match(text,/5989 3156/);assert.match(text,/Sunday 11 am[-–]4 pm/);
+   assert.doesNotMatch(text,/51 Shoreham|5989 2528|table service|counter-and-tray/);
+   assert.ok(await reader.page.$('a[href="tel:+61359893156"]'));
+   const schemas=await reader.page.$$eval('script[type="application/ld+json"]',els=>els.map(el=>JSON.parse(el.textContent)));
+   const business=schemas.flatMap(s=>s['@graph']??[s]).find(s=>s.name==='Red Gum BBQ' && s.telephone);
+   assert.ok(business);assert.equal(business.telephone,'+61 3 5989 3156');
+   assert.equal(business.geo.latitude,-38.3734864);assert.equal(business.geo.longitude,145.0221385);
+   for(const route of ['/eat/family-friendly/','/explore/places/red-hill/']) {
+    await reader.load(route);
+    const link=await reader.page.$('a[href="/eat/red-gum-bbq/"]');assert.ok(link,route);
+    const card=await link.evaluate(el=>el.closest('article')?.textContent??el.parentElement.textContent);
+    assert.doesNotMatch(card,/Red Hill South|51 Shoreham/);
+   }
+   await reader.load('/map/');
+   const pin=await reader.page.$eval('[data-map-item][data-id="venue:red-gum-bbq"]',el=>({lat:Number(el.dataset.lat),lng:Number(el.dataset.lng)}));
+   assert.deepEqual(pin,{lat:-38.3734864,lng:145.0221385});
+  } finally {await reader.close();}
+ });
+}

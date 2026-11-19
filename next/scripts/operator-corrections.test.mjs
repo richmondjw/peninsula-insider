@@ -37,3 +37,17 @@ test('Iluka uses approved artwork and keeps practical booking limits', () => {
   assert.equal(v.heroImage.rightsHolder, 'Peninsula Insider');
   assert.doesNotMatch(JSON.stringify(v), /balnarring-rural-sunrise|cms-assets/);
 });
+
+test('Red Gum Red Hill contact, map pin and opening days match operator evidence', () => {
+  const v=JSON.parse(read('content/venues/red-gum-bbq.json'));
+  assert.doesNotMatch(JSON.stringify(v), /counter-and-tray|table service/i);
+  assert.equal(v.address,'87 Arthurs Seat Road, Red Hill VIC 3937');
+  assert.equal(v.phone,'+61 3 5989 3156');
+  assert.deepEqual(v.coordinates,{lat:-38.3734864,lng:145.0221385});
+  assert.match(v.hoursNote,/Wednesday[-–]Thursday 11 am[-–]8 pm, Friday[-–]Saturday 11 am[-–]9 pm and Sunday 11 am[-–]4 pm/);
+  for(const slug of ['best-casual-lunch-mornington-peninsula','summer-school-holidays-2026']) {
+    const text=read('content/articles/'+slug+'.md');
+    assert.match(text,/Wednesday[-–]Thursday 11 am[-–]8 pm, Friday[-–]Saturday 11 am[-–]9 pm and Sunday 11 am[-–]4 pm/);
+    assert.doesNotMatch(text,/lunch Tuesday to Saturday|dinner Thursday to Saturday|Red Gum BBQ, Red Hill South|table service|counter-and-tray/);
+  }
+});
