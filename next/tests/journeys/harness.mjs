@@ -125,7 +125,7 @@ function resolveFile(urlPath) {
   return target;
 }
 
-function startServer() {
+function startServer(headersForPath = () => ({})) {
   const server = http.createServer((req, res) => {
     const urlPath = decodeURIComponent((req.url || '/').split('?')[0]);
     const file = resolveFile(urlPath);
@@ -137,6 +137,7 @@ function startServer() {
     res.writeHead(200, {
       'Content-Type': MIME[path.extname(file)] || 'application/octet-stream',
       'Cache-Control': 'no-store',
+      ...headersForPath((req.url || '/').split('?')[0]),
     });
     fs.createReadStream(file).pipe(res);
   });
@@ -329,14 +330,14 @@ export class Site {
     this.origin = `http://127.0.0.1:${server.address().port}`;
   }
 
-  static async open() {
+  static async open({ headersForPath } = {}) {
     if (!distExists()) {
       throw new Error(
         'next/dist is missing or empty. The journey harness drives the built site; '
         + 'run `npm run build` (or `npx astro build`) in next/ first.',
       );
     }
-    const server = await startServer();
+    const server = await startServer(headersForPath);
     const browser = await puppeteer.launch({
       headless: 'new',
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
