@@ -73,13 +73,13 @@ for(const width of [390,1440]) {
     await reader.load('/journal/'+slug+'/');
     const text=await reader.page.$eval('main',el=>el.textContent);
     assert.match(text,/Wednesday[-–]Thursday 11 am[-–]8 pm, Friday[-–]Saturday 11 am[-–]9 pm and Sunday 11 am[-–]4 pm/);
-    assert.doesNotMatch(text,/lunch Tuesday to Saturday|dinner Thursday to Saturday|Red Gum BBQ, Red Hill South/);
+    assert.doesNotMatch(text,/lunch Tuesday to Saturday|dinner Thursday to Saturday|Red Gum BBQ, Red Hill South|table service|counter-and-tray/);
    }
    await reader.load('/eat/red-gum-bbq/');
    const text=await reader.page.$eval('main',el=>el.textContent);
    assert.match(text,/87 Arthurs Seat Road, Red Hill VIC 3937/);
    assert.match(text,/5989 3156/);assert.match(text,/Sunday 11 am[-–]4 pm/);
-   assert.doesNotMatch(text,/51 Shoreham|5989 2528/);
+   assert.doesNotMatch(text,/51 Shoreham|5989 2528|table service|counter-and-tray/);
    assert.ok(await reader.page.$('a[href="tel:+61359893156"]'));
    const schemas=await reader.page.$$eval('script[type="application/ld+json"]',els=>els.map(el=>JSON.parse(el.textContent)));
    const business=schemas.flatMap(s=>s['@graph']??[s]).find(s=>s.name==='Red Gum BBQ' && s.telephone);

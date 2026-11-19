@@ -92,7 +92,7 @@ Pick one a day, do it in the morning, and you will have a good holiday.
 
 Families do best at places with space to move and a menu that works for every age.
 
-- **Red Gum BBQ, Red Hill.** Big room, generous plates and table service. Opening hours are Wednesday–Thursday 11 am–8 pm, Friday–Saturday 11 am–9 pm and Sunday 11 am–4 pm. Book ahead in the holidays and check holiday hours.
+- **Red Gum BBQ, Red Hill.** Big room and generous plates. Opening hours are Wednesday–Thursday 11 am–8 pm, Friday–Saturday 11 am–9 pm and Sunday 11 am–4 pm. Book ahead in the holidays and check holiday hours.
 - **La Baracca at T'Gallant, Main Ridge.** Wood-fired pizza, shaded outdoor tables and room for children to run. The Peninsula's most reliable easy group lunch.
 - **Main Ridge Dairy.** A working goat dairy with farm-made cheeses and seasonal sharing dishes at Billies. Goat tours and feeding experiences are not currently offered.
 - **The Rye Hotel.** A sprawling foreshore pub near the front beach, with a deck and a menu children recognise.
