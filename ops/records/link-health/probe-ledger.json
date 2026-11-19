@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-11-18T04:54:24.788Z",
+  "updatedAt": "2026-11-19T04:56:53.694Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -5568,6 +5568,14 @@
       "httpCode": "200",
       "pageTitle": "Mornington Peninsula Hotel Accommodation | RACV Cape Schanck",
       "probedOn": "2026-10-01",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.racv.com.au/travel-experiences/resorts/cape-schanck/golf.html",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Cape Schanck Golf Course in Mornington | RACV Cape Schanck",
+      "probedOn": "2026-11-19",
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {
