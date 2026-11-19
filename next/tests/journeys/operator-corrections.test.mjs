@@ -123,3 +123,30 @@ for (const width of [390,1440]) {
   } finally {await reader.close();}
  });
 }
+
+
+for (const width of [390,1440]) {
+ test(`Nordie access, unknown conditions and FAQ survive rendering at ${width}px`,async()=>{
+  const reader=await site.reader();
+  try {
+   await reader.page.setViewport({width,height:900});
+   await reader.load('/journal/dog-friendly-cafes-pubs-wineries-mornington-peninsula/');
+   const row=await reader.page.$$eval('main tr',els=>els.find(el=>el.textContent.includes('Nordie'))?.textContent);
+   assert.match(row,/Dogs welcome; bowls and treats available/);
+   assert.match(row,/Permitted seating and lead or booking conditions remain unconfirmed/);
+   assert.match(row,/18 November 2026/);
+   const schemas=await reader.page.$$eval('script[type="application/ld+json"]',els=>els.map(el=>JSON.parse(el.textContent)));
+   const faq=schemas.flatMap(s=>s['@graph']??[s]).find(s=>s['@type']==='FAQPage');assert.ok(faq);
+   const answer=faq.mainEntity.find(q=>q.name.includes('allow dogs')).acceptedAnswer.text;
+   assert.match(answer,/Nordie.*18 November 2026.*dogs are welcome/);
+   assert.match(answer,/conditions remain unconfirmed/);
+   assert.ok(await reader.page.$('main a[href="https://nordie.com.au/contact-us/"]'));
+   assert.equal(await reader.page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+   await reader.load('/journal/where-to-eat-mornington-peninsula/');
+   const paragraph=await reader.page.$$eval('main p',els=>els.find(el=>el.textContent.includes('Nordie Cafe'))?.textContent);
+   assert.match(paragraph,/dogs are welcome and bowls and treats are available/);
+   assert.match(paragraph,/conditions remain unconfirmed/);
+   assert.doesNotMatch(paragraph,/dog-friendly courtyard and grass area/);
+  } finally {await reader.close();}
+ });
+}

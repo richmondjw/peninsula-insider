@@ -1,10 +1,10 @@
 ---
 title: "Dog-Friendly Cafés, Pubs and Wineries on the Mornington Peninsula"
-dek: "Find dog-friendly cafés, pubs, wineries and a brewery on the Mornington Peninsula, with official policy links, booking rules and clearly marked unknowns."
+dek: "Find dog-friendly cafés, pubs, wineries and a brewery on the Mornington Peninsula, with policy and contact links, booking rules and clearly marked unknowns."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-04-17
-updatedAt: 2026-10-11
+updatedAt: 2026-11-19
 heroImage:
   src: "/images/sourced/dog-beach-emma-01.webp"
   alt: "Wet dog sitting on a Mornington Peninsula beach"
@@ -24,13 +24,13 @@ clusterLinks:
     href: "/journal/dog-friendly-beaches-mornington-peninsula/"
 faq:
   - question: "Which cafés on the Mornington Peninsula allow dogs?"
-    answer: "Commonfolk Coffee in Mornington explicitly welcomes dogs in its back courtyard, reached by side access. Green Olive at Red Hill also advertises a dog-friendly farm dining experience; confirm the seating area when booking. These policies were checked on the venues' websites on 18 September 2026."
+    answer: "Commonfolk Coffee in Mornington explicitly welcomes dogs in its back courtyard, reached by side access. Green Olive at Red Hill also advertises a dog-friendly farm dining experience; confirm the seating area when booking. Those website policies were checked on 18 September 2026. Nordie Café in Red Hill directly confirmed on 18 November 2026 that dogs are welcome and bowls and treats are available. Nordie’s permitted seating and lead or booking conditions remain unconfirmed; ask the venue before visiting."
   - question: "Which Peninsula pubs and breweries allow dogs?"
     answer: "Flinders Hotel permits leashed dogs on the deck. St Andrews Beach Brewery in Fingal permits leashed dogs in its outdoor beer garden. Ask about a suitable table and weather cover before travelling."
   - question: "Do you need to book ahead with a dog?"
     answer: "Main Ridge Estate requires dogs to be prebooked, on a lead and outdoors, with a maximum of one dog per booking. Commonfolk and St Andrews Beach Brewery keep some tables for walk-ins, but that does not guarantee a dog-suitable table. Always mention the dog when reserving."
   - question: "Are outdoor tables always dog-friendly?"
-    answer: "No. Outdoor seating does not establish a pet policy. Where we could not verify a policy from the official pages checked, we mark it unconfirmed and recommend contacting the venue before making plans."
+    answer: "No. Outdoor seating does not establish a pet policy. Where neither the official pages checked nor direct operator confirmation establishes dog access, we mark it unconfirmed. Confirm the permitted seating and conditions even where dogs are welcome."
 readingTimeMinutes: 6
 featured: false
 status: "published"
@@ -50,8 +50,9 @@ We checked the official pages linked below on **18 September 2026**. “Confirme
 
 ## Confirmed dog-friendly options at a glance
 
-| Venue, town and type | Published dog access | Booking detail to know |
+| Venue, town and type | Confirmed dog access | Booking detail to know |
 | --- | --- | --- |
+| [Nordie Café](https://nordie.com.au/contact-us/), Red Hill café | Dogs welcome; bowls and treats available. Direct operator confirmation, 18 November 2026. | Permitted seating and lead or booking conditions remain unconfirmed. Ask the venue before visiting. |
 | [Commonfolk Coffee](https://www.commonfolkcoffee.com.au/pages/locations/mornington), Mornington café | Back courtyard, with side access | Bookings available; tables also kept for walk-ins. Ask for the dog-friendly area. |
 | [Flinders Hotel](https://flindershotel.com.au/faqs/), Flinders pub | Deck; dogs must stay on a lead | Reservations recommended. Seating requests are not guaranteed. |
 | [Stonier Wines](https://www.stonier.com.au/about-us), Merricks cellar door | Dogs welcome on the lawn | Walk-ins welcome. Confirm the day's food offering if you want lunch. |
@@ -62,6 +63,10 @@ We checked the official pages linked below on **18 September 2026**. “Confirme
 Rain cover for the permitted dog seating was not established by these sources. If the forecast matters to your plans, ask whether a covered dog-friendly table can actually be reserved. For venues that do not specify a lead rule in the linked policy, ask directly; bring a lead and keep your dog close.
 
 ## Cafés: coffee or a meal with the dog
+
+### Nordie Café, Red Hill
+
+Nordie confirmed directly on **18 November 2026** that dogs are welcome and bowls and treats are available. The confirmation did not specify permitted seating, lead rules or booking conditions. Those details remain unconfirmed: [ask Nordie](https://nordie.com.au/contact-us/) before making plans. Do not assume that a garden, courtyard or indoor table is available for your dog.
 
 ### Commonfolk Coffee, Mornington
 
@@ -99,7 +104,6 @@ These places appeared in an earlier version of this guide. We could not establis
 
 | Venue and town | What still needs confirmation |
 | --- | --- |
-| [Nordie Café](https://nordie.com.au/), Red Hill | The current dog policy and which garden or courtyard tables are permitted. |
 | Georgie Bass Café & Cookery, Flinders | Current operation and pet policy could not be verified through its former official website. Do not rely on the earlier listing without checking directly. |
 | [The Somers General](https://www.thesomersgeneral.com.au/), Somers | The current dog policy and permitted seating area. |
 | [Portsea Hotel](https://portseahotel.com.au/reservation/), Portsea | Dog access to the beer garden. The reservation page says the beer garden is for walk-ins; an indoor booking does not secure a garden table. |
@@ -118,4 +122,4 @@ Ask: “We are bringing one dog. Can you confirm a table in the permitted area, 
 
 Check the current kitchen hours, pack water and a bowl, and allow a walk before a sit-down meal. Use our [dog-friendly beach guide](/journal/dog-friendly-beaches-mornington-peninsula/) for beach planning and check the current signs at the access point. For accommodation and a broader itinerary, see the [dog-friendly Peninsula weekend guide](/journal/dog-friendly-mornington-peninsula/).
 
-*Official policy pages checked on 18 September 2026. Unconfirmed entries remain unconfirmed; this check does not certify every venue as dog-friendly. Venue rules and seating availability can change.*
+*Official policy pages checked on 18 September 2026. Nordie’s dog welcome, bowls and treats were confirmed directly by the operator on 18 November 2026; its seating, lead and booking conditions remain unconfirmed. Other unconfirmed entries remain unconfirmed. Venue rules and seating availability can change.*
