@@ -1,28 +1,20 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-19T20:17:48.880Z",
+  "generatedAt": "2026-11-19T21:53:46.684Z",
   "baselineAvailable": true,
-  "fromSnapshot": "3871ee5f63a095eb3fe30ceed65b70fe53b80ed26c72f0781f1246e41954d866",
-  "toSnapshot": "942b5fc8ec7dc8543d53daa35f484a38566cbf1f69c23285ee88c5aefcdd60a5",
-  "previousGeneratedAt": "2026-11-19T19:25:05.161Z",
+  "fromSnapshot": "942b5fc8ec7dc8543d53daa35f484a38566cbf1f69c23285ee88c5aefcdd60a5",
+  "toSnapshot": "9ce0b5ffd70ee6e6ee3c434f080dfeb5d9bd368cd686c5608636ff8aab3081cd",
+  "previousGeneratedAt": "2026-11-19T20:17:48.880Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 2,
+  "count": 1,
   "changes": [
     {
-      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-20/",
-      "kind": "representation-added",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-20/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-20/index.md",
-      "contentSha256": "5f08f495e754d36f0e7e9ae1e26c9fd9749eb349ec5d57b2ac3ec2ec74ba2f29",
-      "previousContentSha256": null
-    },
-    {
-      "id": "https://peninsulainsider.com.au/picks/",
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-05/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/picks/",
-      "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
-      "contentSha256": "930346c614e311d5d36b1c6aecbcee4c31d86aada1ec63a04610b52d707967e9",
-      "previousContentSha256": "d41a78dd6b2263227920efc98c81fc275737d7850cd5a281a75f6e3a438df08c"
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-05/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-05/index.md",
+      "contentSha256": "ea6923cb7ff74e3cc9456b2b2e2dd13c93b54194b628e628c6a38d66c97b3167",
+      "previousContentSha256": "32db6789dd3964c8290f1de3ce9bbd0cb8d86c8de659a4ea4510083384059be1"
     }
   ]
 }

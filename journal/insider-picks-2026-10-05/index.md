@@ -21,7 +21,7 @@ Cape Schanck, Mornington Peninsula   Photo · Courtesy of Visit Victoria
 
 **Bass & Flinders Distillery - Gin School, Dromana**
 
-Make a bottle with your own blend at Bass & Flinders’ Gin Masterclass. The operator describes a two-hour session exploring gin production and traditional and native botanicals, followed by hands-on blending. A 500ml bottle of your recipe goes home with you. It is a practical way to spend an afternoon getting to know the flavours behind the spirit.
+Make a bottle with your own blend at [Bass & Flinders](<https://peninsulainsider.com.au/wine/bass-and-flinders/>)’ Gin Masterclass. The operator describes a two-hour session exploring gin production and traditional and native botanicals, followed by hands-on blending. A 500ml bottle of your recipe goes home with you. It is a practical way to spend an afternoon getting to know the flavours behind the spirit.
 
 The distillery is at **40 Collins Road, Dromana**. [Check the operator’s masterclass page and book your chosen session](<https://www.bassandflindersdistillery.com/pages/gin-masterclass>); availability needs confirmation. The [distillery contact page](<https://www.bassandflindersdistillery.com/pages/contact-us>) has the current visitor details.
 
