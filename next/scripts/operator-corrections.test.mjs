@@ -62,3 +62,23 @@ test('November Pitmaster session keeps Saturday and uses the dated seller time a
   assert.ok(!e.bookingStatus || e.bookingStatus==='unknown');
   assert.match(e.editorNote,/current availability before booking/);
 });
+
+
+test('Nordie confirms access and amenities without inventing seating or booking terms', () => {
+ const guide=read('content/articles/dog-friendly-cafes-pubs-wineries-mornington-peninsula.md');
+ assert.match(guide,/lastVerified: 2026-09-18/);
+ assert.match(guide,/supported by a published policy or direct operator confirmation/);
+ assert.doesNotMatch(guide,/refers to a published dog-friendly policy/);
+ const confirmed=guide.split('## Confirmed dog-friendly options at a glance')[1].split('## Other venues:')[0];
+ assert.match(confirmed,/Nordie.*Dogs welcome; bowls and treats available/);
+ assert.match(confirmed,/Permitted seating and lead or booking conditions remain unconfirmed/);
+ assert.doesNotMatch(guide.split('## Other venues:')[1],/Nordie Café/);
+ assert.match(guide,/Nordie’s permitted seating and lead or booking conditions remain unconfirmed/);
+ const eating=read('content/articles/where-to-eat-mornington-peninsula.mdx').split('**Nordie Cafe**')[1].split('\n')[0];
+ assert.match(eating,/18 November 2026.*dogs are welcome and bowls and treats are available/);
+ assert.match(eating,/conditions remain unconfirmed/);
+ assert.doesNotMatch(eating,/dog-friendly courtyard and grass area/);
+ const facts=read('data/facts/food.json');
+ assert.match(facts,/Dogs welcome; bowls and treats available \(direct operator confirmation, 18 November 2026\)/);
+ assert.doesNotMatch(facts,/Dog-friendly courtyard \+ grass area/);
+});

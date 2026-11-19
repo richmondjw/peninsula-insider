@@ -1876,6 +1876,14 @@
       "pageTitle": "Nazaaray Estate - Nazaaray Estate | Flinders"
     },
     {
+      "url": "https://nordie.com.au/contact-us/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Contact Us - Nordie Cafe",
+      "probedOn": "2026-11-19",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://oceaneight.com.au",
       "verdict": "ok",
       "httpCode": "200",
