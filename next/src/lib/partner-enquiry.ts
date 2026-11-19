@@ -389,7 +389,7 @@ export function buildContactRow(
    Outcome
    ========================================================================== */
 
-export type EnquiryOutcome = 'success' | 'unanswerable' | 'failed';
+export type EnquiryOutcome = 'success' | 'unanswerable' | 'failed' | 'uncertain';
 
 /**
  * Decide what the reader is told, from what the database actually confirmed.
@@ -409,12 +409,10 @@ export type EnquiryOutcome = 'success' | 'unanswerable' | 'failed';
  *                   so telling the business "thanks, we'll be in touch" would
  *                   be a lie. They get the reference, an explanation and the
  *                   email fallback.
- *   'failed'        the enquiry row did not land. Nothing was recorded.
+ *   'failed'        a definite rejection, not a lost response.
  *
- * There is no fourth branch and no default-to-success anywhere: an unknown
- * combination cannot exist, because both inputs are booleans and both are
- * read from an awaited Supabase result rather than from the absence of a
- * thrown exception.
+ * The transport adapter in collaboration-enquiry.ts handles ambiguous writes
+ * separately as 'uncertain'. Only confirmed results reach this boolean rule.
  */
 export function classifyOutcome(input: {
   enquiryInserted: boolean;
@@ -432,6 +430,8 @@ export function classifyOutcome(input: {
  */
 export function outcomeMessage(outcome: EnquiryOutcome, enquiryRef: string): string {
   switch (outcome) {
+    case 'uncertain':
+      return 'Delivery could not be confirmed for reference ' + enquiryRef + '. It may have been recorded. Please do not submit again. Email ' + PARTNERSHIPS_EMAIL + ' quoting this reference so we can check your enquiry and contact details.';
     case 'success':
       return (
         'Enquiry received. Your reference is ' + enquiryRef + '. ' +
