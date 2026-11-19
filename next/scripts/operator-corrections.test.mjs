@@ -67,6 +67,8 @@ test('November Pitmaster session keeps Saturday and uses the dated seller time a
 test('Nordie confirms access and amenities without inventing seating or booking terms', () => {
  const guide=read('content/articles/dog-friendly-cafes-pubs-wineries-mornington-peninsula.md');
  assert.match(guide,/lastVerified: 2026-09-18/);
+ assert.match(guide,/supported by a published policy or direct operator confirmation/);
+ assert.doesNotMatch(guide,/refers to a published dog-friendly policy/);
  const confirmed=guide.split('## Confirmed dog-friendly options at a glance')[1].split('## Other venues:')[0];
  assert.match(confirmed,/Nordie.*Dogs welcome; bowls and treats available/);
  assert.match(confirmed,/Permitted seating and lead or booking conditions remain unconfirmed/);

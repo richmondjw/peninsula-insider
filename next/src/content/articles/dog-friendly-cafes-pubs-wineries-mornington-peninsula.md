@@ -46,7 +46,7 @@ For dinner, ask whether the dog-friendly area is serving food that evening and w
 
 **The quick shortlist:** Commonfolk for a Mornington courtyard café; Flinders Hotel for a pub deck; Stonier for a Merricks cellar-door lawn; Main Ridge Estate for a prebooked outdoor winery visit; Green Olive for farm dining; and St Andrews Beach Brewery for a Fingal beer garden.
 
-We checked the official pages linked below on **18 September 2026**. “Confirmed” refers to a published dog-friendly policy. Seating remains subject to availability. This guide concerns pet dogs; assistance-animal access is a separate matter.
+We checked the official policy pages linked below on **18 September 2026**. Separately, **Nordie confirmed directly on 18 November 2026** that dogs are welcome and bowls and treats are available. “Confirmed” means dog access is supported by a published policy or direct operator confirmation; it does not establish access to every seating area. Seating remains subject to availability. This guide concerns pet dogs; assistance-animal access is a separate matter.
 
 ## Confirmed dog-friendly options at a glance
 
