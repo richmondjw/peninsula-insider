@@ -1,9 +1,9 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-11-19T10:38:17.717Z",
-  "snapshotId": "94d1eaae6dbc48e50747854e2cf753b27c97d811003422bfaff27a010668c5ab",
+  "generatedAt": "2026-11-19T13:23:25.394Z",
+  "snapshotId": "3871ee5f63a095eb3fe30ceed65b70fe53b80ed26c72f0781f1246e41954d866",
   "section": "whats-on",
-  "count": 102,
+  "count": 101,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/whats-on/",
@@ -11,16 +11,16 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "96b0e7466725692ec3b3a01117eb9bf89753ba70432ca3a184023b3bd876c662",
+      "contentSha256": "7d224e8a84c2699797ea6e69f1aefb3f2210e702a16d85cedf14b4a3c41af580",
       "citation": {
         "title": "What's on this weekend",
         "publisher": "Peninsula Insider",
         "url": "https://peninsulainsider.com.au/whats-on/",
         "publishedAt": null,
-        "modifiedAt": "2026-11-19"
+        "modifiedAt": "2026-11-20"
       },
-      "htmlBytes": 191986,
-      "markdownBytes": 8273
+      "htmlBytes": 192219,
+      "markdownBytes": 8344
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
@@ -72,23 +72,6 @@
       },
       "htmlBytes": 142732,
       "markdownBytes": 3581
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/author-talk-anna-downes-naima-brown-mornington-library/",
-      "title": "Author Talk: Anna Downes & Naima Brown - Mornington Library",
-      "section": "whats-on",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/author-talk-anna-downes-naima-brown-mornington-library/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/author-talk-anna-downes-naima-brown-mornington-library/index.md",
-      "contentSha256": "20f6e54e6e17b02c092e29b9ad0b5ec331bf1ce6a943f41b3c11bc6426cd8506",
-      "citation": {
-        "title": "Author Talk: Anna Downes & Naima Brown - Mornington Library",
-        "publisher": "Peninsula Insider",
-        "url": "https://peninsulainsider.com.au/whats-on/author-talk-anna-downes-naima-brown-mornington-library/",
-        "publishedAt": null,
-        "modifiedAt": null
-      },
-      "htmlBytes": 140434,
-      "markdownBytes": 2722
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/author-talk-jane-gilmore-mornington-library/",
@@ -181,7 +164,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/index.md",
-      "contentSha256": "61921e85cc774594f36aea5b2caa43c5432c9a7ecb5b77169eb350d71dd49fec",
+      "contentSha256": "bc6ccd8781406418a6f159e6bafc50733962408844bd6189973a887e90478b45",
       "citation": {
         "title": "Things that start after the sun goes down",
         "publisher": "Peninsula Insider",
@@ -189,8 +172,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 179547,
-      "markdownBytes": 7408
+      "htmlBytes": 176214,
+      "markdownBytes": 6980
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/",

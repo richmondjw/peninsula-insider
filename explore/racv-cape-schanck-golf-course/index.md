@@ -41,6 +41,10 @@ Autumn · Spring · Summer
 
 Trent Jones Dr, Cape Schanck VIC 3939
 
+**Website**
+
+[www.racv.com.au/travel-experiences/resorts/cape-schanck/golf.html](<https://www.racv.com.au/travel-experiences/resorts/cape-schanck/golf.html>)
+
  [Open place hub](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)
 
 Pair it with a booking

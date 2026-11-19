@@ -11,14 +11,6 @@ Evening on the Peninsula
 
 Concerts, twilight cellar doors, evening bathing sessions, dinners that count as events. The Peninsula is sometimes accused of closing at five; this is the counter-argument.
 
-Writers & Ideas  19 Nov
-
-### [Author Talk: Anna Downes & Naima Brown - Mornington Library](<https://peninsulainsider.com.au/whats-on/author-talk-anna-downes-naima-brown-mornington-library/>)
-
-Join authors Anna Downes and Naima Brown as they discuss the art of storytelling and Anna's new book Dark Days Hotel.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/author-talk-anna-downes-naima-brown-mornington-library/>)
-
 Live Music  21 Nov
 
 ### [Coco Michelle Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/coco-michelle-live-at-tar-barrel-2026-11-21/>)

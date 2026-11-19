@@ -9017,68 +9017,6 @@
       ]
     },
     {
-      "source": "/images/generated/events/wine.webp",
-      "format": "webp",
-      "originalBytes": 32106,
-      "variants": [
-        {
-          "src": "/_media/7ed23e9c0fa4a293b3a3-480.webp",
-          "width": 480,
-          "height": 320,
-          "bytes": 7928
-        },
-        {
-          "src": "/_media/7ed23e9c0fa4a293b3a3-800.webp",
-          "width": 800,
-          "height": 533,
-          "bytes": 13810
-        },
-        {
-          "src": "/_media/7ed23e9c0fa4a293b3a3-1280.webp",
-          "width": 1280,
-          "height": 853,
-          "bytes": 22548
-        },
-        {
-          "src": "/_media/7ed23e9c0fa4a293b3a3-1536.webp",
-          "width": 1536,
-          "height": 1024,
-          "bytes": 30120
-        }
-      ]
-    },
-    {
-      "source": "/images/generated/events/wine.webp",
-      "format": "avif",
-      "originalBytes": 32106,
-      "variants": [
-        {
-          "src": "/_media/1c5c8a6cfd63e3c50353-480.avif",
-          "width": 480,
-          "height": 320,
-          "bytes": 4125
-        },
-        {
-          "src": "/_media/1c5c8a6cfd63e3c50353-800.avif",
-          "width": 800,
-          "height": 533,
-          "bytes": 6200
-        },
-        {
-          "src": "/_media/1c5c8a6cfd63e3c50353-1280.avif",
-          "width": 1280,
-          "height": 853,
-          "bytes": 8459
-        },
-        {
-          "src": "/_media/1c5c8a6cfd63e3c50353-1536.avif",
-          "width": 1536,
-          "height": 1024,
-          "bytes": 11265
-        }
-      ]
-    },
-    {
       "source": "/images/generated/coastal-punch-produce.webp",
       "format": "webp",
       "originalBytes": 92860,
@@ -9286,6 +9224,68 @@
           "width": 1536,
           "height": 1024,
           "bytes": 7828
+        }
+      ]
+    },
+    {
+      "source": "/images/generated/events/art-workshop.webp",
+      "format": "webp",
+      "originalBytes": 58174,
+      "variants": [
+        {
+          "src": "/_media/eb40ce442f4d625165c9-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 14838
+        },
+        {
+          "src": "/_media/eb40ce442f4d625165c9-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 25108
+        },
+        {
+          "src": "/_media/eb40ce442f4d625165c9-1280.webp",
+          "width": 1280,
+          "height": 853,
+          "bytes": 40484
+        },
+        {
+          "src": "/_media/eb40ce442f4d625165c9-1536.webp",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 54704
+        }
+      ]
+    },
+    {
+      "source": "/images/generated/events/art-workshop.webp",
+      "format": "avif",
+      "originalBytes": 58174,
+      "variants": [
+        {
+          "src": "/_media/6c83289378520cbbef7a-480.avif",
+          "width": 480,
+          "height": 320,
+          "bytes": 7738
+        },
+        {
+          "src": "/_media/6c83289378520cbbef7a-800.avif",
+          "width": 800,
+          "height": 533,
+          "bytes": 11310
+        },
+        {
+          "src": "/_media/6c83289378520cbbef7a-1280.avif",
+          "width": 1280,
+          "height": 853,
+          "bytes": 15608
+        },
+        {
+          "src": "/_media/6c83289378520cbbef7a-1536.avif",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 21326
         }
       ]
     },
@@ -14117,37 +14117,6 @@
       ]
     },
     {
-      "source": "/images/generated/events/art-workshop.webp",
-      "format": "webp",
-      "originalBytes": 58174,
-      "variants": [
-        {
-          "src": "/_media/eb40ce442f4d625165c9-480.webp",
-          "width": 480,
-          "height": 320,
-          "bytes": 14838
-        },
-        {
-          "src": "/_media/eb40ce442f4d625165c9-800.webp",
-          "width": 800,
-          "height": 533,
-          "bytes": 25108
-        },
-        {
-          "src": "/_media/eb40ce442f4d625165c9-1280.webp",
-          "width": 1280,
-          "height": 853,
-          "bytes": 40484
-        },
-        {
-          "src": "/_media/eb40ce442f4d625165c9-1536.webp",
-          "width": 1536,
-          "height": 1024,
-          "bytes": 54704
-        }
-      ]
-    },
-    {
       "source": "/images/generated/events/cooking-class.webp",
       "format": "webp",
       "originalBytes": 56718,
@@ -14175,6 +14144,37 @@
           "width": 1536,
           "height": 1024,
           "bytes": 53522
+        }
+      ]
+    },
+    {
+      "source": "/images/generated/events/music-amp.webp",
+      "format": "webp",
+      "originalBytes": 36502,
+      "variants": [
+        {
+          "src": "/_media/1ca6d7e14fc7e30d6a68-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 8956
+        },
+        {
+          "src": "/_media/1ca6d7e14fc7e30d6a68-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 15504
+        },
+        {
+          "src": "/_media/1ca6d7e14fc7e30d6a68-1280.webp",
+          "width": 1280,
+          "height": 853,
+          "bytes": 25322
+        },
+        {
+          "src": "/_media/1ca6d7e14fc7e30d6a68-1536.webp",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 34318
         }
       ]
     },

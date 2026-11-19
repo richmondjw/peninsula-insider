@@ -79,14 +79,6 @@ Merricks
 
 Swipe or scroll through the picks
 
-- ### [Peninsula VineHop Festival 2026](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
-
-Choose a shuttle ticket for four venues on one route, or the Festival Hub for a single-site day with parking and the main stage.
-
-Sat, 21 Nov   Festival Hub at The Briars and six linked venues   Festival
-
-Event details checked 25 Aug 2026 · [Organiser’s page](<https://vinehopfestival.com.au/>)
-
 - ### [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
 
 A VFMA-accredited village market with local growers and specialty makers, supported by the Mt Eliza Chamber of Commerce.
@@ -102,6 +94,16 @@ Sam O’Connell plays Spike Bar this Saturday, 5pm to 8pm. Make it an evening st
 Sat, 21 Nov   Peppers Moonah Links   Every Saturday
 
 Event details checked 16 Nov 2026 · [Organiser’s page](<https://www.moonahlinks.com.au/cms/whats-on/>)
+
+- Mornington Peninsula Regional Gallery, Mornington   Photo: Robert Blackburn, courtesy of Visit Victoria.
+
+### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+
+Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
+
+Sat, 21 Nov   Mornington Peninsula Regional Gallery   Tuesday to Sunday, 11am to 4pm
+
+Event details checked 16 Nov 2026 · [Organiser’s page](<https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026>)
 
 This season · Spring
 

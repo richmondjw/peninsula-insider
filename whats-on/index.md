@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/whats-on/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-11-19
+Modified: 2026-11-20
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -12,14 +12,6 @@ Fri 20 – Sun 22 November  · Mornington Peninsula
 Find the date, place and reason to go, then check with the organiser before you head out.
 
 ## Reasons to go
-
-- Sat, 21 Nov · 6pm–9pm · Mornington
-
-### [Coco Michelle Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/coco-michelle-live-at-tar-barrel-2026-11-21/>)
-
-Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery produce award-winning craft beers alongside diverse tastes as part of their whiskey and gin distillery.
-
-Live Music
 
 - Sat, 21 Nov · 10am–12pm · Mornington
 
@@ -37,6 +29,14 @@ For garden lovers, vegetarians and those with a passion for provenance, experien
 
 Food & Wine
 
+- Fri, 20 Nov · 5pm–8pm · Boneo
+
+### [Dee - Calmer Miles Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/dee-calmer-miles-live-at-peninsula-beer-garden-2026-11-20/>)
+
+Peninsula locals that are regulars on the music scene! Dee from The Calmer Miles exhibits a freshness and passion in her music.
+
+Live Music
+
 ## Day by day
 
 ### Friday 20 November
@@ -48,14 +48,6 @@ Food & Wine
 Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
 
 Mornington · Exhibitions · Recurring weekly · Also Sat & Sun
-
-- 5pm
-
-[Dee - Calmer Miles Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/dee-calmer-miles-live-at-peninsula-beer-garden-2026-11-20/>)
-
-Peninsula locals that are regulars on the music scene! Dee from The Calmer Miles exhibits a freshness and passion in her music.
-
-Boneo · Live Music
 
 - 5pm
 
@@ -120,6 +112,14 @@ Boneo · Live Music
 Ease into the weekend with live music every Saturday in the Spike Bar at Moonah Links. Enjoy a rotating line-up of talented local artists from 5pm to 8pm, creating the perfect atmosphere to relax with friends, family or colleagues.
 
 Fingal · Live Music
+
+- 6pm
+
+[Coco Michelle Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/coco-michelle-live-at-tar-barrel-2026-11-21/>)
+
+Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery produce award-winning craft beers alongside diverse tastes as part of their whiskey and gin distillery. Enjoy a drink, taste the menu and stay for the live music on weekends!
+
+Mornington · Live Music
 
 - 6pm
 
