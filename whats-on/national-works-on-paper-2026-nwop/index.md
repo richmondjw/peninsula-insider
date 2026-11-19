@@ -75,14 +75,6 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-Exhibitions  21 Nov
-
-### [CREATE: Pottery for your table](<https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/>)
-
-Come along and make a charcuterie platter with Caitlin from Peachy Keen Ceramics.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/>)
-
 Exhibitions  5 Dec
 
 ### [Gareth Sansom at MPRG](<https://peninsulainsider.com.au/whats-on/gareth-sansom-at-mprg-2026-12-05/>)
@@ -98,6 +90,14 @@ Exhibitions  28 Nov
 Taste and purchase wines while enjoying a guided tour of Elgee Park’s sculpture collection.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/november-cellar-door-opening-2026-11-28/>)
+
+Exhibitions  10 Dec
+
+### [The Creators Network: End of Year Catch-up for Creatives](<https://peninsulainsider.com.au/whats-on/the-creators-network-end-of-year-catch-up-for-creatives/>)
+
+Come along to meet other MP creatives, join a curator tour of the new Gareth Samson exhibition and hear from a talented…
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/the-creators-network-end-of-year-catch-up-for-creatives/>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 

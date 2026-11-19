@@ -4,7 +4,7 @@
   "name": "What's on - Mornington Peninsula (upcoming)",
   "description": "Machine-readable feed of upcoming Mornington Peninsula events for AI assistants and agents. Forward-dated; regenerated on each build. See https://peninsulainsider.com.au/llms.txt for the full site map.",
   "generated": "2026-11-19",
-  "generatedAt": "2026-11-19T09:29:46.794Z",
+  "generatedAt": "2026-11-19T10:27:29.328Z",
   "schemaVersion": "1.2",
   "timezone": "Australia/Melbourne",
   "dateSemantics": "Local calendar dates, not midnight timestamps. dateMeaning distinguishes event occurrences, experience availability and offer validity. generatedAt is the build time, not a fact check.",
@@ -160,7 +160,7 @@
         "url": "https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/",
         "startDate": "2026-11-21",
         "endDate": "2026-11-21",
-        "description": "Come along and make a charcuterie platter with Caitlin from Peachy Keen Ceramics.",
+        "description": "A ceramic charcuterie platter workshop with Caitlin from Peachy Keen Ceramics, part of Mornington Peninsula Shire's CREATE programme.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
@@ -1324,10 +1324,10 @@
       "sourceUrl": "https://www.eventbrite.com.au/e/create-pottery-for-your-table-tickets-2003897868468",
       "factCheckedOn": "2026-11-09",
       "recurrence": "one-off",
-      "category": "exhibition",
+      "category": "arts",
       "place": null,
       "venue": null,
-      "summary": "Come along and make a charcuterie platter with Caitlin from Peachy Keen Ceramics.",
+      "summary": "A ceramic charcuterie platter workshop with Caitlin from Peachy Keen Ceramics, part of Mornington Peninsula Shire's CREATE programme.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {

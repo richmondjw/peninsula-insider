@@ -5,13 +5,17 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Event     Exhibitions     21 November 2026     One-off date
+Event     Arts     21 November 2026     One-off date
 
 # CREATE: Pottery for your table
 
-Come along and make a charcuterie platter with Caitlin from Peachy Keen Ceramics.
+A ceramic charcuterie platter workshop with Caitlin from Peachy Keen Ceramics, part of Mornington Peninsula Shire's CREATE programme.
 
-[Book or check details](<https://www.eventbrite.com.au/e/create-pottery-for-your-table-tickets-2003897868468>)
+[Check latest details](<https://www.eventbrite.com.au/e/create-pottery-for-your-table-tickets-2003897868468>)
+
+This listing is for the morning charcuterie workshop at Mornington Community House, not the separate afternoon jug session or regular Peachy Keen Ceramics studio classes. Check ticket availability with the organiser.
+
+[Check the latest details at the source →](<https://www.eventbrite.com.au/e/create-pottery-for-your-table-tickets-2003897868468>)
 
 Hosted at
 
@@ -43,7 +47,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.eventbrite.com.au/e/create-pottery-for-your-table-tickets-2003897868468>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=CREATE%3A+Pottery+for+your+table&dates=20261120T230000Z%2F20261121T010000Z&details=Come+along+and+make+a+charcuterie+platter+with+Caitlin+from+Peachy+Keen+Ceramics.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fcreate-pottery-for-your-table%2F&location=Mornington+Community+House%2C+Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Check latest details](<https://www.eventbrite.com.au/e/create-pottery-for-your-table-tickets-2003897868468>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=CREATE%3A+Pottery+for+your+table&dates=20261120T230000Z%2F20261121T010000Z&details=A+ceramic+charcuterie+platter+workshop+with+Caitlin+from+Peachy+Keen+Ceramics%2C+part+of+Mornington+Peninsula+Shire%27s+CREATE+programme.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fcreate-pottery-for-your-table%2F&location=Mornington+Community+House%2C+Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 
@@ -51,33 +55,33 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-Mornington Peninsula Regional Gallery, Mornington  Photo · pru\_mitchell [CC BY 2.0](<https://creativecommons.org/licenses/by/2.0/>)[Image source](<https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_Regional_Gallery.jpg>) Converted from JPEG to WebP and resized for this site.
+Photo · BrooksieG [CC BY-SA 4.0](<https://creativecommons.org/licenses/by-sa/4.0/>)[Image source](<https://commons.wikimedia.org/wiki/File:Pt_Leo_sculpture.jpg>)
 
-Exhibitions   Tuesday to Sunday, 11am to 4pm
+Arts   Check opening hours
 
-### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+### [Pt. Leo Estate Sculpture Park](<https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/>)
 
-[Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
+[Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
-National Works on Paper 2026 is MPRG's survey of contemporary Australian art made on and with paper.
+An outdoor sculpture park spanning 16.5 acres, with more than 70 contemporary works and two walking loops at a working winery.
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/>)
 
-Exhibitions  5 Dec
+Arts  13 Dec
 
-### [Gareth Sansom at MPRG](<https://peninsulainsider.com.au/whats-on/gareth-sansom-at-mprg-2026-12-05/>)
+### ["Whippy" Griggs Live for a Crackin' Night at The Ranch](<https://peninsulainsider.com.au/whats-on/whippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13/>)
 
-Gareth Sansom is a pioneering and highly influential figure in Australian contemporary art, a restless innovator whose career spans more than six…
+World-renowned whip artist Nathan “Whippy” Griggs brings his Aussie Tour to The Ranch!
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/gareth-sansom-at-mprg-2026-12-05/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/whippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13/>)
 
-Exhibitions  28 Nov
+Arts  25 Nov
 
-### [November Cellar Door Opening](<https://peninsulainsider.com.au/whats-on/november-cellar-door-opening-2026-11-28/>)
+### [Improv Comedy Show at The Bay Hotel Mornington](<https://peninsulainsider.com.au/whats-on/improv-comedy-show-at-the-bay-hotel-mornington-2026-11-25/>)
 
-Taste and purchase wines while enjoying a guided tour of Elgee Park’s sculpture collection.
+Come and finish the year out with our last student showcase of comedy!
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/november-cellar-door-opening-2026-11-28/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/improv-comedy-show-at-the-bay-hotel-mornington-2026-11-25/>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 

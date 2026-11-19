@@ -63,14 +63,6 @@ National Works on Paper 2026 is MPRG's survey of contemporary Australian art mad
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
 
-Exhibitions  21 Nov
-
-### [CREATE: Pottery for your table](<https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/>)
-
-Come along and make a charcuterie platter with Caitlin from Peachy Keen Ceramics.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/>)
-
 Exhibitions  5 Dec
 
 ### [Gareth Sansom at MPRG](<https://peninsulainsider.com.au/whats-on/gareth-sansom-at-mprg-2026-12-05/>)
@@ -78,6 +70,14 @@ Exhibitions  5 Dec
 Gareth Sansom is a pioneering and highly influential figure in Australian contemporary art, a restless innovator whose career spans more than six…
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/gareth-sansom-at-mprg-2026-12-05/>)
+
+Exhibitions  28 Nov
+
+### [November Cellar Door Opening](<https://peninsulainsider.com.au/whats-on/november-cellar-door-opening-2026-11-28/>)
+
+Taste and purchase wines while enjoying a guided tour of Elgee Park’s sculpture collection.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/november-cellar-door-opening-2026-11-28/>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 

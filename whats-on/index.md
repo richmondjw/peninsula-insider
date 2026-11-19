@@ -25,9 +25,9 @@ Live Music
 
 ### [CREATE: Pottery for your table](<https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/>)
 
-Come along and make a charcuterie platter with Caitlin from Peachy Keen Ceramics.
+A ceramic charcuterie platter workshop with Caitlin from Peachy Keen Ceramics, part of Mornington Peninsula Shire's CREATE programme.
 
-Exhibitions
+Arts
 
 - Sun, 22 Nov · 11:30am–2pm · Merricks
 

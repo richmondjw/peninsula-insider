@@ -109,11 +109,11 @@ Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery p
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/coco-michelle-live-at-tar-barrel-2026-11-21/>)
 
-Exhibitions  21 Nov
+Arts  21 Nov
 
 ### [CREATE: Pottery for your table](<https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/>)
 
-Come along and make a charcuterie platter with Caitlin from Peachy Keen Ceramics.
+A ceramic charcuterie platter workshop with Caitlin from Peachy Keen Ceramics, part of Mornington Peninsula Shire's CREATE programme.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/>)
 
