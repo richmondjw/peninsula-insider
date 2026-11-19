@@ -74,21 +74,13 @@ const starters = [
         <form class="pi-chat__form" id="pi-chat-form" action="/ask/" method="get">
           <label class="pi-chat__sr" for="pi-chat-input">Ask PI a question</label>
           <textarea id="pi-chat-input" name="q" rows="1" maxlength="500" enterkeyhint="send" placeholder="Ask PI anything about the Peninsula" required></textarea>
-          <button type="button" class="pi-chat__mic" id="pi-chat-mic" aria-label="Voice input" aria-pressed="false" aria-controls="pi-chat-voice">
+          <a href="/ask/" class="pi-chat__mic" id="pi-chat-mic" data-pi-page="true" data-astro-reload aria-label="Open Ask PI for voice input" title="Voice input on the Ask PI page">
             <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5 11v1a7 7 0 0 0 14 0v-1M12 19v3M8 22h8"/></svg>
-          </button>
+          </a>
           <button type="submit" class="pi-chat__send" id="pi-chat-send" aria-label="Send">
             <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 16V4M5 9l5-5 5 5"/></svg>
           </button>
         </form>
-        <div class="pi-chat__voice" id="pi-chat-voice" hidden>
-          <p id="pi-chat-voice-status" role="status" aria-live="polite" aria-atomic="true"></p>
-          <div class="pi-chat__voice-actions">
-            <button type="button" id="pi-chat-voice-start" hidden>Start dictation</button>
-            <button type="button" id="pi-chat-voice-cancel">Cancel</button>
-            <a href="/privacy/#voice-input">Voice privacy</a>
-          </div>
-        </div>
         <p class="pi-chat__fine">PI answers from Peninsula Insider's own reviews. Check hours and bookings before you go.</p>
       </footer>
     </section>
@@ -97,7 +89,6 @@ const starters = [
 
 <script>
   import type { TransitionBeforeSwapEvent } from 'astro:transitions/client';
-  import { setupChatDictation } from '../lib/chat-dictation';
   import { askPI, placeLinks, paragraphs, STAGE_LINES, READER_ERROR, type Place } from '../lib/ask-client';
 
   type Turn =
@@ -136,7 +127,6 @@ const starters = [
     const input = document.getElementById('pi-chat-input') as HTMLTextAreaElement;
     const send = document.getElementById('pi-chat-send') as HTMLButtonElement;
     const modeBtn = document.getElementById('pi-chat-mode') as HTMLButtonElement;
-    const dictation = setupChatDictation(root, input, autoGrow);
 
     let turns: Turn[] = [];
     try { turns = JSON.parse(store.get(sessionStorage, HISTORY) || '[]'); } catch { turns = []; }
@@ -211,7 +201,6 @@ const starters = [
     }
 
     function minimise(focus = true) {
-      dictation.cancel();
       root!.classList.remove('is-in');
       root!.dataset.state = 'closed';
       store.set(sessionStorage, STATE, 'closed');
@@ -362,7 +351,6 @@ const starters = [
     /* ---------- asking ---------- */
 
     async function ask(raw: string) {
-      dictation.cancel();
       const q = raw.trim().slice(0, 500);
       if (q.length < 3) return;
       open(false);
@@ -420,9 +408,14 @@ const starters = [
     /* ---------- wiring (each listener bound once; this script runs once) ---------- */
 
     launch.addEventListener('click', () => open());
+    document.getElementById('pi-chat-mic')!.addEventListener('click', (event) => {
+      if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      // A draft handoff, never a q URL (the standalone page auto-submits q).
+      if (input.value) store.set(sessionStorage, 'pi-voice-draft', input.value);
+      else store.del(sessionStorage, 'pi-voice-draft');
+    });
     document.getElementById('pi-chat-min')!.addEventListener('click', () => minimise());
     document.getElementById('pi-chat-new')!.addEventListener('click', () => {
-      dictation.cancel();
       controller?.abort();
       turns = [];
       store.del(sessionStorage, HISTORY);
@@ -485,15 +478,11 @@ const starters = [
     // Use the actual navigation source, so cancelled/external links cannot
     // accidentally disable a later, unrelated transition.
     document.addEventListener('astro:before-swap', (event: TransitionBeforeSwapEvent) => {
-      dictation.cancel();
       if (event.sourceElement && panel.contains(event.sourceElement)) {
         event.viewTransition.skipTransition();
       }
     });
 
-    document.addEventListener('astro:before-preparation', () => dictation.cancel());
-    document.addEventListener('visibilitychange', () => { if (document.hidden) dictation.cancel(); });
-    window.addEventListener('pagehide', () => dictation.cancel());
 
     // The router swaps <html> attributes on navigation; restore ours.
     document.addEventListener('astro:after-swap', applyChrome);
@@ -619,8 +608,7 @@ const starters = [
   }
   .pi-chat__tool:hover { color: var(--text); background: var(--bg-alt); }
   .pi-chat__tool:focus-visible, .pi-chat__chip:focus-visible, .pi-chat__send:focus-visible,
-  .pi-chat a:focus-visible, .pi-chat__mic:focus-visible,
-  .pi-chat__voice button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+  .pi-chat a:focus-visible, .pi-chat__mic:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
   @media (max-width: 79.99em) { .pi-chat .pi-chat__tool--mode { display: none; } }
   .pi-chat[data-mode="dock"] .pi-chat__icon-dock, .pi-chat[data-mode="float"] .pi-chat__icon-float { display: none; }
 
@@ -710,15 +698,6 @@ const starters = [
     flex: none; display: grid; place-items: center; width: 44px; height: 44px;
     padding: 0; border: 0; border-radius: 50%; background: transparent; color: var(--accent); cursor: pointer;
   }
-  .pi-chat__mic[aria-pressed="true"] { background: var(--accent); color: var(--white); }
-  .pi-chat__voice { margin-top: var(--space-2); color: var(--text); font: 400 15px/1.4 var(--font-ui); }
-  .pi-chat__voice p { margin: 0 0 4px; }
-  .pi-chat__voice-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; }
-  .pi-chat__voice-actions button, .pi-chat__voice-actions a {
-    min-height: 44px; display: inline-flex; align-items: center; padding: 4px 8px;
-    font: inherit; color: var(--accent); background: var(--white); border: 1px solid var(--border-control); border-radius: 6px; cursor: pointer;
-  }
-  .pi-chat__voice[hidden], .pi-chat__voice-actions [hidden] { display: none; }
   .pi-chat__fine { margin: var(--space-2) 0 0; color: var(--soft); font: 400 var(--fs-200)/1.4 var(--font-ui); text-align: center; }
 
   @media (prefers-reduced-motion: reduce) {

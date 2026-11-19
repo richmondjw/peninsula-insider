@@ -43,11 +43,24 @@ const examples = [
     <form class="ask__form" action="/ask/" method="get" data-ask-form>
       <label class="ask__label" for="ask-q">Your question</label>
       <div class="ask__field">
+        <div class="ask__composer">
         <input id="ask-q" name="q" type="text" maxlength="500" autocomplete="off" enterkeyhint="send"
           placeholder="A long lunch or a rainy day" required minlength="3" data-ask-input />
+        <button type="button" class="ask__mic" id="ask-mic" aria-label="Voice input" aria-pressed="false" aria-controls="ask-voice">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5 11v1a7 7 0 0 0 14 0v-1M12 19v3M8 22h8"/></svg>
+        </button>
+        </div>
         <button class="pi-btn pi-btn--solid ask__submit" type="submit" data-ask-submit>Ask</button>
       </div>
     </form>
+    <div class="ask__voice" id="ask-voice" hidden>
+      <p id="ask-voice-status" role="status" aria-live="polite" aria-atomic="true"></p>
+      <div class="ask__voice-actions">
+        <button type="button" id="ask-voice-start" hidden>Start dictation</button>
+        <button type="button" id="ask-voice-cancel">Cancel</button>
+        <a href="/privacy/#voice-input" data-astro-reload>Voice privacy</a>
+      </div>
+    </div>
 
     <section class="ask__examples" aria-labelledby="ask-examples-title" data-ask-examples>
       <h2 class="ask__subhead" id="ask-examples-title">Try asking</h2>
@@ -80,12 +93,18 @@ const examples = [
 </BaseLayout>
 
 <script>
+  import { setupChatDictation } from '../lib/chat-dictation';
   import { askPI, placeLinks, paragraphs, STAGE_LINES, READER_ERROR } from '../lib/ask-client';
 
   // Back/forward between questions. Registered once at module scope (listener
   // hygiene gate); boot() points it at the current page's handler.
   let onPop: (() => void) | null = null;
+  let cancelVoice = () => {};
   window.addEventListener('popstate', () => onPop?.());
+  window.addEventListener('pagehide', () => cancelVoice());
+  window.addEventListener('hashchange', () => cancelVoice());
+  document.addEventListener('visibilitychange', () => { if (document.hidden) cancelVoice(); });
+  document.addEventListener('astro:before-preparation', () => cancelVoice());
 
   function boot() {
     const root = document.querySelector<HTMLElement>('[data-ask]');
@@ -94,6 +113,13 @@ const examples = [
     const api = root.dataset.api || '';
     const form = root.querySelector<HTMLFormElement>('[data-ask-form]')!;
     const input = root.querySelector<HTMLInputElement>('[data-ask-input]')!;
+    try {
+      const draft = sessionStorage.getItem('pi-voice-draft');
+      sessionStorage.removeItem('pi-voice-draft');
+      if (draft) input.value = draft.slice(0, 500);
+    } catch { /* typing remains available when storage is blocked */ }
+    const dictation = setupChatDictation(root, input, () => {});
+    cancelVoice = dictation.cancel;
     const submit = root.querySelector<HTMLButtonElement>('[data-ask-submit]')!;
     const examples = root.querySelector<HTMLElement>('[data-ask-examples]')!;
     const status = root.querySelector<HTMLElement>('[data-ask-status]')!;
@@ -159,6 +185,7 @@ const examples = [
     }
 
     async function ask(q: string, push = true) {
+      dictation.cancel();
       const query = q.trim();
       if (query.length < 3) return;
       controller?.abort();
@@ -209,6 +236,7 @@ const examples = [
       root.scrollIntoView({ block: 'start' });
     });
     onPop = () => {
+      dictation.cancel();
       if (!root.isConnected) return;
       const q = new URLSearchParams(location.search).get('q');
       if (q) ask(q, false);
@@ -245,15 +273,24 @@ const examples = [
 
   .ask__label { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
   .ask__field { display: flex; gap: var(--space-3); }
+  .ask__composer { display: flex; align-items: center; flex: 1; min-width: 0; border: 1px solid var(--border-control); border-radius: var(--radius-s); background: var(--white); padding-right: 4px; }
   .ask__field input {
     flex: 1 1 auto; min-width: 0; min-height: 52px; padding: 0 var(--space-4);
-    background: var(--white); border: 1px solid var(--border-control); border-radius: var(--radius-s);
+    background: var(--white); border: 0; border-radius: var(--radius-s);
     color: var(--text); font: 400 var(--fs-400)/1.4 var(--font-ui);
   }
   .ask__field input::placeholder { color: var(--soft); }
   .ask__field input:focus-visible, .ask a:focus-visible, .ask__question:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
   .ask__submit { min-height: 52px; padding-inline: var(--space-6); }
   .ask__submit:disabled { opacity: .6; cursor: progress; }
+  .ask__mic { display: grid; place-items: center; flex: none; width: 44px; height: 44px; padding: 0; border: 0; border-radius: 50%; background: transparent; color: var(--accent); cursor: pointer; }
+  .ask__mic[aria-pressed="true"] { background: var(--accent); color: var(--white); }
+  .ask__mic:focus-visible, .ask__voice button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+  .ask__voice { margin-top: var(--space-3); color: var(--text); font: 400 15px/1.4 var(--font-ui); }
+  .ask__voice p { margin: 0 0 4px; }
+  .ask__voice-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; }
+  .ask__voice-actions button, .ask__voice-actions a { display: inline-flex; align-items: center; min-height: 44px; padding: 4px 8px; font: inherit; color: var(--accent); background: var(--white); border: 1px solid var(--border-control); border-radius: 6px; cursor: pointer; }
+  .ask__voice[hidden], .ask__voice-actions [hidden] { display: none; }
 
   .ask__subhead { margin: 0 0 var(--space-3); color: var(--text); font: 600 var(--fs-300)/var(--lh-ui) var(--font-ui); }
   .ask__examples { margin-top: var(--space-7); }

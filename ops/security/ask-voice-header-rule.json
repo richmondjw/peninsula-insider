@@ -1,0 +1,14 @@
+{
+  "description": "Allow microphone only on canonical Ask PI document",
+  "expression": "(http.host eq \"peninsulainsider.com.au\" and ssl and http.request.uri.path eq \"/ask/\" and raw.http.request.uri.path eq \"/ask/\" and http.request.method in {\"GET\" \"HEAD\"})",
+  "action": "rewrite",
+  "action_parameters": {
+    "headers": {
+      "permissions-policy": {
+        "operation": "set",
+        "value": "camera=(), microphone=(self), geolocation=(), payment=(), usb=()"
+      }
+    }
+  },
+  "enabled": true
+}

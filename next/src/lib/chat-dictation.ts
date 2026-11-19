@@ -11,12 +11,12 @@ type RecognitionConstructor = {
   available?: (options: { langs: string[]; processLocally: boolean }) => Promise<string>;
 };
 
-export function setupChatDictation(root: HTMLElement, input: HTMLTextAreaElement, grow: () => void) {
-  const button = root.querySelector<HTMLButtonElement>('#pi-chat-mic')!;
-  const box = root.querySelector<HTMLElement>('#pi-chat-voice')!;
-  const status = root.querySelector<HTMLElement>('#pi-chat-voice-status')!;
-  const start = root.querySelector<HTMLButtonElement>('#pi-chat-voice-start')!;
-  const cancel = root.querySelector<HTMLButtonElement>('#pi-chat-voice-cancel')!;
+export function setupChatDictation(root: HTMLElement, input: HTMLTextAreaElement | HTMLInputElement, grow: () => void) {
+  const button = root.querySelector<HTMLButtonElement>('#ask-mic')!;
+  const box = root.querySelector<HTMLElement>('#ask-voice')!;
+  const status = root.querySelector<HTMLElement>('#ask-voice-status')!;
+  const start = root.querySelector<HTMLButtonElement>('#ask-voice-start')!;
+  const cancel = root.querySelector<HTMLButtonElement>('#ask-voice-cancel')!;
   const fallback = 'You can type or use the microphone on your keyboard. On iPhone, try Safari with Siri enabled.';
   const browser = window as typeof window & { SpeechRecognition?: RecognitionConstructor; webkitSpeechRecognition?: RecognitionConstructor };
   const Constructor = browser.SpeechRecognition || browser.webkitSpeechRecognition;
@@ -25,6 +25,11 @@ export function setupChatDictation(root: HTMLElement, input: HTMLTextAreaElement
   let local = false;
   let timer: ReturnType<typeof setTimeout> | undefined;
   let active = false;
+  function permitted() {
+    const doc = document as Document & { permissionsPolicy?: { allowsFeature(name: string): boolean }; featurePolicy?: { allowsFeature(name: string): boolean } };
+    const policy = doc.permissionsPolicy || doc.featurePolicy;
+    return location.pathname === '/ask/' && root.isConnected && !document.hidden && policy?.allowsFeature('microphone') !== false;
+  }
 
   function message(text: string) { box.hidden = false; status.textContent = text; }
   function idle() {
@@ -49,6 +54,11 @@ export function setupChatDictation(root: HTMLElement, input: HTMLTextAreaElement
   }
   async function prepare() {
     abort();
+    if (!permitted()) {
+      message(`Voice input is unavailable on this page or blocked by its permissions. ${fallback}`);
+      cancel.focus();
+      return;
+    }
     if (!Constructor || !window.isSecureContext) {
       message(`Voice input is not available in this browser. ${fallback}`);
       cancel.focus();
@@ -64,6 +74,7 @@ export function setupChatDictation(root: HTMLElement, input: HTMLTextAreaElement
       }
     } catch { /* disclose browser processing; do not start recognition */ }
     if (token !== generation) return;
+    if (!permitted()) { abort(`Voice input is unavailable on this page. ${fallback}`); return; }
     local = availableLocally;
     message(local
       ? 'Voice input will run on this device. PI does not record or upload audio. Text is added to your draft; review it before sending.'
@@ -74,6 +85,7 @@ export function setupChatDictation(root: HTMLElement, input: HTMLTextAreaElement
   }
   function begin() {
     if (!Constructor || active || start.hidden) return;
+    if (!permitted()) { abort(`Voice input is unavailable on this page. ${fallback}`); return; }
     start.hidden = true;
     const token = ++generation;
     let heard = false;
@@ -132,7 +144,7 @@ export function setupChatDictation(root: HTMLElement, input: HTMLTextAreaElement
         recognition = null;
         idle();
         cancel.textContent = 'Close voice input';
-        message(heard ? 'Dictation added. Review or edit your draft, then choose Send.' : `No speech was detected. ${fallback}`);
+        message(heard ? 'Dictation added. Review or edit your question, then choose Ask.' : `No speech was detected. ${fallback}`);
       };
       timer = setTimeout(() => abort(`Voice input did not start. ${fallback}`), 15000);
       session.start();

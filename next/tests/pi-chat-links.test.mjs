@@ -37,7 +37,6 @@ for (const [label, element, inside, expected] of [
   vm.runInNewContext(`(function(event) {${swap}})(event)`, {
     event: { sourceElement: element, viewTransition: { skipTransition() { skipped++; } } },
     panel: { contains: () => inside },
-    dictation: { cancel() {} },
   });
   assert.equal(skipped, expected);
 });

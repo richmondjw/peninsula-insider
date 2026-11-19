@@ -247,7 +247,8 @@ const showNewsletterPopup = !isPlanningJourney && !isPlaceGuide && normalizedPat
   )}
 
   <!-- View transitions: client-side routing with page fade -->
-  <ClientRouter />
+  {/* A fresh document keeps microphone permission confined to canonical /ask/. */}
+  {Astro.url.pathname !== "/ask/" && <ClientRouter />}
 
 
   <!-- Enhancement layers -->
