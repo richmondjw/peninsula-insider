@@ -5611,6 +5611,14 @@
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {
+      "url": "https://www.racv.com.au/travel-experiences/resorts/cape-schanck/golf.html",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Cape Schanck Golf Course in Mornington | RACV Cape Schanck",
+      "probedOn": "2026-11-19",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.racv.com.au/travel-leisure/racv-resorts/our-destinations/cape-schanck-resort.html",
       "verdict": "ok",
       "httpCode": "200",
