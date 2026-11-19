@@ -109,13 +109,13 @@ Come and finish the year out with our last student showcase of comedy!
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/improv-comedy-show-at-the-bay-hotel-mornington-2026-11-25/>)
 
-Arts  6 Dec
+Arts  20 Dec
 
-### [Sunday Sessions: Pottery Workshops at Peachy Keen Ceramics](<https://peninsulainsider.com.au/whats-on/sunday-sessions-pottery-workshops-at-peachy-keen-ceramics-2026-12-06/>)
+### [Lawrence Mooney at St Andrews Beach Brewery](<https://peninsulainsider.com.au/whats-on/st-andrews-beach-brewery-lawrence-mooney-2026/>)
 
-New to clay or returning to it?
+Lawrence Mooney performs stand-up at St Andrews Beach Brewery in Fingal on Sunday 20 December.
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/sunday-sessions-pottery-workshops-at-peachy-keen-ceramics-2026-12-06/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/st-andrews-beach-brewery-lawrence-mooney-2026/>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 

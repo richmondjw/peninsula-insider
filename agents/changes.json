@@ -1,92 +1,52 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-19T09:16:02.780Z",
+  "generatedAt": "2026-11-19T09:38:02.597Z",
   "baselineAvailable": true,
-  "fromSnapshot": "3e27d179ebc6b23e462bd56cf81232c73f9387590f6f06537252e7d2f6da2314",
-  "toSnapshot": "696b8fb07486e135fada56ed87ae37fd7b235db0ca6d00e11a64bf407b59977b",
-  "previousGeneratedAt": "2026-11-19T06:47:54.122Z",
+  "fromSnapshot": "696b8fb07486e135fada56ed87ae37fd7b235db0ca6d00e11a64bf407b59977b",
+  "toSnapshot": "5d5d36a89fae1ee7073e9462982d5af0a42e59e7e72df98171ed5a53d5949f9a",
+  "previousGeneratedAt": "2026-11-19T09:16:02.780Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 10,
+  "count": 5,
   "changes": [
     {
-      "id": "https://peninsulainsider.com.au/explore/places/mornington/",
+      "id": "https://peninsulainsider.com.au/site-index/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/mornington/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/mornington/index.md",
-      "contentSha256": "4d9a7aee4c565f96504a663be0d7b82fd31b69d6d667dcc52bb7e756c87ffc86",
-      "previousContentSha256": "4f131a91a38a05efb83d265b2185176626487b9ab726882cde9018c095e77bd8"
+      "canonicalUrl": "https://peninsulainsider.com.au/site-index/",
+      "markdownUrl": "https://peninsulainsider.com.au/site-index/index.md",
+      "contentSha256": "050d24fd14bf3da80a16028fb4440e4060e1fb70902f5f83a4084f18ce53b4c3",
+      "previousContentSha256": "debca3f1d518413558ff84d846c388661d3984e02751ccc49b6c14ab5ec10972"
     },
     {
-      "id": "https://peninsulainsider.com.au/journal/",
+      "id": "https://peninsulainsider.com.au/whats-on/improv-comedy-show-at-the-bay-hotel-mornington-2026-11-25/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
-      "contentSha256": "9883bc7fdf07097fe71de7486f8c1e1cdf9e795e76bc7049cd12af43e4188a88",
-      "previousContentSha256": "947d81b55e8d81e9450cd303180bb6fcc76bcea6ccd252ad6ef2005cd8e2ee93"
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/improv-comedy-show-at-the-bay-hotel-mornington-2026-11-25/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/improv-comedy-show-at-the-bay-hotel-mornington-2026-11-25/index.md",
+      "contentSha256": "44c5d8f8534598e2e5258612d73ec8ca25236b1b2ebf0801d1bce75dbd2e22b0",
+      "previousContentSha256": "1a25ce4cc02f71032d52a126cd7878123671499cf64c53a4f5aaf5d49dad3bf0"
     },
     {
-      "id": "https://peninsulainsider.com.au/journal/dog-daycare-boarding-groomers-pet-shops-mornington-peninsula/",
+      "id": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/dog-daycare-boarding-groomers-pet-shops-mornington-peninsula/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/dog-daycare-boarding-groomers-pet-shops-mornington-peninsula/index.md",
-      "contentSha256": "fa6b7626181ae1321d247223ec132c56993416e1d336032f58c857552e98de98",
-      "previousContentSha256": "0441cd54512203f10f80460aca62d3e370c636826f1e7940e95144e2e03dab48"
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/index.md",
+      "contentSha256": "da60eee294feb85663c588f19b79b37658c1c4f4f04af3ee6dc37c3f11b67405",
+      "previousContentSha256": "672081501769d762a3df4f8570081aa3fe2ccf04d7ccb96ef8c5f99cb928d80c"
     },
     {
-      "id": "https://peninsulainsider.com.au/journal/dog-friendly-accommodation-mornington-peninsula/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/dog-friendly-accommodation-mornington-peninsula/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/dog-friendly-accommodation-mornington-peninsula/index.md",
-      "contentSha256": "19e63f04d8c5552478920f0827f1a33c3eee7b8b5e2fe8df41c760ce066021e6",
-      "previousContentSha256": "b5c4c49a6b5e85cc3ba2e01d2cea00725a16fbfddcced7c19e3174e683aeca05"
+      "id": "https://peninsulainsider.com.au/whats-on/st-andrews-beach-brewery-lawrence-mooney-2026/",
+      "kind": "representation-added",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/st-andrews-beach-brewery-lawrence-mooney-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/st-andrews-beach-brewery-lawrence-mooney-2026/index.md",
+      "contentSha256": "549216d7a892e8c887c6bb3ab94664df62ce4670e4526fb4746d897b8280b8da",
+      "previousContentSha256": null
     },
     {
-      "id": "https://peninsulainsider.com.au/journal/dog-friendly-beaches-mornington-peninsula/",
+      "id": "https://peninsulainsider.com.au/whats-on/whippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/dog-friendly-beaches-mornington-peninsula/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/dog-friendly-beaches-mornington-peninsula/index.md",
-      "contentSha256": "b26e89bb5d433463c08d26fc5affb8d92bcc0fa91e3dc8b97b5d3c880cb82d8c",
-      "previousContentSha256": "c106f294aa06cba146725dbf4e1073fd087def999123b7ebb406407cf301b117"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/dog-friendly-cafes-pubs-wineries-mornington-peninsula/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/dog-friendly-cafes-pubs-wineries-mornington-peninsula/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/dog-friendly-cafes-pubs-wineries-mornington-peninsula/index.md",
-      "contentSha256": "a21e0c5d2a6a798889d22257abb73f9b96f1ad8b2b4a4ba832272e156078f297",
-      "previousContentSha256": "4640c30420dfe2cad3fcf79f6e414baab944df7e09e2c1d0dededb4694b94527"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/emergency-vet-pet-help-mornington-peninsula/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/emergency-vet-pet-help-mornington-peninsula/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/emergency-vet-pet-help-mornington-peninsula/index.md",
-      "contentSha256": "f9d4d42b593167de2b240e4c88765135a9942ae9ce70cea9158307d9d638fddb",
-      "previousContentSha256": "9bc27dd471e451c21a977a75134268c338afca46d5677bc8964f61d3ae68bdcd"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/where-to-eat-without-a-booking/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/where-to-eat-without-a-booking/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/where-to-eat-without-a-booking/index.md",
-      "contentSha256": "8b53b07069c377982b74d0adbe072b78e8afe49c9e1aafbfc7d8f67bda8a694c",
-      "previousContentSha256": "bfaedaf1a3af16d3662aad70636affe464400fc4555663ad159e8f26f23932c3"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/where-to-walk-the-dog-mornington-peninsula/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/where-to-walk-the-dog-mornington-peninsula/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/where-to-walk-the-dog-mornington-peninsula/index.md",
-      "contentSha256": "2cb7ba88583f65a54b95296021656ac314fd55613035d933b07932e9fb93f13a",
-      "previousContentSha256": "15952177727abb277cce35883dab939057586e79e41311abd4bbf6b25e072c56"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/author-talk-anna-downes-naima-brown-mornington-library/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/author-talk-anna-downes-naima-brown-mornington-library/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/author-talk-anna-downes-naima-brown-mornington-library/index.md",
-      "contentSha256": "20f6e54e6e17b02c092e29b9ad0b5ec331bf1ce6a943f41b3c11bc6426cd8506",
-      "previousContentSha256": "d3f3c9ce2d798102d585d32dbc96754067572570e7c79dcde3ef57206d15fc8b"
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/whippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/whippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13/index.md",
+      "contentSha256": "9a3abad12f5c3f7e4a366c9158072c37aedd6d467098b03270fc3b9c332e1b59",
+      "previousContentSha256": "8b82444decd920dbfd6c4495e35126c2864841397d91c17d7c0de5fc8ce90774"
     }
   ]
 }

@@ -541,6 +541,8 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [James Vincent Live at Fenian Wines](<https://peninsulainsider.com.au/whats-on/james-vincent-live-at-fenian-wines-2026-12-12/>)
 
+- [Lawrence Mooney at St Andrews Beach Brewery](<https://peninsulainsider.com.au/whats-on/st-andrews-beach-brewery-lawrence-mooney-2026/>)
+
 - [Legends Of Sunbury: Spectrum, Madder Lake & Phil Manning Live at The Pig & Whistle Tavern](<https://peninsulainsider.com.au/whats-on/legends-of-sunbury-spectrum-madder-lake-and-phil-manning-live-at-the-pig-and-whistle-taver-2026-12-1/>)
 
 - [Luke O'Shea & Lyn Bowtell Live at The Pig & Whistle Tavern](<https://peninsulainsider.com.au/whats-on/luke-o-shea-and-lyn-bowtell-live-at-the-pig-and-whistle-tavern-2026-11-27/>)
