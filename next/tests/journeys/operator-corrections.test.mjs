@@ -143,10 +143,8 @@ for (const width of [390,1440]) {
    assert.ok(await reader.page.$('main a[href="https://nordie.com.au/contact-us/"]'));
    assert.equal(await reader.page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
    await reader.load('/journal/where-to-eat-mornington-peninsula/');
-   const paragraph=await reader.page.$$eval('main p',els=>els.find(el=>el.textContent.includes('Nordie Cafe'))?.textContent);
-   assert.match(paragraph,/dogs are welcome and bowls and treats are available/);
-   assert.match(paragraph,/conditions remain unconfirmed/);
-   assert.doesNotMatch(paragraph,/dog-friendly courtyard and grass area/);
+   assert.equal(new URL(reader.page.url()).pathname,'/eat/best-restaurants/','retired eating guide retains its canonical redirect');
+   assert.doesNotMatch(await reader.page.$eval('main',el=>el.textContent),/Nordie[^.]*dog-friendly courtyard and grass area/);
   } finally {await reader.close();}
  });
 }

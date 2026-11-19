@@ -9,3 +9,5 @@ The September website-check dates and article-wide lastVerified remain unchanged
 Base: fb826a3d816fbbfc0ce190baeea02a63e02b8a9b. No open Nordie PR found; held PR784 has no overlapping target files and is untouched. Read-only CMS text query across both article slugs and any value mentioning Nordie returned no rows across statuses. No CMS or image changes. No dedicated Nordie venue record exists. The accommodation guide's cafe mention contains no dog-access policy and is unchanged.
 
 Draft only. Independent exact-head source/render review and CI required before release. Check both guides at 390/1440, including FAQ JSON-LD and scoped dates. No merge, deployment or outreach authorised here.
+
+Rendered route check: /journal/where-to-eat-mornington-peninsula/ is retired and redirects to /eat/best-restaurants/. Its source correction prevents the unsupported seating claim returning if reused; no retired page is revived. Browser checks cover the current dog guide and preservation of that redirect.
