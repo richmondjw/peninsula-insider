@@ -58,3 +58,54 @@ test('seasonal maintenance regression is part of the CI build contract', () => {
   assert.equal(pkg.scripts['test:stale-pages-seasonal-navigation'], 'node --test scripts/stale-pages-seasonal-navigation.test.mjs');
   assert.match(pkg.scripts.build, /npm run test:stale-pages-seasonal-navigation/);
 });
+
+// Explicit-date review stays deterministic and runs under the existing build suite.
+import { stalePlanDates } from './review-stale-plan-dates.mjs';
+test('evergreen date review flags expired claims without inventing dates or treating metadata as copy', () => {
+  const plan={slug:'fixture',lastVerified:'2020-01-01',stops:[{note:'Oktoberfest 24 October 2026. Also 2026-10-24. Next 20 November 2026.'}]};
+  assert.deepEqual(stalePlanDates(plan,'2026-11-17').map(f=>f.date),['2026-10-24']);
+  assert.deepEqual(stalePlanDates({slug:'none',lastVerified:'2020-01-01',dek:'Every Saturday, 24 October; 31 February 2026.'},'2026-11-17'),[]);
+  assert.deepEqual(stalePlanDates({slug:'same',dek:'17 November 2026'},'2026-11-17'),[]);
+  assert.throws(()=>stalePlanDates(plan,'2026-02-30'));
+});
+test('family itinerary has no expired date claims and references the correct starting locality', () => {
+  const plan=JSON.parse(read('src/content/itineraries/the-family-day-out.json'));
+  const eagle=JSON.parse(read('src/content/experiences/arthurs-seat-lookout.json'));
+  assert.deepEqual(stalePlanDates(plan,'2026-11-17'),[]);
+  assert.equal(plan.anchorTown,'arthurs-seat'); assert.equal(eagle.place,'arthurs-seat');
+  assert.deepEqual(plan.baseTowns,['arthurs-seat','red-hill','mount-martha','mornington']);
+  assert.match(plan.stops[2].note,/does not confirm a patrol/);
+  assert.doesNotMatch(JSON.stringify(plan.stops),/Oktoberfest|24 October 2026/);
+});
+
+test('reported events keep their sourced occurrence identity and complete summaries', () => {
+  const event=(slug)=>JSON.parse(read(`src/content/events/${slug}.json`));
+  const will=event('will-rounds-live-at-peppers-moonah-links-resort-2026-11-20');
+  assert.equal(will.startDate,'2026-11-20'); assert.equal(new Date(`${will.startDate}T12:00:00Z`).getUTCDay(),5);
+  assert.match(will.summary,/Friday 20 November/); assert.doesNotMatch(will.summary,/each|every|Saturday/);
+  const garden=event('culinary-garden-experience-at-laura-pt-leo-estate-2026-11-22');
+  assert.match(garden.summary,/Ella Swann/); assert.match(garden.summary,/vegetarian lunch/); assert.doesNotMatch(garden.summary,/Pt\.$/);
+  const pottery=event('create-pottery-for-your-table');
+  assert.equal(pottery.category,'arts'); assert.equal(pottery.subcategory,'workshop'); assert.match(pottery.summary,/workshop/);
+  for(const e of [will,garden,pottery]) { assert.equal(e.lastCheckedDate,'2026-11-09'); assert.ok(e.eventId); }
+});
+
+import { selectEventPromotions } from '../src/lib/event-discovery.mjs';
+import { publicPlanningCatalog, projectSavedEvent } from '../src/lib/event-planning.mjs';
+test('CREATE date-review hold removes promotion and dated planning payloads while retaining reader notes', () => {
+  const data=JSON.parse(read('src/content/events/create-pottery-for-your-table.json'));
+  const entry={id:data.slug,data};
+  assert.equal(data.status,'archived');
+  assert.match(data.verificationStatus,/unverified - no future date confirmed/);
+  for(const date of ['2026-11-18T00:00:00Z','2026-11-21T00:00:00Z','2026-11-22T00:00:00Z']) {
+    const now=new Date(date);
+    assert.deepEqual(selectEventPromotions([entry],{now}),[]);
+    const catalog=publicPlanningCatalog([entry],now);
+    assert.equal(catalog.length,1);
+    assert.doesNotMatch(JSON.stringify(catalog),/2026-11-21|10:00|12:00|eventbrite/);
+    const saved=projectSavedEvent({kind:'event',slug:data.slug,title:'My saved workshop',note:'Keep my note'},catalog,{now});
+    assert.equal(saved.eventStatus,'Listing under review');
+    assert.equal(saved.note,'Keep my note');
+    assert.equal(saved.bookingAllowed,false);assert.equal(saved.calendarAllowed,false);
+  }
+});

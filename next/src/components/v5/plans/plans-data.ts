@@ -113,8 +113,8 @@ function metaFor(record: {
   } else if (dates.includes('weekend')) {
     chips.push('Weekend');
   }
-  const region = (record.facets.place ?? []).find((p) => REGION_LABELS.has(p));
-  if (region) chips.push(REGION_LABELS.get(region)!);
+  const regions = (record.facets.place ?? []).filter((p) => REGION_LABELS.has(p));
+  if (regions.length) chips.push(regions.map((p) => REGION_LABELS.get(p)!).join(' / '));
   const party = (record.facets.party ?? [])[0];
   if (party && PARTY_LABELS.has(party)) chips.push(PARTY_LABELS.get(party)!);
   return chips.slice(0, 3);

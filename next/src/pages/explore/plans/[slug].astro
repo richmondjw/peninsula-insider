@@ -906,7 +906,7 @@ export const prerender = true;
 
             {anchorTown && (
               <>
-                <dt>{hasMultipleStayBases ? 'Starting base' : 'Base town'}</dt>
+                <dt>{data.lengthNights === 0 ? 'Starting locality' : hasMultipleStayBases ? 'Starting base' : 'Base town'}</dt>
                 <dd>{(anchorTown as any).data.name}</dd>
               </>
             )}

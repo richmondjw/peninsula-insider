@@ -62,7 +62,7 @@ export const CORRECTION_STATUSES = [
 ] as const;
 export type CorrectionStatus = (typeof CORRECTION_STATUSES)[number];
 
-export const CORRECTIONS_EMAIL = 'corrections@peninsulainsider.com.au';
+export const CORRECTIONS_EMAIL = 'hello@peninsulainsider.com.au';
 export const SITE_ORIGIN = 'https://peninsulainsider.com.au';
 
 /**
