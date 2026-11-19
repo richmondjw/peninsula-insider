@@ -1,0 +1,17 @@
+{
+  "claimId": "events/st-andrews-beach-brewery-lawrence-mooney-2026/event-schedule",
+  "claimClass": "event-schedule",
+  "subject": {
+    "type": "events",
+    "slug": "st-andrews-beach-brewery-lawrence-mooney-2026",
+    "field": "nextOccurrence"
+  },
+  "statement": "Lawrence Mooney is scheduled at St Andrews Beach Brewery in Fingal on Sunday 20 December 2026, with doors at 5pm and live comedy from 6:30pm to 9pm.",
+  "assertedBy": [
+    { "type": "events", "slug": "st-andrews-beach-brewery-lawrence-mooney-2026", "field": "nextOccurrence" },
+    { "type": "events", "slug": "st-andrews-beach-brewery-lawrence-mooney-2026", "field": "startTime" }
+  ],
+  "createdAt": "2026-11-19",
+  "origin": "authored",
+  "note": "This claim covers the one dated 2026 comedy night only. The second act, inventory and any later performance dates remain unconfirmed."
+}

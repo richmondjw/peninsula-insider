@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-11-19T08:03:59.762Z",
+  "updatedAt": "2026-11-19T08:55:16.123Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -2364,6 +2364,14 @@
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {
+      "url": "https://standrewsbeachbrewery.com.au/whatson/comedy-night-with-lawrence-mooney/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "COMEDY NIGHT WITH LAWRENCE MOONEY - St. Andrew&#039;s Brewery",
+      "probedOn": "2026-11-19",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://stellasdromanahotel.com.au/",
       "verdict": "ok",
       "httpCode": "200",
@@ -3583,6 +3591,14 @@
       "httpCode": "200",
       "pageTitle": "St Andrews Beach Brewery Presents Dave Thornton &amp; Lizzy Hoo Tickets, Sunday, October 18 • 5:30 PM - 8 PM | Eventbrite",
       "probedOn": "2026-10-04",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.eventbrite.com.au/e/st-andrews-beach-brewery-presents-lawrence-mooney-tickets-2004837022503",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "St Andrews Beach Brewery presents Lawrence Mooney Tickets, Sunday, December 20 • 5 PM - 9 PM | Eventbrite",
+      "probedOn": "2026-11-19",
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {
