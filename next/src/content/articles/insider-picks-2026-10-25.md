@@ -64,7 +64,7 @@ NWOP is the longest-running acquisitive survey of works on paper in Australia, a
 
 ---
 
-### Quick Reference
+## Quick Reference
 
 | Pick | Where | Key Detail |
 |---|---|---|

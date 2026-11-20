@@ -215,6 +215,13 @@ export const GET: APIRoute = async () => {
   );
 
   const entries: string[] = [];
+  // Canonical editorial guides and production credits are distinct from dated events.
+  for (const page of ['/photography/', '/walks/easy-walks-mornington-peninsula/', '/explore/plans/mornington-peninsula-itinerary/', '/events/']) {
+    entries.push(url(page, 0.5, 'monthly'));
+  }
+  for (const event of await getCollection('signature-events')) {
+    entries.push(url(`/events/${routeSlug(event)}/`, 0.6, 'monthly'));
+  }
 
   // ---------------------------------------------------------------------
   // TIER 1 - CROWN: homepage, pillar hubs, town pages, protect-list URLs

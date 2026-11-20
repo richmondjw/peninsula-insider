@@ -78,7 +78,7 @@ Pair it with a walk through the Balnarring township afterwards, or drive ten min
 
 ---
 
-### This weekend, in brief
+## This weekend, in brief
 
 **Quarters at Flinders Hotel** - Cook Street, Flinders. Lunch and dinner. Book ahead via the hotel website.
 

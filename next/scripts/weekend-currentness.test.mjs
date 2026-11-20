@@ -22,6 +22,12 @@ test('current weekend details remain readable without JavaScript', () => {
 test('no-JavaScript visitors get a dated edition heading and an index route', () => {
   assert.match(html, /<noscript>[\s\S]*?Edition dates:[^<]*20\d{2}\. If these dates have passed/);
   assert.match(html, /If these dates have passed, <a href="\/whats-on\/"[^>]*>browse the events index<\/a>/);
-  assert.match(html, /Peninsula weekend guide:[^<]*20\d{2}<\/h1>/);
-  assert.match(html, /\.ptw-hero__title\[data-weekend-current\] \{ display: none !important; \}/);
+  assert.match(html, /Peninsula weekend guide:[^<]*20\d{2}<\/span>/);
+  assert.match(html, /\.ptw-hero__title \[data-weekend-current\] \{ display: none !important; \}/);
+});
+
+test('weekend page has one semantic H1 across current and expired states', () => {
+  assert.equal([...html.matchAll(/<h1\b/g)].length, 1);
+  assert.match(html, /<h1[^>]*>[\s\S]*?<span[^>]*data-weekend-current/);
+  assert.match(html, /<h1[^>]*>[\s\S]*?<span[^>]*data-weekend-expired/);
 });

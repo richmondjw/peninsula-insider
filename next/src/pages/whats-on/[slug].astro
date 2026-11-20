@@ -38,9 +38,14 @@ import { ruleFor } from '../../lib/event-schedule';
 
 export async function getStaticPaths() {
   const events = await getCollection('events', ({ data }) => isPublicEventRecord(data));
+  const summaryCounts = new Map<string, number>();
+  for (const event of events) {
+    const summary = event.data.summary.trim().toLowerCase();
+    summaryCounts.set(summary, (summaryCounts.get(summary) ?? 0) + 1);
+  }
   return events.map((event) => ({
     params: { slug: routeSlug(event) },
-    props: { event },
+    props: { event, sharedSummary: (summaryCounts.get(event.data.summary.trim().toLowerCase()) ?? 0) > 1 },
   }));
 }
 
@@ -224,8 +229,8 @@ export const prerender = true;
 ---
 
 <BaseLayout
-  title={`${event.data.title}, ${placeName} · Peninsula Insider`}
-  description={unconfirmedArchivedSchedule ? (event.data.archivedReason ?? 'This listing is under review. No future event date is confirmed.') : event.data.summary}
+  title={`${event.data.title}${slug === "pt-leo-estate-sculpture-park" ? " visits" : ""}, ${placeName} · Peninsula Insider`}
+  description={unconfirmedArchivedSchedule ? (event.data.archivedReason ?? 'This listing is under review. No future event date is confirmed.') : Astro.props.sharedSummary ? `${event.data.title}. ${event.data.summary}` : event.data.summary}
   section="whats-on"
   canonical={canonical}
   ogImage={ogImage}

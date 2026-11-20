@@ -95,7 +95,7 @@ export const prerender = true;
 ---
 
 <BaseLayout
-  title={`${venue.data.name}, ${venuePlaceName} · Peninsula Insider`}
+  title={`${venue.data.name}${routeSlug(venue) === "hotel-sorrento" ? " accommodation" : ""}, ${venuePlaceName} · Peninsula Insider`}
   description={description}
   section="stay"
   canonical={canonical}

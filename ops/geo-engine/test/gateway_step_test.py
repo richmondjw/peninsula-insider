@@ -28,6 +28,16 @@ class GatewayStepTests(unittest.TestCase):
         with self.assertRaisesRegex(RuntimeError, 'expired'):
             step.assert_resumable({'started_epoch': 100}, 'a', 7400)
 
+    def test_expired_observation_restarts_only_before_mutation(self):
+        p = {'started_epoch': 100, 'stage': 'audit', 'fingerprint': 'a'}
+        self.assertTrue(step.can_restart_expired_observation(p, 'a', 7400, True, {'status': 'no_changes'}))
+        for patch in ({'inflight': True}, {'submitted': True}, {'runId': 'existing'},
+                      {'stage': 'release'}, {'stage': 'validate'}, {'fingerprint': 'b'}):
+            self.assertFalse(step.can_restart_expired_observation({**p, **patch}, 'a', 7400, True, None))
+        self.assertFalse(step.can_restart_expired_observation(p, 'a', 7400, False, None))
+        self.assertFalse(step.can_restart_expired_observation(p, 'a', 7400, True, {'status': 'deploy_pending'}))
+        self.assertFalse(step.can_restart_expired_observation(p, 'a', 200, True, None))
+
     def test_timeout_reaps_own_process(self):
         start = time.monotonic()
         with open(os.devnull, 'w') as log:

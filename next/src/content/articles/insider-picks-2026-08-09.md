@@ -49,7 +49,7 @@ Follow this with coffee and something warm at Georgie Bass in Flinders, fifteen 
 
 ---
 
-### This Weekend's Key Details
+## This Weekend's Key Details
 
 **Stonier Fire & Wine Winter Lunch**
 2 Thompsons Lane, Merricks

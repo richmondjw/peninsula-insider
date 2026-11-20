@@ -3012,6 +3012,7 @@ body[data-page="stay"] .venue-card__hero--placeholder::after { content: 'Peninsu
   color: var(--accent);
   margin-bottom: 0.85rem;
 }
+.plan-note h2,
 .plan-note h3 {
   font-family: var(--font-display);
   font-size: 1.4rem;

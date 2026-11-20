@@ -64,7 +64,7 @@ Parking fills fast along the esplanade. Use the Main Street carpark off Tanti Av
 
 ---
 
-### This weekend at a glance
+## This weekend at a glance
 
 | | Venue / Event | Address | Practical |
 |---|---|---|---|

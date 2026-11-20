@@ -64,7 +64,7 @@ Pair it with a walk down Main Street Mornington afterwards for coffee at Store T
 
 ---
 
-### This week at a glance
+## This week at a glance
 
 | Pick | Where | Key detail |
 |---|---|---|

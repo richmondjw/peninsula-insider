@@ -86,6 +86,7 @@ export const prerender = true;
           <a href="/whats-on/">all events</a>.
         </p>
       ) : (
+        <h2 class="sr-only">Events to explore</h2>
         <div class="mood-events__grid">
           {events.map((event) => (
             <EventCard event={event} />

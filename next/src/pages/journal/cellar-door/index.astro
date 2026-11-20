@@ -42,6 +42,7 @@ export const prerender = true;
 
       {dispatches.length > 0 ? (
         <div class="venues__grid">
+          <h2 class="sr-only">Cellar door stories</h2>
           {dispatches.map((article) => <ArticleCard article={article} hideType />)}
         </div>
       ) : (

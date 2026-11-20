@@ -75,7 +75,7 @@ Pair with a walk along the Mornington foreshore after, while the late-afternoon 
 
 ---
 
-### This week at a glance
+## This week at a glance
 
 **Green Olive at Red Hill** - 1180 Mornington–Flinders Road, Red Hill. Thu–Sun lunch. Book ahead at greenolive.com.au.
 

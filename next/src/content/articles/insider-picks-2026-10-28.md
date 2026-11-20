@@ -58,7 +58,7 @@ Wine Lovers Warehouse is a Hastings bottle shop that occasionally runs structure
 
 ---
 
-### This Weekend at a Glance
+## This Weekend at a Glance
 
 | Pick | Address | Key Details |
 |---|---|---|

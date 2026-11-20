@@ -70,7 +70,7 @@ This pairs well with the drive past Foxeys on the way in if you left Red Hill wi
 
 ---
 
-### Quick reference
+## Quick reference
 
 **Foxeys Hangout**
 795 Main Creek Road, Red Hill

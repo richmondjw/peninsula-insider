@@ -15,6 +15,7 @@
 export interface Props {
   variant?: 'filter-zero' | 'search-zero' | 'saved-zero' | 'section-zero';
   heading?: string;
+  headingTag?: 'h2' | 'h3';
   body?: string;
   primaryLabel?: string;
   primaryHref?: string;
@@ -54,6 +55,7 @@ const defaults: Record<string, { heading: string; body: string; primaryLabel: st
 
 const {
   variant = 'filter-zero',
+  headingTag: Heading = 'h3',
   heading = defaults[variant].heading,
   body = defaults[variant].body,
   primaryLabel = defaults[variant].primaryLabel,
@@ -66,7 +68,7 @@ const {
 
 <div class:list={['v5-empty', `v5-empty--${variant}`]}>
   <span class="v5-empty__mark" aria-hidden="true">PI</span>
-  <h3 class="v5-empty__heading">{heading}</h3>
+  <Heading class="v5-empty__heading">{heading}</Heading>
   <p class="v5-empty__body">{body}</p>
   <div class="v5-empty__actions">
     <slot name="actions">

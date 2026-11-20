@@ -58,7 +58,7 @@ NWOP is the longest-running acquisitive works-on-paper prize in Australia, and t
 
 ---
 
-### This weekend at a glance
+## This weekend at a glance
 
 | | Venue | Address | Key practical note |
 |---|---|---|---|

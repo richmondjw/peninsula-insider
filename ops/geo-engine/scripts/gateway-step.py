@@ -71,6 +71,17 @@ def assert_resumable(pipeline, actual, now):
         raise RuntimeError('Tracked checkout changed between steps; preserved')
 
 
+def can_restart_expired_observation(pipeline, actual, now, clean, release):
+    """Discard only an idle, unchanged pre-mutation observation; never replay a release."""
+    return bool(pipeline and not pipeline.get('terminal')
+                and now - pipeline['started_epoch'] > 7200
+                and pipeline.get('stage') in ('collect', 'crawl', 'discovery', 'build', 'audit')
+                and not pipeline.get('inflight') and not pipeline.get('submitted')
+                and not pipeline.get('runId') and clean
+                and pipeline.get('fingerprint') == actual
+                and (not release or release.get('status') in ('verified', 'no_changes', 'rejected', 'rolled_back')))
+
+
 def dependency_install_needed(repo=REPO, stamp=DEPENDENCY_STAMP):
     """The runner must own its dependencies; a shared node_modules link can disappear."""
     next_dir = repo / 'next'
@@ -125,6 +136,14 @@ def main():
     release_only = '--release-only' in sys.argv
     if release_only and (not expected_run or not p or p.get('stage') != 'release' or p.get('terminal') or not p.get('submitted')):
         raise RuntimeError('Release-only execution cannot begin a cycle or run JEV')
+    if not release_only and p and not p.get('terminal'):
+        clean = not subprocess.check_output(['git', 'status', '--porcelain', '--untracked-files=no'], cwd=REPO).strip()
+        release = read(STATE / 'latest-outcome.json', {}).get('release')
+        if can_restart_expired_observation(p, fingerprint(), time.time(), clean, release):
+            archive = STATE / 'expired-observations'
+            archive.mkdir(exist_ok=True)
+            save(archive / f"{int(p['started_epoch'])}.json", {**p, 'superseded_reason': 'Expired idle pre-mutation observation; fresh collection required'})
+            p = None
     if not p or p.get('terminal'):
         p = {'started_epoch': time.time(), 'stage': 'resume', 'terminal': False,
              'cycle': 'weekly' if datetime.now(ZoneInfo('Australia/Melbourne')).weekday() == 6 else 'incremental'}
@@ -170,7 +189,13 @@ def main():
                 p['stage'] = 'crawl'
             elif stage == 'crawl':
                 run(['node', str(ENGINE / 'scripts/collect-crawl.mjs')], timeout=450)
-                p['stage'] = 'discovery' if p['cycle'] == 'weekly' else 'build'
+                crawl = read(STATE / 'live-crawl.json', {})
+                if crawl.get('refresh', {}).get('status') in ('pending', 'requested') and not crawl.get('diagnosticReady'):
+                    time.sleep(30)
+                    p['stage'] = 'crawl'
+                else:
+                    p['crawl_status'] = 'passed' if crawl.get('accepted') else 'needs_attention'
+                    p['stage'] = 'discovery' if p['cycle'] == 'weekly' else 'build'
             elif stage == 'discovery':
                 run(['node', str(ENGINE / 'scripts/collect-discovery.mjs')], timeout=420)
                 p['stage'] = 'build'

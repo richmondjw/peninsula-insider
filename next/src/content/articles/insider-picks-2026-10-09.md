@@ -74,7 +74,7 @@ Pair with a post-bout drink at the bar, which stays open while stock lasts.
 
 ---
 
-### This weekend at a glance
+## This weekend at a glance
 
 **Doot Doot Doot at Jackalope Hotel**
 166 Balnarring Road, Merricks North

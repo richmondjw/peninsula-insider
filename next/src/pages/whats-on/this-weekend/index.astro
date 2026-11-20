@@ -232,11 +232,10 @@ export const prerender = true;
               This edition covers {weekendLabel}. Check the date with each organiser before travelling, or <a href="/whats-on/">browse the current events index</a>.
             </p>
             <noscript>
-              <style>.ptw-hero__title[data-weekend-current] { display: none !important; }</style>
+              <style>.ptw-hero__title [data-weekend-current] { display: none !important; }</style>
               <p class="ptw-hero__stale">
                 Edition dates: {weekendLabel} {editionYears}. If these dates have passed, <a href="/whats-on/">browse the events index</a> and check current details with the organiser.
               </p>
-              <h1 class="ptw-hero__title">Peninsula weekend guide: {weekendLabel} {editionYears}</h1>
             </noscript>
             <script is:inline>
               (function () {
@@ -262,10 +261,11 @@ export const prerender = true;
                 else start();
               })();
             </script>
-            <h1 class="ptw-hero__title" data-weekend-current>
-              {hasCurrentDispatch ? latest.data.title : 'What’s on this weekend'}
+            <h1 class="ptw-hero__title">
+              <span data-weekend-current>{hasCurrentDispatch ? latest.data.title : 'What’s on this weekend'}</span>
+              <span data-weekend-expired hidden>A Peninsula weekend selection</span>
+              <noscript><span>Peninsula weekend guide: {weekendLabel} {editionYears}</span></noscript>
             </h1>
-            <h1 class="ptw-hero__title" data-weekend-expired hidden>A Peninsula weekend selection</h1>
             <p class="ptw-hero__dek" data-weekend-current>
               {hasCurrentDispatch
                 ? latest.data.dek

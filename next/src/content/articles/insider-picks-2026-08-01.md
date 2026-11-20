@@ -77,7 +77,7 @@ Pair it with a stop at Small Stone Pantry nearby if you want to pick up somethin
 
 ---
 
-### This Week's Key Details
+## This Week's Key Details
 
 **St Andrews Beach Brewery**
 65 Sandy Track, Rye

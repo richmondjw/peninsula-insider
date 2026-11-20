@@ -212,3 +212,17 @@ test('the GEO benchmark meets its floor and carries no duplicate questions', () 
   assert.equal(new Set(bm.questions.map((q) => q.query)).size, bm.total, 'questions must be unique');
   assert.ok(bm.questions.every((q) => q.measurement === 'not_yet_measurable'), 'no question may claim an unobserved measurement');
 });
+
+test('decorative empty alt is valid; absent alt and real headings remain auditable', () => {
+  const root = tmpSite();
+  try {
+    fs.writeFileSync(path.join(root, 'good/index.html'), `<html><head><title>Accessible image example</title></head><body><main>
+      <h1>Images</h1><h2>Gallery</h2><img src="/decorative.webp" alt=""><img src="/informative.webp">
+      <script>const template = '<h1>Not a heading</h1><img src="/fake">';</script>
+      <template><h1>Not rendered</h1></template></main></body></html>`);
+    const {pages} = buildInventory({root});
+    assert.equal(pages['/good/'].missingAltCount, 1);
+    assert.equal(pages['/good/'].imageCount, 2);
+    assert.equal(pages['/good/'].h1Count, 1);
+  } finally { fs.rmSync(root, {recursive:true,force:true}); }
+});

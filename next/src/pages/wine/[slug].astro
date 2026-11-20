@@ -68,7 +68,7 @@ export const prerender = true;
   canonical={canonical}
   ogImage={ogImage}
   searchImage={ogImage}
-  noindex={venue.data.sitemapExclude === true || venue.data.status === 'closed'}
+  noindex={venue.data.sitemapExclude === true || ['closed', 'paused'].includes(venue.data.status)}
 >
   {schemas.map((s) => (
     <script type="application/ld+json" set:html={JSON.stringify(s)} />

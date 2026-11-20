@@ -64,7 +64,7 @@ Pair the gallery visit with lunch at one of the Mornington foreshore venues befo
 
 ---
 
-### Quick Reference
+## Quick Reference
 
 **Main Ridge Dairy**
 289-295 Main Creek Road, Main Ridge - Billies cheese grazing boards and takeaway cheeses - check website for current opening days

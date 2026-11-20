@@ -87,7 +87,7 @@ export function linkRel(head, rel) {
 
 export function headings(html) {
   const out = [];
-  for (const m of html.matchAll(/<h([1-6])\b[^>]*>([\s\S]*?)<\/h\1>/gi)) {
+  for (const m of String(html).replace(VOID_SCRIPTISH, ' ').matchAll(/<h([1-6])\b[^>]*>([\s\S]*?)<\/h\1>/gi)) {
     const text = stripTags(m[2]);
     if (text) out.push({ level: Number(m[1]), text });
   }
@@ -96,7 +96,7 @@ export function headings(html) {
 
 export function images(html) {
   const out = [];
-  for (const m of html.matchAll(/<img\b[^>]*>/gi)) {
+  for (const m of String(html).replace(VOID_SCRIPTISH, ' ').matchAll(/<img\b[^>]*>/gi)) {
     const attrs = parseAttrs(m[0]);
     out.push({
       src: attrs.src || attrs['data-src'] || '',

@@ -52,7 +52,7 @@ Go to Pt. Leo for the outdoor collection, then decide whether to stay for the ce
 
 The estate is at 3649 Frankston-Flinders Road, Merricks. It lists the Sculpture Park as open daily from 11am, with last entry at 4:30pm; [check its visitor information](https://www.ptleoestate.com.au/faqs/) for changes or private-event availability before you travel. Allow enough daylight to walk the grounds without rushing. If you want a tasting or a restaurant table afterwards, arrange that separately with the estate.
 
-### The three stops
+## The three stops
 
 | Pick | Where | Plan around |
 |---|---|---|

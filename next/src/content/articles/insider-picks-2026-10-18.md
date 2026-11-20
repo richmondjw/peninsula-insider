@@ -62,7 +62,7 @@ If you are making a night of it, the Main Ridge Dairy is a ten-minute drive for 
 
 ---
 
-### This Week's Key Details
+## This Week's Key Details
 
 **Main Ridge Dairy**
 289-295 Main Creek Road, Main Ridge

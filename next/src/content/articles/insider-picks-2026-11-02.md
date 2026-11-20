@@ -64,7 +64,7 @@ Pair the market with a Balnarring Bakehouse stop beforehand, then use whatever y
 
 ---
 
-### This week at a glance
+## This week at a glance
 
 | Pick | Where | Key detail |
 |---|---|---|
