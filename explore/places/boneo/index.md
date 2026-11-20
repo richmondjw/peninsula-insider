@@ -241,12 +241,12 @@ Live Music at Peninsula Beer Garden! Join Dave Campbell for your music fix.
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/dave-campbell-live-at-peninsula-beer-garden-2026-11-29/>)
 
-- [Fri, 20 Nov
+- [Sat, 21 Nov
 
-### Dee - Calmer Miles Live at Peninsula Beer Garden
+### Deja Vu Live at Peninsula Beer Garden
 
 Boneo
 
-Peninsula locals that are regulars on the music scene! Dee from The Calmer Miles exhibits a freshness and passion in her music.
+Enjoy live music at Peninsula Beer Garden! Deja Vu are a dynamic duo playing upbeat covers, that make you want to get up and dance.
 
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/dee-calmer-miles-live-at-peninsula-beer-garden-2026-11-20/>)
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/deja-vu-live-at-peninsula-beer-garden-2026-11-21/>)

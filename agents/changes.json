@@ -1,11 +1,52 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-20T08:29:17.741Z",
+  "generatedAt": "2026-11-20T11:22:37.877Z",
   "baselineAvailable": true,
   "fromSnapshot": "344a03f57451a04c0d45abe4d78ff644795ed370845c1d53b1e0429aae0652ac",
-  "toSnapshot": "344a03f57451a04c0d45abe4d78ff644795ed370845c1d53b1e0429aae0652ac",
-  "previousGeneratedAt": "2026-11-20T06:45:11.257Z",
+  "toSnapshot": "84bc94f3a6f9ad183b4e015298569a6a7c4cf46af30b7d111b38228de687cf59",
+  "previousGeneratedAt": "2026-11-20T08:29:17.741Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 0,
-  "changes": []
+  "count": 5,
+  "changes": [
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/boneo/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/boneo/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/boneo/index.md",
+      "contentSha256": "4a8faa18f7193fc1224bb6634bd88d57432b370b77f1e55a23ff4fb22e46d5bc",
+      "previousContentSha256": "a2ab14f1f4c963386b6db9a42cbf50e88126bbfce7ad9aed504e2b20eed1aee2"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
+      "contentSha256": "a107ed00a8c3a249c27ebdba1d13a8ea44a54dd3fd9edd4cf4de35b5445cb1e1",
+      "previousContentSha256": "d19b574f524c8b5e3b7ec95a2c8c12c1ca0e4110a6d943ddf939ec01854d5941"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
+      "contentSha256": "668d75c04cb96fe41080ca915e978c57e4fce033ac24b878c8e6dbdb8ee835a5",
+      "previousContentSha256": "4638daa3dcd0a8884006f0f39cbd227b1d2ddddd869d5f1a1d60309851da6244"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/dee-calmer-miles-live-at-peninsula-beer-garden-2026-11-20/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/dee-calmer-miles-live-at-peninsula-beer-garden-2026-11-20/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/dee-calmer-miles-live-at-peninsula-beer-garden-2026-11-20/index.md",
+      "contentSha256": "13666ca824e22ccb82bd42c2945cb9f478395ec4d6c4ae33853d3cda2c656746",
+      "previousContentSha256": "819104f3a51d4974321dc45fa77e2d1c3bac138494bd36f684f5b99a319eed07"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/will-rounds-live-at-peppers-moonah-links-resort-2026-11-20/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/will-rounds-live-at-peppers-moonah-links-resort-2026-11-20/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/will-rounds-live-at-peppers-moonah-links-resort-2026-11-20/index.md",
+      "contentSha256": "ecbc1c98393381921966d4470e2e07450b3c2f0ea16924ecc7db4c902e562e44",
+      "previousContentSha256": "f6207c13cdce7c693380ac3fe6e280993732b04e380a161799c626420588c29d"
+    }
+  ]
 }

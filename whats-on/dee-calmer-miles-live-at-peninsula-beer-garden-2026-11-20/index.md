@@ -11,8 +11,6 @@ Event     Live Music     20 November 2026     One-off date
 
 Peninsula locals that are regulars on the music scene! Dee from The Calmer Miles exhibits a freshness and passion in her music.
 
-[Book or check details](<https://peninsulabeergarden.com.au/>)
-
 Hosted at
 
 Peninsula Beer Garden
@@ -43,7 +41,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://peninsulabeergarden.com.au/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Dee+-+Calmer+Miles+Live+at+Peninsula+Beer+Garden&dates=20261120T060000Z%2F20261120T090000Z&details=Peninsula+locals+that+are+regulars+on+the+music+scene%21+Dee+from+The+Calmer+Miles+exhibits+a+freshness+and+passion+in+her+music.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fdee-calmer-miles-live-at-peninsula-beer-garden-2026-11-20%2F&location=Peninsula+Beer+Garden%2C+Boneo%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+Booking and calendar links are withdrawn; this session has finished.
 
 Keep planning
 

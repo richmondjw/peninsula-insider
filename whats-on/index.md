@@ -29,25 +29,17 @@ For garden lovers, vegetarians and those with a passion for provenance, experien
 
 Food & Wine
 
-- Fri, 20 Nov · 5pm–8pm · Boneo
+- Sat, 21 Nov · 5pm–8pm · Boneo
 
-### [Dee - Calmer Miles Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/dee-calmer-miles-live-at-peninsula-beer-garden-2026-11-20/>)
+### [Deja Vu Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/deja-vu-live-at-peninsula-beer-garden-2026-11-21/>)
 
-Peninsula locals that are regulars on the music scene! Dee from The Calmer Miles exhibits a freshness and passion in her music.
+Enjoy live music at Peninsula Beer Garden! Deja Vu are a dynamic duo playing upbeat covers, that make you want to get up and dance.
 
 Live Music
 
 ## Day by day
 
 ### Friday 20 November
-
-- 5pm
-
-[Will Rounds Live at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/will-rounds-live-at-peppers-moonah-links-resort-2026-11-20/>)
-
-Settle into the weekend with Acoustic Friday in the Spike Bar at Moonah Links. From 5pm to 8pm each Saturday, enjoy the sounds of talented local acoustic artists in a relaxed and welcoming setting.
-
-Fingal · Live Music
 
 - [The Lucky Duck & Pinot Lunch](<https://peninsulainsider.com.au/whats-on/the-lucky-duck-and-pinot-lunch-2026-11-20/>)
 
@@ -96,14 +88,6 @@ Mornington · Exhibitions · Recurring weekly · Also Sun
 Sam O’Connell plays Spike Bar this Saturday, 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
 
 Fingal · Live Music · Recurring weekly
-
-- 5pm
-
-[Deja Vu Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/deja-vu-live-at-peninsula-beer-garden-2026-11-21/>)
-
-Enjoy live music at Peninsula Beer Garden! Deja Vu are a dynamic duo playing upbeat covers, that make you want to get up and dance.
-
-Boneo · Live Music
 
 - 5pm
 

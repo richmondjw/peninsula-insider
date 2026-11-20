@@ -9,9 +9,9 @@ Event     Live Music     20 November 2026     One-off date
 
 # Will Rounds Live at Peppers Moonah Links Resort
 
-Settle into the weekend with Acoustic Friday in the Spike Bar at Moonah Links. From 5pm to 8pm each Saturday, enjoy the sounds of talented local acoustic artists in a relaxed and welcoming setting.
+Will Rounds plays Spike Bar at Moonah Links on Friday 20 November, 5pm to 8pm, as part of the venue's Feel Good Fridays programme.
 
-[Book or check details](<https://www.moonahlinks.com.au/cms/dining/spike-bar/>)
+[Check the latest details at the source →](<https://www.moonahlinks.com.au/cms/whats-on/>)
 
 Hosted at
 
@@ -43,7 +43,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.moonahlinks.com.au/cms/dining/spike-bar/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Will+Rounds+Live+at+Peppers+Moonah+Links+Resort&dates=20261120T060000Z%2F20261120T090000Z&details=Settle+into+the+weekend+with+Acoustic+Friday+in+the+Spike+Bar+at+Moonah+Links.+From+5pm+to+8pm+each+Saturday%2C+enjoy+the+sounds+of+talented+local+acoustic+artists+in+a+relaxed+and+welcoming+setting.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fwill-rounds-live-at-peppers-moonah-links-resort-2026-11-20%2F&location=Peppers+Moonah+Links+Resort%2C+Fingal%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+Booking and calendar links are withdrawn; this session has finished.
 
 Keep planning
 

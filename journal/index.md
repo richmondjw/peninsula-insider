@@ -657,16 +657,6 @@ Month
 
 - [Fri, 20 Nov
 
-### Dee - Calmer Miles Live at Peninsula Beer Garden
-
-Boneo
-
-Peninsula locals that are regulars on the music scene! Dee from The Calmer Miles exhibits a freshness and passion in her music.
-
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/dee-calmer-miles-live-at-peninsula-beer-garden-2026-11-20/>)
-
-- [Fri, 20 Nov
-
 ### The Lucky Duck & Pinot Lunch
 
 Red Hill
@@ -675,12 +665,22 @@ One-off chef’s lunch featuring an all-duck menu paired with pinot noir.
 
  Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/the-lucky-duck-and-pinot-lunch-2026-11-20/>)
 
-- [Fri, 20 Nov
+- [Sat, 21 Nov
 
-### Will Rounds Live at Peppers Moonah Links Resort
+### ✦ Acoustic Saturdays at Peppers Moonah Links
 
 Fingal
 
-Settle into the weekend with Acoustic Friday in the Spike Bar at Moonah Links. From 5pm to 8pm each Saturday, enjoy the sounds of talented local acoustic artists in a relaxed and welcoming setting.
+Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
 
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/will-rounds-live-at-peppers-moonah-links-resort-2026-11-20/>)
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+
+- [Sat, 21 Nov
+
+### Coco Michelle Live at Tar Barrel
+
+Mornington
+
+Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery produce award-winning craft beers alongside diverse tastes as part of their whiskey and gin distillery. Enjoy a drink, taste the menu and stay for the live music on weekends!
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/coco-michelle-live-at-tar-barrel-2026-11-21/>)
