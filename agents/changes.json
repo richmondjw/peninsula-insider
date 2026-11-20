@@ -1,76 +1,28 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-20T21:36:25.855Z",
+  "generatedAt": "2026-11-20T22:07:03.016Z",
   "baselineAvailable": true,
-  "fromSnapshot": "11c0abd3103e7c8c1d7917ee7746783bb54ab980740f9be839dc22fa28a9465b",
-  "toSnapshot": "fddf5a2233b7900898be0e64a07eb23eb0fb7aac878837e5d1e59e3d9b1caa4d",
-  "previousGeneratedAt": "2026-11-20T20:24:21.944Z",
+  "fromSnapshot": "fddf5a2233b7900898be0e64a07eb23eb0fb7aac878837e5d1e59e3d9b1caa4d",
+  "toSnapshot": "91848ca2248d6b141a2ba3d56b6cd60c474e80bc2bca2cba4af31fad82cd8b2b",
+  "previousGeneratedAt": "2026-11-20T21:36:25.855Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 8,
+  "count": 2,
   "changes": [
     {
-      "id": "https://peninsulainsider.com.au/boating/",
+      "id": "https://peninsulainsider.com.au/eat/rye-beachside-market/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/boating/",
-      "markdownUrl": "https://peninsulainsider.com.au/boating/index.md",
-      "contentSha256": "6cac5fc20e2ef152c94f1169e22c13ce67e095d6eb84df18f4219e046c8eac20",
-      "previousContentSha256": "4d718ea3bc9814eebc970fc148ff766a4600f14b262ea5f138796634b6cad3a1"
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/rye-beachside-market/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/rye-beachside-market/index.md",
+      "contentSha256": "ffcbbe07f4f270e4a6e49a24f121417fb00d6a5c83f9b07402aafa405d5fa7ae",
+      "previousContentSha256": "6fc5584f57dea517d2fa101c5272afa80a71b9241f9436e597ee069929c583a1"
     },
     {
-      "id": "https://peninsulainsider.com.au/boating/ramps/hastings-boat-ramp/",
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-05/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/boating/ramps/hastings-boat-ramp/",
-      "markdownUrl": "https://peninsulainsider.com.au/boating/ramps/hastings-boat-ramp/index.md",
-      "contentSha256": "c802ae542a88f10c644455a5ccd6cda571f0a7235a8f6678dee75f594cb99e48",
-      "previousContentSha256": "b3e09810fa018dfd44d14687c4f936dfd0d0f58369ca02404e15e3586860686e"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/boating/ramps/mornington-park-boat-ramp/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/boating/ramps/mornington-park-boat-ramp/",
-      "markdownUrl": "https://peninsulainsider.com.au/boating/ramps/mornington-park-boat-ramp/index.md",
-      "contentSha256": "0049b72e96076541813929315116f4006caa639c9c41a3d2801c3cd6dbaaed46",
-      "previousContentSha256": "56c8cb6035d4b55f8cc229608a3f8fe3b979212f87418d17452d00f846386f0a"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/boating/ramps/rye-boat-ramp/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/boating/ramps/rye-boat-ramp/",
-      "markdownUrl": "https://peninsulainsider.com.au/boating/ramps/rye-boat-ramp/index.md",
-      "contentSha256": "831c23f30dc708babb714f80f7b5e0ea26eb8525d1ec7b0ae897a873d3519039",
-      "previousContentSha256": "a1bd938b7d5eac2340cf72a9d56123544e9c7516ea96cf1c28afba60be076fec"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/boating/ramps/safety-beach-boat-ramp/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/boating/ramps/safety-beach-boat-ramp/",
-      "markdownUrl": "https://peninsulainsider.com.au/boating/ramps/safety-beach-boat-ramp/index.md",
-      "contentSha256": "467622dff9036aae203782a2575b12edbce298bb7c4d6873062906023ba08923",
-      "previousContentSha256": "4b0d5b13787b2506e540f5a6feb212001c525e06c7f6041bfe75a72f0266e79c"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/boating/ramps/sorrento-boat-ramp/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/boating/ramps/sorrento-boat-ramp/",
-      "markdownUrl": "https://peninsulainsider.com.au/boating/ramps/sorrento-boat-ramp/index.md",
-      "contentSha256": "09f11741e05bcd1db44d6a958fb648aefbcfbde15342833ce491a14517ecce70",
-      "previousContentSha256": "bc68b2eafb419bb55d23d2ed812f40ec210c3f35d7c895854885adf2a0fcdf67"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/boating/ramps/warneet-boat-ramp/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/boating/ramps/warneet-boat-ramp/",
-      "markdownUrl": "https://peninsulainsider.com.au/boating/ramps/warneet-boat-ramp/index.md",
-      "contentSha256": "a8cb0ef316efdb604c437d76736b7e1593f21b27083bd5e30552effa5bc23c63",
-      "previousContentSha256": "63d1fc13e1a921b0d3165f13759c5f50065ff7d6fbd781e5f0106e0c1d36227c"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/boating/tides-safety/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/boating/tides-safety/",
-      "markdownUrl": "https://peninsulainsider.com.au/boating/tides-safety/index.md",
-      "contentSha256": "dc8dadd1137f4190b3bc1694e8c83d212ce08d326bbbf1afa97ce008b6cee990",
-      "previousContentSha256": "72fbf07d8f7bef0c734411465a04ddd7597a3648d0d68b805903238983338cf2"
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-05/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-05/index.md",
+      "contentSha256": "0695144835f86b34fde351559a1a86ecfcadd8d03197c260d1e68ea30cafa1b5",
+      "previousContentSha256": "ea6923cb7ff74e3cc9456b2b2e2dd13c93b54194b628e628c6a38d66c97b3167"
     }
   ]
 }

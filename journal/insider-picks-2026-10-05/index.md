@@ -31,7 +31,7 @@ Cape Schanck’s lookouts frame Pulpit Rock and the volcanic coastline. Follow t
 
 For wheelchair access, Parks Victoria identifies a path from the adjacent car park into the lighthouse reserve, plus accessible toilets and picnic areas. Choose the route that suits your access needs and [check Parks Victoria’s current conditions and accessibility advice](<https://www.parks.vic.gov.au/places-to-see/parks/cape-schanck-lighthouse-reserve>) before travelling. Stay on the tracks and follow signs. Large unexpected waves can wash across the rock platform; swimming is not recommended. There is no drinking water at the day visitor area, so bring your own.
 
-**Rye Foreshore Market - Rye**
+**[Rye Foreshore Market](<https://peninsulainsider.com.au/eat/rye-beachside-market/>) - Rye**
 
 The Rotary Club of Rosebud-Rye runs this community market with a focus on homemade and home-grown goods. Stall income supports community service projects. Make time for a browse when a market date fits your visit, rather than assuming it will be open any weekend.
 

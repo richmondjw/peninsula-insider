@@ -45,6 +45,14 @@ Not sure how to build a day around Rye Foreshore Market?
 
 [Family-Friendly Things to Do on the Mornington Peninsula](<https://peninsulainsider.com.au/explore/family-friendly/>)
 
+Insider Edit   3 min
+
+### [Bass & Flinders gin school, Cape Schanck boardwalk in spring, and the Rye Foreshore Market](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-05/>)
+
+5 October 2026
+
+Blend your own gin at Bass & Flinders in Dromana, visit the Cape Schanck coastal viewpoints, and browse the Rye Foreshore Market on a confirmed market day.
+
 ## Nearby places
 
 Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
