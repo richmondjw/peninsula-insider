@@ -13,7 +13,7 @@ fee: Free to launch. Parking fees may apply in the broader Sorrento foreshore pr
 parkingCapacity: Over 50 car and trailer spots across three designated areas
 parkingPressure: high
 tideDependence: all-tide
-tideStation: Portsea
+tideStation: Rosebud Jetty
 maxVesselLength: Suits most standard recreational trailer boats up to approximately 7m. The breakwater shelter and three-lane configuration accommodate larger trailers; turning radius is the practical constraint.
 nearbyRampAlternatives:
   - rye-boat-ramp

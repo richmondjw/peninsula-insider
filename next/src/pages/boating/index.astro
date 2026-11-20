@@ -56,12 +56,12 @@ const RAMP_WINDOWS: Record<string, string> = {
 };
 const BOM_PENINSULA_FORECAST = 'https://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml';
 const RAMP_TIDE_STATIONS: Record<string, string> = {
-  'sorrento-boat-ramp': 'Portsea',
-  'rye-boat-ramp': 'Portsea',
-  'safety-beach-boat-ramp': 'Port Melbourne',
-  'mornington-park-boat-ramp': 'Port Melbourne',
-  'hastings-boat-ramp': 'Stony Point',
-  'warneet-boat-ramp': 'Stony Point',
+  'sorrento-boat-ramp': 'Rosebud Jetty',
+  'rye-boat-ramp': 'Rosebud Jetty',
+  'safety-beach-boat-ramp': 'Mornington',
+  'mornington-park-boat-ramp': 'Mornington',
+  'hastings-boat-ramp': 'Western Port (Stony Point)',
+  'warneet-boat-ramp': 'Western Port (Stony Point)',
 };
 const TIDE: Record<string, { label: string; low: boolean; mid: boolean; high: boolean }> = {
   'all-tide': { label: 'Any tide', low: true, mid: true, high: true },
@@ -76,8 +76,8 @@ const ordered = [
   ...allRamps.filter((r) => !RAMP_ORDER.includes(r.data.slug)),
 ];
 const WATERS = [
-  { key: 'port-phillip-bay', name: 'Port Phillip Bay', station: 'Portsea or Port Melbourne', note: 'Calmer water and a small tidal range. Use the station shown for your ramp.' },
-  { key: 'western-port', name: 'Western Port', station: 'Stony Point', note: 'Strongly tidal. Time your launch and your return.' },
+  { key: 'port-phillip-bay', name: 'Port Phillip Bay', station: 'Rosebud Jetty or Mornington', note: 'Calmer water and a small tidal range. Use the BOM-listed station shown for your ramp.' },
+  { key: 'western-port', name: 'Western Port', station: 'Western Port (Stony Point)', note: 'Strongly tidal. Time your launch and your return.' },
 ].map((w) => ({ ...w, ramps: ordered.filter((r) => r.data.region === w.key) }))
  .filter((w) => w.ramps.length > 0);
 const anyTideCount = allRamps.filter((r) => r.data.tideDependence === 'all-tide').length;

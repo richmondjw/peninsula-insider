@@ -1920,6 +1920,23 @@ body[data-page="stay"] .venue-card__hero--placeholder::after { content: 'Peninsu
   .prose table tbody td { padding-left: 0.6rem; padding-right: 0.6rem; white-space: nowrap; }
   .prose table thead th:first-child,
   .prose table tbody td:first-child { padding-left: 0; }
+
+  /* Boating facts are safety-critical and must remain readable without a
+     hidden horizontal gesture. Let long values wrap inside the viewport. */
+  .boating-detail .prose table {
+    display: table;
+    table-layout: fixed;
+    overflow: visible;
+  }
+  .boating-detail .prose table thead th,
+  .boating-detail .prose table tbody td {
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+  .boating-detail .prose table tbody td:first-child {
+    width: 36%;
+  }
 }
 
 /* =========================================================

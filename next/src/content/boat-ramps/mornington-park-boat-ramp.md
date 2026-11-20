@@ -13,7 +13,7 @@ fee: Free to launch.
 parkingCapacity: Limited; precinct shared with the Schnapper Point pier and yacht club car parks
 parkingPressure: high
 tideDependence: all-tide
-tideStation: Port Melbourne
+tideStation: Mornington
 maxVesselLength: Standard recreational trailer boats up to approximately 6 to 7m. The car park turning radius is the practical constraint for longer trailers.
 nearbyRampAlternatives:
   - safety-beach-boat-ramp

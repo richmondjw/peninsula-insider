@@ -7,7 +7,7 @@ import BfAnalytics from '../../../components/BfAnalytics.astro';
 import { buildArticleSchema, buildBreadcrumbSchema, buildFaqSchema, PUBLISHER_LOGO_URL } from '../../../lib/schema';
 import { BF_EXTERNAL, formatVerifiedStamp } from '../../../lib/bf';
 
-const lastVerifiedISO = '2026-04-30';
+const lastVerifiedISO = '2026-11-20';
 const lastVerifiedStamp = formatVerifiedStamp(lastVerifiedISO);
 const path = '/boating/tides-safety/';
 
@@ -31,7 +31,7 @@ const articleSchema = buildArticleSchema({
 
 const faq = [
   { q: 'What is the tidal range in Port Phillip Bay versus Western Port?', a: 'Port Phillip Bay has a modest tidal range, typically 0.6 to 1.0m at Port Melbourne. Western Port has approximately 2.5 to 2.8m, three to four times larger. The practical effect: current at Western Port ramps and channels is significantly faster, and ramps like Warneet and Tooradin are tide-cautious at low water. Use the Stony Point reference station for Western Port; Portsea or Port Melbourne for Port Phillip Bay.' },
-  { q: 'How do I check tides for the Peninsula?', a: 'Use Willyweather (tides.willyweather.com.au) or BOM tidal predictions (bom.gov.au/australia/tides/) and select the reference station relevant to your launch point: Portsea (southern Port Phillip Bay), Port Melbourne (northern bay), or Stony Point (Western Port). For Flinders Pier, use the Stony Point predictions; the lag is small enough that the station is the right reference.' },
+  { q: 'How do I check tides for the Peninsula?', a: 'Use BOM tidal predictions and select a station that appears in its current Victorian list: Rosebud Jetty for Sorrento and Rye, Mornington for Safety Beach and Mornington, Western Port (Stony Point) for Hastings and Warneet, or Flinders Jetty for Flinders. Confirm local ramp conditions before launching.' },
   { q: 'What is the Rip and why does it matter?', a: 'The Rip is the tidal passage between Point Nepean and Queenscliff at the entrance of Port Phillip Bay. Strong tidal currents combined with south or south-westerly swell create dangerous standing waves. The Rip is one of Australia\'s most dangerous tidal passages for small vessels. Do not attempt to cross in unsuitable conditions regardless of vessel size or experience. Boats departing Sorrento Boat Ramp or operating in the southern bay must stay well clear of the channel.' },
   { q: 'What pre-trip checks should I do before a session?', a: 'Tide forecast for the relevant reference station. Marine wind and swell forecast (BOM Marine Forecasts for Victoria). The location of your nearest alternative ramp in case conditions deteriorate. Vehicle check (fuel, lights, trailer secure). Vessel check (battery, fuel, safety equipment, EPIRB if offshore). Weather is checked the night before and again on the morning of the trip; conditions on Port Phillip Bay can change quickly with afternoon sea breezes from the north-west in summer and southerly change fronts in spring.' },
   { q: 'What safety equipment must I carry?', a: 'Requirements depend on vessel size and operating area. Carry a correctly fitted lifejacket for every person and check Safe Transport Victoria before departure for the current carriage and wearing rules. Children under 12 must wear a lifejacket whenever a vessel is underway.' },
@@ -68,7 +68,7 @@ export const prerender = true;
   entitySlug="boating-tides-safety"
   />
 
-  <article class="venue-detail" data-bf-article>
+  <article class="venue-detail boating-detail" data-bf-article>
     <div class="container">
       <div class="prose">
         <p class="prose__verified">Last fact-verified {lastVerifiedStamp}.</p>
@@ -82,13 +82,13 @@ export const prerender = true;
 
         <h3>Port Phillip Bay reference stations</h3>
         <ul>
-          <li><strong>Portsea</strong> for the southern bay (Sorrento, Rye, southern grounds).</li>
-          <li><strong>Port Melbourne</strong> for the northern bay (Mornington, Mount Martha, Safety Beach).</li>
+          <li><strong>Rosebud Jetty</strong> for the southern bay ramps in this guide (Sorrento and Rye).</li>
+          <li><strong>Mornington</strong> for Mornington and Safety Beach.</li>
         </ul>
 
         <h3>Western Port reference station</h3>
         <ul>
-          <li><strong>Stony Point</strong> for all Western Port locations: Hastings, Warneet, Tooradin, Cowes, San Remo, and Flinders Pier.</li>
+          <li><strong>Western Port (Stony Point)</strong> for Hastings and Warneet. BOM also lists Flinders Jetty, Tooradin, Cowes Jetty and San Remo; choose the station closest to your actual route.</li>
         </ul>
 
         <p>
@@ -118,9 +118,12 @@ export const prerender = true;
 
         <h2>Lifejackets and licensing</h2>
         <p>
-          Carry a correctly fitted lifejacket for every person. Children under 12 must wear one whenever the vessel
-          is underway, and additional wearing rules apply during heightened-risk situations and in designated hazardous
-          waters. Check the current <a href={BF_EXTERNAL.safeTransportLifejackets} rel="external">lifejacket rules</a>
+          Carry a correctly fitted lifejacket for every person. On a powered vessel up to and including 4.8 metres,
+          everyone in an open area must wear the specified lifejacket while underway. On powered vessels over 4.8 metres
+          and under 12 metres, it must be worn in heightened-risk situations. Children under 12 must wear one in an open
+          area whenever the vessel is underway. Port Phillip Heads, within three nautical miles of Point Lonsdale, is a
+          designated hazardous area where everyone on vessels under 12 metres must wear one. Check the current
+          <a href={BF_EXTERNAL.safeTransportLifejackets} rel="external">lifejacket rules</a>
           before departure. For hire-and-drive boats, a marine licence is required when the vessel is capable of more
           than 10 knots; the owner must brief hirers on the vessel's operating requirements. See
           <a href={BF_EXTERNAL.safeTransportLicensing} rel="external">Safe Transport Victoria's licensing guidance</a>.
