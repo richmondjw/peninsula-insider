@@ -28,7 +28,7 @@ intro: Four-lane concrete ramp at Rye, the highest-capacity public ramp on the P
 metaDescription: Rye Boat Ramp - four concrete lanes, free, 127 trailer spaces, tide-affected at low water. Southern bay snapper and whiting access without queuing.
 faq:
   - question: Can I launch at Rye at any tide?
-    answer: 'Not fully. Rye is tide-affected at low water and has required dredging historically to maintain depth. Standard recreational vessels can launch on a mid-to-high tide. Vessels over 5 metres or with deeper draft should check the Portsea station forecast before launching.'
+    answer: 'Not fully. Rye is tide-affected at low water and has required dredging historically to maintain depth. Standard recreational vessels can launch on a mid-to-high tide. Vessels over 5 metres or with deeper draft should check the BOM-listed Rosebud Jetty station before launching.'
   - question: How busy does the parking get?
     answer: 'On a fine summer Saturday in January school holidays, the 127-plus trailer spaces are typically full by 8am. October to December snapper-season weekends are similar; snapper anglers chasing a dawn anchor-and-burley session arrive by 5:30 to 6am.'
   - question: Is there an alternative ramp if Rye is full or unsuitable?
@@ -47,7 +47,7 @@ The trade-off is the approach depth. Rye is not fully all-tide; the ramp has req
 
 ## Tide dependence
 
-The reference tidal station for this section of the bay is Portsea. Use [Willyweather](https://tides.willyweather.com.au) or [BOM tidal predictions](http://www.bom.gov.au/australia/tides/) before driving here with a trailer. A safe launch window on a low-water day is roughly one to two hours either side of high water. Outside that, the approach is shallow.
+Use the BOM-listed Rosebud Jetty station in the [BOM tidal predictions](https://www.bom.gov.au/australia/tides/) before driving here with a trailer. A safe launch window on a low-water day is roughly one to two hours either side of high water. Outside that, the approach is shallow.
 
 The dredging history is the key signal. Four lanes does not mean four lanes at any tide.
 

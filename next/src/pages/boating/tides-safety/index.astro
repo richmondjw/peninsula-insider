@@ -30,7 +30,7 @@ const articleSchema = buildArticleSchema({
 });
 
 const faq = [
-  { q: 'What is the tidal range in Port Phillip Bay versus Western Port?', a: 'Port Phillip Bay has a modest tidal range, typically 0.6 to 1.0m at Port Melbourne. Western Port has approximately 2.5 to 2.8m, three to four times larger. The practical effect: current at Western Port ramps and channels is significantly faster, and ramps like Warneet and Tooradin are tide-cautious at low water. Use the Stony Point reference station for Western Port; Portsea or Port Melbourne for Port Phillip Bay.' },
+  { q: 'How do Port Phillip Bay and Western Port differ?', a: 'Port Phillip Bay has a smaller tidal range than Western Port. The practical effect is that current at Western Port ramps and channels can be substantially faster, and ramps like Warneet and Tooradin need more care around low water. Use the BOM-listed station shown for the ramp: Rosebud Jetty, Mornington, or Western Port (Stony Point).' },
   { q: 'How do I check tides for the Peninsula?', a: 'Use BOM tidal predictions and select a station that appears in its current Victorian list: Rosebud Jetty for Sorrento and Rye, Mornington for Safety Beach and Mornington, Western Port (Stony Point) for Hastings and Warneet, or Flinders Jetty for Flinders. Confirm local ramp conditions before launching.' },
   { q: 'What is the Rip and why does it matter?', a: 'The Rip is the tidal passage between Point Nepean and Queenscliff at the entrance of Port Phillip Bay. Strong tidal currents combined with south or south-westerly swell create dangerous standing waves. The Rip is one of Australia\'s most dangerous tidal passages for small vessels. Do not attempt to cross in unsuitable conditions regardless of vessel size or experience. Boats departing Sorrento Boat Ramp or operating in the southern bay must stay well clear of the channel.' },
   { q: 'What pre-trip checks should I do before a session?', a: 'Tide forecast for the relevant reference station. Marine wind and swell forecast (BOM Marine Forecasts for Victoria). The location of your nearest alternative ramp in case conditions deteriorate. Vehicle check (fuel, lights, trailer secure). Vessel check (battery, fuel, safety equipment, EPIRB if offshore). Weather is checked the night before and again on the morning of the trip; conditions on Port Phillip Bay can change quickly with afternoon sea breezes from the north-west in summer and southerly change fronts in spring.' },
@@ -75,9 +75,9 @@ export const prerender = true;
 
         <h2>Tidal range, by water body</h2>
         <p>
-          Port Phillip Bay has a modest tidal range, typically 0.6 to 1.0m at Port Melbourne. Western Port is
-          significantly more tidal at approximately 2.5 to 2.8m, which directly affects channel depth, ramp access,
-          and fish behaviour. The two systems demand different pre-trip thinking.
+          Port Phillip Bay has a smaller tidal range than Western Port. Western Port's stronger tidal movement directly
+          affects channel depth, ramp access, and fish behaviour. The two systems demand different pre-trip thinking;
+          use the current BOM-listed station shown for the ramp rather than a legacy station name.
         </p>
 
         <h3>Port Phillip Bay reference stations</h3>
