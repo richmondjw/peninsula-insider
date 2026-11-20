@@ -179,6 +179,11 @@
       return /\?$/.test(t) || QUESTION.test(t) || t.split(/\s+/).length >= 5;
     }
 
+    function askEnabled() {
+      var overlay = document.getElementById('siteSearchOverlay');
+      return overlay && overlay.dataset.askEnabled === 'true';
+    }
+
     function updateAsk(els, query) {
       var ask = document.getElementById('siteSearchOverlayAsk');
       if (!ask) return;
@@ -426,7 +431,7 @@
           e.preventDefault();
           const els2 = getEls();
           const q = (els2 && els2.input && els2.input.value || '').trim();
-          if (q && isQuestion(q)) {
+          if (q && askEnabled() && isQuestion(q)) {
             // PI answers in the chat drawer when it is on the page.
             if (window.PIChat && location.pathname !== '/ask/') { closeOverlay(); window.PIChat.ask(q); return; }
             window.location.href = '/ask/?q=' + encodeURIComponent(q);

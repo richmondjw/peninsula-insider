@@ -1,310 +1,78 @@
 ---
-/**
- * /ask - Ask PI (2026-11-12 rebuild for the simplified site).
- *
- * One question, one answer. The answer comes from the concierge API
- * (peninsula-insider-platform, Cohere), which retrieves from PI's own
- * reviews and guides. The page keeps the site's grammar: a plain title,
- * one input with a control edge, one solid button, prose at reading
- * measure, then the places as text rows with one hairline between them.
- *
- * Links are checked against /ask/pages.json (every public URL, written
- * after the build by scripts/generate-ask-pages.mjs), so an answer can
- * never send a reader to a retired page; a stale path is corrected by its
- * slug, otherwise the row is dropped.
- *
- * ?q= asks on load, so search, hubs and plans can hand a question over.
- */
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { CONCIERGE_API_URL as API_URL } from '../lib/concierge-config';
 export const prerender = true;
 
-const examples = [
-  'A long lunch in Red Hill that works with kids',
-  'Somewhere dog friendly for breakfast near Sorrento',
-  'A rainy Sunday for two with no driving after lunch',
-  'Where to stay for a quiet anniversary weekend',
-];
+const query = Astro.url.searchParams.get('q')?.trim().slice(0, 500) ?? '';
 ---
 
 <BaseLayout
-  title="Ask PI"
-  description="Ask a question about the Mornington Peninsula. PI answers from Peninsula Insider's own reviews and guides, and links you to the places."
+  title="Ask PI is being improved"
+  description="Ask PI is temporarily paused while Peninsula Insider improves how every recommendation is sourced. Search the site for places, plans and stories."
 >
-  <div class="ask container" data-ask data-api={API_URL}>
-    <header class="ask__head">
-      <img class="ask__portrait" src="/images/pi/pi-portrait-320.webp" srcset="/images/pi/pi-portrait-320.webp 320w, /images/pi/pi-portrait-640.webp 640w" sizes="(min-width: 48em) 176px, 128px" alt="PI, the Peninsula Insider: a woman in a wide sun hat, seen from the side" width="176" height="176" />
-      <div>
-        <h1 class="ask__title">Ask PI</h1>
-        <p class="ask__dek">Tell me what you're after. A long lunch, a hatted dinner, a dog-friendly cafe, a rainy Sunday with kids. The more specific you are, the sharper my answer.</p>
-      </div>
+  <main class="ask-safe container">
+    <header class="ask-safe__head">
+      <p class="ask-safe__status">Temporarily paused</p>
+      <h1>Ask PI is being improved.</h1>
+      <p class="ask-safe__dek">We paused generated recommendations while we strengthen how every detail is checked and linked to our editorial sources.</p>
     </header>
 
-    <form class="ask__form" action="/ask/" method="get" data-ask-form>
-      <label class="ask__label" for="ask-q">Your question</label>
-      <div class="ask__field">
-        <input id="ask-q" name="q" type="text" maxlength="500" autocomplete="off" enterkeyhint="send"
-          placeholder="A long lunch or a rainy day" required minlength="3" data-ask-input />
-        <button class="pi-btn pi-btn--solid ask__submit" type="submit" data-ask-submit>Ask</button>
-      </div>
-    </form>
-
-    <section class="ask__examples" aria-labelledby="ask-examples-title" data-ask-examples>
-      <h2 class="ask__subhead" id="ask-examples-title">Try asking</h2>
-      <ul class="ask__example-list" role="list">
-        {examples.map((q) => (
-          <li><a class="ask__example" href={`/ask/?q=${encodeURIComponent(q)}`} data-ask-example={q}>{q}</a></li>
-        ))}
-      </ul>
+    <section class="ask-safe__search" aria-labelledby="ask-safe-search-title">
+      <h2 id="ask-safe-search-title">Find it in Peninsula Insider</h2>
+      <p>Search our published places, plans and stories. Your question stays in the field so you can refine it.</p>
+      <form action="/search/" method="get" role="search" aria-label="Search Peninsula Insider">
+        <label for="ask-safe-q">What are you looking for?</label>
+        <div class="ask-safe__field">
+          <input id="ask-safe-q" name="q" type="search" value={query} maxlength="500" autocomplete="off" enterkeyhint="search" placeholder="Red Hill lunch, coastal walk or rainy day" />
+          <button class="pi-btn pi-btn--solid" type="submit">Search</button>
+        </div>
+      </form>
     </section>
 
-    <article class="ask__answer" data-ask-answer hidden aria-labelledby="ask-question">
-      <h2 class="ask__question" id="ask-question" tabindex="-1" data-ask-question></h2>
-      <p class="ask__by"><img src="/images/pi/pi-avatar-48.webp" alt="" width="24" height="24" /> <span>PI</span></p>
-      <p class="ask__status" role="status" aria-live="polite" data-ask-status hidden></p>
-      <div class="ask__prose" data-ask-prose></div>
+    <nav class="ask-safe__browse" aria-label="Browse Peninsula Insider">
+      <h2>Or browse by what you need</h2>
+      <ul role="list">
+        <li><a href="/eat/">Eat &amp; Drink <span aria-hidden="true">→</span></a></li>
+        <li><a href="/stay/">Stay <span aria-hidden="true">→</span></a></li>
+        <li><a href="/wine/">Wine <span aria-hidden="true">→</span></a></li>
+        <li><a href="/explore/">Explore <span aria-hidden="true">→</span></a></li>
+        <li><a href="/explore/plans/">Plans <span aria-hidden="true">→</span></a></li>
+        <li><a href="/whats-on/">What's On <span aria-hidden="true">→</span></a></li>
+      </ul>
+    </nav>
 
-      <section class="ask__places" data-ask-places hidden aria-labelledby="ask-places-title">
-        <h3 class="ask__subhead" id="ask-places-title">Where to go</h3>
-        <ol class="ask__place-list" role="list" data-ask-place-list></ol>
-      </section>
-
-      <section class="ask__next" data-ask-next hidden aria-labelledby="ask-next-title">
-        <h3 class="ask__subhead" id="ask-next-title">Ask next</h3>
-        <ul class="ask__example-list" role="list" data-ask-next-list></ul>
-      </section>
-
-      <p class="ask__note">Answers come from Peninsula Insider's reviews and guides. Opening hours and bookings change, so check with the place before you go. Prefer to browse? <a href="/search/" data-ask-search-link>Search the site</a>.</p>
-    </article>
-  </div>
+    <p class="ask-safe__note">Ask PI will return only when recommendation details can be traced to current editorial evidence. Until then, search and the published guides are the reliable path.</p>
+  </main>
 </BaseLayout>
 
-<script>
-  import { askPI, placeLinks, paragraphs, STAGE_LINES, READER_ERROR } from '../lib/ask-client';
-
-  // Back/forward between questions. Registered once at module scope (listener
-  // hygiene gate); boot() points it at the current page's handler.
-  let onPop: (() => void) | null = null;
-  window.addEventListener('popstate', () => onPop?.());
-
-  function boot() {
-    const root = document.querySelector<HTMLElement>('[data-ask]');
-    if (!root || root.dataset.booted) return;
-    root.dataset.booted = '1';
-    const api = root.dataset.api || '';
-    const form = root.querySelector<HTMLFormElement>('[data-ask-form]')!;
-    const input = root.querySelector<HTMLInputElement>('[data-ask-input]')!;
-    const submit = root.querySelector<HTMLButtonElement>('[data-ask-submit]')!;
-    const examples = root.querySelector<HTMLElement>('[data-ask-examples]')!;
-    const status = root.querySelector<HTMLElement>('[data-ask-status]')!;
-    const answer = root.querySelector<HTMLElement>('[data-ask-answer]')!;
-    const question = root.querySelector<HTMLElement>('[data-ask-question]')!;
-    const prose = root.querySelector<HTMLElement>('[data-ask-prose]')!;
-    const places = root.querySelector<HTMLElement>('[data-ask-places]')!;
-    const placeList = root.querySelector<HTMLElement>('[data-ask-place-list]')!;
-    const next = root.querySelector<HTMLElement>('[data-ask-next]')!;
-    const nextList = root.querySelector<HTMLElement>('[data-ask-next-list]')!;
-    const searchLink = root.querySelector<HTMLAnchorElement>('[data-ask-search-link]')!;
-
-    let controller: AbortController | null = null;
-
-    function setStatus(text: string) {
-      status.textContent = text;
-      status.hidden = !text;
-    }
-
-    function showProse(text: string, cls = '') {
-      prose.replaceChildren(...paragraphs(text).map((t) => {
-        const p = document.createElement('p');
-        if (cls) p.className = cls;
-        p.textContent = t;
-        return p;
-      }));
-    }
-
-    async function renderPlaces(recs: Parameters<typeof placeLinks>[0]) {
-      const rows = (await placeLinks(recs)).map((place) => {
-        const li = document.createElement('li');
-        li.className = 'ask__place';
-        const a = document.createElement('a');
-        a.className = 'ask__place-link';
-        a.href = place.href;
-        a.textContent = place.title;
-        li.append(a);
-        for (const [cls, text] of [['ask__place-why', place.why], ['ask__place-meta', place.section]]) {
-          if (!text) continue;
-          const p = document.createElement('p');
-          p.className = cls;
-          p.textContent = text;
-          li.append(p);
-        }
-        return li;
-      });
-      placeList.replaceChildren(...rows);
-      places.hidden = rows.length === 0;
-    }
-
-    function renderNext(items: string[]) {
-      nextList.replaceChildren(...items.slice(0, 3).map((q) => {
-        const li = document.createElement('li');
-        const a = document.createElement('a');
-        a.className = 'ask__example';
-        a.href = `/ask/?q=${encodeURIComponent(q)}`;
-        a.dataset.askExample = q;
-        a.textContent = q;
-        li.append(a);
-        return li;
-      }));
-      next.hidden = items.length === 0;
-    }
-
-    async function ask(q: string, push = true) {
-      const query = q.trim();
-      if (query.length < 3) return;
-      controller?.abort();
-      controller = new AbortController();
-      input.value = query;
-      if (push) history.pushState({ q: query }, '', `/ask/?q=${encodeURIComponent(query)}`);
-      document.title = `${query} - Ask PI - Peninsula Insider`;
-      searchLink.href = `/search/?q=${encodeURIComponent(query)}`;
-
-      examples.hidden = true;
-      answer.hidden = false;
-      answer.setAttribute('aria-busy', 'true');
-      question.textContent = query;
-      prose.replaceChildren();
-      places.hidden = true;
-      next.hidden = true;
-      submit.disabled = true;
-      setStatus(STAGE_LINES.received);
-
-      let started = false;
-      let meta: { recommendations: Parameters<typeof placeLinks>[0]; follow_on: string[] } = { recommendations: [], follow_on: [] };
-      try {
-        await askPI(api, query, {
-          onStage: (s) => { if (!started && STAGE_LINES[s]) setStatus(STAGE_LINES[s]); },
-          onText: (full) => { if (!started) { started = true; setStatus(''); } showProse(full); },
-          onMeta: (m) => { meta = m; },
-        }, controller.signal);
-        await renderPlaces(meta.recommendations);
-        renderNext(meta.follow_on);
-        setStatus('');
-      } catch (err) {
-        if ((err as Error).name === 'AbortError') return;
-        showProse((err as Error).message || READER_ERROR, 'ask__error');
-        setStatus('');
-      } finally {
-        answer.removeAttribute('aria-busy');
-        submit.disabled = false;
-      }
-    }
-
-    form.addEventListener('submit', (e) => { e.preventDefault(); ask(input.value); });
-    root.addEventListener('click', (e) => {
-      const link = (e.target as HTMLElement).closest<HTMLAnchorElement>('[data-ask-example]');
-      if (!link || e.metaKey || e.ctrlKey || e.shiftKey) return;
-      e.preventDefault();
-      ask(link.dataset.askExample || '');
-      question.focus({ preventScroll: true });
-      root.scrollIntoView({ block: 'start' });
-    });
-    onPop = () => {
-      if (!root.isConnected) return;
-      const q = new URLSearchParams(location.search).get('q');
-      if (q) ask(q, false);
-      else { controller?.abort(); answer.hidden = true; examples.hidden = false; setStatus(''); input.value = ''; }
-    };
-
-    const initial = new URLSearchParams(location.search).get('q') || new URLSearchParams(location.hash.slice(1)).get('q');
-    if (initial) ask(initial, false);
-  }
-
-  boot();
-  document.addEventListener('astro:page-load', boot);
-</script>
-
-
-<!-- Global (every selector is under .ask): the answer, places and follow-ons
-     are created by script, so Astro's scoped attribute never reaches them. -->
-<style is:global>
-  .ask { max-width: 46rem; padding-block: var(--space-8) var(--space-9); }
-  .ask__head { display: flex; align-items: center; gap: var(--space-5); margin-bottom: var(--space-6); }
-  .ask__portrait { flex: none; width: 176px; height: 176px; margin: calc(-1 * var(--space-4)) 0; }
-  .ask__by { display: flex; align-items: center; gap: var(--space-2); margin: 0 0 var(--space-3); font: 600 var(--fs-300)/1 var(--font-ui); }
-  .ask__by img { width: 24px; height: 24px; border-radius: 50%; background: #F4EADB; }
-  .ask__title {
-    margin: 0;
-    font-family: var(--font-display);
-    font-weight: var(--fw-display);
-    font-size: var(--fs-800);
-    line-height: var(--lh-heading);
-    letter-spacing: var(--ls-display);
-    color: var(--text);
-  }
-  .ask__dek { margin: var(--space-3) 0 0; max-width: 38rem; color: var(--soft); font: 400 var(--fs-500)/var(--lh-body) var(--font-ui); text-wrap: pretty; }
-
-  .ask__label { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
-  .ask__field { display: flex; gap: var(--space-3); }
-  .ask__field input {
-    flex: 1 1 auto; min-width: 0; min-height: 52px; padding: 0 var(--space-4);
-    background: var(--white); border: 1px solid var(--border-control); border-radius: var(--radius-s);
-    color: var(--text); font: 400 var(--fs-400)/1.4 var(--font-ui);
-  }
-  .ask__field input::placeholder { color: var(--soft); }
-  .ask__field input:focus-visible, .ask a:focus-visible, .ask__question:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
-  .ask__submit { min-height: 52px; padding-inline: var(--space-6); }
-  .ask__submit:disabled { opacity: .6; cursor: progress; }
-
-  .ask__subhead { margin: 0 0 var(--space-3); color: var(--text); font: 600 var(--fs-300)/var(--lh-ui) var(--font-ui); }
-  .ask__examples { margin-top: var(--space-7); }
-  .ask__example-list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-1); }
-  .ask__example {
-    display: inline-flex; align-items: center; min-height: 44px;
-    color: var(--accent); font: 400 var(--fs-400)/1.4 var(--font-ui);
-    text-decoration: underline; text-decoration-color: color-mix(in srgb, currentColor 35%, transparent); text-underline-offset: .25em;
-  }
-  .ask__example:hover { text-decoration-color: currentColor; }
-
-  .ask__status { margin: 0 0 var(--space-4); color: var(--soft); font: 400 var(--fs-300)/var(--lh-ui) var(--font-ui); }
-
-  .ask__answer { margin-top: var(--space-7); }
-  .ask__answer[aria-busy="true"] .ask__note { visibility: hidden; }
-  .ask__question {
-    margin: 0 0 var(--space-4);
-    font-family: var(--font-display);
-    font-weight: var(--fw-display);
-    font-size: var(--fs-600);
-    line-height: var(--lh-heading);
-    color: var(--text);
-    text-wrap: balance;
-  }
-  .ask__prose { max-width: 38rem; }
-  .ask__prose p { margin: 0 0 var(--space-4); color: var(--text); font: 400 var(--fs-400)/var(--lh-body) var(--font-ui); text-wrap: pretty; }
-  .ask__error { color: var(--soft); }
-
-  .ask__places { margin-top: var(--space-7); }
-  .ask__place-list { list-style: none; margin: 0; padding: 0; }
-  .ask__place { padding: var(--space-4) 0; }
-  .ask__place + .ask__place { border-top: 1px solid var(--border); }
-  .ask__place-link {
-    display: inline-block; color: var(--text); text-decoration: none;
-    font: 600 var(--fs-500)/1.25 var(--font-display);
-  }
-  .ask__place-link:hover { color: var(--accent); text-decoration: underline; text-underline-offset: .2em; }
-  .ask__place-why { margin: var(--space-1) 0 0; max-width: 38rem; color: var(--soft); font: 400 var(--fs-400)/var(--lh-body) var(--font-ui); }
-  .ask__place-meta { margin: var(--space-1) 0 0; color: var(--soft); font: 400 var(--fs-300)/var(--lh-ui) var(--font-ui); }
-
-  .ask__next { margin-top: var(--space-7); }
-  .ask__note { margin: var(--space-8) 0 0; max-width: 38rem; color: var(--soft); font: 400 var(--fs-300)/var(--lh-body) var(--font-ui); }
-  .ask__note a { color: var(--accent); }
-
+<style>
+  .ask-safe { max-width: 58rem; padding-block: var(--space-8) var(--space-9); }
+  .ask-safe__head { max-width: var(--measure-prose); }
+  .ask-safe__status { margin: 0 0 var(--space-3); color: var(--sand-text); font: 600 var(--fs-300)/var(--lh-ui) var(--font-ui); }
+  h1 { margin: 0; max-width: 15ch; color: var(--text); font: var(--fw-display) var(--fs-800)/var(--lh-heading) var(--font-display); letter-spacing: var(--ls-display); text-wrap: balance; }
+  .ask-safe__dek { margin: var(--space-4) 0 0; max-width: 58ch; color: var(--soft); font: 400 var(--fs-500)/var(--lh-body) var(--font-ui); text-wrap: pretty; }
+  .ask-safe__search { margin-top: var(--space-8); padding: var(--space-6); background: var(--bg-alt); border-radius: var(--radius-m); }
+  h2 { margin: 0; color: var(--text); font: 600 var(--fs-600)/var(--lh-heading) var(--font-display); text-wrap: balance; }
+  .ask-safe__search > p { margin: var(--space-2) 0 var(--space-5); max-width: 62ch; color: var(--soft); font: 400 var(--fs-400)/var(--lh-body) var(--font-ui); }
+  label { display: block; margin-bottom: var(--space-2); color: var(--text); font: 600 var(--fs-300)/var(--lh-ui) var(--font-ui); }
+  .ask-safe__field { display: flex; gap: var(--space-3); }
+  input { flex: 1 1 auto; min-width: 0; min-height: 52px; padding: 0 var(--space-4); border: 1px solid var(--border-control); border-radius: var(--radius-s); background: var(--white); color: var(--text); font: 400 var(--fs-400)/1.4 var(--font-ui); }
+  input::placeholder { color: var(--soft); opacity: 1; }
+  input:focus-visible, a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+  .ask-safe__field button { min-height: 52px; padding-inline: var(--space-6); }
+  .ask-safe__browse { margin-top: var(--space-8); }
+  .ask-safe__browse ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin: var(--space-4) 0 0; padding: 0; list-style: none; border-top: 1px solid var(--border); }
+  .ask-safe__browse li { border-bottom: 1px solid var(--border); }
+  .ask-safe__browse li:nth-child(odd) { padding-right: var(--space-4); }
+  .ask-safe__browse li:nth-child(even) { padding-left: var(--space-4); }
+  .ask-safe__browse a { display: flex; justify-content: space-between; align-items: center; min-height: 58px; color: var(--text); font: 600 var(--fs-400)/var(--lh-ui) var(--font-ui); text-decoration: none; }
+  .ask-safe__browse a:hover { color: var(--accent); }
+  .ask-safe__note { margin: var(--space-7) 0 0; max-width: 65ch; color: var(--soft); font: 400 var(--fs-300)/var(--lh-body) var(--font-ui); }
   @media (max-width: 47.99em) {
-    .ask { padding-block: var(--space-6) var(--space-8); }
-    .ask__title { font-size: var(--fs-700); }
-    .ask__head { flex-direction: column; align-items: flex-start; gap: var(--space-3); }
-    .ask__portrait { width: 128px; height: 128px; margin: 0; }
-    .ask__dek { font-size: var(--fs-400); }
-    .ask__field { flex-direction: column; }
-    .ask__submit { width: 100%; }
+    .ask-safe { padding-block: var(--space-6) var(--space-8); }
+    .ask-safe__search { margin-inline: calc(-1 * var(--space-4)); padding: var(--space-5) var(--space-4); border-radius: 0; }
+    .ask-safe__field { flex-direction: column; }
+    .ask-safe__field button { width: 100%; }
+    .ask-safe__browse ul { grid-template-columns: 1fr; }
+    .ask-safe__browse li:nth-child(n) { padding-inline: 0; }
   }
 </style>

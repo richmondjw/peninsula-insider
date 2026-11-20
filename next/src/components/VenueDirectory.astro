@@ -14,6 +14,7 @@
  */
 import VenueCard from './VenueCard.astro';
 import { getCollection } from 'astro:content';
+import { SHOW_ASK_PI } from '../lib/features';
 
 export interface Props {
   /** Cards shown before the reader clicks "Show more". 0 disables paging. */
@@ -216,8 +217,7 @@ const showHatted = !!toggles.hatted;
     )}
 
     <p class="venues__empty" data-filter-empty={id} hidden>
-      No venues match those filters. Try removing one of them, or
-      <a href="/ask/">ask PI</a> for a recommendation.
+      No venues match those filters. Try removing one of them{SHOW_ASK_PI ? <>, or <a href="/ask/">ask PI</a> for a recommendation</> : <> or <a href="/search/">search the site</a></>}.
     </p>
   </div>
 </section>

@@ -10,7 +10,11 @@
 import expiryState from '../data/event-expiry-state.json';
 import { occurrenceModelEnabled } from './event-occurrence.mjs';
 
-export const SHOW_ASK_PI = true;
+// Fail closed while the public answer contract is rebuilt around claim-level
+// editorial provenance. A live independent review on 2026-11-20 found that
+// generated recommendations could add decision-critical details not supported
+// by the linked PI pages. Search remains available across the site.
+export const SHOW_ASK_PI = false;
 
 /**
  * PUBLIC_EVENT_OCCURRENCE_MODEL: the PI-008 occurrence model, three-state.
