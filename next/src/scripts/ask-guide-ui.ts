@@ -136,6 +136,9 @@ function paintAll(reveal: boolean) {
   document.querySelectorAll<HTMLElement>('[data-ask-guide-root]').forEach((root) => paint(root, reveal));
 }
 
+// Where "Surprise me" starts. Different on each visit, so it is not the same town every time.
+const shuffle = Math.floor(Math.random() * 1000);
+
 async function submit(root: HTMLElement, raw: string) {
   const question = raw.trim().slice(0, ASK_MAX_LENGTH);
   if (!question || busy) return;
@@ -146,7 +149,7 @@ async function submit(root: HTMLElement, raw: string) {
   let reply: Reply;
   try {
     const index = await loadAskIndex();
-    const result = converse(index, question, state, { pagePath: location.pathname, persona: document.querySelector<HTMLElement>('[data-ask-guide-root]')?.dataset.askGuidePersona !== 'off' });
+    const result = converse(index, question, state, { pagePath: location.pathname, shuffle, persona: document.querySelector<HTMLElement>('[data-ask-guide-root]')?.dataset.askGuidePersona !== 'off' });
     if (!result) return;
     state = result.state;
     reply = result.reply as Reply;

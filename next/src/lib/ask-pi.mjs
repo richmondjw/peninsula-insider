@@ -590,8 +590,19 @@ export function converse(index, question, state = null, context = {}) {
   if (ARGUE.test(bare)) return finish(argument(index, pi, asked, today));
   if (FIX.test(bare) && pi.fix) return finish(planTurn(index, { ...pi, fix: undefined }, { who: 'any', ...pi.fix, salt: (pi.salt || 0) }, today));
   if (SURPRISE.test(bare)) {
-    const salt = (pi.salt || 0) + 1;
-    return finish(planTurn(index, { ...pi, salt }, { who: pi.plan?.brief?.who || 'any', place: null, len: 'half', salt }, today, 'surprise'));
+    // A new chat starts somewhere different each time (the chat hands in a
+    // random number), and she does not repeat a town until she has been round them all.
+    const start = pi.salt ?? (Number.isInteger(context.shuffle) ? context.shuffle : 0);
+    const been = pi.surprised || [];
+    let turn;
+    let fresh = false;
+    for (let tries = 1; tries <= 12 && !fresh; tries += 1) {
+      const salt = start + tries;
+      turn = planTurn(index, { ...pi, salt }, { who: pi.plan?.brief?.who || 'any', place: null, len: 'half', salt }, today, 'surprise');
+      fresh = !turn.pi.plan || !been.includes(turn.pi.plan.brief.place);
+    }
+    const town = turn.pi.plan?.brief.place;
+    return finish({ ...turn, pi: { ...turn.pi, surprised: town ? [...(fresh ? been : []), town] : been } });
   }
   if (ELSEWHERE.test(bare) && pi.plan?.brief && !pi.plan.brief.argument) {
     const salt = (pi.salt || 0) + 1;
