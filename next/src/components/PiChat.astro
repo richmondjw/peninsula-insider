@@ -32,7 +32,7 @@
  * refusals and her asides are fixed lines written by a person. None of it is
  * generated and none of it is sent anywhere. SHOW_ASK_PERSONA turns it off.
  */
-import { ASK_GUIDE_ON, SHOW_ASK_VOICE, SHOW_ASK_PERSONA, SHOW_ASK_COMPOSE } from '../lib/features';
+import { ASK_GUIDE_ON, SHOW_ASK_VOICE, SHOW_ASK_PERSONA, SHOW_ASK_COMPOSE, SHOW_ASK_TALK } from '../lib/features';
 import { CONCIERGE_API_URL as API_URL } from '../lib/concierge-config';
 
 const starters = SHOW_ASK_PERSONA
@@ -41,7 +41,7 @@ const starters = SHOW_ASK_PERSONA
 ---
 
 {ASK_GUIDE_ON && (
-  <div class="pi-chat" id="pi-chat" data-api={API_URL} data-voice={SHOW_ASK_VOICE ? 'on' : 'off'} data-persona={SHOW_ASK_PERSONA ? 'on' : 'off'} data-compose={SHOW_ASK_PERSONA && SHOW_ASK_VOICE && SHOW_ASK_COMPOSE ? 'on' : 'off'} data-state="closed" data-mode="dock" transition:persist="pi-chat" data-pagefind-ignore>
+  <div class="pi-chat" id="pi-chat" data-api={API_URL} data-voice={SHOW_ASK_VOICE ? 'on' : 'off'} data-persona={SHOW_ASK_PERSONA ? 'on' : 'off'} data-compose={SHOW_ASK_PERSONA && SHOW_ASK_VOICE && SHOW_ASK_COMPOSE ? 'on' : 'off'} data-talk={SHOW_ASK_PERSONA && SHOW_ASK_VOICE && SHOW_ASK_TALK ? 'on' : 'off'} data-state="closed" data-mode="dock" transition:persist="pi-chat" data-pagefind-ignore>
     <button type="button" class="pi-chat__launch" id="pi-chat-launch" aria-controls="pi-chat-panel" aria-expanded="false">
       <img class="pi-chat__launch-face" src="/images/pi/pi-avatar-96.webp" alt="" width="44" height="44" decoding="async" />
       <span class="pi-chat__launch-text">
@@ -107,10 +107,10 @@ const starters = SHOW_ASK_PERSONA
 <script>
   import type { TransitionBeforeSwapEvent } from 'astro:transitions/client';
   import { paragraphs, READER_ERROR, sessionId } from '../lib/ask-client';
-  import { converse, swapStop, pageOffers, composeRequest, applyCompose } from '../lib/ask-pi.mjs';
+  import { converse, swapStop, pageOffers, composeRequest, applyCompose, talkPages, cardsFor } from '../lib/ask-pi.mjs';
   import { loadAskIndex } from '../scripts/ask-guide-ui';
 
-  type Place = { href: string; title: string; why: string; section: string; image: string | null; alt: string; credit?: string | null; facts?: [string, string][]; badge?: string | null };
+  type Place = { href: string; title: string; why: string; section: string; image: string | null; alt: string; credit?: string | null; facts?: [string, string][]; badge?: string | null; note?: string | null };
   type Card = { href: string; title: string; meta: string; summary?: string; facts: [string, string][]; badge: string | null; image?: string | null; credit?: string | null };
   type Plan = { title: string; town: string; trip: string | null; stops: { label: string; card: Card; swappable: boolean; line?: string | null }[] };
   type Turn =
@@ -127,8 +127,13 @@ const starters = SHOW_ASK_PERSONA
   const NOTE_WAIT_MS = 8000;
   // A composed plan is three or four model calls, so it gets a little longer.
   const COMPOSE_WAIT_MS = 14000;
+  // A conversation turn is a write, a check and sometimes a rewrite.
+  const TALK_WAIT_MS = 18000;
+  // Replies she talks through herself. Plans, the three taps, critiques and the
+  // things she cannot check keep their own authored paths.
+  const TALKABLE = new Set(['results', 'named', 'place', 'none', 'help', 'nightlife', 'with']);
   // Replies that are a step in a conversation, not an answer a reader would open as a page.
-  const NOT_A_PAGE = new Set(['interview', 'plan', 'critique', 'with']);
+  const NOT_A_PAGE = new Set(['interview', 'plan', 'critique', 'with', 'talk']);
   const FEEDBACK: [string, string][] = [['wrong-place', 'Wrong sort of place'], ['missed-point', 'Missed the point'], ['out-of-date', 'Out of date'], ['not-funny', 'Not funny']];
 
   const HISTORY = 'pi-chat-history';
@@ -168,6 +173,7 @@ const starters = SHOW_ASK_PERSONA
     const voiceOn = root.dataset.voice === 'on' && !!api;
     const personaOn = root.dataset.persona === 'on';
     const composeOn = voiceOn && root.dataset.compose === 'on';
+    const talkOn = voiceOn && root.dataset.talk === 'on';
     const here = document.getElementById('pi-chat-here') as HTMLElement;
     const hereLabel = document.getElementById('pi-chat-here-label') as HTMLElement;
     const hereChips = document.getElementById('pi-chat-here-chips') as HTMLElement;
@@ -350,6 +356,7 @@ const starters = SHOW_ASK_PERSONA
         if (place.section) body.append(el('span', 'pi-tile__section', place.section));
         body.append(el('span', 'pi-tile__title', place.title));
         if (place.badge) body.append(el('strong', 'pi-tile__badge', place.badge));
+        if (place.note) body.append(el('span', 'pi-tile__note', place.note));
         for (const [label, value] of place.facts ?? []) body.append(el('span', 'pi-tile__fact', `${label}: ${value}`));
         if (place.why) body.append(el('span', 'pi-tile__why', place.why));
         if (place.image) {
@@ -543,20 +550,29 @@ const starters = SHOW_ASK_PERSONA
       store.set(sessionStorage, ENGINE, JSON.stringify(engine));
     }
 
+    /** The pages on screen in her last reply, so a follow-up can be about them. */
+    function shownBefore(): string[] {
+      for (let i = turns.length - 1; i >= 0; i -= 1) {
+        const t = turns[i];
+        if (t.role === 'pi' && t.places.length) return t.places.map((place) => place.href);
+      }
+      return [];
+    }
+
     /** The last few exchanges, so her note and the front desk follow the thread. */
-    function recent() {
+    function recent(count = 3) {
       const out: { q: string; say?: string }[] = [];
       for (let i = 0; i < turns.length - 1; i += 1) {
         const you = turns[i];
         const pi = turns[i + 1];
         if (you.role === 'you' && pi?.role === 'pi' && !pi.error) out.push({ q: you.text, say: pi.text });
       }
-      return out.slice(-3);
+      return out.slice(-count);
     }
 
     /** One call to PI's voice. Any failure is simply "no voice this time". */
-    async function voice<T>(path: 'voice' | 'front-desk' | 'compose', body: unknown, signal: AbortSignal): Promise<T | null> {
-      const timeout = AbortSignal.timeout(path === 'compose' ? 20_000 : 14_000);
+    async function voice<T>(path: 'voice' | 'front-desk' | 'compose' | 'talk', body: unknown, signal: AbortSignal): Promise<T | null> {
+      const timeout = AbortSignal.timeout(path === 'compose' || path === 'talk' ? 20_000 : 14_000);
       try {
         const res = await fetch(`${api}/concierge/pi/${path}`, {
           method: 'POST',
@@ -619,11 +635,39 @@ const starters = SHOW_ASK_PERSONA
         let result = matchGuides(index, q, engine, context);
         if (!result) throw new Error(READER_ERROR);
 
+        // Conversation first. For an ordinary message she replies as herself,
+        // from the thread and the guide pages the site judges relevant: what the
+        // matcher found, what was on screen a moment ago, and pages whose words
+        // overlap what the reader has been saying. Her reply is checked on the
+        // platform; here it is only shown. If none comes back in time, the
+        // matcher's answer stands and the older note and front desk take over.
+        let spoken: { say: string; picks: string[]; next: string[]; why: Record<string, string> } | null = null;
+        const thinPlan = result.reply.kind === 'none' && result.reply.mood;
+        if (talkOn && !result.reply.plan && !thinPlan && TALKABLE.has(result.reply.kind)) {
+          const waited = new AbortController();
+          const timer = window.setTimeout(() => waited.abort(), TALK_WAIT_MS);
+          const said = turns.filter((t) => t.role === 'you').slice(0, -1).map((t) => t.text);
+          const pages = talkPages(index, q, said, result.reply, shownBefore(), context) as string[];
+          const reply = await voice<{ say: string | null; picks: string[]; next: string[]; why?: Record<string, string> }>('talk', { message: q, history: recent(8), pages, onPage: location.pathname }, AbortSignal.any([signal, waited.signal]));
+          window.clearTimeout(timer);
+          if (signal.aborted) { live.remove(); return; }
+          if (typeof reply?.say === 'string' && reply.say.trim()) {
+            spoken = {
+              say: reply.say.trim().slice(0, 1200),
+              // The platform can add pages it found by meaning, so a pick need not be
+              // one that was sent. It must be a published page: cardsFor() drops the rest.
+              picks: (Array.isArray(reply.picks) ? reply.picks : []).filter((href) => typeof href === 'string'),
+              why: reply.why && typeof reply.why === 'object' ? reply.why : {},
+              next: (Array.isArray(reply.next) ? reply.next : []).filter((item) => typeof item === 'string' && item.trim()).map((item) => item.trim().slice(0, 60)).slice(0, 3),
+            };
+          }
+        }
+
         // The matcher did not follow. Ask the front desk what was meant, then
         // run the matcher again on its reading. What it says is PI talking; it
         // never carries a fact about a place.
         let aside: string | null = null;
-        if (voiceOn && !result.reply.mood && (result.reply.kind === 'none' || result.reply.kind === 'help')) {
+        if (!spoken && voiceOn && !result.reply.mood && (result.reply.kind === 'none' || result.reply.kind === 'help')) {
           const desk = await voice<{ say: string | null; rewrite: string | null }>('front-desk', { question: q, history: recent() }, signal);
           if (signal.aborted) { live.remove(); return; }
           if (typeof desk?.rewrite === 'string' && desk.rewrite.trim()) {
@@ -653,15 +697,20 @@ const starters = SHOW_ASK_PERSONA
         const hadPlan = Boolean(engine?.pi?.plan);
         engine = result.state;
         const reply = result.reply;
-        const places = toPlaces(reply.cards);
+        // In conversation the tiles are the places she named, in her order; a
+        // reply that names none shows none.
+        const places = spoken ? toPlaces(cardsFor(index, spoken.picks) as Card[]) : toPlaces(reply.cards);
+        // Her own line on a pick, where one passed the check on the platform.
+        if (spoken) for (const place of places) { const line = spoken.why[place.href]; if (typeof line === 'string' && line.trim()) place.note = line.trim().slice(0, 260); }
         const turn: PiTurn = {
           role: 'pi',
-          text: places.length ? reply.lead : aside || reply.lead,
+          text: spoken ? spoken.say : places.length ? reply.lead : aside || reply.lead,
           places,
-          next: reply.chips,
-          notes: reply.notes,
-          links: reply.links,
-          kind: reply.kind,
+          next: spoken ? (spoken.next.length ? spoken.next : places.length ? reply.chips : []) : reply.chips,
+          // Her own reply already says what it has to; the small print is only the source line.
+          notes: spoken ? (places.length ? reply.notes.slice(-1) : []) : reply.notes,
+          links: spoken ? (places.length ? reply.links : []) : reply.links,
+          kind: spoken ? 'talk' : reply.kind,
           mood: reply.mood,
           aside: reply.aside || null,
           plan: reply.plan,
@@ -673,8 +722,9 @@ const starters = SHOW_ASK_PERSONA
         // up, and then everything arrives in order. A note that comes later
         // than that is dropped rather than rewriting text a reader is already
         // past. Plans, critiques and refusals keep her own authored lines.
-        let voiced = false;
-        if (voiceOn && places.length && ['results', 'named', 'place', 'nightlife', 'with'].includes(reply.kind)) {
+        let voiced = Boolean(spoken);
+        if (spoken && places.length > 1 && personaOn) turn.call = places[0].href;
+        if (!spoken && voiceOn && places.length && ['results', 'named', 'place', 'nightlife', 'with'].includes(reply.kind)) {
           const waited = new AbortController();
           const timer = window.setTimeout(() => waited.abort(), NOTE_WAIT_MS);
           const said = await voice<{ say: string | null }>('voice', { question: q, cards: places.map((place) => place.href), history: recent() }, AbortSignal.any([signal, waited.signal]));
@@ -1052,6 +1102,7 @@ const starters = SHOW_ASK_PERSONA
   .pi-tile__body { display: grid; gap: 3px; min-width: 0; }
   .pi-tile__section { color: var(--soft); font: 400 var(--fs-200)/1.3 var(--font-ui); }
   .pi-tile__title { font: var(--fw-display) var(--fs-400)/1.2 var(--font-display); }
+  .pi-tile__note { color: var(--text); font: italic 500 var(--fs-300)/1.4 var(--font-ui); }
   .pi-tile__fact { color: var(--text); font: 500 var(--fs-200)/1.35 var(--font-ui); }
   .pi-tile__why { color: var(--soft); font: 400 var(--fs-300)/1.4 var(--font-ui); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
   .pi-tile--text .pi-tile__why { -webkit-line-clamp: 3; }

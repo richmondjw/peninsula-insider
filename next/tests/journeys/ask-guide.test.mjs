@@ -18,6 +18,7 @@ const guideOn = flag('SHOW_ASK_GUIDE') && !flag('SHOW_ASK_PI');
 const voiceOn = guideOn && flag('SHOW_ASK_VOICE');
 const personaOn = guideOn && flag('SHOW_ASK_PERSONA');
 const composeOn = personaOn && voiceOn && flag('SHOW_ASK_COMPOSE');
+const talkOn = personaOn && voiceOn && flag('SHOW_ASK_TALK');
 
 const site = await Site.open();
 test.after(() => site.close());
@@ -385,6 +386,58 @@ test('with compose on, her picks and lines arrive with the plan, and a bad reply
     assert.match(kept.prose, /^Just the two of you\. Easy\./, 'her authored line stands');
     const hrefs = await page.$$eval('#pi-chat-log .pi-note[data-pi-live] .pi-note__name', links => links.map(link => link.getAttribute('href')));
     assert.ok(hrefs.every(href => href.includes('sorrento') || href === '/explore/coppins-track/' || href === '/eat/bistro-elba/'), hrefs.join(' '));
+    assert.deepEqual(await reader.errors(), []);
+  } finally {
+    await reader.close();
+  }
+});
+
+test('in conversation she replies as herself, her picks are the tiles, and a follow-up carries the pages on screen', { skip: !talkOn }, async () => {
+  const reader = await site.reader({ concierge: { talk: { say: 'Long week, then. What are you planning?', picks: [], next: ['A long lunch', 'Somewhere to stay'] } } });
+  const page = reader.page;
+  try {
+    await page.setViewport({ width: 390, height: 844, isMobile: true, hasTouch: true });
+    await reader.load('/');
+    await openChat(reader, true);
+
+    // Small talk: her words, no tiles, and suggestions in the reader's voice.
+    const hello = await say(page, 'hi PI, long week');
+    assert.equal(hello.prose, 'Long week, then. What are you planning?');
+    assert.equal(hello.tiles.length, 0);
+    assert.deepEqual(hello.chips, ['A long lunch', 'Somewhere to stay']);
+    let sent = JSON.parse(reader.conciergeCalls().filter(call => call.path === 'talk').pop().body);
+    assert.deepEqual(Object.keys(sent).sort(), ['history', 'message', 'onPage', 'pages']);
+    assert.deepEqual(sent.pages, [], 'a greeting sends no pages');
+
+    // A real question: she makes the call, and the tiles are the places she named, in her order.
+    reader.setConcierge({ talk: { say: 'I’d start with Red Gum BBQ. Tedesca Osteria is the quieter one.', picks: ['/eat/red-gum-bbq/', '/eat/tedesca-osteria/', '/stay/not-a-page/'], next: [], why: { '/eat/red-gum-bbq/': 'Picnic tables, so nobody minds the noise.', '/stay/not-a-page/': 'A line for nothing.' } } });
+    const lunch = await say(page, 'lunch in Red Hill');
+    assert.equal(lunch.prose, 'I’d start with Red Gum BBQ. Tedesca Osteria is the quieter one.');
+    assert.deepEqual(lunch.tiles.map(tile => tile.href), ['/eat/red-gum-bbq/', '/eat/tedesca-osteria/'], 'a pick that is not a published page is ignored');
+    assert.deepEqual(await page.$$eval(`${answers}:last-child .pi-tile__note`, notes => notes.map(note => note.textContent)), ['Picnic tables, so nobody minds the noise.'], 'her line sits on the pick it is about');
+    assert.equal(await page.$eval(`${answers}:last-child .pi-tile`, tile => Boolean(tile.querySelector('.pi-tile__call'))), true);
+    sent = JSON.parse(reader.conciergeCalls().filter(call => call.path === 'talk').pop().body);
+    assert.equal(sent.history.at(-1).q, 'hi PI, long week');
+
+    // A follow-up the matcher cannot read still sends the pages that were on screen.
+    reader.setConcierge({ talk: { say: 'Tedesca Osteria, by a distance.', picks: ['/eat/tedesca-osteria/'], next: [] } });
+    const quieter = await say(page, 'which of those is quieter?');
+    assert.equal(quieter.prose, 'Tedesca Osteria, by a distance.');
+    assert.deepEqual(quieter.tiles.map(tile => tile.href), ['/eat/tedesca-osteria/']);
+    sent = JSON.parse(reader.conciergeCalls().filter(call => call.path === 'talk').pop().body);
+    assert.ok(sent.pages.includes('/eat/red-gum-bbq/') && sent.pages.includes('/eat/tedesca-osteria/'), sent.pages.join(' '));
+
+    // Things she cannot check never go to the model: her authored refusal stands.
+    const before = reader.conciergeCalls().filter(call => call.path === 'talk').length;
+    const open = await say(page, 'Is Tedesca Osteria open today?');
+    assert.match(open.small, /can’t check opening hours/);
+    assert.equal(reader.conciergeCalls().filter(call => call.path === 'talk').length, before);
+
+    // No reply from the platform: the guides answer as before.
+    reader.setConcierge({ talk: { say: null, picks: [], next: [] } });
+    const fallback = await say(page, 'where to stay in Red Hill');
+    assert.match(fallback.prose, /places to stay in Red Hill/);
+    assert.ok(fallback.tiles.some(tile => tile.href === '/stay/lindenderry/'));
     assert.deepEqual(await reader.errors(), []);
   } finally {
     await reader.close();

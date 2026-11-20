@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { tokens } from './ask-guide.mjs';
-import { converse, swapStop, occasion, pageOffers, tripLink, composeRequest, applyCompose } from './ask-pi.mjs';
+import { converse, swapStop, occasion, pageOffers, tripLink, composeRequest, applyCompose, talkPages, cardsFor } from './ask-pi.mjs';
 import * as lines from './pi-lines.mjs';
 
 const today = '2026-11-20';
@@ -279,4 +279,35 @@ test('a pick that was never offered, a repeat, or a malformed reply changes noth
   assert.equal(outside.opening, null);
   assert.equal(new Set(outside.plan.stops.map((stop) => stop.card.href)).size, before.length);
   for (const bad of [null, {}, { picks: null }, { picks: before.slice(0, 2) }, { picks: 'x' }]) assert.equal(applyCompose(index, turn.state, request, bad), null);
+});
+
+test('in conversation she is given what the matcher found, what was on screen, and pages that fit what has been said', () => {
+  const lunch = talk('Where should we have lunch in Red Hill?');
+  const found = lunch.reply.cards.map((item) => item.href);
+  const pages = talkPages(index, 'Where should we have lunch in Red Hill?', [], lunch.reply, [], { today });
+  assert.deepEqual(pages.slice(0, found.length), found, 'the matcher\'s own answer comes first');
+  assert.ok(pages.length <= 24 && new Set(pages).size === pages.length);
+
+  // A follow-up the matcher cannot read still carries the pages that were on screen.
+  const follow = converse(index, 'which of those is quieter?', lunch.state, { today });
+  assert.equal(follow.reply.cards.length, 0);
+  const again = talkPages(index, 'which of those is quieter?', ['Where should we have lunch in Red Hill?'], follow.reply, found, { today });
+  for (const href of found) assert.ok(again.includes(href), href);
+
+  // Loose talk reaches pages by what was said earlier: the town and the company.
+  const loose = talkPages(index, 'she hates crowds', ['we are in Flinders for the two of us'], null, [], { today });
+  assert.ok(loose.includes('/eat/moke-dining/'), 'a Flinders page whose words say "couples"');
+  assert.ok(loose.every((href) => !href.startsWith('/journal/')));
+});
+
+test('a greeting or a grumble brings no pages, so she talks before she recommends', () => {
+  assert.deepEqual(talkPages(index, 'hi PI, long week', [], null, [], { today }), []);
+  assert.deepEqual(talkPages(index, 'who are you anyway?', [], null, [], { today }), []);
+});
+
+test('her picks become tiles with the same page-copied text, and unknown pages are ignored', () => {
+  const tiles = cardsFor(index, ['/eat/moke-dining/', '/not/a-page/', '/eat/moke-dining/', '/wine/polperro/']);
+  assert.deepEqual(tiles.map((item) => item.title), ['Moke Dining', 'Polperro']);
+  for (const item of tiles) for (const text of [item.title, item.summary, ...item.facts.flat()]) assert.ok(!text || allowed.has(text));
+  assert.deepEqual(cardsFor(index, null), []);
 });

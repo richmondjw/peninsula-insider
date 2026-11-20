@@ -408,7 +408,7 @@ export class Site {
       // PI's voice (the platform API). Answered from `concierge` when a test
       // supplies it; otherwise refused like any third party, which is the
       // "voice is unavailable" case the chat must survive.
-      const pi = url.match(/\/concierge\/pi\/(voice|front-desk|compose)$/);
+      const pi = url.match(/\/concierge\/pi\/(voice|front-desk|compose|talk)$/);
       if (pi) {
         const cors = { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': '*', 'Access-Control-Allow-Methods': 'POST,OPTIONS' };
         if (req.method() === 'OPTIONS') { req.respond({ status: 204, headers: cors }).catch(() => {}); return; }
