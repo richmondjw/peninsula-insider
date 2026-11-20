@@ -13,7 +13,7 @@ fee: Free to launch.
 parkingCapacity: Cars and trailers; fills quickly on summer weekends and during whiting season. Overflow expansion planned. [VERIFY current status]
 parkingPressure: medium
 tideDependence: mid-to-high
-tideStation: Stony Point
+tideStation: Western Port (Stony Point)
 maxVesselLength: Two-lane ramp with tidal constraint. Standard trailer boats up to approximately 5m at the upper half of the tidal cycle; vessels over 5m should confirm the launch window with the Shire before driving.
 nearbyRampAlternatives:
   - hastings-boat-ramp
