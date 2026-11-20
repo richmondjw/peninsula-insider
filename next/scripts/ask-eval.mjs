@@ -42,6 +42,7 @@ const TALKABLE = new Set(['results', 'named', 'place', 'none', 'help', 'nightlif
 
 // Her house rules, the same list the platform gives her (apps/api/src/lib/pi-talk.ts, CHARACTER).
 const VOICE = [
+  ['flat opener', /^(?:sounds? (?:like|good)|got it|alright|all right|okay|ok|sure(?: thing)?|great|nice choice|understood)\b/i],
   ['banned word', /\b(?:stunning|amazing|incredible|breathtaking|idyllic|picturesque|nestled|must-visit|hidden gem|perfect for|something for everyone|unforgettable|vibes?|awesome|folks)\b/i],
   ['help-desk line', /\b(?:great question|happy to help|certainly!|i hope this helps|enjoy your trip)\b/i],
   ['says what she is', /\b(?:as an ai|i am an ai|i'm an ai|language model|chatbot)\b/i],
