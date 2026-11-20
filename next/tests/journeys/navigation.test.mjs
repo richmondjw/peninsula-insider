@@ -198,7 +198,7 @@ test('walking the journeys raises no uncaught error', async () => {
 });
 
 for (const width of [320, 390, 1280, 1440]) {
-  test(`paused Ask PI menu is reachable without a chat at ${width}px`, { skip: askPiActive }, async () => {
+  test(`paused Ask PI menu is reachable without a chat at ${width}px`, { skip: askPiActive }, async (t) => {
     const reader = await site.reader();
     const page = reader.page;
     const askCalls = [];
@@ -246,8 +246,54 @@ for (const width of [320, 390, 1280, 1440]) {
       assert.equal(await page.$('dialog[open], #pi-chat'), null);
       if (width < 768) {
         await reader.navigate('/');
-        await page.tap('.ask-link');
-        await page.waitForFunction(() => location.pathname === '/ask/' && document.querySelector('#ask-safe-q'));
+        await page.evaluate(() => {
+          const events = [];
+          const state = () => {
+            const link = document.querySelector('.ask-link');
+            const rect = link?.getBoundingClientRect();
+            const x = rect ? rect.left + rect.width / 2 : -1;
+            const y = rect ? rect.top + rect.height / 2 : -1;
+            const hit = document.elementFromPoint(x, y);
+            return {
+              path: location.pathname, x, y, scrollY: window.scrollY,
+              transition: document.documentElement.getAttribute('data-astro-transition'),
+              hit: hit?.className?.baseVal ?? hit?.className ?? hit?.tagName ?? null,
+              actionable: !!link && getComputedStyle(link).visibility === 'visible' && link.contains(hit),
+              drawerOpen: document.querySelector('#mobile-drawer')?.open,
+              bodyPosition: document.body.style.position,
+              htmlOverflow: document.documentElement.style.overflow,
+            };
+          };
+          for (const type of ['pointerdown', 'pointerup', 'click']) {
+            document.addEventListener(type, event => {
+              if (events.length >= 12) return;
+              events.push({ type, trusted: event.isTrusted, pointer: event.pointerType,
+                tag: event.target?.nodeName, onAsk: !!event.target?.closest?.('.ask-link') });
+            }, { capture: true });
+          }
+          window.__askMenuTap = { state, events };
+        });
+        const initial = await page.evaluate(() => window.__askMenuTap.state());
+        // Astro emits page-load before the document transition finishes. A painted
+        // transition snapshot is not a hit-testable link. Tap as soon as the real
+        // control owns its center point, not after an arbitrary delay.
+        let ready;
+        try {
+          const actionableCenter = await page.waitForFunction(() => {
+            const s = window.__askMenuTap.state();
+            return s.path === '/' && s.actionable && !s.drawerOpen && !s.bodyPosition && !s.htmlOverflow ? s : false;
+          }, { timeout: 5000, polling: 'raf' });
+          ready = await actionableCenter.jsonValue();
+          await actionableCenter.dispose();
+          await page.touchscreen.tap(ready.x, ready.y);
+          await page.waitForFunction(() => location.pathname === '/ask/' && document.querySelector('#ask-safe-q'), { timeout: 8000 });
+          const events = await page.evaluate(() => window.__askMenuTap?.events);
+          assert.ok(events?.some(e => e.type === 'pointerdown' && e.pointer === 'touch' && e.trusted && e.onAsk), 'the browser delivered touch to the real Ask PI link');
+          assert.ok(events?.some(e => e.type === 'click' && e.trusted && e.onAsk), 'the real touch activated the Ask PI link');
+        } finally {
+          const final = await page.evaluate(() => ({ ...window.__askMenuTap?.state(), events: window.__askMenuTap?.events }));
+          t.diagnostic(JSON.stringify({ width, initial, ready, final }));
+        }
         await assertPausedAskMenu(page);
       }
       assert.deepEqual(askCalls, []);
