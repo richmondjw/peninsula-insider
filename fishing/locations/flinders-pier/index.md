@@ -45,7 +45,7 @@ Wheelchair-accessible parking. Some outer sections periodically closed for safet
 
 [squid](<https://peninsulainsider.com.au/fishing/species/squid/>) , [king george whiting](<https://peninsulainsider.com.au/fishing/species/king-george-whiting/>) , [snapper](<https://peninsulainsider.com.au/fishing/species/snapper/>) , [australian salmon](<https://peninsulainsider.com.au/fishing/species/australian-salmon/>)
 
-**Tide note.** Western Port tidal range here is approximately 2.5 to 2.8m, significantly larger than Port Phillip Bay. Fish when the tide is running. The two hours after the turn in either direction are most productive. Slack water at high and low tide produces a noticeable drop in activity. Use [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<http://www.bom.gov.au/australia/tides/>) for the Stony Point reference station.
+**Tide note.** Western Port tidal range here is approximately 2.5 to 2.8m, significantly larger than Port Phillip Bay. Fish when the tide is running. The two hours after the turn in either direction are most productive. Slack water at high and low tide produces a noticeable drop in activity. Use [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<https://www.bom.gov.au/australia/tides/>) for the Stony Point reference station.
 
 ## What this location is
 

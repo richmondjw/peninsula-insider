@@ -21,7 +21,7 @@ The ramps in this guide are free to launch. The tide decides more than the drive
 
 ### Port Phillip Bay
 
-Calmer water and a small tidal range. Tide station: **Portsea**. [Tide predictions on the Bureau of Meteorology site; choose Portsea for Port Phillip Bay](<http://www.bom.gov.au/australia/tides/>)
+Calmer water and a small tidal range. Use the station shown for your ramp. Tide station: **Portsea or Port Melbourne**. [Tide predictions on the Bureau of Meteorology site; choose Portsea or Port Melbourne for Port Phillip Bay](<https://www.bom.gov.au/australia/tides/>)
 
 - #### [Sorrento](<https://peninsulainsider.com.au/boating/ramps/sorrento-boat-ramp/>)
 
@@ -29,7 +29,7 @@ Breakwater shelter and the shortest run to the southern snapper grounds and the 
 
 **Launch at**
 
-Any tide
+Any tide  Station: Portsea
 
 **Lanes**
 
@@ -45,7 +45,7 @@ The biggest car park on the bay side, with about 127 trailer spaces and fish‑c
 
 **Launch at**
 
-Mid to high tide  1 to 2 hours either side of high water
+Mid to high tide  1 to 2 hours either side of high water   Station: Portsea
 
 **Lanes**
 
@@ -61,7 +61,7 @@ Plenty of trailer parking and a picnic ground alongside. Not one for a low-tide 
 
 **Launch at**
 
-High tide only  About 2 hours either side of high water
+High tide only  About 2 hours either side of high water   Station: Port Melbourne
 
 **Lanes**
 
@@ -77,7 +77,7 @@ Central bay shore. The car park is shared with the pier and the yacht club, so i
 
 **Launch at**
 
-Any tide
+Any tide  Station: Port Melbourne
 
 **Lanes**
 
@@ -89,7 +89,7 @@ High
 
 ### Western Port
 
-Strongly tidal. Time your launch and your return. Tide station: **Stony Point**. [Tide predictions on the Bureau of Meteorology site; choose Stony Point for Western Port](<http://www.bom.gov.au/australia/tides/>)
+Strongly tidal. Time your launch and your return. Tide station: **Stony Point**. [Tide predictions on the Bureau of Meteorology site; choose Stony Point for Western Port](<https://www.bom.gov.au/australia/tides/>)
 
 - #### [Hastings](<https://peninsulainsider.com.au/boating/ramps/hastings-boat-ramp/>)
 
@@ -97,7 +97,7 @@ Upgraded in 2024, with an all-abilities hoist on the new southern pontoon. The b
 
 **Launch at**
 
-Any tide
+Any tide  Station: Stony Point
 
 **Lanes**
 
@@ -113,7 +113,7 @@ Smaller and quieter, with a central pontoon, for the whiting and flathead ground
 
 **Launch at**
 
-Mid to high tide  2 hours either side of high water for boats over 4.5 m
+Mid to high tide  2 hours either side of high water for boats over 4.5 m   Station: Stony Point
 
 **Lanes**
 
@@ -133,9 +133,9 @@ Sorrento Long Pier, Mornington Peninsula   Photo · Robert Blackburn, courtesy o
 
 ### Self-drive hire
 
-[Mornington Boat Hire](<https://peninsulainsider.com.au/boating/hire/mornington-boat-hire/>) runs tinnies and polycraft for the protected bay from Schnapper Point Drive, Mornington. No marine licence needed.
+[Mornington Boat Hire](<https://peninsulainsider.com.au/boating/hire/mornington-boat-hire/>) runs tinnies and polycraft for the protected bay from Schnapper Point Drive, Mornington. The operator advertises this fleet as no-licence hire.
 
-The boats stay in the mid-bay, roughly Mount Martha to Dromana, and never go near the Rip. Expect a same-day cancellation if a strong southerly is forecast. Open year-round when the weather allows; book ahead in the summer holidays and on long weekends.
+The operator limits the boats to its surveyed area within 2 nautical miles of Mornington Pier. They must not approach the Rip. Expect a cancellation if the operator judges the weather unsafe. Open year-round when the weather allows; book ahead in the summer holidays and on long weekends.
 
 ### Fish from a pier
 
@@ -167,17 +167,19 @@ Two trailer boats from several Peninsula ramps. Suits groups of 11 to 18.
 
 - ### Read the forecast twice
 
-Check the [Bureau of Meteorology forecast for the Peninsula](<http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml>), wind included, the night before and again on the morning you go.
+Check the [Bureau of Meteorology forecast for the Peninsula](<https://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml>), wind included, the night before and again on the morning you go.
 
 - ### Use the right tide station
 
-Portsea for the Peninsula's bay ramps, Stony Point for Western Port. Heading up the bay towards Melbourne, switch to Port Melbourne. [Willyweather](<https://tides.willyweather.com.au/>) and the [Bureau](<http://www.bom.gov.au/australia/tides/>) both publish them.
+Use Portsea for Sorrento and Rye, Port Melbourne for Safety Beach and Mornington, and Stony Point for Western Port. [Willyweather](<https://tides.willyweather.com.au/>) and the [Bureau](<https://www.bom.gov.au/australia/tides/>) both publish them.
 
 - ### Know your second ramp
 
 Pick an alternative before you leave home, in case the first is full or the tide turns against you.
 
  [Tides and safety in full](<https://peninsulainsider.com.au/boating/tides-safety/>)
+
+Conditions and access can change. [Report changed ramp or safety information](<https://peninsulainsider.com.au/contact/?subject=Boating%20correction>).
 
 How far the water moves   Typical rise and fall between low and high tide
 

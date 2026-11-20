@@ -11,7 +11,7 @@ Boating · Ramps
 
 Every metadata-only ramp directory tells you the lane count and the postcode. This one tells you whether you can launch at low tide and whether you'll get a park on Saturday morning.
 
-Tide guidance is editorial framing. Always check live conditions at [Willyweather](<https://tides.willyweather.com.au/>) or [the Bureau of Meteorology](<http://www.bom.gov.au/australia/tides/>) for the relevant reference station before driving with a boat on the trailer.
+Tide guidance is editorial framing. Always check live conditions at [Willyweather](<https://tides.willyweather.com.au/>) or [the Bureau of Meteorology](<https://www.bom.gov.au/australia/tides/>) for the relevant reference station before driving with a boat on the trailer.
 
 Port Phillip Bay
 
@@ -21,7 +21,7 @@ Port Phillip Bay
 
 2 lanes · All-tide · Free to launch.
 
-Public ramp at Mornington serving the central Peninsula bay shore. All-tide for standard trailer boats, free to launch, but parking is constrained and the precinct shares space with the pier and yacht club. Note the adjacent Schnapper Point Boat Ramp is closed for upgrade April to September 2026.
+Public two-lane ramp at Schnapper Point serving the central Peninsula bay shore. The 2026 upgrade is complete and the ramp is open. It is free to launch, with constrained parking shared by the pier and yacht club precinct.
 
 [Ramp guide →](<https://peninsulainsider.com.au/boating/ramps/mornington-park-boat-ramp/>)
 

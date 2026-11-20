@@ -45,7 +45,7 @@ Sandy beach with surf. Not accessible for mobility-limited anglers.
 
 [australian salmon](<https://peninsulainsider.com.au/fishing/species/australian-salmon/>) , [snapper](<https://peninsulainsider.com.au/fishing/species/snapper/>) , [gummy shark](<https://peninsulainsider.com.au/fishing/species/gummy-shark/>)
 
-**Tide note.** Low to mid-rising tide for daytime salmon. Gutter structure most visible and fishable at low tide. Night sessions for gummy shark on any tidal state with a running phase. Use [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<http://www.bom.gov.au/australia/tides/>) for the Stony Point (Bass Strait fringe; Stony Point is the closest reference, expect lag) reference station.
+**Tide note.** Low to mid-rising tide for daytime salmon. Gutter structure most visible and fishable at low tide. Night sessions for gummy shark on any tidal state with a running phase. Use [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<https://www.bom.gov.au/australia/tides/>) for the Stony Point (Bass Strait fringe; Stony Point is the closest reference, expect lag) reference station.
 
 **Safety note.** Active surf beach with rip hazards. Fish from above the high-water mark during active swell. Surf Life Saving Victoria publishes rip identification guidance worth reading before any session.
 

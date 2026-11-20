@@ -45,7 +45,7 @@ Pedestrian paths maintained at the foreshore. Planned all-abilities improvements
 
 [bream](<https://peninsulainsider.com.au/fishing/species/bream/>) , [flathead](<https://peninsulainsider.com.au/fishing/species/flathead/>) , [mulloway](<https://peninsulainsider.com.au/fishing/species/mulloway/>)
 
-**Tide note.** Flood tide is the productive window. Fish from 2 hours before high water to high water; the bite drops sharply on the ebb. Tooradin Inlet is shallow at low tide and the inlet channel narrows substantially. Use [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<http://www.bom.gov.au/australia/tides/>) for the Stony Point reference station.
+**Tide note.** Flood tide is the productive window. Fish from 2 hours before high water to high water; the bite drops sharply on the ebb. Tooradin Inlet is shallow at low tide and the inlet channel narrows substantially. Use [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<https://www.bom.gov.au/australia/tides/>) for the Stony Point reference station.
 
 **Safety note.** Shallow tidal estuary. Vessels with deeper draft cannot navigate at low tide; check the tide before launching. The adjacent Tooradin Boat Ramp is tide-cautious comparable to Warneet.
 

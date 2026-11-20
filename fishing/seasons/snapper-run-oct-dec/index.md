@@ -47,7 +47,7 @@ Reduced intensity compared with October. The fish that remain tend to be more ge
 
 The two bays fish differently during the snapper season. Port Phillip Bay is about structure, burley, and tide. Productive grounds are over reef edges, rocky patches, and sandy bottom in 8 to 20m, roughly from Mornington south to the Heads. Anchor up-current of a mark, deploy a burley trail, fish baited hooks into the trail on paternoster or running sinker rigs.
 
-Western Port is about timing the tide. The 2.5 to 2.8m tidal range produces strong channel currents that determine whether a session is productive or unfishable. Use the [BOM Stony Point predictions](<http://www.bom.gov.au/australia/tides/>) and plan to be on the water during the running phases.
+Western Port is about timing the tide. The 2.5 to 2.8m tidal range produces strong channel currents that determine whether a session is productive or unfishable. Use the [BOM Stony Point predictions](<https://www.bom.gov.au/australia/tides/>) and plan to be on the water during the running phases.
 
 ## Charters that target the snapper run
 

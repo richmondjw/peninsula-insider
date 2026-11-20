@@ -43,7 +43,7 @@ No public access during the Parks Victoria maintenance closure.
 
 [squid](<https://peninsulainsider.com.au/fishing/species/squid/>) , [snapper](<https://peninsulainsider.com.au/fishing/species/snapper/>) , [yellowtail kingfish](<https://peninsulainsider.com.au/fishing/species/yellowtail-kingfish/>) , [australian salmon](<https://peninsulainsider.com.au/fishing/species/australian-salmon/>)
 
-**Tide note.** The Portsea tidal reference is useful for southern Port Phillip Bay, but it does not change the current no-access closure. Use [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<http://www.bom.gov.au/australia/tides/>) for the Portsea reference station.
+**Tide note.** The Portsea tidal reference is useful for southern Port Phillip Bay, but it does not change the current no-access closure. Use [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<https://www.bom.gov.au/australia/tides/>) for the Portsea reference station.
 
 **Safety note.** Do not enter the closed pier or works area. Check Parks Victoria for the reopening notice and current access conditions.
 

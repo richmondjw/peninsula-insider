@@ -45,7 +45,7 @@ Flat foreshore approach to jetty. Some sections may have age-related surface var
 
 [snapper](<https://peninsulainsider.com.au/fishing/species/snapper/>) , [king george whiting](<https://peninsulainsider.com.au/fishing/species/king-george-whiting/>) , [squid](<https://peninsulainsider.com.au/fishing/species/squid/>)
 
-**Tide note.** San Remo is at the entrance of Western Port; tidal current here is among the strongest at any Peninsula land-based location. Running tide is essential. Use heavy sinkers (60 to 100g) at peak run. Slack water produces noticeably less. Use [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<http://www.bom.gov.au/australia/tides/>) for the Stony Point reference station.
+**Tide note.** San Remo is at the entrance of Western Port; tidal current here is among the strongest at any Peninsula land-based location. Running tide is essential. Use heavy sinkers (60 to 100g) at peak run. Slack water produces noticeably less. Use [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<https://www.bom.gov.au/australia/tides/>) for the Stony Point reference station.
 
 **Safety note.** Strong tidal current at peak run. Do not wade or enter the water at any tidal state. Working channel with commercial vessel and ferry traffic; stay clear of the channel.
 

@@ -45,7 +45,7 @@ Sandy beach with active surf. Not accessible for mobility-limited anglers. Beach
 
 [australian salmon](<https://peninsulainsider.com.au/fishing/species/australian-salmon/>) , [mulloway](<https://peninsulainsider.com.au/fishing/species/mulloway/>) , [gummy shark](<https://peninsulainsider.com.au/fishing/species/gummy-shark/>)
 
-**Tide note.** Low to mid-rising tide for daytime salmon. Night sessions for mulloway on any tide with a running phase. Avoid the falling tide; gutter structure dries out and rip currents intensify. Use [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<http://www.bom.gov.au/australia/tides/>) for the Stony Point (Bass Strait fringe; expect lag) reference station.
+**Tide note.** Low to mid-rising tide for daytime salmon. Night sessions for mulloway on any tide with a running phase. Avoid the falling tide; gutter structure dries out and rip currents intensify. Use [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<https://www.bom.gov.au/australia/tides/>) for the Stony Point (Bass Strait fringe; expect lag) reference station.
 
 **Safety note.** High-energy surf beach with dangerous rips. Beach patrol only October to April; outside patrol hours, individual risk assessment. Do not wade into the surf zone for any reason. Fish from above the high-water mark during active swell.
 

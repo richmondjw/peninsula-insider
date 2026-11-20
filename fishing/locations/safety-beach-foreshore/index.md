@@ -45,7 +45,7 @@ Flat beach and foreshore. All-abilities access path. Toilets, picnic areas, play
 
 [garfish](<https://peninsulainsider.com.au/fishing/species/garfish/>) , [king george whiting](<https://peninsulainsider.com.au/fishing/species/king-george-whiting/>) , [squid](<https://peninsulainsider.com.au/fishing/species/squid/>) , [flathead](<https://peninsulainsider.com.au/fishing/species/flathead/>)
 
-**Tide note.** Rising tide; the two hours before high water is the optimal garfish and whiting window. The shallow-bay margin means low tide leaves much of the productive ground exposed. Use [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<http://www.bom.gov.au/australia/tides/>) for the Portsea (or Port Melbourne for northern bay) reference station.
+**Tide note.** Rising tide; the two hours before high water is the optimal garfish and whiting window. The shallow-bay margin means low tide leaves much of the productive ground exposed. Use [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<https://www.bom.gov.au/australia/tides/>) for the Portsea (or Port Melbourne for northern bay) reference station.
 
 ## What this location is
 

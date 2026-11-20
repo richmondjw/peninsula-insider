@@ -45,7 +45,7 @@ Concrete surface, accessible parking nearby. No full wheelchair railing on the o
 
 [snapper](<https://peninsulainsider.com.au/fishing/species/snapper/>) , [king george whiting](<https://peninsulainsider.com.au/fishing/species/king-george-whiting/>) , [squid](<https://peninsulainsider.com.au/fishing/species/squid/>)
 
-**Tide note.** The pier fishes best on the rising tide. The two to three hours before high water through to one hour after is the productive window. At high-water slack the bite often dies; the drop produces well for squid but is slower for snapper and whiting. Use [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<http://www.bom.gov.au/australia/tides/>) for the Port Melbourne (or Portsea, adjusted earlier by 30 minutes) reference station.
+**Tide note.** The pier fishes best on the rising tide. The two to three hours before high water through to one hour after is the productive window. At high-water slack the bite often dies; the drop produces well for squid but is slower for snapper and whiting. Use [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<https://www.bom.gov.au/australia/tides/>) for the Port Melbourne (or Portsea, adjusted earlier by 30 minutes) reference station.
 
 **Safety note.** The outer platform reaches 6 to 8m depth and has no safety railings. Children must be supervised at the outer end. The concrete surface can be slippery when wet or with bait residue; closed-toe non-slip footwear is not optional.
 

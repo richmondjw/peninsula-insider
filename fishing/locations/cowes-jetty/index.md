@@ -45,7 +45,7 @@ Flat foreshore approach. Jetty surface is accessible. Some sections lack continu
 
 [snapper](<https://peninsulainsider.com.au/fishing/species/snapper/>) , [king george whiting](<https://peninsulainsider.com.au/fishing/species/king-george-whiting/>) , [squid](<https://peninsulainsider.com.au/fishing/species/squid/>) , [flathead](<https://peninsulainsider.com.au/fishing/species/flathead/>)
 
-**Tide note.** Running tide is the productive window; rising preferred for snapper. Western Port's 2.5 to 2.8m tidal range produces strong current at peak run; size your sinker accordingly. Use [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<http://www.bom.gov.au/australia/tides/>) for the Stony Point reference station.
+**Tide note.** Running tide is the productive window; rising preferred for snapper. Western Port's 2.5 to 2.8m tidal range produces strong current at peak run; size your sinker accordingly. Use [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<https://www.bom.gov.au/australia/tides/>) for the Stony Point reference station.
 
 ## What this location is
 

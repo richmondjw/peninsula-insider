@@ -45,7 +45,7 @@ All-abilities access ramp from road level. Beach wheelchairs available via Parks
 
 [squid](<https://peninsulainsider.com.au/fishing/species/squid/>) , [king george whiting](<https://peninsulainsider.com.au/fishing/species/king-george-whiting/>) , [snapper](<https://peninsulainsider.com.au/fishing/species/snapper/>) , [garfish](<https://peninsulainsider.com.au/fishing/species/garfish/>)
 
-**Tide note.** The pier fishes best on the rising tide. The two hours before high water are the prime whiting window. Squid are less tide-dependent and respond more strongly to light levels; dawn and dusk are reliable regardless of tidal state. Use [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<http://www.bom.gov.au/australia/tides/>) for the Portsea (or Port Melbourne) reference station.
+**Tide note.** The pier fishes best on the rising tide. The two hours before high water are the prime whiting window. Squid are less tide-dependent and respond more strongly to light levels; dawn and dusk are reliable regardless of tidal state. Use [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<https://www.bom.gov.au/australia/tides/>) for the Portsea (or Port Melbourne) reference station.
 
 ## What this location is
 

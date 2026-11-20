@@ -27,7 +27,7 @@ Port Phillip Bay has a modest tidal range, typically 0.6 to 1.0m at Port Melbour
 
 - **Stony Point** for all Western Port locations: Hastings, Warneet, Tooradin, Cowes, San Remo, and Flinders Pier.
 
-Look up tides at [Willyweather](<https://tides.willyweather.com.au/>) or [the Bureau of Meteorology](<http://www.bom.gov.au/australia/tides/>). The night before and morning of every trip.
+Look up tides at [Willyweather](<https://tides.willyweather.com.au/>) or [the Bureau of Meteorology](<https://www.bom.gov.au/australia/tides/>). The night before and morning of every trip.
 
 ## The Rip at Port Phillip Heads
 
@@ -35,7 +35,11 @@ The Rip, the tidal passage between Point Nepean and Queenscliff, is one of Austr
 
 ## Marine forecasts
 
-The [Bureau of Meteorology Marine Forecasts for Victoria](<http://www.bom.gov.au/australia/tides/>) provide wind speed, wave height, and swell direction for Victorian coastal waters. Read the forecast the night before and again on the morning of your trip. Conditions on Port Phillip Bay can change quickly. Afternoon sea breezes from the north-west are typical in summer; southerly change fronts arriving with little warning are typical in spring. Check [Maritime Safety Victoria](<https://www.maritimesafety.vic.gov.au/>) for current safety notices and licensing requirements.
+Read the Bureau of Meteorology local waters forecast for [Port Phillip](<https://www.bom.gov.au/vic/forecasts/portphillip.shtml>) or [Western Port](<https://www.bom.gov.au/vic/forecasts/westernport.shtml>). It covers wind, weather and seas. Check it the night before and again on the morning of your trip because conditions can change quickly. Check [Safe Transport Victoria](<https://safetransport.vic.gov.au/on-the-water/>) for current safety notices and licensing requirements.
+
+## Lifejackets and licensing
+
+Carry a correctly fitted lifejacket for every person. Children under 12 must wear one whenever the vessel is underway, and additional wearing rules apply during heightened-risk situations and in designated hazardous waters. Check the current [lifejacket rules](<https://safetransport.vic.gov.au/on-the-water/recreational-boating/wear-a-lifejacket/>) before departure. For hire-and-drive boats, a marine licence is required when the vessel is capable of more than 10 knots; the owner must brief hirers on the vessel's operating requirements. See [Safe Transport Victoria's licensing guidance](<https://safetransport.vic.gov.au/on-the-water/marine-licence-and-vessel-registration/licensing-and-registration/>).
 
 ## Return-to-ramp planning
 
@@ -83,7 +87,7 @@ Tide forecast for the relevant reference station. Marine wind and swell forecast
 
 ### What safety equipment must I carry?
 
-Refer to Maritime Safety Victoria for the current minimum-equipment list by vessel size and operating area; equipment requirements differ for sheltered, semi-sheltered, and open coastal waters. PFDs (Personal Flotation Devices) are required for every person on board. Marine licensing requires the operator to know the equipment requirements; this is one of the practical reasons the licence exists.
+Requirements depend on vessel size and operating area. Carry a correctly fitted lifejacket for every person and check Safe Transport Victoria before departure for the current carriage and wearing rules. Children under 12 must wear a lifejacket whenever a vessel is underway.
 
 ## Related
 

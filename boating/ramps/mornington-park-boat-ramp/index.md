@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/boating/ramps/mornington-park-boat-ramp/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-04-30
+Modified: 2026-11-20
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -9,7 +9,7 @@ Boating · Ramps · Port Phillip Bay
 
 # Mornington Park Boat Ramp
 
-Last fact-verified Thu, 30 Apr 2026 · Managing authority: Mornington Peninsula Shire
+Last fact-verified Fri, 20 Nov 2026 · Managing authority: Mornington Peninsula Shire
 
 ## Key facts
 
@@ -19,7 +19,7 @@ Surface | concrete |
 
 Tide dependence | **All-tide** |
 
-Tide reference station | Portsea |
+Tide reference station | Port Melbourne |
 
 Fee | Free to launch. |
 
@@ -31,13 +31,13 @@ Address | Schnapper Point Drive, Mornington VIC 3931 |
 
 ## What this ramp is
 
-Mornington Park Boat Ramp serves the Mornington precinct on Port Phillip Bay’s central Peninsula shore. Managed by [Mornington Peninsula Shire](<https://www.mornpen.vic.gov.au/Activities/Sport-Recreation/Boating/Boat-ramps>), free to launch. The precinct sits at Schnapper Point Drive, adjacent to the Mornington Pier, the Mornington Yacht Club, and (during the upgrade) the closed Schnapper Point Boat Ramp.
+Mornington Park Boat Ramp serves the Mornington precinct on Port Phillip Bay’s central Peninsula shore. It is managed by [Mornington Peninsula Shire](<https://www.mornpen.vic.gov.au/Things-to-do/Sport-and-activities/Boating/Boat-ramps>) and is free to launch. The precinct sits at Schnapper Point Drive beside Mornington Pier and Mornington Yacht Club.
 
-**The 2026 upgrade.** The two-lane Schnapper Point Boat Ramp adjacent to the pier is [closed for major upgrade between April and September 2026](<https://www.mornpen.vic.gov.au/About-Us/Major-Projects/Current-Projects/Mornington-Schnapper-Point-Boat-Ramp-and-Jetty-Upgrade>), funded through Better Boating Victoria. On completion (estimated post-September 2026) the facility will include DDA-compliant jetties and a Hansa hoist for all-abilities launching. Confirm exact ramp access arrangements with the Shire during this period before driving with a trailer.
+**The 2026 upgrade is complete.** The Shire records the Schnapper Point boat-ramp and jetty project as completed on 5 October 2026 and the ramp as open. Maintenance can still affect access, so check the [current Shire boat-ramp notice](<https://www.mornpen.vic.gov.au/Things-to-do/Sport-and-activities/Boating/Boat-ramps>) before driving with a trailer.
 
 ## Tide dependence
 
-All-tide for standard recreational trailer boats with care required on the lowest tides. The Portsea reference station is the relevant tidal source; check [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<http://www.bom.gov.au/australia/tides/>) before launching with a deep-keeled vessel or anything over 6m.
+All-tide for standard recreational trailer boats with care required on the lowest tides. Use the Port Melbourne reference station and check [BOM tidal predictions](<https://www.bom.gov.au/australia/tides/>) before launching with a deep-keeled vessel or anything over 6m.
 
 ## Parking and pressure
 
@@ -67,7 +67,7 @@ Free to launch from. Mornington Peninsula Shire-managed ramps are free as of 30 
 
 **Prevailing wind.** The ramp faces northeast into the bay. A southwest-to-southerly wind generating swell across the bay makes the return approach more challenging. A westerly does not create the same issue.
 
-**Upgrade zone.** During the April to September 2026 Schnapper Point upgrade, the working zone adjacent to the precinct creates an additional navigation consideration. Confirm exact ramp access arrangements with the Shire before your trip.
+**Current access.** The upgrade is complete and the ramp is open. Check the Shire notice before departure for temporary maintenance or access changes.
 
 **Return-to-ramp alternative.** [Safety Beach](<https://peninsulainsider.com.au/boating/ramps/safety-beach-boat-ramp/>) 7km south is the closest alternative but is tide-dependent. [Rye](<https://peninsulainsider.com.au/boating/ramps/rye-boat-ramp/>) 25km south is the high-capacity bay-side alternative. [Hastings](<https://peninsulainsider.com.au/boating/ramps/hastings-boat-ramp/>) via Frankston-Flinders Road is the all-tide Western Port alternative if the bay is unworkable.
 
@@ -79,13 +79,13 @@ Free to launch from. Mornington Peninsula Shire-managed ramps are free as of 30 
 
 ## Frequently asked questions
 
-### Is the Mornington ramp open during the 2026 upgrade?
+### Is the Mornington ramp open after the 2026 upgrade?
 
-The Schnapper Point Boat Ramp itself (the two-lane facility adjacent to the pier and yacht club) is closed April to September 2026 for a major upgrade including DDA-compliant jetties and a Hansa hoist. The Mornington Park ramp serves the precinct during this period. Confirm current arrangements with Mornington Peninsula Shire before driving with a trailer.
+Yes. Mornington Peninsula Shire records the Schnapper Point upgrade as complete and the ramp reopened. Check the Shire boat-ramp notice before travelling because maintenance can still affect access.
 
 ### Can I launch at any tide?
 
-Yes for standard trailer boats. The Mornington precinct ramp is described in primary sources as all-tide with care required on the lowest tides. Deep-keeled or larger vessels should still check the Portsea station forecast on Willyweather before launching.
+Yes for standard trailer boats, with care required on the lowest tides. Deep-keeled or larger vessels should check the Port Melbourne reference station before launching.
 
 ### How busy does the parking get?
 

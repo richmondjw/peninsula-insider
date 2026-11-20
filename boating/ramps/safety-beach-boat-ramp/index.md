@@ -29,7 +29,7 @@ Max vessel length | Approximately 6m at high water. Vessels over 6m should confi
 
 Address | Shand Street and Marine Drive, Safety Beach VIC 3936 |
 
-**Tide-dependent ramp.** Check the tide before driving here with a boat on the trailer. Use [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<http://www.bom.gov.au/australia/tides/>) for the Portsea (southern bay) and Port Melbourne (northern bay) reference station. At low water, depth at the ramp drops to roughly 0.3 metres, insufficient for any practical recreational vessel. The usable launch window is approximately two hours either side of high water at the Portsea reference station.
+**Tide-dependent ramp.** Check the tide before driving here with a boat on the trailer. Use [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<https://www.bom.gov.au/australia/tides/>) for the Portsea (southern bay) and Port Melbourne (northern bay) reference station. At low water, depth at the ramp drops to roughly 0.3 metres, insufficient for any practical recreational vessel. The usable launch window is approximately two hours either side of high water at the Portsea reference station.
 
 ## What this ramp is
 
