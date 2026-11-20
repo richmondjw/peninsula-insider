@@ -408,13 +408,26 @@ export class Site {
       // PI's voice (the platform API). Answered from `concierge` when a test
       // supplies it; otherwise refused like any third party, which is the
       // "voice is unavailable" case the chat must survive.
-      const pi = url.match(/\/concierge\/pi\/(voice|front-desk|compose|talk)$/);
+      const pi = url.match(/\/concierge\/pi\/(voice|front-desk|compose|talk\/stream|talk)$/);
       if (pi) {
         const cors = { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': '*', 'Access-Control-Allow-Methods': 'POST,OPTIONS' };
         if (req.method() === 'OPTIONS') { req.respond({ status: 204, headers: cors }).catch(() => {}); return; }
-        state.conciergeCalls.push({ path: pi[1], body: req.postData() || null });
-        const body = state.concierge?.[pi[1]];
+        // The streaming conversation route is the `talk` stub, sent the way the
+        // platform sends it: one event per sentence, then the closing details.
+        const streaming = pi[1] === 'talk/stream';
+        const name = streaming ? 'talk' : pi[1];
+        state.conciergeCalls.push({ path: name, body: req.postData() || null });
+        const body = state.concierge?.[name];
         if (!body) { req.abort('failed').catch(() => {}); return; }
+        if (streaming) {
+          const event = (type, data) => `event: ${type}\ndata: ${JSON.stringify(data)}\n\n`;
+          const sentences = typeof body.say === 'string' ? body.say.split(/(?<=[.!?])\s+(?=[A-Z“"'(])/).filter(Boolean) : [];
+          const events = sentences.length
+            ? sentences.map((text) => event('sentence', { text })).join('') + event('meta', { picks: body.picks ?? [], next: body.next ?? [], why: body.why ?? {} })
+            : event('none', { reason: 'stub' });
+          req.respond({ status: 200, contentType: 'text/event-stream; charset=utf-8', headers: cors, body: events + event('done', {}) }).catch(() => {});
+          return;
+        }
         req.respond({ status: 200, contentType: 'application/json', headers: cors, body: JSON.stringify(body) }).catch(() => {});
         return;
       }
