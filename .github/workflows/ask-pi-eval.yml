@@ -1,0 +1,45 @@
+name: Ask PI nightly exam
+
+# Holds the conversations in next/tests/ask-eval/questions.json with the live
+# chat and marks every reply, so a change that makes PI worse is seen the next
+# morning rather than by a reader. The questions are ours and the replies are
+# hers; no reader's words are involved. The report is in the run's artifacts.
+
+on:
+  schedule:
+    - cron: '43 17 * * *' # 04:43 Melbourne (AEDT), after the knowledge refresh
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ask-pi-eval
+  cancel-in-progress: true
+
+jobs:
+  exam:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Fetch the index readers are served
+        run: |
+          mkdir -p "$RUNNER_TEMP/dist/ask"
+          curl -fsS --retry 3 https://peninsulainsider.com.au/ask/index.json -o "$RUNNER_TEMP/dist/ask/index.json"
+      - name: Sit the exam
+        run: node next/scripts/ask-eval.mjs --dist "$RUNNER_TEMP/dist" --api https://peninsula-insider-platform-api.vercel.app --out reports/ask-eval --pass "$PASS_MARK"
+        env:
+          # Set from the first full run on 21 Nov 2026, under what she scored (62%), while the first faults are fixed. Raise it as she improves.
+          PASS_MARK: '0.60'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ask-pi-eval
+          path: reports/ask-eval/
+          retention-days: 30

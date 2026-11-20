@@ -335,6 +335,12 @@ export function isFollowUp(index, message, said = [], context = {}) {
   return !parsed.place && !parsed.kinds?.length;
 }
 
+/** The message names a town or a kind of place: it is a question the guides can be searched for. */
+export function hasSubject(index, message, context = {}) {
+  const parsed = parseQuestion(message, index, context);
+  return Boolean(parsed.place || parsed.kinds?.length);
+}
+
 export function talkPages(index, message, said = [], reply = null, shownBefore = [], context = {}) {
   const now = (reply?.cards || []).map((item) => item.href);
   const follows = isFollowUp(index, message, said, context);

@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { tokens } from './ask-guide.mjs';
-import { converse, swapStop, occasion, pageOffers, tripLink, composeRequest, applyCompose, talkPages, cardsFor, isFollowUp } from './ask-pi.mjs';
+import { converse, swapStop, occasion, pageOffers, tripLink, composeRequest, applyCompose, talkPages, cardsFor, isFollowUp, hasSubject } from './ask-pi.mjs';
 import * as lines from './pi-lines.mjs';
 
 const today = '2026-11-20';
@@ -338,4 +338,10 @@ test('"Surprise me" starts somewhere different per chat and does not repeat a to
     towns.push(turn.reply.plan?.title);
   }
   assert.notEqual(towns[0], towns[1]);
+});
+
+test('a message has a subject when it names a town or a kind of place, and small talk does not', () => {
+  assert.equal(hasSubject(index, 'lunch in Red Hill', { today }), true);
+  assert.equal(hasSubject(index, 'a winery with a view', { today }), true);
+  for (const chat of ["what's with the hat?", 'good morning PI', 'what do you actually do?', 'thanks']) assert.equal(hasSubject(index, chat, { today }), false, chat);
 });
