@@ -2,7 +2,7 @@
 import V5MegaPanel from './V5MegaPanel.astro';
 import { v5Pillars, v5DrawerItems, v5DrawerCta } from '../../../lib/v5-nav';
 import { PLAY, playUrl } from '../../../lib/play';
-import { SHOW_ASK_PI } from '../../../lib/features';
+import { SHOW_ASK_EDITORIAL_CHAT, SHOW_ASK_PI } from '../../../lib/features';
 import '../../../styles/editorial-shell.css';
 const { section = 'home' } = Astro.props;
 const path = Astro.url.pathname;
@@ -30,7 +30,7 @@ const active = path.startsWith('/explore/plans') || path.startsWith('/plans') ? 
 <a class="mobile-note" href="/dispatch/">The Insider Note</a>
 </nav>
 <div class="header-actions">
-<a class="ask-link" href="/ask/" data-pi-popup={SHOW_ASK_PI ? true : undefined} data-evt={SHOW_ASK_PI ? 'ask_open' : undefined} aria-label={SHOW_ASK_PI ? 'Ask PI, your Peninsula local' : 'Ask PI, currently site search'} title={SHOW_ASK_PI ? undefined : 'Ask PI, currently site search'}>
+<a class="ask-link" href="/ask/" data-ask-editorial-open={SHOW_ASK_EDITORIAL_CHAT ? true : undefined} data-pi-popup={SHOW_ASK_PI ? true : undefined} data-evt={SHOW_ASK_PI ? 'ask_open' : undefined} aria-label={SHOW_ASK_PI ? 'Ask PI, your Peninsula local' : 'Ask PI, currently site search'} title={SHOW_ASK_PI ? undefined : 'Ask PI, currently site search'}>
 <img src="/images/pi/pi-avatar-96.webp" alt="" width="32" height="32" decoding="async" />
 <span class="ask-link__label">Ask PI</span>
 </a>
