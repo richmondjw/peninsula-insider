@@ -15,6 +15,8 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 
 ## Recent selections
 
+- [Foxeys Hangout, the Arthurs Seat ridge in flower, and the VineHop Festival](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-21/>) - Biodynamic sparkling at Foxeys Hangout in Red Hill, the wattle-and-teatree ridge walk on Arthurs Seat in full spring colour, and the Peninsula VineHop Festival across six Mount Martha venues on Saturday.
+
 - [Many Little in spring, the VineHop Festival on Saturday, and the final Sunday at Emu Plains Market](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-20/>) - Sri Lankan-influenced sharing plates at Many Little in Red Hill South, the Peninsula VineHop Festival across six Mount Martha venues on Saturday, and the last Sunday session at Emu Plains Market in Balnarring.
 
 - [Tar Barrel paddles, the Peninsula VineHop loop, and the last day of NWOP 2026](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-19/>) - A beer-and-spirits paddle at Tar Barrel Brewery in Mornington, the six-venue VineHop Festival across Mount Martha on Saturday, and the final hours of National Works on Paper at Mornington Peninsula Regional Gallery on Sunday.
@@ -36,8 +38,6 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 - [Verified Peninsula stops: Moorooduc, Bushrangers Bay and Nazaaray](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-11/>) - Current practical information from the operators and Parks Victoria for a winery visit, a Cape Schanck walk and a Flinders cellar door.
 
 - [Barragunda Dining and the Bushrangers Bay Walk](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-10/>) - Verified practical information for a Cape Schanck meal and the Bushrangers Bay Walk.
-
-- [St Andrews Beach Brewery, the Cape Schanck heathland, and the Mt Eliza Farmers Market](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-09/>) - A Sunday roast in a converted racehorse stable, spring wildflowers at their densest on the Bushranger Bay heathland trail, and the last Saturday of the Mt Eliza market run.
 
 ## Planning a particular weekend?
 
