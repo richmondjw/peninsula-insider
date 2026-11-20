@@ -22,30 +22,30 @@ whoSuits: Visiting Melbourne anglers and families who want time on the water wit
 whoDoesnt: Anyone needing offshore capability, anyone targeting the snapper grounds in the southern bay (Sorrento or Portsea ramps are closer), or anyone wanting a guided session. This is self-drive only. The vessels are bay-rated and not for Bass Strait or the Heads.
 faq:
   - question: Do I need a licence to hire a boat from Mornington Boat Hire?
-    answer: No. The hire vessels are sized and powered to fall under the Victorian recreational vessel exemption, so no marine licence is required. A short briefing covers operation and safety. Confirm the current threshold with the operator at booking.
+    answer: The operator advertises this fleet as no-licence hire. Victorian rules require a marine licence for a hire-and-drive vessel capable of more than 10 knots, and the owner must brief hirers on the vessel's operating requirements. Confirm the assigned vessel and briefing when booking.
   - question: How much does it cost?
     answer: Hire is charged by the session, starting at two hours and scaling up by duration and vessel size. Confirm current rates with the operator. Fishing tackle is available at additional cost. A Victorian Recreational Fishing Licence is required if you plan to fish and is not covered by the hire.
   - question: Is fishing tackle included?
     answer: Tackle is available to hire separately, not included in the boat-hire base rate. Bait is sometimes available on site, sometimes not. Confirm both at booking, and bring your own if you have specific preferences.
   - question: What boats do they hire?
-    answer: Small four-person tinnies and polycraft fishing boats rated for protected bay use. The vessels are functional, not luxury. Engines are small enough to fall under the no-licence threshold. They are not suitable for Bass Strait or for the Rip at Portsea Heads.
+    answer: Small four-person tinnies and polycraft fishing boats rated for protected bay use. The vessels are functional, not luxury. The operator advertises the fleet as no-licence hire. They are not suitable for Bass Strait or for the Rip at Portsea Heads.
   - question: Where do I launch from?
-    answer: Mornington Boat Hire operates from Schnapper Point Drive, adjacent to the Mornington Park Boat Ramp precinct. Note that Schnapper Point Boat Ramp itself is currently undergoing major upgrade works (Apr to Sep 2026); the hire fleet is staged from the adjacent precinct. Confirm pickup location at booking.
+    answer: Mornington Boat Hire operates from Schnapper Point Drive beside the Mornington Park Boat Ramp precinct. The 2026 ramp upgrade is complete and the ramp has reopened. Check the operator's pickup instructions and the Shire's current ramp notices before travelling.
 status: published
 verified: true
-lastVerified: 2026-04-30
+lastVerified: 2026-11-20
 publishedAt: 2026-04-30
 ---
 
 ## What this hire actually is
 
-Mornington Boat Hire is the only self-drive operator at Schnapper Point. The fleet is small, functional, and tuned for the local conditions: protected bay water, four passengers, no marine licence, and engines sized to fall under the recreational exemption. Sessions run by the half-day or full-day. Hourly rates exist on quieter weekdays; weekends are typically half-day minimum.
+Mornington Boat Hire is a self-drive operator at Schnapper Point. The fleet is small, functional, and tuned for local protected-bay conditions. The operator advertises the fleet as no-licence hire. [Victorian rules](https://safetransport.vic.gov.au/on-the-water/marine-licence-and-vessel-registration/licensing-and-registration/) require a marine licence for a hire-and-drive vessel capable of more than 10 knots, and the owner must brief each hirer on the assigned vessel. Confirm the session length and current terms directly when booking.
 
 The product is a complete novice-friendly entry point. A short briefing covers vessel operation, the surrounding bay, safety equipment, and the boundaries of where the hire vessel can operate. From the Schnapper Point precinct, the productive grounds for flathead, calamari, and whiting are within a 15 to 20 minute run.
 
 ## Where you can take it
 
-The hire vessels are explicitly bay-rated, not offshore-rated. The operator's geographic boundary is the inner mid-Peninsula bay, roughly Mount Martha to Dromana. The vessels are not permitted south of Sorrento, never near the Rip, and not in conditions over a defined wind threshold. The operator pulls hire on bad-forecast days; expect a same-day cancellation if a strong southerly is forecast.
+The hire vessels are bay-rated, not offshore-rated. The [operator's current terms](https://www.morningtonboathire.com.au/terms-and-conditions/) limit them to the surveyed area within 2 nautical miles of Mornington Pier and prohibit use near piers, swimmers, divers and marked no-boating areas. They must not approach the Rip. Only the operator can cancel a booking for unsafe weather, so check the forecast and await the operator's confirmation before travelling.
 
 ## What's included, what isn't
 
