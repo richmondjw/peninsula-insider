@@ -17,6 +17,7 @@ const flag = (name) => features.match(new RegExp(`^export const ${name} = (true|
 const guideOn = flag('SHOW_ASK_GUIDE') && !flag('SHOW_ASK_PI');
 const voiceOn = guideOn && flag('SHOW_ASK_VOICE');
 const personaOn = guideOn && flag('SHOW_ASK_PERSONA');
+const composeOn = personaOn && voiceOn && flag('SHOW_ASK_COMPOSE');
 
 const site = await Site.open();
 test.after(() => site.close());
@@ -289,7 +290,10 @@ for (const width of [390, 1280]) {
       const events = await page.evaluate(() => window.__piEvents);
       assert.deepEqual(events.find(([name]) => name === 'ask_feedback'), ['ask_feedback', { action: 'missed-point', variant: 'plan' }]);
       assert.ok(events.every(([, params]) => !/Sorrento|two of us|Plan my day/i.test(JSON.stringify(params))), 'no event carries what was typed');
-      assert.deepEqual(sent.filter(url => /concierge/.test(url)), [], 'a plan sends nothing to the platform');
+      // With compose off a plan sends nothing. With it on, only the compose call is made.
+      const calls = sent.filter(url => /concierge/.test(url));
+      if (composeOn) assert.ok(calls.every(url => /\/concierge\/pi\/compose$/.test(url)), calls.join(' '));
+      else assert.deepEqual(calls, [], 'a plan sends nothing to the platform');
 
       // A second plan takes over; the first can no longer be swapped.
       await tap('Somewhere else');
@@ -349,6 +353,38 @@ test('PI’s call marks the pick her checked note names first', { skip: !(voiceO
     await say(page, 'lunch in Red Hill');
     await page.waitForFunction(() => document.querySelector('#pi-chat-log > .pi-msg--pi:last-child .pi-msg__prose')?.classList.contains('is-voiced'));
     assert.deepEqual(await page.$$eval(`${answers}:last-child .pi-tile`, tiles => tiles.filter(tile => tile.querySelector('.pi-tile__call')).map(tile => tile.getAttribute('href'))), ['/eat/red-gum-bbq/']);
+    assert.deepEqual(await reader.errors(), []);
+  } finally {
+    await reader.close();
+  }
+});
+
+test('with compose on, her picks and lines arrive with the plan, and a bad reply leaves the plan as built', { skip: !composeOn }, async () => {
+  const reader = await site.reader({ concierge: { compose: {
+    picks: ['/explore/sorrento-back-beach/', '/eat/the-baths-sorrento/'],
+    opening: 'Two of you and half a day. I’ve kept it simple.',
+    lines: { '/explore/sorrento-back-beach/': 'Start with the beach.', '/eat/tedesca-osteria/': 'A line for a page that is not in this plan.' },
+  } } });
+  const page = reader.page;
+  try {
+    await page.setViewport({ width: 390, height: 844, isMobile: true, hasTouch: true });
+    await reader.load('/');
+    await openChat(reader, true);
+    const planned = await say(page, 'plan half a day in Sorrento for the two of us');
+    assert.equal(planned.prose, 'Two of you and half a day. I’ve kept it simple.', 'her opening is there when the plan appears');
+    const stops = await page.$$eval('#pi-chat-log .pi-note[data-pi-live] .pi-note__stop', nodes => nodes.map(node => ({ href: node.querySelector('.pi-note__name').getAttribute('href'), line: node.querySelector('.pi-note__line')?.textContent ?? null })));
+    assert.deepEqual(stops, [{ href: '/explore/sorrento-back-beach/', line: 'Start with the beach.' }, { href: '/eat/the-baths-sorrento/', line: null }]);
+    const sent = JSON.parse(reader.conciergeCalls().find(call => call.path === 'compose').body);
+    assert.deepEqual(Object.keys(sent).sort(), ['history', 'question', 'slots', 'title']);
+    assert.ok(sent.slots.every(slot => slot.options.length >= 1 && slot.options.length <= 3));
+
+    // A reply that picks pages that were never offered changes nothing.
+    reader.setConcierge({ compose: { picks: ['/eat/tedesca-osteria/', '/stay/lindenderry/'], opening: 7, lines: {} } });
+    await page.click('#pi-chat-new');
+    const kept = await say(page, 'plan half a day in Sorrento for the two of us');
+    assert.match(kept.prose, /^Just the two of you\. Easy\./, 'her authored line stands');
+    const hrefs = await page.$$eval('#pi-chat-log .pi-note[data-pi-live] .pi-note__name', links => links.map(link => link.getAttribute('href')));
+    assert.ok(hrefs.every(href => href.includes('sorrento') || href === '/explore/coppins-track/' || href === '/eat/bistro-elba/'), hrefs.join(' '));
     assert.deepEqual(await reader.errors(), []);
   } finally {
     await reader.close();

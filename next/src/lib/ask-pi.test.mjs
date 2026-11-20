@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { tokens } from './ask-guide.mjs';
-import { converse, swapStop, occasion, pageOffers, tripLink } from './ask-pi.mjs';
+import { converse, swapStop, occasion, pageOffers, tripLink, composeRequest, applyCompose } from './ask-pi.mjs';
 import * as lines from './pi-lines.mjs';
 
 const today = '2026-11-20';
@@ -233,4 +233,50 @@ test('no authored line carries a price, a time, a day, an em dash or a claim to 
     assert.doesNotMatch(line, /—|\$|\b\d{1,2}\s?(?:am|pm)\b|\b(?:mon|tues|wednes|thurs|fri|satur|sun)day\b/i, line);
     assert.doesNotMatch(line, /\b(?:i(?:'ve|’ve| have) (?:been|eaten|stayed|visited|tried)|when i (?:was|went|ate)|last time i)\b/i, line);
   }
+});
+
+test('the platform is offered a few pages per part of the day, the one showing first', () => {
+  const turn = talk('plan a day in Flinders for the two of us, the whole day');
+  const request = composeRequest(turn.state);
+  assert.equal(request.title, 'A day in Flinders');
+  assert.deepEqual(request.slots.map((slot) => slot.label), ['To start', 'Then', 'The table', 'After']);
+  request.slots.forEach((slot, i) => {
+    assert.equal(slot.options[0], turn.reply.plan.stops[i].card.href, 'the page showing is the first option');
+    assert.ok(slot.options.length <= 3 && new Set(slot.options).size === slot.options.length);
+  });
+  // A stop a day was built around is the only option for its part.
+  const around = converse(index, 'Build a day around this', null, { today, pagePath: '/eat/moke-dining/' });
+  assert.deepEqual(composeRequest(around.state).slots.find((slot) => slot.label === 'The table').options, ['/eat/moke-dining/']);
+  assert.equal(composeRequest(talk('lunch in Red Hill').state), null);
+});
+
+test('her picks are taken only from what was offered, and her lines only for pages she picked', () => {
+  const turn = talk('plan a day in Flinders for the two of us, the whole day');
+  const request = composeRequest(turn.state);
+  const second = request.slots[0].options[1];
+  const applied = applyCompose(index, turn.state, request, {
+    picks: [second, request.slots[1].options[0], request.slots[2].options[0], request.slots[3].options[0]],
+    opening: 'Two of you and a whole day. Easy.',
+    lines: { [second]: 'Start at the counter.', '/eat/tedesca-osteria/': 'A line about a page that is not in the plan.', [request.slots[2].options[0]]: 42 },
+  });
+  assert.equal(applied.plan.stops[0].card.href, second);
+  assert.equal(applied.plan.stops[0].line, 'Start at the counter.');
+  assert.equal(applied.plan.stops[2].line, null, 'a line that is not text is ignored');
+  assert.deepEqual(Object.keys(applied.state.pi.plan.lines), [second]);
+  assert.equal(applied.opening, 'Two of you and a whole day. Easy.');
+  // Swapping that stop away takes her line with it; the trip link follows the stops.
+  const swapped = swapStop(index, applied.state, 0);
+  assert.equal(swapped.plan.stops[0].line, null);
+  assert.ok(applied.plan.trip.includes(second.split('/').filter(Boolean).pop()));
+});
+
+test('a pick that was never offered, a repeat, or a malformed reply changes nothing', () => {
+  const turn = talk('plan a day in Flinders for the two of us, the whole day');
+  const request = composeRequest(turn.state);
+  const before = turn.reply.plan.stops.map((stop) => stop.card.href);
+  const outside = applyCompose(index, turn.state, request, { picks: ['/eat/tedesca-osteria/', before[1], before[1], 7], opening: 9, lines: null });
+  assert.deepEqual(outside.plan.stops.map((stop) => stop.card.href), before, 'every bad pick falls back to the page that was showing');
+  assert.equal(outside.opening, null);
+  assert.equal(new Set(outside.plan.stops.map((stop) => stop.card.href)).size, before.length);
+  for (const bad of [null, {}, { picks: null }, { picks: before.slice(0, 2) }, { picks: 'x' }]) assert.equal(applyCompose(index, turn.state, request, bad), null);
 });

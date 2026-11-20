@@ -193,7 +193,9 @@ export function tripLink(index, plan) {
 
 function planView(index, plan) {
   const byPath = new Map(index.records.map((record) => [record.u, record]));
-  const stops = plan.slots.map((slot) => ({ label: slot.label, card: card(byPath.get(slot.pool[slot.at])), swappable: !slot.locked && slot.pool.length > 1 }));
+  // Her line for a stop belongs to the page it was written about, so it is
+  // looked up by that page and disappears when the stop is swapped.
+  const stops = plan.slots.map((slot) => ({ label: slot.label, card: card(byPath.get(slot.pool[slot.at])), swappable: !slot.locked && slot.pool.length > 1, line: plan.lines?.[slot.pool[slot.at]] || null }));
   const town = plan.brief?.place ? placeName(index, plan.brief.place) : '';
   const trip = tripLink(index, plan);
   return { title: plan.title, town, stops, trip };
@@ -254,6 +256,54 @@ export function swapStop(index, state, at) {
   const swaps = (plan.swaps || 0) + 1;
   const changed = { ...plan, swaps, slots: plan.slots.map((other, i) => (i === at ? { ...other, at: next } : other)) };
   return { state: { ...state, pi: { ...state.pi, plan: changed } }, plan: planView(index, changed), remark: SWAP_LINES[(swaps - 1) % SWAP_LINES.length] };
+}
+
+// ── Her picks and lines from the platform (optional) ───────────────────────
+const COMPOSE_OPTIONS = 3;
+/**
+ * What the platform is asked to choose from: for each part of the day, the
+ * page showing now and the next few our guides have for it. It can only pick
+ * from these, by position; see applyCompose.
+ */
+export function composeRequest(state) {
+  const plan = state?.pi?.plan;
+  if (!plan || plan.slots.length < 2) return null;
+  return {
+    title: plan.title,
+    slots: plan.slots.map((slot) => ({
+      label: slot.label,
+      options: slot.locked ? [slot.pool[slot.at]] : [slot.pool[slot.at], ...slot.pool.filter((_, at) => at !== slot.at)].slice(0, COMPOSE_OPTIONS),
+    })),
+  };
+}
+
+/**
+ * Takes the platform's reply for a request made with composeRequest. Nothing
+ * in it is trusted: a pick must be one of the options that were sent for that
+ * part of the day and must not repeat, a line is kept only for a page that
+ * was picked, and anything else is ignored. Returns null when there is
+ * nothing usable, so the plan stays exactly as the site built it.
+ */
+export function applyCompose(index, state, request, result) {
+  const plan = state?.pi?.plan;
+  if (!plan || !request || !result || !Array.isArray(result.picks) || result.picks.length !== plan.slots.length) return null;
+  const used = new Set();
+  const slots = plan.slots.map((slot, i) => {
+    const pick = result.picks[i];
+    const allowed = typeof pick === 'string' && request.slots[i]?.options.includes(pick) && slot.pool.includes(pick) && !used.has(pick);
+    const path = allowed ? pick : slot.pool[slot.at];
+    used.add(path);
+    return { ...slot, at: slot.pool.indexOf(path) };
+  });
+  const lines = {};
+  for (const slot of slots) {
+    const path = slot.pool[slot.at];
+    const line = result.lines?.[path];
+    if (typeof line === 'string' && line.trim() && line.length <= 300) lines[path] = line.trim();
+  }
+  const opening = typeof result.opening === 'string' && result.opening.trim() && result.opening.length <= 400 ? result.opening.trim() : null;
+  const changed = { ...plan, slots, lines };
+  return { state: { ...state, pi: { ...state.pi, plan: changed } }, plan: planView(index, changed), opening };
 }
 
 // ── The three taps ─────────────────────────────────────────────────────────

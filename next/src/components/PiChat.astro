@@ -32,7 +32,7 @@
  * refusals and her asides are fixed lines written by a person. None of it is
  * generated and none of it is sent anywhere. SHOW_ASK_PERSONA turns it off.
  */
-import { ASK_GUIDE_ON, SHOW_ASK_VOICE, SHOW_ASK_PERSONA } from '../lib/features';
+import { ASK_GUIDE_ON, SHOW_ASK_VOICE, SHOW_ASK_PERSONA, SHOW_ASK_COMPOSE } from '../lib/features';
 import { CONCIERGE_API_URL as API_URL } from '../lib/concierge-config';
 
 const starters = SHOW_ASK_PERSONA
@@ -41,7 +41,7 @@ const starters = SHOW_ASK_PERSONA
 ---
 
 {ASK_GUIDE_ON && (
-  <div class="pi-chat" id="pi-chat" data-api={API_URL} data-voice={SHOW_ASK_VOICE ? 'on' : 'off'} data-persona={SHOW_ASK_PERSONA ? 'on' : 'off'} data-state="closed" data-mode="dock" transition:persist="pi-chat" data-pagefind-ignore>
+  <div class="pi-chat" id="pi-chat" data-api={API_URL} data-voice={SHOW_ASK_VOICE ? 'on' : 'off'} data-persona={SHOW_ASK_PERSONA ? 'on' : 'off'} data-compose={SHOW_ASK_PERSONA && SHOW_ASK_VOICE && SHOW_ASK_COMPOSE ? 'on' : 'off'} data-state="closed" data-mode="dock" transition:persist="pi-chat" data-pagefind-ignore>
     <button type="button" class="pi-chat__launch" id="pi-chat-launch" aria-controls="pi-chat-panel" aria-expanded="false">
       <img class="pi-chat__launch-face" src="/images/pi/pi-avatar-96.webp" alt="" width="44" height="44" decoding="async" />
       <span class="pi-chat__launch-text">
@@ -107,12 +107,12 @@ const starters = SHOW_ASK_PERSONA
 <script>
   import type { TransitionBeforeSwapEvent } from 'astro:transitions/client';
   import { paragraphs, READER_ERROR, sessionId } from '../lib/ask-client';
-  import { converse, swapStop, pageOffers } from '../lib/ask-pi.mjs';
+  import { converse, swapStop, pageOffers, composeRequest, applyCompose } from '../lib/ask-pi.mjs';
   import { loadAskIndex } from '../scripts/ask-guide-ui';
 
   type Place = { href: string; title: string; why: string; section: string; image: string | null; alt: string; credit?: string | null; facts?: [string, string][]; badge?: string | null };
   type Card = { href: string; title: string; meta: string; summary?: string; facts: [string, string][]; badge: string | null; image?: string | null; credit?: string | null };
-  type Plan = { title: string; town: string; trip: string | null; stops: { label: string; card: Card; swappable: boolean }[] };
+  type Plan = { title: string; town: string; trip: string | null; stops: { label: string; card: Card; swappable: boolean; line?: string | null }[] };
   type Turn =
     | { role: 'you'; text: string }
     | { role: 'pi'; text: string; places: Place[]; next: string[]; notes?: string[]; links?: { href: string; label: string }[]; error?: boolean;
@@ -125,6 +125,8 @@ const starters = SHOW_ASK_PERSONA
   const THINKING = ['Checking my notebook…', 'Reading what our pages say…', 'Making the call…'];
   // Her note goes first or not at all: past this she answers with the picks and the plain line.
   const NOTE_WAIT_MS = 8000;
+  // A composed plan is three or four model calls, so it gets a little longer.
+  const COMPOSE_WAIT_MS = 14000;
   // Replies that are a step in a conversation, not an answer a reader would open as a page.
   const NOT_A_PAGE = new Set(['interview', 'plan', 'critique', 'with']);
   const FEEDBACK: [string, string][] = [['wrong-place', 'Wrong sort of place'], ['missed-point', 'Missed the point'], ['out-of-date', 'Out of date'], ['not-funny', 'Not funny']];
@@ -165,6 +167,7 @@ const starters = SHOW_ASK_PERSONA
 
     const voiceOn = root.dataset.voice === 'on' && !!api;
     const personaOn = root.dataset.persona === 'on';
+    const composeOn = voiceOn && root.dataset.compose === 'on';
     const here = document.getElementById('pi-chat-here') as HTMLElement;
     const hereLabel = document.getElementById('pi-chat-here-label') as HTMLElement;
     const hereChips = document.getElementById('pi-chat-here-chips') as HTMLElement;
@@ -425,6 +428,8 @@ const starters = SHOW_ASK_PERSONA
         name.href = stop.card.href;
         text.append(name);
         if (stop.card.meta) text.append(el('span', 'pi-note__meta', stop.card.meta));
+        // Her own line about this stop, where one passed the check, above the page's words.
+        if (stop.line) text.append(el('span', 'pi-note__line', stop.line));
         if (stop.card.summary) text.append(el('span', 'pi-note__why', stop.card.summary));
         li.append(text);
         if (live && stop.swappable) {
@@ -550,8 +555,8 @@ const starters = SHOW_ASK_PERSONA
     }
 
     /** One call to PI's voice. Any failure is simply "no voice this time". */
-    async function voice<T>(path: 'voice' | 'front-desk', body: unknown, signal: AbortSignal): Promise<T | null> {
-      const timeout = AbortSignal.timeout(14_000);
+    async function voice<T>(path: 'voice' | 'front-desk' | 'compose', body: unknown, signal: AbortSignal): Promise<T | null> {
+      const timeout = AbortSignal.timeout(path === 'compose' ? 20_000 : 14_000);
       try {
         const res = await fetch(`${api}/concierge/pi/${path}`, {
           method: 'POST',
@@ -626,6 +631,23 @@ const starters = SHOW_ASK_PERSONA
             if (again && again.reply.cards.length) result = again;
           }
           aside = typeof desk?.say === 'string' && desk.say.trim() ? desk.say.trim().slice(0, 400) : null;
+        }
+
+        // A plan: let her choose among the pages the site found for each part
+        // of the day and write her lines. What comes back is checked again in
+        // applyCompose; if it is late, missing or unusable the plan is shown as
+        // the site built it, with her authored line.
+        const asking = composeOn && result.reply.plan ? composeRequest(result.state) : null;
+        if (asking) {
+          const waited = new AbortController();
+          const timer = window.setTimeout(() => waited.abort(), COMPOSE_WAIT_MS);
+          const composed = await voice<{ picks: string[] | null; opening: string | null; lines: Record<string, string> }>('compose', { question: q, title: asking.title, slots: asking.slots, history: recent() }, AbortSignal.any([signal, waited.signal]));
+          window.clearTimeout(timer);
+          if (signal.aborted) { live.remove(); return; }
+          const applied = composed ? applyCompose(index, result.state, asking, composed) as { state: unknown; plan: Plan; opening: string | null } | null : null;
+          if (applied) {
+            result = { state: applied.state, reply: { ...result.reply, plan: applied.plan, cards: applied.plan.stops.map((stop) => stop.card), lead: applied.opening || result.reply.lead } };
+          }
         }
 
         const hadPlan = Boolean(engine?.pi?.plan);
@@ -1061,6 +1083,8 @@ const starters = SHOW_ASK_PERSONA
   .pi-note__name { color: var(--text); font: var(--fw-display) var(--fs-400)/1.25 var(--font-display); text-decoration: underline; text-decoration-color: color-mix(in srgb, currentColor 35%, transparent); text-underline-offset: .2em; }
   .pi-note__name:hover { color: var(--accent); text-decoration-color: currentColor; }
   .pi-note__meta { color: var(--soft); font: 400 var(--fs-200)/1.3 var(--font-ui); }
+  .pi-note__line { margin: 2px 0; color: var(--text); font: italic 500 var(--fs-300)/1.4 var(--font-ui); }
+  .pi-note__line + .pi-note__why { color: var(--soft); -webkit-line-clamp: 2; }
   .pi-note__why { color: var(--text); font: 400 var(--fs-300)/1.4 var(--font-ui); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
   .pi-note__swap { min-height: 44px; padding: 0 var(--space-3); background: transparent; color: var(--text); border: 1px solid var(--border-control); border-radius: var(--radius-pill); font: 400 var(--fs-200)/1.2 var(--font-ui); white-space: nowrap; cursor: pointer; }
   .pi-note__swap:hover { border-color: var(--text); background: color-mix(in srgb, var(--white) 60%, transparent); }
