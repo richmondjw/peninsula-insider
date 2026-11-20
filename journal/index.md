@@ -655,16 +655,6 @@ Month
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
-- [Fri, 20 Nov
-
-### The Lucky Duck & Pinot Lunch
-
-Red Hill
-
-One-off chef’s lunch featuring an all-duck menu paired with pinot noir.
-
- Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/the-lucky-duck-and-pinot-lunch-2026-11-20/>)
-
 - [Sat, 21 Nov
 
 ### ✦ Acoustic Saturdays at Peppers Moonah Links
@@ -684,3 +674,13 @@ Mornington
 Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery produce award-winning craft beers alongside diverse tastes as part of their whiskey and gin distillery. Enjoy a drink, taste the menu and stay for the live music on weekends!
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/coco-michelle-live-at-tar-barrel-2026-11-21/>)
+
+- [Sat, 21 Nov
+
+### CREATE: Pottery for your table
+
+Mornington
+
+A ceramic charcuterie platter workshop with Caitlin from Peachy Keen Ceramics, part of Mornington Peninsula Shire's CREATE programme.
+
+ Event · Arts](<https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/>)

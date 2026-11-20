@@ -1,11 +1,11 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-11-20T12:10:06.800Z",
-  "snapshotId": "84bc94f3a6f9ad183b4e015298569a6a7c4cf46af30b7d111b38228de687cf59",
+  "generatedAt": "2026-11-20T13:29:02.328Z",
+  "snapshotId": "a452b3dcc215b8574706bc686dfbb588a4a6e3a329d8eb36f8ce282c0c32d99e",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
-  "count": 703,
+  "count": 700,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/",
@@ -13,7 +13,7 @@
       "section": "home",
       "canonicalUrl": "https://peninsulainsider.com.au/",
       "markdownUrl": "https://peninsulainsider.com.au/index.md",
-      "contentSha256": "158eb9cc4e0785e915ac05cc4bc4071d9c3c5c19d835cd0a540be6b6d1def152",
+      "contentSha256": "eafe8632bdbd75a8127999cd035b7fa59f4e18bb7ebc3d9dddb18c2fc77b2558",
       "citation": {
         "title": "Make a day of the Peninsula.",
         "publisher": "Peninsula Insider",
@@ -21,8 +21,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 222055,
-      "markdownBytes": 7715
+      "htmlBytes": 220635,
+      "markdownBytes": 7609
     },
     {
       "id": "https://peninsulainsider.com.au/about/",
@@ -4467,7 +4467,7 @@
       "section": "journal",
       "canonicalUrl": "https://peninsulainsider.com.au/journal/",
       "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
-      "contentSha256": "a107ed00a8c3a249c27ebdba1d13a8ea44a54dd3fd9edd4cf4de35b5445cb1e1",
+      "contentSha256": "e489114af5c0c4c9216bf389640854227688d3983546cb355b5cca710a6d1603",
       "citation": {
         "title": "Devilbend Farm Beer Co: a brewery on a working farm",
         "publisher": "Peninsula Insider",
@@ -4475,8 +4475,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 235227,
-      "markdownBytes": 19401
+      "htmlBytes": 235760,
+      "markdownBytes": 19446
     },
     {
       "id": "https://peninsulainsider.com.au/journal/a-flinders-weekend/",
@@ -7459,7 +7459,7 @@
       "section": "quick-note",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "01282fae65527e8ec5d505410deefc51bfe4134833752f88084ca0ffce4daf9f",
+      "contentSha256": "cf38782c9832a58d8bee43f66faeb375e13f826c9f015491fa2795bc7a486c92",
       "citation": {
         "title": "Quick Note",
         "publisher": "Peninsula Insider",
@@ -7467,8 +7467,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 116053,
-      "markdownBytes": 1195
+      "htmlBytes": 116061,
+      "markdownBytes": 1197
     },
     {
       "id": "https://peninsulainsider.com.au/site-index/",
@@ -7476,7 +7476,7 @@
       "section": "site-index",
       "canonicalUrl": "https://peninsulainsider.com.au/site-index/",
       "markdownUrl": "https://peninsulainsider.com.au/site-index/index.md",
-      "contentSha256": "495ad0ba1cd5c5950a91301900997317da545876ea0bea351f510797f16e70f7",
+      "contentSha256": "5dcde8dbf873f558a83538b14cfa6f219761f0a03997ea2ab212f7f583848cd0",
       "citation": {
         "title": "Site Index",
         "publisher": "Peninsula Insider",
@@ -7484,8 +7484,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 141408,
-      "markdownBytes": 36095
+      "htmlBytes": 141020,
+      "markdownBytes": 35660
     },
     {
       "id": "https://peninsulainsider.com.au/stay/",
@@ -9295,16 +9295,16 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "668d75c04cb96fe41080ca915e978c57e4fce033ac24b878c8e6dbdb8ee835a5",
+      "contentSha256": "35b0173c9dc1db3e439492982c208b3f0c9f746d3fdca4f774df494e24a91c1a",
       "citation": {
         "title": "What's on this weekend",
         "publisher": "Peninsula Insider",
         "url": "https://peninsulainsider.com.au/whats-on/",
         "publishedAt": null,
-        "modifiedAt": "2026-11-20"
+        "modifiedAt": "2026-11-21"
       },
-      "htmlBytes": 185121,
-      "markdownBytes": 7568
+      "htmlBytes": 182430,
+      "markdownBytes": 7301
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
@@ -9730,23 +9730,6 @@
       },
       "htmlBytes": 143115,
       "markdownBytes": 4493
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/dee-calmer-miles-live-at-peninsula-beer-garden-2026-11-20/",
-      "title": "Dee - Calmer Miles Live at Peninsula Beer Garden",
-      "section": "whats-on",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/dee-calmer-miles-live-at-peninsula-beer-garden-2026-11-20/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/dee-calmer-miles-live-at-peninsula-beer-garden-2026-11-20/index.md",
-      "contentSha256": "13666ca824e22ccb82bd42c2945cb9f478395ec4d6c4ae33853d3cda2c656746",
-      "citation": {
-        "title": "Dee - Calmer Miles Live at Peninsula Beer Garden",
-        "publisher": "Peninsula Insider",
-        "url": "https://peninsulainsider.com.au/whats-on/dee-calmer-miles-live-at-peninsula-beer-garden-2026-11-20/",
-        "publishedAt": null,
-        "modifiedAt": null
-      },
-      "htmlBytes": 140262,
-      "markdownBytes": 2864
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/deja-vu-live-at-peninsula-beer-garden-2026-11-21/",
@@ -10582,23 +10565,6 @@
       "markdownBytes": 3889
     },
     {
-      "id": "https://peninsulainsider.com.au/whats-on/the-lucky-duck-and-pinot-lunch-2026-11-20/",
-      "title": "The Lucky Duck & Pinot Lunch",
-      "section": "whats-on",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/the-lucky-duck-and-pinot-lunch-2026-11-20/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/the-lucky-duck-and-pinot-lunch-2026-11-20/index.md",
-      "contentSha256": "fbed1a90c73102efb6a4b5155ef5d79d60500ea2ddb73cc147221f752265af9f",
-      "citation": {
-        "title": "The Lucky Duck & Pinot Lunch",
-        "publisher": "Peninsula Insider",
-        "url": "https://peninsulainsider.com.au/whats-on/the-lucky-duck-and-pinot-lunch-2026-11-20/",
-        "publishedAt": null,
-        "modifiedAt": null
-      },
-      "htmlBytes": 141145,
-      "markdownBytes": 3457
-    },
-    {
       "id": "https://peninsulainsider.com.au/whats-on/the-mount-martha-briars-market-2026-12-05/",
       "title": "The Mount Martha Briars Market",
       "section": "whats-on",
@@ -10988,23 +10954,6 @@
       },
       "htmlBytes": 142665,
       "markdownBytes": 3732
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/will-rounds-live-at-peppers-moonah-links-resort-2026-11-20/",
-      "title": "Will Rounds Live at Peppers Moonah Links Resort",
-      "section": "whats-on",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/will-rounds-live-at-peppers-moonah-links-resort-2026-11-20/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/will-rounds-live-at-peppers-moonah-links-resort-2026-11-20/index.md",
-      "contentSha256": "ecbc1c98393381921966d4470e2e07450b3c2f0ea16924ecc7db4c902e562e44",
-      "citation": {
-        "title": "Will Rounds Live at Peppers Moonah Links Resort",
-        "publisher": "Peninsula Insider",
-        "url": "https://peninsulainsider.com.au/whats-on/will-rounds-live-at-peppers-moonah-links-resort-2026-11-20/",
-        "publishedAt": null,
-        "modifiedAt": null
-      },
-      "htmlBytes": 140615,
-      "markdownBytes": 2977
     },
     {
       "id": "https://peninsulainsider.com.au/wine/",

@@ -521,8 +521,6 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [Deck the Chocolate Tree](<https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-2026-12-05/>)
 
-- [Dee - Calmer Miles Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/dee-calmer-miles-live-at-peninsula-beer-garden-2026-11-20/>)
-
 - [Deja Vu Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/deja-vu-live-at-peninsula-beer-garden-2026-11-21/>)
 
 - [DJ Sophie Joy Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/dj-sophie-joy-live-at-jetty-road-brewery-2026-11-28/>)
@@ -599,8 +597,6 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [The Creators Network: End of Year Catch-up for Creatives](<https://peninsulainsider.com.au/whats-on/the-creators-network-end-of-year-catch-up-for-creatives/>)
 
-- [The Lucky Duck & Pinot Lunch](<https://peninsulainsider.com.au/whats-on/the-lucky-duck-and-pinot-lunch-2026-11-20/>)
-
 - [The Mount Martha Briars Market](<https://peninsulainsider.com.au/whats-on/the-mount-martha-briars-market-2026-12-05/>)
 
 - [The Mount Martha Briars Twilight Market](<https://peninsulainsider.com.au/whats-on/the-mount-martha-briars-twilight-market-2026-12-27/>)
@@ -616,8 +612,6 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 - [Twilight Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/twilight-mornington-racecourse-market-2026-12-19/>)
 
 - [Vinehop at Phaedrus Estate](<https://peninsulainsider.com.au/whats-on/vinehop-2026-11-21/>)
-
-- [Will Rounds Live at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/will-rounds-live-at-peppers-moonah-links-resort-2026-11-20/>)
 
 ## Journal
 

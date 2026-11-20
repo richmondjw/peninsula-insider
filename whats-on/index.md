@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/whats-on/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-11-20
+Modified: 2026-11-21
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -12,14 +12,6 @@ Fri 20 – Sun 22 November  · Mornington Peninsula
 Find the date, place and reason to go, then check with the organiser before you head out.
 
 ## Reasons to go
-
-- Sat, 21 Nov · 10am–12pm · Mornington
-
-### [CREATE: Pottery for your table](<https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/>)
-
-A ceramic charcuterie platter workshop with Caitlin from Peachy Keen Ceramics, part of Mornington Peninsula Shire's CREATE programme.
-
-Arts
 
 - Sun, 22 Nov · 11:30am–2pm · Merricks
 
@@ -37,25 +29,25 @@ Enjoy live music at Peninsula Beer Garden! Deja Vu are a dynamic duo playing upb
 
 Live Music
 
-## Day by day
+- Sat, 21 Nov · 9am–2pm · Balnarring
 
-### Friday 20 November
-
-- [The Lucky Duck & Pinot Lunch](<https://peninsulainsider.com.au/whats-on/the-lucky-duck-and-pinot-lunch-2026-11-20/>)
-
-One-off chef’s lunch featuring an all-duck menu paired with pinot noir.
-
-Red Hill · Food & Wine
-
-### Saturday 21 November
-
-- 9am
-
-[Emu Plains Market](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
+### [Emu Plains Market](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
 
 Emu Plains is the artisan market that actually feels like the Peninsula: stringybarks, music, makers you'd buy from twice.
 
-Balnarring · Markets · Recurring monthly
+Markets
+
+## Day by day
+
+### Saturday 21 November
+
+- 10am
+
+[CREATE: Pottery for your table](<https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/>)
+
+A ceramic charcuterie platter workshop with Caitlin from Peachy Keen Ceramics, part of Mornington Peninsula Shire's CREATE programme.
+
+Mornington · Arts
 
 - 10.30am
 
