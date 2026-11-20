@@ -32,6 +32,21 @@ const askPiFlag = readFileSync(new URL('../../src/lib/features.ts', import.meta.
 assert.ok(askPiFlag, 'Declare the active or paused Ask PI mode explicitly before testing it');
 const askPiActive = askPiFlag[1] === 'true';
 
+async function assertPausedAskMenu(page) {
+  assert.equal(await page.$('#pi-chat, .pi-tile, [data-pi-popup], #siteSearchOverlayAsk'), null);
+  assert.equal((await page.$$('.ask-link')).length, 1);
+  assert.deepEqual(await page.$eval('.ask-link', el => ({
+    tag: el.tagName,
+    href: el.getAttribute('href'),
+    label: el.getAttribute('aria-label'),
+    title: el.getAttribute('title'),
+    event: el.getAttribute('data-evt'),
+  })), {
+    tag: 'A', href: '/ask/', label: 'Ask PI, currently site search',
+    title: 'Ask PI, currently site search', event: null,
+  });
+}
+
 const site = await Site.open();
 test.after(() => site.close());
 
@@ -182,6 +197,113 @@ test('walking the journeys raises no uncaught error', async () => {
   }
 });
 
+for (const width of [320, 390, 1280, 1440]) {
+  test(`paused Ask PI menu is reachable without a chat at ${width}px`, { skip: askPiActive }, async (t) => {
+    const reader = await site.reader();
+    const page = reader.page;
+    const askCalls = [];
+    page.on('request', request => {
+      if (new URL(request.url()).pathname.includes('/concierge/')) askCalls.push(request.method());
+    });
+    try {
+      await page.setViewport({ width, height: 900, isMobile: width < 768, hasTouch: width < 768 });
+      await reader.load('/');
+      await assertPausedAskMenu(page);
+      const menu = await page.$eval('.ask-link', el => {
+        const box = el.getBoundingClientRect();
+        return {
+          width: box.width, height: box.height,
+          visible: el.contains(document.elementFromPoint(box.x + box.width / 2, box.y + box.height / 2)),
+          overflow: document.documentElement.scrollWidth > innerWidth,
+          imageLoaded: el.querySelector('img').naturalWidth > 0,
+        };
+      });
+      assert.ok(menu.visible && menu.imageLoaded && menu.width >= 44 && menu.height >= 44, JSON.stringify(menu));
+      assert.equal(menu.overflow, false);
+      if (width < 1280) {
+        for (let repeat = 0; repeat < 2; repeat++) {
+          await page.click('.mobile-menu');
+          assert.equal(await page.$eval('#mobile-drawer', el => el.open), true);
+          assert.equal(await page.evaluate(() => document.body.style.position), 'fixed');
+          await page.keyboard.press('Escape');
+          assert.equal(await page.$eval('#mobile-drawer', el => el.open), false);
+          assert.equal(await page.evaluate(() => document.activeElement?.classList.contains('mobile-menu')), true);
+          assert.equal(await page.evaluate(() => document.body.style.position), '');
+          assert.equal(await page.evaluate(() => document.documentElement.style.overflow), '');
+        }
+      }
+      await page.focus('.brand');
+      for (let tabs = 0; tabs < 30; tabs++) {
+        if (await page.evaluate(() => document.activeElement?.classList.contains('ask-link'))) break;
+        await page.keyboard.press('Tab');
+      }
+      assert.equal(await page.evaluate(() => document.activeElement?.classList.contains('ask-link')), true, 'Ask PI is reachable by Tab from the home link');
+      assert.equal(await page.$eval('.ask-link', el => el.matches(':focus-visible') && parseFloat(getComputedStyle(el).outlineWidth) > 0), true);
+      await page.keyboard.press('Enter');
+      await page.waitForFunction(() => location.pathname === '/ask/' && document.querySelector('#ask-safe-q'));
+      await assertPausedAskMenu(page);
+      assert.equal(await page.$eval('main.ask-safe .ask-safe__status', el => el.textContent.trim()), 'Temporarily paused');
+      assert.equal(await page.$('dialog[open], #pi-chat'), null);
+      if (width < 768) {
+        await reader.navigate('/');
+        await page.evaluate(() => {
+          const events = [];
+          const state = () => {
+            const link = document.querySelector('.ask-link');
+            const rect = link?.getBoundingClientRect();
+            const x = rect ? rect.left + rect.width / 2 : -1;
+            const y = rect ? rect.top + rect.height / 2 : -1;
+            const hit = document.elementFromPoint(x, y);
+            return {
+              path: location.pathname, x, y, scrollY: window.scrollY,
+              transition: document.documentElement.getAttribute('data-astro-transition'),
+              hit: hit?.className?.baseVal ?? hit?.className ?? hit?.tagName ?? null,
+              actionable: !!link && getComputedStyle(link).visibility === 'visible' && link.contains(hit),
+              drawerOpen: document.querySelector('#mobile-drawer')?.open,
+              bodyPosition: document.body.style.position,
+              htmlOverflow: document.documentElement.style.overflow,
+            };
+          };
+          for (const type of ['pointerdown', 'pointerup', 'click']) {
+            document.addEventListener(type, event => {
+              if (events.length >= 12) return;
+              events.push({ type, trusted: event.isTrusted, pointer: event.pointerType,
+                tag: event.target?.nodeName, onAsk: !!event.target?.closest?.('.ask-link') });
+            }, { capture: true });
+          }
+          window.__askMenuTap = { state, events };
+        });
+        const initial = await page.evaluate(() => window.__askMenuTap.state());
+        // Astro emits page-load before the document transition finishes. A painted
+        // transition snapshot is not a hit-testable link. Tap as soon as the real
+        // control owns its center point, not after an arbitrary delay.
+        let ready;
+        try {
+          const actionableCenter = await page.waitForFunction(() => {
+            const s = window.__askMenuTap.state();
+            return s.path === '/' && s.actionable && !s.drawerOpen && !s.bodyPosition && !s.htmlOverflow ? s : false;
+          }, { timeout: 5000, polling: 'raf' });
+          ready = await actionableCenter.jsonValue();
+          await actionableCenter.dispose();
+          await page.touchscreen.tap(ready.x, ready.y);
+          await page.waitForFunction(() => location.pathname === '/ask/' && document.querySelector('#ask-safe-q'), { timeout: 8000 });
+          const events = await page.evaluate(() => window.__askMenuTap?.events);
+          assert.ok(events?.some(e => e.type === 'pointerdown' && e.pointer === 'touch' && e.trusted && e.onAsk), 'the browser delivered touch to the real Ask PI link');
+          assert.ok(events?.some(e => e.type === 'click' && e.trusted && e.onAsk), 'the real touch activated the Ask PI link');
+        } finally {
+          const final = await page.evaluate(() => ({ ...window.__askMenuTap?.state(), events: window.__askMenuTap?.events }));
+          t.diagnostic(JSON.stringify({ width, initial, ready, final }));
+        }
+        await assertPausedAskMenu(page);
+      }
+      assert.deepEqual(askCalls, []);
+      assert.deepEqual(await reader.errors(), []);
+    } finally {
+      await reader.close();
+    }
+  });
+}
+
 for (const viewport of [{ width: 1440, height: 900 }, { width: 390, height: 844, isMobile: true, hasTouch: true }]) {
 
   test(`Ask PI paused uses editorial search at ${viewport.width}px`, { skip: askPiActive }, async () => {
@@ -204,13 +326,13 @@ for (const viewport of [{ width: 1440, height: 900 }, { width: 390, height: 844,
       });
 
       await reader.load('/');
-      assert.equal(await page.$('#pi-chat, .pi-tile, .ask-link, #siteSearchOverlayAsk'), null);
+      await assertPausedAskMenu(page);
       assert.equal(await page.$eval('[data-ask-enabled]', el => el.dataset.askEnabled), 'false');
 
       const query = 'Where can I eat in Red Hill?';
       await reader.load('/ask/?q=' + encodeURIComponent(query));
       assert.equal(await page.$eval('main.ask-safe .ask-safe__status', el => el.textContent.trim()), 'Temporarily paused');
-      assert.equal(await page.$('#pi-chat, .pi-tile, .ask-link, #siteSearchOverlayAsk'), null);
+      await assertPausedAskMenu(page);
       assert.equal(await page.$eval('form[role="search"] #ask-safe-q', el => el.value), query);
       assert.equal(await page.$eval('main.ask-safe form', el => el.getAttribute('method')), 'get');
       await page.click('main.ask-safe form button[type="submit"]');
@@ -237,7 +359,7 @@ for (const viewport of [{ width: 1440, height: 900 }, { width: 390, height: 844,
         && new URLSearchParams(location.search).get('q') === q
         && document.querySelector('#ask-safe-q')?.value === q, { timeout: 6000 }, query);
       assert.equal(await page.evaluate(() => window.__askPauseHistoryDocument), 'same-document');
-      assert.equal(await page.$('#pi-chat, .pi-tile, .ask-link, #siteSearchOverlayAsk'), null);
+      await assertPausedAskMenu(page);
     };
     const edit = async (value) => {
       await page.focus('#ask-safe-q');
