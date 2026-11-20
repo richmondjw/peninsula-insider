@@ -62,14 +62,15 @@ One rule makes it safe for her to be funny. **A line may be about the reader, ab
 - A line about the Peninsula as a whole (the nightlife line) is an editorial claim. It needs an editor's approval before it goes in.
 - `src/lib/ask-pi.test.mjs` fails the build if a line carries a price, a clock time, a weekday, an em dash or a claim to have been somewhere.
 
-### When the model writes for a plan (off until read)
+### When the model writes for a plan (on since 20 November 2026)
 
-`SHOW_ASK_COMPOSE` in `next/src/lib/features.ts`, with `CONCIERGE_COMPOSE_ENABLED` on the platform, lets the model do two things for a plan: choose one page for each part of the day from the short list the site sends, and write an opening and one line per stop. It is built and tested but switched off.
+`SHOW_ASK_COMPOSE` in `next/src/lib/features.ts`, with `CONCIERGE_COMPOSE_ENABLED` on the platform, lets the model do two things for a plan: choose one page for each part of the day from the short list the site sends, and write an opening and one line per stop. It runs on an open model on Groq (`openai/gpt-oss-120b`). The key lives in the platform's Vercel project; without it composing fails closed and the plan is shown as the site built it.
 
 - The model can only pick from the pages it was offered. The site checks that again when the reply comes back.
 - Each line is checked on the platform against the one page it is about, sent back once with the reason if it fails, and dropped if it fails again. The stop stays; only her line goes.
 - The opening follows the same rule as her authored lines: about the reader and their plan, never a venue or a fact about a place.
-- Before switching it on, run `node scripts/compose-eval.mjs --dist dist --api <platform>` and read every line it prints. The checks catch unsupported facts; they cannot tell you whether she is funny.
+- Run `node scripts/compose-eval.mjs --dist dist --api <platform>` after any change to her prompt or the model and read every line it prints. The checks catch unsupported facts; they cannot tell you whether she is funny.
+- To turn it off: set `SHOW_ASK_COMPOSE` to false here, or remove `CONCIERGE_COMPOSE_ENABLED` on the platform.
 
 ### DO
 
