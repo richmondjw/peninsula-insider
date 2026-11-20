@@ -1,0 +1,13 @@
+{
+  "claimId": "events/mprg-summer-exhibitions-launch-2026/event-schedule",
+  "claimClass": "event-schedule",
+  "subject": {"type": "events", "slug": "mprg-summer-exhibitions-launch-2026", "field": "nextOccurrence"},
+  "statement": "Mornington Peninsula Regional Gallery schedules its summer exhibitions launch for Saturday 5 December 2026, 2pm to 4pm.",
+  "assertedBy": [
+    {"type": "events", "slug": "mprg-summer-exhibitions-launch-2026", "field": "nextOccurrence"},
+    {"type": "events", "slug": "mprg-summer-exhibitions-launch-2026", "field": "startTime"}
+  ],
+  "createdAt": "2026-11-21",
+  "origin": "authored",
+  "note": "Covers the timed opening only, not the subsequent exhibition run or remaining registration capacity."
+}
