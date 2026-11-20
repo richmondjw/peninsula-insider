@@ -1,6 +1,6 @@
 {
   "note": "Recorded state of every migration in ops/migrations/. Migrations on this project are applied by hand and this file is the only place that says which ones have been. A state is a claim about the live database that a human established and can defend in a diff — never something this repository inferred for itself. States: applied (carries appliedOn — an ISO date, or the literal \"unknown\" where the date is genuinely unrecoverable), pending (carries reason), unknown (carries reason). \"unknown\" is a legitimate answer; a guess is not.",
-  "updatedAt": "2026-09-14T00:18:40.743Z",
+  "updatedAt": "2026-11-20T23:56:34Z",
   "project": "tjjhpvslpysfklwpqmgz",
   "migrations": [
     {
@@ -261,6 +261,13 @@
       "reason": "No record exists of whether this migration was applied. Migrations on this project are applied by hand through the Supabase SQL editor and nothing has ever written down which ones ran, so from the repository a migration that ran in May and one that has never run are indistinguishable. Establish this against the live database, then replace this row with applied + appliedOn, or pending + the probe that showed it absent. Do not guess.",
       "recordedOn": "2026-09-14",
       "recordedBy": "PI-017 ledger seed"
+    },
+    {
+      "file": "concierge/2026-11-21-pi-chat-turns.sql",
+      "state": "pending",
+      "reason": "Read-only SQL against project tjjhpvslpysfklwpqmgz on 2026-11-21 returned null for to_regclass('public.pi_chat_turns'). The migration has not been applied to that project as of this probe; no schema change was made.",
+      "recordedOn": "2026-11-21",
+      "recordedBy": "Codex What's On release prerequisite - live Supabase read-only probe"
     }
   ]
 }
