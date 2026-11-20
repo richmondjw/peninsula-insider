@@ -37,7 +37,7 @@ Mornington Park Boat Ramp serves the Mornington precinct on Port Phillip Bay’s
 
 ## Tide dependence
 
-All-tide for standard recreational trailer boats with care required on the lowest tides. Use the Port Melbourne reference station and check [BOM tidal predictions](<https://www.bom.gov.au/australia/tides/>) before launching with a deep-keeled vessel or anything over 6m.
+All-tide for standard recreational trailer boats with care required on the lowest tides. Use the BOM-listed Mornington station and check [BOM tidal predictions](<https://www.bom.gov.au/australia/tides/>) before launching with a deep-keeled vessel or anything over 6m.
 
 ## Parking and pressure
 
@@ -85,7 +85,7 @@ Yes. Mornington Peninsula Shire records the Schnapper Point upgrade as complete 
 
 ### Can I launch at any tide?
 
-Yes for standard trailer boats, with care required on the lowest tides. Deep-keeled or larger vessels should check the Port Melbourne reference station before launching.
+Yes for standard trailer boats, with care required on the lowest tides. Deep-keeled or larger vessels should check the BOM-listed Mornington station before launching.
 
 ### How busy does the parking get?
 

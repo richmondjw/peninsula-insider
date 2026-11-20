@@ -39,7 +39,7 @@ This is the busiest and best-equipped public boat ramp in Western Port. The 2024
 
 All-tide. This is the defining operational advantage of Hastings over [Warneet](<https://peninsulainsider.com.au/boating/ramps/warneet-boat-ramp/>), where caution is required at low water. With Western Port’s tidal range of approximately 2.5 to 2.8m, all-tide ramp status is materially valuable.
 
-Even at an all-tide ramp, Western Port anglers should still check the tide for fishing-ground access. Channel depth, current strength, and shallow-water locations change substantially with tidal state. The reference station is Stony Point; check [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<http://www.bom.gov.au/australia/tides/>).
+Even at an all-tide ramp, Western Port anglers should still check the tide for fishing-ground access. Channel depth, current strength, and shallow-water locations change substantially with tidal state. Use the BOM-listed Western Port (Stony Point) station in the [BOM tidal predictions](<https://www.bom.gov.au/australia/tides/>).
 
 ## Parking and pressure
 

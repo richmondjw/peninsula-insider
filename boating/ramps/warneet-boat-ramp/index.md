@@ -29,7 +29,7 @@ Max vessel length | Two-lane ramp with tidal constraint. Standard trailer boats 
 
 Address | Rutherford Parade, Warneet VIC 3980 |
 
-**Tide-dependent ramp.** Check the tide before driving here with a boat on the trailer. Use [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<https://www.bom.gov.au/australia/tides/>) for the Western Port (Stony Point) reference station. Tide-sensitive Western Port ramp. Launch on the upper half of the tidal cycle (two hours before high water through to two hours after high water at the Stony Point reference station). At low water, the channel approach shallows substantially.
+**Tide-dependent ramp.** Check the tide before driving here with a boat on the trailer. Use [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<https://www.bom.gov.au/australia/tides/>) for the Western Port (Stony Point) reference station. Tide-sensitive Western Port ramp. Launch on the upper half of the tidal cycle (two hours before high water through to two hours after high water at the BOM-listed Western Port (Stony Point) station). At low water, the channel approach shallows substantially.
 
 ## What this ramp is
 
@@ -43,11 +43,11 @@ Two concrete lanes with a central pontoon, fish-cleaning station, and recently r
 
 Primary sources describe Warneet as all-tide cautious at low tide. In practice the ramp is usable across most of the cycle, but the approach shallows at low water to the point where caution is required. This is not the absolute barrier at [Safety Beach](<https://peninsulainsider.com.au/boating/ramps/safety-beach-boat-ramp/>), but it is not the freely all-tide access at [Hastings](<https://peninsulainsider.com.au/boating/ramps/hastings-boat-ramp/>) either.
 
-Western Port’s tidal range of approximately 2.5 to 2.8m is one of the larger tidal ranges in Victorian recreational boating waters. The difference between high-water and low-water depths at Warneet is substantial. The Stony Point reference station is the relevant source. Use [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<http://www.bom.gov.au/australia/tides/>).
+Western Port has a much larger tidal range than Port Phillip Bay. The difference between high-water and low-water depths at Warneet is substantial. Use the BOM-listed Western Port (Stony Point) station in the [BOM tidal predictions](<https://www.bom.gov.au/australia/tides/>).
 
 **Conservative default:** launch between two hours before high water and two hours after high water for vessels over 4.5m or with a deeper-than-standard draft. If you are visiting from Port Phillip Bay and unfamiliar with Western Port’s tidal range, treat this ramp as tide-dependent until you have personal experience of its low-water characteristics.
 
-**Mandatory safety statement.** Check the tide before driving to Warneet Boat Ramp. Set a [Willyweather alert](<https://tides.willyweather.com.au/>) for the Stony Point station before departure. Arriving at low water on a tide-sensitive ramp with a vessel on the trailer is a serious inconvenience at best and a safety incident at worst.
+**Mandatory safety statement.** Check the BOM-listed Western Port (Stony Point) station before driving to Warneet Boat Ramp. Arriving at low water on a tide-sensitive ramp with a vessel on the trailer is a serious inconvenience at best and a safety incident at worst.
 
 ## Parking and pressure
 
@@ -85,7 +85,7 @@ Free to launch from. Mornington Peninsula Shire-managed ramps are free as of 30 
 
 ### Can I launch at Warneet at any tide?
 
-Cautiously. Warneet is described in primary sources as all-tide cautious at low tide. The approach shallows at low water to the point where care is required. Vessels over 4.5m or with a deeper-than-standard draft should plan launches between two hours before high water and two hours after high water at the Stony Point station.
+Cautiously. Warneet is described in primary sources as all-tide cautious at low tide. The approach shallows at low water to the point where care is required. Vessels over 4.5m or with a deeper-than-standard draft should plan launches between two hours before high water and two hours after high water at the BOM-listed Western Port (Stony Point) station.
 
 ### How busy does Warneet get?
 

@@ -29,7 +29,7 @@ Max vessel length | Approximately 6m at high water. Vessels over 6m should confi
 
 Address | Shand Street and Marine Drive, Safety Beach VIC 3936 |
 
-**Tide-dependent ramp.** Check the tide before driving here with a boat on the trailer. Use [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<https://www.bom.gov.au/australia/tides/>) for the Mornington reference station. At low water, depth at the ramp drops to roughly 0.3 metres, insufficient for any practical recreational vessel. The usable launch window is approximately two hours either side of high water at the Portsea reference station.
+**Tide-dependent ramp.** Check the tide before driving here with a boat on the trailer. Use [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<https://www.bom.gov.au/australia/tides/>) for the Mornington reference station. At low water, depth at the ramp drops to roughly 0.3 metres, insufficient for any practical recreational vessel. The usable launch window is approximately two hours either side of high water at the BOM-listed Mornington station.
 
 ## What this ramp is
 
@@ -39,7 +39,7 @@ The critical operational constraint is the tide. This is not an all-tide ramp. A
 
 ## Tide dependence
 
-The usable launch window runs from roughly two hours before high water to two hours after, at either the Portsea or Port Melbourne reference station. Outside that window, the ramp is effectively unusable. Use [Willyweather tide predictions](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<http://www.bom.gov.au/australia/tides/>) on the day. Set a Willyweather alert for Portsea before departure.
+The usable launch window runs from roughly two hours before high water to two hours after at the BOM-listed Mornington station. Outside that window, the ramp is effectively unusable. Use [BOM tidal predictions](<https://www.bom.gov.au/australia/tides/>) on the day.
 
 The other consequence is return planning. Launch near the top of the tide and you have a hard window to return. Watching the tide drop from a productive whiting drift is not the time to discover this.
 
@@ -81,7 +81,7 @@ This page covers public boat launch facilities only. Beach activities, jetty fis
 
 ### Can I launch at Safety Beach Boat Ramp at any tide?
 
-No. Safety Beach is tide-dependent. At low water, depth at the ramp is approximately one foot (0.3 metres), insufficient for launching any practical recreational vessel. The usable launch window is roughly two hours either side of high water. Check the tidal state at the Portsea reference station via Willyweather before departure.
+No. Safety Beach is tide-dependent. At low water, depth at the ramp is approximately one foot (0.3 metres), insufficient for launching any practical recreational vessel. The usable launch window is roughly two hours either side of high water. Check the BOM-listed Mornington station before departure.
 
 ### Is there parking for a car with a boat trailer?
 

@@ -39,7 +39,7 @@ Three concrete lanes, jetties on each side, and a breakwater that shelters the l
 
 Sorrento is all-tide. Approach depth has been documented at 0.3 to 0.8 metres across the tidal range, and the breakwater removes the swell problem that affects exposed bay ramps at low water. For a standard recreational trailer boat, Sorrento launches and retrieves at any tidal state. This is a material advantage over [Safety Beach](<https://peninsulainsider.com.au/boating/ramps/safety-beach-boat-ramp/>) and [Rye](<https://peninsulainsider.com.au/boating/ramps/rye-boat-ramp/>), comparable to [Hastings](<https://peninsulainsider.com.au/boating/ramps/hastings-boat-ramp/>) on the Western Port side.
 
-For deep-keeled or very large trailered boats, even at Sorrento it is prudent to check the Portsea station forecast on [Willyweather](<https://tides.willyweather.com.au/>).
+For deep-keeled or very large trailered boats, even at Sorrento it is prudent to check the BOM-listed Rosebud Jetty station in the [BOM tidal predictions](<https://www.bom.gov.au/australia/tides/>).
 
 ## Parking and pressure
 
@@ -83,7 +83,7 @@ This page covers public boat launch facilities only. The Sorrento Pier fishing e
 
 ### Can I launch at Sorrento Boat Ramp at any tide?
 
-Yes. Sorrento is an all-tide ramp with a breakwater-sheltered approach. Documented depth of 0.3 to 0.8 metres across the tidal range supports launch at any tidal state for standard recreational trailer boats. Deep-keeled vessels should still check the tidal forecast at Willyweather (Portsea station).
+Yes. Sorrento is an all-tide ramp with a breakwater-sheltered approach. Documented depth of 0.3 to 0.8 metres across the tidal range supports launch at any tidal state for standard recreational trailer boats. Deep-keeled vessels should still check the BOM-listed Rosebud Jetty station.
 
 ### Is there parking for a car with a boat trailer?
 

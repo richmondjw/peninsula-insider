@@ -39,7 +39,7 @@ The trade-off is the approach depth. Rye is not fully all-tide; the ramp has req
 
 ## Tide dependence
 
-The reference tidal station for this section of the bay is Portsea. Use [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<http://www.bom.gov.au/australia/tides/>) before driving here with a trailer. A safe launch window on a low-water day is roughly one to two hours either side of high water. Outside that, the approach is shallow.
+Use the BOM-listed Rosebud Jetty station in the [BOM tidal predictions](<https://www.bom.gov.au/australia/tides/>) before driving here with a trailer. A safe launch window on a low-water day is roughly one to two hours either side of high water. Outside that, the approach is shallow.
 
 The dredging history is the key signal. Four lanes does not mean four lanes at any tide.
 
@@ -81,7 +81,7 @@ Free to launch from. Mornington Peninsula Shire-managed ramps are free as of 30 
 
 ### Can I launch at Rye at any tide?
 
-Not fully. Rye is tide-affected at low water and has required dredging historically to maintain depth. Standard recreational vessels can launch on a mid-to-high tide. Vessels over 5 metres or with deeper draft should check the Portsea station forecast before launching.
+Not fully. Rye is tide-affected at low water and has required dredging historically to maintain depth. Standard recreational vessels can launch on a mid-to-high tide. Vessels over 5 metres or with deeper draft should check the BOM-listed Rosebud Jetty station before launching.
 
 ### How busy does the parking get?
 

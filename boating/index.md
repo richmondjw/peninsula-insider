@@ -171,7 +171,7 @@ Check the [Bureau of Meteorology forecast for the Peninsula](<https://www.bom.go
 
 - ### Use the right tide station
 
-Use Portsea for Sorrento and Rye, Port Melbourne for Safety Beach and Mornington, and Stony Point for Western Port. [Willyweather](<https://tides.willyweather.com.au/>) and the [Bureau](<https://www.bom.gov.au/australia/tides/>) both publish them.
+Use Rosebud Jetty for Sorrento and Rye, Mornington for Safety Beach and Mornington, and Western Port (Stony Point) for Hastings and Warneet. [Willyweather](<https://tides.willyweather.com.au/>) and the [Bureau](<https://www.bom.gov.au/australia/tides/>) both publish them.
 
 - ### Know your second ramp
 

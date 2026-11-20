@@ -15,7 +15,7 @@ Last fact-verified Fri, 20 Nov 2026.
 
 ## Tidal range, by water body
 
-Port Phillip Bay has a modest tidal range, typically 0.6 to 1.0m at Port Melbourne. Western Port is significantly more tidal at approximately 2.5 to 2.8m, which directly affects channel depth, ramp access, and fish behaviour. The two systems demand different pre-trip thinking.
+Port Phillip Bay has a smaller tidal range than Western Port. Western Port's stronger tidal movement directly affects channel depth, ramp access, and fish behaviour. The two systems demand different pre-trip thinking; use the current BOM-listed station shown for the ramp rather than a legacy station name.
 
 ### Port Phillip Bay reference stations
 
@@ -69,9 +69,9 @@ Species | Tide preference | Best window |
 
 ## Frequently asked questions
 
-### What is the tidal range in Port Phillip Bay versus Western Port?
+### How do Port Phillip Bay and Western Port differ?
 
-Port Phillip Bay has a modest tidal range, typically 0.6 to 1.0m at Port Melbourne. Western Port has approximately 2.5 to 2.8m, three to four times larger. The practical effect: current at Western Port ramps and channels is significantly faster, and ramps like Warneet and Tooradin are tide-cautious at low water. Use the Stony Point reference station for Western Port; Portsea or Port Melbourne for Port Phillip Bay.
+Port Phillip Bay has a smaller tidal range than Western Port. The practical effect is that current at Western Port ramps and channels can be substantially faster, and ramps like Warneet and Tooradin need more care around low water. Use the BOM-listed station shown for the ramp: Rosebud Jetty, Mornington, or Western Port (Stony Point).
 
 ### How do I check tides for the Peninsula?
 
