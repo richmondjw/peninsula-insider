@@ -49,7 +49,7 @@
     "bf:lint:strict": "node ../scripts/bf-import/verify-lint.mjs --strict",
     "pdfs": "node scripts/render-pdfs.mjs",
     "pdfs:rebuild": "npm run build && node scripts/render-pdfs.mjs",
-    "prebuild": "node scripts/clear-content-cache.mjs",
+    "prebuild": "node scripts/clear-content-cache.mjs && node --test scripts/boating-tide-stations.test.mjs",
     "lint:house-style": "node scripts/lint-house-style.mjs",
     "lint:content-caps": "node scripts/lint-content-caps.mjs",
     "lint:content-caps:strict": "node scripts/lint-content-caps.mjs --strict",
