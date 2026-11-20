@@ -1,8 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 export const prerender = true;
-
-const query = Astro.url.searchParams.get('q')?.trim().slice(0, 500) ?? '';
 ---
 
 <BaseLayout
@@ -22,7 +20,7 @@ const query = Astro.url.searchParams.get('q')?.trim().slice(0, 500) ?? '';
       <form action="/search/" method="get" role="search" aria-label="Search Peninsula Insider">
         <label for="ask-safe-q">What are you looking for?</label>
         <div class="ask-safe__field">
-          <input id="ask-safe-q" name="q" type="search" value={query} maxlength="500" autocomplete="off" enterkeyhint="search" placeholder="Red Hill lunch, coastal walk or rainy day" />
+          <input id="ask-safe-q" name="q" type="search" maxlength="500" autocomplete="off" enterkeyhint="search" placeholder="Red Hill lunch, coastal walk or rainy day" />
           <button class="pi-btn pi-btn--solid" type="submit">Search</button>
         </div>
       </form>
@@ -43,6 +41,21 @@ const query = Astro.url.searchParams.get('q')?.trim().slice(0, 500) ?? '';
     <p class="ask-safe__note">Ask PI will return only when recommendation details can be traced to current editorial evidence. Until then, search and the published guides are the reliable path.</p>
   </main>
 </BaseLayout>
+
+<script>
+  // This route is prerendered, so a visitor's query is only available in the browser.
+  const initialized = new WeakSet<HTMLInputElement>();
+  function prefillAskSearch() {
+    const input = document.querySelector<HTMLInputElement>('#ask-safe-q');
+    if (!input || initialized.has(input)) return;
+    initialized.add(input);
+    if (input.value) return;
+    const query = new URLSearchParams(location.search).get('q')?.trim() ?? '';
+    input.value = query.slice(0, input.maxLength);
+  }
+  prefillAskSearch();
+  document.addEventListener('astro:page-load', prefillAskSearch);
+</script>
 
 <style>
   .ask-safe { max-width: 58rem; padding-block: var(--space-8) var(--space-9); }
