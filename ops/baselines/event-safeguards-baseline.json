@@ -11,7 +11,8 @@
     "postponedWithoutProvenance",
     "occurrenceQueueEntries",
     "freeTextVerificationStatus",
-    "unboundedOccurrence"
+    "unboundedOccurrence",
+    "weekdaySummaryConflicts"
   ],
   "ceilings": {
     "liveEvents": 51,
@@ -27,6 +28,7 @@
     "postponedWithoutProvenance": 0,
     "occurrenceQueueEntries": 0,
     "freeTextVerificationStatus": 12,
-    "unboundedOccurrence": 2
+    "unboundedOccurrence": 2,
+    "weekdaySummaryConflicts": 0
   }
 }

@@ -102,6 +102,7 @@ const ASSERTED_METRICS = new Set([
   'occurrenceQueueEntries',
   'freeTextVerificationStatus',
   'unboundedOccurrence',
+  'weekdaySummaryConflicts',
 ]);
 
 const normalise = (value) =>
@@ -341,6 +342,23 @@ async function main() {
     .map(({ file }) => file)
     .sort();
 
+  // One-off listings can inherit generic copy for another weekly series from
+  // a source feed. Flag explicit "each/every <weekday>" claims when that day
+  // disagrees with the dated event. Recurring records have their own rule.
+  const weekdayNames = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+  const weekdayClaim = /\b(?:each|every)\s+(monday|tuesday|wednesday|thursday|friday|saturday|sunday)(?:\s+and\s+(monday|tuesday|wednesday|thursday|friday|saturday|sunday))?\b/gi;
+  const weekdaySummaryConflicts = [];
+  for (const { file, data } of live) {
+    if (data.recurrence !== 'one-off' || !/^\d{4}-\d{2}-\d{2}$/.test(data.startDate ?? '')) continue;
+    const date = new Date(`${data.startDate}T12:00:00Z`);
+    if (Number.isNaN(date.getTime())) continue;
+    const actual = weekdayNames[date.getUTCDay()];
+    for (const claim of String(data.summary ?? '').matchAll(weekdayClaim)) {
+      const claimed = [claim[1], claim[2]].filter(Boolean).map((day) => day.toLowerCase());
+      if (!claimed.includes(actual)) weekdaySummaryConflicts.push({ file, startDate: data.startDate, actual, claimed });
+    }
+  }
+
   const report = {
     generatedAt: new Date().toISOString(),
     asOf: today.toISOString().slice(0, 10),
@@ -361,6 +379,7 @@ async function main() {
       occurrenceQueueEntries: occurrenceQueue.length,
       freeTextVerificationStatus: freeTextVerificationStatus.length,
       unboundedOccurrence: unboundedOccurrence.length,
+      weekdaySummaryConflicts: weekdaySummaryConflicts.length,
     },
     missingVerificationDate: missingVerification.sort(),
     staleVerificationDate: staleVerification,
@@ -374,6 +393,7 @@ async function main() {
     occurrenceQueueByKind,
     freeTextVerificationStatus,
     unboundedOccurrence,
+    weekdaySummaryConflicts,
   };
 
   const t = report.totals;
@@ -394,6 +414,7 @@ async function main() {
   console.log(`    exception queue entries ..... ${t.occurrenceQueueEntries}   [gated]`);
   console.log(`    free-text verificationStatus  ${t.freeTextVerificationStatus}   [gated, ratchet down]`);
   console.log(`    start time, no end time ..... ${t.unboundedOccurrence}   [gated, ratchet down]`);
+  console.log(`    one-off weekday conflicts ... ${t.weekdaySummaryConflicts}   [gated]`);
   console.log('');
 
   for (const g of [...duplicateTitles, ...duplicateVenueDates, ...duplicateSaveDates]) {
@@ -411,6 +432,9 @@ async function main() {
   }
   for (const q of occurrenceQueue) {
     console.log(`    QUEUED     ${q.file} (${q.kind}): ${q.detail}`);
+  }
+  for (const c of weekdaySummaryConflicts) {
+    console.log(`    WEEKDAY    ${c.file}: ${c.startDate} is ${c.actual}, summary says ${c.claimed.join(' and ')}`);
   }
 
   if (JSON_OUT) {
