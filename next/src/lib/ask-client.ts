@@ -105,7 +105,7 @@ export function paragraphs(text: string): string[] {
   return text.split(/\n{2,}/).map((t) => t.trim()).filter(Boolean);
 }
 
-async function* sse(res: Response) {
+export async function* sse(res: Response) {
   const reader = res.body!.getReader();
   const decoder = new TextDecoder();
   let buf = '';

@@ -34,6 +34,21 @@ const CHATS = [
   ['we have one rainy Sunday in Sorrento with my parents', 'dad cannot walk far', 'somewhere for a drink after'],
 ];
 
+/** Reads a stream to the end, noting when the first sentence event arrives. */
+async function readAll(response, onFirstSentence) {
+  const reader = response.body.getReader();
+  const decoder = new TextDecoder();
+  let text = '';
+  for (;;) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    text += decoder.decode(value, { stream: true });
+    if (text.includes('event: sentence')) onFirstSentence();
+  }
+  return text;
+}
+
+const firsts = [];
 const report = [];
 let stray = 0;
 let empty = 0;
@@ -54,19 +69,35 @@ for (const chat of CHATS) {
     }
     const pages = talkPages(index, message, history.map((item) => item.q), turn.reply, shown, { today });
     const started = Date.now();
-    const response = await fetch(`${api}/concierge/pi/talk`, {
+    // The streaming route, read the way the chat reads it: a sentence at a time.
+    const response = await fetch(`${api}/concierge/pi/talk/stream`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'X-Session-Id': 'talk-eval' },
+      headers: { 'Content-Type': 'application/json', Accept: 'text/event-stream', 'X-Session-Id': 'talk-eval' },
       body: JSON.stringify({ message, history: history.slice(-8), pages }),
     });
-    const result = response.ok ? await response.json() : { say: null, picks: [], next: [], why: {} };
+    const result = { say: null, picks: [], next: [], why: {} };
+    let firstMs = 0;
+    if (response.ok) {
+      const said = [];
+      let event = '';
+      for (const line of (await readAll(response, () => { if (!firstMs) firstMs = Date.now() - started; })).split('\n')) {
+        if (line.startsWith('event:')) event = line.slice(6).trim();
+        else if (line.startsWith('data:')) {
+          const data = JSON.parse(line.slice(5).trim() || '{}');
+          if (event === 'sentence') said.push(data.text);
+          else if (event === 'meta') Object.assign(result, data);
+        }
+      }
+      result.say = said.length ? said.join(' ') : null;
+    }
+    firsts.push(firstMs);
     const ms = Date.now() - started;
     times.push(ms);
     const tiles = cardsFor(index, result.picks);
     if ((result.picks || []).length !== tiles.length) stray += 1;
     if (!result.say) empty += 1;
     console.log(`PI:  ${result.say ?? `(no reply; the site would say: ${turn.reply.lead})`}`);
-    console.log(`     [${response.status}, ${ms} ms; sent ${pages.length} pages; picks: ${tiles.map((tile) => tile.title).join(', ') || 'none'}; picks the site did not send: ${tiles.filter((tile) => !pages.includes(tile.href)).map((tile) => tile.title).join(', ') || 'none'}; next: ${(result.next || []).join(' | ') || 'none'}]`);
+    console.log(`     [${response.status}, first words ${firstMs} ms, all ${ms} ms; sent ${pages.length} pages; picks: ${tiles.map((tile) => tile.title).join(', ') || 'none'}; picks the site did not send: ${tiles.filter((tile) => !pages.includes(tile.href)).map((tile) => tile.title).join(', ') || 'none'}; next: ${(result.next || []).join(' | ') || 'none'}]`);
     for (const tile of tiles) if (result.why?.[tile.href]) console.log(`     why ${tile.title}: ${result.why[tile.href]}`);
     report.push({ message, ms, say: result.say, picks: tiles.map((tile) => tile.href), why: result.why, next: result.next });
     history.push({ q: message, say: result.say ?? turn.reply.lead });
@@ -75,5 +106,6 @@ for (const chat of CHATS) {
 }
 if (option('--json')) writeFileSync(resolve(option('--json')), JSON.stringify(report, null, 2) + '\n');
 times.sort((a, b) => a - b);
-console.log(`\nTalk eval: ${report.length} turns to the model, ${empty} with no reply, median ${times[Math.floor(times.length / 2)] ?? 0} ms, slowest ${times.at(-1) ?? 0} ms, ${stray} with a pick that is not a published page.`);
+const got = firsts.filter(Boolean).sort((a, b) => a - b);
+console.log(`\nTalk eval: ${report.length} turns to the model, ${empty} with no reply. First words: median ${got[Math.floor(got.length / 2)] ?? 0} ms, slowest ${got.at(-1) ?? 0} ms. Whole reply: median ${times[Math.floor(times.length / 2)] ?? 0} ms, slowest ${times.at(-1) ?? 0} ms. ${stray} with a pick that is not a published page.`);
 process.exit(stray ? 1 : 0);
