@@ -61,7 +61,7 @@ For wheelchair access, Parks Victoria identifies a path from the adjacent car pa
 
 ---
 
-**Rye Foreshore Market - Rye**
+**[Rye Foreshore Market](/eat/rye-beachside-market/) - Rye**
 
 The Rotary Club of Rosebud-Rye runs this community market with a focus on homemade and home-grown goods. Stall income supports community service projects. Make time for a browse when a market date fits your visit, rather than assuming it will be open any weekend.
 

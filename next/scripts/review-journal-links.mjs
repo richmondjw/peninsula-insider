@@ -35,7 +35,18 @@ try {
    assert.equal(await page.$eval('[data-pi-prose-root] a[href^="/"]',a=>document.activeElement===a),true);
    await page.keyboard.press('Enter');
    await page.waitForFunction(href=>location.pathname===new URL(href,location.origin).pathname,{},first.href);
-   report.pages.push({slug,width,...observed,keyboard:'Enter navigated to first contextual destination'});
+   const keyboardTargets=[];
+   for (const required of requiredLinks[slug].filter(link=>link.keyboard)) {
+    await reader.load(`/journal/${slug}/`);
+    const selector=`[data-pi-prose-root] a[href=${JSON.stringify(required.href)}]`;
+    await page.focus(selector);
+    assert.equal(await page.$eval(selector,a=>document.activeElement===a),true);
+    await page.screenshot({path:`${out}/${slug}-${width}-focused.png`});
+    await page.keyboard.press('Enter');
+    await page.waitForFunction(href=>location.pathname===new URL(href,location.origin).pathname,{},required.href);
+    keyboardTargets.push({name:required.name,href:required.href,result:'Enter navigated to approved destination'});
+   }
+   report.pages.push({slug,width,...observed,keyboard:'Enter navigated to first contextual destination',keyboardTargets});
   } finally {await reader.close();}
  }
 } finally {await fs.writeFile(`${out}/rendered.json`,JSON.stringify(report,null,2));await site.close();}
