@@ -35,8 +35,8 @@ jobs:
       - name: Sit the exam
         run: node next/scripts/ask-eval.mjs --dist "$RUNNER_TEMP/dist" --api https://peninsula-insider-platform-api.vercel.app --out reports/ask-eval --pass "$PASS_MARK"
         env:
-          # Set from the first full run on 21 Nov 2026, under what she scored (62%), while the first faults are fixed. Raise it as she improves.
-          PASS_MARK: '0.60'
+          # She scored 93% on 21 Nov 2026 once the token limit fault was fixed. The mark sits under that to allow for the model varying night to night. Raise it as she improves.
+          PASS_MARK: '0.85'
       - uses: actions/upload-artifact@v4
         if: always()
         with:
