@@ -53,7 +53,7 @@ const starters = SHOW_ASK_PERSONA
 
     <section class="pi-chat__panel" id="pi-chat-panel" aria-labelledby="pi-chat-name" hidden>
       <header class="pi-chat__head">
-        <img class="pi-chat__head-face" src="/images/pi/pi-avatar-96.webp" alt="" width="40" height="40" decoding="async" />
+        <span class="pi-fig pi-fig--round pi-chat__head-face" aria-hidden="true"><span class="pi-fig__art"><span class="pi-fig__go pi-fig__go--body"><img class="pi-fig__part pi-fig__body" src="/images/pi/pi-layer-body-160.webp" srcset="/images/pi/pi-layer-body-160.webp 160w, /images/pi/pi-layer-body-320.webp 320w" sizes="45px" alt="" width="40" height="40" decoding="async" /></span><span class="pi-fig__go pi-fig__go--hat"><img class="pi-fig__part pi-fig__hat" src="/images/pi/pi-layer-hat-160.webp" srcset="/images/pi/pi-layer-hat-160.webp 160w, /images/pi/pi-layer-hat-320.webp 320w" sizes="45px" alt="" width="40" height="40" decoding="async" /></span><span class="pi-fig__go pi-fig__go--hair"><img class="pi-fig__part pi-fig__hair" src="/images/pi/pi-layer-hair-160.webp" srcset="/images/pi/pi-layer-hair-160.webp 160w, /images/pi/pi-layer-hair-320.webp 320w" sizes="45px" alt="" width="40" height="40" decoding="async" /></span></span></span>
         <div class="pi-chat__head-id">
           <h2 class="pi-chat__name" id="pi-chat-name">PI</h2>
           <p class="pi-chat__role">The Peninsula Insider</p>
@@ -74,7 +74,7 @@ const starters = SHOW_ASK_PERSONA
 
       <div class="pi-chat__thread" id="pi-chat-thread" data-lenis-prevent>
         <div class="pi-chat__hello" id="pi-chat-hello">
-          <img class="pi-chat__portrait" src="/images/pi/pi-portrait-320.webp" srcset="/images/pi/pi-portrait-320.webp 320w, /images/pi/pi-portrait-640.webp 640w" sizes="168px" alt="" width="168" height="168" decoding="async" />
+          <span class="pi-fig pi-fig--disc pi-chat__portrait" aria-hidden="true"><span class="pi-fig__art"><span class="pi-fig__go pi-fig__go--body"><img class="pi-fig__part pi-fig__body" src="/images/pi/pi-layer-body-320.webp" srcset="/images/pi/pi-layer-body-320.webp 320w, /images/pi/pi-layer-body-640.webp 640w" sizes="168px" alt="" width="168" height="168" decoding="async" /></span><span class="pi-fig__go pi-fig__go--hat"><img class="pi-fig__part pi-fig__hat" src="/images/pi/pi-layer-hat-320.webp" srcset="/images/pi/pi-layer-hat-320.webp 320w, /images/pi/pi-layer-hat-640.webp 640w" sizes="168px" alt="" width="168" height="168" decoding="async" /></span><span class="pi-fig__go pi-fig__go--hair"><img class="pi-fig__part pi-fig__hair" src="/images/pi/pi-layer-hair-320.webp" srcset="/images/pi/pi-layer-hair-320.webp 320w, /images/pi/pi-layer-hair-640.webp 640w" sizes="168px" alt="" width="168" height="168" decoding="async" /></span></span></span>
           <p class="pi-chat__hello-lead">Tell me what you're after.</p>
           <p class="pi-chat__hello-body">{SHOW_ASK_PERSONA
             ? "A long lunch, a walk, somewhere to stay, what's on this weekend. Or hand me the whole day and I'll put it in order."
@@ -300,6 +300,24 @@ const starters = SHOW_ASK_PERSONA
     }
 
     /** While she works: a line being written across a rule in her notebook. Decoration only. */
+    /** "PI" in her hand: three strokes and a line under them, drawn in order. */
+    function signature() {
+      const NS = 'http://www.w3.org/2000/svg';
+      const svg = document.createElementNS(NS, 'svg');
+      svg.setAttribute('class', 'pi-sign');
+      svg.setAttribute('viewBox', '0 0 46 34');
+      svg.setAttribute('aria-hidden', 'true');
+      ['M9 22 C10 16 11.5 10 14 4', 'M9 7 C16 1 27 3 25 10 C23 16 15 17 11 15', 'M34 4 C33.5 10 32.8 15 32 21', 'M5 31.5 C17 29.5 30 29.5 42 30.5'].forEach((d, i) => {
+        const stroke = document.createElementNS(NS, 'path');
+        stroke.setAttribute('class', 'pi-sign__ink');
+        stroke.setAttribute('pathLength', '1');
+        stroke.setAttribute('d', d);
+        stroke.style.setProperty('--pi-s', String(i));
+        svg.append(stroke);
+      });
+      return svg;
+    }
+
     function pen() {
       const NS = 'http://www.w3.org/2000/svg';
       const svg = document.createElementNS(NS, 'svg');
@@ -477,7 +495,9 @@ const starters = SHOW_ASK_PERSONA
       face.alt = '';
       face.width = 24;
       face.height = 24;
-      sign.append(face, el('span', '', 'PI'));
+      sign.style.setProperty('--pi-stops', String(plan.stops.length));
+      const initials = el('span', 'pi-note__initials', 'PI');
+      sign.append(face, signature(), initials);
       note.append(scribble, sign);
       const acts = el('div', 'pi-note__acts');
       if (plan.trip) {
@@ -1101,6 +1121,27 @@ const starters = SHOW_ASK_PERSONA
     border-bottom: 1px solid var(--border);
   }
   .pi-chat__head-face { width: 40px; height: 40px; border-radius: 50%; background: var(--pi-cream); flex: none; }
+
+  /* ── Her figure, in parts ──
+     The hat illustration cut into three layers from the approved mark (scripts/build-pi-layers.mjs):
+     shoulder, hat, hair. Stacked they are the mark. Wind off the bay lifts her hair and hat every
+     few seconds; while she looks something up she steps out of the disc, hat last, and comes back
+     with the answer. */
+  .pi-fig { position: relative; display: block; flex: none; }
+  .pi-fig__art, .pi-fig__go, .pi-fig__part { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .pi-fig--round { overflow: hidden; }
+  /* The round crop: the same circle the avatar files use, 0.445 of the canvas. */
+  .pi-fig--round .pi-fig__art { inset: -6.18%; width: auto; height: auto; }
+  .pi-fig--disc::before { content: ''; position: absolute; inset: 5.5%; border-radius: 50%; background: #F4EAD3; }
+  .pi-fig__hair { transform-origin: 37% 60%; animation: pi-wind-hair 7s ease-in-out infinite; }
+  .pi-fig__hat { transform-origin: 48% 52%; animation: pi-wind-hat 7s ease-in-out infinite; }
+  @keyframes pi-wind-hair { 0%, 58%, 100% { transform: none; } 66% { transform: rotate(6deg) skewX(-3deg); } 74% { transform: rotate(-2deg); } 82% { transform: rotate(3deg) skewX(-1deg); } 91% { transform: rotate(-.8deg); } }
+  @keyframes pi-wind-hat { 0%, 56%, 100% { transform: none; } 65% { transform: rotate(-1.1deg) translateY(-.7%); } 76% { transform: rotate(.4deg); } 86% { transform: rotate(-.4deg); } }
+  .pi-fig__go { transition: transform 520ms cubic-bezier(.2, .8, .3, 1); }
+  .pi-fig__go--hat { transition-delay: 60ms; }
+  .pi-chat:has(.pi-msg.is-live) .pi-chat__head-face .pi-fig__go { transform: translate(105%, 18%) rotate(8deg); transition: transform 460ms cubic-bezier(.6, 0, .9, .4); }
+  .pi-chat:has(.pi-msg.is-live) .pi-chat__head-face .pi-fig__go--hat { transition-delay: 170ms; }
+
   .pi-chat__head-id { flex: 1; min-width: 0; }
   .pi-chat__name { margin: 0; font: var(--fw-display) var(--fs-500)/1.1 var(--font-display); letter-spacing: var(--ls-display); }
   .pi-chat__role { margin: 2px 0 0; color: var(--soft); font: 400 var(--fs-200)/1.3 var(--font-ui); }
@@ -1239,8 +1280,14 @@ const starters = SHOW_ASK_PERSONA
   .pi-note__swap:focus-visible, .pi-note__act:focus-visible, .pi-msg__fb-open:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
   .pi-note__scribble { margin: var(--space-2) 0 0; padding-top: var(--space-3); border-top: 1px solid color-mix(in srgb, var(--text) 14%, transparent); font: italic var(--fw-display) var(--fs-400)/1.3 var(--font-display); }
   .pi-note__scribble[hidden] { display: none; }
-  .pi-note__sign { display: flex; align-items: center; justify-content: flex-end; gap: var(--space-2); margin: var(--space-2) 0 0; font: italic 600 var(--fs-300)/1 var(--font-display); }
+  .pi-note__sign { position: relative; display: flex; align-items: center; justify-content: flex-end; gap: var(--space-2); margin: var(--space-2) 0 0; font: italic 600 var(--fs-300)/1 var(--font-display); }
   .pi-note__sign img { width: 24px; height: 24px; border-radius: 50%; }
+  .pi-note__initials { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  /* Her initials, written at the foot of a plan once the stops are in. */
+  .pi-sign { width: 46px; height: 34px; overflow: visible; }
+  .pi-sign__ink { fill: none; stroke: var(--pi-terracotta); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 0; }
+  .pi-msg.is-arriving .pi-sign__ink { animation: pi-sign 420ms ease-in-out both; animation-delay: calc(900ms + var(--pi-stops, 3) * 260ms + var(--pi-s, 0) * 300ms); }
+  @keyframes pi-sign { from { stroke-dashoffset: 1; } }
   .pi-note__acts { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-3); }
   .pi-note__act { display: inline-flex; align-items: center; min-height: 44px; padding: 0 var(--space-4); border: 1px solid var(--accent); border-radius: var(--radius-pill); background: var(--accent); color: var(--white); font: 500 var(--fs-300)/1.2 var(--font-ui); text-decoration: none; cursor: pointer; }
   .pi-note__act + .pi-note__act { background: transparent; color: var(--accent); }
@@ -1316,6 +1363,9 @@ const starters = SHOW_ASK_PERSONA
   @media (prefers-reduced-motion: reduce) {
     .pi-chat__panel, .pi-chat__launch, .pi-tile__media img, html.pi-chat-docked body { transition: none; }
     .pi-msg.is-live .pi-msg__face { animation: none; }
+    .pi-fig__hair, .pi-fig__hat { animation: none; }
+    .pi-fig__go { transition: none; transform: none !important; }
+    .pi-sign__ink { stroke-dashoffset: 0 !important; }
     .pi-msg, .pi-msg *, .pi-msg *::before, .pi-msg *::after, .pi-tile--text { animation: none !important; transition: none; }
     /* With motion off the pen is a finished line, not a missing one. */
     .pi-pen__ink { stroke-dashoffset: 0; }
