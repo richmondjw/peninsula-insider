@@ -24,7 +24,13 @@
 
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
 import { Site, grown } from './harness.mjs';
+
+const askPiFlag = readFileSync(new URL('../../src/lib/features.ts', import.meta.url), 'utf8')
+  .match(/^export const SHOW_ASK_PI = (true|false);\s*$/m);
+assert.ok(askPiFlag, 'Declare the active or paused Ask PI mode explicitly before testing it');
+const askPiActive = askPiFlag[1] === 'true';
 
 const site = await Site.open();
 test.after(() => site.close());
@@ -177,7 +183,115 @@ test('walking the journeys raises no uncaught error', async () => {
 });
 
 for (const viewport of [{ width: 1440, height: 900 }, { width: 390, height: 844, isMobile: true, hasTouch: true }]) {
-  test(`Ask PI recommendation minimises and preserves conversation at ${viewport.width}px`, async () => {
+
+  test(`Ask PI paused uses editorial search at ${viewport.width}px`, { skip: askPiActive }, async () => {
+    const reader = await site.reader();
+    const page = reader.page;
+    const askCalls = [];
+    page.on('request', (request) => {
+      if (new URL(request.url()).pathname.startsWith('/concierge/')) {
+        askCalls.push(request.method());
+      }
+    });
+    try {
+      await page.setViewport(viewport);
+      await page.evaluateOnNewDocument(() => {
+        if (window.top !== window) return;
+        sessionStorage.setItem('pi-chat-state', 'open');
+        sessionStorage.setItem('pi-chat-history', JSON.stringify([
+          { role: 'pi', text: 'Old recommendation', places: [{ title: 'Eat', href: '/eat/' }], next: [] },
+        ]));
+      });
+
+      await reader.load('/');
+      assert.equal(await page.$('#pi-chat, .pi-tile, .ask-link, #siteSearchOverlayAsk'), null);
+      assert.equal(await page.$eval('[data-ask-enabled]', el => el.dataset.askEnabled), 'false');
+
+      const query = 'Where can I eat in Red Hill?';
+      await reader.load('/ask/?q=' + encodeURIComponent(query));
+      assert.equal(await page.$eval('main.ask-safe .ask-safe__status', el => el.textContent.trim()), 'Temporarily paused');
+      assert.equal(await page.$('#pi-chat, .pi-tile, .ask-link, #siteSearchOverlayAsk'), null);
+      assert.equal(await page.$eval('form[role="search"] #ask-safe-q', el => el.value), query);
+      assert.equal(await page.$eval('main.ask-safe form', el => el.getAttribute('method')), 'get');
+      await page.click('main.ask-safe form button[type="submit"]');
+      await page.waitForFunction(q => location.pathname === '/search/' && new URLSearchParams(location.search).get('q') === q, {}, query);
+      await page.waitForFunction(q => document.querySelector('#searchPageInput')?.value === q, {}, query);
+      assert.deepEqual(askCalls, []);
+      assert.deepEqual(await reader.errors(), []);
+    } finally {
+      await reader.close();
+    }
+  });
+
+
+  test(`Ask PI paused preserves query through Astro history at ${viewport.width}px`, { skip: askPiActive }, async () => {
+    const reader = await site.reader();
+    const page = reader.page;
+    const askCalls = [];
+    page.on('request', (request) => {
+      if (new URL(request.url()).pathname.includes('/concierge/')) askCalls.push(request.method());
+    });
+    const url = (query) => '/ask/?q=' + encodeURIComponent(query);
+    const assertAsk = async (query) => {
+      await page.waitForFunction(q => location.pathname === '/ask/'
+        && new URLSearchParams(location.search).get('q') === q
+        && document.querySelector('#ask-safe-q')?.value === q, { timeout: 6000 }, query);
+      assert.equal(await page.evaluate(() => window.__askPauseHistoryDocument), 'same-document');
+      assert.equal(await page.$('#pi-chat, .pi-tile, .ask-link, #siteSearchOverlayAsk'), null);
+    };
+    const edit = async (value) => {
+      await page.focus('#ask-safe-q');
+      await page.keyboard.down('Control');
+      await page.keyboard.press('KeyA');
+      await page.keyboard.up('Control');
+      if (value) await page.keyboard.type(value);
+      else await page.keyboard.press('Backspace');
+      assert.equal(await page.$eval('#ask-safe-q', input => input.value), value);
+      await page.evaluate(() => {
+        for (let i = 0; i < 3; i++) document.dispatchEvent(new Event('astro:page-load'));
+      });
+      assert.equal(await page.$eval('#ask-safe-q', input => input.value), value);
+    };
+    const moveHistory = async (direction) => {
+      const before = await page.evaluate(() => window.__J.pageLoads);
+      await page.evaluate(dir => history.go(dir), direction);
+      await page.waitForFunction(n => window.__J.pageLoads > n, { timeout: 6000 }, before);
+      assert.equal(await page.evaluate(() => window.__askPauseHistoryDocument), 'same-document');
+    };
+    try {
+      await page.setViewport(viewport);
+      await reader.load('/');
+      await page.evaluate(() => { window.__askPauseHistoryDocument = 'same-document'; });
+
+      const first = 'Red Hill & lunch';
+      const second = 'Sorrento coastal walk';
+      await reader.navigate(url(first));
+      await assertAsk(first);
+      await edit('Personal draft edit');
+      await edit('');
+
+      await reader.navigate(url(second));
+      await assertAsk(second);
+      await moveHistory(-1);
+      await assertAsk(first);
+      await moveHistory(1);
+      await assertAsk(second);
+
+      await reader.navigate('/eat/');
+      assert.equal(await page.$('#ask-safe-q'), null);
+      await moveHistory(-1);
+      await assertAsk(second);
+      await moveHistory(1);
+      assert.equal(await page.evaluate(() => location.pathname), '/eat/');
+      assert.equal(await page.$('#ask-safe-q'), null);
+      assert.deepEqual(askCalls, []);
+      assert.deepEqual(await reader.errors(), []);
+    } finally {
+      await reader.close();
+    }
+  });
+
+  test(`Ask PI recommendation minimises and preserves conversation at ${viewport.width}px`, { skip: !askPiActive }, async () => {
     const reader = await site.reader();
     try {
       await reader.page.setViewport(viewport);
