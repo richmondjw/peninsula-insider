@@ -5,7 +5,7 @@
   "snapshotId": "fixture",
   "timezone": "Australia/Melbourne",
   "semantics": "Journey-test fixture.",
-  "count": 6,
+  "count": 10,
   "places": [
     {
       "slug": "flinders",
@@ -92,6 +92,10 @@
           "Couples"
         ]
       ],
+      "im": {
+        "s": "/images/pi/pi-portrait-320.webp",
+        "c": "Fixture credit"
+      },
       "h": "fixture00000",
       "kw": "lindenderry red hill hotel country house among vine couple"
     },
@@ -105,6 +109,56 @@
       "pn": "Sorrento",
       "h": "fixture00000",
       "kw": "coppin track walk sorrento run ocean beach diamond bay"
+    },
+    {
+      "u": "/eat/bistro-elba/",
+      "k": "eat",
+      "t": "Bistro Elba",
+      "s": "Fixture summary for a restaurant page.",
+      "ty": "Restaurant",
+      "p": "sorrento",
+      "pn": "Sorrento",
+      "f": [
+        [
+          "Best for",
+          "Couples"
+        ]
+      ],
+      "h": "fixture00000",
+      "kw": "bistro elba restaurant sorrento fixture summary page couple"
+    },
+    {
+      "u": "/eat/the-baths-sorrento/",
+      "k": "eat",
+      "t": "The Baths Sorrento",
+      "s": "Fixture summary for a second restaurant page.",
+      "ty": "Restaurant",
+      "p": "sorrento",
+      "pn": "Sorrento",
+      "h": "fixture00000",
+      "kw": "bath sorrento restaurant fixture summary second page"
+    },
+    {
+      "u": "/explore/red-hill-truffles/",
+      "k": "do",
+      "t": "Red Hill Truffles",
+      "s": "Fixture summary for a things-to-do page.",
+      "ty": "Attraction",
+      "p": "red-hill",
+      "pn": "Red Hill",
+      "h": "fixture00000",
+      "kw": "red hill truffle attraction fixture summary page"
+    },
+    {
+      "u": "/explore/sorrento-back-beach/",
+      "k": "do",
+      "t": "Sorrento Back Beach",
+      "s": "Fixture summary for a beach page.",
+      "ty": "Beach",
+      "p": "sorrento",
+      "pn": "Sorrento",
+      "h": "fixture00000",
+      "kw": "sorrento back beach fixture summary page"
     },
     {
       "u": "/explore/places/red-hill/",

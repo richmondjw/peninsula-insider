@@ -9,10 +9,12 @@
  *
  * Replies are built with createElement and textContent only.
  */
-import { ask, ASK_MAX_LENGTH } from '../lib/ask-guide.mjs';
+import { ASK_MAX_LENGTH } from '../lib/ask-guide.mjs';
+import { converse } from '../lib/ask-pi.mjs';
 
 type Card = { href: string; title: string; meta: string; summary?: string; facts: [string, string][]; badge: string | null };
-type Reply = { kind: string; lead: string; notes: string[]; cards: Card[]; links: { href: string; label: string }[]; chips: string[] };
+type Reply = { kind: string; lead: string; notes: string[]; cards: Card[]; links: { href: string; label: string }[]; chips: string[];
+  aside?: string | null; plan?: { title: string; trip: string | null; stops: { label: string }[] } };
 type Turn = { question: string; reply: Reply };
 
 const MAX_TURNS = 12;
@@ -54,12 +56,17 @@ function renderTurn(turn: Turn): HTMLElement {
   const answer = el('div', 'ask-guide__answer');
   answer.dataset.askGuideKind = turn.reply.kind;
   answer.append(el('p', 'ask-guide__lead', turn.reply.lead));
+  if (turn.reply.aside) answer.append(el('p', 'ask-guide__note', turn.reply.aside));
+  // A plan is the same cards in her order, each headed by its part of the day.
+  const plan = turn.reply.plan;
+  if (plan) answer.append(el('p', 'ask-guide__meta', plan.title));
 
   if (turn.reply.cards.length) {
     const list = el('ul', 'ask-guide__cards');
     list.setAttribute('role', 'list');
-    for (const item of turn.reply.cards) {
+    for (const [at, item] of turn.reply.cards.entries()) {
       const row = el('li', 'ask-guide__card');
+      if (plan?.stops[at]) row.append(el('p', 'ask-guide__meta', plan.stops[at].label));
       const title = el('a', 'ask-guide__card-title', item.title);
       title.href = item.href;
       row.append(title);
@@ -82,10 +89,11 @@ function renderTurn(turn: Turn): HTMLElement {
 
   for (const note of turn.reply.notes) answer.append(el('p', 'ask-guide__note', note));
 
-  if (turn.reply.links.length) {
+  const replyLinks = plan?.trip ? [{ href: plan.trip, label: 'Add these stops to My Trip' }, ...turn.reply.links] : turn.reply.links;
+  if (replyLinks.length) {
     const links = el('ul', 'ask-guide__links');
     links.setAttribute('role', 'list');
-    for (const item of turn.reply.links) {
+    for (const item of replyLinks) {
       const link = el('a', undefined, item.label);
       link.href = item.href;
       const row = el('li');
@@ -138,7 +146,7 @@ async function submit(root: HTMLElement, raw: string) {
   let reply: Reply;
   try {
     const index = await loadAskIndex();
-    const result = ask(index, question, state, { pagePath: location.pathname });
+    const result = converse(index, question, state, { pagePath: location.pathname, persona: document.querySelector<HTMLElement>('[data-ask-guide-root]')?.dataset.askGuidePersona !== 'off' });
     if (!result) return;
     state = result.state;
     reply = result.reply as Reply;

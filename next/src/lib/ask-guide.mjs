@@ -247,7 +247,7 @@ export function parseQuestion(question, index, context = {}) {
 }
 
 // ── Choosing pages ─────────────────────────────────────────────────────────
-function daySeed(text) {
+export function daySeed(text) {
   let hash = 2166136261;
   for (const char of text) hash = Math.imul(hash ^ char.charCodeAt(0), 16777619);
   return hash >>> 0;
@@ -264,7 +264,7 @@ function onInWindow(record, window, today) {
   return span <= 10 && dates.s <= window.end && dates.e >= window.start;
 }
 
-function select(index, filter, today) {
+export function select(index, filter, today) {
   const kinds = filter.kinds || ['eat', 'wine', 'stay', 'do', 'event', 'plan', 'tour', 'fishing', 'boating', 'place'];
   let pool = index.records.filter((record) => kinds.includes(record.k));
   pool = pool.filter((record) => (record.k === 'event' ? onInWindow(record, filter.window, today) : true));
@@ -334,6 +334,9 @@ export function card(record) {
     summary: record.s,
     facts,
     badge: record.d?.st && STATUS_WORD[record.d.st] ? STATUS_WORD[record.d.st] : null,
+    // A small copy of the picture that page shows, and the credit it prints.
+    image: record.im?.s || null,
+    credit: record.im?.c || null,
   };
 }
 

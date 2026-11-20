@@ -31,6 +31,20 @@ export const ASK_GUIDE_ON: boolean = SHOW_ASK_GUIDE && !SHOW_ASK_PI;
 // chat working on the matcher's own fixed wording.
 export const SHOW_ASK_VOICE = true;
 
+// PI as a character (lib/ask-pi.mjs, lib/pi-lines.mjs): a day put in order
+// from published pages, her modes, and her own fixed lines for refusals and
+// asides. Nothing is generated or sent; every line is in pi-lines.mjs. false
+// returns the chat and /ask/ to the plain matcher.
+export const SHOW_ASK_PERSONA = true;
+
+// PI composes a plan with the platform API (/concierge/pi/compose): for each
+// part of the day the model picks one page from the short list the site sends,
+// and writes an opening and a line per stop. Each line is checked there
+// against the one page it is about, repaired once, or dropped. Off here until
+// the endpoint is switched on (CONCIERGE_COMPOSE_ENABLED) and its output has
+// been read on real questions. While it is off a plan sends nothing anywhere.
+export const SHOW_ASK_COMPOSE = false;
+
 /**
  * PUBLIC_EVENT_OCCURRENCE_MODEL: the PI-008 occurrence model, three-state.
  *

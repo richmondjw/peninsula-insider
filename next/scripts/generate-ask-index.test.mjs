@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { mkdtempSync, mkdirSync, writeFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { buildIndex, kindFor, leadSentences, parsePage, plain, unsupported, SITE } from './generate-ask-index.mjs';
+import { buildIndex, kindFor, leadSentences, parsePage, plain, unsupported, pageImage, SITE } from './generate-ask-index.mjs';
 
 const HEAD = (path) => `Canonical: ${SITE}${path}\nPublisher: Peninsula Insider\nPublished: unknown\nModified: unknown\nFormat: public main text.\nDates and caveats below retain their page meaning.\n\n`;
 const place = (slug, name) => `[${name}](<${SITE}/explore/places/${slug}/>)`;
@@ -177,4 +177,20 @@ test('a cancellation the page does not state stops the build instead of reaching
     rmSync(silent, { recursive: true, force: true });
     rmSync(stated, { recursive: true, force: true });
   }
+});
+
+test('a tile gets a picture only when the page shows that picture itself, with the credit it prints', () => {
+  const head = (src) => `<head><meta property="og:image" content="${SITE}${src}"></head>`;
+  // The page's own hero, with its credit.
+  const own = `${head('/images/a/hero.webp')}<body><main><img src="/images/a/hero.webp?v=abc" alt="The deck"><p class="credit">Photo · Jo Smith, courtesy of Visit Victoria</p><img src="/images/b/other.webp"><p>Photo · Someone Else</p></main></body>`;
+  assert.deepEqual(pageImage(own), { src: '/images/a/hero.webp', credit: 'Jo Smith, courtesy of Visit Victoria' });
+  // Shown as a background, no credit printed.
+  assert.deepEqual(pageImage(`${head('/images/a/hero.webp')}<main><div style="background-image: url(/images/a/hero.webp)"></div></main>`), { src: '/images/a/hero.webp', credit: null });
+  // A credit that belongs to the next picture is not borrowed.
+  assert.equal(pageImage(`${head('/images/a/hero.webp')}<main><img src="/images/a/hero.webp"><img src="/images/b/other.webp"><p>Photo · Someone Else</p></main>`).credit, null);
+  // A share image the page never shows (a generic one, or a neighbour's card) is not the page's picture.
+  assert.equal(pageImage(`${head('/images/generic/coast.webp')}<main><img src="/images/b/neighbour.webp"></main>`), null);
+  assert.equal(pageImage('<head></head><main><img src="/images/b/neighbour.webp"></main>'), null);
+  // Pictures hosted elsewhere are left alone.
+  assert.equal(pageImage('<head><meta property="og:image" content="https://cdn.example/x.webp"></head><main><img src="https://cdn.example/x.webp"></main>'), null);
 });
