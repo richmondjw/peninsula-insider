@@ -31,6 +31,10 @@ const askPiFlag = readFileSync(new URL('../../src/lib/features.ts', import.meta.
   .match(/^export const SHOW_ASK_PI = (true|false);\s*$/m);
 assert.ok(askPiFlag, 'Declare the active or paused Ask PI mode explicitly before testing it');
 const askPiActive = askPiFlag[1] === 'true';
+// Ask PI answered from the guides is a third mode with its own journey
+// (ask-guide.test.mjs); the paused-page assertions below do not apply to it.
+const askGuideActive = !askPiActive && /^export const SHOW_ASK_GUIDE = true;\s*$/m.test(readFileSync(new URL('../../src/lib/features.ts', import.meta.url), 'utf8'));
+const askPaused = !askPiActive && !askGuideActive;
 
 async function assertPausedAskMenu(page) {
   assert.equal(await page.$('#pi-chat, .pi-tile, [data-pi-popup], #siteSearchOverlayAsk'), null);
@@ -198,7 +202,7 @@ test('walking the journeys raises no uncaught error', async () => {
 });
 
 for (const width of [320, 390, 1280, 1440]) {
-  test(`paused Ask PI menu is reachable without a chat at ${width}px`, { skip: askPiActive }, async (t) => {
+  test(`paused Ask PI menu is reachable without a chat at ${width}px`, { skip: !askPaused }, async (t) => {
     const reader = await site.reader();
     const page = reader.page;
     const askCalls = [];
@@ -306,7 +310,7 @@ for (const width of [320, 390, 1280, 1440]) {
 
 for (const viewport of [{ width: 1440, height: 900 }, { width: 390, height: 844, isMobile: true, hasTouch: true }]) {
 
-  test(`Ask PI paused uses editorial search at ${viewport.width}px`, { skip: askPiActive }, async () => {
+  test(`Ask PI paused uses editorial search at ${viewport.width}px`, { skip: !askPaused }, async () => {
     const reader = await site.reader();
     const page = reader.page;
     const askCalls = [];
@@ -346,7 +350,7 @@ for (const viewport of [{ width: 1440, height: 900 }, { width: 390, height: 844,
   });
 
 
-  test(`Ask PI paused preserves query through Astro history at ${viewport.width}px`, { skip: askPiActive }, async () => {
+  test(`Ask PI paused preserves query through Astro history at ${viewport.width}px`, { skip: !askPaused }, async () => {
     const reader = await site.reader();
     const page = reader.page;
     const askCalls = [];

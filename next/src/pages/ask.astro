@@ -1,7 +1,37 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import AskGuidePanel from '../components/AskGuidePanel.astro';
+import { ASK_GUIDE_ON } from '../lib/features';
 export const prerender = true;
 ---
+
+{ASK_GUIDE_ON ? (
+<BaseLayout
+  title="Ask PI"
+  description="Ask where to eat, stay or walk on the Mornington Peninsula, or what is on. Ask PI finds the matching pages in our guides and shows what they say."
+>
+  <main class="ask-page container">
+    <header class="ask-page__head">
+      <h1>Ask PI</h1>
+      <p class="ask-page__dek">Ask where to eat, stay or walk, or what’s on. Name a town or a date to narrow it.</p>
+    </header>
+    <section class="ask-page__panel" aria-label="Ask PI">
+      <AskGuidePanel id="ask-page" autostart />
+    </section>
+    <nav class="ask-page__browse" aria-label="Browse Peninsula Insider">
+      <h2>Or browse the guides</h2>
+      <ul role="list">
+        <li><a href="/eat/">Eat &amp; Drink</a></li>
+        <li><a href="/stay/">Stay</a></li>
+        <li><a href="/wine/">Wine</a></li>
+        <li><a href="/explore/">Explore</a></li>
+        <li><a href="/explore/plans/">Plans</a></li>
+        <li><a href="/whats-on/">What's On</a></li>
+      </ul>
+    </nav>
+  </main>
+</BaseLayout>
+) : (
 
 <BaseLayout
   title="Ask PI is being improved"
@@ -41,6 +71,7 @@ export const prerender = true;
     <p class="ask-safe__note">Ask PI will return only when recommendation details can be traced to current editorial evidence. Until then, search and the published guides are the reliable path.</p>
   </main>
 </BaseLayout>
+)}
 
 <script>
   // This route is prerendered, so a visitor's query is only available in the browser.
@@ -58,6 +89,16 @@ export const prerender = true;
 </script>
 
 <style>
+  .ask-page { max-width: 46rem; padding-block: var(--space-8) var(--space-9); }
+  .ask-page h1 { max-width: none; }
+  .ask-page__dek { margin: var(--space-3) 0 0; max-width: 58ch; color: var(--soft); font: 400 var(--fs-500)/var(--lh-body) var(--font-ui); text-wrap: pretty; }
+  .ask-page__panel { margin-top: var(--space-6); }
+  .ask-page__panel :global(.ask-guide__form) { margin-top: var(--space-5); }
+  .ask-page__panel :global(.ask-guide__scroll) { overflow: visible; }
+  .ask-page__browse { margin-top: var(--space-8); }
+  .ask-page__browse ul { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); margin: var(--space-3) 0 0; padding: 0; list-style: none; }
+  .ask-page__browse a { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); font: 600 var(--fs-400)/var(--lh-ui) var(--font-ui); text-decoration: underline; text-underline-offset: 3px; }
+  @media (max-width: 47.99em) { .ask-page { padding-block: var(--space-6) var(--space-8); } }
   .ask-safe { max-width: 58rem; padding-block: var(--space-8) var(--space-9); }
   .ask-safe__head { max-width: var(--measure-prose); }
   .ask-safe__status { margin: 0 0 var(--space-3); color: var(--sand-text); font: 600 var(--fs-300)/var(--lh-ui) var(--font-ui); }
