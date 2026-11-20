@@ -34,7 +34,7 @@ const faq = [
   { q: 'How do I check tides for the Peninsula?', a: 'Use Willyweather (tides.willyweather.com.au) or BOM tidal predictions (bom.gov.au/australia/tides/) and select the reference station relevant to your launch point: Portsea (southern Port Phillip Bay), Port Melbourne (northern bay), or Stony Point (Western Port). For Flinders Pier, use the Stony Point predictions; the lag is small enough that the station is the right reference.' },
   { q: 'What is the Rip and why does it matter?', a: 'The Rip is the tidal passage between Point Nepean and Queenscliff at the entrance of Port Phillip Bay. Strong tidal currents combined with south or south-westerly swell create dangerous standing waves. The Rip is one of Australia\'s most dangerous tidal passages for small vessels. Do not attempt to cross in unsuitable conditions regardless of vessel size or experience. Boats departing Sorrento Boat Ramp or operating in the southern bay must stay well clear of the channel.' },
   { q: 'What pre-trip checks should I do before a session?', a: 'Tide forecast for the relevant reference station. Marine wind and swell forecast (BOM Marine Forecasts for Victoria). The location of your nearest alternative ramp in case conditions deteriorate. Vehicle check (fuel, lights, trailer secure). Vessel check (battery, fuel, safety equipment, EPIRB if offshore). Weather is checked the night before and again on the morning of the trip; conditions on Port Phillip Bay can change quickly with afternoon sea breezes from the north-west in summer and southerly change fronts in spring.' },
-  { q: 'What safety equipment must I carry?', a: 'Refer to Maritime Safety Victoria for the current minimum-equipment list by vessel size and operating area; equipment requirements differ for sheltered, semi-sheltered, and open coastal waters. PFDs (Personal Flotation Devices) are required for every person on board. Marine licensing requires the operator to know the equipment requirements; this is one of the practical reasons the licence exists.' },
+  { q: 'What safety equipment must I carry?', a: 'Requirements depend on vessel size and operating area. Carry a correctly fitted lifejacket for every person and check Safe Transport Victoria before departure for the current carriage and wearing rules. Children under 12 must wear a lifejacket whenever a vessel is underway.' },
 ];
 const faqSchema = buildFaqSchema(faq);
 
@@ -108,13 +108,22 @@ export const prerender = true;
 
         <h2>Marine forecasts</h2>
         <p>
-          The <a href={BF_EXTERNAL.bom} rel="external">Bureau of Meteorology Marine Forecasts for Victoria</a>
-          provide wind speed, wave height, and swell direction for Victorian coastal waters. Read the forecast
-          the night before and again on the morning of your trip. Conditions on Port Phillip Bay can change
-          quickly. Afternoon sea breezes from the north-west are typical in summer; southerly change fronts
-          arriving with little warning are typical in spring. Check
-          <a href={BF_EXTERNAL.maritimeSafety} rel="external">Maritime Safety Victoria</a> for current safety
+          Read the Bureau of Meteorology local waters forecast for
+          <a href={BF_EXTERNAL.bomPortPhillip} rel="external">Port Phillip</a> or
+          <a href={BF_EXTERNAL.bomWesternPort} rel="external">Western Port</a>. It covers wind, weather and seas.
+          Check it the night before and again on the morning of your trip because conditions can change quickly. Check
+          <a href={BF_EXTERNAL.maritimeSafety} rel="external">Safe Transport Victoria</a> for current safety
           notices and licensing requirements.
+        </p>
+
+        <h2>Lifejackets and licensing</h2>
+        <p>
+          Carry a correctly fitted lifejacket for every person. Children under 12 must wear one whenever the vessel
+          is underway, and additional wearing rules apply during heightened-risk situations and in designated hazardous
+          waters. Check the current <a href={BF_EXTERNAL.safeTransportLifejackets} rel="external">lifejacket rules</a>
+          before departure. For hire-and-drive boats, a marine licence is required when the vessel is capable of more
+          than 10 knots; the owner must brief hirers on the vessel's operating requirements. See
+          <a href={BF_EXTERNAL.safeTransportLicensing} rel="external">Safe Transport Victoria's licensing guidance</a>.
         </p>
 
         <h2>Return-to-ramp planning</h2>
