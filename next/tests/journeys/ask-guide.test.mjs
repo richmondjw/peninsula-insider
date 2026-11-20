@@ -107,11 +107,20 @@ for (const width of [390, 1280, 1440]) {
       assert.match(lunch.prose, /places to eat and drink in Red Hill/, 'the matcher\'s own line stands in for her note');
       assert.ok(lunch.chips.includes('Places to stay in Red Hill'), lunch.chips.join(' | '));
 
+      // The picks run down the thread: nothing in the chat scrolls sideways.
+      const sideways = await page.$eval('#pi-chat-thread', thread => [...thread.querySelectorAll('.pi-tiles, .pi-tile')].filter(el => el.scrollWidth > el.clientWidth + 1 || el.getBoundingClientRect().right > thread.getBoundingClientRect().right + 1).length);
+      assert.equal(sideways, 0, 'no pick is wider than the thread');
+      assert.equal(await page.$eval('#pi-chat-thread', thread => thread.scrollWidth <= thread.clientWidth + 1), true);
+      assert.equal(await page.$(`${answers}:last-child .pi-tile[href="/eat/tedesca-osteria/"] img`), null, 'a page with no photograph of its own gets a tile without one');
+
       // A chip is a follow-up on the same answer.
       const count = (await page.$$(answers)).length;
       await page.evaluate(() => [...document.querySelectorAll('#pi-chat-log .pi-chat__chip')].find(chip => chip.textContent === 'Places to stay in Red Hill').click());
       await page.waitForFunction((selector, n) => document.querySelectorAll(selector).length > n && !document.querySelector(selector + ':last-child').classList.contains('is-live'), {}, answers, count);
       assert.ok(await page.$(`${answers}:last-child .pi-tile[href="/stay/lindenderry/"]`));
+      // Where the page has its own photograph, the tile shows it with that page's credit.
+      await page.waitForFunction(selector => document.querySelector(selector)?.classList.contains('is-loaded'), {}, `${answers}:last-child .pi-tile[href="/stay/lindenderry/"] .pi-tile__media`);
+      assert.equal(await page.$eval(`${answers}:last-child .pi-tile[href="/stay/lindenderry/"] .pi-tile__credit`, el => el.textContent), 'Photo · Fixture credit');
 
       const open = await say(page, 'Is Tedesca Osteria open today?');
       assert.match(open.small, /can’t check opening hours/, 'the plain statement stays under her line');
@@ -161,9 +170,13 @@ for (const width of [390, 1280]) {
       await openChat(reader, mobile);
 
       const lunch = await say(page, 'lunch in Red Hill');
+      assert.equal(lunch.prose, note, 'her note is already there when the answer appears: the picks never arrive ahead of it');
       await page.waitForFunction(() => document.querySelector('#pi-chat-log > .pi-msg--pi:last-child .pi-msg__prose')?.classList.contains('is-voiced'));
       const prose = await page.$eval(`${answers}:last-child .pi-msg__prose`, el => el.textContent);
       assert.equal(prose, note);
+      assert.ok(await page.$eval(`${answers}:last-child`, node => Boolean(node.querySelector('.pi-msg__prose').compareDocumentPosition(node.querySelector('.pi-tiles')) & Node.DOCUMENT_POSITION_FOLLOWING)), 'her words sit above the picks');
+      // Her call is first in the list.
+      assert.equal(await page.$eval(`${answers}:last-child .pi-tile`, tile => tile.getAttribute('href')), '/eat/tedesca-osteria/');
       assert.deepEqual(await page.$$eval(`${answers}:last-child .pi-msg__inline`, links => links.map(link => link.getAttribute('href'))), ['/eat/tedesca-osteria/', '/eat/red-gum-bbq/'], 'the places she names link to their pages');
       assert.equal(lunch.tiles.length, 2, 'the picks do not depend on the note');
       const sent = JSON.parse(reader.conciergeCalls().find(call => call.path === 'voice').body);

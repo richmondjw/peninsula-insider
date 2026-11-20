@@ -334,6 +334,9 @@ export function card(record) {
     summary: record.s,
     facts,
     badge: record.d?.st && STATUS_WORD[record.d.st] ? STATUS_WORD[record.d.st] : null,
+    // A small copy of the picture that page shows, and the credit it prints.
+    image: record.im?.s || null,
+    credit: record.im?.c || null,
   };
 }
 

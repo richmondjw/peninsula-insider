@@ -70,6 +70,7 @@ const failures = [];
 const evidence = [];
 let cards = 0;
 let strings = 0;
+let pictures = 0;
 
 for (const conversation of CONVERSATIONS) {
   let state = null;
@@ -96,6 +97,17 @@ for (const conversation of CONVERSATIONS) {
       for (const value of shown) {
         strings += 1;
         if (!text.includes(value.replace(/\s+/g, ' ').trim())) failures.push({ question, href: item.href, problem: 'text is not on the linked page', value });
+      }
+      // A tile's picture must be one the linked page shows, and its credit the one that page prints.
+      if (item.image) {
+        pictures += 1;
+        const source = index.records.find((entry) => entry.u === item.href)?.im;
+        if (!source || source.s !== item.image) failures.push({ question, href: item.href, problem: 'tile picture is not the one recorded for its page', value: item.image });
+        if ((await read(item.image)) === null) failures.push({ question, href: item.href, problem: 'tile picture is not published', value: item.image });
+        if (item.credit) {
+          const html = (await read(item.href + 'index.html') || '').replace(/&amp;/g, '&').replace(/&#39;|&#x27;/g, '’').replace(/\s+/g, ' ');
+          if (!html.includes(item.credit)) failures.push({ question, href: item.href, problem: 'photo credit is not on the linked page', value: item.credit });
+        }
       }
       if (window) {
         const dates = index.records.find((entry) => entry.u === item.href)?.d;
@@ -131,10 +143,11 @@ const report = {
   questionsAnsweredWithCards: answered,
   cardsChecked: cards,
   stringsChecked: strings,
+  picturesChecked: pictures,
   failures,
   evidence,
 };
 if (option('--json')) writeFileSync(resolve(option('--json')), JSON.stringify(report, null, 2) + '\n');
-console.log(`Ask PI answers: ${evidence.length} questions, ${answered} answered with cards, ${cards} cards, ${strings} strings checked against their pages, ${failures.length} unsupported.`);
+console.log(`Ask PI answers: ${evidence.length} questions, ${answered} answered with cards, ${cards} cards, ${strings} strings and ${pictures} pictures checked against their pages, ${failures.length} unsupported.`);
 for (const failure of failures.slice(0, 20)) console.error('  ' + JSON.stringify(failure));
 process.exit(failures.length ? 1 : 0);

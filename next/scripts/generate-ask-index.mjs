@@ -132,6 +132,62 @@ export function parsePage(markdown) {
   };
 }
 
+const ENTITIES = { '&amp;': '&', '&#39;': '’', '&#x27;': '’', '&quot;': '"', '&nbsp;': ' ' };
+/**
+ * The page's own picture: the image it names as its share image, and only when
+ * that same file is shown to the reader inside <main>. A page with no picture
+ * of its own (a venue we hold no verified photograph of, a guide that borrows
+ * a generic one for sharing) gets none, so a tile never shows a photograph
+ * the page itself does not. The credit is the "Photo · ..." line the page
+ * prints with that picture, when it prints one.
+ */
+export function pageImage(html) {
+  const src = html.match(/<meta property="og:image" content="https:\/\/peninsulainsider\.com\.au(\/images\/[^"?]+)/)?.[1];
+  const from = html.indexOf('<main');
+  if (!src || from < 0) return null;
+  const main = html.slice(from);
+  const escaped = src.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const at = main.search(new RegExp(`(?:src="|url\\(['"]?|data-pi-image-original-src=")${escaped}`));
+  if (at < 0) return null;
+  // The credit belongs to this picture: look no further than the next one.
+  const after = main.slice(at, at + 3000);
+  const next = after.slice(8).search(/<img\b/);
+  const near = next > 0 ? after.slice(0, next + 8) : after;
+  const credit = near.match(/Photo\s*·\s*([^<]{3,140})</)?.[1].replace(/&[#\w]+;/g, (entity) => ENTITIES[entity] ?? ' ');
+  return { src, credit: credit ? squash(credit) : null };
+}
+
+/**
+ * Small copies of those pictures for the chat's tiles, written to
+ * dist/ask/img/. A page's own image is often several hundred kilobytes; five
+ * of them in a phone chat is not acceptable. A file that cannot be read or
+ * resized simply leaves its record without a picture.
+ */
+export async function writeThumbnails(index, dist) {
+  const { default: sharp } = await import('sharp');
+  mkdirSync(join(dist, 'ask/img'), { recursive: true });
+  const made = new Map();
+  let bytes = 0;
+  for (const record of index.records) {
+    if (!record.im) continue;
+    const source = record.im.s;
+    if (!made.has(source)) {
+      let out = null;
+      try {
+        const input = readFileSync(join(dist, decodeURIComponent(source)));
+        const data = await sharp(input, { limitInputPixels: 50000000 }).rotate().resize({ width: 640, height: 480, fit: 'cover', position: 'attention', withoutEnlargement: true }).webp({ quality: 72 }).toBuffer();
+        out = `/ask/img/${createHash('sha256').update(data).digest('hex').slice(0, 16)}.webp`;
+        writeFileSync(join(dist, out), data);
+        bytes += data.length;
+      } catch { out = null; }
+      made.set(source, out);
+    }
+    if (made.get(source)) record.im.s = made.get(source);
+    else delete record.im;
+  }
+  return { images: [...made.values()].filter(Boolean).length, bytes };
+}
+
 const STATUS = {
   'https://schema.org/EventScheduled': 'scheduled',
   'https://schema.org/EventCancelled': 'cancelled',
@@ -203,6 +259,9 @@ export function buildIndex(dist) {
       ...(shownFacts.length ? { f: shownFacts } : {}),
       h: entry.contentSha256.slice(0, 12),
     };
+    const htmlFile = join(dist, pathname, 'index.html');
+    const image = existsSync(htmlFile) ? pageImage(readFileSync(htmlFile, 'utf8')) : null;
+    if (image) record.im = { s: image.src, ...(image.credit ? { c: image.credit } : {}) };
 
     if (event) {
       const occurrence = event.dateMeaning === 'occurrence';
@@ -258,7 +317,7 @@ export function buildIndex(dist) {
       catalogueSnapshot: catalogue.snapshotId,
       snapshotId,
       timezone: 'Australia/Melbourne',
-      semantics: 'Every title, summary and fact is copied from the published page at its url. Nothing is generated. generatedAt is build time, not a fact check.',
+      semantics: 'Every title, summary and fact is copied from the published page at its url. A picture (im) is a small copy of the one that page shows, with the credit that page prints. Nothing is generated. generatedAt is build time, not a fact check.',
       count: records.length,
       places,
       topics,
@@ -277,6 +336,8 @@ if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1]
     if (!byKind[kind]) throw new Error(`Ask index has no "${kind}" records; refusing to publish a partial index`);
   }
   mkdirSync(join(dist, 'ask'), { recursive: true });
+  const thumbs = await writeThumbnails(index, dist);
+  console.log(`Ask index pictures: ${index.records.filter((record) => record.im).length} records share ${thumbs.images} thumbnails, ${thumbs.bytes} bytes.`);
   const body = JSON.stringify(index);
   writeFileSync(join(dist, 'ask/index.json'), body + '\n');
   console.log(`Ask index: ${index.count} records ${JSON.stringify(byKind)}, ${Buffer.byteLength(body)} bytes, ${skipped.length} pages without a usable opening paragraph.`);
