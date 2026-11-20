@@ -1,7 +1,7 @@
 /**
  * Feature flags — toggle site features without removing code.
  *
- * SHOW_ASK_PI: false hides all Ask PI / concierge entry points sitewide.
+ * SHOW_ASK_PI: false pauses concierge; the Ask PI menu links to site search.
  * Re-enable by setting to true and rebuilding.
  *
  * SHOW_HOME_COVER_SLIDESHOW is retained for legacy imports only. The homepage
