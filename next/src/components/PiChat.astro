@@ -107,7 +107,7 @@ const starters = SHOW_ASK_PERSONA
 <script>
   import type { TransitionBeforeSwapEvent } from 'astro:transitions/client';
   import { paragraphs, READER_ERROR, sessionId, sse } from '../lib/ask-client';
-  import { converse, swapStop, pageOffers, composeRequest, applyCompose, talkPages, cardsFor } from '../lib/ask-pi.mjs';
+  import { converse, swapStop, pageOffers, composeRequest, applyCompose, talkPages, cardsFor, isFollowUp } from '../lib/ask-pi.mjs';
   import { loadAskIndex } from '../scripts/ask-guide-ui';
 
   type Place = { href: string; title: string; why: string; section: string; image: string | null; alt: string; credit?: string | null; facts?: [string, string][]; badge?: string | null; note?: string | null };
@@ -714,7 +714,7 @@ const starters = SHOW_ASK_PERSONA
           const pages = talkPages(index, q, said, result.reply, shownBefore(), context) as string[];
           // Her words appear in the waiting bubble as each sentence arrives.
           let saying: HTMLElement | null = null;
-          spoken = await streamTalk({ message: q, history: recent(8), pages, onPage: location.pathname }, AbortSignal.any([signal, waited.signal]), (text, first) => {
+          spoken = await streamTalk({ message: q, history: recent(8), pages, onPage: location.pathname, followUp: isFollowUp(index, q, said, context) }, AbortSignal.any([signal, waited.signal]), (text, first) => {
             if (first) {
               window.clearTimeout(timer);
               window.clearInterval(thinking);

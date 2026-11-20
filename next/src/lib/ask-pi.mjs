@@ -323,11 +323,25 @@ const IDLE = new Set(['long', 'week', 'weekend', 'time', 'today', 'tomorrow', 'm
  * It only chooses which pages she may read. What she says about them is
  * checked against their text on the platform.
  */
+/**
+ * A message that belongs to the thread before it: there is a thread, and on
+ * its own this message names no town and no kind of place ("haven't decided",
+ * "the first one", "somewhere quieter"). Whatever the matcher found on its
+ * words alone is a coincidence of spelling, not the subject.
+ */
+export function isFollowUp(index, message, said = [], context = {}) {
+  if (!said.length) return false;
+  const parsed = parseQuestion(message, index, context);
+  return !parsed.place && !parsed.kinds?.length;
+}
+
 export function talkPages(index, message, said = [], reply = null, shownBefore = [], context = {}) {
   const now = (reply?.cards || []).map((item) => item.href);
+  const follows = isFollowUp(index, message, said, context);
   const recent = [...said.slice(-4), message];
   // Words that say nothing about what is wanted on their own ("long week", "good day").
   const wanted = new Set(recent.flatMap((text) => questionWords(text)).filter((word) => !IDLE.has(word)));
+  const before = [...new Set(said.slice(-4).flatMap((text) => questionWords(text)).filter((word) => !IDLE.has(word)))];
   let place = null;
   let kinds = null;
   for (const text of [...recent].reverse()) {
@@ -342,6 +356,8 @@ export function talkPages(index, message, said = [], reply = null, shownBefore =
       const own = new Set(record.kw.split(' '));
       let score = 0;
       for (const word of wanted) if (own.has(word)) score += 2;
+      // Mid-thread, a page has to fit the thread too, not only this message's words.
+      if (follows && !before.some((word) => own.has(word)) && !place && !kinds?.length) continue;
       if (place && (record.p === place || (record.k === 'place' && record.u.endsWith(`/${place}/`)))) score += 5;
       if (kinds?.includes(record.k)) score += 3;
       if (record.g) score -= 1;
@@ -349,7 +365,12 @@ export function talkPages(index, message, said = [], reply = null, shownBefore =
     }
     loose.sort((a, b) => b.score - a.score || a.order - b.order);
   }
-  return [...new Set([...now, ...shownBefore, ...loose.map((item) => item.href)])].slice(0, TALK_PAGES);
+  // Mid-thread, she reads what was on screen and what the conversation has
+  // been about. What the matcher found on this message's own words is left
+  // out: "have decided" matching a guide titled "..., decided." is spelling,
+  // not subject, and the platform searches the thread by meaning as well.
+  const order = follows ? [...shownBefore, ...loose.map((item) => item.href)] : [...now, ...shownBefore, ...loose.map((item) => item.href)];
+  return [...new Set(order)].slice(0, TALK_PAGES);
 }
 
 /** Tiles for the pages she named in a conversation turn, in her order. Same card() as everywhere else. */
