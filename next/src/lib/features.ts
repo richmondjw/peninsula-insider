@@ -25,6 +25,12 @@ export const SHOW_ASK_PI = false;
 export const SHOW_ASK_GUIDE = true;
 export const ASK_GUIDE_ON: boolean = SHOW_ASK_GUIDE && !SHOW_ASK_PI;
 
+// PI's voice: a short note above her picks and replies to messages the
+// matcher cannot read, written by the platform API (/concierge/pi/*) from the
+// published pages and checked sentence by sentence there. false leaves the
+// chat working on the matcher's own fixed wording.
+export const SHOW_ASK_VOICE = true;
+
 /**
  * PUBLIC_EVENT_OCCURRENCE_MODEL: the PI-008 occurrence model, three-state.
  *

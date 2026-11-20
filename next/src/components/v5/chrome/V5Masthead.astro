@@ -31,7 +31,7 @@ const active = path.startsWith('/explore/plans') || path.startsWith('/plans') ? 
 <a class="mobile-note" href="/dispatch/">The Insider Note</a>
 </nav>
 <div class="header-actions">
-<a class="ask-link" href="/ask/" data-ask-guide-open={ASK_GUIDE_ON ? true : undefined} data-pi-popup={SHOW_ASK_PI ? true : undefined} data-evt={SHOW_ASK_PI ? 'ask_open' : undefined} aria-label={SHOW_ASK_PI ? 'Ask PI, your Peninsula local' : ASK_GUIDE_ON ? 'Ask PI, answers from our guides' : 'Ask PI, currently site search'} title={askOn ? undefined : 'Ask PI, currently site search'}>
+<a class="ask-link" href="/ask/" data-pi-popup={askOn ? true : undefined} data-evt={SHOW_ASK_PI ? 'ask_open' : undefined} aria-label={askOn ? 'Ask PI, the Peninsula Insider' : 'Ask PI, currently site search'} title={askOn ? undefined : 'Ask PI, currently site search'}>
 <img src="/images/pi/pi-avatar-96.webp" alt="" width="32" height="32" decoding="async" />
 <span class="ask-link__label">Ask PI</span>
 </a>

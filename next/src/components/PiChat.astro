@@ -16,23 +16,31 @@
  * instead of leaving the page. /ask/ itself stays as the shareable page,
  * and the chat hides there. The character is specified in BRAND-PI.md.
  */
-import { SHOW_ASK_PI } from '../lib/features';
+/**
+ * 2026-11-20: the window is back over a different engine. PI's picks are
+ * matched in the browser from /ask/index.json (lib/ask-guide.mjs), where every
+ * fact on a tile is copied from the page it links to. Her note above them is
+ * written by the platform API from those same pages and checked sentence by
+ * sentence before it is returned (/concierge/pi/voice). The tiles never wait
+ * for the note, and stand on their own if it does not come.
+ */
+import { ASK_GUIDE_ON, SHOW_ASK_VOICE } from '../lib/features';
 import { CONCIERGE_API_URL as API_URL } from '../lib/concierge-config';
 
 const starters = [
-  'A long lunch in Red Hill that works with kids',
-  'Dog-friendly breakfast near Sorrento',
-  'A rainy Sunday for two, no driving after lunch',
+  'A long lunch in Red Hill',
+  "What's on this weekend",
+  'Somewhere to stay for our anniversary',
 ];
 ---
 
-{SHOW_ASK_PI && (
-  <div class="pi-chat" id="pi-chat" data-api={API_URL} data-state="closed" data-mode="dock" transition:persist="pi-chat" data-pagefind-ignore>
+{ASK_GUIDE_ON && (
+  <div class="pi-chat" id="pi-chat" data-api={API_URL} data-voice={SHOW_ASK_VOICE ? 'on' : 'off'} data-state="closed" data-mode="dock" transition:persist="pi-chat" data-pagefind-ignore>
     <button type="button" class="pi-chat__launch" id="pi-chat-launch" aria-controls="pi-chat-panel" aria-expanded="false">
       <img class="pi-chat__launch-face" src="/images/pi/pi-avatar-96.webp" alt="" width="44" height="44" decoding="async" />
       <span class="pi-chat__launch-text">
         <span class="pi-chat__launch-name">Ask PI</span>
-        <span class="pi-chat__launch-sub">Your Peninsula local</span>
+        <span class="pi-chat__launch-sub">The Peninsula Insider</span>
       </span>
       <span class="pi-chat__launch-dot" aria-hidden="true"></span>
     </button>
@@ -42,7 +50,7 @@ const starters = [
         <img class="pi-chat__head-face" src="/images/pi/pi-avatar-96.webp" alt="" width="40" height="40" decoding="async" />
         <div class="pi-chat__head-id">
           <h2 class="pi-chat__name" id="pi-chat-name">PI</h2>
-          <p class="pi-chat__role">Your Peninsula local</p>
+          <p class="pi-chat__role">The Peninsula Insider</p>
         </div>
         <div class="pi-chat__tools">
           <button type="button" class="pi-chat__tool pi-chat__tool--mode" id="pi-chat-mode" aria-label="Float the chat over the page" title="Float over the page">
@@ -62,7 +70,7 @@ const starters = [
         <div class="pi-chat__hello" id="pi-chat-hello">
           <img class="pi-chat__portrait" src="/images/pi/pi-portrait-320.webp" srcset="/images/pi/pi-portrait-320.webp 320w, /images/pi/pi-portrait-640.webp 640w" sizes="168px" alt="" width="168" height="168" decoding="async" />
           <p class="pi-chat__hello-lead">Tell me what you're after.</p>
-          <p class="pi-chat__hello-body">A long lunch, a hatted dinner, a dog-friendly cafe, a rainy Sunday with kids. The more specific you are, the sharper my answer.</p>
+          <p class="pi-chat__hello-body">A long lunch, a walk, somewhere to stay, what's on this weekend. Name a town and I'll narrow it.</p>
           <ul class="pi-chat__chips" role="list" aria-label="Try asking">
             {starters.map((q) => <li><button type="button" class="pi-chat__chip" data-pi-q={q}>{q}</button></li>)}
           </ul>
@@ -78,7 +86,7 @@ const starters = [
             <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 16V4M5 9l5-5 5 5"/></svg>
           </button>
         </form>
-        <p class="pi-chat__fine">PI answers from Peninsula Insider's own reviews. Check hours and bookings before you go.</p>
+        <p class="pi-chat__fine">PI's picks come from our published guides. Her notes are written by AI from those pages. Check hours and bookings before you go.</p>
       </footer>
     </section>
   </div>
@@ -86,13 +94,17 @@ const starters = [
 
 <script>
   import type { TransitionBeforeSwapEvent } from 'astro:transitions/client';
-  import { askPI, placeLinks, paragraphs, STAGE_LINES, READER_ERROR, type Place } from '../lib/ask-client';
+  import { paragraphs, READER_ERROR, sessionId } from '../lib/ask-client';
+  import { ask as matchGuides } from '../lib/ask-guide.mjs';
+  import { loadAskIndex } from '../scripts/ask-guide-ui';
 
+  type Place = { href: string; title: string; why: string; section: string; image: string | null; alt: string; facts?: [string, string][]; badge?: string | null };
   type Turn =
     | { role: 'you'; text: string }
-    | { role: 'pi'; text: string; places: Place[]; next: string[]; error?: boolean };
+    | { role: 'pi'; text: string; places: Place[]; next: string[]; notes?: string[]; links?: { href: string; label: string }[]; error?: boolean };
 
   const HISTORY = 'pi-chat-history';
+  const ENGINE = 'pi-chat-engine';
   const STATE = 'pi-chat-state';
   const MODE = 'pi-chat-mode';
   const DESKTOP = window.matchMedia('(min-width: 64em)');
@@ -125,8 +137,13 @@ const starters = [
     const send = document.getElementById('pi-chat-send') as HTMLButtonElement;
     const modeBtn = document.getElementById('pi-chat-mode') as HTMLButtonElement;
 
+    const voiceOn = root.dataset.voice === 'on' && !!api;
     let turns: Turn[] = [];
     try { turns = JSON.parse(store.get(sessionStorage, HISTORY) || '[]'); } catch { turns = []; }
+    // What the last answer matched, so "in Flinders" refines it.
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    let engine: any = null;
+    try { engine = JSON.parse(store.get(sessionStorage, ENGINE) || 'null'); } catch { engine = null; }
     let controller: AbortController | null = null;
 
     const onAskPage = () => location.pathname.replace(/\/?$/, '/') === '/ask/';
@@ -255,31 +272,52 @@ const starters = [
       const list = el('ul', 'pi-tiles');
       list.setAttribute('role', 'list');
       list.setAttribute('aria-label', 'Places PI recommends');
-      for (const place of places) {
+      for (const [at, place] of places.entries()) {
         const li = el('li');
+        li.style.setProperty('--pi-i', String(at));
         const a = el('a', 'pi-tile') as HTMLAnchorElement;
         a.href = place.href;
-        const media = el('span', 'pi-tile__media');
+        const body = el('span', 'pi-tile__body');
+        if (place.section) body.append(el('span', 'pi-tile__section', place.section));
+        body.append(el('span', 'pi-tile__title', place.title));
+        if (place.badge) body.append(el('strong', 'pi-tile__badge', place.badge));
+        for (const [label, value] of place.facts ?? []) body.append(el('span', 'pi-tile__fact', `${label}: ${value}`));
+        if (place.why) body.append(el('span', 'pi-tile__why', place.why));
         if (place.image) {
+          const media = el('span', 'pi-tile__media');
           const img = el('img') as HTMLImageElement;
           img.src = place.image;
           img.alt = '';
           img.loading = 'lazy';
           img.decoding = 'async';
-          img.addEventListener('error', () => { img.remove(); media.classList.add('is-empty'); }, { once: true });
+          img.addEventListener('error', () => { media.remove(); a.classList.add('pi-tile--text'); }, { once: true });
           media.append(img);
+          a.append(media, body);
         } else {
-          media.classList.add('is-empty');
+          // No photograph travels with the index yet: a tile of the page's own words.
+          a.classList.add('pi-tile--text');
+          a.append(body);
         }
-        const body = el('span', 'pi-tile__body');
-        if (place.section) body.append(el('span', 'pi-tile__section', place.section));
-        body.append(el('span', 'pi-tile__title', place.title));
-        if (place.why) body.append(el('span', 'pi-tile__why', place.why));
-        a.append(media, body);
         li.append(a);
         list.append(li);
       }
       return list;
+    }
+
+    /** What PI cannot check, and where else to look. Fixed wording from the matcher. */
+    function smallPrint(turn: Extract<Turn, { role: 'pi' }>) {
+      const wrap = el('div', 'pi-msg__small');
+      for (const note of turn.notes ?? []) wrap.append(el('p', '', note));
+      if (turn.links?.length) {
+        const p = el('p', 'pi-msg__links');
+        for (const item of turn.links) {
+          const a = el('a', '', item.label) as HTMLAnchorElement;
+          a.href = item.href;
+          p.append(a);
+        }
+        wrap.append(p);
+      }
+      return wrap;
     }
 
     function nextChips(items: string[]) {
@@ -312,6 +350,7 @@ const starters = [
       else prose.append(...proseNodes(turn.text, turn.places));
       li.append(byline(), prose);
       if (turn.places.length) li.append(tiles(turn.places));
+      if (turn.notes?.length || turn.links?.length) li.append(smallPrint(turn));
       if (turn.next.length) li.append(nextChips(turn.next));
       if (question && !turn.error) {
         const pg = el('a', 'pi-msg__page', 'Open as a page') as HTMLAnchorElement;
@@ -336,6 +375,34 @@ const starters = [
 
     function save() {
       store.set(sessionStorage, HISTORY, JSON.stringify(turns.slice(-12)));
+      store.set(sessionStorage, ENGINE, JSON.stringify(engine));
+    }
+
+    /** The last few exchanges, so her note and the front desk follow the thread. */
+    function recent() {
+      const out: { q: string; say?: string }[] = [];
+      for (let i = 0; i < turns.length - 1; i += 1) {
+        const you = turns[i];
+        const pi = turns[i + 1];
+        if (you.role === 'you' && pi?.role === 'pi' && !pi.error) out.push({ q: you.text, say: pi.text });
+      }
+      return out.slice(-3);
+    }
+
+    /** One call to PI's voice. Any failure is simply "no voice this time". */
+    async function voice<T>(path: 'voice' | 'front-desk', body: unknown, signal: AbortSignal): Promise<T | null> {
+      const timeout = AbortSignal.timeout(14_000);
+      try {
+        const res = await fetch(`${api}/concierge/pi/${path}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'X-Session-Id': sessionId() },
+          body: JSON.stringify(body),
+          signal: AbortSignal.any([signal, timeout]),
+        });
+        return res.ok ? ((await res.json()) as T) : null;
+      } catch {
+        return null;
+      }
     }
 
     function scrollToMsg(node: HTMLElement) {
@@ -348,10 +415,11 @@ const starters = [
 
     async function ask(raw: string) {
       const q = raw.trim().slice(0, 500);
-      if (q.length < 3) return;
+      if (q.length < 2) return;
       open(false);
       controller?.abort();
       controller = new AbortController();
+      const { signal } = controller;
       input.value = '';
       autoGrow();
       turns.push({ role: 'you', text: q });
@@ -360,7 +428,7 @@ const starters = [
 
       const live = el('li', 'pi-msg pi-msg--pi is-live');
       const prose = el('div', 'pi-msg__prose');
-      const status = el('p', 'pi-msg__status', STAGE_LINES.received);
+      const status = el('p', 'pi-msg__status', 'Checking my notebook…');
       status.setAttribute('role', 'status');
       prose.append(status);
       live.append(byline(), prose);
@@ -368,25 +436,66 @@ const starters = [
       scrollToMsg(live);
       send.disabled = true;
 
-      let text = '';
-      let meta: { recommendations: Parameters<typeof placeLinks>[0]; follow_on: string[] } = { recommendations: [], follow_on: [] };
       try {
-        text = await askPI(api, q, {
-          onStage: (s) => { if (!text && STAGE_LINES[s]) status.textContent = STAGE_LINES[s]; },
-          onText: (full) => {
-            text = full;
-            prose.replaceChildren(...paragraphs(full).map((t) => el('p', '', t)));
-          },
-          onMeta: (m) => { meta = m; },
-        }, controller.signal);
-        const places = await placeLinks(meta.recommendations);
-        const turn: Turn = { role: 'pi', text, places, next: meta.follow_on };
+        const index = await loadAskIndex();
+        const context = { pagePath: location.pathname };
+        let result = matchGuides(index, q, engine, context);
+        if (!result) throw new Error(READER_ERROR);
+
+        // The matcher did not follow. Ask the front desk what was meant, then
+        // run the matcher again on its reading. What it says is PI talking; it
+        // never carries a fact about a place.
+        let aside: string | null = null;
+        if (voiceOn && (result.reply.kind === 'none' || result.reply.kind === 'help')) {
+          const desk = await voice<{ say: string | null; rewrite: string | null }>('front-desk', { question: q, history: recent() }, signal);
+          if (signal.aborted) { live.remove(); return; }
+          if (typeof desk?.rewrite === 'string' && desk.rewrite.trim()) {
+            const again = matchGuides(index, desk.rewrite, null, context);
+            if (again && again.reply.cards.length) result = again;
+          }
+          aside = typeof desk?.say === 'string' && desk.say.trim() ? desk.say.trim().slice(0, 400) : null;
+        }
+
+        engine = result.state;
+        const reply = result.reply;
+        const places: Place[] = reply.cards.map((card: { href: string; title: string; meta: string; summary?: string; facts: [string, string][]; badge: string | null }) => ({
+          href: card.href, title: card.title, why: card.summary || '', section: card.meta, image: null, alt: '', facts: card.facts, badge: card.badge,
+        }));
+        const turn: Extract<Turn, { role: 'pi' }> = {
+          role: 'pi',
+          text: places.length ? reply.lead : aside || reply.lead,
+          places,
+          next: reply.chips,
+          notes: reply.notes,
+          links: reply.links,
+        };
         turns.push(turn);
         save();
-        live.replaceWith(piNode(turn, q));
+
+        // The picks are on screen now. Her note follows when it has been checked.
+        const node = piNode(turn, q);
+        node.classList.add('is-arriving');
+        live.replaceWith(node);
+        scrollToMsg(node);
+        if (voiceOn && places.length && ['results', 'named', 'place'].includes(reply.kind)) {
+          node.classList.add('is-live');
+          const said = await voice<{ say: string | null }>('voice', { question: q, cards: places.map((place) => place.href), history: recent().slice(0, -1) }, signal);
+          node.classList.remove('is-live');
+          if (typeof said?.say === 'string' && said.say.trim() && turns.includes(turn)) {
+            turn.text = said.say.trim().slice(0, 900);
+            save();
+            const noted = node.querySelector('.pi-msg__prose');
+            if (noted) {
+              noted.replaceChildren(...proseNodes(turn.text, turn.places));
+              noted.classList.add('is-voiced');
+              // Her note is longer than the holding line: bring its start back into view.
+              if (thread.scrollTop > node.offsetTop - 12) scrollToMsg(node);
+            }
+          }
+        }
       } catch (err) {
         if ((err as Error).name === 'AbortError') { live.remove(); return; }
-        const turn: Turn = { role: 'pi', text: (err as Error).message || READER_ERROR, places: [], next: [], error: true };
+        const turn: Turn = { role: 'pi', text: READER_ERROR, places: [], next: [], error: true };
         turns.push(turn);
         save();
         live.replaceWith(piNode(turn));
@@ -408,7 +517,9 @@ const starters = [
     document.getElementById('pi-chat-new')!.addEventListener('click', () => {
       controller?.abort();
       turns = [];
+      engine = null;
       store.del(sessionStorage, HISTORY);
+      store.del(sessionStorage, ENGINE);
       render();
       input.focus();
     });
@@ -659,6 +770,30 @@ const starters = [
   .pi-tile:hover .pi-tile__title { color: var(--accent); text-decoration: underline; text-underline-offset: .2em; }
   .pi-tile__why { color: var(--soft); font: 400 var(--fs-300)/1.4 var(--font-ui); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 
+  /* Tiles made of the page's own words, until photographs travel with the index. */
+  .pi-tiles:has(.pi-tile--text) { grid-auto-columns: 14.5rem; }
+  .pi-tile--text { padding: var(--space-3) var(--space-4); border: 1px solid var(--border); border-radius: var(--radius-m); background: var(--white); transition: border-color var(--dur-fast), transform var(--dur-fast) var(--ease-enter); }
+  .pi-tile--text:hover { border-color: var(--text); transform: translateY(-2px); }
+  .pi-tile--text .pi-tile__body { padding-top: 0; gap: 4px; }
+  .pi-tile--text .pi-tile__why { -webkit-line-clamp: 5; }
+  .pi-tile__badge { justify-self: start; padding: 1px var(--space-2); border: 1px solid currentColor; border-radius: var(--radius-s); color: var(--pi-terracotta); font: 600 var(--fs-200)/1.4 var(--font-ui); }
+  .pi-tile__fact { color: var(--text); font: 500 var(--fs-300)/1.35 var(--font-ui); }
+
+  .pi-msg__small { margin-top: var(--space-3); color: var(--soft); font: 400 var(--fs-300)/1.45 var(--font-ui); }
+  .pi-msg__small p { margin: 0 0 var(--space-1); text-wrap: pretty; }
+  .pi-msg__links { display: flex; flex-wrap: wrap; gap: 0 var(--space-4); }
+  .pi-msg__links a { display: inline-flex; align-items: center; min-height: 40px; color: var(--accent); text-underline-offset: .2em; }
+
+  /* An answer settles in: her line first, then each tile a beat behind the last.
+     When her checked note replaces the holding line, it eases in the same way. */
+  @keyframes pi-arrive { from { opacity: 0; transform: translateY(8px); } }
+  .pi-msg.is-arriving .pi-msg__by, .pi-msg.is-arriving .pi-msg__prose { animation: pi-arrive var(--dur-med) var(--ease-enter) both; }
+  .pi-msg.is-arriving .pi-tiles > li { animation: pi-arrive var(--dur-med) var(--ease-enter) both; animation-delay: calc(90ms + var(--pi-i, 0) * 70ms); }
+  .pi-msg.is-arriving .pi-msg__small, .pi-msg.is-arriving .pi-msg__next, .pi-msg.is-arriving .pi-msg__page { animation: pi-arrive var(--dur-med) var(--ease-enter) both; animation-delay: 420ms; }
+  .pi-msg__prose.is-voiced p { animation: pi-arrive 420ms var(--ease-enter) both; }
+  /* Only the bubble just sent: the thread is redrawn on every turn. */
+  .pi-chat__log > .pi-msg--you:nth-last-child(-n+2) { animation: pi-arrive var(--dur-fast) var(--ease-enter) both; }
+
   .pi-msg__next { margin-top: var(--space-5); }
   .pi-msg__next-label { margin: 0 0 var(--space-2); color: var(--soft); font: 400 var(--fs-300)/1.3 var(--font-ui); }
   .pi-msg__page { display: inline-block; margin-top: var(--space-4); color: var(--soft); font: 400 var(--fs-300)/1.3 var(--font-ui); text-underline-offset: .2em; }
@@ -688,6 +823,7 @@ const starters = [
   @media (prefers-reduced-motion: reduce) {
     .pi-chat__panel, .pi-chat__launch, .pi-tile__media img, html.pi-chat-docked body { transition: none; }
     .pi-msg.is-live .pi-msg__face { animation: none; }
+    .pi-msg, .pi-msg *, .pi-tile--text { animation: none !important; transition: none; }
   }
   @media print { .pi-chat { display: none; } }
 </style>

@@ -359,7 +359,7 @@ export class Site {
    * every such request fail at the transport, which is what a reader on a
    * dropped connection actually experiences.
    */
-  async reader({ signedIn = false, userId = 'harness-user-a', seedStorage = {}, supabase = DEFAULT_SUPABASE, offline = false } = {}) {
+  async reader({ signedIn = false, userId = 'harness-user-a', seedStorage = {}, supabase = DEFAULT_SUPABASE, offline = false, concierge = null } = {}) {
     // A fresh browser context per reader, not just a fresh page: localStorage
     // is per origin, so two readers sharing one browser would share one saves
     // list and each test would inherit the last one's shortlist. That is a
@@ -376,7 +376,7 @@ export class Site {
       authExpiresAt: Math.floor(Date.now() / 1000) + 3600,
     });
 
-    const state = { supabase: [...supabase], offline, supabaseCalls: [] };
+    const state = { supabase: [...supabase], offline, supabaseCalls: [], concierge, conciergeCalls: [] };
 
     await page.setRequestInterception(true);
     page.on('request', (req) => {
@@ -405,6 +405,20 @@ export class Site {
         return;
       }
 
+      // PI's voice (the platform API). Answered from `concierge` when a test
+      // supplies it; otherwise refused like any third party, which is the
+      // "voice is unavailable" case the chat must survive.
+      const pi = url.match(/\/concierge\/pi\/(voice|front-desk)$/);
+      if (pi) {
+        const cors = { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': '*', 'Access-Control-Allow-Methods': 'POST,OPTIONS' };
+        if (req.method() === 'OPTIONS') { req.respond({ status: 204, headers: cors }).catch(() => {}); return; }
+        state.conciergeCalls.push({ path: pi[1], body: req.postData() || null });
+        const body = state.concierge?.[pi[1]];
+        if (!body) { req.abort('failed').catch(() => {}); return; }
+        req.respond({ status: 200, contentType: 'application/json', headers: cors, body: JSON.stringify(body) }).catch(() => {});
+        return;
+      }
+
       // Anything not served by the harness's own origin is third-party
       // (analytics, fonts, tiles). Refuse it so a run is offline-deterministic.
       if (host && !url.startsWith(this.origin)) { req.abort('failed').catch(() => {}); return; }
@@ -416,6 +430,8 @@ export class Site {
       page,
       state,
       supabaseCalls: () => state.supabaseCalls.slice(),
+      conciergeCalls: () => state.conciergeCalls.slice(),
+      setConcierge: (rules) => { state.concierge = rules; },
       setSupabase: (rules) => { state.supabase = [...rules]; },
       setOffline: (v) => { state.offline = v; },
       clearSupabaseCalls: () => { state.supabaseCalls.length = 0; },
