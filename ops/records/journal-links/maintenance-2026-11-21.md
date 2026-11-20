@@ -1,0 +1,7 @@
+# Contextual link maintenance — 21 November 2026
+
+Base: `1c417b26c80cf2ee155377b056566acda53b7ce6`. PR793 is complete; its Bass & Flinders anchor remains intact. This batch wraps the existing bold Rye Foreshore Market section label in the 5 October Insider Picks with `/eat/rye-beachside-market/`. It is the first named body occurrence; later prose refers to this community market. No wording, dates, claims, official schedule links, coordinates, images or CMS data change.
+
+The Markets guide links this exact named Rye entity. Rotary operator page lists recurring first Saturdays and the same location. Published `pi.cms_text_fields` query for this article and venue returned zero rows on20 November UTC. Root independently inspected the live page in a real browser on21 November Melbourne: final URL and sole canonical `https://peninsulainsider.com.au/eat/rye-beachside-market/`, H1 Rye Foreshore Market, robots `index, follow, max-image-preview:large`, no Googlebot meta. This resolves this task's direct-HTTP403 limitation without a bypass.
+
+Sources: https://peninsulainsider.com.au/explore/markets/ and https://www.rosebudryerotary.org.au/rye-foreshore-market/. Recurrence is not confirmation of a particular future occurrence. Preserve the existing Rotary source link and verification date. Prior PR758 audit/harness is reused; no new crawl or schedule. Exact candidate tests, independent review and desktop/mobile evidence are required. Root owns merge and deployment; draft only.
