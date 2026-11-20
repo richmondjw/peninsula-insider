@@ -1,0 +1,67 @@
+name: Ask PI editorial chat fixture
+
+# Exact-head preview testing only. Production never reads this job's env.
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/ask-editorial-chat-fixture.yml'
+      - 'next/src/components/AskEditorialChat.astro'
+      - 'next/src/components/v5/chrome/V5Masthead.astro'
+      - 'next/src/layouts/BaseLayout.astro'
+      - 'next/src/lib/ask-editorial-chat*'
+      - 'next/src/lib/features.ts'
+      - 'next/tests/journeys/ask-editorial-chat.test.mjs'
+      - 'next/tests/journeys/harness.mjs'
+      - 'next/package.json'
+      - 'next/package-lock.json'
+      - 'next/astro.config.mjs'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ask-editorial-chat-fixture-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  fixture:
+    name: Exact-head browser proof for the isolated editorial chat
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: next
+    env:
+      ASTRO_TELEMETRY_DISABLED: '1'
+      PI_SKIP_CMS_LIVE_READS: '1'
+      PI_ASK_EDITORIAL_CHAT_FIXTURE: '1'
+
+    steps:
+      - name: Checkout exact candidate
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: next/package-lock.json
+
+      - name: Install existing dependencies and test the answer allowlist
+        env:
+          EXPECTED_HEAD: ${{ github.event.pull_request.head.sha }}
+        run: |
+          test "$(git rev-parse HEAD)" = "$EXPECTED_HEAD"
+          npm ci --prefer-offline
+          node --test src/lib/ask-editorial-chat.test.mjs
+
+      - name: Build one isolated fixture
+        # The normal Content Gate already builds and checks the default-off
+        # mode. No publishing, model access, credentials or live CMS reads here.
+        run: ./node_modules/.bin/astro build
+
+      - name: Exercise the real modal, touch, keyboard, privacy and Search handoff
+        run: node --test tests/journeys/ask-editorial-chat.test.mjs

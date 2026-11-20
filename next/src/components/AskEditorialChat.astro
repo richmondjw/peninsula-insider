@@ -1,0 +1,201 @@
+---
+import { ASK_EDITORIAL_EXAMPLES, ASK_EDITORIAL_MAX_LENGTH } from '../lib/ask-editorial-chat.mjs';
+---
+<dialog id="ask-editorial-dialog" class="ask-editorial" data-ask-editorial-chat aria-labelledby="ask-editorial-title" aria-describedby="ask-editorial-scope">
+  <header class="ask-editorial__header">
+    <img src="/images/pi/pi-avatar-96.webp" alt="" width="36" height="36" />
+    <h2 id="ask-editorial-title">Ask PI <span>Editorial chat</span></h2>
+    <button type="button" class="ask-editorial__close" data-ask-editorial-close aria-label="Close Ask PI" autofocus>
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 6 12 12m0-12L6 18"/></svg>
+    </button>
+  </header>
+  <div class="ask-editorial__scroll" data-ask-editorial-scroll data-lenis-prevent>
+    <p id="ask-editorial-scope">This chat uses a small set of written guide answers, not AI. It covers three walks around Cape Schanck and Sorrento. It can’t check current access or conditions.</p>
+    <div class="ask-editorial__examples" aria-label="Example questions" role="group">
+      {ASK_EDITORIAL_EXAMPLES.map(question => <button type="button" data-ask-editorial-example={question}>{question}</button>)}
+    </div>
+    <div class="ask-editorial__turns" data-ask-editorial-turns role="log" aria-label="Ask PI conversation"></div>
+  </div>
+  <form class="ask-editorial__form" action="/search/" method="get" data-ask-editorial-form>
+    <label for="ask-editorial-question">Your question</label>
+    <div class="ask-editorial__compose">
+      <input id="ask-editorial-question" name="q" type="text" maxlength={ASK_EDITORIAL_MAX_LENGTH} autocomplete="off" spellcheck="false" enterkeyhint="send" required />
+      <button class="pi-btn pi-btn--solid" type="submit">Ask</button>
+    </div>
+    <p>This chat does not send or save your questions. Search links carry the question to site search only if you choose one.</p>
+  </form>
+</dialog>
+
+<script>
+  import { editorialAskReply, ASK_EDITORIAL_MAX_TURNS } from '../lib/ask-editorial-chat.mjs';
+
+  let dispose: (() => void) | undefined;
+  let closeForNavigation: (() => void) | undefined;
+
+  function mountAskEditorialChat() {
+    if (dispose) return;
+    const dialog = document.querySelector<HTMLDialogElement>('[data-ask-editorial-chat]');
+    const link = document.querySelector<HTMLAnchorElement>('[data-ask-editorial-open]');
+    if (!dialog || !link || typeof dialog.showModal !== 'function') return;
+
+    const scroller = dialog.querySelector<HTMLElement>('[data-ask-editorial-scroll]')!;
+    const turns = dialog.querySelector<HTMLElement>('[data-ask-editorial-turns]')!;
+    const form = dialog.querySelector<HTMLFormElement>('[data-ask-editorial-form]')!;
+    const input = dialog.querySelector<HTMLInputElement>('#ask-editorial-question')!;
+    const close = dialog.querySelector<HTMLButtonElement>('[data-ask-editorial-close]')!;
+    const controller = new AbortController();
+    const { signal } = controller;
+    const root = document.documentElement;
+    let overflow: { value: string; priority: string } | undefined;
+    let restoreFocus = false;
+    let answering = false;
+
+    function clear() {
+      input.value = '';
+      turns.replaceChildren();
+      scroller.scrollTop = 0;
+    }
+
+    function unlock() {
+      if (!overflow) return;
+      if (overflow.value) root.style.setProperty('overflow', overflow.value, overflow.priority);
+      else root.style.removeProperty('overflow');
+      overflow = undefined;
+    }
+
+    function finish() {
+      if (dialog.open) return;
+      unlock();
+      clear();
+      if (restoreFocus && link.isConnected && link.getClientRects().length) link.focus({ preventScroll: true });
+      restoreFocus = false;
+    }
+
+    function dismiss(returnFocus: boolean) {
+      restoreFocus = returnFocus && dialog.open;
+      if (dialog.open) dialog.close();
+      finish();
+    }
+
+    link.setAttribute('aria-haspopup', 'dialog');
+    link.setAttribute('aria-controls', dialog.id);
+    link.setAttribute('aria-label', 'Ask PI, limited editorial chat');
+    link.title = 'Ask PI, limited editorial chat';
+    link.addEventListener('click', event => {
+      if (event.defaultPrevented || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      const otherModals = document.querySelectorAll<HTMLElement>('dialog[open], [role="dialog"][aria-modal="true"]');
+      if ([...otherModals].some(node => !node.closest('[hidden], [inert], [aria-hidden="true"]')
+          && node.getClientRects().length && getComputedStyle(node).visibility === 'visible')) return;
+      try { dialog.showModal(); } catch { return; }
+      event.preventDefault();
+      overflow = { value: root.style.getPropertyValue('overflow'), priority: root.style.getPropertyPriority('overflow') };
+      root.style.setProperty('overflow', 'hidden');
+      if (event instanceof PointerEvent && event.pointerType === 'touch') close.focus({ preventScroll: true });
+      else input.focus({ preventScroll: true });
+    }, { signal });
+
+    close.addEventListener('click', () => dismiss(true), { signal });
+    dialog.addEventListener('cancel', event => {
+      event.preventDefault();
+      dismiss(true);
+    }, { signal });
+    dialog.addEventListener('close', finish, { signal });
+    dialog.addEventListener('keydown', event => {
+      // The site's own "/" shortcut must not install a second focus trap
+      // under this native modal. Do not interfere with typing in the composer.
+      if (dialog.open && event.key === '/' && event.target !== input
+          && !event.altKey && !event.ctrlKey && !event.metaKey) event.stopPropagation();
+    }, { signal });
+
+    dialog.querySelectorAll<HTMLButtonElement>('[data-ask-editorial-example]').forEach(example => {
+      example.addEventListener('click', () => {
+        input.value = example.dataset.askEditorialExample ?? '';
+        input.focus({ preventScroll: true });
+      }, { signal });
+    });
+
+    form.addEventListener('submit', event => {
+      if (!dialog.open) return;
+      event.preventDefault();
+      if (answering) return;
+      const question = input.value.trim();
+      const reply = editorialAskReply(question);
+      if (!reply) return;
+      answering = true;
+      try {
+        const turn = document.createElement('div');
+        turn.className = 'ask-editorial__turn';
+        const you = document.createElement('p');
+        const answer = document.createElement('p');
+        you.className = 'ask-editorial__question';
+        you.textContent = 'You: ' + question;
+        answer.textContent = 'Ask PI: ' + reply.text;
+        turn.append(you, answer);
+        const sources = document.createElement('ul');
+        sources.className = 'ask-editorial__sources';
+        for (const item of reply.links) {
+          const li = document.createElement('li');
+          const a = document.createElement('a');
+          a.href = item.href;
+          a.textContent = item.label;
+          li.append(a);
+          sources.append(li);
+        }
+        turn.append(sources);
+        while (turns.childElementCount >= ASK_EDITORIAL_MAX_TURNS) turns.firstElementChild?.remove();
+        turns.append(turn);
+        input.value = '';
+        scroller.scrollTop = scroller.scrollHeight;
+        input.focus({ preventScroll: true });
+      } finally {
+        answering = false;
+      }
+    }, { signal });
+
+    closeForNavigation = () => dismiss(false);
+    dispose = () => {
+      dismiss(false);
+      controller.abort();
+      dispose = undefined;
+      closeForNavigation = undefined;
+    };
+  }
+
+  mountAskEditorialChat();
+  document.addEventListener('astro:page-load', mountAskEditorialChat);
+  document.addEventListener('astro:before-preparation', () => closeForNavigation?.());
+  document.addEventListener('astro:before-swap', () => dispose?.());
+  window.addEventListener('popstate', () => closeForNavigation?.());
+  window.addEventListener('pagehide', () => closeForNavigation?.());
+</script>
+
+<style>
+  .ask-editorial { box-sizing: border-box; position: fixed; inset: auto var(--space-5) var(--space-5) auto; width: min(30rem, calc(100% - 2 * var(--space-5))); max-height: min(44rem, calc(100dvh - 2 * var(--space-5))); margin: 0; padding: 0; overflow: hidden; color: var(--text); background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-m); box-shadow: var(--elev-3); }
+  .ask-editorial:not([open]) { display: none; }
+  .ask-editorial[open] { display: flex; flex-direction: column; }
+  .ask-editorial::backdrop { background: rgb(11 46 74 / .58); }
+  .ask-editorial__header { display: flex; flex: none; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-5); border-bottom: 1px solid var(--border); }
+  .ask-editorial__header img { border-radius: 50%; }
+  .ask-editorial__header h2 { margin: 0; font: var(--fw-display) var(--fs-500)/1.15 var(--font-display); }
+  .ask-editorial__header h2 span { display: block; margin-top: var(--space-1); color: var(--soft); font: var(--fw-medium) var(--fs-200)/1.2 var(--font-ui); }
+  .ask-editorial__close { display: grid; flex: none; place-items: center; width: 44px; height: 44px; margin-inline-start: auto; border: 0; border-radius: 50%; background: var(--bg-alt); color: var(--text); cursor: pointer; }
+  .ask-editorial__scroll { flex: 1 1 auto; min-height: 0; overflow: auto; overscroll-behavior: contain; padding: var(--space-4) var(--space-5); }
+  .ask-editorial__scroll > p, .ask-editorial__form > p { margin: 0; color: var(--soft); font: var(--fs-300)/1.45 var(--font-ui); }
+  .ask-editorial__examples { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-4); }
+  .ask-editorial__examples button { min-height: 44px; padding: var(--space-2) var(--space-3); text-align: start; border: 1px solid var(--border-control); border-radius: var(--radius-pill); color: var(--accent); background: var(--white); font: var(--fw-medium) var(--fs-300)/1.3 var(--font-ui); cursor: pointer; }
+  .ask-editorial :is(a,button,input):focus-visible { outline: var(--focus-ring); outline-offset: 2px; }
+  .ask-editorial__turns :global(.ask-editorial__turn) { overflow-wrap: anywhere; margin-block-start: var(--space-4); padding: var(--space-3); background: var(--bg-alt); border-radius: var(--radius-s); font: var(--fs-400)/1.5 var(--font-ui); }
+  .ask-editorial__turns :global(.ask-editorial__question) { margin-block-end: var(--space-2); font-weight: var(--fw-semibold); }
+  .ask-editorial__turns :global(.ask-editorial__sources) { margin-top: var(--space-2); padding: 0; list-style: none; }
+  .ask-editorial__turns :global(.ask-editorial__sources a) { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+  .ask-editorial__turns :global(.ask-editorial__sources a:focus-visible) { outline: var(--focus-ring); outline-offset: 2px; }
+  .ask-editorial__form { flex: none; display: grid; gap: var(--space-2); padding: var(--space-3) var(--space-5) max(var(--space-4), env(safe-area-inset-bottom)); border-top: 1px solid var(--border); }
+  .ask-editorial__form label { font-weight: var(--fw-semibold); }
+  .ask-editorial__compose { display: flex; gap: var(--space-2); }
+  .ask-editorial__compose input { flex: 1 1 auto; width: 0; min-width: 0; min-height: 48px; padding: 0 var(--space-3); border: 1px solid var(--border-control); border-radius: var(--radius-s); color: var(--text); background: var(--white); font: var(--fs-400)/1.3 var(--font-ui); }
+  .ask-editorial__compose button { flex: none; min-height: 48px; }
+  @media (max-width: 767px) {
+    .ask-editorial { inset: auto 0 0; width: 100%; max-width: none; height: min(38rem, 100dvh); max-height: 100dvh; border-radius: var(--radius-m) var(--radius-m) 0 0; }
+    .ask-editorial__header, .ask-editorial__scroll, .ask-editorial__form { padding-inline: var(--space-4); }
+  }
+</style>

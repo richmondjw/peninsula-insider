@@ -16,6 +16,9 @@ import { occurrenceModelEnabled } from './event-occurrence.mjs';
 // by the linked PI pages. Search remains available across the site.
 export const SHOW_ASK_PI = false;
 
+/** Opt-in for isolated editorial-chat fixtures only. Never enables concierge. */
+export const SHOW_ASK_EDITORIAL_CHAT = !SHOW_ASK_PI && import.meta.env.PI_ASK_EDITORIAL_CHAT_FIXTURE === '1';
+
 /**
  * PUBLIC_EVENT_OCCURRENCE_MODEL: the PI-008 occurrence model, three-state.
  *
