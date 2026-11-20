@@ -410,10 +410,11 @@ test('in conversation she replies as herself, her picks are the tiles, and a fol
     assert.deepEqual(sent.pages, [], 'a greeting sends no pages');
 
     // A real question: she makes the call, and the tiles are the places she named, in her order.
-    reader.setConcierge({ talk: { say: 'I’d start with Red Gum BBQ. Tedesca Osteria is the quieter one.', picks: ['/eat/red-gum-bbq/', '/eat/tedesca-osteria/', '/stay/not-sent/'], next: [] } });
+    reader.setConcierge({ talk: { say: 'I’d start with Red Gum BBQ. Tedesca Osteria is the quieter one.', picks: ['/eat/red-gum-bbq/', '/eat/tedesca-osteria/', '/stay/not-a-page/'], next: [], why: { '/eat/red-gum-bbq/': 'Picnic tables, so nobody minds the noise.', '/stay/not-a-page/': 'A line for nothing.' } } });
     const lunch = await say(page, 'lunch in Red Hill');
     assert.equal(lunch.prose, 'I’d start with Red Gum BBQ. Tedesca Osteria is the quieter one.');
-    assert.deepEqual(lunch.tiles.map(tile => tile.href), ['/eat/red-gum-bbq/', '/eat/tedesca-osteria/'], 'a pick that was never sent is ignored');
+    assert.deepEqual(lunch.tiles.map(tile => tile.href), ['/eat/red-gum-bbq/', '/eat/tedesca-osteria/'], 'a pick that is not a published page is ignored');
+    assert.deepEqual(await page.$$eval(`${answers}:last-child .pi-tile__note`, notes => notes.map(note => note.textContent)), ['Picnic tables, so nobody minds the noise.'], 'her line sits on the pick it is about');
     assert.equal(await page.$eval(`${answers}:last-child .pi-tile`, tile => Boolean(tile.querySelector('.pi-tile__call'))), true);
     sent = JSON.parse(reader.conciergeCalls().filter(call => call.path === 'talk').pop().body);
     assert.equal(sent.history.at(-1).q, 'hi PI, long week');

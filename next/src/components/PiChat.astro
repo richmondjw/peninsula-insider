@@ -110,7 +110,7 @@ const starters = SHOW_ASK_PERSONA
   import { converse, swapStop, pageOffers, composeRequest, applyCompose, talkPages, cardsFor } from '../lib/ask-pi.mjs';
   import { loadAskIndex } from '../scripts/ask-guide-ui';
 
-  type Place = { href: string; title: string; why: string; section: string; image: string | null; alt: string; credit?: string | null; facts?: [string, string][]; badge?: string | null };
+  type Place = { href: string; title: string; why: string; section: string; image: string | null; alt: string; credit?: string | null; facts?: [string, string][]; badge?: string | null; note?: string | null };
   type Card = { href: string; title: string; meta: string; summary?: string; facts: [string, string][]; badge: string | null; image?: string | null; credit?: string | null };
   type Plan = { title: string; town: string; trip: string | null; stops: { label: string; card: Card; swappable: boolean; line?: string | null }[] };
   type Turn =
@@ -356,6 +356,7 @@ const starters = SHOW_ASK_PERSONA
         if (place.section) body.append(el('span', 'pi-tile__section', place.section));
         body.append(el('span', 'pi-tile__title', place.title));
         if (place.badge) body.append(el('strong', 'pi-tile__badge', place.badge));
+        if (place.note) body.append(el('span', 'pi-tile__note', place.note));
         for (const [label, value] of place.facts ?? []) body.append(el('span', 'pi-tile__fact', `${label}: ${value}`));
         if (place.why) body.append(el('span', 'pi-tile__why', place.why));
         if (place.image) {
@@ -640,21 +641,23 @@ const starters = SHOW_ASK_PERSONA
         // overlap what the reader has been saying. Her reply is checked on the
         // platform; here it is only shown. If none comes back in time, the
         // matcher's answer stands and the older note and front desk take over.
-        let spoken: { say: string; picks: string[]; next: string[] } | null = null;
+        let spoken: { say: string; picks: string[]; next: string[]; why: Record<string, string> } | null = null;
         const thinPlan = result.reply.kind === 'none' && result.reply.mood;
         if (talkOn && !result.reply.plan && !thinPlan && TALKABLE.has(result.reply.kind)) {
           const waited = new AbortController();
           const timer = window.setTimeout(() => waited.abort(), TALK_WAIT_MS);
           const said = turns.filter((t) => t.role === 'you').slice(0, -1).map((t) => t.text);
           const pages = talkPages(index, q, said, result.reply, shownBefore(), context) as string[];
-          const reply = await voice<{ say: string | null; picks: string[]; next: string[] }>('talk', { message: q, history: recent(8), pages, onPage: location.pathname }, AbortSignal.any([signal, waited.signal]));
+          const reply = await voice<{ say: string | null; picks: string[]; next: string[]; why?: Record<string, string> }>('talk', { message: q, history: recent(8), pages, onPage: location.pathname }, AbortSignal.any([signal, waited.signal]));
           window.clearTimeout(timer);
           if (signal.aborted) { live.remove(); return; }
           if (typeof reply?.say === 'string' && reply.say.trim()) {
             spoken = {
               say: reply.say.trim().slice(0, 1200),
-              // Only pages that were sent can come back as picks.
-              picks: (Array.isArray(reply.picks) ? reply.picks : []).filter((href) => typeof href === 'string' && pages.includes(href)),
+              // The platform can add pages it found by meaning, so a pick need not be
+              // one that was sent. It must be a published page: cardsFor() drops the rest.
+              picks: (Array.isArray(reply.picks) ? reply.picks : []).filter((href) => typeof href === 'string'),
+              why: reply.why && typeof reply.why === 'object' ? reply.why : {},
               next: (Array.isArray(reply.next) ? reply.next : []).filter((item) => typeof item === 'string' && item.trim()).map((item) => item.trim().slice(0, 60)).slice(0, 3),
             };
           }
@@ -697,6 +700,8 @@ const starters = SHOW_ASK_PERSONA
         // In conversation the tiles are the places she named, in her order; a
         // reply that names none shows none.
         const places = spoken ? toPlaces(cardsFor(index, spoken.picks) as Card[]) : toPlaces(reply.cards);
+        // Her own line on a pick, where one passed the check on the platform.
+        if (spoken) for (const place of places) { const line = spoken.why[place.href]; if (typeof line === 'string' && line.trim()) place.note = line.trim().slice(0, 260); }
         const turn: PiTurn = {
           role: 'pi',
           text: spoken ? spoken.say : places.length ? reply.lead : aside || reply.lead,
@@ -1097,6 +1102,7 @@ const starters = SHOW_ASK_PERSONA
   .pi-tile__body { display: grid; gap: 3px; min-width: 0; }
   .pi-tile__section { color: var(--soft); font: 400 var(--fs-200)/1.3 var(--font-ui); }
   .pi-tile__title { font: var(--fw-display) var(--fs-400)/1.2 var(--font-display); }
+  .pi-tile__note { color: var(--text); font: italic 500 var(--fs-300)/1.4 var(--font-ui); }
   .pi-tile__fact { color: var(--text); font: 500 var(--fs-200)/1.35 var(--font-ui); }
   .pi-tile__why { color: var(--soft); font: 400 var(--fs-300)/1.4 var(--font-ui); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
   .pi-tile--text .pi-tile__why { -webkit-line-clamp: 3; }
