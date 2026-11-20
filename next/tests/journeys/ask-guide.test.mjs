@@ -1,9 +1,10 @@
 /**
- * Ask PI from the guides, in a real browser over the built site.
+ * Ask PI in a real browser over the built site: the chat window, her picks
+ * from the guides, and her voice from the platform API.
  *
  * The harness serves tests/journeys/fixtures/ask-index.json at
- * /ask/index.json, so what is asserted here is the window, not the guides.
- * The flag the build was made with must match features.ts:
+ * /ask/index.json and answers /concierge/pi/* only when a test supplies a
+ * reply, so what is asserted here is the window, not the guides or the model.
  *   node --test tests/journeys/ask-guide.test.mjs
  */
 import test from 'node:test';
@@ -14,22 +15,53 @@ import { Site } from './harness.mjs';
 const features = readFileSync(new URL('../../src/lib/features.ts', import.meta.url), 'utf8');
 const flag = (name) => features.match(new RegExp(`^export const ${name} = (true|false);\\s*$`, 'm'))?.[1] === 'true';
 const guideOn = flag('SHOW_ASK_GUIDE') && !flag('SHOW_ASK_PI');
+const voiceOn = guideOn && flag('SHOW_ASK_VOICE');
 
 const site = await Site.open();
 test.after(() => site.close());
 
 const opener = '.ask-link';
-const modal = '#ask-guide-dialog';
-const draft = '#ask-dialog-question';
-const turns = `${modal} [data-ask-guide-log] > article`;
-const MARKER = 'ASK_GUIDE_PRIVATE_4825';
+const chat = '#pi-chat';
+const draft = '#pi-chat-input';
+const answers = '#pi-chat-log > .pi-msg--pi';
 
-test('with Ask PI off, the menu still leads to the paused page and nothing of the guide renders', { skip: guideOn }, async () => {
+async function openChat(reader, mobile) {
+  const page = reader.page;
+  await page.waitForSelector(chat);
+  if (mobile) await page.tap(opener);
+  else await page.click(opener);
+  await page.waitForFunction(() => document.querySelector('#pi-chat')?.dataset.state === 'open' && !document.querySelector('#pi-chat-panel')?.hidden);
+  // Let the opening animation finish before anything is measured.
+  await page.waitForFunction(() => {
+    const panel = document.querySelector('#pi-chat-panel');
+    return document.querySelector('#pi-chat')?.classList.contains('is-in') && getComputedStyle(panel).opacity === '1' && panel.getAnimations().length === 0;
+  });
+}
+
+async function say(page, text) {
+  const before = (await page.$$(answers)).length;
+  await page.focus(draft);
+  await page.type(draft, text);
+  await page.keyboard.press('Enter');
+  await page.waitForFunction((selector, count) => {
+    const nodes = document.querySelectorAll(selector);
+    return nodes.length > count && !nodes[nodes.length - 1].classList.contains('is-live');
+  }, {}, answers, before);
+  return page.$eval(`${answers}:last-child`, node => ({
+    prose: node.querySelector('.pi-msg__prose')?.textContent ?? '',
+    tiles: [...node.querySelectorAll('.pi-tile')].map(tile => ({ href: tile.getAttribute('href'), title: tile.querySelector('.pi-tile__title')?.textContent, why: tile.querySelector('.pi-tile__why')?.textContent })),
+    inline: [...node.querySelectorAll('.pi-msg__inline')].map(link => link.getAttribute('href')),
+    small: node.querySelector('.pi-msg__small')?.textContent ?? '',
+    chips: [...node.querySelectorAll('.pi-chat__chip')].map(chip => chip.textContent),
+  }));
+}
+
+test('with Ask PI off, the menu still leads to the paused page and no chat renders', { skip: guideOn }, async () => {
   const reader = await site.reader();
   try {
     await reader.load('/');
     assert.equal(await reader.page.$eval(opener, link => link.getAttribute('href')), '/ask/');
-    assert.equal(await reader.page.$(`${modal}, [data-ask-guide-open], [data-ask-guide-root]`), null);
+    assert.equal(await reader.page.$(`${chat}, [data-pi-popup], [data-ask-guide-root]`), null);
   } finally {
     await reader.close();
   }
@@ -42,132 +74,72 @@ test('without JavaScript, Ask PI is a plain link to a page whose form is site se
     await page.setJavaScriptEnabled(false);
     await page.goto(site.origin + '/', { waitUntil: 'domcontentloaded' });
     assert.equal(await page.$eval(opener, link => link.getAttribute('href')), '/ask/');
-    assert.equal(await page.$eval(opener, link => link.getAttribute('aria-haspopup')), null);
     await Promise.all([page.waitForNavigation(), page.click(opener)]);
     assert.equal(new URL(page.url()).pathname, '/ask/');
     assert.equal(await page.$eval('main [data-ask-guide-form]', form => form.getAttribute('action')), '/search/');
-    assert.equal(await page.$eval('main [data-ask-guide-input]', input => input.getAttribute('name')), 'q');
   } finally {
     await reader.close();
   }
 });
 
-for (const width of [320, 390, 1280, 1440]) {
-  test(`Ask PI answers from the guides, privately and by keyboard, at ${width}px`, { skip: !guideOn }, async () => {
+for (const width of [390, 1280, 1440]) {
+  test(`with her voice unavailable, PI still answers from the guides at ${width}px`, { skip: !guideOn }, async () => {
     const reader = await site.reader();
     const page = reader.page;
     const mobile = width < 768;
-    const leaks = [];
-    const fetched = [];
-    page.on('request', request => {
-      const url = new URL(request.url());
-      if (url.pathname.includes('/concierge/')) leaks.push('concierge ' + url.pathname);
-      if (url.href.includes(MARKER) || (request.postData() ?? '').includes(MARKER)) leaks.push('question sent to ' + url.pathname);
-      if (['xhr', 'fetch'].includes(request.resourceType()) && url.pathname.startsWith('/ask/')) fetched.push(request.method() + ' ' + url.pathname + url.search);
-    });
-    const submit = async value => {
-      const before = (await page.$$(turns)).length;
-      await page.focus(draft);
-      await page.type(draft, value);
-      await page.keyboard.press('Enter');
-      await page.waitForFunction((selector, count) => document.querySelectorAll(selector).length > count, {}, turns, before);
-    };
-    const last = () => page.$$eval(turns, nodes => nodes.at(-1).textContent);
+    const generated = [];
+    page.on('request', request => { if (/\/concierge\/ask/.test(request.url())) generated.push(request.url()); });
     try {
       await page.setViewport({ width, height: 844, isMobile: mobile, hasTouch: mobile });
       await reader.load('/');
-      await page.waitForFunction(() => document.querySelector('.ask-link')?.getAttribute('aria-haspopup') === 'dialog');
-      assert.equal(await page.$(`${modal}[open], #pi-chat, [data-pi-popup], #siteSearchOverlayAsk`), null, 'the generated-answer concierge is not on the page');
-      await page.evaluate(marker => {
-        window.__askStorageOps = [];
-        for (const name of ['getItem', 'setItem', 'removeItem']) {
-          const method = Storage.prototype[name];
-          Storage.prototype[name] = function (...args) {
-            if (args.some(value => /ask|pi-chat/i.test(String(value)) || String(value).includes(marker))) window.__askStorageOps.push([name, String(args[0])]);
-            return method.apply(this, args);
-          };
-        }
-      }, MARKER);
-
-      if (mobile) await page.tap(opener);
-      else {
-        await page.focus(opener);
-        await page.keyboard.press('Enter');
-      }
-      await page.waitForSelector(`${modal}[open]`, { visible: true });
-      assert.equal(await page.$eval(modal, el => el.matches(':modal')), true);
-      assert.match(await page.$eval('#ask-dialog-scope', el => el.textContent), /doesn’t use AI.*doesn’t send or save/s);
-      assert.equal(await page.evaluate(() => document.documentElement.style.overflow), 'hidden');
-      assert.equal(await page.evaluate(() => document.activeElement?.id), mobile ? '' : 'ask-dialog-question');
-      const box = await page.$eval(modal, el => {
+      await openChat(reader, mobile);
+      const box = await page.$eval('#pi-chat-panel', el => {
         const rect = el.getBoundingClientRect();
         return { left: rect.left, right: rect.right, top: rect.top, bottom: rect.bottom, w: innerWidth, h: innerHeight };
       });
-      assert.ok(box.left >= 0 && box.right <= box.w && box.top >= 0 && box.bottom <= box.h, JSON.stringify(box));
-      assert.equal(await page.$(`${modal} [data-evt], ${modal} [aria-label*="microphone" i]`), null);
-      for (let i = 0; i < 9; i++) {
-        await page.keyboard.press('Tab');
-        assert.equal(await page.evaluate(() => document.activeElement === document.body || !!document.activeElement?.closest('#ask-guide-dialog')), true, 'focus stays inside the dialog');
-      }
+      assert.ok(box.left >= 0 && box.right <= box.w + 1 && box.top >= 0 && box.bottom <= box.h + 1, JSON.stringify(box));
+      assert.match(await page.$eval('.pi-chat__fine', el => el.textContent), /published guides.*written by AI/s);
 
-      // A question becomes cards whose words are the index's words.
-      await submit('Where should we have lunch in Red Hill?');
-      assert.match(await last(), /places to eat and drink in Red Hill/);
-      const cards = await page.$$eval(`${turns}:last-child .ask-guide__card`, rows => rows.map(row => ({
-        href: row.querySelector('a').getAttribute('href'), title: row.querySelector('a').textContent, summary: row.querySelector('.ask-guide__summary')?.textContent,
-      })));
-      assert.deepEqual(cards.map(card => card.href).sort(), ['/eat/red-gum-bbq/', '/eat/tedesca-osteria/']);
-      assert.equal(cards.find(card => card.href === '/eat/tedesca-osteria/').summary, 'A single-set-menu osteria inside a restored Red Hill farmhouse.');
+      const lunch = await say(page, 'Where should we have lunch in Red Hill?');
+      assert.deepEqual(lunch.tiles.map(tile => tile.href).sort(), ['/eat/red-gum-bbq/', '/eat/tedesca-osteria/']);
+      assert.equal(lunch.tiles.find(tile => tile.href === '/eat/tedesca-osteria/').why, 'A single-set-menu osteria inside a restored Red Hill farmhouse.');
+      assert.match(lunch.prose, /places to eat and drink in Red Hill/, 'the matcher\'s own line stands in for her note');
+      assert.ok(lunch.chips.includes('Places to stay in Red Hill'), lunch.chips.join(' | '));
 
       // A chip is a follow-up on the same answer.
-      const chip = await page.$$eval(`${turns}:last-child [data-ask-guide-chip]`, buttons => buttons.map(button => button.textContent));
-      assert.ok(chip.includes('Places to stay in Red Hill'), chip.join(' | '));
-      const before = (await page.$$(turns)).length;
-      await page.evaluate(selector => [...document.querySelectorAll(selector)].find(button => button.textContent === 'Places to stay in Red Hill').click(), `${turns}:last-child [data-ask-guide-chip]`);
-      await page.waitForFunction((selector, count) => document.querySelectorAll(selector).length > count, {}, turns, before);
-      assert.ok(await page.$(`${turns}:last-child a[href="/stay/lindenderry/"]`));
-      assert.equal((await page.$$(`${turns}:not(:last-child) [data-ask-guide-chip]`)).length, 0, 'only the latest answer offers chips');
+      const count = (await page.$$(answers)).length;
+      await page.evaluate(() => [...document.querySelectorAll('#pi-chat-log .pi-chat__chip')].find(chip => chip.textContent === 'Places to stay in Red Hill').click());
+      await page.waitForFunction((selector, n) => document.querySelectorAll(selector).length > n && !document.querySelector(selector + ':last-child').classList.contains('is-live'), {}, answers, count);
+      assert.ok(await page.$(`${answers}:last-child .pi-tile[href="/stay/lindenderry/"]`));
 
-      // What it cannot check, it says it cannot check.
-      await submit('Is Tedesca Osteria open today?');
-      assert.match(await last(), /can’t check opening hours/);
-      assert.ok(await page.$(`${turns}:last-child a[href="/eat/tedesca-osteria/"]`));
+      const open = await say(page, 'Is Tedesca Osteria open today?');
+      assert.match(open.prose, /can’t check opening hours/);
+      assert.deepEqual(open.tiles.map(tile => tile.href), ['/eat/tedesca-osteria/']);
 
-      // Markup in a question is text, and an unmatched question hands off to search with the exact words.
-      const odd = `${MARKER} <b>pirates</b> & "quotes"`;
-      await submit(odd);
-      assert.equal(await page.$(`${turns} b`), null);
-      assert.equal((await page.$$(`${turns}:last-child .ask-guide__card`)).length, 0);
-      const handoff = await page.$$eval(`${turns}:last-child a[href^="/search/"]`, links => links.at(-1).href);
-      assert.equal(new URL(handoff).searchParams.get('q'), odd);
+      const odd = await say(page, 'zzqx <b>pirates</b> & "quotes"');
+      assert.equal(await page.$('#pi-chat-log b'), null, 'markup in a question is text');
+      assert.equal(odd.tiles.length, 0);
+      assert.ok(await page.$(`${answers}:last-child .pi-msg__links a[href^="/search/"]`));
+      assert.deepEqual(generated, [], 'the generated-answer route is never called');
 
-      assert.deepEqual(leaks, [], 'no question text leaves the browser and the concierge is never called');
-      assert.deepEqual([...new Set(fetched)], ['GET /ask/index.json'], 'the only request is the index, with no query');
-      assert.deepEqual(await page.evaluate(() => window.__askStorageOps), [], 'nothing is written to storage');
+      // A tile closes the chat, goes to the page, and the thread is there on return.
+      const tile = `${answers} .pi-tile[href="/eat/tedesca-osteria/"]`;
+      await page.evaluate(selector => document.querySelector(selector).click(), tile);
+      await page.waitForFunction(() => location.pathname === '/eat/tedesca-osteria/' && document.querySelector('#pi-chat')?.dataset.state === 'closed');
+      await page.waitForFunction(() => document.querySelector('#pi-chat-panel')?.hidden);
+      assert.equal(await page.evaluate(() => document.documentElement.classList.contains('pi-chat-sheet')), false);
+      await reader.waitFor(() => {
+        const link = document.querySelector('.ask-link');
+        if (!link) return false;
+        const r = link.getBoundingClientRect();
+        return r.width > 0 && link.contains(document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2));
+      }, 'masthead Ask PI is ready after the destination settles');
+      await openChat(reader, mobile);
+      assert.equal((await page.$$(answers)).length, 4, 'the conversation is kept');
 
-      // Escape returns focus; the thread is still there on reopening.
-      await page.keyboard.press('Escape');
-      await page.waitForFunction(() => !document.querySelector('#ask-guide-dialog')?.open && document.activeElement?.classList.contains('ask-link'));
-      assert.equal(await page.evaluate(() => document.documentElement.style.overflow), '');
-      await page.keyboard.press('Enter');
-      await page.waitForSelector(`${modal}[open]`);
-      assert.equal((await page.$$(turns)).length, 4);
-
-      // Following a card closes the dialog and unlocks the page; the thread survives the navigation.
-      await page.evaluate(selector => document.querySelector(selector).click(), `${turns} a[href="/eat/tedesca-osteria/"]`);
-      await page.waitForFunction(() => location.pathname === '/eat/tedesca-osteria/');
-      await page.waitForFunction(() => document.querySelector('.ask-link')?.getAttribute('aria-haspopup') === 'dialog');
-      assert.equal(await page.$(`${modal}[open]`), null);
-      assert.equal(await page.evaluate(() => document.documentElement.style.overflow), '');
-      await page.focus(opener);
-      await page.keyboard.press('Enter');
-      await page.waitForSelector(`${modal}[open]`);
-      assert.equal((await page.$$(turns)).length, 4, 'the conversation is kept across a client-side navigation');
-
-      // Start over clears it.
-      await page.evaluate(() => document.querySelector('#ask-guide-dialog [data-ask-guide-reset]').click());
-      assert.equal((await page.$$(turns)).length, 0);
-      await page.keyboard.press('Escape');
+      await page.click('#pi-chat-new');
+      assert.equal((await page.$$(answers)).length, 0);
+      assert.equal(await page.$eval('#pi-chat-hello', el => el.hidden), false);
       assert.deepEqual(await reader.errors(), []);
     } finally {
       await reader.close();
@@ -175,7 +147,51 @@ for (const width of [320, 390, 1280, 1440]) {
   });
 }
 
-test('the /ask/ page answers a question sent in its address, and the menu link goes to its question box', { skip: !guideOn }, async () => {
+for (const width of [390, 1280]) {
+  test(`her checked note eases in above the picks, and the front desk handles the rest, at ${width}px`, { skip: !voiceOn }, async () => {
+    const note = 'I’d start with Tedesca Osteria, a single-set-menu osteria in a restored farmhouse. Red Gum BBQ is the louder option.';
+    const reader = await site.reader({ concierge: { voice: { say: note }, 'front-desk': { say: 'Long week, then. Which town are you near?', rewrite: null } } });
+    const page = reader.page;
+    const mobile = width < 768;
+    try {
+      await page.setViewport({ width, height: 844, isMobile: mobile, hasTouch: mobile });
+      await reader.load('/');
+      await openChat(reader, mobile);
+
+      const lunch = await say(page, 'lunch in Red Hill');
+      await page.waitForFunction(() => document.querySelector('#pi-chat-log > .pi-msg--pi:last-child .pi-msg__prose')?.classList.contains('is-voiced'));
+      const prose = await page.$eval(`${answers}:last-child .pi-msg__prose`, el => el.textContent);
+      assert.equal(prose, note);
+      assert.deepEqual(await page.$$eval(`${answers}:last-child .pi-msg__inline`, links => links.map(link => link.getAttribute('href'))), ['/eat/tedesca-osteria/', '/eat/red-gum-bbq/'], 'the places she names link to their pages');
+      assert.equal(lunch.tiles.length, 2, 'the picks do not depend on the note');
+      const sent = JSON.parse(reader.conciergeCalls().find(call => call.path === 'voice').body);
+      assert.equal(sent.question, 'lunch in Red Hill');
+      assert.deepEqual([...sent.cards].sort(), ['/eat/red-gum-bbq/', '/eat/tedesca-osteria/']);
+      assert.deepEqual(Object.keys(sent).sort(), ['cards', 'history', 'question'], 'only the question, the chosen pages and the thread are sent');
+
+      // Something the matcher cannot read goes to the front desk, in her voice.
+      const chatty = await say(page, 'hello PI, long week');
+      assert.equal(chatty.prose, 'Long week, then. Which town are you near?');
+      assert.equal(chatty.tiles.length, 0);
+
+      // The front desk's reading is run through the matcher; the picks are still the guides'.
+      reader.setConcierge({ voice: { say: null }, 'front-desk': { say: 'Lunch it is.', rewrite: 'lunch in Flinders' } });
+      const reread = await say(page, 'zzqx feed me somewhere southern');
+      assert.deepEqual(reread.tiles.map(tile => tile.href), ['/eat/flinders-general-store/']);
+      assert.match(reread.prose, /places to eat and drink in Flinders/, 'no note came back, so the matcher\'s line stays');
+
+      // A note that is not a string is ignored.
+      reader.setConcierge({ voice: { say: 42 }, 'front-desk': { say: null, rewrite: null } });
+      const safe = await say(page, 'where to stay in Red Hill');
+      assert.match(safe.prose, /places to stay in Red Hill/);
+      assert.deepEqual(await reader.errors(), []);
+    } finally {
+      await reader.close();
+    }
+  });
+}
+
+test('the /ask/ page shows the plain matches for a question sent in its address', { skip: !guideOn }, async () => {
   const reader = await site.reader();
   const page = reader.page;
   try {
@@ -183,9 +199,7 @@ test('the /ask/ page answers a question sent in its address, and the menu link g
     await page.waitForFunction(() => document.querySelectorAll('main [data-ask-guide-log] > article').length === 1);
     assert.ok(await page.$('main [data-ask-guide-log] a[href="/eat/tedesca-osteria/"]'));
     assert.equal(await page.$eval('h1', el => el.textContent.trim()), 'Ask PI');
-    await page.click(opener);
-    assert.equal(await page.$(`${modal}[open]`), null);
-    assert.equal(await page.evaluate(() => document.activeElement?.id), 'ask-page-question');
+    assert.equal(await page.$eval(chat, el => el.hidden), true, 'the chat steps aside on its own page');
     assert.deepEqual(await reader.errors(), []);
   } finally {
     await reader.close();

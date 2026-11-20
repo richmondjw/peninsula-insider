@@ -470,6 +470,9 @@ export function ask(index, question, state = null, context = {}) {
     if (!stories.empty && !stories.partial) { filter.kinds = ['story']; result = stories; }
   }
   const quoted = (words) => words.map((word) => `“${word}”`).join(' and ');
+  // With no category and no town, a page that shares only some of the words
+  // ("long" from "long week") is not an answer. Better to say nothing matched.
+  if (!filter.kinds && !filter.place && result.partial) result = { ...result, records: [], empty: true, partial: false };
   // A town carried over from the last turn must not empty this one.
   if (result.empty && filter.place && !parsed.place && filter.kinds) {
     notes.push(`Nothing is listed in ${filter.place.name}, so this is the whole Peninsula.`);
