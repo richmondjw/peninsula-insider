@@ -1,302 +1,60 @@
 ---
-/**
- * /awards/ - Peninsula Insider Awards landing page (Phase 4 WS4E).
- *
- * Annual editorial moment combining editor-selected categories and
- * reader-voted ones. v1 ships the *infrastructure*: voting, nomination,
- * and results templates plus the schema. The actual 2026 categories
- * are loaded at runtime from pi.award_categories so editorial can stand
- * up the year's slate via Supabase Studio without a code change.
- *
- * Annual cycle:
- *   August - nominations open (visitors POST to pi.award_nominations)
- *   September - voting open (signed-in users POST to pi.award_votes)
- *   First weekend of October - results announced (published=true)
- */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import SectionHero from '../../components/SectionHero.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 
-const breadcrumbItems = [
-  { label: 'Home', href: '/' },
-  { label: 'The Peninsula Insider Awards' },
-];
-
-// Default category slate for v1. The page reads live data from Supabase
-// at runtime (see the inline script below); these defaults render
-// immediately so the page looks right even before the migration runs.
-const DEFAULT_CATEGORIES = [
-  { slug: 'restaurant-of-the-year',    title: 'Restaurant of the Year',     description: "The dining room the editorial desk would book this year if it could only book one." },
-  { slug: 'cellar-door-of-the-year',   title: 'Cellar Door of the Year',    description: 'Where the wine, the room, and the welcome converged.' },
-  { slug: 'stay-of-the-year',          title: 'Stay of the Year',           description: 'The bed that defined a Peninsula weekend in 2026.' },
-  { slug: 'walk-of-the-year',          title: 'Walk of the Year',           description: 'The route that justified the drive and the boots.' },
-  { slug: 'best-new-opening',          title: 'Best New Opening',           description: 'The 2026 arrival that reset what was possible in its category.' },
-  { slug: 'best-family-day',           title: 'Best Family Day',            description: 'Pram, picnic, parking. Kids-grade A in the field.' },
-  { slug: 'locals-choice',             title: "Locals' Choice",             description: 'Reader-voted. The place locals would actually send a friend to.' },
-  { slug: 'worth-the-drive',           title: 'Worth-the-Drive Award',      description: 'The Peninsula moment that justified the 90-minute return without any other reason.' },
-  { slug: 'editorial-discovery',       title: 'Editorial Discovery',        description: "The hidden corner the editorial desk found this year that won't stay hidden much longer." },
+const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'The Peninsula Insider Awards' }];
+const guides = [
+  { href: '/eat/', title: 'Eat', description: 'Restaurants, cafes and local food worth knowing.' },
+  { href: '/wine/', title: 'Wine', description: 'Cellar doors, producers and Peninsula bottles.' },
+  { href: '/stay/', title: 'Stay', description: 'Places to stay, chosen for the trip they make possible.' },
+  { href: '/explore/', title: 'Explore', description: 'Walks, beaches, villages and plans for a day or weekend.' },
+  { href: '/whats-on/', title: "What's On", description: 'Current events and timely reasons to visit.' },
 ];
 export const prerender = true;
 ---
 
-<BaseLayout
-  title="The Peninsula Insider Awards"
-  description="An annual editorial moment combining editor selections and reader voting. The Peninsula at its best, named, ranked, and credited."
-  section="explore"
-  canonical="https://peninsulainsider.com.au/awards/"
->
+<BaseLayout title="The Peninsula Insider Awards" description="Current status of the Peninsula Insider Awards and links to verified editorial guides." section="explore" canonical="https://peninsulainsider.com.au/awards/">
   <Breadcrumbs items={breadcrumbItems} />
-
-  <SectionHero
-    eyebrow="The Peninsula Insider Awards"
-    subEyebrow="Annual editorial · Reader-voted"
-    title="The Peninsula at its <em>best</em>, named."
-    dek="Nine categories. Editor selections and reader voting. Nominations open August, voting through September, results announced the first weekend of October. Independent, editorially gated, never paid."
-    gradient="journal"
-    visualLabel="Peninsula Insider · Awards"
-  entitySlug="awards"
-  />
-
-  <section class="awards-page">
-    <div class="container">
-
-      <div class="awards-cycle">
-        <p class="label label--accent">The 2026 cycle</p>
-        <ol class="awards-cycle__list">
-          <li>
-            <p class="awards-cycle__phase">August</p>
-            <p class="awards-cycle__what">Nominations open. Anyone can suggest a venue, event, or place for any category.</p>
-          </li>
-          <li>
-            <p class="awards-cycle__phase">September</p>
-            <p class="awards-cycle__what">Voting opens. Sign in to cast a vote in each category. One vote per category, change anytime until close.</p>
-          </li>
-          <li>
-            <p class="awards-cycle__phase">First weekend of October</p>
-            <p class="awards-cycle__what">Results announced. Editor selections + reader votes published, with editorial framing on the winners.</p>
-          </li>
-        </ol>
-      </div>
-
-      <p class="awards-status" data-awards-status>Loading the 2026 slate…</p>
-
-      <ol class="awards-categories" data-awards-categories>
-        {DEFAULT_CATEGORIES.map((c) => (
-          <li class="award-category" data-category-slug={c.slug}>
-            <p class="award-category__eyebrow">Category</p>
-            <h2 class="award-category__title">
-              <a href={`/awards/${c.slug}/`}>{c.title}</a>
-            </h2>
-            <p class="award-category__description">{c.description}</p>
-            <p class="award-category__meta" data-category-meta>Voting opens September.</p>
-          </li>
-        ))}
-      </ol>
-
-      <aside class="awards-nominate-cta">
-        <p class="label label--accent">Want to nominate?</p>
-        <p class="awards-nominate-cta__body">
-          Got a spot or a moment that should be on the slate? Send it in. Editorial reviews every nomination; the strongest go on the public ballot.
-        </p>
-        <a href="/awards/nominate/" class="pi-btn pi-btn--text">Nominate something →</a>
-      </aside>
+  <SectionHero eyebrow="The Peninsula Insider Awards" subEyebrow="Programme update" title="The awards are being <em>rebuilt</em>." dek="The 2026 voting cycle is closed. We have not published verified winners, so we have removed the incomplete results experience while we review the programme, its evidence and its rules." gradient="journal" visualLabel="Peninsula Insider · Awards" entitySlug="awards" />
+  <main class="awards-page">
+    <div class="container awards-layout">
+      <section class="awards-update" aria-labelledby="awards-update-title">
+        <p class="label label--accent">Status · 20 November 2026</p>
+        <h2 id="awards-update-title">No 2026 result is currently published</h2>
+        <p>Earlier versions of this page described an October results date, but the result pages did not provide a complete, verifiable record. That was not good enough. Voting and nominations are closed, and we will not name winners without evidence we can stand behind.</p>
+        <p>Before the awards return, we will publish the eligibility rules, selection method, reader and editor weighting, conflicts policy, corrections process and a durable record of every result.</p>
+        <div class="awards-actions">
+          <a class="pi-btn pi-btn--solid" href="/about/#how-we-choose">How we choose our picks</a>
+          <a class="pi-btn pi-btn--text" href="/contact/?type=correction">Report an awards issue →</a>
+        </div>
+      </section>
+      <section class="awards-guides" aria-labelledby="awards-guides-title">
+        <p class="label label--accent">Where to browse now</p>
+        <h2 id="awards-guides-title">Current Peninsula guides</h2>
+        <p class="awards-guides__intro">Use our live editorial sections while the awards programme is under review.</p>
+        <ul class="awards-guides__list">
+          {guides.map((guide) => <li><a href={guide.href}><span>{guide.title}</span><small>{guide.description}</small></a></li>)}
+        </ul>
+      </section>
     </div>
-  </section>
-
+  </main>
   <NewsletterBlock />
 </BaseLayout>
 
-<script>
-  /**
-   * Live updater. Reads pi.award_categories from Supabase to determine
-   * which categories are actually open this cycle and what their voting
-   * windows look like. Falls back gracefully to the SSR defaults if the
-   * table is empty (or doesn't exist yet).
-   */
-  import { getSupabase } from '../../lib/auth';
-
-  type CategoryRow = {
-    slug: string;
-    year: number;
-    title: string;
-    description: string | null;
-    voting_opens_at: string | null;
-    voting_closes_at: string | null;
-    published: boolean;
-  };
-
-  function votingState(row: CategoryRow): 'before' | 'open' | 'closed' | 'published' {
-    if (row.published) return 'published';
-    const now = Date.now();
-    const opens = row.voting_opens_at ? new Date(row.voting_opens_at).getTime() : null;
-    const closes = row.voting_closes_at ? new Date(row.voting_closes_at).getTime() : null;
-    if (opens && now < opens) return 'before';
-    if (closes && now >= closes) return 'closed';
-    if (opens && now >= opens) return 'open';
-    return 'before';
-  }
-
-  async function init() {
-    const status = document.querySelector('[data-awards-status]');
-    const c = getSupabase();
-    if (!c) {
-      if (status) status.textContent = '';
-      return;
-    }
-    try {
-      const { data, error } = await c
-        .from('award_categories')
-        .select('slug, year, title, description, voting_opens_at, voting_closes_at, published')
-        .order('sort_order', { ascending: true });
-      if (error) throw error;
-      if (!data || data.length === 0) {
-        if (status) status.textContent = "The 2026 slate isn't published yet. The default categories above are a preview.";
-        return;
-      }
-
-      // Render the live categories on top of the SSR defaults.
-      const list = document.querySelector('[data-awards-categories]');
-      if (list) list.innerHTML = '';
-      data.forEach((row: CategoryRow) => {
-        const li = document.createElement('li');
-        li.className = 'award-category';
-        li.setAttribute('data-category-slug', row.slug);
-        const state = votingState(row);
-        const stateLabel =
-          state === 'open'      ? 'Voting open - cast yours' :
-          state === 'closed'    ? 'Voting closed' :
-          state === 'published' ? 'Results published' :
-                                  'Voting opens September';
-        li.innerHTML = `
-          <p class="award-category__eyebrow">Category · ${row.year}</p>
-          <h2 class="award-category__title">
-            <a href="/awards/${row.slug}/">${row.title}</a>
-          </h2>
-          <p class="award-category__description">${row.description ?? ''}</p>
-          <p class="award-category__meta">${stateLabel}</p>
-        `;
-        list?.appendChild(li);
-      });
-      if (status) status.textContent = '';
-    } catch (err) {
-      console.warn('[awards] live load failed:', err);
-      if (status) status.textContent = '';
-    }
-  }
-
-  init();
-  document.addEventListener('astro:page-load', init);
-</script>
-
 <style>
-  .awards-page { padding: clamp(1.5rem, 3vw, 2.5rem) 0 clamp(2rem, 4vw, 3rem); }
-
-  .awards-cycle {
-    border: 1px solid var(--border);
-    background: var(--paper, #fbf7f0);
-    padding: clamp(1.25rem, 2.5vw, 1.75rem);
-    margin-bottom: clamp(1.75rem, 3vw, 2.5rem);
-  }
-  .awards-cycle__list {
-    list-style: none;
-    padding: 0;
-    margin: 0.85rem 0 0;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 0.85rem;
-  }
-  @media (min-width: 720px) { .awards-cycle__list { grid-template-columns: 1fr 1fr 1fr; } }
-  .awards-cycle__phase {
-    font-family: var(--font-display);
-    font-size: 1.2rem;
-    font-weight: 500;
-    color: var(--accent);
-    margin: 0 0 0.3rem;
-  }
-  .awards-cycle__what {
-    font-family: var(--font-ui);
-    font-size: 0.92rem;
-    line-height: 1.55;
-    color: var(--dark);
-    margin: 0;
-  }
-
-  .awards-status {
-    font-family: var(--font-ui);
-    font-size: 0.85rem;
-    letter-spacing: 0.04em;
-    color: var(--soft);
-    margin: 0 0 1rem;
-  }
-  .awards-status:empty { display: none; }
-
-  .awards-categories {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: clamp(1rem, 2vw, 1.5rem);
-  }
-  @media (min-width: 880px) { .awards-categories { grid-template-columns: 1fr 1fr; } }
-  @media (min-width: 1140px) { .awards-categories { grid-template-columns: 1fr 1fr 1fr; } }
-
-  .award-category {
-    border: 1px solid var(--border);
-    padding: clamp(1rem, 2vw, 1.4rem);
-    background: var(--bg, #fff);
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-  }
-  .award-category__eyebrow {
-    font-family: var(--font-ui);
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin: 0;
-  }
-  .award-category__title {
-    font-family: var(--font-display);
-    font-size: 1.4rem;
-    font-weight: 500;
-    line-height: 1.15;
-    margin: 0;
-  }
-  .award-category__title a {
-    color: var(--text);
-    text-decoration: none;
-  }
-  .award-category__title a:hover { color: var(--accent); }
-  .award-category__description {
-    font-family: var(--font-ui);
-    font-size: 0.92rem;
-    line-height: 1.55;
-    color: var(--dark);
-    margin: 0;
-  }
-  .award-category__meta {
-    font-family: var(--font-ui);
-    font-size: 0.78rem;
-    letter-spacing: 0.04em;
-    color: var(--soft);
-    margin: 0.4rem 0 0;
-  }
-
-  .awards-nominate-cta {
-    margin-top: clamp(2rem, 4vw, 3rem);
-    padding-top: 1.75rem;
-    border-top: 1px solid var(--border);
-  }
-  .awards-nominate-cta__body {
-    font-family: var(--font-ui);
-    font-size: 1rem;
-    line-height: 1.6;
-    color: var(--dark);
-    max-width: 36rem;
-    margin: 0.55rem 0 1rem;
-  }
+  .awards-page { padding: clamp(1.75rem, 4vw, 3.5rem) 0; }
+  .awards-layout { display: grid; gap: clamp(2rem, 5vw, 4.5rem); }
+  @media (min-width: 900px) { .awards-layout { grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.85fr); align-items: start; } }
+  .awards-update { border: 1px solid var(--border); border-top: 5px solid var(--accent); background: var(--paper, #fbf7f0); padding: clamp(1.35rem, 3vw, 2.25rem); }
+  .awards-update h2, .awards-guides h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.7rem); line-height: 1.05; margin: 0.55rem 0 1rem; }
+  .awards-update > p:not(.label), .awards-guides__intro { font-family: var(--font-ui); font-size: 1rem; line-height: 1.65; color: var(--dark); max-width: 44rem; }
+  .awards-actions { display: flex; flex-wrap: wrap; gap: 0.75rem 1rem; margin-top: 1.4rem; }
+  .awards-actions a { min-height: 44px; display: inline-flex; align-items: center; }
+  .awards-guides__list { list-style: none; padding: 0; margin: 1.25rem 0 0; display: grid; gap: 0.65rem; }
+  .awards-guides__list a { display: grid; gap: 0.2rem; min-height: 70px; padding: 0.85rem 1rem; border: 1px solid var(--border); color: var(--text); text-decoration: none; transition: border-color 160ms ease, background-color 160ms ease; }
+  .awards-guides__list a:hover, .awards-guides__list a:focus-visible { border-color: var(--accent); background: var(--paper, #fbf7f0); }
+  .awards-guides__list span { font-family: var(--font-display); font-size: 1.25rem; }
+  .awards-guides__list small { font-family: var(--font-ui); font-size: 0.86rem; line-height: 1.45; color: var(--soft); }
 </style>
