@@ -23,8 +23,6 @@ Places chosen by our editors. Never paid for. [How we choose](<https://peninsula
 
  [See all plans](<https://peninsulainsider.com.au/explore/plans/>)
 
-Something more specific? [Ask PI](<https://peninsulainsider.com.au/ask/>)
-
 - Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula   Photo: Two Palms Australia, courtesy of Visit Victoria.
 
 ### [Ridge to sea](<https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/>)
@@ -79,14 +77,6 @@ Merricks
 
 Swipe or scroll through the picks
 
-- ### [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
-
-A VFMA-accredited village market with local growers and specialty makers, supported by the Mt Eliza Chamber of Commerce.
-
-Sun, 22 Nov   Mt Eliza Village Precinct   Market
-
-Event details checked 3 Oct 2026 · [Organiser’s page](<https://www.mtelizafarmersmarket.com.au/>)
-
 - ### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
 Sam O’Connell plays Spike Bar this Saturday, 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
@@ -94,6 +84,14 @@ Sam O’Connell plays Spike Bar this Saturday, 5pm to 8pm. Make it an evening st
 Sat, 21 Nov   Peppers Moonah Links   Every Saturday
 
 Event details checked 16 Nov 2026 · [Organiser’s page](<https://www.moonahlinks.com.au/cms/whats-on/>)
+
+- ### [Emu Plains Market](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
+
+Emu Plains is the artisan market that actually feels like the Peninsula: stringybarks, music, makers you'd buy from twice.
+
+Sat, 21 Nov   Emu Plains Reserve   Market
+
+Event details checked 16 Nov 2026 · [Organiser’s page](<https://www.emuplainsmarket.com.au/markets/november>)
 
 - Mornington Peninsula Regional Gallery, Mornington   Photo: Robert Blackburn, courtesy of Visit Victoria.
 

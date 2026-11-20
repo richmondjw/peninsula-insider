@@ -183,10 +183,6 @@ How far the water moves   Typical rise and fall between low and high tide
 
 The dashed top of each bar is the spread between a small tide and a big one. Western Port's bigger tide changes channel depth and ramp access through the day, which is why Warneet wants the upper half of the tide.
 
-## Still deciding? Ask PI
-
-Ask which ramp suits tomorrow's tide, or where to take the kids out for a first go.
-
 ## The Insider Note
 
 The Peninsula worth knowing. An occasional email. What's on, where we'd go and what's worth knowing next.

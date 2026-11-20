@@ -47,7 +47,7 @@ Live Music
 
 Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
 
-Mornington · Exhibitions · Recurring weekly · Also Sat & Sun
+Mornington · Exhibitions · Recurring weekly
 
 - 5pm
 
@@ -88,6 +88,14 @@ Red Hill · Food & Wine
 Choose a shuttle ticket for four venues on one route, or the Festival Hub for a single-site day with parking and the main stage.
 
 Mount Martha · Festivals
+
+- 11am
+
+[National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+
+Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
+
+Mornington · Exhibitions · Recurring weekly
 
 - 5pm
 
@@ -159,6 +167,14 @@ A VFMA-accredited village market with local growers and specialty makers, suppor
 
 Mount Eliza · Markets · Recurring monthly
 
+- 11am
+
+[National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+
+Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
+
+Mornington · Exhibitions · Recurring weekly
+
 - 1pm
 
 [Tiana V Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/tiana-v-live-at-peninsula-beer-garden-2026-11-22/>)
@@ -202,7 +218,3 @@ Main Ridge · Food & Wine
 The most hands-on spirits experience on the Peninsula, and a bottle to take home.
 
 Dromana · Food & Wine
-
-## Still deciding? Ask PI
-
-Tell PI when you're coming and who's with you.
