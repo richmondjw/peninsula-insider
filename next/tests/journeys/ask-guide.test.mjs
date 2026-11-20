@@ -16,6 +16,7 @@ const features = readFileSync(new URL('../../src/lib/features.ts', import.meta.u
 const flag = (name) => features.match(new RegExp(`^export const ${name} = (true|false);\\s*$`, 'm'))?.[1] === 'true';
 const guideOn = flag('SHOW_ASK_GUIDE') && !flag('SHOW_ASK_PI');
 const voiceOn = guideOn && flag('SHOW_ASK_VOICE');
+const personaOn = guideOn && flag('SHOW_ASK_PERSONA');
 
 const site = await Site.open();
 test.after(() => site.close());
@@ -113,7 +114,8 @@ for (const width of [390, 1280, 1440]) {
       assert.ok(await page.$(`${answers}:last-child .pi-tile[href="/stay/lindenderry/"]`));
 
       const open = await say(page, 'Is Tedesca Osteria open today?');
-      assert.match(open.prose, /can’t check opening hours/);
+      assert.match(open.small, /can’t check opening hours/, 'the plain statement stays under her line');
+      assert.match(open.prose, /opening hours|front door|ask me anything again/i, 'the refusal is one of her own lines');
       assert.deepEqual(open.tiles.map(tile => tile.href), ['/eat/tedesca-osteria/']);
 
       const odd = await say(page, 'zzqx <b>pirates</b> & "quotes"');
@@ -190,6 +192,170 @@ for (const width of [390, 1280]) {
     }
   });
 }
+
+for (const width of [390, 1280]) {
+  test(`PI plans half a day in three taps, and the plan can be changed, kept and shared, at ${width}px`, { skip: !personaOn }, async () => {
+    const reader = await site.reader();
+    const page = reader.page;
+    const mobile = width < 768;
+    const sent = [];
+    page.on('request', request => { if (request.method() === 'POST') sent.push(request.url()); });
+    const tap = async (label) => {
+      const before = (await page.$$(answers)).length;
+      await page.evaluate(text => [...document.querySelectorAll('#pi-chat .pi-chat__chip')].find(chip => chip.textContent === text && chip.offsetParent).click(), label);
+      await page.waitForFunction((selector, count) => {
+        const nodes = document.querySelectorAll(selector);
+        return nodes.length > count && !nodes[nodes.length - 1].classList.contains('is-live');
+      }, {}, answers, before);
+    };
+    const note = () => page.$eval('#pi-chat-log .pi-note[data-pi-live]', el => ({
+      title: el.querySelector('.pi-note__title').textContent,
+      stops: [...el.querySelectorAll('.pi-note__stop')].map(stop => ({ when: stop.querySelector('.pi-note__when').textContent, name: stop.querySelector('.pi-note__name').textContent, href: stop.querySelector('.pi-note__name').getAttribute('href'), swap: Boolean(stop.querySelector('[data-pi-swap]')) })),
+      scribble: el.querySelector('.pi-note__scribble').hidden ? '' : el.querySelector('.pi-note__scribble').textContent,
+      trip: el.querySelector('[data-pi-trip]')?.getAttribute('href'),
+      status: el.querySelector('.pi-note__status').textContent,
+    }));
+    try {
+      await page.setViewport({ width, height: 844, isMobile: mobile, hasTouch: mobile });
+      await reader.load('/');
+      await page.evaluate(() => {
+        window.__piEvents = [];
+        const real = window.piTrack;
+        window.piTrack = (name, params, options) => { window.__piEvents.push([name, params]); return real ? real(name, params, options) : true; };
+        Object.defineProperty(navigator, 'share', { value: undefined, configurable: true });
+        Object.defineProperty(navigator, 'clipboard', { value: { writeText: async text => { window.__piCopied = text; } }, configurable: true });
+      });
+      await openChat(reader, mobile);
+
+      await tap('Plan my day');
+      assert.equal(await page.$eval(`${answers}:last-child .pi-msg__prose`, el => el.textContent), 'Before I plan anything: who’s coming?');
+      await tap('Just the two of us');
+      await tap('Sorrento');
+      await tap('Half a day');
+
+      const plan = await note();
+      assert.equal(plan.title, 'Half a day in Sorrento');
+      assert.deepEqual(plan.stops.map(stop => stop.when), ['Then', 'The table']);
+      const fixture = new Set(['/explore/coppins-track/', '/explore/sorrento-back-beach/', '/eat/bistro-elba/', '/eat/the-baths-sorrento/']);
+      assert.ok(plan.stops.every(stop => fixture.has(stop.href)), JSON.stringify(plan.stops));
+      assert.equal(plan.stops[1].name, 'Bistro Elba', 'the page that says "couples" comes first for two');
+      assert.match(await page.$eval(`${answers}:last-child .pi-msg__prose`, el => el.textContent), /^Just the two of you\. Easy\./);
+      assert.match(await page.$eval(`${answers}:last-child .pi-msg__small`, el => el.textContent), /no cafe or bakery in Sorrento.*I can’t check hours or bookings/s);
+      assert.ok(plan.stops.every(stop => stop.swap));
+      const box = await page.$eval('#pi-chat-log .pi-note[data-pi-live]', el => { const r = el.getBoundingClientRect(); const t = document.querySelector('#pi-chat-thread').getBoundingClientRect(); return { left: r.left, right: r.right, tl: t.left, tr: t.right }; });
+      assert.ok(box.left >= box.tl && box.right <= box.tr + 1, 'the notebook fits the thread: ' + JSON.stringify(box));
+      const target = await page.$eval('#pi-chat-log [data-pi-swap]', el => el.getBoundingClientRect().height);
+      assert.ok(target >= 44, 'swap is a 44px target');
+
+      // "Not that one" changes that stop only, and she remarks on it.
+      await page.click('#pi-chat-log [data-pi-swap="0"]');
+      await page.waitForFunction(before => document.querySelector('#pi-chat-log .pi-note[data-pi-live] .pi-note__name').textContent !== before, {}, plan.stops[0].name);
+      const swapped = await note();
+      assert.equal(swapped.stops[1].name, plan.stops[1].name);
+      assert.equal(swapped.scribble, 'Fine. Second choice it is.');
+      assert.equal(await page.evaluate(() => document.activeElement?.dataset.piSwap), '0', 'focus stays on the control');
+
+      // The plan goes to My Trip in the format that page already imports.
+      const trip = new URL(swapped.trip, site.origin);
+      assert.equal(trip.pathname, '/me/trip/');
+      assert.deepEqual(trip.searchParams.get('i').split('|').map(item => item.split(':')[1]).sort(), swapped.stops.map(stop => stop.href.split('/').filter(Boolean).pop()).sort());
+
+      await page.click('#pi-chat-log [data-pi-share]');
+      await page.waitForFunction(() => document.querySelector('#pi-chat-log .pi-note__status').textContent.startsWith('Copied'));
+      const copied = await page.evaluate(() => window.__piCopied);
+      assert.match(copied, /^Half a day in Sorrento\n1\. /);
+      assert.ok(copied.includes(trip.pathname + trip.search), 'the copied text carries the link');
+
+      // Once a visit she mentions the newsletter.
+      assert.equal(await page.$eval(`${answers}:last-child .pi-msg__offer a`, a => a.getAttribute('href')), '/newsletter/');
+
+      // "PI got it wrong" sends which button was pressed and nothing typed.
+      await page.click(`${answers}:last-child [data-pi-fb="open"]`);
+      await page.click(`${answers}:last-child [data-pi-fb="missed-point"]`);
+      assert.match(await page.$eval(`${answers}:last-child .pi-msg__fb`, el => el.textContent), /^Noted\./);
+      const events = await page.evaluate(() => window.__piEvents);
+      assert.deepEqual(events.find(([name]) => name === 'ask_feedback'), ['ask_feedback', { action: 'missed-point', variant: 'plan' }]);
+      assert.ok(events.every(([, params]) => !/Sorrento|two of us|Plan my day/i.test(JSON.stringify(params))), 'no event carries what was typed');
+      assert.deepEqual(sent.filter(url => /concierge/.test(url)), [], 'a plan sends nothing to the platform');
+
+      // A second plan takes over; the first can no longer be swapped.
+      await tap('Somewhere else');
+      assert.equal((await page.$$('#pi-chat-log .pi-note')).length, 2);
+      assert.equal((await page.$$('#pi-chat-log .pi-note[data-pi-live]')).length, 1);
+      assert.equal(await page.$('#pi-chat-log .pi-note:not([data-pi-live]) [data-pi-swap]'), null);
+
+      // Opening a stop keeps the plan for the return trip.
+      await page.evaluate(() => document.querySelector('#pi-chat-log .pi-note[data-pi-live] .pi-note__name').click());
+      await page.waitForFunction(() => document.querySelector('#pi-chat')?.dataset.state === 'closed' && location.pathname !== '/');
+      assert.deepEqual(await reader.errors(), []);
+    } finally {
+      await reader.close();
+    }
+  });
+}
+
+test('on a venue page PI offers what goes with it, and her modes are one tap away', { skip: !personaOn }, async () => {
+  const reader = await site.reader();
+  const page = reader.page;
+  try {
+    await page.setViewport({ width: 1280, height: 844 });
+    await reader.load('/eat/tedesca-osteria/');
+    await openChat(reader, false);
+    await page.waitForFunction(() => !document.querySelector('#pi-chat-here').hidden);
+    assert.equal(await page.$eval('#pi-chat-here-label', el => el.textContent), 'You’re looking at Tedesca Osteria.'.replace('’', "'"));
+    assert.deepEqual(await page.$$eval('#pi-chat-here .pi-chat__chip', chips => chips.map(chip => chip.textContent)), ['Build a day around this', 'What goes with this']);
+    const starters = await page.$$eval('#pi-chat-hello > .pi-chat__chips .pi-chat__chip', chips => chips.map(chip => chip.textContent));
+    for (const mode of ['Plan my day', 'Surprise me', 'Talk me out of it', 'Settle an argument', 'Rainy day rescue']) assert.ok(starters.includes(mode), mode);
+
+    await page.evaluate(() => [...document.querySelectorAll('#pi-chat-here .pi-chat__chip')].find(chip => chip.textContent === 'What goes with this').click());
+    await page.waitForFunction(selector => document.querySelector(selector) && !document.querySelector(selector).classList.contains('is-live'), {}, `${answers}:last-child`);
+    assert.deepEqual(await page.$$eval(`${answers}:last-child .pi-tile`, tiles => tiles.map(tile => tile.getAttribute('href')).sort()), ['/explore/red-hill-truffles/', '/stay/lindenderry/']);
+    assert.equal(await page.$eval(`${answers}:last-child .pi-msg__prose`, el => el.textContent), 'Same town as Tedesca Osteria, different kind of stop.');
+
+    const critique = await say(page, 'Talk me out of it');
+    assert.equal(critique.prose, 'Go on then. Tell me the plan, all of it.');
+    const verdict = await say(page, 'four wineries and a brewery before lunch with a toddler');
+    assert.match(verdict.prose, /Who’s driving\?.*Brave\./s);
+    assert.equal(verdict.tiles.length, 0, 'a remark on the plan names no place');
+
+    const night = await say(page, "where's the best nightlife on the peninsula");
+    assert.match(night.prose, /^Peninsula nightlife is mostly a second bottle and a clear sky/);
+    assert.deepEqual(await reader.errors(), []);
+  } finally {
+    await reader.close();
+  }
+});
+
+test('PI’s call marks the pick her checked note names first', { skip: !(voiceOn && personaOn) }, async () => {
+  const reader = await site.reader({ concierge: { voice: { say: 'I’d start with Red Gum BBQ. Tedesca Osteria is the quieter one.' }, 'front-desk': { say: null, rewrite: null } } });
+  const page = reader.page;
+  try {
+    await page.setViewport({ width: 1280, height: 844 });
+    await reader.load('/');
+    await openChat(reader, false);
+    await say(page, 'lunch in Red Hill');
+    await page.waitForFunction(() => document.querySelector('#pi-chat-log > .pi-msg--pi:last-child .pi-msg__prose')?.classList.contains('is-voiced'));
+    assert.deepEqual(await page.$$eval(`${answers}:last-child .pi-tile`, tiles => tiles.filter(tile => tile.querySelector('.pi-tile__call')).map(tile => tile.getAttribute('href'))), ['/eat/red-gum-bbq/']);
+    assert.deepEqual(await reader.errors(), []);
+  } finally {
+    await reader.close();
+  }
+});
+
+test('the /ask/ page puts a plan in order as plain links', { skip: !personaOn }, async () => {
+  const reader = await site.reader();
+  const page = reader.page;
+  try {
+    await reader.load('/ask/?q=' + encodeURIComponent('plan half a day in Sorrento for the two of us'));
+    await page.waitForFunction(() => document.querySelectorAll('main [data-ask-guide-log] > article').length === 1);
+    assert.equal(await page.$eval('main [data-ask-guide-answer], main .ask-guide__answer', el => el.dataset.askGuideKind), 'plan');
+    assert.equal((await page.$$('main [data-ask-guide-log] .ask-guide__card')).length, 2);
+    assert.ok(await page.$('main [data-ask-guide-log] a[href^="/me/trip/?i="]'));
+    assert.deepEqual(await reader.errors(), []);
+  } finally {
+    await reader.close();
+  }
+});
 
 test('the /ask/ page shows the plain matches for a question sent in its address', { skip: !guideOn }, async () => {
   const reader = await site.reader();

@@ -247,6 +247,17 @@ funnel that mixes two destinations measures neither.
 
 ---
 
+### `ask_plan` / `ask_feedback`
+
+Emitted by `components/PiChat.astro` through `window.piTrack`, so both carry the envelope and pass the sanitiser.
+
+| Event | When | Parameters |
+| --- | --- | --- |
+| `ask_plan` | PI shows a plan (`action: shown`, `variant`: number of stops), a reader swaps a stop (`action: swap`, `position`: which stop) or shares the plan (`action: share`). | `action`, `variant`, `position` |
+| `ask_feedback` | A reader presses "PI got it wrong" and then one of four buttons. | `action`: `wrong-place`, `missed-point`, `out-of-date` or `not-funny`. `variant`: the kind of reply (`plan`, `results`, `live` and so on). |
+
+Neither event carries the question, the answer, a town, a venue or any other text a reader typed or was shown. Ask PI stores no questions, so `ask_feedback` counts which kind of reply disappointed and why; it cannot be traced back to what was asked. Like every event, it reaches GA4 only with consent, and the confirmation a reader sees says so.
+
 ## 3. Reserved: named in the contract, deliberately not emitted
 
 These names exist in the contract and are **not** wired. Emitting any of them today would

@@ -24,18 +24,24 @@
  * sentence before it is returned (/concierge/pi/voice). The tiles never wait
  * for the note, and stand on their own if it does not come.
  */
-import { ASK_GUIDE_ON, SHOW_ASK_VOICE } from '../lib/features';
+/**
+ * 2026-11-20 (later): PI as a character (lib/ask-pi.mjs, lib/pi-lines.mjs).
+ * She plans a day as a notebook page of stops, each one a published page, and
+ * a reader can swap a stop, send the plan to My Trip or share it. Her modes
+ * (surprise me, talk me out of it, settle an argument, rainy day rescue), her
+ * refusals and her asides are fixed lines written by a person. None of it is
+ * generated and none of it is sent anywhere. SHOW_ASK_PERSONA turns it off.
+ */
+import { ASK_GUIDE_ON, SHOW_ASK_VOICE, SHOW_ASK_PERSONA } from '../lib/features';
 import { CONCIERGE_API_URL as API_URL } from '../lib/concierge-config';
 
-const starters = [
-  'A long lunch in Red Hill',
-  "What's on this weekend",
-  'Somewhere to stay for our anniversary',
-];
+const starters = SHOW_ASK_PERSONA
+  ? ['Plan my day', 'Surprise me', 'Talk me out of it', 'Settle an argument', 'Rainy day rescue', 'A long lunch in Red Hill', "What's on this weekend"]
+  : ['A long lunch in Red Hill', "What's on this weekend", 'Somewhere to stay for our anniversary'];
 ---
 
 {ASK_GUIDE_ON && (
-  <div class="pi-chat" id="pi-chat" data-api={API_URL} data-voice={SHOW_ASK_VOICE ? 'on' : 'off'} data-state="closed" data-mode="dock" transition:persist="pi-chat" data-pagefind-ignore>
+  <div class="pi-chat" id="pi-chat" data-api={API_URL} data-voice={SHOW_ASK_VOICE ? 'on' : 'off'} data-persona={SHOW_ASK_PERSONA ? 'on' : 'off'} data-state="closed" data-mode="dock" transition:persist="pi-chat" data-pagefind-ignore>
     <button type="button" class="pi-chat__launch" id="pi-chat-launch" aria-controls="pi-chat-panel" aria-expanded="false">
       <img class="pi-chat__launch-face" src="/images/pi/pi-avatar-96.webp" alt="" width="44" height="44" decoding="async" />
       <span class="pi-chat__launch-text">
@@ -70,7 +76,13 @@ const starters = [
         <div class="pi-chat__hello" id="pi-chat-hello">
           <img class="pi-chat__portrait" src="/images/pi/pi-portrait-320.webp" srcset="/images/pi/pi-portrait-320.webp 320w, /images/pi/pi-portrait-640.webp 640w" sizes="168px" alt="" width="168" height="168" decoding="async" />
           <p class="pi-chat__hello-lead">Tell me what you're after.</p>
-          <p class="pi-chat__hello-body">A long lunch, a walk, somewhere to stay, what's on this weekend. Name a town and I'll narrow it.</p>
+          <p class="pi-chat__hello-body">{SHOW_ASK_PERSONA
+            ? "A long lunch, a walk, somewhere to stay, what's on this weekend. Or hand me the whole day and I'll put it in order."
+            : "A long lunch, a walk, somewhere to stay, what's on this weekend. Name a town and I'll narrow it."}</p>
+          <div class="pi-chat__here" id="pi-chat-here" hidden>
+            <p class="pi-chat__here-label" id="pi-chat-here-label"></p>
+            <ul class="pi-chat__chips" role="list" id="pi-chat-here-chips" aria-labelledby="pi-chat-here-label"></ul>
+          </div>
           <ul class="pi-chat__chips" role="list" aria-label="Try asking">
             {starters.map((q) => <li><button type="button" class="pi-chat__chip" data-pi-q={q}>{q}</button></li>)}
           </ul>
@@ -86,7 +98,7 @@ const starters = [
             <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 16V4M5 9l5-5 5 5"/></svg>
           </button>
         </form>
-        <p class="pi-chat__fine">PI's picks come from our published guides. Her notes are written by AI from those pages. Check hours and bookings before you go.</p>
+        <p class="pi-chat__fine">PI's picks and plans come from our published guides. Her notes are written by AI from those pages. Check hours and bookings before you go.</p>
       </footer>
     </section>
   </div>
@@ -95,13 +107,23 @@ const starters = [
 <script>
   import type { TransitionBeforeSwapEvent } from 'astro:transitions/client';
   import { paragraphs, READER_ERROR, sessionId } from '../lib/ask-client';
-  import { ask as matchGuides } from '../lib/ask-guide.mjs';
+  import { converse, swapStop, pageOffers } from '../lib/ask-pi.mjs';
   import { loadAskIndex } from '../scripts/ask-guide-ui';
 
   type Place = { href: string; title: string; why: string; section: string; image: string | null; alt: string; facts?: [string, string][]; badge?: string | null };
+  type Card = { href: string; title: string; meta: string; summary?: string; facts: [string, string][]; badge: string | null };
+  type Plan = { title: string; town: string; trip: string | null; stops: { label: string; card: Card; swappable: boolean }[] };
   type Turn =
     | { role: 'you'; text: string }
-    | { role: 'pi'; text: string; places: Place[]; next: string[]; notes?: string[]; links?: { href: string; label: string }[]; error?: boolean };
+    | { role: 'pi'; text: string; places: Place[]; next: string[]; notes?: string[]; links?: { href: string; label: string }[]; error?: boolean;
+        kind?: string; mood?: string; aside?: string | null; plan?: Plan; offer?: { line: string; label: string; href: string }; call?: string; fb?: boolean };
+  type PiTurn = Extract<Turn, { role: 'pi' }>;
+  const toPlaces = (cards: Card[]): Place[] => cards.map((card) => ({
+    href: card.href, title: card.title, why: card.summary || '', section: card.meta, image: null, alt: '', facts: card.facts, badge: card.badge,
+  }));
+  // Replies that are a step in a conversation, not an answer a reader would open as a page.
+  const NOT_A_PAGE = new Set(['interview', 'plan', 'critique', 'with']);
+  const FEEDBACK: [string, string][] = [['wrong-place', 'Wrong sort of place'], ['missed-point', 'Missed the point'], ['out-of-date', 'Out of date'], ['not-funny', 'Not funny']];
 
   const HISTORY = 'pi-chat-history';
   const ENGINE = 'pi-chat-engine';
@@ -138,6 +160,13 @@ const starters = [
     const modeBtn = document.getElementById('pi-chat-mode') as HTMLButtonElement;
 
     const voiceOn = root.dataset.voice === 'on' && !!api;
+    const personaOn = root.dataset.persona === 'on';
+    const here = document.getElementById('pi-chat-here') as HTMLElement;
+    const hereLabel = document.getElementById('pi-chat-here-label') as HTMLElement;
+    const hereChips = document.getElementById('pi-chat-here-chips') as HTMLElement;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const matchGuides = (index: unknown, q: string, state: unknown, context: Record<string, unknown>): any => converse(index, q, state, { ...context, persona: personaOn });
+    const track = (name: string, params: Record<string, unknown>) => { try { (window as any).piTrack?.(name, params, { component: 'pi-chat' }); } catch { /* never breaks the chat */ } };
     let turns: Turn[] = [];
     try { turns = JSON.parse(store.get(sessionStorage, HISTORY) || '[]'); } catch { turns = []; }
     // What the last answer matched, so "in Flinders" refines it.
@@ -193,6 +222,7 @@ const starters = [
       panel.hidden = false;
       launch.setAttribute('aria-expanded', 'true');
       applyChrome();
+      offerHere();
       requestAnimationFrame(() => {
         if (root!.dataset.state !== 'open') return;
         root!.classList.add('is-in');
@@ -232,9 +262,32 @@ const starters = [
 
     /* ---------- rendering ---------- */
 
-    function byline() {
+    // On a venue page she offers a day built around it. Reads the index only;
+    // nothing about the page or the reader is sent.
+    function offerHere() {
+      if (!personaOn || root!.dataset.state !== 'open') return;
+      const path = location.pathname;
+      loadAskIndex().then((index) => {
+        if (path !== location.pathname) return;
+        const offer = pageOffers(index, path) as { title: string; chips: string[] } | null;
+        here.hidden = !offer;
+        if (!offer) return;
+        hereLabel.textContent = `You're looking at ${offer.title}.`;
+        hereChips.replaceChildren(...offer.chips.map((q) => {
+          const li = el('li');
+          const b = el('button', 'pi-chat__chip', q) as HTMLButtonElement;
+          b.type = 'button';
+          b.dataset.piQ = q;
+          li.append(b);
+          return li;
+        }));
+      }).catch(() => { here.hidden = true; });
+    }
+
+    function byline(mood?: string) {
       const b = el('p', 'pi-msg__by');
       const face = el('img', 'pi-msg__face') as HTMLImageElement;
+      if (mood) face.classList.add(`is-${mood}`);
       face.src = '/images/pi/pi-avatar-48.webp';
       face.alt = '';
       face.width = 24;
@@ -268,7 +321,7 @@ const starters = [
       });
     }
 
-    function tiles(places: Place[]) {
+    function tiles(places: Place[], call?: string) {
       const list = el('ul', 'pi-tiles');
       list.setAttribute('role', 'list');
       list.setAttribute('aria-label', 'Places PI recommends');
@@ -280,6 +333,7 @@ const starters = [
         const body = el('span', 'pi-tile__body');
         if (place.section) body.append(el('span', 'pi-tile__section', place.section));
         body.append(el('span', 'pi-tile__title', place.title));
+        if (call && place.href === call) body.append(el('strong', 'pi-tile__call', 'PI’s call'));
         if (place.badge) body.append(el('strong', 'pi-tile__badge', place.badge));
         for (const [label, value] of place.facts ?? []) body.append(el('span', 'pi-tile__fact', `${label}: ${value}`));
         if (place.why) body.append(el('span', 'pi-tile__why', place.why));
@@ -337,22 +391,100 @@ const starters = [
       return wrap;
     }
 
+    /** A plan as a page from her notebook: ordered stops, each one a published page. */
+    function notebook(turn: PiTurn, live: boolean) {
+      const plan = turn.plan!;
+      const note = el('div', 'pi-note');
+      if (live) note.dataset.piLive = '1';
+      note.append(el('p', 'pi-note__title', plan.title));
+      const list = el('ol', 'pi-note__stops');
+      list.setAttribute('role', 'list');
+      for (const [at, stop] of plan.stops.entries()) {
+        const li = el('li', 'pi-note__stop');
+        li.style.setProperty('--pi-i', String(at));
+        const text = el('div', 'pi-note__text');
+        text.append(el('span', 'pi-note__when', stop.label));
+        const name = el('a', 'pi-note__name', stop.card.title) as HTMLAnchorElement;
+        name.href = stop.card.href;
+        text.append(name);
+        if (stop.card.meta) text.append(el('span', 'pi-note__meta', stop.card.meta));
+        if (stop.card.summary) text.append(el('span', 'pi-note__why', stop.card.summary));
+        li.append(text);
+        if (live && stop.swappable) {
+          const swap = el('button', 'pi-note__swap', 'Not that one') as HTMLButtonElement;
+          swap.type = 'button';
+          swap.dataset.piSwap = String(at);
+          swap.setAttribute('aria-label', `Not ${stop.card.title}: show another`);
+          li.append(swap);
+        }
+        list.append(li);
+      }
+      note.append(list);
+      const scribble = el('p', 'pi-note__scribble', turn.aside || '');
+      scribble.setAttribute('role', 'status');
+      scribble.hidden = !turn.aside;
+      const sign = el('p', 'pi-note__sign');
+      const face = el('img') as HTMLImageElement;
+      face.src = '/images/pi/pi-avatar-48.webp';
+      face.alt = '';
+      face.width = 24;
+      face.height = 24;
+      sign.append(face, el('span', '', 'PI'));
+      note.append(scribble, sign);
+      const acts = el('div', 'pi-note__acts');
+      if (plan.trip) {
+        const trip = el('a', 'pi-note__act', 'Add to My Trip') as HTMLAnchorElement;
+        trip.href = plan.trip;
+        trip.dataset.piTrip = '1';
+        acts.append(trip);
+        const share = el('button', 'pi-note__act', 'Share this plan') as HTMLButtonElement;
+        share.type = 'button';
+        share.dataset.piShare = '1';
+        acts.append(share);
+      }
+      const status = el('p', 'pi-note__status');
+      status.setAttribute('role', 'status');
+      note.append(acts, status);
+      return note;
+    }
+
+    function feedback(turn: PiTurn) {
+      const wrap = el('div', 'pi-msg__fb');
+      if (turn.fb) { wrap.append(el('p', '', 'Noted.')); return wrap; }
+      const b = el('button', 'pi-msg__fb-open', 'PI got it wrong') as HTMLButtonElement;
+      b.type = 'button';
+      b.dataset.piFb = 'open';
+      wrap.append(b);
+      return wrap;
+    }
+
     function youNode(text: string) {
       const li = el('li', 'pi-msg pi-msg--you');
       li.append(el('p', 'pi-msg__bubble', text));
       return li;
     }
 
-    function piNode(turn: Extract<Turn, { role: 'pi' }>, question?: string) {
+    function piNode(turn: PiTurn, question?: string, live = false) {
       const li = el('li', 'pi-msg pi-msg--pi');
       const prose = el('div', 'pi-msg__prose');
       if (turn.error) prose.append(el('p', 'pi-msg__error', turn.text));
-      else prose.append(...proseNodes(turn.text, turn.places));
-      li.append(byline(), prose);
-      if (turn.places.length) li.append(tiles(turn.places));
+      else prose.append(...proseNodes(turn.text, turn.plan ? [] : turn.places));
+      // Her aside sits under her line; on a plan it is written on the notebook page instead.
+      if (turn.aside && !turn.plan) prose.append(el('p', 'pi-msg__aside', turn.aside));
+      li.append(byline(turn.mood), prose);
+      if (turn.plan) li.append(notebook(turn, live));
+      else if (turn.places.length) li.append(tiles(turn.places, turn.call));
       if (turn.notes?.length || turn.links?.length) li.append(smallPrint(turn));
+      if (turn.offer) {
+        const p = el('p', 'pi-msg__offer', `${turn.offer.line} `);
+        const a = el('a', '', turn.offer.label) as HTMLAnchorElement;
+        a.href = turn.offer.href;
+        p.append(a);
+        li.append(p);
+      }
       if (turn.next.length) li.append(nextChips(turn.next));
-      if (question && !turn.error) {
+      if (personaOn && !turn.error && turn.kind !== 'interview') li.append(feedback(turn));
+      if (question && !turn.error && !NOT_A_PAGE.has(turn.kind || '')) {
         const pg = el('a', 'pi-msg__page', 'Open as a page') as HTMLAnchorElement;
         pg.href = `/ask/?q=${encodeURIComponent(question)}`;
         pg.dataset.piPage = '1';
@@ -365,12 +497,23 @@ const starters = [
       hello.hidden = turns.length > 0;
       const nodes: HTMLElement[] = [];
       let lastQ = '';
+      const livePlan = latestPlan();
       for (const t of turns) {
         if (t.role === 'you') { lastQ = t.text; nodes.push(youNode(t.text)); }
-        else nodes.push(piNode(t, lastQ));
+        else nodes.push(piNode(t, lastQ, t === livePlan));
       }
       log.replaceChildren(...nodes);
       applyChrome();
+    }
+
+    /** The plan the engine still holds: the only one whose stops can be swapped. */
+    function latestPlan(): PiTurn | null {
+      if (!engine?.pi?.plan) return null;
+      for (let i = turns.length - 1; i >= 0; i -= 1) {
+        const t = turns[i];
+        if (t.role === 'pi' && t.plan) return t;
+      }
+      return null;
     }
 
     function save() {
@@ -446,47 +589,65 @@ const starters = [
         // run the matcher again on its reading. What it says is PI talking; it
         // never carries a fact about a place.
         let aside: string | null = null;
-        if (voiceOn && (result.reply.kind === 'none' || result.reply.kind === 'help')) {
+        if (voiceOn && !result.reply.mood && (result.reply.kind === 'none' || result.reply.kind === 'help')) {
           const desk = await voice<{ say: string | null; rewrite: string | null }>('front-desk', { question: q, history: recent() }, signal);
           if (signal.aborted) { live.remove(); return; }
           if (typeof desk?.rewrite === 'string' && desk.rewrite.trim()) {
-            const again = matchGuides(index, desk.rewrite, null, context);
+            const again = matchGuides(index, desk.rewrite, engine?.pi ? { pi: engine.pi } : null, context);
             if (again && again.reply.cards.length) result = again;
           }
           aside = typeof desk?.say === 'string' && desk.say.trim() ? desk.say.trim().slice(0, 400) : null;
         }
 
+        const hadPlan = Boolean(engine?.pi?.plan);
         engine = result.state;
         const reply = result.reply;
-        const places: Place[] = reply.cards.map((card: { href: string; title: string; meta: string; summary?: string; facts: [string, string][]; badge: string | null }) => ({
-          href: card.href, title: card.title, why: card.summary || '', section: card.meta, image: null, alt: '', facts: card.facts, badge: card.badge,
-        }));
-        const turn: Extract<Turn, { role: 'pi' }> = {
+        const places = toPlaces(reply.cards);
+        const turn: PiTurn = {
           role: 'pi',
           text: places.length ? reply.lead : aside || reply.lead,
           places,
           next: reply.chips,
           notes: reply.notes,
           links: reply.links,
+          kind: reply.kind,
+          mood: reply.mood,
+          aside: reply.aside || null,
+          plan: reply.plan,
+          offer: reply.offer,
         };
         turns.push(turn);
         save();
+        // Only the plan the engine holds can be swapped. When that changes,
+        // redraw the thread so an older plan's buttons go.
+        const redraw = Boolean(reply.plan) || (hadPlan && !engine?.pi?.plan);
+        if (redraw) render();
+        if (reply.plan) track('ask_plan', { variant: String(reply.plan.stops.length), action: 'shown' });
 
         // The picks are on screen now. Her note follows when it has been checked.
-        const node = piNode(turn, q);
+        const node = redraw ? (log.lastElementChild as HTMLElement) : piNode(turn, q);
         node.classList.add('is-arriving');
-        live.replaceWith(node);
+        if (redraw) live.remove(); else live.replaceWith(node);
         scrollToMsg(node);
-        if (voiceOn && places.length && ['results', 'named', 'place'].includes(reply.kind)) {
+        // Plans, critiques and refusals keep her own authored lines. The
+        // checked note is for lists of picks, where she makes the call.
+        if (voiceOn && places.length && ['results', 'named', 'place', 'nightlife', 'with'].includes(reply.kind)) {
           node.classList.add('is-live');
           const said = await voice<{ say: string | null }>('voice', { question: q, cards: places.map((place) => place.href), history: recent().slice(0, -1) }, signal);
           node.classList.remove('is-live');
           if (typeof said?.say === 'string' && said.say.trim() && turns.includes(turn)) {
             turn.text = said.say.trim().slice(0, 900);
+            // Her call is the first of the picks her checked note names.
+            const first = turn.places.map((place) => ({ place, at: turn.text.indexOf(place.title) })).filter((hit) => hit.at >= 0).sort((a, b) => a.at - b.at)[0];
+            if (personaOn && first && turn.places.length > 1) {
+              turn.call = first.place.href;
+              const tile = [...node.querySelectorAll<HTMLAnchorElement>('.pi-tile')].find((a) => a.getAttribute('href') === turn.call);
+              tile?.querySelector('.pi-tile__title')?.after(el('strong', 'pi-tile__call', 'PI’s call'));
+            }
             save();
             const noted = node.querySelector('.pi-msg__prose');
             if (noted) {
-              noted.replaceChildren(...proseNodes(turn.text, turn.places));
+              noted.replaceChildren(...proseNodes(turn.text, turn.places), ...(turn.aside ? [el('p', 'pi-msg__aside', turn.aside)] : []));
               noted.classList.add('is-voiced');
               // Her note is longer than the holding line: bring its start back into view.
               if (thread.scrollTop > node.offsetTop - 12) scrollToMsg(node);
@@ -530,9 +691,83 @@ const starters = [
       if (e.key === 'Enter' && !e.shiftKey && !e.isComposing) { e.preventDefault(); ask(input.value); }
     });
     panel.addEventListener('keydown', (e) => { if (e.key === 'Escape') { e.stopPropagation(); minimise(); } });
+    async function swap(at: number) {
+      const turn = latestPlan();
+      if (!turn) return;
+      const swapped = swapStop(await loadAskIndex(), engine, at) as { state: unknown; plan: Plan; remark: string } | null;
+      if (!swapped || latestPlan() !== turn) return;
+      engine = swapped.state;
+      turn.plan = swapped.plan;
+      turn.places = toPlaces(swapped.plan.stops.map((stop) => stop.card));
+      turn.aside = swapped.remark;
+      save();
+      const old = log.querySelector('.pi-note[data-pi-live]');
+      const fresh = notebook(turn, true);
+      old?.replaceWith(fresh);
+      (fresh.querySelector<HTMLElement>(`[data-pi-swap="${at}"]`) || fresh.querySelector<HTMLElement>('.pi-note__name'))?.focus({ preventScroll: true });
+      track('ask_plan', { action: 'swap', position: at + 1 });
+    }
+
+    async function share(button: HTMLElement) {
+      const note = button.closest('.pi-note');
+      const turn = (turns.filter((t) => t.role === 'pi' && t.plan) as PiTurn[])[[...log.querySelectorAll('.pi-note')].indexOf(note as Element)];
+      const status = note?.querySelector<HTMLElement>('.pi-note__status');
+      if (!turn?.plan?.trip || !status) return;
+      const url = new URL(turn.plan.trip, location.origin).href;
+      const text = [turn.plan.title, ...turn.plan.stops.map((stop, i) => `${i + 1}. ${stop.card.title}${stop.card.meta ? ` (${stop.card.meta})` : ''}`), 'From PI at Peninsula Insider. Check hours and bookings before you go.'].join('\n');
+      track('ask_plan', { action: 'share' });
+      try {
+        if (navigator.share) { await navigator.share({ title: turn.plan.title, text, url }); status.textContent = ''; return; }
+        await navigator.clipboard.writeText(`${text}\n${url}`);
+        status.textContent = 'Copied. Send it to whoever is always late.';
+      } catch (err) {
+        if ((err as Error).name === 'AbortError') return;
+        // No share sheet and no clipboard: show the link so it can be copied by hand.
+        status.textContent = '';
+        const link = el('a', '', url) as HTMLAnchorElement;
+        link.href = url;
+        status.append('Copy this link: ', link);
+      }
+    }
+
+    function giveFeedback(button: HTMLElement) {
+      const wrap = button.closest<HTMLElement>('.pi-msg__fb');
+      const node = button.closest('.pi-msg--pi');
+      const turn = turns.filter((t) => t.role === 'pi')[[...log.querySelectorAll('.pi-msg--pi')].indexOf(node as Element)] as PiTurn | undefined;
+      if (!wrap || !turn) return;
+      if (button.dataset.piFb === 'open') {
+        const group = el('div', 'pi-msg__fb-group');
+        group.setAttribute('role', 'group');
+        group.setAttribute('aria-label', 'What went wrong?');
+        for (const [key, label] of FEEDBACK) {
+          const b = el('button', 'pi-chat__chip', label) as HTMLButtonElement;
+          b.type = 'button';
+          b.dataset.piFb = key;
+          group.append(b);
+        }
+        wrap.replaceChildren(group);
+        group.querySelector<HTMLElement>('button')?.focus({ preventScroll: true });
+        return;
+      }
+      // The button pressed and the kind of reply. Never the question or the answer.
+      track('ask_feedback', { action: button.dataset.piFb, variant: turn.kind || 'reply' });
+      turn.fb = true;
+      save();
+      const done = el('p', '', 'Noted. If you allow analytics, the editors see which button you pressed and nothing you typed.');
+      done.setAttribute('role', 'status');
+      wrap.replaceChildren(done);
+    }
+
     panel.addEventListener('click', (e) => {
-      const chip = (e.target as HTMLElement).closest<HTMLElement>('[data-pi-q]');
-      if (chip) ask(chip.dataset.piQ || '');
+      const target = e.target as HTMLElement;
+      const chip = target.closest<HTMLElement>('[data-pi-q]');
+      if (chip) { ask(chip.dataset.piQ || ''); return; }
+      const swapper = target.closest<HTMLElement>('[data-pi-swap]');
+      if (swapper) { void swap(Number(swapper.dataset.piSwap)); return; }
+      const sharer = target.closest<HTMLElement>('[data-pi-share]');
+      if (sharer) { void share(sharer); return; }
+      const fb = target.closest<HTMLElement>('[data-pi-fb]');
+      if (fb) giveFeedback(fb);
     });
     DESKTOP.addEventListener('change', applyChrome);
     WIDE.addEventListener('change', applyChrome);
@@ -586,7 +821,7 @@ const starters = [
 
     // The router swaps <html> attributes on navigation; restore ours.
     document.addEventListener('astro:after-swap', applyChrome);
-    document.addEventListener('astro:page-load', applyChrome);
+    document.addEventListener('astro:page-load', () => { applyChrome(); offerHere(); });
 
     (window as any).PIChat = { open, ask, minimise };
 
@@ -778,6 +1013,55 @@ const starters = [
   .pi-tile--text .pi-tile__why { -webkit-line-clamp: 5; }
   .pi-tile__badge { justify-self: start; padding: 1px var(--space-2); border: 1px solid currentColor; border-radius: var(--radius-s); color: var(--pi-terracotta); font: 600 var(--fs-200)/1.4 var(--font-ui); }
   .pi-tile__fact { color: var(--text); font: 500 var(--fs-300)/1.35 var(--font-ui); }
+
+  /* PI's call: the pick her checked note names first. */
+  .pi-tile__call, .pi-note__stamp { justify-self: start; padding: 1px var(--space-2); border: 1.5px solid currentColor; border-radius: var(--radius-s); color: var(--pi-terracotta); font: 600 var(--fs-200)/1.4 var(--font-ui); letter-spacing: .04em; text-transform: uppercase; transform: rotate(-2deg); }
+  .pi-msg__aside { color: var(--soft); font-style: italic; }
+
+  /* A plan: a page from her notebook. Stops are links to published pages. */
+  .pi-note { margin-top: var(--space-4); padding: var(--space-4); background: var(--pi-cream); border-radius: var(--radius-m); border-left: 3px solid var(--pi-terracotta); color: var(--text); }
+  .pi-note__title { margin: 0 0 var(--space-2); font: var(--fw-display) var(--fs-500)/1.2 var(--font-display); letter-spacing: var(--ls-display); }
+  .pi-note__stops { list-style: none; margin: 0; padding: 0; }
+  .pi-note__stop { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: var(--space-2); padding: var(--space-3) 0; border-top: 1px solid color-mix(in srgb, var(--text) 14%, transparent); }
+  .pi-note__text { display: grid; gap: 2px; min-width: 0; }
+  .pi-note__when { color: var(--pi-terracotta); font: 600 var(--fs-200)/1.3 var(--font-ui); letter-spacing: .06em; text-transform: uppercase; }
+  .pi-note__name { color: var(--text); font: var(--fw-display) var(--fs-400)/1.25 var(--font-display); text-decoration: underline; text-decoration-color: color-mix(in srgb, currentColor 35%, transparent); text-underline-offset: .2em; }
+  .pi-note__name:hover { color: var(--accent); text-decoration-color: currentColor; }
+  .pi-note__meta { color: var(--soft); font: 400 var(--fs-200)/1.3 var(--font-ui); }
+  .pi-note__why { color: var(--text); font: 400 var(--fs-300)/1.4 var(--font-ui); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .pi-note__swap { min-height: 44px; padding: 0 var(--space-3); background: transparent; color: var(--text); border: 1px solid var(--border-control); border-radius: var(--radius-pill); font: 400 var(--fs-200)/1.2 var(--font-ui); white-space: nowrap; cursor: pointer; }
+  .pi-note__swap:hover { border-color: var(--text); background: color-mix(in srgb, var(--white) 60%, transparent); }
+  .pi-note__swap:focus-visible, .pi-note__act:focus-visible, .pi-msg__fb-open:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+  .pi-note__scribble { margin: var(--space-2) 0 0; padding-top: var(--space-3); border-top: 1px solid color-mix(in srgb, var(--text) 14%, transparent); font: italic var(--fw-display) var(--fs-400)/1.3 var(--font-display); }
+  .pi-note__scribble[hidden] { display: none; }
+  .pi-note__sign { display: flex; align-items: center; justify-content: flex-end; gap: var(--space-2); margin: var(--space-2) 0 0; font: italic 600 var(--fs-300)/1 var(--font-display); }
+  .pi-note__sign img { width: 24px; height: 24px; border-radius: 50%; }
+  .pi-note__acts { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-3); }
+  .pi-note__act { display: inline-flex; align-items: center; min-height: 44px; padding: 0 var(--space-4); border: 1px solid var(--accent); border-radius: var(--radius-pill); background: var(--accent); color: var(--white); font: 500 var(--fs-300)/1.2 var(--font-ui); text-decoration: none; cursor: pointer; }
+  .pi-note__act + .pi-note__act { background: transparent; color: var(--accent); }
+  .pi-note__status { margin: var(--space-2) 0 0; min-height: 1.2em; color: var(--text); font: 400 var(--fs-300)/1.4 var(--font-ui); overflow-wrap: anywhere; }
+  .pi-msg.is-arriving .pi-note { animation: pi-arrive var(--dur-med) var(--ease-enter) both; animation-delay: 90ms; }
+  .pi-msg.is-arriving .pi-note__stop { animation: pi-arrive var(--dur-med) var(--ease-enter) both; animation-delay: calc(160ms + var(--pi-i, 0) * 90ms); }
+
+  /* Moods: the same portrait, moved. A tip of the hat when she makes a call, a look when she has doubts. */
+  @keyframes pi-tip { 35% { transform: rotate(16deg) translateY(1px); } 65% { transform: rotate(-5deg); } }
+  @keyframes pi-look { 30%, 70% { transform: translateY(-3px) rotate(-9deg); } }
+  .pi-msg.is-arriving .pi-msg__face.is-call { animation: pi-tip 800ms var(--ease-enter) 200ms both; }
+  .pi-msg.is-arriving .pi-msg__face.is-brow { animation: pi-look 1100ms var(--ease-enter) 200ms both; }
+  .pi-msg.is-arriving .pi-msg__face.is-think { animation: pi-think 1.6s ease-in-out 1; }
+
+  .pi-chat__here { margin: 0 auto var(--space-4); padding: var(--space-3); max-width: 21rem; background: var(--pi-cream); border-radius: var(--radius-m); }
+  .pi-chat__here[hidden] { display: none; }
+  .pi-chat__here-label { margin: 0 0 var(--space-2); font: 500 var(--fs-300)/1.35 var(--font-ui); }
+  .pi-chat__here .pi-chat__chips { justify-content: center; }
+
+  .pi-msg__offer { margin: var(--space-4) 0 0; color: var(--soft); font: 400 var(--fs-300)/1.45 var(--font-ui); }
+  .pi-msg__offer a { color: var(--accent); text-underline-offset: .2em; }
+  .pi-msg__fb { margin-top: var(--space-3); color: var(--soft); font: 400 var(--fs-200)/1.4 var(--font-ui); }
+  .pi-msg__fb p { margin: 0; }
+  .pi-msg__fb-open { min-height: 44px; padding: 0; border: 0; background: transparent; color: var(--soft); font: inherit; text-decoration: underline; text-underline-offset: .2em; cursor: pointer; }
+  .pi-msg__fb-open:hover { color: var(--text); }
+  .pi-msg__fb-group { display: flex; flex-wrap: wrap; gap: var(--space-2); }
 
   .pi-msg__small { margin-top: var(--space-3); color: var(--soft); font: 400 var(--fs-300)/1.45 var(--font-ui); }
   .pi-msg__small p { margin: 0 0 var(--space-1); text-wrap: pretty; }

@@ -31,6 +31,12 @@ export const ASK_GUIDE_ON: boolean = SHOW_ASK_GUIDE && !SHOW_ASK_PI;
 // chat working on the matcher's own fixed wording.
 export const SHOW_ASK_VOICE = true;
 
+// PI as a character (lib/ask-pi.mjs, lib/pi-lines.mjs): a day put in order
+// from published pages, her modes, and her own fixed lines for refusals and
+// asides. Nothing is generated or sent; every line is in pi-lines.mjs. false
+// returns the chat and /ask/ to the plain matcher.
+export const SHOW_ASK_PERSONA = true;
+
 /**
  * PUBLIC_EVENT_OCCURRENCE_MODEL: the PI-008 occurrence model, three-state.
  *

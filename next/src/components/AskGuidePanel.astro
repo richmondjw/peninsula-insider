@@ -7,6 +7,7 @@
  * scripts/ask-guide-ui.ts answers in place from /ask/index.json.
  */
 import { ASK_MAX_LENGTH } from '../lib/ask-guide.mjs';
+import { SHOW_ASK_PERSONA } from '../lib/features';
 
 interface Props {
   /** Prefix for ids, so the dialog and the page can sit in one document. */
@@ -17,7 +18,7 @@ interface Props {
 const { id, autostart = false } = Astro.props;
 const examples = ['Lunch in Red Hill', "What's on this weekend", 'Places to stay in Sorrento', 'Coastal walks'];
 ---
-<div class="ask-guide" data-ask-guide-root data-ask-guide-autostart={autostart ? 'true' : undefined}>
+<div class="ask-guide" data-ask-guide-root data-ask-guide-persona={SHOW_ASK_PERSONA ? 'on' : 'off'} data-ask-guide-autostart={autostart ? 'true' : undefined}>
   <div class="ask-guide__scroll" data-ask-guide-scroll data-lenis-prevent>
     <p class="ask-guide__scope" id={`${id}-scope`}>
       Ask PI finds the pages in our guides that match your question and shows what they say. It doesn’t use AI, and it doesn’t send or save what you type. It can’t check opening hours, prices or conditions on the day.

@@ -21,6 +21,13 @@ const records = [
   page('/eat/flinders-general-store/', 'eat', 'Flinders General Store', 'Café', 'flinders', 'Flinders', 'The village general store on the main street of Flinders.', 'Morning stop · Brunch'),
   page('/stay/lindenderry/', 'stay', 'Lindenderry at Red Hill', 'Hotel', 'red-hill', 'Red Hill', 'A country-house hotel among the vines at Red Hill.', 'Couples'),
   page('/explore/coppins-track/', 'do', 'Coppins Track', 'Walk', 'sorrento', 'Sorrento', 'Coppins Track runs from Sorrento Ocean Beach to Diamond Bay.', null),
+  // Enough of Sorrento for PI to put half a day in order and swap a stop. The
+  // summaries are fixture text, not a description of the real places.
+  page('/eat/bistro-elba/', 'eat', 'Bistro Elba', 'Restaurant', 'sorrento', 'Sorrento', 'Fixture summary for a restaurant page.', 'Couples'),
+  page('/eat/the-baths-sorrento/', 'eat', 'The Baths Sorrento', 'Restaurant', 'sorrento', 'Sorrento', 'Fixture summary for a second restaurant page.', null),
+  // A second town a plan can be built in, for "Somewhere else".
+  page('/explore/red-hill-truffles/', 'do', 'Red Hill Truffles', 'Attraction', 'red-hill', 'Red Hill', 'Fixture summary for a things-to-do page.', null),
+  page('/explore/sorrento-back-beach/', 'do', 'Sorrento Back Beach', 'Beach', 'sorrento', 'Sorrento', 'Fixture summary for a beach page.', null),
   page('/explore/places/red-hill/', 'place', 'Red Hill', null, null, null, 'The ridge at the centre of the Peninsula wine country.', null),
 ];
 

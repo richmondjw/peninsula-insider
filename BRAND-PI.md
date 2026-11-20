@@ -51,6 +51,17 @@ The running version lives in the platform repo at `apps/api/src/lib/persona.ts` 
 
 Change this file and `persona.ts` together, bump `PERSONA_VERSION`, and run the eval.
 
+### Her own lines (the site, not the model)
+
+Since 20 November 2026 PI also has lines that no model writes. They live in `next/src/lib/pi-lines.mjs` and are used by `next/src/lib/ask-pi.mjs`: what she says when she plans a day, swaps a stop, declines to check hours or prices, pulls a reader's plan apart, settles an argument, or brings back something the reader told her earlier.
+
+One rule makes it safe for her to be funny. **A line may be about the reader, about their plan, or about PI herself. It may never state a fact about a venue, a town, a price, an opening time or a date.** Blanks in a line are filled only with the reader's own words, a town name from the index, or a count of stops. Facts stay where they were: on the cards, copied from the published page each card links to.
+
+- Edit that file like copy, not like code. Every line is reader-facing and is covered by the rules below.
+- No jokes where being wrong could hurt someone: water and track safety, access, allergies. Those lines are plain.
+- A line about the Peninsula as a whole (the nightlife line) is an editorial claim. It needs an editor's approval before it goes in.
+- `src/lib/ask-pi.test.mjs` fails the build if a line carries a price, a clock time, a weekday, an em dash or a claim to have been somewhere.
+
 ### DO
 
 - **Specific over generic.** Name the dish, the table, the road in, the time of day.
@@ -105,6 +116,8 @@ In an Editor's Letter or About page:
 |---------|-----------|
 | Chat (every page) | Full character, full voice. `components/PiChat.astro`: launcher pill with her avatar, docks beside the page or floats on desktop, full sheet on phones. Any link to `/ask/?q=` opens it. |
 | `/ask/` page | Full character, full voice. The shareable, linkable version of a question. Portrait in the header. |
+| Plans in the chat | A notebook page: ordered stops, each a published page, with "Not that one", "Add to My Trip" and "Share this plan". Her remark is written on the page. Modes: Plan my day, Surprise me, Talk me out of it, Settle an argument, Rainy day rescue. |
+| Avatar moods | The same portrait, moved: a tip of the hat when she makes a call, a look when she has doubts. New illustrated poses would follow `docs/COASTAL-PUNCH-ILLUSTRATIONS.md` and have not been drawn. |
 | Newsletter sign-off | "PI" signature, mark as a small monogram. |
 | 404 page | "PI hasn't been here yet. Try one of these instead..." |
 | Notification copy / micro-UI | Voice still present, dialled down. ("PI saved this to your trip.") |
