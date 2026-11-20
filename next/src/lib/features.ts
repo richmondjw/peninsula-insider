@@ -40,10 +40,12 @@ export const SHOW_ASK_PERSONA = true;
 // PI composes a plan with the platform API (/concierge/pi/compose): for each
 // part of the day the model picks one page from the short list the site sends,
 // and writes an opening and a line per stop. Each line is checked there
-// against the one page it is about, repaired once, or dropped. Off here until
-// the endpoint is switched on (CONCIERGE_COMPOSE_ENABLED) and its output has
-// been read on real questions. While it is off a plan sends nothing anywhere.
-export const SHOW_ASK_COMPOSE = false;
+// against the one page it is about, repaired once, or dropped. On since 20 Nov
+// 2026 after a real-model run on Groq (four plans, 3.6 to 9.6 seconds, every
+// spot-checked detail on its page; 5 of 12 lines dropped by the checks). With
+// it on, a plan sends the question and the candidate page addresses to the
+// platform. false returns plans to the site's own choices and authored lines.
+export const SHOW_ASK_COMPOSE = true;
 
 /**
  * PUBLIC_EVENT_OCCURRENCE_MODEL: the PI-008 occurrence model, three-state.
