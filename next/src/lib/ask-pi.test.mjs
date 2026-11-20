@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { tokens } from './ask-guide.mjs';
-import { converse, swapStop, occasion, pageOffers, tripLink, composeRequest, applyCompose, talkPages, cardsFor } from './ask-pi.mjs';
+import { converse, swapStop, occasion, pageOffers, tripLink, composeRequest, applyCompose, talkPages, cardsFor, isFollowUp } from './ask-pi.mjs';
 import * as lines from './pi-lines.mjs';
 
 const today = '2026-11-20';
@@ -310,4 +310,18 @@ test('her picks become tiles with the same page-copied text, and unknown pages a
   assert.deepEqual(tiles.map((item) => item.title), ['Moke Dining', 'Polperro']);
   for (const item of tiles) for (const text of [item.title, item.summary, ...item.facts.flat()]) assert.ok(!text || allowed.has(text));
   assert.deepEqual(cardsFor(index, null), []);
+});
+
+test('a short reply mid-thread stays on the thread, not on a page that shares one of its words', () => {
+  const said = ['where can I get a good steak'];
+  // On its own "church" finds the bakery in the old church hall. Mid-thread it is not the subject.
+  const alone = converse(index, 'church', null, { today });
+  assert.ok(alone.reply.cards.some((item) => item.href === '/eat/flinders-sourdough/'));
+  assert.equal(isFollowUp(index, 'church', said, { today }), true);
+  assert.deepEqual(talkPages(index, 'church', said, alone.reply, [], { today }), []);
+  // What was on screen is kept, and comes first.
+  assert.deepEqual(talkPages(index, 'the first one', ['lunch in Red Hill'], null, ['/eat/tedesca-osteria/'], { today })[0], '/eat/tedesca-osteria/');
+  // A message with a subject of its own is not a follow-up, and with no thread nothing is.
+  assert.equal(isFollowUp(index, 'what about a winery in Red Hill', said, { today }), false);
+  assert.equal(isFollowUp(index, 'church', [], { today }), false);
 });
