@@ -1,5 +1,6 @@
 ---
 import searchOverlayBootUrl from '../scripts/search-overlay-boot.js?url&no-inline';
+import { SHOW_ASK_PI } from '../lib/features';
 /**
  * SearchOverlay - instant search modal
  *
@@ -25,12 +26,13 @@ import searchOverlayBootUrl from '../scripts/search-overlay-boot.js?url&no-inlin
   aria-labelledby="siteSearchOverlayTitle"
   aria-hidden="true"
   data-open="false"
+  data-ask-enabled={SHOW_ASK_PI ? 'true' : 'false'}
 >
   <div class="site-search-overlay__backdrop" data-close-search aria-hidden="true"></div>
 
   <div class="site-search-overlay__panel" role="document">
     <header class="site-search-overlay__header">
-      <h2 id="siteSearchOverlayTitle" class="site-search-overlay__title">Search or ask</h2>
+      <h2 id="siteSearchOverlayTitle" class="site-search-overlay__title">Search the Peninsula</h2>
       <button
         type="button"
         class="site-search-overlay__close"
@@ -54,26 +56,26 @@ import searchOverlayBootUrl from '../scripts/search-overlay-boot.js?url&no-inlin
         type="search"
         id="siteSearchOverlayInput"
         class="site-search-overlay__input"
-        placeholder="Search places, or ask PI a question"
-        aria-label="Search or ask a question"
+        placeholder="Search places, plans and stories"
+        aria-label="Search places, plans and stories"
       />
     </form>
 
     <div class="site-search-overlay__body" id="siteSearchOverlayBody">
       <div class="site-search-overlay__suggestions" data-default-suggestions>
-        <p class="site-search-overlay__suggestions-label">Type a place, or ask PI a question:</p>
+        <p class="site-search-overlay__suggestions-label">Try a place, plan or story:</p>
         <ul class="site-search-overlay__examples" role="list">
-          <li><a class="site-search-overlay__example" href="/ask/?q=A%20long%20lunch%20in%20Red%20Hill%20with%20kids">A long lunch in Red Hill with kids</a></li>
-          <li><a class="site-search-overlay__example" href="/ask/?q=Dog-friendly%20breakfast%20near%20Sorrento">Dog-friendly breakfast near Sorrento</a></li>
-          <li><a class="site-search-overlay__example" href="/ask/?q=A%20rainy%20Sunday%20for%20two">A rainy Sunday for two</a></li>
+          <li><a class="site-search-overlay__example" href="/search/?q=Red%20Hill%20lunch">Red Hill lunch</a></li>
+          <li><a class="site-search-overlay__example" href="/search/?q=dog-friendly%20breakfast">Dog-friendly breakfast</a></li>
+          <li><a class="site-search-overlay__example" href="/search/?q=rainy%20day">Rainy-day ideas</a></li>
         </ul>
       </div>
 
-      <a class="site-search-overlay__ask" id="siteSearchOverlayAsk" href="/ask/" hidden>
+      {SHOW_ASK_PI && <a class="site-search-overlay__ask" id="siteSearchOverlayAsk" href="/ask/" hidden>
         <span class="site-search-overlay__ask-label">Ask PI</span>
         <span class="site-search-overlay__ask-q" data-ask-q></span>
         <span class="site-search-overlay__ask-go" aria-hidden="true">→</span>
-      </a>
+      </a>}
 
       <p class="site-search-overlay__status" id="siteSearchOverlayStatus" role="status" aria-live="polite" hidden></p>
       <ul class="site-search-overlay__results" id="siteSearchOverlayResults" aria-label="Search suggestions" hidden></ul>
