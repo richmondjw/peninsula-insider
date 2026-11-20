@@ -28,7 +28,7 @@ intro: Three-lane concrete ramp at Sorrento, the southern bay's all-tide launchi
 metaDescription: Sorrento Boat Ramp - three concrete lanes, all-tide, breakwater-sheltered, free to launch. Shortest bay-side run to the southern snapper grounds and the Heads.
 faq:
   - question: Can I launch at Sorrento Boat Ramp at any tide?
-    answer: 'Yes. Sorrento is an all-tide ramp with a breakwater-sheltered approach. Documented depth of 0.3 to 0.8 metres across the tidal range supports launch at any tidal state for standard recreational trailer boats. Deep-keeled vessels should still check the tidal forecast at Willyweather (Portsea station).'
+    answer: 'Yes. Sorrento is an all-tide ramp with a breakwater-sheltered approach. Documented depth of 0.3 to 0.8 metres across the tidal range supports launch at any tidal state for standard recreational trailer boats. Deep-keeled vessels should still check the BOM-listed Rosebud Jetty station.'
   - question: Is there parking for a car with a boat trailer?
     answer: 'Yes, over 50 car and trailer spots across three areas. The foreshore serves both the boat ramp and the Sorrento ferry terminal, so parking pressure is higher than at a ramp-only facility. Arrive by 7am on summer weekends. On ferry-peak days (school holidays, long weekends, Christmas week) the car park can fill before 8am.'
   - question: What is the maximum vessel size I can launch from Sorrento?
@@ -51,7 +51,7 @@ Three concrete lanes, jetties on each side, and a breakwater that shelters the l
 
 Sorrento is all-tide. Approach depth has been documented at 0.3 to 0.8 metres across the tidal range, and the breakwater removes the swell problem that affects exposed bay ramps at low water. For a standard recreational trailer boat, Sorrento launches and retrieves at any tidal state. This is a material advantage over [Safety Beach](/boating/ramps/safety-beach-boat-ramp/) and [Rye](/boating/ramps/rye-boat-ramp/), comparable to [Hastings](/boating/ramps/hastings-boat-ramp/) on the Western Port side.
 
-For deep-keeled or very large trailered boats, even at Sorrento it is prudent to check the Portsea station forecast on [Willyweather](https://tides.willyweather.com.au).
+For deep-keeled or very large trailered boats, even at Sorrento it is prudent to check the BOM-listed Rosebud Jetty station in the [BOM tidal predictions](https://www.bom.gov.au/australia/tides/).
 
 ## Parking and pressure
 

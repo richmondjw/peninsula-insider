@@ -26,12 +26,12 @@ accessibleSpecies:
   - squid
   - australian-salmon
 nearestHireSlug: mornington-boat-hire
-safetyNotes: At low water, depth at the ramp drops to roughly 0.3 metres, insufficient for any practical recreational vessel. The usable launch window is approximately two hours either side of high water at the Portsea reference station.
+safetyNotes: At low water, depth at the ramp drops to roughly 0.3 metres, insufficient for any practical recreational vessel. The usable launch window is approximately two hours either side of high water at the BOM-listed Mornington station.
 intro: Three-lane concrete ramp on the mid-Peninsula bay shore at Safety Beach. Tide-dependent (high-tide access only), free to launch, ample trailer parking, and one of the better-provisioned family-side ramps with picnic facilities adjacent. Not suitable for low-tide arrivals.
 metaDescription: Safety Beach Boat Ramp - three concrete lanes, free, tide-dependent (high-tide access only), ample trailer parking. Mid-Peninsula access to Port Phillip Bay.
 faq:
   - question: Can I launch at Safety Beach Boat Ramp at any tide?
-    answer: 'No. Safety Beach is tide-dependent. At low water, depth at the ramp is approximately one foot (0.3 metres), insufficient for launching any practical recreational vessel. The usable launch window is roughly two hours either side of high water. Check the tidal state at the Portsea reference station via Willyweather before departure.'
+    answer: 'No. Safety Beach is tide-dependent. At low water, depth at the ramp is approximately one foot (0.3 metres), insufficient for launching any practical recreational vessel. The usable launch window is roughly two hours either side of high water. Check the BOM-listed Mornington station before departure.'
   - question: Is there parking for a car with a boat trailer?
     answer: 'Yes. Ample trailer parking is available on site, making this one of the better-provisioned mid-Peninsula ramps for trailer vehicles. In peak summer (January school holidays, summer long weekends), arrive by 7am to secure a trailer space.'
   - question: What is the maximum vessel size I can launch from Safety Beach?
@@ -52,7 +52,7 @@ The critical operational constraint is the tide. This is not an all-tide ramp. A
 
 ## Tide dependence
 
-The usable launch window runs from roughly two hours before high water to two hours after, at either the Portsea or Port Melbourne reference station. Outside that window, the ramp is effectively unusable. Use [Willyweather tide predictions](https://tides.willyweather.com.au) or [BOM tidal predictions](http://www.bom.gov.au/australia/tides/) on the day. Set a Willyweather alert for Portsea before departure.
+The usable launch window runs from roughly two hours before high water to two hours after at the BOM-listed Mornington station. Outside that window, the ramp is effectively unusable. Use [BOM tidal predictions](https://www.bom.gov.au/australia/tides/) on the day.
 
 The other consequence is return planning. Launch near the top of the tide and you have a hard window to return. Watching the tide drop from a productive whiting drift is not the time to discover this.
 

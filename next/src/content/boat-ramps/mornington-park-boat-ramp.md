@@ -32,7 +32,7 @@ faq:
   - question: Is the Mornington ramp open after the 2026 upgrade?
     answer: 'Yes. Mornington Peninsula Shire records the Schnapper Point upgrade as complete and the ramp reopened. Check the Shire boat-ramp notice before travelling because maintenance can still affect access.'
   - question: Can I launch at any tide?
-    answer: 'Yes for standard trailer boats, with care required on the lowest tides. Deep-keeled or larger vessels should check the Port Melbourne reference station before launching.'
+    answer: 'Yes for standard trailer boats, with care required on the lowest tides. Deep-keeled or larger vessels should check the BOM-listed Mornington station before launching.'
   - question: How busy does the parking get?
     answer: 'Very busy. The precinct serves the boat ramp, the Mornington Pier, and the yacht club, so trailer parking is constrained relative to demand. Summer Saturdays in January school holidays: the car park typically fills before 8am. Snapper-season weekends (October to December): arrive by 7am.'
   - question: What is the alternative ramp if Mornington is full?
@@ -51,7 +51,7 @@ Mornington Park Boat Ramp serves the Mornington precinct on Port Phillip Bay's c
 
 ## Tide dependence
 
-All-tide for standard recreational trailer boats with care required on the lowest tides. Use the Port Melbourne reference station and check [BOM tidal predictions](https://www.bom.gov.au/australia/tides/) before launching with a deep-keeled vessel or anything over 6m.
+All-tide for standard recreational trailer boats with care required on the lowest tides. Use the BOM-listed Mornington station and check [BOM tidal predictions](https://www.bom.gov.au/australia/tides/) before launching with a deep-keeled vessel or anything over 6m.
 
 ## Parking and pressure
 
