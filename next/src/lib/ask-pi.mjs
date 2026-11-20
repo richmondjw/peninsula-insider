@@ -402,6 +402,11 @@ function decorate(out, asked, bare, index, context) {
  * One turn of the conversation. Same contract as ask(): returns
  * { reply, state }, and `state` is plain JSON that goes back in next turn.
  * `context.persona === false` gives the plain matcher.
+ * @param {any} index
+ * @param {string} question
+ * @param {any} [state]
+ * @param {Record<string, any>} [context]
+ * @returns {any}
  */
 export function converse(index, question, state = null, context = {}) {
   if (context.persona === false) return ask(index, question, state, context);
