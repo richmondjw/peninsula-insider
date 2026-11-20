@@ -33,6 +33,14 @@ This is the brand voice doc for **PI**, the editorial concierge persona that fro
 | `images/pi/pi-avatar-{48,96,160}.webp` | Round crop on her cream disc. Chat launcher (44 px), chat header (40 px), message byline (24 px). |
 | `images/pi/pi-portrait-{320,640}.webp` | Full illustration on a transparent ground, the hat breaking the circle. Chat greeting and the `/ask` page header. |
 
+**The mark in parts (20 November 2026).** `next/scripts/build-pi-layers.mjs` cuts the same illustration into three layers, `images/pi/pi-layer-{body,hat,hair}-{160,320,640}.webp`, so the chat can move her. No new drawing was made: every pixel comes from the approved mark, apart from one patch of the brim's own colour continued behind her hair so no gap opens when the hair moves. Stacked, the layers are the mark. The chat uses them for three things, all switched off for readers who ask for reduced motion:
+
+- **Wind off the bay.** Every few seconds her hair lifts and the hat tips slightly. Chat header and greeting.
+- **She steps out.** While she looks something up, the figure leaves the disc in the chat header, hat last, and comes back with the answer.
+- **Her initials.** "PI" is written in three strokes at the foot of a plan. It is authored SVG in `PiChat.astro`, not a font and not generated.
+
+A genuinely new pose (notebook out, looking back) would be new artwork and needs its own approval.
+
 Older marks, kept for reference only: `pi-avatar.svg` (geometric disc, blue bay) and `pi-mark.svg` (monogram).
 
 **Design language:** Carmen-Sandiego silhouette restaged for the Australian coast. A wide-brimmed hat (akubra, not fedora — functional, not glamorous). Collar up against the wind off the bay. Notebook in the pocket — she's working. Profile turned slightly away — she's already moving on to the next place.

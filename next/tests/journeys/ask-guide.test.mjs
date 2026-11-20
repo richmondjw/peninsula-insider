@@ -406,7 +406,7 @@ test('in conversation she replies as herself, her picks are the tiles, and a fol
     assert.equal(hello.tiles.length, 0);
     assert.deepEqual(hello.chips, ['A long lunch', 'Somewhere to stay']);
     let sent = JSON.parse(reader.conciergeCalls().filter(call => call.path === 'talk').pop().body);
-    assert.deepEqual(Object.keys(sent).sort(), ['history', 'message', 'onPage', 'pages']);
+    assert.deepEqual(Object.keys(sent).sort(), ['followUp', 'history', 'message', 'onPage', 'pages']);
     assert.deepEqual(sent.pages, [], 'a greeting sends no pages');
 
     // A real question: she makes the call, and the tiles are the places she named, in her order.
