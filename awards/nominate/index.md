@@ -5,13 +5,23 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Nominate     Open submissions
+The Peninsula Insider Awards     Nominations closed
 
-# Tell us who should be on the 2026 ballot.
+# Submissions are closed.
 
-Anyone can nominate. Editorial reviews every submission and lifts the strongest into the public ballot. The shortlist publishes in early September; voting follows.
+The 2026 nomination and voting cycle has ended. We have not announced dates for another cycle.
 
-Peninsula Insider · nominate
+Peninsula Insider · Awards nominations
+
+Programme update · 20 November 2026
+
+## The form has been closed
+
+We are reviewing the awards programme before accepting any more nominations. Future dates, categories and eligibility rules will be published here if a new cycle is approved.
+
+If you need to correct an existing Peninsula Insider listing, use our corrections form instead.
+
+[Read the awards update](<https://peninsulainsider.com.au/awards/>) [Submit a correction →](<https://peninsulainsider.com.au/contact/?type=correction>)
 
 ## The Insider Note
 

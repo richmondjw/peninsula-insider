@@ -5,13 +5,17 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Peninsula Insider Award
+Peninsula Insider Award · Programme update
 
-# Cellar Door Of The Year
+# Cellar Door of the Year
 
-Loading the category…
+No verified 2026 result is currently published for this category.
 
-- Loading nominees…
+The voting cycle is closed. We removed the incomplete nominee and results experience because it did not provide a reliable public record. We will not infer a winner or publish unsupported vote totals.
+
+The awards will return only with published rules, transparent selection evidence and a durable result record.
+
+[Read the awards update](<https://peninsulainsider.com.au/awards/>) [Browse current guides →](<https://peninsulainsider.com.au/explore/>)
 
 ## The Insider Note
 

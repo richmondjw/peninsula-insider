@@ -5,107 +5,39 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-The Peninsula Insider Awards     Annual editorial · Reader-voted
+The Peninsula Insider Awards     Programme update
 
-# The Peninsula at its best, named.
+# The awards are being rebuilt.
 
-Nine categories. Editor selections and reader voting. Nominations open August, voting through September, results announced the first weekend of October. Independent, editorially gated, never paid.
+The 2026 voting cycle is closed. We have not published verified winners, so we have removed the incomplete results experience while we review the programme, its evidence and its rules.
 
 Peninsula Insider · Awards
 
-The 2026 cycle
+Status · 20 November 2026
 
-- August
+## No 2026 result is currently published
 
-Nominations open. Anyone can suggest a venue, event, or place for any category.
+Earlier versions of this page described an October results date, but the result pages did not provide a complete, verifiable record. That was not good enough. Voting and nominations are closed, and we will not name winners without evidence we can stand behind.
 
-- September
+Before the awards return, we will publish the eligibility rules, selection method, reader and editor weighting, conflicts policy, corrections process and a durable record of every result.
 
-Voting opens. Sign in to cast a vote in each category. One vote per category, change anytime until close.
+[How we choose our picks](<https://peninsulainsider.com.au/about/#how-we-choose>) [Report an awards issue →](<https://peninsulainsider.com.au/contact/?type=correction>)
 
-- First weekend of October
+Where to browse now
 
-Results announced. Editor selections + reader votes published, with editorial framing on the winners.
+## Current Peninsula guides
 
-Loading the 2026 slate…
+Use our live editorial sections while the awards programme is under review.
 
-- Category
+- [Eat Restaurants, cafes and local food worth knowing.](<https://peninsulainsider.com.au/eat/>)
 
-## [Restaurant of the Year](<https://peninsulainsider.com.au/awards/restaurant-of-the-year/>)
+- [Wine Cellar doors, producers and Peninsula bottles.](<https://peninsulainsider.com.au/wine/>)
 
-The dining room the editorial desk would book this year if it could only book one.
+- [Stay Places to stay, chosen for the trip they make possible.](<https://peninsulainsider.com.au/stay/>)
 
-Voting opens September.
+- [Explore Walks, beaches, villages and plans for a day or weekend.](<https://peninsulainsider.com.au/explore/>)
 
-- Category
-
-## [Cellar Door of the Year](<https://peninsulainsider.com.au/awards/cellar-door-of-the-year/>)
-
-Where the wine, the room, and the welcome converged.
-
-Voting opens September.
-
-- Category
-
-## [Stay of the Year](<https://peninsulainsider.com.au/awards/stay-of-the-year/>)
-
-The bed that defined a Peninsula weekend in 2026.
-
-Voting opens September.
-
-- Category
-
-## [Walk of the Year](<https://peninsulainsider.com.au/awards/walk-of-the-year/>)
-
-The route that justified the drive and the boots.
-
-Voting opens September.
-
-- Category
-
-## [Best New Opening](<https://peninsulainsider.com.au/awards/best-new-opening/>)
-
-The 2026 arrival that reset what was possible in its category.
-
-Voting opens September.
-
-- Category
-
-## [Best Family Day](<https://peninsulainsider.com.au/awards/best-family-day/>)
-
-Pram, picnic, parking. Kids-grade A in the field.
-
-Voting opens September.
-
-- Category
-
-## [Locals' Choice](<https://peninsulainsider.com.au/awards/locals-choice/>)
-
-Reader-voted. The place locals would actually send a friend to.
-
-Voting opens September.
-
-- Category
-
-## [Worth-the-Drive Award](<https://peninsulainsider.com.au/awards/worth-the-drive/>)
-
-The Peninsula moment that justified the 90-minute return without any other reason.
-
-Voting opens September.
-
-- Category
-
-## [Editorial Discovery](<https://peninsulainsider.com.au/awards/editorial-discovery/>)
-
-The hidden corner the editorial desk found this year that won't stay hidden much longer.
-
-Voting opens September.
-
-Want to nominate?
-
-Got a spot or a moment that should be on the slate? Send it in. Editorial reviews every nomination; the strongest go on the public ballot.
-
- [Nominate something →](<https://peninsulainsider.com.au/awards/nominate/>)
+- [What's On Current events and timely reasons to visit.](<https://peninsulainsider.com.au/whats-on/>)
 
 ## The Insider Note
 

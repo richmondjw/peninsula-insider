@@ -667,16 +667,6 @@ Peninsula locals that are regulars on the music scene! Dee from The Calmer Miles
 
 - [Fri, 20 Nov
 
-### ✦ National Works on Paper 2026 (NWOP)
-
-Mornington
-
-National Works on Paper 2026 is MPRG's survey of contemporary Australian art made on and with paper. Visit 5 September to 22 November, Tuesday to Sunday, 11am to 4pm; the gallery is closed Mondays.
-
- Event · Exhibitions](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
-
-- [Fri, 20 Nov
-
 ### The Lucky Duck & Pinot Lunch
 
 Red Hill
@@ -684,3 +674,13 @@ Red Hill
 One-off chef’s lunch featuring an all-duck menu paired with pinot noir.
 
  Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/the-lucky-duck-and-pinot-lunch-2026-11-20/>)
+
+- [Fri, 20 Nov
+
+### Will Rounds Live at Peppers Moonah Links Resort
+
+Fingal
+
+Settle into the weekend with Acoustic Friday in the Spike Bar at Moonah Links. From 5pm to 8pm each Saturday, enjoy the sounds of talented local acoustic artists in a relaxed and welcoming setting.
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/will-rounds-live-at-peppers-moonah-links-resort-2026-11-20/>)

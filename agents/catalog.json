@@ -1,7 +1,7 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-11-20T04:03:34.694Z",
-  "snapshotId": "bf06246acd0fbc604be1112fd8c74c4775140c3397ebfbc9a843561913077059",
+  "generatedAt": "2026-11-20T05:33:51.927Z",
+  "snapshotId": "11f5880ab4fec7a494cbe153fe0d7bf098033d6de088ddb4ab3250372915f018",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
@@ -77,20 +77,20 @@
     },
     {
       "id": "https://peninsulainsider.com.au/awards/",
-      "title": "The Peninsula at its best , named.",
+      "title": "The awards are being rebuilt .",
       "section": "awards",
       "canonicalUrl": "https://peninsulainsider.com.au/awards/",
       "markdownUrl": "https://peninsulainsider.com.au/awards/index.md",
-      "contentSha256": "557a246f3d2fc5d7f42528db1765c778276d9afe898477a174577bbbf1483762",
+      "contentSha256": "0276c33b2af544222d0819d2ec0f375715114d5f8b8f74e359da270ac2203718",
       "citation": {
-        "title": "The Peninsula at its best , named.",
+        "title": "The awards are being rebuilt .",
         "publisher": "Peninsula Insider",
         "url": "https://peninsulainsider.com.au/awards/",
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 123274,
-      "markdownBytes": 3238
+      "htmlBytes": 118428,
+      "markdownBytes": 2221
     },
     {
       "id": "https://peninsulainsider.com.au/awards/best-family-day/",
@@ -98,7 +98,7 @@
       "section": "awards",
       "canonicalUrl": "https://peninsulainsider.com.au/awards/best-family-day/",
       "markdownUrl": "https://peninsulainsider.com.au/awards/best-family-day/index.md",
-      "contentSha256": "4445e4f692050ceb1210007cb43d0d1056f2f9fab8aab2f8e29f7d4715d03af1",
+      "contentSha256": "be9ef1ab6c7ca6d97bf58ed376df40289e6e3002b1dab48b48d826176725fc8f",
       "citation": {
         "title": "Best Family Day",
         "publisher": "Peninsula Insider",
@@ -106,8 +106,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 124765,
-      "markdownBytes": 689
+      "htmlBytes": 115111,
+      "markdownBytes": 1182
     },
     {
       "id": "https://peninsulainsider.com.au/awards/best-new-opening/",
@@ -115,7 +115,7 @@
       "section": "awards",
       "canonicalUrl": "https://peninsulainsider.com.au/awards/best-new-opening/",
       "markdownUrl": "https://peninsulainsider.com.au/awards/best-new-opening/index.md",
-      "contentSha256": "52a8fd9817ac5733aa3558770c0d925b1a5410a30961a61b39ec2bfcf0e430a7",
+      "contentSha256": "95a1a028cc8ab2b11abfe40e561b04b3651e33380d347852454fac519631ec94",
       "citation": {
         "title": "Best New Opening",
         "publisher": "Peninsula Insider",
@@ -123,25 +123,25 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 124778,
-      "markdownBytes": 691
+      "htmlBytes": 115123,
+      "markdownBytes": 1184
     },
     {
       "id": "https://peninsulainsider.com.au/awards/cellar-door-of-the-year/",
-      "title": "Cellar Door Of The Year",
+      "title": "Cellar Door of the Year",
       "section": "awards",
       "canonicalUrl": "https://peninsulainsider.com.au/awards/cellar-door-of-the-year/",
       "markdownUrl": "https://peninsulainsider.com.au/awards/cellar-door-of-the-year/index.md",
-      "contentSha256": "68a45ae04ea6077a6bbc778714a5173f1f8cb5f772aaae102ed4e699e58c18e9",
+      "contentSha256": "44368eb1019cabe221d4d0d8ca1b781739f0b384bd6b5ea74b8fe1652705f7db",
       "citation": {
-        "title": "Cellar Door Of The Year",
+        "title": "Cellar Door of the Year",
         "publisher": "Peninsula Insider",
         "url": "https://peninsulainsider.com.au/awards/cellar-door-of-the-year/",
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 124869,
-      "markdownBytes": 705
+      "htmlBytes": 115207,
+      "markdownBytes": 1198
     },
     {
       "id": "https://peninsulainsider.com.au/awards/editorial-discovery/",
@@ -149,7 +149,7 @@
       "section": "awards",
       "canonicalUrl": "https://peninsulainsider.com.au/awards/editorial-discovery/",
       "markdownUrl": "https://peninsulainsider.com.au/awards/editorial-discovery/index.md",
-      "contentSha256": "5f33f19838acb03eb42f4396f9e20b44c95e46c19504c03d8deea678326a953c",
+      "contentSha256": "147635c08c5b6356e782be426a2c0027020faf32501b94c8e85d281bec729d7c",
       "citation": {
         "title": "Editorial Discovery",
         "publisher": "Peninsula Insider",
@@ -157,110 +157,110 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 124817,
-      "markdownBytes": 697
+      "htmlBytes": 115159,
+      "markdownBytes": 1190
     },
     {
       "id": "https://peninsulainsider.com.au/awards/locals-choice/",
-      "title": "Locals Choice",
+      "title": "Locals' Choice",
       "section": "awards",
       "canonicalUrl": "https://peninsulainsider.com.au/awards/locals-choice/",
       "markdownUrl": "https://peninsulainsider.com.au/awards/locals-choice/index.md",
-      "contentSha256": "db1068cd5b0595fc86c18135590ceb9fe40cd936c852fba292b4e4b05bae0151",
+      "contentSha256": "6e84d7d409594389158818473e8ef36430735e9b3e61c1457a13981a16f6eb25",
       "citation": {
-        "title": "Locals Choice",
+        "title": "Locals' Choice",
         "publisher": "Peninsula Insider",
         "url": "https://peninsulainsider.com.au/awards/locals-choice/",
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 124739,
-      "markdownBytes": 685
+      "htmlBytes": 115112,
+      "markdownBytes": 1179
     },
     {
       "id": "https://peninsulainsider.com.au/awards/nominate/",
-      "title": "Tell us who should be on the 2026 ballot.",
+      "title": "Submissions are closed .",
       "section": "awards",
       "canonicalUrl": "https://peninsulainsider.com.au/awards/nominate/",
       "markdownUrl": "https://peninsulainsider.com.au/awards/nominate/index.md",
-      "contentSha256": "97869392bd3e4732649dd4122be62d63c7a39a84341b85d042e4203f815cb066",
+      "contentSha256": "08b6c27fda6e17c43d96ac904be61b04ba68dc8645e65877305bb766c21ab0e7",
       "citation": {
-        "title": "Tell us who should be on the 2026 ballot.",
+        "title": "Submissions are closed .",
         "publisher": "Peninsula Insider",
         "url": "https://peninsulainsider.com.au/awards/nominate/",
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 119761,
-      "markdownBytes": 862
+      "htmlBytes": 116306,
+      "markdownBytes": 1302
     },
     {
       "id": "https://peninsulainsider.com.au/awards/restaurant-of-the-year/",
-      "title": "Restaurant Of The Year",
+      "title": "Restaurant of the Year",
       "section": "awards",
       "canonicalUrl": "https://peninsulainsider.com.au/awards/restaurant-of-the-year/",
       "markdownUrl": "https://peninsulainsider.com.au/awards/restaurant-of-the-year/index.md",
-      "contentSha256": "a9cf43d79d13f87c249f2e7f3d42bc2acf9f522f0a15aff5e5ff113061bad17a",
+      "contentSha256": "543289dd51609f3f3014c046e5bff2453521faeacbe2601f39b38e2b941e750d",
       "citation": {
-        "title": "Restaurant Of The Year",
+        "title": "Restaurant of the Year",
         "publisher": "Peninsula Insider",
         "url": "https://peninsulainsider.com.au/awards/restaurant-of-the-year/",
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 124856,
-      "markdownBytes": 703
+      "htmlBytes": 115195,
+      "markdownBytes": 1196
     },
     {
       "id": "https://peninsulainsider.com.au/awards/stay-of-the-year/",
-      "title": "Stay Of The Year",
+      "title": "Stay of the Year",
       "section": "awards",
       "canonicalUrl": "https://peninsulainsider.com.au/awards/stay-of-the-year/",
       "markdownUrl": "https://peninsulainsider.com.au/awards/stay-of-the-year/index.md",
-      "contentSha256": "4cca1a172e3a2f5ccf7c8ba888f00825f6b17d3946791e26bdc4c44a7c84dad5",
+      "contentSha256": "7ad7c6e8f4ff9ee47fee0d9aeba4501b29c12a57e162e5609a5d1683e404a190",
       "citation": {
-        "title": "Stay Of The Year",
+        "title": "Stay of the Year",
         "publisher": "Peninsula Insider",
         "url": "https://peninsulainsider.com.au/awards/stay-of-the-year/",
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 124778,
-      "markdownBytes": 691
+      "htmlBytes": 115123,
+      "markdownBytes": 1184
     },
     {
       "id": "https://peninsulainsider.com.au/awards/walk-of-the-year/",
-      "title": "Walk Of The Year",
+      "title": "Walk of the Year",
       "section": "awards",
       "canonicalUrl": "https://peninsulainsider.com.au/awards/walk-of-the-year/",
       "markdownUrl": "https://peninsulainsider.com.au/awards/walk-of-the-year/index.md",
-      "contentSha256": "f6cc3eca55977bedf495b367f13b2cc3507c81daa2373c1f1db452891d72f7f4",
+      "contentSha256": "e875c5c545e5b0bb21768434dff7be4282cc992a5cd7cd94b02a0179d1a11146",
       "citation": {
-        "title": "Walk Of The Year",
+        "title": "Walk of the Year",
         "publisher": "Peninsula Insider",
         "url": "https://peninsulainsider.com.au/awards/walk-of-the-year/",
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 124778,
-      "markdownBytes": 691
+      "htmlBytes": 115123,
+      "markdownBytes": 1184
     },
     {
       "id": "https://peninsulainsider.com.au/awards/worth-the-drive/",
-      "title": "Worth The Drive",
+      "title": "Worth-the-Drive Award",
       "section": "awards",
       "canonicalUrl": "https://peninsulainsider.com.au/awards/worth-the-drive/",
       "markdownUrl": "https://peninsulainsider.com.au/awards/worth-the-drive/index.md",
-      "contentSha256": "087b4915fe35533d06fc89bfa494eaec730370e764a366b05dc3c50a79bb5618",
+      "contentSha256": "0934619b23dd25e7be39dede42e27f4e8071753015ae282d77d1bda87c58dcb9",
       "citation": {
-        "title": "Worth The Drive",
+        "title": "Worth-the-Drive Award",
         "publisher": "Peninsula Insider",
         "url": "https://peninsulainsider.com.au/awards/worth-the-drive/",
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 124765,
-      "markdownBytes": 689
+      "htmlBytes": 115165,
+      "markdownBytes": 1188
     },
     {
       "id": "https://peninsulainsider.com.au/boating/",
@@ -4467,7 +4467,7 @@
       "section": "journal",
       "canonicalUrl": "https://peninsulainsider.com.au/journal/",
       "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
-      "contentSha256": "9883bc7fdf07097fe71de7486f8c1e1cdf9e795e76bc7049cd12af43e4188a88",
+      "contentSha256": "d19b574f524c8b5e3b7ec95a2c8c12c1ca0e4110a6d943ddf939ec01854d5941",
       "citation": {
         "title": "Devilbend Farm Beer Co: a brewery on a working farm",
         "publisher": "Peninsula Insider",
@@ -4475,8 +4475,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 231756,
-      "markdownBytes": 19413
+      "htmlBytes": 228017,
+      "markdownBytes": 19441
     },
     {
       "id": "https://peninsulainsider.com.au/journal/a-flinders-weekend/",
@@ -4807,7 +4807,7 @@
       "section": "journal",
       "canonicalUrl": "https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/",
       "markdownUrl": "https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/index.md",
-      "contentSha256": "29993ef67f8f4c04c3414d1179bc27c7b5988ae292d1c79970a1a3304f2f2813",
+      "contentSha256": "0ba3dc31e6a2c0eafc1194696d681ebe8780ae0f9a22f2989ed47e69a7b0e7fe",
       "citation": {
         "title": "Date Night on the Mornington Peninsula: Where to Book for Two",
         "publisher": "Peninsula Insider",
@@ -6626,7 +6626,7 @@
       "section": "journal",
       "canonicalUrl": "https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/",
       "markdownUrl": "https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/index.md",
-      "contentSha256": "43457efe8f185834aa33a10d8c5e92ab78690f30301772daf496717b06c45409",
+      "contentSha256": "1aeaf26b7974ef3f228f3b703cd5aee56d66b487938200c7c4d7a563d1e2959d",
       "citation": {
         "title": "The Mornington Peninsula in Summer: How to Do It Well",
         "publisher": "Peninsula Insider",
@@ -6881,7 +6881,7 @@
       "section": "journal",
       "canonicalUrl": "https://peninsulainsider.com.au/journal/summer-school-holidays-2026/",
       "markdownUrl": "https://peninsulainsider.com.au/journal/summer-school-holidays-2026/index.md",
-      "contentSha256": "7bc91086d04bb0f8f0e4318f2d157a6d67d5ecffc53dc29abd90494437e3c038",
+      "contentSha256": "1e89a4cef8caca4d5379cdcb91f50bba5e71ba3d3fe53ad767ea190942e0d9eb",
       "citation": {
         "title": "Summer School Holidays on the Mornington Peninsula, 2026-27",
         "publisher": "Peninsula Insider",
@@ -9295,7 +9295,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "914b33e500e17ba47f0589fc72f5b5a5357f88dec5df30c456d688f6d6079ea5",
+      "contentSha256": "4638daa3dcd0a8884006f0f39cbd227b1d2ddddd869d5f1a1d60309851da6244",
       "citation": {
         "title": "What's on this weekend",
         "publisher": "Peninsula Insider",
@@ -9303,8 +9303,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-11-20"
       },
-      "htmlBytes": 189816,
-      "markdownBytes": 8805
+      "htmlBytes": 186323,
+      "markdownBytes": 8263
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
