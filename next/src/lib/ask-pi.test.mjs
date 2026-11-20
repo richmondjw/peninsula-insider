@@ -325,3 +325,17 @@ test('a short reply mid-thread stays on the thread, not on a page that shares on
   assert.equal(isFollowUp(index, 'what about a winery in Red Hill', said, { today }), false);
   assert.equal(isFollowUp(index, 'church', [], { today }), false);
 });
+
+test('"Surprise me" starts somewhere different per chat and does not repeat a town until she has been round them', () => {
+  const first = new Set();
+  for (let shuffle = 0; shuffle < 40; shuffle += 1) first.add(converse(index, 'Surprise me', null, { today, shuffle }).reply.plan?.title);
+  assert.ok(first.size > 1, 'the first surprise depends on where the chat starts');
+  let state = null;
+  const towns = [];
+  for (let i = 0; i < 2; i += 1) {
+    const turn = converse(index, 'Surprise me', state, { today, shuffle: 5 });
+    state = turn.state;
+    towns.push(turn.reply.plan?.title);
+  }
+  assert.notEqual(towns[0], towns[1]);
+});

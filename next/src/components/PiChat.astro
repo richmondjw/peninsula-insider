@@ -180,7 +180,9 @@ const starters = SHOW_ASK_PERSONA
     const hereLabel = document.getElementById('pi-chat-here-label') as HTMLElement;
     const hereChips = document.getElementById('pi-chat-here-chips') as HTMLElement;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const matchGuides = (index: any, q: string, state: any, context: Record<string, unknown>): any => converse(index, q, state, { ...context, persona: personaOn });
+    // Where "Surprise me" starts. Different on each visit, so it is not the same town every time.
+    const shuffle = Math.floor(Math.random() * 1000);
+    const matchGuides = (index: any, q: string, state: any, context: Record<string, unknown>): any => converse(index, q, state, { ...context, persona: personaOn, shuffle });
     const track = (name: string, params: Record<string, unknown>) => { try { (window as any).piTrack?.(name, params, { component: 'pi-chat' }); } catch { /* never breaks the chat */ } };
     let turns: Turn[] = [];
     try { turns = JSON.parse(store.get(sessionStorage, HISTORY) || '[]'); } catch { turns = []; }
