@@ -789,7 +789,14 @@ const starters = SHOW_ASK_PERSONA
         const reply = result.reply;
         // In conversation the tiles are the places she named, in her order; a
         // reply that names none shows none.
-        const places = spoken ? toPlaces(cardsFor(index, spoken.picks) as Card[]) : toPlaces(reply.cards);
+        // One exception: the reader asked for something the guides do have
+        // ("a great beach in Sorrento") and she named nothing, usually because
+        // her sentences about the places did not pass their check. Then the
+        // guides' own best matches go under her words, so the question is
+        // still answered.
+        const asked = turns.filter((t) => t.role === 'you').slice(0, -1).map((t) => t.text);
+        const unanswered = Boolean(spoken) && !cardsFor(index, spoken!.picks).length && ['results', 'named', 'place'].includes(reply.kind) && reply.cards.length > 0 && !isFollowUp(index, q, asked, { pagePath: location.pathname });
+        const places = spoken && !unanswered ? toPlaces(cardsFor(index, spoken.picks) as Card[]) : toPlaces(unanswered ? reply.cards.slice(0, 3) : reply.cards);
         // Her own line on a pick, where one passed the check on the platform.
         if (spoken) for (const place of places) { const line = spoken.why[place.href]; if (typeof line === 'string' && line.trim()) place.note = line.trim().slice(0, 260); }
         const turn: PiTurn = {
