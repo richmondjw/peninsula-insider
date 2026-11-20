@@ -47,6 +47,15 @@ export const SHOW_ASK_PERSONA = true;
 // platform. false returns plans to the site's own choices and authored lines.
 export const SHOW_ASK_COMPOSE = true;
 
+// PI in conversation (/concierge/pi/talk). With this on, an ordinary message
+// goes to the platform with the recent thread and the addresses of the guide
+// pages the site judges relevant, and she replies as herself: small talk,
+// follow-ups, a call between places. Each sentence is checked there against
+// those pages before it comes back. Plans, refusals for things she cannot
+// check, and her authored modes do not use it. Late, missing or unusable, the
+// chat answers from the guides as it did before. false turns it off.
+export const SHOW_ASK_TALK = true;
+
 /**
  * PUBLIC_EVENT_OCCURRENCE_MODEL: the PI-008 occurrence model, three-state.
  *

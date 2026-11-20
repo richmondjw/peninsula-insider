@@ -17,7 +17,7 @@
  * Runs in the browser. Nothing is sent or stored. Pure functions, so the same
  * file runs under node --test.
  */
-import { ask, card, select, normalise, parseQuestion, melbourneDay, sayDay, daySeed, ASK_MAX_LENGTH } from './ask-guide.mjs';
+import { ask, card, select, normalise, parseQuestion, questionWords, melbourneDay, sayDay, daySeed, ASK_MAX_LENGTH } from './ask-guide.mjs';
 import {
   REFUSALS, REFUSAL_TOPICS, INTERVIEW, YOU_PICK, PLAN_LEADS, SWAP_LINES, SWAP_ONLY, CRITIQUE, ARGUMENT, NIGHTLIFE,
   WITH_THIS, CALLBACKS, REACTIONS, NEWSLETTER, PLAN_NOTES, pick, fill,
@@ -304,6 +304,58 @@ export function applyCompose(index, state, request, result) {
   const opening = typeof result.opening === 'string' && result.opening.trim() && result.opening.length <= 400 ? result.opening.trim() : null;
   const changed = { ...plan, slots, lines };
   return { state: { ...state, pi: { ...state.pi, plan: changed } }, plan: planView(index, changed), opening };
+}
+
+// ── What she is given to talk from ─────────────────────────────────────────
+const TALK_PAGES = 24;
+const TALK_KINDS = ['eat', 'wine', 'stay', 'do', 'plan', 'place'];
+const IDLE = new Set(['long', 'week', 'weekend', 'time', 'today', 'tomorrow', 'morning', 'afternoon', 'evening', 'night', 'big', 'little', 'new', 'old', 'first', 'last', 'bit', 'lot', 'start', 'end', 'hat', 'home', 'work', 'busy', 'tired', 'fine', 'well', 'sure', 'maybe', 'people', 'person', 'anyway', 'name']);
+/**
+ * The pages sent with a conversation turn. The matcher answers a question; a
+ * conversation is looser than that ("it's our anniversary and she hates
+ * crowds"), so this casts wider, in three layers:
+ *   1. what the matcher found for this message;
+ *   2. what was on screen from the turn before, so "which of those is
+ *      quieter?" has the earlier picks to talk about;
+ *   3. pages whose own words overlap anything the reader has said in the
+ *      last few messages, favouring the town and the kind of place they
+ *      named most recently.
+ * It only chooses which pages she may read. What she says about them is
+ * checked against their text on the platform.
+ */
+export function talkPages(index, message, said = [], reply = null, shownBefore = [], context = {}) {
+  const now = (reply?.cards || []).map((item) => item.href);
+  const recent = [...said.slice(-4), message];
+  // Words that say nothing about what is wanted on their own ("long week", "good day").
+  const wanted = new Set(recent.flatMap((text) => questionWords(text)).filter((word) => !IDLE.has(word)));
+  let place = null;
+  let kinds = null;
+  for (const text of [...recent].reverse()) {
+    const parsed = parseQuestion(text, index, context);
+    place = place || parsed.place?.slug || null;
+    kinds = kinds || parsed.kinds;
+  }
+  const loose = [];
+  if (wanted.size || place) {
+    for (const record of index.records) {
+      if (!TALK_KINDS.includes(record.k)) continue;
+      const own = new Set(record.kw.split(' '));
+      let score = 0;
+      for (const word of wanted) if (own.has(word)) score += 2;
+      if (place && (record.p === place || (record.k === 'place' && record.u.endsWith(`/${place}/`)))) score += 5;
+      if (kinds?.includes(record.k)) score += 3;
+      if (record.g) score -= 1;
+      if (score >= 2) loose.push({ href: record.u, score, order: daySeed(record.u) });
+    }
+    loose.sort((a, b) => b.score - a.score || a.order - b.order);
+  }
+  return [...new Set([...now, ...shownBefore, ...loose.map((item) => item.href)])].slice(0, TALK_PAGES);
+}
+
+/** Tiles for the pages she named in a conversation turn, in her order. Same card() as everywhere else. */
+export function cardsFor(index, hrefs) {
+  const byPath = new Map(index.records.map((record) => [record.u, record]));
+  return [...new Set(Array.isArray(hrefs) ? hrefs : [])].map((href) => byPath.get(href)).filter(Boolean).slice(0, 5).map(card);
 }
 
 // ── The three taps ─────────────────────────────────────────────────────────

@@ -62,6 +62,15 @@ One rule makes it safe for her to be funny. **A line may be about the reader, ab
 - A line about the Peninsula as a whole (the nightlife line) is an editorial claim. It needs an editor's approval before it goes in.
 - `src/lib/ask-pi.test.mjs` fails the build if a line carries a price, a clock time, a weekday, an em dash or a claim to have been somewhere.
 
+### PI in conversation (20 November 2026)
+
+`SHOW_ASK_TALK` in `next/src/lib/features.ts`, with `CONCIERGE_TALK_ENABLED` on the platform, lets her hold a conversation: small talk, follow-ups, a call between places. The running version is `apps/api/src/lib/pi-talk.ts` in the platform repo. It keeps two things apart on purpose:
+
+- **`CHARACTER`: who she is in a chat.** Voice only. Change it when her personality changes.
+- **`TOPICS`: what she will and will not talk about.** Policy only. Home ground (the Peninsula, the reader, herself, small talk), not her patch (one dry line, then back), things she declines plainly (medical, legal, financial, politics, religion, anything sexual, hateful or harmful), and things she cannot check (hours, prices, availability, weather, tides, safety, access, diets).
+
+She is given the recent thread and the guide pages the site judges relevant. She may only name a place on those pages, and every sentence is checked against them before a reader sees it. Talk about the reader or herself passes freely; that is where the conversation lives. Plans, her modes, and refusals for things she cannot check do not go to the model.
+
 ### When the model writes for a plan (on since 20 November 2026)
 
 `SHOW_ASK_COMPOSE` in `next/src/lib/features.ts`, with `CONCIERGE_COMPOSE_ENABLED` on the platform, lets the model do two things for a plan: choose one page for each part of the day from the short list the site sends, and write an opening and one line per stop. It runs on an open model on Groq (`openai/gpt-oss-120b`). The key lives in the platform's Vercel project; without it composing fails closed and the plan is shown as the site built it.
