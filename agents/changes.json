@@ -1,28 +1,11 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-20T22:07:03.016Z",
+  "generatedAt": "2026-11-20T22:29:22.293Z",
   "baselineAvailable": true,
-  "fromSnapshot": "fddf5a2233b7900898be0e64a07eb23eb0fb7aac878837e5d1e59e3d9b1caa4d",
+  "fromSnapshot": "91848ca2248d6b141a2ba3d56b6cd60c474e80bc2bca2cba4af31fad82cd8b2b",
   "toSnapshot": "91848ca2248d6b141a2ba3d56b6cd60c474e80bc2bca2cba4af31fad82cd8b2b",
-  "previousGeneratedAt": "2026-11-20T21:36:25.855Z",
+  "previousGeneratedAt": "2026-11-20T22:07:03.016Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 2,
-  "changes": [
-    {
-      "id": "https://peninsulainsider.com.au/eat/rye-beachside-market/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/eat/rye-beachside-market/",
-      "markdownUrl": "https://peninsulainsider.com.au/eat/rye-beachside-market/index.md",
-      "contentSha256": "ffcbbe07f4f270e4a6e49a24f121417fb00d6a5c83f9b07402aafa405d5fa7ae",
-      "previousContentSha256": "6fc5584f57dea517d2fa101c5272afa80a71b9241f9436e597ee069929c583a1"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-05/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-05/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-05/index.md",
-      "contentSha256": "0695144835f86b34fde351559a1a86ecfcadd8d03197c260d1e68ea30cafa1b5",
-      "previousContentSha256": "ea6923cb7ff74e3cc9456b2b2e2dd13c93b54194b628e628c6a38d66c97b3167"
-    }
-  ]
+  "count": 0,
+  "changes": []
 }
