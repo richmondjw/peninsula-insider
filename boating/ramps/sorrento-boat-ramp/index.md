@@ -19,7 +19,7 @@ Surface | concrete |
 
 Tide dependence | **All-tide** |
 
-Tide reference station | Portsea |
+Tide reference station | Rosebud Jetty |
 
 Fee | Free to launch. Parking fees may apply in the broader Sorrento foreshore precinct. |
 

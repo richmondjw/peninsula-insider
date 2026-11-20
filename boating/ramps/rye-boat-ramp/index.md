@@ -19,7 +19,7 @@ Surface | concrete |
 
 Tide dependence | **Mid–high tide** |
 
-Tide reference station | Portsea |
+Tide reference station | Rosebud Jetty |
 
 Fee | Free to launch. |
 
@@ -29,7 +29,7 @@ Max vessel length | Suits standard recreational trailer boats up to approximatel
 
 Address | Off Point Nepean Road, Rye VIC 3941 (Melways 168 D3/F4) |
 
-**Tide-dependent ramp.** Check the tide before driving here with a boat on the trailer. Use [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<https://www.bom.gov.au/australia/tides/>) for the Portsea reference station.
+**Tide-dependent ramp.** Check the tide before driving here with a boat on the trailer. Use [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<https://www.bom.gov.au/australia/tides/>) for the Rosebud Jetty reference station.
 
 ## What this ramp is
 

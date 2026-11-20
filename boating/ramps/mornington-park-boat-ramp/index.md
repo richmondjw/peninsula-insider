@@ -19,7 +19,7 @@ Surface | concrete |
 
 Tide dependence | **All-tide** |
 
-Tide reference station | Port Melbourne |
+Tide reference station | Mornington |
 
 Fee | Free to launch. |
 

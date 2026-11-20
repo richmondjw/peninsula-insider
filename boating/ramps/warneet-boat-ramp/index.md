@@ -19,7 +19,7 @@ Surface | concrete |
 
 Tide dependence | **Mid–high tide** |
 
-Tide reference station | Stony Point |
+Tide reference station | Western Port (Stony Point) |
 
 Fee | Free to launch. |
 
@@ -29,7 +29,7 @@ Max vessel length | Two-lane ramp with tidal constraint. Standard trailer boats 
 
 Address | Rutherford Parade, Warneet VIC 3980 |
 
-**Tide-dependent ramp.** Check the tide before driving here with a boat on the trailer. Use [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<https://www.bom.gov.au/australia/tides/>) for the Stony Point reference station. Tide-sensitive Western Port ramp. Launch on the upper half of the tidal cycle (two hours before high water through to two hours after high water at the Stony Point reference station). At low water, the channel approach shallows substantially.
+**Tide-dependent ramp.** Check the tide before driving here with a boat on the trailer. Use [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<https://www.bom.gov.au/australia/tides/>) for the Western Port (Stony Point) reference station. Tide-sensitive Western Port ramp. Launch on the upper half of the tidal cycle (two hours before high water through to two hours after high water at the Stony Point reference station). At low water, the channel approach shallows substantially.
 
 ## What this ramp is
 

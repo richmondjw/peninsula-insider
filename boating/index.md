@@ -21,7 +21,7 @@ The ramps in this guide are free to launch. The tide decides more than the drive
 
 ### Port Phillip Bay
 
-Calmer water and a small tidal range. Use the station shown for your ramp. Tide station: **Portsea or Port Melbourne**. [Tide predictions on the Bureau of Meteorology site; choose Portsea or Port Melbourne for Port Phillip Bay](<https://www.bom.gov.au/australia/tides/>)
+Calmer water and a small tidal range. Use the BOM-listed station shown for your ramp. Tide station: **Rosebud Jetty or Mornington**. [Tide predictions on the Bureau of Meteorology site; choose Rosebud Jetty or Mornington for Port Phillip Bay](<https://www.bom.gov.au/australia/tides/>)
 
 - #### [Sorrento](<https://peninsulainsider.com.au/boating/ramps/sorrento-boat-ramp/>)
 
@@ -29,7 +29,7 @@ Breakwater shelter and the shortest run to the southern snapper grounds and the 
 
 **Launch at**
 
-Any tide  Station: Portsea
+Any tide  Station: Rosebud Jetty
 
 **Lanes**
 
@@ -45,7 +45,7 @@ The biggest car park on the bay side, with about 127 trailer spaces and fish‑c
 
 **Launch at**
 
-Mid to high tide  1 to 2 hours either side of high water   Station: Portsea
+Mid to high tide  1 to 2 hours either side of high water   Station: Rosebud Jetty
 
 **Lanes**
 
@@ -61,7 +61,7 @@ Plenty of trailer parking and a picnic ground alongside. Not one for a low-tide 
 
 **Launch at**
 
-High tide only  About 2 hours either side of high water   Station: Port Melbourne
+High tide only  About 2 hours either side of high water   Station: Mornington
 
 **Lanes**
 
@@ -77,7 +77,7 @@ Central bay shore. The car park is shared with the pier and the yacht club, so i
 
 **Launch at**
 
-Any tide  Station: Port Melbourne
+Any tide  Station: Mornington
 
 **Lanes**
 
@@ -89,7 +89,7 @@ High
 
 ### Western Port
 
-Strongly tidal. Time your launch and your return. Tide station: **Stony Point**. [Tide predictions on the Bureau of Meteorology site; choose Stony Point for Western Port](<https://www.bom.gov.au/australia/tides/>)
+Strongly tidal. Time your launch and your return. Tide station: **Western Port (Stony Point)**. [Tide predictions on the Bureau of Meteorology site; choose Western Port (Stony Point) for Western Port](<https://www.bom.gov.au/australia/tides/>)
 
 - #### [Hastings](<https://peninsulainsider.com.au/boating/ramps/hastings-boat-ramp/>)
 
@@ -97,7 +97,7 @@ Upgraded in 2024, with an all-abilities hoist on the new southern pontoon. The b
 
 **Launch at**
 
-Any tide  Station: Stony Point
+Any tide  Station: Western Port (Stony Point)
 
 **Lanes**
 
@@ -113,7 +113,7 @@ Smaller and quieter, with a central pontoon, for the whiting and flathead ground
 
 **Launch at**
 
-Mid to high tide  2 hours either side of high water for boats over 4.5 m   Station: Stony Point
+Mid to high tide  2 hours either side of high water for boats over 4.5 m   Station: Western Port (Stony Point)
 
 **Lanes**
 

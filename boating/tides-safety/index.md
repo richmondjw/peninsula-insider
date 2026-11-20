@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/boating/tides-safety/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-04-30
+Modified: 2026-11-20
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -11,7 +11,7 @@ Boating
 
 Pre-trip planning for Port Phillip Bay and Western Port. The reference stations to use, the conditions to read, the alternatives to know about. The kind of session that does not feature in the news is the one that started with the right pre-trip check.
 
-Last fact-verified Thu, 30 Apr 2026.
+Last fact-verified Fri, 20 Nov 2026.
 
 ## Tidal range, by water body
 
@@ -19,13 +19,13 @@ Port Phillip Bay has a modest tidal range, typically 0.6 to 1.0m at Port Melbour
 
 ### Port Phillip Bay reference stations
 
-- **Portsea** for the southern bay (Sorrento, Rye, southern grounds).
+- **Rosebud Jetty** for the southern bay ramps in this guide (Sorrento and Rye).
 
-- **Port Melbourne** for the northern bay (Mornington, Mount Martha, Safety Beach).
+- **Mornington** for Mornington and Safety Beach.
 
 ### Western Port reference station
 
-- **Stony Point** for all Western Port locations: Hastings, Warneet, Tooradin, Cowes, San Remo, and Flinders Pier.
+- **Western Port (Stony Point)** for Hastings and Warneet. BOM also lists Flinders Jetty, Tooradin, Cowes Jetty and San Remo; choose the station closest to your actual route.
 
 Look up tides at [Willyweather](<https://tides.willyweather.com.au/>) or [the Bureau of Meteorology](<https://www.bom.gov.au/australia/tides/>). The night before and morning of every trip.
 
@@ -39,7 +39,7 @@ Read the Bureau of Meteorology local waters forecast for [Port Phillip](<https:/
 
 ## Lifejackets and licensing
 
-Carry a correctly fitted lifejacket for every person. Children under 12 must wear one whenever the vessel is underway, and additional wearing rules apply during heightened-risk situations and in designated hazardous waters. Check the current [lifejacket rules](<https://safetransport.vic.gov.au/on-the-water/recreational-boating/wear-a-lifejacket/>) before departure. For hire-and-drive boats, a marine licence is required when the vessel is capable of more than 10 knots; the owner must brief hirers on the vessel's operating requirements. See [Safe Transport Victoria's licensing guidance](<https://safetransport.vic.gov.au/on-the-water/marine-licence-and-vessel-registration/licensing-and-registration/>).
+Carry a correctly fitted lifejacket for every person. On a powered vessel up to and including 4.8 metres, everyone in an open area must wear the specified lifejacket while underway. On powered vessels over 4.8 metres and under 12 metres, it must be worn in heightened-risk situations. Children under 12 must wear one in an open area whenever the vessel is underway. Port Phillip Heads, within three nautical miles of Point Lonsdale, is a designated hazardous area where everyone on vessels under 12 metres must wear one. Check the current [lifejacket rules](<https://safetransport.vic.gov.au/on-the-water/recreational-boating/wear-a-lifejacket/>) before departure. For hire-and-drive boats, a marine licence is required when the vessel is capable of more than 10 knots; the owner must brief hirers on the vessel's operating requirements. See [Safe Transport Victoria's licensing guidance](<https://safetransport.vic.gov.au/on-the-water/marine-licence-and-vessel-registration/licensing-and-registration/>).
 
 ## Return-to-ramp planning
 
@@ -75,7 +75,7 @@ Port Phillip Bay has a modest tidal range, typically 0.6 to 1.0m at Port Melbour
 
 ### How do I check tides for the Peninsula?
 
-Use Willyweather (tides.willyweather.com.au) or BOM tidal predictions (bom.gov.au/australia/tides/) and select the reference station relevant to your launch point: Portsea (southern Port Phillip Bay), Port Melbourne (northern bay), or Stony Point (Western Port). For Flinders Pier, use the Stony Point predictions; the lag is small enough that the station is the right reference.
+Use BOM tidal predictions and select a station that appears in its current Victorian list: Rosebud Jetty for Sorrento and Rye, Mornington for Safety Beach and Mornington, Western Port (Stony Point) for Hastings and Warneet, or Flinders Jetty for Flinders. Confirm local ramp conditions before launching.
 
 ### What is the Rip and why does it matter?
 

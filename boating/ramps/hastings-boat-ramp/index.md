@@ -19,7 +19,7 @@ Surface | concrete |
 
 Tide dependence | **All-tide** |
 
-Tide reference station | Stony Point |
+Tide reference station | Western Port (Stony Point) |
 
 Fee | Free to launch. |
 
