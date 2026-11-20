@@ -27,6 +27,8 @@ import V5Breadcrumbs from '../components/v5/chrome/V5Breadcrumbs.astro';
 import V5Footer from '../components/v5/chrome/V5Footer.astro';
 import SearchOverlay from '../components/SearchOverlay.astro';
 import PiChat from '../components/PiChat.astro';
+import AskGuideDialog from '../components/AskGuideDialog.astro';
+import { ASK_GUIDE_ON } from '../lib/features';
 import AuthModal from '../components/v2/AuthModal.astro';
 import ProfileDropdown from '../components/v2/ProfileDropdown.astro';
 import CookieBanner from '../components/CookieBanner.astro';
@@ -452,6 +454,7 @@ const showNewsletterPopup = !isPlanningJourney && !isPlaceGuide && normalizedPat
        [data-open-search] trigger or the `/` keyboard shortcut. -->
   <SearchOverlay />
   <PiChat />
+  {ASK_GUIDE_ON && <AskGuideDialog />}
 
   {/* Game corner peek (off: PLAY.enabled in lib/play.ts). Content pages only, once
       per week, waits for consent and stands down if the Insider Note popup is up. */}

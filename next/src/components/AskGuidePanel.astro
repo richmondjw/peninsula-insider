@@ -1,0 +1,90 @@
+---
+/**
+ * The Ask PI conversation: what it is, example questions, the thread, and the
+ * question box. Used inside the masthead dialog and on /ask/.
+ *
+ * Without JavaScript the form is an ordinary site search. With it,
+ * scripts/ask-guide-ui.ts answers in place from /ask/index.json.
+ */
+import { ASK_MAX_LENGTH } from '../lib/ask-guide.mjs';
+
+interface Props {
+  /** Prefix for ids, so the dialog and the page can sit in one document. */
+  id: string;
+  /** Answer a ?q= in the address straight away (the /ask/ page). */
+  autostart?: boolean;
+}
+const { id, autostart = false } = Astro.props;
+const examples = ['Lunch in Red Hill', "What's on this weekend", 'Places to stay in Sorrento', 'Coastal walks'];
+---
+<div class="ask-guide" data-ask-guide-root data-ask-guide-autostart={autostart ? 'true' : undefined}>
+  <div class="ask-guide__scroll" data-ask-guide-scroll data-lenis-prevent>
+    <p class="ask-guide__scope" id={`${id}-scope`}>
+      Ask PI finds the pages in our guides that match your question and shows what they say. It doesn’t use AI, and it doesn’t send or save what you type. It can’t check opening hours, prices or conditions on the day.
+    </p>
+    <div class="ask-guide__chips ask-guide__examples" data-ask-guide-examples role="group" aria-label="Example questions">
+      {examples.map((question) => <button type="button" data-ask-guide-chip={question}>{question}</button>)}
+    </div>
+    <div class="ask-guide__log" data-ask-guide-log role="log" aria-label="Ask PI conversation"></div>
+  </div>
+  <form class="ask-guide__form" action="/search/" method="get" data-ask-guide-form>
+    <label for={`${id}-question`}>Your question</label>
+    <div class="ask-guide__compose">
+      <input id={`${id}-question`} name="q" type="text" maxlength={ASK_MAX_LENGTH} autocomplete="off" enterkeyhint="send" required data-ask-guide-input
+        placeholder="Dinner in Flinders, or what’s on Saturday" />
+      <button class="pi-btn pi-btn--solid" type="submit">Ask</button>
+    </div>
+    <p class="ask-guide__status" data-ask-guide-status role="status"></p>
+    <p class="ask-guide__foot">
+      <button type="button" class="ask-guide__reset" data-ask-guide-reset hidden>Start over</button>
+      <a href="/corrections/">Something wrong on a page? Tell us</a>
+    </p>
+  </form>
+</div>
+
+<script>
+  import '../scripts/ask-guide-ui';
+</script>
+
+<style>
+  .ask-guide { display: flex; flex-direction: column; min-height: 0; color: var(--text); font: var(--fs-400)/1.5 var(--font-ui); }
+  .ask-guide__scroll { flex: 1 1 auto; min-height: 0; overflow: auto; overscroll-behavior: contain; }
+  .ask-guide__scope, .ask-guide__foot, .ask-guide__status { margin: 0; color: var(--soft); font: var(--fs-300)/1.45 var(--font-ui); }
+  .ask-guide__status:empty { display: none; }
+  .ask-guide :global(.ask-guide__chips) { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-4); }
+  .ask-guide :global(.ask-guide__chips[hidden]) { display: none; }
+  .ask-guide :global(.ask-guide__chips button) { min-height: 44px; padding: var(--space-2) var(--space-3); text-align: start; border: 1px solid var(--border-control); border-radius: var(--radius-pill); color: var(--accent); background: var(--white); font: var(--fw-medium) var(--fs-300)/1.3 var(--font-ui); cursor: pointer; }
+  .ask-guide :global(:is(a, button, input):focus-visible) { outline: var(--focus-ring); outline-offset: 2px; }
+
+  .ask-guide__log :global(.ask-guide__sr) { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .ask-guide__log :global(.ask-guide__turn) { margin-block-start: var(--space-5); scroll-margin-block: var(--space-4); overflow-wrap: anywhere; }
+  .ask-guide__log :global(.ask-guide__question) { margin: 0 0 var(--space-2); font-weight: var(--fw-semibold); }
+  .ask-guide__log :global(.ask-guide__answer) { padding: var(--space-4); background: var(--bg-alt); border-radius: var(--radius-s); }
+  .ask-guide__log :global(.ask-guide__lead) { margin: 0; }
+  .ask-guide__log :global(.ask-guide__cards) { margin: var(--space-3) 0 0; padding: 0; list-style: none; border-top: 1px solid var(--border); }
+  .ask-guide__log :global(.ask-guide__card) { padding-block: var(--space-3); border-bottom: 1px solid var(--border); }
+  .ask-guide__log :global(.ask-guide__card-title) { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); font: var(--fw-semibold) var(--fs-500)/1.25 var(--font-display); text-decoration: underline; text-underline-offset: 3px; }
+  .ask-guide__log :global(.ask-guide__badge) { margin-inline-start: var(--space-2); padding: 2px var(--space-2); border: 1px solid currentColor; border-radius: var(--radius-s); font: var(--fw-semibold) var(--fs-200)/1.3 var(--font-ui); }
+  .ask-guide__log :global(.ask-guide__meta) { margin: 0; color: var(--soft); font: var(--fw-medium) var(--fs-300)/1.4 var(--font-ui); }
+  .ask-guide__log :global(.ask-guide__summary) { margin: var(--space-1) 0 0; }
+  .ask-guide__log :global(.ask-guide__facts) { margin: var(--space-2) 0 0; font-size: var(--fs-300); }
+  .ask-guide__log :global(.ask-guide__facts div) { display: flex; gap: var(--space-2); }
+  .ask-guide__log :global(.ask-guide__facts dt) { flex: none; color: var(--soft); }
+  .ask-guide__log :global(.ask-guide__facts dt::after) { content: ':'; }
+  .ask-guide__log :global(.ask-guide__facts dd) { margin: 0; }
+  .ask-guide__log :global(.ask-guide__note) { margin: var(--space-3) 0 0; color: var(--soft); font-size: var(--fs-300); }
+  .ask-guide__log :global(.ask-guide__links) { margin: var(--space-2) 0 0; padding: 0; list-style: none; }
+  .ask-guide__log :global(.ask-guide__links a) { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+  .ask-guide__log :global(.ask-guide__chips) { margin-top: var(--space-2); }
+
+  .ask-guide__form { flex: none; display: grid; gap: var(--space-2); }
+  .ask-guide__form label { font-weight: var(--fw-semibold); }
+  .ask-guide__compose { display: flex; gap: var(--space-2); }
+  .ask-guide__compose input { flex: 1 1 auto; width: 0; min-width: 0; min-height: 48px; padding: 0 var(--space-3); border: 1px solid var(--border-control); border-radius: var(--radius-s); color: var(--text); background: var(--white); font: var(--fs-400)/1.3 var(--font-ui); }
+  .ask-guide__compose input::placeholder { color: var(--soft); opacity: 1; }
+  .ask-guide__compose button { flex: none; min-height: 48px; }
+  .ask-guide__foot { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-4); }
+  .ask-guide__foot a { display: inline-flex; align-items: center; min-height: 44px; color: var(--soft); text-decoration: underline; text-underline-offset: 3px; }
+  .ask-guide__reset { min-height: 44px; padding: 0; border: 0; background: none; color: var(--accent); font: inherit; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+  .ask-guide__reset[hidden] { display: none; }
+</style>

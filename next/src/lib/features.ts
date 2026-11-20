@@ -1,8 +1,9 @@
 /**
  * Feature flags — toggle site features without removing code.
  *
- * SHOW_ASK_PI: false pauses concierge; the Ask PI menu links to site search.
- * Re-enable by setting to true and rebuilding.
+ * SHOW_ASK_PI: the generated-answer concierge (PiChat, the platform API). Off.
+ * SHOW_ASK_GUIDE: Ask PI answered from the published guides, in the browser.
+ * With both false the Ask PI menu links to the paused page and site search.
  *
  * SHOW_HOME_COVER_SLIDESHOW is retained for legacy imports only. The homepage
  * now renders a static photograph; restoring motion requires an explicit design review.
@@ -15,6 +16,14 @@ import { occurrenceModelEnabled } from './event-occurrence.mjs';
 // generated recommendations could add decision-critical details not supported
 // by the linked PI pages. Search remains available across the site.
 export const SHOW_ASK_PI = false;
+
+// Ask PI from the guides: matches a question to published pages and shows what
+// those pages say (lib/ask-guide.mjs over /ask/index.json, which
+// scripts/generate-ask-index.mjs copies from the built pages). Nothing is
+// generated, sent or stored. It never turns the concierge on: the two are
+// separate code paths and SHOW_ASK_PI wins if both are ever set.
+export const SHOW_ASK_GUIDE = true;
+export const ASK_GUIDE_ON: boolean = SHOW_ASK_GUIDE && !SHOW_ASK_PI;
 
 /**
  * PUBLIC_EVENT_OCCURRENCE_MODEL: the PI-008 occurrence model, three-state.

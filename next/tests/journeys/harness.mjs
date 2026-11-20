@@ -56,6 +56,7 @@ const HERE = path.dirname(fileURLToPath(import.meta.url));
 const NEXT_DIR = path.resolve(HERE, '..', '..');
 const DIST_DIR = path.join(NEXT_DIR, 'dist');
 const PAGEFIND_STUB = path.join(HERE, 'fixtures', 'pagefind-stub.js');
+const ASK_INDEX_STUB = path.join(HERE, 'fixtures', 'ask-index.json');
 
 const MIME = {
   '.html': 'text/html; charset=utf-8',
@@ -115,6 +116,9 @@ function resolveFile(urlPath) {
   // The search page dynamically imports /pagefind/pagefind.js. Serve the
   // fixture in its place; see the header note.
   if (urlPath === '/pagefind/pagefind.js') return PAGEFIND_STUB;
+  // Ask PI answers from /ask/index.json. Serve a fixed one so the journey does
+  // not change with the guides and does not need the post-build generator.
+  if (urlPath === '/ask/index.json') return ASK_INDEX_STUB;
   let target = path.join(DIST_DIR, urlPath);
   if (!path.extname(target)) {
     if (fs.existsSync(path.join(target, 'index.html'))) target = path.join(target, 'index.html');

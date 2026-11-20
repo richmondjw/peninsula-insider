@@ -1,0 +1,118 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-11-20T03:00:00.000Z",
+  "catalogueSnapshot": "fixture",
+  "snapshotId": "fixture",
+  "timezone": "Australia/Melbourne",
+  "semantics": "Journey-test fixture.",
+  "count": 6,
+  "places": [
+    {
+      "slug": "flinders",
+      "name": "Flinders"
+    },
+    {
+      "slug": "red-hill",
+      "name": "Red Hill"
+    },
+    {
+      "slug": "sorrento",
+      "name": "Sorrento"
+    }
+  ],
+  "topics": {
+    "dogs": {
+      "u": "/dog-friendly/",
+      "t": "The practical guide to doing the Peninsula properly with the dog"
+    }
+  },
+  "records": [
+    {
+      "u": "/eat/tedesca-osteria/",
+      "k": "eat",
+      "t": "Tedesca Osteria",
+      "s": "A single-set-menu osteria inside a restored Red Hill farmhouse.",
+      "ty": "Restaurant",
+      "p": "red-hill",
+      "pn": "Red Hill",
+      "f": [
+        [
+          "Best for",
+          "Long lunches · Couples"
+        ]
+      ],
+      "h": "fixture00000",
+      "kw": "tedesca osteria restaurant red hill single set menu inside restored farmhouse long lunch couple"
+    },
+    {
+      "u": "/eat/red-gum-bbq/",
+      "k": "eat",
+      "t": "Red Gum BBQ",
+      "s": "Low-and-slow barbecue at picnic tables in an airy warehouse.",
+      "ty": "Restaurant",
+      "p": "red-hill",
+      "pn": "Red Hill",
+      "f": [
+        [
+          "Best for",
+          "Family outings · Big groups"
+        ]
+      ],
+      "h": "fixture00000",
+      "kw": "red gum bbq restaurant hill low slow barbecue picnic table airy warehouse family outing big group"
+    },
+    {
+      "u": "/eat/flinders-general-store/",
+      "k": "eat",
+      "t": "Flinders General Store",
+      "s": "The village general store on the main street of Flinders.",
+      "ty": "Café",
+      "p": "flinders",
+      "pn": "Flinders",
+      "f": [
+        [
+          "Best for",
+          "Morning stop · Brunch"
+        ]
+      ],
+      "h": "fixture00000",
+      "kw": "flinder general store cafe village main street morning stop brunch"
+    },
+    {
+      "u": "/stay/lindenderry/",
+      "k": "stay",
+      "t": "Lindenderry at Red Hill",
+      "s": "A country-house hotel among the vines at Red Hill.",
+      "ty": "Hotel",
+      "p": "red-hill",
+      "pn": "Red Hill",
+      "f": [
+        [
+          "Best for",
+          "Couples"
+        ]
+      ],
+      "h": "fixture00000",
+      "kw": "lindenderry red hill hotel country house among vine couple"
+    },
+    {
+      "u": "/explore/coppins-track/",
+      "k": "do",
+      "t": "Coppins Track",
+      "s": "Coppins Track runs from Sorrento Ocean Beach to Diamond Bay.",
+      "ty": "Walk",
+      "p": "sorrento",
+      "pn": "Sorrento",
+      "h": "fixture00000",
+      "kw": "coppin track walk sorrento run ocean beach diamond bay"
+    },
+    {
+      "u": "/explore/places/red-hill/",
+      "k": "place",
+      "t": "Red Hill",
+      "s": "The ridge at the centre of the Peninsula wine country.",
+      "h": "fixture00000",
+      "kw": "red hill ridge centre wine country"
+    }
+  ]
+}

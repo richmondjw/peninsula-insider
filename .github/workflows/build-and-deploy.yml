@@ -176,6 +176,7 @@ jobs:
             --sitemap next/dist/sitemap.xml \
             --out-dir next/dist
           node next/scripts/generate-agent-formats.mjs --dist next/dist
+          node next/scripts/generate-ask-index.mjs --dist next/dist
           node next/scripts/audit-agent-welcome.mjs --dist next/dist --report ops/reports/seo/agent-welcome.json
 
       - name: Retain agent experience acceptance
