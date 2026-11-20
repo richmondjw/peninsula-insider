@@ -10,3 +10,28 @@ test('actual calendar loader requires fresh reviewed import geography and suppli
 test('actual loader retains published/current and explicit cancellation-option semantics within Shire',async()=>{const cancelled=fixture({slug:'cancelled',cancelled:true}),draft=fixture({slug:'draft',status:'review'});assert.deepEqual(await load([cancelled,draft]),[]);assert.deepEqual((await load([cancelled,draft],{includeCancelled:true})).map(e=>e.slug),['cancelled']);});
 
 test('actual calendar static chips omit price claims and free feed classification requires unexpired verification',async()=>{const price={label:'Free',sourceUrl:'https://example.com/price',checkedAt:'2026-10-09T21:00:00Z',validUntil:'2026-10-09T23:00:00Z'};const loaded=await load([fixture({slug:'raw',priceTier:'free',freePaid:'Free'}),fixture({slug:'fresh',verifiedPrice:price}),fixture({slug:'expired',verifiedPrice:{...price,checkedAt:'2026-10-09T00:00:00Z',validUntil:'2026-10-09T01:00:00Z'}})]);assert(loaded.every(live=>live.accessLabel===null&&live.meta.every(label=>!/^Free/.test(label))));const feed=feedFor(loaded);assert.equal(feed.find(e=>e.slug==='raw').f,false);assert.equal(feed.find(e=>e.slug==='expired').f,false);assert.equal(feed.find(e=>e.slug==='fresh').f,true);assert.equal(feed.find(e=>e.slug==='fresh').fp.validUntil,price.validUntil);});
+
+test('the JSON feed drops a finished final session but retains active and future events', async () => {
+  const bundle = await build({
+    entryPoints: [fileURLToPath(new URL('../src/pages/whats-on/_data.ts', import.meta.url))],
+    bundle: true, write: false, format: 'esm', platform: 'node',
+    define: { 'import.meta.env.PUBLIC_EVENT_OCCURRENCE_MODEL': '"on"' },
+    plugins: [{ name: 'fixture-content', setup(build) {
+      build.onResolve({ filter: /^astro:content$/ }, () => ({ path: 'astro:content', namespace: 'fixture' }));
+      build.onLoad({ filter: /.*/, namespace: 'fixture' }, () => ({ contents: 'export async function getCollection() { return []; }', loader: 'js' }));
+    } }],
+  });
+  const { feedEligibleEvents } = await import('data:text/javascript;base64,' + Buffer.from(bundle.outputFiles[0].text).toString('base64'));
+  const date = (day) => new Date(`${day}T00:00:00Z`);
+  const live = (slug, start, end, endTime = '20:00') => ({
+    slug,
+    event: { data: { slug, title: slug, summary: slug, status: 'published', startDate: start, endDate: end, startTime: '17:00', endTime, timezone: 'Australia/Melbourne' } },
+    rule: { kind: 'range', start: date(start), end: date(end) },
+  });
+  const finished = live('finished', '2026-11-20', '2026-11-20');
+  const ongoing = live('ongoing', '2026-11-19', '2026-11-21');
+  const future = live('future', '2026-11-21', '2026-11-21');
+  const entries = [finished, ongoing, future];
+  assert.deepEqual(feedEligibleEvents(entries, new Date('2026-11-20T08:30:00Z')).map((item) => item.slug), ['finished', 'ongoing', 'future']);
+  assert.deepEqual(feedEligibleEvents(entries, new Date('2026-11-20T09:01:00Z')).map((item) => item.slug), ['ongoing', 'future']);
+});

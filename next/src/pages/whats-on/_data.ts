@@ -234,6 +234,17 @@ export function isDatedCalendarEvent(live: LiveEvent): boolean {
   return eventContentKind(data) === 'event' && (data.dateBasis ?? 'fixed') === 'fixed';
 }
 
+/** Keep the JSON island aligned with the visible calendar after today's final session ends. */
+export function feedEligibleEvents(events: LiveEvent[], now: Date): LiveEvent[] {
+  const today = startOfDay(now);
+  return events.filter(isDatedCalendarEvent).filter((live) => {
+    const lastDay = startOfDay(live.rule.end).getTime();
+    if (lastDay > today.getTime()) return true;
+    if (lastDay < today.getTime()) return false;
+    return groupByDay([live], { start: today, end: today }, now)[0]?.items.length > 0;
+  });
+}
+
 // ---------------------------------------------------------------------------
 // Day grouping (server side, default weekend view)
 // ---------------------------------------------------------------------------
