@@ -677,10 +677,10 @@ Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery p
 
 - [Sat, 21 Nov
 
-### CREATE: Pottery for your table
+### Deja Vu Live at Peninsula Beer Garden
 
-Mornington
+Boneo
 
-A ceramic charcuterie platter workshop with Caitlin from Peachy Keen Ceramics, part of Mornington Peninsula Shire's CREATE programme.
+Enjoy live music at Peninsula Beer Garden! Deja Vu are a dynamic duo playing upbeat covers, that make you want to get up and dance.
 
- Event · Arts](<https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/>)
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/deja-vu-live-at-peninsula-beer-garden-2026-11-21/>)

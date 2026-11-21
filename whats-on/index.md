@@ -29,33 +29,19 @@ Enjoy live music at Peninsula Beer Garden! Deja Vu are a dynamic duo playing upb
 
 Live Music
 
-- Sat, 21 Nov · 9am–2pm · Balnarring
+- Mornington Peninsula Regional Gallery, Mornington   Photo: pru\_mitchell / Wikimedia Commons, CC BY 2.0.
 
-### [Emu Plains Market](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
+Sat, 21 Nov · 11am–4pm · Mornington
 
-Emu Plains is the artisan market that actually feels like the Peninsula: stringybarks, music, makers you'd buy from twice.
+### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
 
-Markets
+Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
+
+Exhibitions
 
 ## Day by day
 
 ### Saturday 21 November
-
-- 10am
-
-[CREATE: Pottery for your table](<https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/>)
-
-A ceramic charcuterie platter workshop with Caitlin from Peachy Keen Ceramics, part of Mornington Peninsula Shire's CREATE programme.
-
-Mornington · Arts
-
-- 10.30am
-
-[Pitmaster Masterclass at Red Gum BBQ](<https://peninsulainsider.com.au/whats-on/pitmaster-masterclass-at-red-gum-bbq-2026-11-21/>)
-
-Low & Slow Pitmaster Masterclass at Red Gum BBQ Get hands-on with the art of authentic Southern-style BBQ at Red Gum BBQ, Red Hill. There’s a little more to great BBQ than throwing a few snags on the grill.
-
-Red Hill · Food & Wine
 
 - 11am
 
@@ -64,14 +50,6 @@ Red Hill · Food & Wine
 Choose a shuttle ticket for four venues on one route, or the Festival Hub for a single-site day with parking and the main stage.
 
 Mount Martha · Festivals
-
-- 11am
-
-[National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
-
-Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
-
-Mornington · Exhibitions · Recurring weekly
 
 - 5pm
 
@@ -134,14 +112,6 @@ Moorooduc · Cellar Doors
 A VFMA-accredited village market with local growers and specialty makers, supported by the Mt Eliza Chamber of Commerce.
 
 Mount Eliza · Markets · Recurring monthly
-
-- 11am
-
-[National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
-
-Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
-
-Mornington · Exhibitions · Recurring weekly
 
 - 1pm
 

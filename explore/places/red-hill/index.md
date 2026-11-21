@@ -553,12 +553,12 @@ There will be live music by James Vincent and amazing catering by Three Little C
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/james-vincent-live-at-fenian-wines-2026-12-12/>)
 
-- [Sat, 21 Nov
+- [Sat, 19 Dec
 
-### Pitmaster Masterclass at Red Gum BBQ
+### Tony J King Live at Fenian Wines
 
 Red Hill
 
-Low & Slow Pitmaster Masterclass at Red Gum BBQ Get hands-on with the art of authentic Southern-style BBQ at Red Gum BBQ, Red Hill. There’s a little more to great BBQ than throwing a few snags on the grill.
+There will be live music by Tony J King Food and catering by Brothl Ramen. Enjoy a weekend for all the family, great wine, delicious food and live music all in the relaxed space of Fenian Wines.
 
- Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/pitmaster-masterclass-at-red-gum-bbq-2026-11-21/>)
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/tony-j-king-live-at-fenian-wines-2026-12-19/>)

@@ -381,7 +381,7 @@ Coming up in Balnarring, pulled from the events registry.
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
-- [Sat, 21 Nov
+- [Sat, 19 Dec
 
 ### ✦ Emu Plains Market
 

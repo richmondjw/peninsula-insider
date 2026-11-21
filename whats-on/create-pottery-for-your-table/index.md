@@ -11,8 +11,6 @@ Event     Arts     21 November 2026     One-off date
 
 A ceramic charcuterie platter workshop with Caitlin from Peachy Keen Ceramics, part of Mornington Peninsula Shire's CREATE programme.
 
-[Check latest details](<https://www.eventbrite.com.au/e/create-pottery-for-your-table-tickets-2003897868468>)
-
 This listing is for the morning charcuterie workshop at Mornington Community House, not the separate afternoon jug session or regular Peachy Keen Ceramics studio classes. Check ticket availability with the organiser.
 
 [Check the latest details at the source →](<https://www.eventbrite.com.au/e/create-pottery-for-your-table-tickets-2003897868468>)
@@ -47,7 +45,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Check latest details](<https://www.eventbrite.com.au/e/create-pottery-for-your-table-tickets-2003897868468>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=CREATE%3A+Pottery+for+your+table&dates=20261120T230000Z%2F20261121T010000Z&details=A+ceramic+charcuterie+platter+workshop+with+Caitlin+from+Peachy+Keen+Ceramics%2C+part+of+Mornington+Peninsula+Shire%27s+CREATE+programme.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fcreate-pottery-for-your-table%2F&location=Mornington+Community+House%2C+Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+Booking and calendar links are withdrawn; this session has finished.
 
 Keep planning
 

@@ -77,24 +77,6 @@ Merricks
 
 Swipe or scroll through the picks
 
-- ### [Emu Plains Market](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
-
-Emu Plains is the artisan market that actually feels like the Peninsula: stringybarks, music, makers you'd buy from twice.
-
-Sat, 21 Nov   Emu Plains Reserve   Market
-
-Event details checked 16 Nov 2026 · [Organiser’s page](<https://www.emuplainsmarket.com.au/markets/november>)
-
-- Mornington Peninsula Regional Gallery, Mornington   Photo: Robert Blackburn, courtesy of Visit Victoria.
-
-### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
-
-Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
-
-Sat, 21 Nov   Mornington Peninsula Regional Gallery   Tuesday to Sunday, 11am to 4pm
-
-Event details checked 16 Nov 2026 · [Organiser’s page](<https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026>)
-
 - ### [Coco Michelle Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/coco-michelle-live-at-tar-barrel-2026-11-21/>)
 
 Live music from Coco Michelle at Tar Barrel in Mornington.
@@ -102,6 +84,22 @@ Live music from Coco Michelle at Tar Barrel in Mornington.
 Sat, 21 Nov   Tar Barrel   Live music
 
 Event details checked 9 Nov 2026 · [Organiser’s page](<https://tarbarrel.com.au/music/>)
+
+- ### [Deja Vu Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/deja-vu-live-at-peninsula-beer-garden-2026-11-21/>)
+
+Enjoy live music at Peninsula Beer Garden! Deja Vu are a dynamic duo playing upbeat covers, that make you want to get up and dance.
+
+Sat, 21 Nov   Peninsula Beer Garden   Live music
+
+Event details checked 9 Nov 2026 · [Organiser’s page](<https://peninsulabeergarden.com.au/live-music/>)
+
+- ### [Oskar Proy Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/oskar-proy-live-at-jetty-road-brewery-2026-11-21/>)
+
+Live music every weekend at Jetty Road Brewery!
+
+Sat, 21 Nov   Jetty Road Brewery   Live music
+
+Event details checked 9 Nov 2026 · [Organiser’s page](<https://www.jettyroad.com.au/dromana>)
 
 This season · Spring
 

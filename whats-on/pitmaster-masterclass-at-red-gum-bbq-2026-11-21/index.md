@@ -11,8 +11,6 @@ Event     Food & Wine     21 November 2026     One-off date
 
 Low & Slow Pitmaster Masterclass at Red Gum BBQ Get hands-on with the art of authentic Southern-style BBQ at Red Gum BBQ, Red Hill. There’s a little more to great BBQ than throwing a few snags on the grill.
 
-[Book or check details](<https://www.sevenrooms.com/events/redgumbbq>)
-
 Session time checked on 19 November 2026. Check the organiser’s ticket page for current availability before booking.
 
 [Check the latest details at the source →](<https://www.sevenrooms.com/events/redgumbbq>)
@@ -47,7 +45,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.sevenrooms.com/events/redgumbbq>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Pitmaster+Masterclass+at+Red+Gum+BBQ&dates=20261120T233000Z%2F20261121T020000Z&details=Low+%26+Slow+Pitmaster+Masterclass+at+Red+Gum+BBQ+Get+hands-on+with+the+art+of+authentic+Southern-style+BBQ+at+Red+Gum+BBQ%2C+Red+Hill.+There%E2%80%99s+a+little+more+to+great+BBQ+than+throwing+a+few+snags+on+the+grill.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fpitmaster-masterclass-at-red-gum-bbq-2026-11-21%2F&location=Red+Gum+BBQ%2C+Red+Hill%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+Booking and calendar links are withdrawn; this session has finished.
 
 Keep planning
 

@@ -249,7 +249,7 @@ On the calendar
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
-- [Sat, 21 Nov
+- [Sat, 19 Dec
 
 ### ✦ Emu Plains Market
 
