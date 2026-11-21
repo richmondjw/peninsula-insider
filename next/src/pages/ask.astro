@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import AskGuidePanel from '../components/AskGuidePanel.astro';
 import { ASK_GUIDE_ON } from '../lib/features';
 export const prerender = true;
 ---
@@ -8,15 +7,25 @@ export const prerender = true;
 {ASK_GUIDE_ON ? (
 <BaseLayout
   title="Ask PI"
-  description="Ask where to eat, stay or walk on the Mornington Peninsula, or what is on. Ask PI finds the matching pages in our guides and shows what they say."
+  description="Ask PI where to eat, stay or walk on the Mornington Peninsula, or what is on. She answers from Peninsula Insider's published guides."
 >
   <main class="ask-page container">
     <header class="ask-page__head">
       <h1>Ask PI</h1>
-      <p class="ask-page__dek">Ask where to eat, stay or walk, or what’s on. Name a town or a date to narrow it.</p>
+      <p class="ask-page__dek">Tell her who’s coming and what you’re in the mood for. She’ll make the call from our published guides, and put a day in order if you want one.</p>
     </header>
     <section class="ask-page__panel" aria-label="Ask PI">
-      <AskGuidePanel id="ask-page" autostart />
+      <p class="ask-page__open"><a class="pi-btn pi-btn--solid" href="/ask/">Talk to PI</a></p>
+      <noscript>
+        <p class="ask-page__plain">PI’s chat needs JavaScript. You can still search the guides.</p>
+        <form class="ask-page__form" action="/search/" method="get" role="search" aria-label="Search Peninsula Insider" data-ask-guide-form>
+          <label for="ask-page-q">What are you looking for?</label>
+          <div class="ask-page__field">
+            <input id="ask-page-q" name="q" type="search" maxlength="500" autocomplete="off" enterkeyhint="search" />
+            <button class="pi-btn pi-btn--solid" type="submit">Search</button>
+          </div>
+        </form>
+      </noscript>
     </section>
     <nav class="ask-page__browse" aria-label="Browse Peninsula Insider">
       <h2>Or browse the guides</h2>
@@ -93,8 +102,9 @@ export const prerender = true;
   .ask-page h1 { max-width: none; }
   .ask-page__dek { margin: var(--space-3) 0 0; max-width: 58ch; color: var(--soft); font: 400 var(--fs-500)/var(--lh-body) var(--font-ui); text-wrap: pretty; }
   .ask-page__panel { margin-top: var(--space-6); }
-  .ask-page__panel :global(.ask-guide__form) { margin-top: var(--space-5); }
-  .ask-page__panel :global(.ask-guide__scroll) { overflow: visible; }
+  .ask-page__open { margin: 0; }
+  .ask-page__plain { margin: var(--space-5) 0 var(--space-3); color: var(--soft); font: 400 var(--fs-400)/var(--lh-body) var(--font-ui); }
+  .ask-page__field { display: flex; gap: var(--space-3); }
   .ask-page__browse { margin-top: var(--space-8); }
   .ask-page__browse ul { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); margin: var(--space-3) 0 0; padding: 0; list-style: none; }
   .ask-page__browse a { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); font: 600 var(--fs-400)/var(--lh-ui) var(--font-ui); text-decoration: underline; text-underline-offset: 3px; }

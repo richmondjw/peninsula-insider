@@ -216,7 +216,6 @@ const starters = SHOW_ASK_PERSONA
       panel.classList.toggle('is-docked', docked);
       placeUnderMasthead();
       document.documentElement.classList.toggle('pi-chat-sheet', state === 'open' && !DESKTOP.matches);
-      root!.hidden = onAskPage();
       launch.classList.toggle('has-thread', turns.length > 0);
     }
 
@@ -235,7 +234,6 @@ const starters = SHOW_ASK_PERSONA
     let opener: HTMLElement | null = null;
     let greeted = false;
     function open(focus = true) {
-      if (onAskPage()) return;
       if (!greeted) {
         greeted = true;
         root!.classList.add('is-greeting');
@@ -961,7 +959,7 @@ const starters = SHOW_ASK_PERSONA
     // chat's own "Open as a page" link still navigate. Both listeners capture,
     // because Astro's ClientRouter claims same-site links and forms on the way up.
     document.addEventListener('click', (e) => {
-      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || onAskPage()) return;
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
       const a = (e.target as HTMLElement).closest<HTMLAnchorElement>('a[href]');
       if (!a) return;
       // Close before ClientRouter navigation so the persisted chat does not cover
@@ -983,7 +981,7 @@ const starters = SHOW_ASK_PERSONA
     }, true); // capture: run before the page router claims the link
     document.addEventListener('submit', (e) => {
       const f = e.target as HTMLFormElement;
-      if (f === form || onAskPage() || !f.matches('form[action="/ask/"]')) return;
+      if (f === form || !f.matches('form[action="/ask/"]')) return;
       const q = (new FormData(f).get('q') || '').toString();
       if (q.trim().length < 3) return;
       e.preventDefault();
@@ -1003,13 +1001,24 @@ const starters = SHOW_ASK_PERSONA
 
     // The router swaps <html> attributes on navigation; restore ours.
     document.addEventListener('astro:after-swap', applyChrome);
-    document.addEventListener('astro:page-load', () => { applyChrome(); offerHere(); });
+    // /ask/ is her own page: the chat opens there, and a question in the address is asked once.
+    let arrived = '';
+    function arrive() {
+      if (!onAskPage() || arrived === location.href) return;
+      arrived = location.href;
+      const q = (new URLSearchParams(location.search).get('q') || '').trim();
+      const asked = [...turns].reverse().find((turn) => turn.role === 'you');
+      if (q.length >= 3 && asked?.text !== q.slice(0, 500)) ask(q);
+      else open(false);
+    }
+    document.addEventListener('astro:page-load', () => { applyChrome(); offerHere(); arrive(); });
 
     (window as any).PIChat = { open, ask, minimise };
 
     setMode(store.get(localStorage, MODE) || 'dock');
     render();
-    if (store.get(sessionStorage, STATE) === 'open' && !onAskPage()) open(false);
+    if (onAskPage()) arrive();
+    else if (store.get(sessionStorage, STATE) === 'open') open(false);
   }
 </script>
 
