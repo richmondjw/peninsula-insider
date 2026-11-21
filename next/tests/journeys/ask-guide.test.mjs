@@ -444,30 +444,33 @@ test('in conversation she replies as herself, her picks are the tiles, and a fol
   }
 });
 
-test('the /ask/ page puts a plan in order as plain links', { skip: !personaOn }, async () => {
+test('the /ask/ page opens the chat and puts a plan in order', { skip: !personaOn }, async () => {
   const reader = await site.reader();
   const page = reader.page;
   try {
     await reader.load('/ask/?q=' + encodeURIComponent('plan half a day in Sorrento for the two of us'));
-    await page.waitForFunction(() => document.querySelectorAll('main [data-ask-guide-log] > article').length === 1);
-    assert.equal(await page.$eval('main [data-ask-guide-answer], main .ask-guide__answer', el => el.dataset.askGuideKind), 'plan');
-    assert.equal((await page.$$('main [data-ask-guide-log] .ask-guide__card')).length, 2);
-    assert.ok(await page.$('main [data-ask-guide-log] a[href^="/me/trip/?i="]'));
+    await page.waitForFunction(() => document.querySelector('#pi-chat-log > .pi-msg--pi:last-child:not(.is-live) .pi-note'), { timeout: 30000 });
+    assert.equal(await page.$eval(chat, el => el.dataset.state), 'open');
+    assert.equal((await page.$$('#pi-chat-log .pi-note__stop')).length, 2);
     assert.deepEqual(await reader.errors(), []);
   } finally {
     await reader.close();
   }
 });
 
-test('the /ask/ page shows the plain matches for a question sent in its address', { skip: !guideOn }, async () => {
+test('the /ask/ page asks the chat the question sent in its address, once', { skip: !guideOn }, async () => {
   const reader = await site.reader();
   const page = reader.page;
   try {
     await reader.load('/ask/?q=' + encodeURIComponent('lunch in Red Hill'));
-    await page.waitForFunction(() => document.querySelectorAll('main [data-ask-guide-log] > article').length === 1);
-    assert.ok(await page.$('main [data-ask-guide-log] a[href="/eat/tedesca-osteria/"]'));
+    await page.waitForFunction(() => document.querySelector('#pi-chat-log > .pi-msg--pi:last-child:not(.is-live) a[href="/eat/tedesca-osteria/"]'), { timeout: 30000 });
     assert.equal(await page.$eval('h1', el => el.textContent.trim()), 'Ask PI');
-    assert.equal(await page.$eval(chat, el => el.hidden), true, 'the chat steps aside on its own page');
+    assert.equal(await page.$eval(chat, el => el.hidden), false, 'the chat is the page');
+    assert.equal(await page.$eval(chat, el => el.dataset.state), 'open');
+    assert.equal((await page.$$('#pi-chat-log > .pi-msg--you')).length, 1);
+    await reader.load('/ask/?q=' + encodeURIComponent('lunch in Red Hill'));
+    await page.waitForFunction(() => document.querySelector('#pi-chat')?.dataset.state === 'open');
+    assert.equal((await page.$$('#pi-chat-log > .pi-msg--you')).length, 1, 'a reload does not ask it again');
     assert.deepEqual(await reader.errors(), []);
   } finally {
     await reader.close();
