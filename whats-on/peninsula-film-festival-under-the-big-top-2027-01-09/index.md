@@ -51,6 +51,14 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
+Festivals   Annual, November
+
+### [Peninsula VineHop Festival 2026](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
+
+A one-day craft drinks festival across seven Mornington Peninsula venues on Saturday 21 November 2026, with tastings, food and live music.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
+
 Festivals  1 Jan
 
 ### [New Year's Day at Mornington Racecourse](<https://peninsulainsider.com.au/whats-on/new-year-s-day-at-mornington-racecourse-2027-01-01/>)
@@ -66,14 +74,6 @@ Festivals  8 Jan
 The Peninsula Film Festival is Mornington Peninsula's iconic film festival running across three days in January.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-film-festival-at-rosebud-cinema-2027-01-08/>)
-
-Festivals  10 Jan
-
-### [Peninsula Film Festival: Talks & Workshop at Rosebud Cinema](<https://peninsulainsider.com.au/whats-on/peninsula-film-festival-talks-and-workshop-at-rosebud-cinema-2027-01-10/>)
-
-The Peninsula Film Festival is Mornington Peninsula's iconic film festival running across three days in January.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-film-festival-talks-and-workshop-at-rosebud-cinema-2027-01-10/>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 
