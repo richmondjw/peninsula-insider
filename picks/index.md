@@ -15,6 +15,8 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 
 ## Recent selections
 
+- [Insider Picks - Sunday 22 November 2026](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-22/>) - Wood-fired sourdough at The Red Hill Baker in Balnarring, the final hours of the National Works on Paper exhibition in Mornington, and cape weed in full flower along the Bushrangers Bay trail.
+
 - [Foxeys Hangout, the Arthurs Seat ridge in flower, and the VineHop Festival](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-21/>) - Biodynamic sparkling at Foxeys Hangout in Red Hill, the wattle-and-teatree ridge walk on Arthurs Seat in full spring colour, and the Peninsula VineHop Festival across six Mount Martha venues on Saturday.
 
 - [Many Little in spring, the VineHop Festival on Saturday, and the final Sunday at Emu Plains Market](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-20/>) - Sri Lankan-influenced sharing plates at Many Little in Red Hill South, the Peninsula VineHop Festival across six Mount Martha venues on Saturday, and the last Sunday session at Emu Plains Market in Balnarring.
@@ -36,8 +38,6 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 - [Main Ridge Dairy, the Arthurs Seat wildflower loop, and the NWOP's last weekend](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-12/>) - Goat cheeses at a working dairy, spring orchids on the Arthurs Seat Eagle trail network, and the National Works on Paper exhibition closing Sunday at Mornington Peninsula Regional Gallery.
 
 - [Verified Peninsula stops: Moorooduc, Bushrangers Bay and Nazaaray](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-11/>) - Current practical information from the operators and Parks Victoria for a winery visit, a Cape Schanck walk and a Flinders cellar door.
-
-- [Barragunda Dining and the Bushrangers Bay Walk](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-10/>) - Verified practical information for a Cape Schanck meal and the Bushrangers Bay Walk.
 
 ## Planning a particular weekend?
 
