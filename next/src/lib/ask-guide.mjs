@@ -93,6 +93,8 @@ const CATEGORY_BY_KIND =new Map(CATEGORIES.map((category) => [category.kinds[0],
 // never answers these; it says so and points to the page and the operator.
 const LIVE = /\b(?:(?:is|are|will|does|do|when)\b.*\bopen|open (?:now|today|tonight|tomorrow|late|on|at|until|till)|opening (?:hours|times)|clos(?:e|ed|es|ure|ures|ing)|hours?|cancel(?:led|ed|lation|lations)?|called off|postponed|sold out|availab(?:le|ility)|book(?:ed)? out|tickets? left|track conditions?|park conditions?|tides?|low tide|high tide|flood(?:ing|ed)?|weather|forecast|rain(?:ing)? (?:today|tomorrow|now)|fire danger|fire ban|safe(?:ty)?|danger(?:ous)?|swim(?:ming)?|surf(?:ing)?|rips?|landslips?|wheelchairs?|accessib(?:le|ility)|step ?free|prams?|strollers?|mobility|parking|allerg(?:y|ies|en|ens)|gluten|coeliac|celiac|vegan|halal|kosher)\b/;
 const PRICE = /\b(?:cheap(?:er|est)?|prices?|priced|cost(?:s|ing)?|how much|budget|affordable|expensive|fees?|free entry|dollars?)\b|\$/;
+// What the law or a land manager permits. Not hers to rule on, and never a question for a model.
+export const RULES = /\b(?:legal(?:ly)?|illegal|against the law|lawful|by ?laws?|permits?|licen[cs]es?|fined)\b|\b(?:allowed|permitted)\b.*\b(?:camp(?:ing)?|fires?|bonfires?|fish(?:ing)?|drones?|alcohol|drink(?:ing)?)\b|\b(?:camp(?:ing)?|fires?|bonfires?|drones?)\b.*\b(?:allowed|permitted)\b/;
 const DOGS = /\b(?:dogs?|pupp(?:y|ies)|pooch(?:es)?|off leash|pet friendly|pets?)\b/;
 const RESET = /^(?:start over|start again|reset|new question|clear)$/;
 const MORE = /^(?:show more|more|next|more like (?:this|these)|keep going)$/;
@@ -191,7 +193,8 @@ export function parseQuestion(question, index, context = {}) {
   let text = ' ' + normalise(question) + ' ';
   const parsed = { kinds: null, place: null, window: null, words: [], boost: [], flags: {} };
 
-  parsed.flags.live = LIVE.test(text);
+  parsed.flags.rules = RULES.test(text);
+  parsed.flags.live = LIVE.test(text) || parsed.flags.rules;
   parsed.flags.price = PRICE.test(question.toLowerCase());
   parsed.flags.dogs = DOGS.test(text);
   parsed.flags.elsewhere = ELSEWHERE.test(text);
@@ -407,6 +410,9 @@ export function ask(index, question, state = null, context = {}) {
     return { state, reply: { kind: 'topic', lead: 'Dog rules differ from venue to venue and can change, so I don’t filter by them. Our dog-friendly guide sets out what each venue has confirmed.', notes: [], cards: named ? [card(named)] : [], links: [...links, searchLink(asked)], chips: [] } };
   }
   if (parsed.flags.live || parsed.flags.price) {
+    if (parsed.flags.rules) {
+      return { state, reply: { kind: 'live', lead: 'I can’t tell you what the law or a permit allows. The council or whoever manages the land is the place to ask.', notes: [], cards: [], links: [], chips: [] } };
+    }
     const lead = parsed.flags.price && !parsed.flags.live
       ? 'I don’t quote prices. They change, and the operator’s own page is the place to check them.'
       : 'I can’t check opening hours, bookings, cancellations, weather, tides, access or dietary needs on the day.';
