@@ -379,6 +379,16 @@ export function talkPages(index, message, said = [], reply = null, shownBefore =
   return [...new Set(order)].slice(0, TALK_PAGES);
 }
 
+/**
+ * Her reply opens by saying this is not hers to answer ("I don't give legal
+ * advice", "Not one for me"). Nothing from the guides goes under a reply like
+ * that: beaches under a question about camping law read as an answer to it.
+ */
+export function declines(say) {
+  const opening = String(say || '').split(/(?<=[.!?])\s+/)[0].toLowerCase().replace(/’/g, "'");
+  return /\b(?:i (?:don't|do not|can't|cannot|won't) (?:give|do|make|check|rule|say|tell|know|guess|quote)|not (?:one )?for me|not mine\b|isn't mine|not my (?:call|patch|place)|stays in my notebook)\b/.test(opening);
+}
+
 /** Tiles for the pages she named in a conversation turn, in her order. Same card() as everywhere else. */
 export function cardsFor(index, hrefs) {
   const byPath = new Map(index.records.map((record) => [record.u, record]));

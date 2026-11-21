@@ -345,3 +345,13 @@ test('a message has a subject when it names a town or a kind of place, and small
   assert.equal(hasSubject(index, 'a winery with a view', { today }), true);
   for (const chat of ["what's with the hat?", 'good morning PI', 'what do you actually do?', 'thanks']) assert.equal(hasSubject(index, chat, { today }), false, chat);
 });
+
+test("a question about what the law allows is declined by the matcher, with no tiles", async () => {
+  const { declines } = await import("./ask-pi.mjs");
+  const { RULES } = await import("./ask-guide.mjs");
+  for (const q of ["is it legal to camp on the beach", "am i allowed to camp at rye", "do i need a permit for a bonfire", "can i get fined for a drone"]) assert.ok(RULES.test(q), q);
+  for (const q of ["fine dining in red hill", "are kids allowed at wineries", "a licensed cafe in sorrento", "long lunch in flinders"]) assert.ok(!RULES.test(q), q);
+  assert.ok(declines("I don’t give legal advice. Where are you headed?"));
+  assert.ok(declines("Not one for me. I do lunch, not elections."));
+  assert.ok(!declines("I’d start with Moke Dining. Not one for crowds, are you?"));
+});

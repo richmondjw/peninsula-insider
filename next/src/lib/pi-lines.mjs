@@ -38,11 +38,14 @@ export const REFUSALS = {
     'I don’t do prices. They go up while I’m typing.',
     'Money talk happens at the venue. I only do the where.',
   ],
+  // Plain, like safety: a wrong answer here costs the reader, not me.
+  rules: ['What’s legal or permitted isn’t mine to rule on. Ask the council or whoever manages the land.'],
   dogs: ['Dogs are welcome in my notebook. Whether they’re welcome at the table is the venue’s call.'],
 };
 
 /** Which refusal a question is asking for. First match wins. */
 export const REFUSAL_TOPICS = [
+  ['rules', /\b(?:legal(?:ly)?|illegal|against the law|lawful|by ?laws?|permits?|licen[cs]es?|fined|allowed|permitted)\b/],
   ['safety', /\b(?:safe(?:ty)?|danger(?:ous)?|swim(?:ming)?|surf(?:ing)?|rips?|fire danger|fire ban|flood(?:ing|ed)?|landslips?)\b/],
   ['access', /\b(?:wheelchairs?|accessib(?:le|ility)|step ?free|prams?|strollers?|mobility|parking)\b/],
   ['dietary', /\b(?:allerg(?:y|ies|en|ens)|gluten|coeliac|celiac|vegan|halal|kosher)\b/],
