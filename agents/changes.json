@@ -1,11 +1,60 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-21T09:58:44.884Z",
+  "generatedAt": "2026-11-21T10:20:14.054Z",
   "baselineAvailable": true,
   "fromSnapshot": "1fc763660c60bb4d9fe624547e0d2bc16d261b209777b5ee9104df04ab31adb2",
-  "toSnapshot": "1fc763660c60bb4d9fe624547e0d2bc16d261b209777b5ee9104df04ab31adb2",
-  "previousGeneratedAt": "2026-11-21T09:40:09.347Z",
+  "toSnapshot": "f9d8e4be346d42e4479652f121d153b073229e61a9f60eee42dc915a8723042a",
+  "previousGeneratedAt": "2026-11-21T09:58:44.884Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 0,
-  "changes": []
+  "count": 6,
+  "changes": [
+    {
+      "id": "https://peninsulainsider.com.au/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/",
+      "markdownUrl": "https://peninsulainsider.com.au/index.md",
+      "contentSha256": "9f6ece2cf8654ecb94237eb53fe236edb9c4b2bbac0e8584dc615f0ce758ee44",
+      "previousContentSha256": "50b81b4808250c72965eaa49cbe6c1524b7f541361c812d33d9158db624443a0"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/ask/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/ask/",
+      "markdownUrl": "https://peninsulainsider.com.au/ask/index.md",
+      "contentSha256": "a1cfb840065b1f38094cea8a8824497962034977146847d459cfe72fec8d2eb4",
+      "previousContentSha256": "bd7d78a546b37967396b0ede9f3ad9b6aa25d413d66657b1d412b9d9b5c9131b"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/index.md",
+      "contentSha256": "a9f071af11100a84b08af4dbccd2f5a29758cdfa642922f244dcc6e5dd584cce",
+      "previousContentSha256": "9a709a7c5fbe5eec56e48068be166266b30ec95a32242398aaca3c4075a48597"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
+      "contentSha256": "71dcd7f0738ad89ea11c93fb019d8cfcfeeaa40d8628789b9b342cf8cd17b485",
+      "previousContentSha256": "a551246b12fd338433ca17fd7c28ceba98fe60c3b5c6a76ec769160df1ddb7ba"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
+      "contentSha256": "c7cd247f9cb9e1068628fe8faa4d19e88728e774c9c9be62719cca7e9033f4be",
+      "previousContentSha256": "ac3048f614618550aca9784f46a8dfc034b849ab2079bf61b46d23f2867b17dd"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/coco-michelle-live-at-tar-barrel-2026-11-21/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/coco-michelle-live-at-tar-barrel-2026-11-21/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/coco-michelle-live-at-tar-barrel-2026-11-21/index.md",
+      "contentSha256": "cdc7fc38649e82844862458fa6681cd317ed62aa5c705d84041a366da226be8d",
+      "previousContentSha256": "c0fe1369b99551b00aecea12f5b554ede35a99a82426e10a609ef057b576df18"
+    }
+  ]
 }

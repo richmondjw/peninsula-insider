@@ -657,16 +657,6 @@ Month
 
 - [Sat, 21 Nov
 
-### Coco Michelle Live at Tar Barrel
-
-Mornington
-
-Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery produce award-winning craft beers alongside diverse tastes as part of their whiskey and gin distillery. Enjoy a drink, taste the menu and stay for the live music on weekends!
-
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/coco-michelle-live-at-tar-barrel-2026-11-21/>)
-
-- [Sat, 21 Nov
-
 ### Felicity Urquhart & Josh Cunningham Live at The Pig & Whistle Tavern
 
 Main Ridge
@@ -684,3 +674,13 @@ Dromana
 Live music every weekend at Jetty Road Brewery! Kick-back and enjoy a freshly brewed beer and bite while listening to live local music at Jetty Road Brewery.
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/oskar-proy-live-at-jetty-road-brewery-2026-11-21/>)
+
+- [Sat, 21 Nov
+
+### Taste & Create, Gourmet Bar
+
+Flinders
+
+Taste 12 chocolates, then create your own Gourmet Chocolate Bar. Starts 11.30am.
+
+ Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/taste-and-create-gourmet-bar-2026-11-21/>)

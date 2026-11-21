@@ -1,7 +1,7 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-11-21T09:58:44.884Z",
-  "snapshotId": "1fc763660c60bb4d9fe624547e0d2bc16d261b209777b5ee9104df04ab31adb2",
+  "generatedAt": "2026-11-21T10:20:14.054Z",
+  "snapshotId": "f9d8e4be346d42e4479652f121d153b073229e61a9f60eee42dc915a8723042a",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
@@ -13,7 +13,7 @@
       "section": "home",
       "canonicalUrl": "https://peninsulainsider.com.au/",
       "markdownUrl": "https://peninsulainsider.com.au/index.md",
-      "contentSha256": "50b81b4808250c72965eaa49cbe6c1524b7f541361c812d33d9158db624443a0",
+      "contentSha256": "9f6ece2cf8654ecb94237eb53fe236edb9c4b2bbac0e8584dc615f0ce758ee44",
       "citation": {
         "title": "Make a day of the Peninsula.",
         "publisher": "Peninsula Insider",
@@ -21,8 +21,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 205193,
-      "markdownBytes": 7450
+      "htmlBytes": 205273,
+      "markdownBytes": 7547
     },
     {
       "id": "https://peninsulainsider.com.au/about/",
@@ -64,7 +64,7 @@
       "section": "ask",
       "canonicalUrl": "https://peninsulainsider.com.au/ask/",
       "markdownUrl": "https://peninsulainsider.com.au/ask/index.md",
-      "contentSha256": "bd7d78a546b37967396b0ede9f3ad9b6aa25d413d66657b1d412b9d9b5c9131b",
+      "contentSha256": "a1cfb840065b1f38094cea8a8824497962034977146847d459cfe72fec8d2eb4",
       "citation": {
         "title": "Ask PI",
         "publisher": "Peninsula Insider",
@@ -72,8 +72,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 117256,
-      "markdownBytes": 619
+      "htmlBytes": 115770,
+      "markdownBytes": 519
     },
     {
       "id": "https://peninsulainsider.com.au/awards/",
@@ -565,7 +565,7 @@
         "publishedAt": null,
         "modifiedAt": "2026-10-08"
       },
-      "htmlBytes": 301373,
+      "htmlBytes": 301496,
       "markdownBytes": 15879
     },
     {
@@ -1577,7 +1577,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/index.md",
-      "contentSha256": "9a709a7c5fbe5eec56e48068be166266b30ec95a32242398aaca3c4075a48597",
+      "contentSha256": "a9f071af11100a84b08af4dbccd2f5a29758cdfa642922f244dcc6e5dd584cce",
       "citation": {
         "title": "Walks, beaches and hot springs",
         "publisher": "Peninsula Insider",
@@ -1585,8 +1585,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 322974,
-      "markdownBytes": 19735
+      "htmlBytes": 423851,
+      "markdownBytes": 26397
     },
     {
       "id": "https://peninsulainsider.com.au/explore/arthurs-seat-lookout/",
@@ -4467,7 +4467,7 @@
       "section": "journal",
       "canonicalUrl": "https://peninsulainsider.com.au/journal/",
       "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
-      "contentSha256": "a551246b12fd338433ca17fd7c28ceba98fe60c3b5c6a76ec769160df1ddb7ba",
+      "contentSha256": "71dcd7f0738ad89ea11c93fb019d8cfcfeeaa40d8628789b9b342cf8cd17b485",
       "citation": {
         "title": "Devilbend Farm Beer Co: a brewery on a working farm",
         "publisher": "Peninsula Insider",
@@ -4475,8 +4475,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 236135,
-      "markdownBytes": 19671
+      "htmlBytes": 235784,
+      "markdownBytes": 19488
     },
     {
       "id": "https://peninsulainsider.com.au/journal/a-flinders-weekend/",
@@ -7518,7 +7518,7 @@
         "publishedAt": null,
         "modifiedAt": "2026-10-03"
       },
-      "htmlBytes": 242334,
+      "htmlBytes": 242457,
       "markdownBytes": 12387
     },
     {
@@ -9312,7 +9312,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "ac3048f614618550aca9784f46a8dfc034b849ab2079bf61b46d23f2867b17dd",
+      "contentSha256": "c7cd247f9cb9e1068628fe8faa4d19e88728e774c9c9be62719cca7e9033f4be",
       "citation": {
         "title": "What's on this weekend",
         "publisher": "Peninsula Insider",
@@ -9320,8 +9320,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-11-21"
       },
-      "htmlBytes": 166647,
-      "markdownBytes": 5023
+      "htmlBytes": 163763,
+      "markdownBytes": 4610
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
@@ -9635,7 +9635,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/coco-michelle-live-at-tar-barrel-2026-11-21/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/coco-michelle-live-at-tar-barrel-2026-11-21/index.md",
-      "contentSha256": "c0fe1369b99551b00aecea12f5b554ede35a99a82426e10a609ef057b576df18",
+      "contentSha256": "cdc7fc38649e82844862458fa6681cd317ed62aa5c705d84041a366da226be8d",
       "citation": {
         "title": "Coco Michelle Live at Tar Barrel",
         "publisher": "Peninsula Insider",
@@ -9643,8 +9643,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 144892,
-      "markdownBytes": 3617
+      "htmlBytes": 143368,
+      "markdownBytes": 2946
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/countdown-classics-70-s-and-80-s-live-at-peninsula-beer-garden-2026-12-05/",
@@ -11003,7 +11003,7 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 299228,
+      "htmlBytes": 299351,
       "markdownBytes": 16051
     },
     {

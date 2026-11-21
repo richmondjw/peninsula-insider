@@ -7,6 +7,6 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Ask PI
 
-Ask where to eat, stay or walk, or what’s on. Name a town or a date to narrow it.
+Tell her who’s coming and what you’re in the mood for. She’ll make the call from our published guides, and put a day in order if you want one.
 
-Ask PI finds the pages in our guides that match your question and shows what they say. It doesn’t use AI, and it doesn’t send or save what you type. It can’t check opening hours, prices or conditions on the day.
+[Talk to PI](<https://peninsulainsider.com.au/ask/>)

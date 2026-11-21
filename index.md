@@ -77,14 +77,6 @@ Merricks
 
 Swipe or scroll through the picks
 
-- ### [Oskar Proy Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/oskar-proy-live-at-jetty-road-brewery-2026-11-21/>)
-
-Live music every weekend at Jetty Road Brewery!
-
-Sat, 21 Nov   Jetty Road Brewery   Live music
-
-Event details checked 9 Nov 2026 · [Organiser’s page](<https://www.jettyroad.com.au/dromana>)
-
 - ### [Taste & Create, Gourmet Bar](<https://peninsulainsider.com.au/whats-on/taste-and-create-gourmet-bar-2026-11-21/>)
 
 Taste 12 chocolates, then create your own Gourmet Chocolate Bar. Starts 11.30am.
@@ -100,6 +92,14 @@ Phaedrus Estate is a host venue for the 2026 Vinehop festival, with live music a
 Sat, 21 Nov   Phaedrus Estate   Cellar door
 
 Event details checked 9 Nov 2026 · [Organiser’s page](<https://www.phaedrus.com.au/vinehop-festival-0>)
+
+- ### [Audio Replica Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/audio-replica-live-at-tar-barrel-2026-11-22/>)
+
+Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery produce award-winning craft beers alongside diverse tastes as part of their whiskey and.
+
+Sun, 22 Nov   Tar Barrel   Live music
+
+Event details checked 9 Nov 2026 · [Organiser’s page](<https://tarbarrel.com.au/music/>)
 
 This season · Spring
 
