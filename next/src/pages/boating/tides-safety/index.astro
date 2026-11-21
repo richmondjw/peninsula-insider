@@ -136,9 +136,9 @@ export const prerender = true;
           pre-trip planning step. Useful alternative pairings:
         </p>
         <ul>
-          <li><a href="/boating/ramps/safety-beach-boat-ramp/">Safety Beach</a> (tide-dependent) → <a href="/boating/ramps/mornington-park-boat-ramp/">Mornington Park</a> or <a href="/boating/ramps/sorrento-boat-ramp/">Sorrento</a> (all-tide).</li>
-          <li><a href="/boating/ramps/sorrento-boat-ramp/">Sorrento</a> → <a href="/boating/ramps/rye-boat-ramp/">Rye</a> (both southern bay).</li>
-          <li><a href="/boating/ramps/warneet-boat-ramp/">Warneet</a> (tide-cautious) → <a href="/boating/ramps/hastings-boat-ramp/">Hastings</a> (all-tide, four-lane).</li>
+          <li><a class="boating-action-link" href="/boating/ramps/safety-beach-boat-ramp/">Safety Beach</a> (tide-dependent) → <a class="boating-action-link" href="/boating/ramps/mornington-park-boat-ramp/">Mornington Park</a> or <a class="boating-action-link" href="/boating/ramps/sorrento-boat-ramp/">Sorrento</a> (all-tide).</li>
+          <li><a class="boating-action-link" href="/boating/ramps/sorrento-boat-ramp/">Sorrento</a> → <a class="boating-action-link" href="/boating/ramps/rye-boat-ramp/">Rye</a> (both southern bay).</li>
+          <li><a class="boating-action-link" href="/boating/ramps/warneet-boat-ramp/">Warneet</a> (tide-cautious) → <a class="boating-action-link" href="/boating/ramps/hastings-boat-ramp/">Hastings</a> (all-tide, four-lane).</li>
         </ul>
 
         <h2>Species and tide</h2>
@@ -167,15 +167,15 @@ export const prerender = true;
 
         <h2>Related</h2>
         <ul>
-          <li><a href="/boating/">Boating hub</a></li>
-          <li><a href="/boating/ramps/">All Peninsula boat ramps</a></li>
-          <li><a href="/boating/hire/">Boat hire</a></li>
-          <li><a href="/fishing/charters/first-charter-guide/">First-charter guide</a></li>
+          <li><a class="boating-action-link" href="/boating/">Boating hub</a></li>
+          <li><a class="boating-action-link" href="/boating/ramps/">All Peninsula boat ramps</a></li>
+          <li><a class="boating-action-link" href="/boating/hire/">Boat hire</a></li>
+          <li><a class="boating-action-link" href="/fishing/charters/first-charter-guide/">First-charter guide</a></li>
         </ul>
 
         <p class="boating-correction">
           <strong>Seen something change?</strong>
-          <a href="/contact/?subject=Boating%20safety%20correction">Report changed safety, access or tide information</a>.
+          <a href={`/contact/?type=correction&page=${encodeURIComponent(path)}&message=${encodeURIComponent('Something has changed in the boating safety, access or tide guidance.')}`}>Report changed safety, access or tide information.</a>
         </p>
       </div>
     </div>

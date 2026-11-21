@@ -202,7 +202,7 @@ export const prerender = true;
             <h3 id={`water-${water.key}`}>{water.name}</h3>
             <p>
               {water.note} Tide station: <strong>{water.station}</strong>.
-              <a class="bh-tides" href={BF_EXTERNAL.bom} rel="external" data-bf-event="bf_tide_lookup" data-bf-source="hub-boating-chooser">Tide predictions<span class="sr-only"> on the Bureau of Meteorology site; choose {water.station} for {water.name}</span> <span aria-hidden="true">↗</span></a>
+              <a class="bh-tides boating-action-link" href={BF_EXTERNAL.bom} rel="external" data-bf-event="bf_tide_lookup" data-bf-source="hub-boating-chooser">Tide predictions<span class="sr-only"> on the Bureau of Meteorology site; choose {water.station} for {water.name}</span> <span aria-hidden="true">↗</span></a>
             </p>
           </div>
           <div class="bh-cols" aria-hidden="true">
@@ -361,7 +361,7 @@ export const prerender = true;
         </ol>
         <a class="bh-safety__more" href="/boating/tides-safety/">Tides and safety in full <span aria-hidden="true">→</span></a>
         <p class="bh-safety__report">
-          Conditions and access can change. <a href="/contact/?subject=Boating%20correction">Report changed ramp or safety information</a>.
+          Conditions and access can change. <a href={`/contact/?type=correction&page=${encodeURIComponent('/boating/')}&message=${encodeURIComponent('Something has changed in the boating ramp, hire or safety guidance.')}`}>Report changed ramp or safety information</a>.
         </p>
       </div>
 

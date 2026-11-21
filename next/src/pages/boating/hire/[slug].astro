@@ -119,6 +119,13 @@ export const prerender = true;
           entityType="boat-hire"
           surface="boat-hire-footer"
         />
+
+        <p class="boating-correction">
+          <strong>Seen something change?</strong>
+          <a href={`/contact/?type=correction&page=${encodeURIComponent(`/boating/hire/${data.slug}/`)}&message=${encodeURIComponent(`Something has changed in the availability, licence or operator information for ${data.name}.`)}`}>
+            Report changed availability, licence or operator information.
+          </a>
+        </p>
       </div>
     </div>
   </article>

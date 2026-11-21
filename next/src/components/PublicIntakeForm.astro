@@ -47,9 +47,17 @@ function initIntake(){
   const kind=form.dataset.publicIntake!;
   const status=form.querySelector<HTMLElement>('[data-intake-status]')!;
   const button=form.querySelector<HTMLButtonElement>('[type=submit]')!;
-  const venueParam=new URLSearchParams(location.search).get('venue');
+  const params=new URLSearchParams(location.search);
+  const venueParam=params.get('venue');
   const option=Array.from(form.querySelectorAll<HTMLOptionElement>('datalist option')).find(o=>o.dataset.slug===venueParam);
   if(option)(form.elements.namedItem('business_name') as HTMLInputElement).value=option.value;
+  if(kind==='correction'){
+   const pageParam=params.get('page');const messageParam=params.get('message');
+   const pageField=form.elements.namedItem('page') as HTMLInputElement|null;
+   const messageField=form.elements.namedItem('message') as HTMLTextAreaElement|null;
+   if(pageParam&&pageField&&!pageField.value)pageField.value=pageParam.slice(0,500);
+   if(messageParam&&messageField&&!messageField.value)messageField.value=messageParam.slice(0,3000);
+  }
   let busy=false;
   const uploads=new Map<File,string>();
   let filedCorrection:string|null=null;
