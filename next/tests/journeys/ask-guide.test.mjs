@@ -250,7 +250,7 @@ for (const width of [390, 1280]) {
 
       const plan = await note();
       assert.equal(plan.title, 'Half a day in Sorrento');
-      assert.deepEqual(plan.stops.map(stop => stop.when), ['Then', 'The table']);
+      assert.deepEqual(plan.stops.map(stop => stop.when), ['First', 'The table']);
       const fixture = new Set(['/explore/coppins-track/', '/explore/sorrento-back-beach/', '/eat/bistro-elba/', '/eat/the-baths-sorrento/']);
       assert.ok(plan.stops.every(stop => fixture.has(stop.href)), JSON.stringify(plan.stops));
       assert.equal(plan.stops[1].name, 'Bistro Elba', 'the page that says "couples" comes first for two');

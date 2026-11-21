@@ -195,7 +195,8 @@ function planView(index, plan) {
   const byPath = new Map(index.records.map((record) => [record.u, record]));
   // Her line for a stop belongs to the page it was written about, so it is
   // looked up by that page and disappears when the stop is swapped.
-  const stops = plan.slots.map((slot) => ({ label: slot.label, card: card(byPath.get(slot.pool[slot.at])), swappable: !slot.locked && slot.pool.length > 1, line: plan.lines?.[slot.pool[slot.at]] || null }));
+  // A plan with no cafe to start opens on its walk: "Then" would follow nothing.
+  const stops = plan.slots.map((slot, at) => ({ label: at === 0 && slot.label === 'Then' ? 'First' : slot.label, card: card(byPath.get(slot.pool[slot.at])), swappable: !slot.locked && slot.pool.length > 1, line: plan.lines?.[slot.pool[slot.at]] || null }));
   const town = plan.brief?.place ? placeName(index, plan.brief.place) : '';
   const trip = tripLink(index, plan);
   return { title: plan.title, town, stops, trip };
