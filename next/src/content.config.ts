@@ -1712,8 +1712,13 @@ const events = defineCollection({
      * record: status and this field are the only things that delist one.
      */
     expiresAt: z.coerce.date().optional(),
-    publishedAt: z.coerce.date(),
+    // Unpublished drafts must not invent a publication date.
+    publishedAt: z.union([z.string().trim().min(1), z.number().finite(), z.date()]).pipe(z.coerce.date()).optional(),
     sitemapExclude: z.boolean().default(false),
+  }).superRefine((data, ctx) => {
+    if (!['draft', 'review', 'scheduled'].includes(data.status) && !data.publishedAt) {
+      ctx.addIssue({code: z.ZodIssueCode.custom, path: ['publishedAt'], message: 'A public or archived event requires its publication date'});
+    }
   }),
 });
 
