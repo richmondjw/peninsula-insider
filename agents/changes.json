@@ -1,60 +1,11 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-21T13:51:19.775Z",
+  "generatedAt": "2026-11-21T14:30:58.197Z",
   "baselineAvailable": true,
-  "fromSnapshot": "8a6bbe2c1cc41b449c16358ff09b78676e62a4a2c383b615d8e3e43cdf115d61",
+  "fromSnapshot": "5142764c0bce57d2caea231aec2f1c4c85dbf0771725a5fbfe5dc0ce2a48b3a2",
   "toSnapshot": "5142764c0bce57d2caea231aec2f1c4c85dbf0771725a5fbfe5dc0ce2a48b3a2",
-  "previousGeneratedAt": "2026-11-21T13:27:17.486Z",
+  "previousGeneratedAt": "2026-11-21T13:51:19.775Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 6,
-  "changes": [
-    {
-      "id": "https://peninsulainsider.com.au/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/",
-      "markdownUrl": "https://peninsulainsider.com.au/index.md",
-      "contentSha256": "10568ad8a732d6f20dcd0791123ab15471763807ddcf65753c188e38b22e4062",
-      "previousContentSha256": "fd5ed4ffa51b74d3aae33a59dab9ebe58beaa69b08396ed0ecb51cb88fefd22d"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/places/merricks/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/merricks/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/merricks/index.md",
-      "contentSha256": "f5fe636f72e5b8ec2566ea900d3326fb419b27847159774d6114aa5bdd29041d",
-      "previousContentSha256": "9bd222bb7da40e9011e6a064d97e91b21d3f001a673a6f4fa18d2b9761115ee1"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
-      "contentSha256": "db9c6e728543079ce92e99ce343517bde1a4a8025d8839cae2b19ff3d46f1649",
-      "previousContentSha256": "2a4998379c751001f99e408e728c045d4506f5f7cb5b3d04c77f73f3501d41df"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "e75f43b788519492da7d96eed265f3c6472bf45a0ea4f76ec1080b390a34a012",
-      "previousContentSha256": "ef55a3bf5c25e7795f71a486afcd4d97ca2680e3bcb0b317b6c60dcfb42c1640"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/index.md",
-      "contentSha256": "b25ba308788c7469bf9f6422675a0dfd101c9a9b1242f86cf520cec067660462",
-      "previousContentSha256": "77fc8a70fa6cb329fd23dca590e817f6985efebe437ce0f6e90a3bc8340042b3"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/culinary-garden-experience-at-laura-pt-leo-estate-2026-11-22/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/culinary-garden-experience-at-laura-pt-leo-estate-2026-11-22/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/culinary-garden-experience-at-laura-pt-leo-estate-2026-11-22/index.md",
-      "contentSha256": "87cf05e528f5615325116eb7dc7184f53cfab6d478b275ab37b54f8bd956dab8",
-      "previousContentSha256": "dceea9a81b86e574d83cf38c339407fde259ca584ded1ac2a73a46cf840b449e"
-    }
-  ]
+  "count": 0,
+  "changes": []
 }
