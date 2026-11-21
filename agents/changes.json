@@ -1,11 +1,60 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-20T23:48:31.262Z",
+  "generatedAt": "2026-11-21T00:29:45.362Z",
   "baselineAvailable": true,
   "fromSnapshot": "2a960061822468837cad303377b758f38d2d70845b123e04c33cd1b3196df7ce",
-  "toSnapshot": "2a960061822468837cad303377b758f38d2d70845b123e04c33cd1b3196df7ce",
-  "previousGeneratedAt": "2026-11-20T23:16:19.512Z",
+  "toSnapshot": "cccaca455303b31c910193e84b487512562d35487ebcbfc8099870ec7ddcc5cf",
+  "previousGeneratedAt": "2026-11-20T23:48:31.262Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 0,
-  "changes": []
+  "count": 6,
+  "changes": [
+    {
+      "id": "https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/index.md",
+      "contentSha256": "595e3d279c9c24e376c413921a29888b897cf3b9619b2aa6eb0464c86c07c80c",
+      "previousContentSha256": "0ba3dc31e6a2c0eafc1194696d681ebe8780ae0f9a22f2989ed47e69a7b0e7fe"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/index.md",
+      "contentSha256": "3b59702af9a6390cca42f119586a7f94586cb41fc943748de5f67bc06c1d339d",
+      "previousContentSha256": "1aeaf26b7974ef3f228f3b703cd5aee56d66b487938200c7c4d7a563d1e2959d"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/summer-school-holidays-2026/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/summer-school-holidays-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/summer-school-holidays-2026/index.md",
+      "contentSha256": "389120a45dd0d5c351897ba7ebccaddffe658d536ffd6c53f78569fd5f043f78",
+      "previousContentSha256": "1e89a4cef8caca4d5379cdcb91f50bba5e71ba3d3fe53ad767ea190942e0d9eb"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/site-index/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/site-index/",
+      "markdownUrl": "https://peninsulainsider.com.au/site-index/index.md",
+      "contentSha256": "78c58f64ba02211a42cfd44ef243ac80d8f130ecf1ec482ad2dd5fc32267b220",
+      "previousContentSha256": "5dcde8dbf873f558a83538b14cfa6f219761f0a03997ea2ab212f7f583848cd0"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
+      "contentSha256": "e8ba2020997b6db175a018a26a2ce4146afc71d62320add32d04664f228f66cd",
+      "previousContentSha256": "35b0173c9dc1db3e439492982c208b3f0c9f746d3fdca4f774df494e24a91c1a"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/mprg-summer-exhibitions-launch-2026/",
+      "kind": "representation-added",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/mprg-summer-exhibitions-launch-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/mprg-summer-exhibitions-launch-2026/index.md",
+      "contentSha256": "65a111e9389861306c3c8477ba1340a3fc551ed81ea3e07024ba4b66c5b3275e",
+      "previousContentSha256": null
+    }
+  ]
 }

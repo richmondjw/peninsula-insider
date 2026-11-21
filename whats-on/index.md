@@ -71,7 +71,7 @@ Mount Martha · Festivals
 
 Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
 
-Mornington · Exhibitions · Recurring weekly · Also Sun
+Mornington · Exhibitions · Recurring weekly
 
 - 5pm
 
@@ -134,6 +134,14 @@ Moorooduc · Cellar Doors
 A VFMA-accredited village market with local growers and specialty makers, supported by the Mt Eliza Chamber of Commerce.
 
 Mount Eliza · Markets · Recurring monthly
+
+- 11am
+
+[National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+
+Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
+
+Mornington · Exhibitions · Recurring weekly
 
 - 1pm
 

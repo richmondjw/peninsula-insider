@@ -201,6 +201,16 @@ Mornington's long-running artisan market fills Main Street every Wednesday, 9am 
 
  Event · Markets](<https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/>)
 
+- [Sat, 5 Dec
+
+### ✦ MPRG Summer exhibitions launch
+
+Mornington
+
+Join Mornington Peninsula Regional Gallery for the launch of two summer exhibitions on Saturday 5 December. Acting director Julie McLaren introduces work by Gareth Sansom and Warren Cooke from 2pm to 4pm.
+
+ Event · Arts](<https://peninsulainsider.com.au/whats-on/mprg-summer-exhibitions-launch-2026/>)
+
 - [Sat, 21 Nov
 
 ### ✦ National Works on Paper 2026 (NWOP)

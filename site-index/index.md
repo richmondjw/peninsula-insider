@@ -549,6 +549,8 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [Mornington Twilight Christmas Series at Mornington Racecourse](<https://peninsulainsider.com.au/whats-on/mornington-twilight-christmas-series-at-mornington-racecourse-2026-12-16/>)
 
+- [MPRG Summer exhibitions launch](<https://peninsulainsider.com.au/whats-on/mprg-summer-exhibitions-launch-2026/>)
+
 - [New Year's Day at Mornington Racecourse](<https://peninsulainsider.com.au/whats-on/new-year-s-day-at-mornington-racecourse-2027-01-01/>)
 
 - [New Year's Eve at Orson](<https://peninsulainsider.com.au/whats-on/new-year-s-eve-at-orson-2026-12-31/>)
