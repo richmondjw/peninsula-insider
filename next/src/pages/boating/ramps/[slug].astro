@@ -107,11 +107,11 @@ export const prerender = true;
 
         <h2>Related</h2>
         <ul>
-          <li><a href="/boating/">Boating hub</a></li>
-          <li><a href="/boating/ramps/">All Peninsula boat ramps</a></li>
-          {data.nearestHireSlug ? <li><a href={`/boating/hire/${data.nearestHireSlug}/`}>Nearest boat hire</a></li> : null}
+          <li><a class="boating-action-link" href="/boating/">Boating hub</a></li>
+          <li><a class="boating-action-link" href="/boating/ramps/">All Peninsula boat ramps</a></li>
+          {data.nearestHireSlug ? <li><a class="boating-action-link" href={`/boating/hire/${data.nearestHireSlug}/`}>Nearest boat hire</a></li> : null}
           {data.nearbyRampAlternatives.map((alt) => (
-            <li><a href={`/boating/ramps/${alt}/`}>Alternative ramp: {alt.replace(/-/g, ' ')}</a></li>
+            <li><a class="boating-action-link" href={`/boating/ramps/${alt}/`}>Alternative ramp: {alt.replace(/-/g, ' ')}</a></li>
           ))}
         </ul>
 
@@ -119,17 +119,17 @@ export const prerender = true;
           Ramp conditions, parking fees, lane availability, and managing authority information are
           subject to change. Confirm current conditions with
           {data.managingAuthority?.includes('Mornington') ? (
-            <> <a href={BF_EXTERNAL.mornpenShire} rel="external">Mornington Peninsula Shire</a></>
+            <> <a class="boating-action-link" href={BF_EXTERNAL.mornpenShire} rel="external">Mornington Peninsula Shire</a></>
           ) : (
-            <> the <a href={BF_EXTERNAL.betterBoating} rel="external">Better Boating Victoria</a> conditions app</>
+            <> the <a class="boating-action-link" href={BF_EXTERNAL.betterBoating} rel="external">Better Boating Victoria</a> conditions app</>
           )} before your trip.
         </p>
 
         <p class="boating-correction">
           <strong>Seen something change?</strong>
-          <a href={`/contact/?subject=${encodeURIComponent(`Boating correction: ${data.name}`)}`}>
-            Report changed ramp, access or safety information
-          </a>.
+          <a href={`/contact/?type=correction&page=${encodeURIComponent(`/boating/ramps/${data.slug}/`)}&message=${encodeURIComponent(`Something has changed on the ${data.name} page.`)}`}>
+            Report changed ramp, access or safety information.
+          </a>
         </p>
       </div>
     </div>
