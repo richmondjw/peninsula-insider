@@ -1024,9 +1024,19 @@ const hubImage = categoryHero('whats-on');
   @media (max-width: 47.9375em) {
     .wo-picks .v5-card-grid { gap: var(--space-4); }
     .wo-picks .v5-card-grid > .pi-card { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); column-gap: var(--space-4); align-items: start; }
-    .wo-picks .v5-card-grid > .pi-card > .pi-card__media { grid-column: 1; grid-row: 1 / span 2; aspect-ratio: 1; height: auto; min-height: 0; border-radius: var(--radius-s); }
-    .wo-picks .v5-card-grid > .pi-card > :not(.pi-card__media) { grid-column: 2; }
+    .wo-picks .v5-card-grid > .pi-card > .pi-card__media { grid-column: 1; grid-row: 1 / span 3; aspect-ratio: 1; height: auto; min-height: 0; border-radius: var(--radius-s); }
+    /* Visually place the event action after its title. The DOM retains its
+       title, reason, category, action reading order for assistive technology.
+       Full-width reasoning then has room without pushing the action below
+       the first phone viewport when a title or verdict wraps. */
+    .wo-picks .v5-card-grid > .pi-card > .pi-card__body { display: contents; }
+    .wo-picks .v5-card-grid > .pi-card .pi-card__eyebrow { grid-column: 2; grid-row: 1; }
+    .wo-picks .v5-card-grid > .pi-card .pi-card__title { grid-column: 2; grid-row: 2; }
+    .wo-picks .v5-card-grid > .pi-card > .pi-card__actions { grid-column: 2; grid-row: 3; align-self: start; }
+    .wo-picks .v5-card-grid > .pi-card .pi-card__dek { grid-column: 1 / -1; grid-row: 4; margin-top: var(--space-3); }
+    .wo-picks .v5-card-grid > .pi-card .pi-card__meta { grid-column: 1 / -1; grid-row: 5; }
     .wo-picks .v5-card-grid > .pi-card:not(:has(> .pi-card__media)) { grid-template-columns: minmax(0, 1fr); }
-    .wo-picks .v5-card-grid > .pi-card:not(:has(> .pi-card__media)) > * { grid-column: 1; }
+    .wo-picks .v5-card-grid > .pi-card:not(:has(> .pi-card__media)) > *,
+    .wo-picks .v5-card-grid > .pi-card:not(:has(> .pi-card__media)) .pi-card__body > * { grid-column: 1; }
   }
 </style>
