@@ -326,29 +326,6 @@ const starters = SHOW_ASK_PERSONA
       return svg;
     }
 
-    /** While she works: three words in a joined hand, written along a rule in her notebook one after the
-        other. Not real words: arches and tall loops, drawn by a small script and pasted here. Decoration only. */
-    function pen() {
-      const NS = 'http://www.w3.org/2000/svg';
-      const svg = document.createElementNS(NS, 'svg');
-      svg.setAttribute('class', 'pi-pen');
-      svg.setAttribute('viewBox', '0 0 132 22');
-      svg.setAttribute('aria-hidden', 'true');
-      const rule = document.createElementNS(NS, 'path');
-      rule.setAttribute('class', 'pi-pen__rule');
-      rule.setAttribute('d', 'M1 20.5 H131');
-      svg.append(rule);
-      ['M3 17 C4.19 12.88 5.31 11.5 6.99 11.5 C8.79 11.5 7.68 15.63 9 17 C10.09 13.25 11.11 12 12.65 12 C14.3 12 13.29 15.75 14.5 17 C18.07 13.88 22.93 6 20.78 4.5 C18.7 3.75 16.58 13.25 18.07 16.4 C18.92 17.5 20.09 17.2 21 17 C22.5 18.2 24.5 18.2 26 12 C26.1 14.5 26.25 16.6 27.25 17 C28.44 12.88 29.56 11.5 31.24 11.5 C33.04 11.5 31.93 15.63 33.25 17','M43 17 C44.19 12.88 45.31 11.5 46.99 11.5 C48.79 11.5 47.68 15.63 49 17 C52.3 14 56.86 6.44 54.88 5 C52.96 4.28 50.92 13.4 52.3 16.4 C53.08 17.5 54.16 17.2 55 17 C56.09 13.25 57.11 12 58.65 12 C60.3 12 59.29 15.75 60.5 17 C61.69 12.88 62.81 11.5 64.49 11.5 C66.29 11.5 65.18 15.63 66.5 17','M76 17 C77.19 12.88 78.31 11.5 79.99 11.5 C81.79 11.5 80.68 15.63 82 17 C83.5 18.2 85.5 18.2 87 12 C87.1 14.5 87.25 16.6 88.25 17 C91.83 13.63 96.85 5.12 94.71 3.5 C92.63 2.69 90.33 12.95 91.83 16.4 C92.67 17.5 93.84 17.2 94.75 17 C98.05 14 102.61 6.44 100.63 5 C98.71 4.28 96.67 13.4 98.05 16.4 C98.83 17.5 99.91 17.2 100.75 17 C101.84 13.25 102.86 12 104.4 12 C106.05 12 105.04 15.75 106.25 17 C107.49 12.88 108.67 11.5 110.49 11.5 C112.44 11.5 111.32 15.63 112.75 17'].forEach((d, i) => {
-        const ink = document.createElementNS(NS, 'path');
-        ink.setAttribute('class', 'pi-pen__ink');
-        ink.setAttribute('pathLength', '1');
-        ink.setAttribute('d', d);
-        ink.style.setProperty('--pi-w', String(i));
-        svg.append(ink);
-      });
-      return svg;
-    }
-
     function byline(mood?: string) {
       const b = el('p', 'pi-msg__by');
       const face = el('img', 'pi-msg__face') as HTMLImageElement;
@@ -508,16 +485,6 @@ const starters = SHOW_ASK_PERSONA
       sign.style.setProperty('--pi-stops', String(plan.stops.length));
       const initials = el('span', 'pi-note__initials', 'PI');
       sign.append(signature(), initials);
-      if (live && 'IntersectionObserver' in window) {
-        const seen = new IntersectionObserver((entries, watching) => {
-          if (!entries.some((entry) => entry.isIntersecting)) return;
-          sign.classList.add('is-seen');
-          watching.disconnect();
-        }, { threshold: 1 });
-        seen.observe(sign);
-      } else {
-        sign.classList.add('is-seen');
-      }
       note.append(scribble, sign);
       const acts = el('div', 'pi-note__acts');
       if (plan.trip) {
@@ -720,7 +687,7 @@ const starters = SHOW_ASK_PERSONA
       const prose = el('div', 'pi-msg__prose');
       const status = el('p', 'pi-msg__status', THINKING[0]);
       status.setAttribute('role', 'status');
-      prose.append(pen(), status);
+      prose.append(status);
       live.append(byline(), prose);
       log.append(live);
       scrollToMsg(live);
@@ -1168,7 +1135,6 @@ const starters = SHOW_ASK_PERSONA
   .pi-fig__hat { transform-origin: 48% 52%; }
   .pi-fig__go--hair { transform-origin: 37% 60%; }
   .pi-fig__go--hat { transform-origin: 48% 52%; }
-  .pi-chat[data-state="closed"] .pi-pen, .pi-chat[data-state="closed"] .pi-pen__ink { animation-play-state: paused; }
   /* One portrait at a time. */
   .pi-chat__head-face { transition: opacity 200ms linear; }
   .pi-chat:has(.pi-chat__hello:not([hidden])) .pi-chat__head-face { opacity: 0; }
@@ -1231,6 +1197,8 @@ const starters = SHOW_ASK_PERSONA
   .pi-msg__prose p:last-child { margin-bottom: 0; }
   .pi-msg__inline { color: var(--accent); font-weight: inherit; text-decoration: underline; text-decoration-color: color-mix(in srgb, currentColor 35%, transparent); text-underline-offset: .2em; }
   .pi-msg__inline:hover { text-decoration-color: currentColor; }
+  /* While she works: one quiet line of words that breathes. Nothing is drawn. */
+  .pi-msg.is-live .pi-msg__status { animation: pi-wait 1.8s ease-in-out infinite; }
   .pi-msg__status { color: var(--soft); font-style: italic; }
   .pi-msg__error { color: var(--soft); }
 
@@ -1269,17 +1237,6 @@ const starters = SHOW_ASK_PERSONA
     .pi-tile:hover .pi-tile__media img { transform: scale(1.04); }
   }
 
-  /* Thinking is writing, and it is the only thing that moves while she thinks:
-     three words written along a rule, one after the other, then the page is turned. */
-  .pi-pen { display: block; width: 8.25rem; max-width: 60%; height: 1.375rem; margin: 2px 0 var(--space-2); overflow: visible; }
-  .pi-pen__rule { fill: none; stroke: color-mix(in srgb, var(--text) 16%, transparent); stroke-width: 1; }
-  .pi-pen__ink { fill: none; stroke: var(--pi-terracotta); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1; animation: pi-write-1 2.4s linear infinite; }
-  .pi-pen__ink:nth-of-type(3) { animation-name: pi-write-2; }
-  .pi-pen__ink:nth-of-type(4) { animation-name: pi-write-3; }
-  /* Each word takes about half a second to write, with a pen's ease; all three lift together and it starts again. */
-  @keyframes pi-write-1 { 0% { stroke-dashoffset: 1; opacity: 1; animation-timing-function: cubic-bezier(.4, 0, .3, 1); } 22%, 86% { stroke-dashoffset: 0; opacity: 1; } 96%, 100% { stroke-dashoffset: 0; opacity: 0; } }
-  @keyframes pi-write-2 { 0%, 21.9% { stroke-dashoffset: 1; opacity: 0; } 22% { stroke-dashoffset: 1; opacity: 1; animation-timing-function: cubic-bezier(.4, 0, .3, 1); } 44%, 86% { stroke-dashoffset: 0; opacity: 1; } 96%, 100% { stroke-dashoffset: 0; opacity: 0; } }
-  @keyframes pi-write-3 { 0%, 43.9% { stroke-dashoffset: 1; opacity: 0; } 44% { stroke-dashoffset: 1; opacity: 1; animation-timing-function: cubic-bezier(.4, 0, .3, 1); } 66%, 86% { stroke-dashoffset: 0; opacity: 1; } 96%, 100% { stroke-dashoffset: 0; opacity: 0; } }
 
   /* Her reply as it arrives: each checked sentence settles in behind the last. */
   .pi-say { margin: 0; font: 400 var(--fs-400)/var(--lh-body) var(--font-ui); }
@@ -1331,9 +1288,6 @@ const starters = SHOW_ASK_PERSONA
   /* Her initials, written at the foot of a plan once the stops are in. */
   .pi-sign { width: 46px; height: 34px; overflow: visible; }
   .pi-sign__ink { fill: none; stroke: var(--pi-terracotta); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 0; }
-  .pi-msg.is-arriving .pi-note__sign:not(.is-seen) .pi-sign__ink { stroke-dashoffset: 1; }
-  .pi-msg.is-arriving .pi-note__sign.is-seen .pi-sign__ink { animation: pi-sign 160ms cubic-bezier(.4, 0, .2, 1) both; animation-delay: calc(120ms + var(--pi-s, 0) * 90ms); }
-  @keyframes pi-sign { from { stroke-dashoffset: 1; } }
   .pi-note__acts { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-3); }
   .pi-note__act { display: inline-flex; align-items: center; min-height: 44px; padding: 0 var(--space-4); border: 1px solid var(--accent); border-radius: var(--radius-pill); background: var(--accent); color: var(--white); font: 500 var(--fs-300)/1.2 var(--font-ui); text-decoration: none; cursor: pointer; }
   .pi-note__act + .pi-note__act { background: transparent; color: var(--accent); }
@@ -1417,13 +1371,9 @@ const starters = SHOW_ASK_PERSONA
     .pi-chat__launch, .pi-tile__media img { transition: none; }
     .pi-chat__panel, .pi-chat.is-in .pi-chat__panel { transform: none !important; transition: opacity 120ms linear; }
     .pi-fig__part, .pi-fig__go, .pi-chat.is-in.is-greeting .pi-chat__hello > * { animation: none !important; }
-    .pi-sign__ink { stroke-dashoffset: 0 !important; }
     .pi-msg, .pi-msg *, .pi-msg *::before, .pi-msg *::after, .pi-tile--text { animation: none !important; transition: none; }
     .pi-msg.is-arriving:not(.is-streamed), .pi-msg.is-arriving.is-streamed .pi-tiles, .pi-msg.is-arriving.is-streamed .pi-note { animation: pi-fade 200ms linear both !important; }
     .pi-say__s { animation: pi-fade 200ms linear both !important; }
-    /* With motion off the pen is a finished line, not a missing one. */
-    .pi-pen__ink { stroke-dashoffset: 0; }
-    .pi-msg.is-live .pi-pen { animation: pi-wait 2.4s ease-in-out infinite !important; }
   }
   @keyframes pi-wait { 50% { opacity: .6; } }
   @media print { .pi-chat { display: none; } }
