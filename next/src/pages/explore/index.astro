@@ -1,38 +1,27 @@
 ---
-import { categoryHero } from '../../lib/category-heroes';
 import { pageImage } from '../../lib/page-images';
 import HubEntry from '../../components/v5/hub/HubEntry.astro';
 import { checkedSpan } from '../../lib/checked-span';
 /**
- * Explore hub (v5 redesign, T-504) - page-redesigns-hubs.md section 5.
+ * Explore hub.
  *
- * 2026-11-10 (Phase 5 "say it once"): one browse route. Hero → the full
- * directory with its filter chips directly above it → "Where to start"
- * (three short rows) → "More ways in" → Journal → FAQ.
- * Round 2: the directory renders open (no "Show the full list" disclosure),
- * so the hero action lands on the list the chips filter; directory rows show
- * name and meta only (each reason lives on the shelves and detail pages);
- * "More ways in" keeps only the guides no menu, footer or hub links to.
- * Removed: the "What kind of day" tiles, the seasonal and golf shelves, the
- * navy towns band (now one link), the Save/Trip explainer and the search band.
+ * 2026-11-21 rebuild (rubric and scores: JWR-TheOne
+ * 07-projects/peninsula-insider/deliverables/2026-11-21-explore-hub-rubric-and-critique.md).
+ * The page used to open on 52 text rows in A to Z order. It now reads:
  *
- * Earlier notes:
- * The old page rendered the 44-experience corpus twice (14,903 words) with
- * zero filter controls (HUB-04/05). This build: stand-first, FilterBar
- * (CHIP_PRESETS.explore), curated shelves (<=6 each, deduped, >=3 guard per
- * HUB-13), towns text index (37 places), verticals rail (6 links), then ONE
- * server-rendered directory of all experiences as compact rows carrying
- * data-facets. The A-to-Z dump is gone; every experience URL survives in the
- * directory rows.
+ *   hero → the finder (what kind of outing, how long, who is coming) →
+ *   results as photographs with the reason and the practical facts →
+ *   what is good this season → turn it into a day → Journal → FAQ.
  *
- * Filter model: one URL-persisted state (lib/v5-filter-state). Directory rows
- * carry data-facets and data-filter-countable (this list is the page's whole
- * result set, so its rows are what the counts describe); the curated browse
- * layer (shelves/towns/verticals)
- * yields to the filtered directory whenever any facet is active, so the
- * live count ("Showing N of 44 experiences") always matches one render of
- * the corpus. Shelf "All N" links apply the preset in page (no fetch) and
- * fall back to a real ?param#directory navigation without JS.
+ * - One FilterBar still owns the filter state (lib/v5-filter-state). The photo
+ *   tiles and the time row sit inside it through its "lead" slot, so the
+ *   journeys that require one bar in the first phone screen still hold.
+ * - Every thing to do is one <li data-facets data-filter-countable> in one
+ *   list, in editors' order (EXPLORE_PICKS, then dealt by kind). With no
+ *   filter the first twelve show and a button reveals the rest; any filter
+ *   shows every match.
+ * - Reasons, times and cues come from explore-summaries.mjs, which restates
+ *   the records. Nothing on a card is inferred from a missing field.
  */
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
@@ -41,66 +30,44 @@ import Card from '../../components/v5/Card.astro';
 import CardGrid from '../../components/v5/CardGrid.astro';
 import FilterBar from '../../components/v5/FilterBar.astro';
 import EmptyState from '../../components/v5/EmptyState.astro';
-import { exploreSummary, effortLabel } from '../../components/v5/hub/explore-summaries.mjs';
-import { informationCheckedOn } from '../../lib/verification-date.mjs';
-import { getFacets, type FacetKey } from '../../lib/facets';
+import {
+  exploreSummary, effortLabel, exploreOrder, exploreCue, exploreBookingUrl, exploreSuits, golfLabel, beachTimeLabel,
+  timeBucket, timeLabel, EXPLORE_PICKS, TIME_OPTIONS,
+} from '../../components/v5/hub/explore-summaries.mjs';
+import { getFacets, FACET_OPTIONS, PLACE_TO_REGION } from '../../lib/facets';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
 import { routeSlug, placeLabel, titleize, venueHref, isListableVenue } from '../../lib/editorial';
+import { getAustralianSeasonLower } from '../../lib/season';
+import { getConditionsStrip } from '../../lib/conditions';
 import { buildCollectionPageSchema, buildFaqSchema, buildBreadcrumbSchema } from '../../lib/schema';
 
 // ── Copy helpers ──────────────────────────────────────────────────────────────
-// Trailing words that read as unfinished if a clip lands on them. English
-// function words are a closed class, so this is enumerated in full rather
-// than grown one live defect at a time: the first pass listed only 25 of
-// them and shipped four broken cards anyway (Arthurs Seat "...dangling
-// over…", Greens Bush "...one-way through…", St Andrews "...extend
-// out…"). Articles, determiners, coordinators, subordinators,
-// prepositions and bare copulas all read as mid-thought.
+// Trailing words that read as unfinished if a clip lands on them (journal deks).
 const DANGLING_TAIL_WORDS = new Set([
-  // articles + determiners
   'a', 'an', 'the', 'its', 'this', 'that', 'these', 'those', 'their', 'his',
   'her', 'our', 'your', 'some', 'any', 'every', 'each', 'both', 'either',
-  // coordinators + subordinators
   'and', 'or', 'but', 'so', 'yet', 'nor', 'if', 'then', 'than', 'because',
   'though', 'although', 'while', 'whilst', 'when', 'where', 'which', 'who',
   'whom', 'whose', 'what', 'whether', 'unless', 'until', 'since', 'as',
-  // prepositions
   'to', 'of', 'with', 'without', 'within', 'for', 'in', 'into', 'on', 'onto',
   'at', 'from', 'by', 'via', 'per', 'over', 'under', 'above', 'below',
   'beneath', 'between', 'among', 'amid', 'through', 'throughout', 'across',
   'along', 'around', 'about', 'after', 'before', 'during', 'near', 'toward',
   'towards', 'against', 'beyond', 'beside', 'besides', 'behind', 'upon',
-  'up', 'out', 'off', 'down', 'onto', 'past', 'like', 'unlike', 'despite',
-  // bare copulas / auxiliaries a clip can land on
+  'up', 'out', 'off', 'down', 'past', 'like', 'unlike', 'despite',
   'is', 'are', 'was', 'were', 'be', 'been', 'being', 'has', 'have', 'had',
   'will', 'would', 'can', 'could', 'should', 'may', 'might', 'must', 'does',
   'do', 'did',
 ]);
+const TRAILING_PUNCT = /[,;:‐-―-]+$/u;
 
-// Punctuation a clip can land on that carries no meaning of its own. The
-// dash forms matter: Sorrento Ocean Baths read "...reputation suggests -…"
-// because only [,;:] was stripped.
-const TRAILING_PUNCT = /[,;:\u2010-\u2015-]+$/u;
-
-/**
- * First sentence, clipped to a word budget. Was previously "clipped at a
- * clause boundary" by hunting for the last comma inside the word window,
- * then always appending a period, e.g. Bushrangers Bay's real editorNote
- * clipped to "...from Cape Schanck - and, remarkably." (T-EXP-CARD-1): a
- * comma landing right after a filler word produced a fragment dressed up
- * as a finished sentence. Clip on the word budget instead, drop any
- * trailing filler word the cut lands on, and signal truncation honestly
- * with an ellipsis rather than a fabricated full stop.
- */
+/** First sentence, clipped to a word budget, with an honest ellipsis. */
 function clipLine(text: string | undefined | null, maxWords = 25): string | undefined {
   if (!text) return undefined;
   const sentence = text.trim().split(/(?<=[.!?])\s+/)[0] ?? text.trim();
   const words = sentence.split(/\s+/);
   if (words.length <= maxWords) return sentence;
   const cut = words.slice(0, maxWords);
-  // Drop trailing tokens that read as mid-thought, alternating between bare
-  // punctuation and function words. Interleaving matters: "...and -" needs
-  // two passes, and stripping the dash first is what exposes the "and".
   while (cut.length > 1) {
     const bare = cut[cut.length - 1].replace(/[.!?]+$/, '').replace(TRAILING_PUNCT, '');
     if (!bare) { cut.pop(); continue; }
@@ -110,21 +77,18 @@ function clipLine(text: string | undefined | null, maxWords = 25): string | unde
   return cut.join(' ').replace(/[.!?]+$/, '').replace(TRAILING_PUNCT, '').trimEnd() + '…';
 }
 
-function durationLabel(minutes: unknown): string | null {
-  if (typeof minutes !== 'number' || minutes <= 0) return null;
-  if (minutes < 60) return `${minutes} min`;
-  const h = minutes / 60;
-  return Number.isInteger(h) ? `${h} hr` : `${h.toFixed(1)} hr`;
-}
+/** One apostrophe style on the page, whatever the record was typed with. */
+const curly = (text: string | undefined) =>
+  (text ?? '').replace(/(\w)'(\w|\s|$)/g, (_match: string, before: string, after: string) => `${before}’${after}`);
 
 const TYPE_LABEL: Record<string, string> = {
   walk: 'Walk',
   beach: 'Beach',
-  'golf-course': 'Golf course',
+  'golf-course': 'Golf',
   lookout: 'Lookout',
   gallery: 'Gallery',
   attraction: 'Attraction',
-  park: 'Park',
+  park: 'National park',
   tour: 'Tour',
   market: 'Market',
   spa: 'Springs & spa',
@@ -132,170 +96,161 @@ const TYPE_LABEL: Record<string, string> = {
 };
 
 // ── Data ──────────────────────────────────────────────────────────────────────
-const experiences = (await getCollection('experiences')).sort((a, b) =>
-  a.data.name.localeCompare(b.data.name),
-);
-
+type Facets = Record<string, string[]>;
 type Row = {
   slug: string;
+  kind: 'experience' | 'venue';
+  type: string;
   name: string;
   href: string;
-  facets: Partial<Record<FacetKey, string[]>>;
+  facets: Facets;
   verdict: string | undefined;
+  typeLabel: string;
+  town: string;
   meta: string[];
+  bookingUrl: string | undefined;
+  directionsUrl: string | undefined;
+  priceBand: string | undefined;
+  hero: { src: string; alt: string };
+  illustrative: boolean;
   data: any;
 };
 
-const rows: Row[] = experiences.map((e) => {
-  const slug = routeSlug(e);
+async function buildRow(kind: 'experience' | 'venue', entry: any): Promise<Row> {
+  const slug = routeSlug(entry);
+  const data = entry.data;
+  const facets: Facets = { ...(getFacets(kind, data) as Facets) };
+  // Every entry matched "this season", so that tag told a reader nothing.
+  delete facets.date;
+  const bucket = timeBucket(data.durationMinutes);
+  if (bucket) facets.time = [bucket];
+  // Every course record carries the same nominal round time, so a course shows
+  // its holes instead; the time still files it under "Half a day".
+  const timeText = data.type === 'golf-course'
+    ? golfLabel(data)
+    : data.type === 'beach'
+      ? beachTimeLabel(data.durationMinutes)
+      // An outing with no recorded time says so, rather than showing nothing.
+      : timeLabel(data.durationMinutes) ?? (kind === 'experience' ? 'Time varies' : undefined);
+  const coords = data.coordinates;
+  const hero = await resolveHero(kind, slug, data);
   return {
     slug,
-    name: e.data.name,
-    href: `/explore/${slug}/`,
-    facets: getFacets('experience', e.data),
-    verdict: exploreSummary(slug, e.data),
+    kind,
+    type: data.type,
+    name: curly(data.name),
+    href: kind === 'venue' ? venueHref(entry) : `/explore/${slug}/`,
+    facets,
+    verdict: curly(exploreSummary(slug, data)),
+    typeLabel: TYPE_LABEL[data.type] ?? titleize(data.type ?? ''),
+    town: placeLabel(data.place),
+    // Up to three practical facts: how long (and how hard), the booking or
+    // entry terms, and who it suits.
     meta: [
-      TYPE_LABEL[e.data.type] ?? titleize(e.data.type ?? ''),
-      placeLabel(e.data.place),
-      [durationLabel(e.data.durationMinutes), effortLabel(e.data)].filter(Boolean).join(' · '),
-    ].filter((m): m is string => Boolean(m)).slice(0, 3),
-    data: e.data,
+      [timeText, effortLabel(data)].filter(Boolean).join(' · '),
+      exploreCue(slug, data),
+      exploreSuits(facets, data, slug),
+    ].filter((m): m is string => Boolean(m)),
+    bookingUrl: exploreBookingUrl(data),
+    // Same pattern as the event pages: the record's own coordinates.
+    directionsUrl: typeof coords?.lat === 'number' && typeof coords?.lng === 'number'
+      ? `https://www.google.com/maps/dir/?api=1&destination=${coords.lat},${coords.lng}`
+      : undefined,
+    // A price band means something for a spa session; a market has no single price.
+    priceBand: data.type === 'spa' ? data.priceBand : undefined,
+    hero: { src: hero.src, alt: hero.alt },
+    illustrative: !hero.override && data.heroImage?.depictionStatus === 'illustrative',
+    data,
   };
-});
+}
 
+const experiences = await getCollection('experiences');
 // Markets and day spas are Explore subjects whose records live in the venues
-// collection, so their detail pages route to /eat/ and /stay/ via
-// venueHrefPrefix. The directory is the one place every Explore subject is
-// listed, and CHIP_PRESETS.explore offers Markets and Springs & spa chips, so
-// sourcing them here is what makes those two chips match anything at all.
+// collection; their detail pages route through venueHref.
 const EXPLORE_VENUE_TYPES = ['market', 'spa'];
 const exploreVenues = (await getCollection('venues')).filter(
   (v) => isListableVenue(v) && EXPLORE_VENUE_TYPES.includes(v.data.type),
 );
+const unordered: Row[] = await Promise.all([
+  ...experiences.map((e) => buildRow('experience', e)),
+  ...exploreVenues.map((v) => buildRow('venue', v)),
+]);
+const bySlug = new Map(unordered.map((r) => [r.slug, r]));
+const things: Row[] = exploreOrder(unordered).map((item: { slug: string }) => bySlug.get(item.slug)!);
+const total = things.length;
+const exploreChecked = checkedSpan(things.map((r) => r.data));
+const PICK_COUNT = EXPLORE_PICKS.filter((slug: string) => bySlug.has(slug)).length;
+const NUMBER_WORDS = ['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve'];
 
-const venueRows: Row[] = exploreVenues.map((v) => {
-  const slug = routeSlug(v);
-  return {
-    slug,
-    name: v.data.name,
-    href: venueHref(v),
-    facets: getFacets('venue', v.data),
-    verdict: exploreSummary(slug, v.data),
-    meta: [
-      TYPE_LABEL[v.data.type] ?? titleize(v.data.type ?? ''),
-      placeLabel(v.data.place),
-    ].filter((m): m is string => Boolean(m)).slice(0, 3),
-    data: v.data,
-  };
-});
+// ── The finder: kinds of outing, as photographs ──────────────────────────────
+const hasCat = (r: Row, cats: string[]) => (r.facets.cat ?? []).some((c) => cats.includes(c));
+const TILE_DEFS = [
+  { id: 'walks', label: 'Walks', cats: ['walk'] },
+  // `lead` names the record whose photograph best shows the kind at tile size.
+  { id: 'beaches', label: 'Beaches', cats: ['beach'], lead: 'dromana-beach' },
+  { id: 'springs', label: 'Hot springs & spas', cats: ['spa'] },
+  { id: 'lookouts', label: 'Lookouts & parks', cats: ['lookout', 'park'] },
+  { id: 'art', label: 'Art, gardens & farms', cats: ['gallery', 'attraction', 'garden'], lead: 'ashcombe-maze' },
+  { id: 'tours', label: 'Tours & rides', cats: ['tour'] },
+  { id: 'markets', label: 'Markets', cats: ['market'] },
+  { id: 'golf', label: 'Golf', cats: ['golf'] },
+];
+const usedTileImages = new Set<string>();
+const tiles = TILE_DEFS.map((def) => {
+  const matching = things.filter((r) => hasCat(r, def.cats));
+  // A real photograph of one of the places, never a town stand-in, never the
+  // same picture on two tiles, and where possible not one of the first picks,
+  // whose photographs sit directly below.
+  const usable = matching.filter((r) => !r.illustrative && !usedTileImages.has(r.hero.src));
+  const named = (def as { lead?: string }).lead;
+  const lead = usable.find((r) => r.slug === named) ?? usable.find((r) => !EXPLORE_PICKS.includes(r.slug)) ?? usable[0] ?? matching[0];
+  if (lead) usedTileImages.add(lead.hero.src);
+  return { ...def, count: matching.length, image: lead?.hero };
+}).filter((t) => t.count > 0 && t.image);
 
-// Shelves stay experience-only, keeping the "at most one shelf plus one
-// directory row" rule. The directory carries the whole Explore corpus, so
-// every count and every filter result is drawn from this list.
-const directoryRows: Row[] = [...rows, ...venueRows].sort((a, b) =>
-  a.name.localeCompare(b.name),
-);
-const exploreChecked = checkedSpan(directoryRows.map((r) => r.data));
+const timeOptions = TIME_OPTIONS.map((o: { value: string; label: string }) => ({
+  ...o,
+  count: things.filter((r) => (r.facets.time ?? []).includes(o.value)).length,
+})).filter((o: { count: number }) => o.count > 0);
 
-// Live-count parity with lib/v5-filter-state itemMatches: AND across facet
-// keys, OR within a key. "All N" always equals what the filter will show.
-type FilterPreset = Partial<Record<FacetKey, string[]>>;
-const matches = (r: Row, preset: FilterPreset) =>
-  Object.entries(preset).every(([key, vals]) =>
-    (r.facets[key as FacetKey] ?? []).some((v) => (vals as string[]).includes(v)),
-  );
-// Counted over the directory, not the shelf pool: "All N" has to equal what
-// the filter will actually show once applied.
-const countLive = (preset: FilterPreset) =>
-  directoryRows.filter((r) => matches(r, preset)).length;
+// The five parts of the Peninsula, for the "Where?" row. Towns stay in the sheet.
+const regionValues = new Set(Object.values(PLACE_TO_REGION));
+const regionOptions = FACET_OPTIONS.place
+  .filter((o) => regionValues.has(o.value))
+  .filter((o) => things.some((r) => (r.facets.place ?? []).includes(o.value)));
 
-// Shelf assembly: an experience appears in at most ONE shelf (plus its single
-// directory row), enforcing the corpus <=2x-per-entry acceptance (spec 30).
-const shelved = new Set<string>();
-function pickShelf(pool: Row[], n = 3): Row[] {
-  const picked = pool.filter((r) => !shelved.has(r.slug)).slice(0, n);
-  for (const r of picked) shelved.add(r.slug);
-  return picked;
-}
+// ── Good this season: three more, beyond the first twelve ────────────────────
+const season = getAustralianSeasonLower();
+const conditions = getConditionsStrip();
+const seasonalPlaces = new Set<string>();
+const placeKey = (r: Row) => r.name.toLowerCase().split(/\s+/).slice(0, 2).join(' ');
+const seasonal = things
+  .filter((r) => !EXPLORE_PICKS.includes(r.slug))
+  .filter((r) => {
+    const best: string[] = Array.isArray(r.data.seasonBest) ? r.data.seasonBest : [];
+    return best.includes(season) && !best.includes('all-year') && best.length < 4 && r.type !== 'golf-course' && !r.illustrative;
+  })
+  // One card per place: Bushrangers Bay is recorded as both a walk and a beach.
+  .filter((r) => (seasonalPlaces.has(placeKey(r)) ? false : (seasonalPlaces.add(placeKey(r)), true)))
+  .slice(0, 3);
 
-const hasCat = (r: Row, vals: string[]) => (r.facets.cat ?? []).some((v) => vals.includes(v));
-
-const CULTURE_CATS = ['gallery', 'attraction', 'park', 'tour', 'lookout'];
-
-interface Shelf {
-  id: string;
-  eyebrow: string;
-  heading: string;
-  preset: FilterPreset;
-  total: number;
-  items: (Row & { hero: { src: string; alt: string; override?: unknown } })[];
-}
-
-async function buildShelf(
-  id: string,
-  eyebrow: string,
-  heading: string,
-  pool: Row[],
-  preset: FilterPreset,
-): Promise<Shelf> {
-  const picked = pickShelf(pool);
-  const items = await Promise.all(
-    picked.map(async (r) => ({ ...r, hero: await resolveHero('experience', r.slug, r.data) })),
-  );
-  return { id, eyebrow, heading, preset, total: countLive(preset), items };
-}
-
-// 2026-11-10 (Phase 5): one "Where to start" section with three short rows.
-// The seasonal row (51 of 52 places matched) and the golf row (the golf guide
-// is linked under "More ways in") were removed; the filter chips above the
-// directory are the single route to everything else.
-const shelfWalks = await buildShelf(
-  'walks',
-  'Coastal walks',
-  'The walks that reset the weekend',
-  rows.filter((r) => hasCat(r, ['walk'])),
-  { cat: ['walk'] },
-);
-const shelfBeaches = await buildShelf(
-  'beaches',
-  'Beaches',
-  'Which beach, and why',
-  rows.filter((r) => hasCat(r, ['beach'])),
-  { cat: ['beach'] },
-);
-const shelfCulture = await buildShelf(
-  'culture',
-  'Galleries & attractions',
-  'Galleries and attractions',
-  rows.filter((r) => hasCat(r, CULTURE_CATS)),
-  { cat: CULTURE_CATS },
-);
-
-// HUB-13 guard: a row renders only when it holds at least 3 items.
-const shelves = [shelfWalks, shelfBeaches, shelfCulture].filter(
-  (s) => s.items.length >= 3,
-);
-
-// One guide link per row, carrying the lane pages the old intros linked.
-const shelfGuides: Record<string, { href: string; label: string }> = {
-  walks: { href: '/explore/walks/', label: 'The Peninsula’s best walks' },
-  beaches: { href: '/explore/beaches/', label: 'The beach guide' },
-  culture: { href: '/explore/rainy-day/', label: 'Rainy-day plans' },
-};
-
-// ── More ways in: only the guides nothing else links to ─────────────────────
-// Round 2 (2026-11-10): the 19-link list repeated the nav, the chips and the
-// footer. Golf, spas, hot springs, dogs, fishing, boating, tours, markets,
-// things to do, plans, stays and What's On all have routes from the masthead,
-// footer or hub pages; these six did not, so they stay (link graph).
-const places = await getCollection('places');
-const moreWays = [
-  { href: '/explore/places/', label: `Explore the towns` },
+// ── Turn it into a day ───────────────────────────────────────────────────────
+const guideLinks = [
+  { href: '/explore/walks/', label: 'The best walks, ranked', line: 'From a 45-minute clifftop to the full Two Bays.' },
+  { href: '/explore/beaches/', label: 'The beach guide', line: 'Bay calm or back-beach surf, and which suits your day.' },
+  { href: '/explore/hot-springs/', label: 'Hot springs', line: 'The thermal pools compared, and when to book.' },
+  { href: '/explore/rainy-day/', label: 'Rainy-day plans', line: 'What still works when the forecast turns.' },
+  { href: '/explore/family-friendly/', label: 'With kids', line: 'Days that work for small legs and short tempers.' },
+  { href: '/explore/golf/', label: 'The golf guide', line: 'Public, resort and private courses side by side.' },
+];
+// Every link the previous hub carried stays reachable from here (link graph).
+const planLinks = [
+  { href: '/explore/places/', label: 'Explore the towns' },
   { href: '/explore/day-trips/', label: 'Day trips' },
   { href: '/explore/weekend-trips/', label: 'Weekend trips' },
-  { href: '/explore/family-friendly/', label: 'With kids' },
   { href: '/explore/getting-here/', label: 'Getting here' },
   { href: '/explore/getting-around/', label: 'Getting around' },
+  { href: '/whats-on/', label: 'What’s on this weekend' },
 ];
 
 // ── From the Journal (<=3) ───────────────────────────────────────────────────
@@ -314,9 +269,7 @@ const journal = await Promise.all(
       const slug = routeSlug(a);
       return {
         slug,
-        href: a.data.section === 'plans'
-          ? `/explore/plans/${slug}/`
-          : `/journal/${slug}/`,
+        href: a.data.section === 'plans' ? `/explore/plans/${slug}/` : `/journal/${slug}/`,
         title: a.data.title,
         verdict: clipLine(a.data.dek, 25),
         readTime: a.data.readingTimeMinutes ? `${a.data.readingTimeMinutes} min read` : undefined,
@@ -331,7 +284,7 @@ const collectionSchema = buildCollectionPageSchema({
   name: 'Explore the Mornington Peninsula, Peninsula Insider',
   description: 'Browse Mornington Peninsula activities and places by category and area, with links to walks, beaches, hot springs, golf and cultural experiences.',
   path: '/explore/',
-  dateModified: '2026-10-01',
+  dateModified: '2026-11-21',
 });
 const faqSchema = buildFaqSchema([
   { q: 'What is the Mornington Peninsula?',
@@ -362,12 +315,13 @@ export const prerender = true;
   <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <noscript><style>{`.x-results[data-collapsed] .x-result[data-beyond] { display: list-item !important; } .x-results__more { display: none; }`}</style></noscript>
 
   <HubEntry
     kicker="Things to do"
     title="Walks, beaches and hot springs"
-    dek="Pick by the time you have. Each one comes with the reason it earns its place."
-    primary={{ label: `Browse things to do`, href: '#directory', arrow: 'down' }}
+    dek="Pick an outing and the time you have. Every place comes with the reason we rate it."
+    primary={{ label: `Find something to do`, href: '#directory', arrow: 'down' }}
     secondary={{ label: 'See them on the map', href: '/map/' }}
     trust={exploreChecked ? `${exploreChecked[0].toUpperCase()}${exploreChecked.slice(1)}. Chosen by our editors, never paid for.` : 'Chosen by our editors, never paid for.'}
     image={pageImage('explore-hero')}
@@ -377,102 +331,219 @@ export const prerender = true;
     headingId="explore-title"
   />
 
-  <!-- The one browse route: filter chips sit directly above the complete,
-       server-rendered and countable directory they filter. -->
-  <section class="x-directory" id="directory" aria-labelledby="directory-heading">
+  <!-- The finder and its results: one filter state, one list. -->
+  <section class="x-find" id="directory" aria-labelledby="directory-heading">
     <div class="container">
-      <div class="x-directory__head">
-        <h2 class="x-directory__heading" id="directory-heading" data-directory-total={directoryRows.length}>Explore the experiences</h2>
-      </div>
+      <h2 class="x-find__heading" id="directory-heading" data-directory-total={total}>What do you feel like?</h2>
       <FilterBar
         surface="explore"
-        noun="experiences"
-        label="Filter experiences"
-        facets={['cat', 'place', 'party', 'price']}
-      />
-      <div class="x-directory__list">
-        <CardGrid label={`Explore the experiences`} layout="rows">
-          {directoryRows.map((r, i) => (
+        noun="things to do"
+        label="Find something to do"
+        chipsLabel="Good for"
+        facets={['place', 'party']}
+      >
+        <Fragment slot="lead">
+          <div class="x-find__tiles" role="group" aria-label="Kind of outing">
+            {tiles.map((tile) => (
+              <button
+                type="button"
+                class="x-tile"
+                data-cat-tile
+                data-values={tile.cats.join(',')}
+                data-evt="filter_apply"
+                aria-pressed="false"
+              >
+                <span class="x-tile__frame">
+                  <img src={tile.image!.src} alt="" width="320" height="240" loading="lazy" decoding="async" data-pi-responsive="(max-width: 640px) 132px, 160px" />
+                </span>
+                <span class="x-tile__text">
+                  <span class="x-tile__label">{tile.label}</span>
+                  <span class="x-tile__count" aria-label={`${tile.count} to choose from`}>{tile.count}</span>
+                </span>
+              </button>
+            ))}
+          </div>
+          <div class="x-find__row">
+            <span class="x-find__label" id="find-time-label">How long have you got?</span>
+            <div class="x-find__chips" role="group" aria-labelledby="find-time-label">
+              {timeOptions.map((option: { value: string; label: string }) => (
+                <button
+                  type="button"
+                  class="x-chip"
+                  data-filter-chip
+                  data-key="time"
+                  data-value={option.value}
+                  data-evt="filter_apply"
+                  aria-pressed="false"
+                >
+                  {option.label}
+                </button>
+              ))}
+            </div>
+          </div>
+          {regionOptions.length > 1 && (
+            <div class="x-find__row x-find__row--where">
+              <span class="x-find__label" id="find-where-label">Which part?</span>
+              <div class="x-find__chips" role="group" aria-labelledby="find-where-label">
+                {regionOptions.map((option) => (
+                  <button
+                    type="button"
+                    class="x-chip"
+                    data-filter-chip
+                    data-key="place"
+                    data-value={option.value}
+                    data-evt="filter_apply"
+                    aria-pressed="false"
+                  >
+                    {option.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+        </Fragment>
+      </FilterBar>
+
+      <div class="x-results" data-results data-collapsed>
+        <div class="x-results__bar" data-results-bar hidden>
+          <span class="x-results__count" data-filter-count></span>
+          <span class="x-results__active" data-active-filters aria-label="Filters applied"></span>
+          <span class="x-results__bar-actions">
+            <a href="#directory">Filters<span class="x-arrow" aria-hidden="true">↑</span></a>
+            <button type="button" data-action="clear-filters">Clear all</button>
+          </span>
+        </div>
+        <p class="x-results__untimed" data-untimed-note hidden>
+          <span data-untimed-text></span>{' '}
+          <button type="button" data-remove-key="time" data-remove-value="*">Show them too</button>
+        </p>
+        <div class="x-results__head" data-results-head>
+          <h3 class="x-results__title">{NUMBER_WORDS[PICK_COUNT] ?? PICK_COUNT} to start with</h3>
+          <p class="x-results__sub">Our editors’ first picks from all {total} things to do, across walks, beaches, springs, art and the bay.{' '}<a href="/map/">See them on the map<span class="x-arrow" aria-hidden="true">→</span></a></p>
+          <p class="x-results__swipe">Swipe across for all {PICK_COUNT}.</p>
+        </div>
+        <ul class="x-results__grid" aria-label="Things to do">
+          {things.map((r, i) => (
             <li
+              class="x-result"
               data-facets={JSON.stringify(r.facets)}
               data-filter-countable
               data-title={r.name}
-              class="x-directory__row"
+              data-beyond={i >= PICK_COUNT ? '' : undefined}
+              data-pick={i < PICK_COUNT ? '' : undefined}
             >
               <Card
                 as="div"
-                variant="compact-row"
+                variant="venue"
                 title={r.name}
                 href={r.href}
-                entityType={EXPLORE_VENUE_TYPES.includes(r.data.type) ? 'venue' : 'experience'}
+                entityType={r.kind}
                 entitySlug={r.slug}
+                image={{ src: r.hero.src, alt: r.hero.alt }}
+                imageSizes={i === 0 ? '(max-width: 640px) 100vw, (max-width: 1023px) 100vw, 840px' : '(max-width: 640px) 150px, (max-width: 1023px) 50vw, 400px'}
+                typeMark={`${r.typeLabel} · ${r.town}`}
                 verdict={r.verdict}
                 meta={r.meta}
-                surface="explore-directory"
+                priceBand={r.priceBand}
+                trip
+                booking={r.bookingUrl ? { url: r.bookingUrl, label: 'Book', venueName: r.name } : undefined}
+                surface="explore-results"
                 position={i + 1}
                 saveSection="explore"
               />
+              {r.directionsUrl && (
+                <a class="x-result__go" href={r.directionsUrl} target="_blank" rel="noopener noreferrer" data-evt="directions_out" aria-label={`Directions to ${r.name} (opens Google Maps)`}>Directions<span class="x-arrow" aria-hidden="true">↗</span></a>
+              )}
             </li>
           ))}
-        </CardGrid>
+        </ul>
         <div data-filter-empty hidden>
           <EmptyState variant="filter-zero" surface="explore" />
         </div>
+        {total > PICK_COUNT && (
+          <p class="x-results__more">
+            <button type="button" class="x-results__all" data-show-all>See all {total} things to do <span aria-hidden="true">↓</span></button>
+          </p>
+        )}
+        <details class="x-advice">
+          <summary>Before you go: times, access and conditions</summary>
+          <p>Times are guide estimates, not live conditions. Dollar signs on a spa are a price band from $ to $$$$, not a quoted price. Walking effort is shown where recorded; it is not an accessibility assessment. Check terrain, step-free access, toilets, shade and dog rules for your chosen stop.</p>
+          <p>Use <a href="https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park">Parks Victoria’s park notices</a>, <a href="https://www.emergency.vic.gov.au/">VicEmergency warnings</a> and <a href="https://www.beachsafe.org.au/">Beachsafe beach and patrol information</a>. These links do not confirm that a route or beach is suitable on your day.</p>
+        </details>
       </div>
     </div>
   </section>
 
-  <!-- Browse layer: our starting picks and the link list. Yields to the
-       filtered directory whenever any facet is active. -->
-  <div data-browse-layer>
-    <section class="x-picks" aria-labelledby="picks-heading">
+  {seasonal.length === 3 && (
+    <section class="x-season" aria-labelledby="season-heading">
       <div class="container">
-        <h2 class="x-picks__heading" id="picks-heading">Where to start</h2>
-        <details class="x-picks__advice">
-          <summary>Before you go: times, access and conditions</summary>
-          <p>Times are guide estimates, not live conditions. Walking effort is shown where recorded; it is not an accessibility assessment. Check terrain, step-free access, toilets, shade and dog rules for your chosen stop.</p>
-          <p>Use <a href="https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park">Parks Victoria’s park notices</a>, <a href="https://www.emergency.vic.gov.au/">VicEmergency warnings</a> and <a href="https://www.beachsafe.org.au/">Beachsafe beach and patrol information</a>. These links do not confirm that a route or beach is suitable on your day.</p>
-        </details>
-        {shelves.map((shelf) => (
-          <div class="x-shelf" id={`shelf-${shelf.id}`}>
-            <div class="x-shelf__header">
-              <h3 class="x-shelf__heading" id={`shelf-${shelf.id}-heading`}>{shelf.heading}</h3>
-              {shelfGuides[shelf.id] && <a class="x-shelf__all" href={shelfGuides[shelf.id].href}>{shelfGuides[shelf.id].label} <span aria-hidden="true">→</span></a>}
-            </div>
-            <ul class="x-shelf__row" aria-labelledby={`shelf-${shelf.id}-heading`}>
-              {shelf.items.map((item, i) => (
-                <Card
-                  variant="venue"
-                  title={item.name}
-                  href={item.href}
-                  entityType="experience"
-                  entitySlug={item.slug}
-                  image={{ src: item.hero.src, alt: item.hero.alt, caption: undefined }}
-                  showEyebrow={false}
-                  verdict={item.verdict}
-                  meta={item.meta}
-                  freshness={informationCheckedOn(item.data)?.toISOString()}
-                  freshnessKind="checked"
-                  surface={`explore-shelf-${shelf.id}`}
-                  position={i + 1}
-                  saveSection="explore"
-                />
-              ))}
-            </ul>
+        <div class="x-season__head">
+          <div>
+            <p class="x-season__kicker">{titleize(season)} on the Peninsula{conditions.sunset && <> · Sunset {conditions.sunset}</>}</p>
+            <h2 class="x-season__heading" id="season-heading">Three more for a {season} day</h2>
           </div>
-        ))}
-      </div>
-    </section>
-
-    <section class="x-more" aria-labelledby="more-heading">
-      <div class="container">
-        <h2 class="x-more__heading" id="more-heading">More ways in</h2>
-        <ul class="x-more__list" role="list">
-          {moreWays.map((link) => <li><a href={link.href}>{link.label}</a></li>)}
+          <p class="x-season__line">Our editors mark each of these as a good {season} outing.</p>
+        </div>
+        <ul class="x-season__row" aria-labelledby="season-heading">
+          {seasonal.map((r, i) => (
+            <li class="x-season__item">
+            <Card
+              as="div"
+              variant="venue"
+              title={r.name}
+              href={r.href}
+              entityType={r.kind}
+              entitySlug={r.slug}
+              image={{ src: r.hero.src, alt: r.hero.alt }}
+              typeMark={`${r.typeLabel} · ${r.town}`}
+              verdict={r.verdict}
+              meta={r.meta}
+              trip
+              booking={r.bookingUrl ? { url: r.bookingUrl, label: 'Book', venueName: r.name } : undefined}
+              surface="explore-season"
+              position={i + 1}
+              saveSection="explore"
+            />
+            {r.directionsUrl && (
+              <a class="x-result__go" href={r.directionsUrl} target="_blank" rel="noopener noreferrer" data-evt="directions_out" aria-label={`Directions to ${r.name} (opens Google Maps)`}>Directions<span class="x-arrow" aria-hidden="true">↗</span></a>
+            )}
+            </li>
+          ))}
         </ul>
       </div>
     </section>
-  </div>
+  )}
+
+  <section class="x-plan" aria-labelledby="plan-heading">
+    <div class="container x-plan__grid">
+      <div class="x-plan__lead">
+        <h2 class="x-plan__heading" id="plan-heading">Turn it into a day</h2>
+        <p class="x-plan__dek">“+ Trip” on any card adds it to My trip. The bookmark keeps a place for later. Or start from a day we have already planned, with the right lunch and the right bed.</p>
+        <p class="x-plan__actions">
+          <a class="x-plan__primary" href="/my-trip/">Open My trip<span class="x-arrow" aria-hidden="true">→</span></a>
+          <a class="x-plan__secondary" href="/explore/plans/">Browse our plans</a>
+          <a class="x-plan__secondary" href="/map/">Open the map</a>
+          <a class="x-plan__secondary" href="/saved/">Saved places</a>
+        </p>
+      </div>
+      <div class="x-plan__lists">
+        <div>
+          <h3 class="x-plan__label">Guides for the next decision</h3>
+          <ul class="x-plan__guides" role="list">
+            {guideLinks.map((g) => (
+              <li><a href={g.href}><span class="x-plan__guide-name">{g.label}</span><span class="x-plan__guide-line">{g.line}</span></a></li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h3 class="x-plan__label">Getting your bearings</h3>
+          <ul class="x-plan__links" role="list">
+            {planLinks.map((link) => <li><a href={link.href}>{link.label}</a></li>)}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
   {journal.length > 0 && (
     <section class="x-journal" aria-labelledby="journal-heading">
@@ -508,7 +579,7 @@ export const prerender = true;
   <!-- FAQ (retained, schema unchanged) -->
   <section class="x-faq" aria-labelledby="faq-heading">
     <div class="container">
-      <h2 class="x-faq__heading" id="faq-heading">Before you come</h2>
+      <h2 class="x-faq__heading" id="faq-heading">Getting here, and when to come</h2>
       <div class="x-faq__list">
         {faqSchema.mainEntity.map((item) => (
           <details class="x-faq__item">
@@ -524,136 +595,384 @@ export const prerender = true;
 </BaseLayout>
 
 <style>
-  .x-hero { background: var(--paper, #f2efea); }
-  .x-hero__grid { display: grid; grid-template-columns: minmax(0, 0.93fr) minmax(0, 1.07fr); gap: clamp(2rem, 5vw, 5rem); height: clamp(28rem, 36vw, 34rem); }
-  .x-hero__copy { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: var(--space-8) 0; }
-  .x-hero h1 { max-width: 16ch; margin: 0; color: var(--text); font-weight:600;line-height:1.04;font-family:var(--font-editorial, Georgia, serif); letter-spacing: -0.03em; text-wrap: balance; }
-  .x-hero__copy > p { max-width: 47ch; margin: var(--space-5) 0 0; color: var(--soft); font: 400 var(--fs-400)/1.55 var(--font-ui); }
-  .x-hero__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-5); margin-top: var(--space-6); }
-  .x-hero__actions a { display: inline-flex; align-items: center; justify-content: center; gap: 0.85rem; min-height: 48px; font: 600 var(--fs-400)/1.3 var(--font-ui); text-decoration: none; }
-  /* One action colour at every viewport: harbour blue, white text. */
-  .x-hero__primary { padding: 0.75rem 1.25rem; background: var(--accent); color: var(--white); border-radius: var(--radius-s); }
-  .x-hero__primary:hover { background: var(--harbour-hover, #0c4166); }
-  .x-hero__secondary { color: var(--accent); text-decoration: underline !important; text-underline-offset: 0.25em; }
-  .x-hero__actions a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-  .x-hero__arrow { position: relative; display: inline-block; width: 1rem; height: 1rem; flex: 0 0 1rem; }
-  .x-hero__arrow::before { content: ''; position: absolute; left: 0; top: calc(50% - 1px); width: 0.82rem; height: 2px; background: currentColor; }
-  .x-hero__arrow::after { content: ''; position: absolute; right: 0.08rem; top: 0.24rem; width: 0.48rem; height: 0.48rem; border-top: 2px solid currentColor; border-right: 2px solid currentColor; transform: rotate(45deg); }
-  .x-hero__arrow--down { transform: rotate(90deg); }
-  .x-hero__media { position: relative; height: 100%; min-height: 0; margin: 0; overflow: hidden; background: var(--bg-dark); }
-  .x-hero__media img { display: block; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; }
-
   /* One section rhythm from the spacing scale; space separates sections. */
-  .x-directory, .x-picks, .x-more, .x-journal, .x-faq { padding: var(--space-7) 0; }
-  .x-directory__heading, .x-picks__heading, .x-more__heading, .x-journal__heading, .x-faq__heading { margin: 0; color: var(--text); font: 600 var(--fs-700)/1.15 var(--font-editorial, Georgia, serif); letter-spacing: -0.025em; text-wrap: balance; }
+  .x-find, .x-season, .x-plan, .x-journal, .x-faq { padding: var(--space-7) 0; }
+  .x-find__heading, .x-season__heading, .x-plan__heading, .x-journal__heading, .x-faq__heading { margin: 0; color: var(--text); font: 600 var(--fs-700)/1.15 var(--font-display); letter-spacing: -0.025em; text-wrap: balance; }
 
-  .x-directory { scroll-margin-top: 4rem; }
-  .x-directory__head { margin-bottom: var(--space-4); }
-  .x-directory :global(.v5-filterbar) { background: transparent; }
-  /* The directory is open: a calm list of names and one meta line that the
-     chips above filter in place. Reasons live on the shelves and detail pages. */
-  .x-directory__list { margin-top: var(--space-5); }
-  .x-directory :global(.v5-card-grid--rows) { display: grid; grid-template-columns: 1fr; gap: 0 var(--space-6); margin: 0; padding: 0; }
-  .x-directory__row { list-style: none; min-width: 0; }
-  .x-directory__row :global(.pi-card__dek) { display: none; }
-  @media (min-width: 40em) { .x-directory :global(.v5-card-grid--rows) { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  @media (min-width: 64em) { .x-directory :global(.v5-card-grid--rows) { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  /* An arrow after link text: spaced, and never underlined with the words. */
+  .x-arrow { display: inline-block; margin-left: .35em; text-decoration: none; }
+
+  /* ── The finder ─────────────────────────────────────────────────────────── */
+  .x-find { scroll-margin-top: 4rem; padding-top: var(--space-6); }
+  .x-find :global(.v5-filterbar) { background: transparent; padding: 0; margin-top: var(--space-5); }
+
+  /* Kinds of outing: eight photographs that are also the first filter. */
+  .x-find__tiles { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: var(--space-4); }
+  .x-tile { display: flex; flex-direction: column; gap: var(--space-2); min-width: 0; padding: 0; border: 0; background: none; color: var(--text); text-align: left; cursor: pointer; font: inherit; }
+  .x-tile__frame { position: relative; display: block; aspect-ratio: 4 / 3; overflow: hidden; border-radius: var(--radius-m); background: var(--bg-alt); }
+  .x-tile__frame img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform var(--dur-slow, 400ms) var(--ease-enter, ease); }
+  .x-tile:hover .x-tile__frame img { transform: scale(1.04); }
+  /* Chosen: a harbour ring round the photograph and a tick in its corner. */
+  .x-tile__frame::after { content: ''; position: absolute; inset: 0; border-radius: inherit; box-shadow: inset 0 0 0 0 var(--accent); transition: box-shadow var(--dur-fast, 120ms) ease; }
+  .x-tile[aria-pressed='true'] .x-tile__frame::after { box-shadow: inset 0 0 0 3px var(--accent); }
+  .x-tile[aria-pressed='true'] .x-tile__frame::before { content: ''; position: absolute; z-index: 1; top: var(--space-2); right: var(--space-2); width: 1.5rem; height: 1.5rem; border-radius: 50%; background: var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='m4 8.5 2.6 2.6L12 5.5' stroke='%23fff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 1rem no-repeat; }
+  .x-tile__text { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-2); }
+  .x-tile__label { font: 600 var(--fs-300)/1.25 var(--font-ui); text-wrap: balance; }
+  .x-tile__count { flex: 0 0 auto; font: 500 var(--fs-200)/1.25 var(--font-ui); color: var(--soft); font-variant-numeric: tabular-nums; }
+  .x-tile:hover .x-tile__label, .x-tile[aria-pressed='true'] .x-tile__label { color: var(--accent); }
+  .x-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: var(--radius-m); }
+
+  /* The two question rows share one label column, so the chips line up. */
+  .x-find__row, .x-find :global(.v5-filterbar__row--labelled) { display: grid; grid-template-columns: 12.5rem minmax(0, 1fr); align-items: center; gap: var(--space-2) var(--space-4); }
+  .x-find__row { margin-top: var(--space-5); }
+  .x-find :global(.v5-filterbar__row--labelled) { margin-top: var(--space-3); }
+  .x-find__label { font: 600 var(--fs-300)/1.3 var(--font-ui); color: var(--text); }
+  .x-find__chips { display: flex; flex-wrap: wrap; gap: var(--space-2); padding: 2px; }
+  .x-chip { min-height: 44px; padding: 0 var(--space-4); font: 500 var(--fs-300)/1 var(--font-ui); color: var(--text); background: transparent; border: 1px solid var(--border-control); border-radius: var(--radius-pill); white-space: nowrap; cursor: pointer; transition: background 0.15s var(--ease), border-color 0.15s var(--ease), color 0.15s var(--ease); }
+  .x-chip:hover { border-color: var(--accent); color: var(--accent); }
+  .x-chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .x-chip[aria-pressed='true'] { background: var(--accent); border-color: var(--accent); color: var(--white); }
+  /* The results bar below carries the count and Clear on this page, so the
+     bar's own count line is not shown a second time. */
+  .x-find :global(.v5-filterbar__meta) { display: none; }
+  /* The sheet's badge counts every active filter, including the tiles and
+     rows above it; the results bar names them instead. */
+  .x-find :global(.v5-filterbar__more-count) { display: none; }
+  .x-find__row + .x-find__row { margin-top: var(--space-3); }
+
+  /* ── Results ────────────────────────────────────────────────────────────── */
+  .x-results { margin-top: var(--space-6); padding-top: var(--space-6); border-top: 1px solid var(--border); }
+  .x-results__head { margin-bottom: var(--space-5); }
+  .x-results__title { margin: 0; color: var(--text); font: 600 var(--fs-600)/1.2 var(--font-display); letter-spacing: -0.02em; }
+  .x-results__sub { margin: var(--space-1) 0 0; color: var(--soft); font-size: var(--fs-400); line-height: 1.5; }
+  .x-results__sub a { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); font-weight: 600; text-underline-offset: 0.2em; white-space: nowrap; }
+
+  /* The first pick is set large: photograph beside its reason. */
+  @media (min-width: 64em) {
+    .x-results:not([data-filtered]) .x-result:first-child { grid-column: 1 / -1; }
+    .x-results:not([data-filtered]) .x-result:first-child :global(.pi-card) { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); grid-template-rows: 1fr auto; column-gap: var(--space-6); }
+    .x-results:not([data-filtered]) .x-result:first-child :global(.pi-card__media) { grid-row: 1 / span 2; aspect-ratio: 2 / 1; }
+    /* Text sits on the photograph's baseline, with the actions under it. */
+    .x-results:not([data-filtered]) .x-result:first-child :global(.pi-card__body) { grid-column: 2; align-self: end; flex: initial; padding: 0; gap: var(--space-3); }
+    .x-results:not([data-filtered]) .x-result:first-child :global(.pi-card__actions) { grid-column: 2; align-self: end; }
+    .x-results:not([data-filtered]) .x-result:first-child :global(.pi-card.pi-card .pi-card__title) { font-size: var(--fs-700); line-height: 1.15; }
+    .x-results:not([data-filtered]) .x-result:first-child :global(.pi-card__dek) { font-size: var(--fs-500); line-height: 1.5; }
+    .x-results:not([data-filtered]) .x-result:first-child :global(.pi-card__meta) { margin-top: 0; }
+  }
+  .x-results__sub a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .x-results[data-filtered] .x-results__head { display: none; }
+  .x-results__swipe { display: none; margin: var(--space-1) 0 0; color: var(--soft); font: 500 var(--fs-200)/1.4 var(--font-ui); }
+  .x-results:not([data-collapsed]) .x-results__swipe { display: none; }
+  .x-results__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-7) var(--space-5); list-style: none; margin: 0; padding: 0; }
+  .x-result { list-style: none; min-width: 0; display: flex; }
+  .x-result[hidden] { display: none; }
+  .x-result :global(.pi-card) { width: 100%; }
+  .x-results[data-collapsed] .x-result[data-beyond] { display: none; }
+  .x-result :global(.pi-card__dek), .x-season__row :global(.pi-card__dek), .x-journal :global(.pi-card__dek) { display: block; overflow: visible; -webkit-line-clamp: unset; line-clamp: unset; }
+  .x-result :global(.pi-card__eyebrow), .x-season__row :global(.pi-card__eyebrow) { color: var(--accent); letter-spacing: .06em; }
+  /* Each fact carries its own dot, so a wrapped line never ends on a stray one. */
+  .x-result :global(.pi-card__sep), .x-season__row :global(.pi-card__sep) { display: none; }
+  .x-result :global(.pi-card__sep + .pi-card__chip)::before, .x-season__row :global(.pi-card__sep + .pi-card__chip)::before { content: '·'; margin-right: var(--space-2); color: var(--border-strong); }
+  .x-result :global(.pi-card__chip), .x-season__row :global(.pi-card__chip) { white-space: nowrap; }
+  .x-result :global(.pi-card__text-action), .x-season__row :global(.pi-card__text-action) { min-width: 44px; }
+  /* Directions sits at the right of each card's action line ("+ Trip", "Book"). */
+  .x-result__go { position: absolute; z-index: 2; right: 0; bottom: 0; display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); font: var(--fw-medium, 500) var(--fs-300)/var(--lh-ui, 1.4) var(--font-ui); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .25em; }
+  .x-result__go:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .x-results__bar { box-shadow: 0 8px 12px -10px rgba(12, 28, 40, 0.28); }
+  .x-results:not([data-filtered]) .x-results__bar [data-action='clear-filters'] { display: none; }
+  /* Once the list is filtered or opened in full, our first picks stay marked. */
+  .x-result { position: relative; }
+  .x-results:is([data-filtered], [data-expanded]) .x-result[data-pick]::before { content: 'Our pick'; position: absolute; z-index: 2; top: var(--space-2); left: var(--space-2); padding: .3rem .6rem; border-radius: var(--radius-pill); background: var(--accent); color: var(--white); font: 600 var(--fs-100)/1.2 var(--font-ui); letter-spacing: .02em; pointer-events: none; }
+  .x-results__untimed { margin: calc(-1 * var(--space-3)) 0 var(--space-5); color: var(--soft); font-size: var(--fs-300); line-height: 1.5; }
+  .x-results__untimed[hidden] { display: none; }
+  .x-results__untimed button { min-height: 44px; padding: 0; border: 0; background: none; color: var(--accent); cursor: pointer; font: inherit; font-weight: 600; text-decoration: underline; text-underline-offset: 0.2em; }
+  .x-results__untimed button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .x-results__more { margin: var(--space-7) 0 0; text-align: center; }
+  .x-results:not([data-collapsed]) .x-results__more { display: none; }
+  .x-results__all { min-height: 48px; padding: 0 var(--space-5); border: 1px solid var(--accent); border-radius: var(--radius-s); background: transparent; color: var(--accent); cursor: pointer; font: 600 var(--fs-400)/1 var(--font-ui); transition: background var(--dur-fast, 120ms) ease, color var(--dur-fast, 120ms) ease; }
+  .x-results__all:hover { background: var(--accent); color: var(--white); }
+  .x-results__all:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  /* While a filter is on, the count and a way back to the filters stay in reach. */
+  .x-results__bar { position: sticky; top: var(--masthead-h, 0px); z-index: 30; display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); margin: calc(-1 * var(--space-5)) 0 var(--space-5); padding: var(--space-2) 0; background: var(--bg); border-bottom: 1px solid var(--border); font: 500 var(--fs-300)/1.3 var(--font-ui); color: var(--text); }
+  .x-results__bar[hidden] { display: none; }
+  .x-results__bar { flex-wrap: wrap; row-gap: 0; }
+  .x-results__count { flex: 0 0 auto; }
+  .x-results__active { display: flex; flex: 1 1 auto; flex-wrap: wrap; gap: var(--space-2); min-width: 0; }
+  /* Built in script, so these carry no scope attribute. */
+  .x-results__active :global(button) { display: inline-flex; align-items: center; gap: .4em; min-height: 36px; padding: 0 var(--space-3); border: 1px solid var(--border-control); border-radius: var(--radius-pill); background: var(--bg); color: var(--text); cursor: pointer; font: 500 var(--fs-200)/1 var(--font-ui); white-space: nowrap; }
+  .x-results__active :global(button:hover) { border-color: var(--accent); color: var(--accent); }
+  .x-results__active :global(button:focus-visible) { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .x-results__bar-actions { display: flex; flex: 0 0 auto; align-items: center; gap: var(--space-4); margin-left: auto; white-space: nowrap; }
+  .x-results__bar-actions a, .x-results__bar-actions button { display: inline-flex; align-items: center; min-height: 44px; padding: 0; border: 0; background: none; color: var(--accent); cursor: pointer; font: inherit; font-weight: 600; text-decoration: underline; text-underline-offset: 0.2em; }
+  .x-results__bar :is(a, button):focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
   /* One disclosure style, one measure: a hairline row with a quiet "+". */
-  .x-picks__advice, .x-faq__item { border-bottom: 1px solid var(--border); }
-  .x-picks__advice, .x-faq__list { max-width: 48rem; }
-  .x-picks__advice > summary, .x-faq__q { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 48px; padding: var(--space-3) 0; color: var(--text); cursor: pointer; list-style: none; font: 600 var(--fs-400)/1.45 var(--font-ui); }
-  .x-picks__advice > summary::-webkit-details-marker, .x-faq__q::-webkit-details-marker { display: none; }
-  .x-picks__advice > summary::after, .x-faq__q::after { content: '+'; color: var(--accent); font-size: var(--fs-600); font-weight: 400; line-height: 1; }
-  .x-picks__advice[open] > summary::after, .x-faq__item[open] .x-faq__q::after { transform: rotate(45deg); }
-  .x-picks__advice > summary:focus-visible, .x-faq__q:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .x-advice, .x-faq__item { border-bottom: 1px solid var(--border); }
+  .x-advice, .x-faq__list { max-width: 48rem; }
+  .x-advice > summary, .x-faq__q { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 48px; padding: var(--space-3) 0; color: var(--text); cursor: pointer; list-style: none; font: 600 var(--fs-400)/1.45 var(--font-ui); }
+  .x-advice > summary::-webkit-details-marker, .x-faq__q::-webkit-details-marker { display: none; }
+  .x-advice > summary::after, .x-faq__q::after { content: '+'; color: var(--accent); font-size: var(--fs-600); font-weight: 400; line-height: 1; }
+  .x-advice[open] > summary::after, .x-faq__item[open] .x-faq__q::after { transform: rotate(45deg); }
+  .x-advice > summary:focus-visible, .x-faq__q:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .x-advice { margin: var(--space-7) 0 0; border-top: 1px solid var(--border); color: var(--soft); font-size: var(--fs-300); line-height: 1.6; }
+  .x-advice p { margin: 0 0 var(--space-3); }
+  .x-advice a { color: var(--accent); text-underline-offset: 0.2em; }
 
-  .x-picks__advice { margin: var(--space-4) 0 0; color: var(--soft); font-size: var(--fs-300); line-height: 1.6; }
-  .x-picks__advice p { margin: 0 0 var(--space-3); }
-  .x-picks__advice a { color: var(--accent); text-underline-offset: 0.2em; }
-  .x-shelf { margin-top: var(--space-7); scroll-margin-top: 4rem; }
+  /* ── Good this season ───────────────────────────────────────────────────── */
+  .x-season { background: var(--bg-alt); }
+  .x-season__head { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); align-items: end; gap: var(--space-4) var(--space-7); margin-bottom: var(--space-6); }
+  .x-season__kicker { margin: 0 0 var(--space-2); color: var(--accent); font: 600 var(--fs-200)/1.3 var(--font-ui); letter-spacing: .02em; }
+  .x-season__line { margin: 0; max-width: 46ch; color: var(--soft); font-size: var(--fs-400); line-height: 1.55; text-wrap: pretty; }
+  .x-season__row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-5); list-style: none; margin: 0; padding: 0; }
+  .x-season__item { position: relative; display: flex; min-width: 0; list-style: none; }
+  .x-season__item :global(.pi-card) { width: 100%; }
+
+  /* ── Turn it into a day ─────────────────────────────────────────────────── */
+  .x-plan__grid { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.5fr); gap: var(--space-6) var(--space-8); align-items: start; }
+  .x-plan__dek { margin: var(--space-4) 0 0; max-width: 40ch; color: var(--soft); font-size: var(--fs-400); line-height: 1.55; text-wrap: pretty; }
+  .x-plan__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-5); margin: var(--space-5) 0 0; }
+  .x-plan__actions a { display: inline-flex; align-items: center; gap: .45rem; min-height: 48px; font: 600 var(--fs-300)/1.3 var(--font-ui); }
+  .x-plan__primary { padding: 0 var(--space-5); border-radius: var(--radius-s); background: var(--accent); color: var(--white) !important; font-size: var(--fs-400) !important; text-decoration: none !important; }
+  .x-plan__primary:hover { background: var(--text); }
+  .x-plan__secondary { color: var(--accent); text-underline-offset: .2em; }
+  .x-plan__lists { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: var(--space-6) var(--space-7); }
+  .x-plan__label { margin: 0 0 var(--space-2); color: var(--soft); font: 600 var(--fs-200)/1.3 var(--font-ui); letter-spacing: .02em; }
+  .x-plan__guides, .x-plan__links { list-style: none; margin: 0; padding: 0; }
+  .x-plan__guides li, .x-plan__links li { border-top: 1px solid var(--border); }
+  .x-plan__guides a { display: flex; flex-direction: column; gap: 2px; padding: var(--space-3) 0; color: var(--text); text-decoration: none; }
+  .x-plan__guide-name { font: 600 var(--fs-400)/1.3 var(--font-ui); }
+  .x-plan__guide-line { color: var(--soft); font-size: var(--fs-300); line-height: 1.45; }
+  .x-plan__guides a:hover .x-plan__guide-name, .x-plan__links a:hover { color: var(--accent); }
+  .x-plan__links a { display: flex; align-items: center; min-height: 48px; color: var(--text); font: 500 var(--fs-400)/1.3 var(--font-ui); text-decoration: none; }
+  .x-plan a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  /* ── Journal and FAQ ────────────────────────────────────────────────────── */
   .x-shelf__header { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: var(--space-1) var(--space-6); margin-bottom: var(--space-4); }
-  .x-shelf__heading { margin: 0; color: var(--text); font: 600 var(--fs-600)/1.2 var(--font-display); letter-spacing: -0.02em; }
-  /* The one "more" link style: text, underline on hover. */
   .x-shelf__all { flex: 0 0 auto; display: inline-flex; align-items: center; gap: 0.4em; min-height: 44px; color: var(--accent); font: 600 var(--fs-300)/1.3 var(--font-ui); text-decoration: none; }
   .x-shelf__all:hover { text-decoration: underline; text-underline-offset: 0.2em; }
   .x-shelf__all:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-  .x-shelf__row { display: flex; gap: var(--space-5); overflow-x: auto; list-style: none; margin: 0; padding: 2px 1.5rem 0.5rem 2px; scroll-snap-type: x proximity; scrollbar-width: none; -webkit-overflow-scrolling: touch; align-items: flex-start; }
-  .x-shelf__row::-webkit-scrollbar { display: none; }
-  .x-shelf__row > :global(li) { flex: 0 0 min(82vw, 21rem); min-width: 0; scroll-snap-align: start; }
-  @media (min-width: 64em) {
-    .x-shelf__row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); overflow: visible; padding-right: 2px; }
-    .x-shelf__row > :global(li) { flex: initial; }
-  }
-  /* Venue and story cards share one anatomy on this page: 3:2 image, title,
-     the full one-line reason, one meta line. No byline on our own stories. */
-  .x-shelf__row :global(.pi-card__media), .x-journal :global(.pi-card__media) { aspect-ratio: 3 / 2; }
-  .x-shelf__row :global(.pi-card__title), .x-journal :global(.pi-card__title) { font-size: var(--fs-500); line-height: 1.25; text-wrap: balance; }
-  .x-shelf__row :global(.pi-card__dek), .x-journal :global(.pi-card__dek) { display: block; overflow: visible; -webkit-line-clamp: unset; line-clamp: unset; }
+  .x-journal { background: var(--bg-alt); }
+  .x-journal :global(.pi-card__media) { aspect-ratio: 3 / 2; }
+  .x-journal :global(.pi-card__title) { font-size: var(--fs-500); line-height: 1.25; text-wrap: balance; }
   .x-journal :global(.v5-card-grid) { align-items: start; }
   .x-journal :global(.pi-card__byline), .x-journal :global(.pi-card__byline + .pi-card__sep) { display: none; }
-
-  .x-more__list { list-style: none; margin: var(--space-4) 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0 var(--space-6); }
-  .x-more__list a { display: inline-flex; align-items: center; min-height: 44px; color: var(--text); font: 500 var(--fs-400)/1.35 var(--font-ui); text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: 0.25em; }
-  .x-more__list a:hover { color: var(--accent); text-decoration-color: currentColor; }
-  .x-more__list a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-
   .x-faq__list { margin-top: var(--space-5); }
   .x-faq__a { max-width: 70ch; padding-bottom: var(--space-4); color: var(--soft); }
 
-  @media (max-width: 47.99em) {
-    .x-hero { position: relative; isolation: isolate; overflow: hidden; background: var(--bg-deep); }
-    .x-hero__grid { display: block; height: auto; min-height: 24rem; }
-    .x-hero__copy { position: relative; z-index: 1; min-height: 24rem; padding: var(--space-5) 0; justify-content: flex-end; }
-    .x-hero h1 { max-width: 13ch; color: var(--white); }
-    .x-hero__copy > p { margin-top: var(--space-4); color: var(--white); font-size: var(--fs-400); line-height: 1.5; }
-    .x-hero__actions { margin-top: var(--space-5); }
-    .x-hero__media { position: absolute; inset: 0; z-index: 0; min-height: 0; }
-    /* Darkest behind the words only; the sun and sea stay bright above. */
-    .x-hero__media::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(11, 31, 47, 0.94) 10%, rgba(11, 31, 47, 0.62) 60%, rgba(11, 31, 47, 0.12)); }
-    .x-hero__media img { object-position: 50% 36%; }
-    .x-hero__secondary { color: var(--white); }
-    .x-hero__actions a:focus-visible { outline-color: var(--sand, #f5c177); }
-    .x-directory, .x-picks, .x-more, .x-journal, .x-faq { padding: var(--space-6) 0; }
-    .x-shelf { margin-top: var(--space-6); }
+  /* ── Tablet ─────────────────────────────────────────────────────────────── */
+  @media (max-width: 63.99em) {
+    .x-find__tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .x-results__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .x-plan__grid, .x-season__head { grid-template-columns: minmax(0, 1fr); }
+    .x-season__head { align-items: start; }
   }
-  @media (max-width: 24em) {
-    .x-hero__copy { min-height: 0; padding: var(--space-4) 0; }
-    .x-hero__copy > p { margin-top: var(--space-3); }
-    .x-hero__actions { margin-top: var(--space-3); display: block; }
-    .x-hero__actions a { margin: 0 0 0.35rem; }
+
+  /* ── Phone ──────────────────────────────────────────────────────────────── */
+  @media (max-width: 40em) {
+    .x-find, .x-season, .x-plan, .x-journal, .x-faq { padding: var(--space-6) 0; }
+    .x-find { padding-top: var(--space-4); }
+    .x-find :global(.v5-filterbar) { margin-top: var(--space-3); }
+    /* All eight kinds in view at once: four across, two rows, nothing to swipe. */
+    .x-find__tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-3) var(--space-2); }
+    .x-tile { gap: var(--space-1); }
+    .x-tile__frame { border-radius: var(--radius-s); }
+    .x-tile__label { font-size: var(--fs-200); line-height: 1.2; }
+    .x-tile { position: relative; }
+    .x-tile__text { display: block; line-height: 1.2; }
+    /* The count rides on the photograph, so it never wraps onto a line of its own. */
+    .x-tile__count { position: absolute; top: 4px; left: 4px; padding: 2px 7px; border-radius: var(--radius-pill); background: rgba(12, 28, 40, 0.72); color: var(--white); font-size: 0.6875rem; font-weight: 600; line-height: 1.3; }
+    .x-tile[aria-pressed='true'] .x-tile__frame::before { top: 4px; right: 4px; width: 1.25rem; height: 1.25rem; background-size: .8rem; }
+    .x-find__row, .x-find :global(.v5-filterbar__row--labelled) { grid-template-columns: minmax(0, 1fr); gap: var(--space-1); }
+    .x-find__row, .x-find__row + .x-find__row { margin-top: var(--space-3); }
+    /* The time and region questions each take one swipeable line; the row
+       fades at the right edge to show there is more. "Good for" wraps so
+       "More filters" is never off screen. */
+    .x-find__row .x-find__chips { flex-wrap: nowrap; overflow-x: auto; margin-inline: -1rem; padding-inline: 1rem 2.5rem; scrollbar-width: none; -webkit-overflow-scrolling: touch; -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 3rem), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 3rem), transparent); }
+    .x-find__row .x-find__chips::-webkit-scrollbar { display: none; }
+    .x-find__row .x-chip { flex: 0 0 auto; }
+    /* Inside the thumbnail's corner (the row has its own top padding). */
+    .x-results .x-result[data-pick]::before { top: calc(var(--space-4) + 6px); left: 6px; font-size: 0.6875rem; }
+    .x-results .x-result[data-pick]:first-child::before { top: 6px; }
+
+    .x-results { margin-top: var(--space-5); padding-top: var(--space-5); }
+    .x-results__bar { font-size: var(--fs-200); column-gap: var(--space-3); }
+    .x-results__active { order: 3; flex-basis: 100%; padding-bottom: var(--space-2); }
+    .x-results__grid { grid-template-columns: minmax(0, 1fr); gap: 0; }
+    /* A row per place: square photograph, then the name, reason and facts. */
+    .x-result { padding: var(--space-4) 0; border-bottom: 1px solid var(--border); }
+    .x-result:first-child { padding-top: 0; }
+    .x-result :global(.pi-card) { display: grid; grid-template-columns: 8.5rem minmax(0, 1fr); column-gap: var(--space-4); align-items: start; }
+    .x-result :global(.pi-card__media) { aspect-ratio: 1; border-radius: var(--radius-s); }
+    .x-result :global(.pi-card__body) { padding: 0; gap: var(--space-1); }
+    .x-result :global(.pi-card__actions) { grid-column: 2; padding-top: 0; }
+    .x-result__go { bottom: var(--space-4); }
+    /* Facts are divided by a hairline that belongs to the fact before it, so
+       a wrapped line never starts or ends on a loose dot. */
+    .x-result :global(.pi-card__sep + .pi-card__chip)::before { content: none; }
+    .x-result :global(.pi-card__chip:has(~ .pi-card__chip)) { padding-right: var(--space-2); border-right: 1px solid var(--border-strong); }
+    .x-result :global(.pi-card.pi-card .pi-card__meta) { gap: var(--space-1) var(--space-2); }
+
+    /* Our first picks, before any filter: one swipeable line of full photographs,
+       so the page stays short and each place is seen at size. */
+    .x-results[data-collapsed] .x-results__grid { display: flex; gap: var(--space-4); overflow-x: auto; margin-inline: -1rem; padding: 2px 1rem var(--space-3); scroll-snap-type: x mandatory; scroll-padding-inline: 1rem; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+    .x-results[data-collapsed] .x-results__grid::-webkit-scrollbar { display: none; }
+    .x-results[data-collapsed] .x-result { flex: 0 0 84%; padding: 0; border: 0; scroll-snap-align: start; }
+    .x-results[data-collapsed] .x-result :global(.pi-card) { display: flex; flex-direction: column; }
+    .x-results[data-collapsed] .x-result :global(.pi-card__media) { aspect-ratio: 3 / 2; border-radius: var(--radius-m); }
+    .x-results[data-collapsed] .x-result :global(.pi-card__body) { padding-top: var(--space-3); }
+    .x-results[data-collapsed] .x-result :global(.pi-card.pi-card .pi-card__title) { font-size: var(--fs-500); }
+    .x-results[data-collapsed] .x-result :global(.pi-card.pi-card .pi-card__dek) { font-size: var(--fs-400); }
+    .x-results[data-collapsed] .x-result__go { bottom: 0; }
+    .x-results__swipe { display: block; }
+    .x-result :global(.pi-card.pi-card .pi-card__title) { font-size: var(--fs-400); line-height: 1.3; }
+    .x-result :global(.pi-card.pi-card .pi-card__dek) { font-size: var(--fs-300); line-height: 1.45; }
+    .x-result :global(.pi-card.pi-card .pi-card__meta) { margin-top: var(--space-1); font-size: var(--fs-200); }
+    .x-result :global(.pi-card__save) { top: 2px; right: 2px; }
+    /* A 44px target with a 30px paper disc, so it does not cover a small photograph. */
+    .x-result :global(.pi-card__save .v5-save__btn) { width: 44px; height: 44px; background: radial-gradient(circle, rgba(253, 252, 250, 0.94) 0 15px, transparent 15.5px); color: var(--text); }
+    .x-results__more { margin-top: var(--space-5); }
+    .x-results__all { width: 100%; }
+    .x-advice { margin-top: var(--space-5); }
+
+    .x-season__row { display: flex; gap: var(--space-4); overflow-x: auto; margin-inline: calc(-1 * var(--gutter, 1rem)); padding: 2px var(--gutter, 1rem) var(--space-2); scroll-snap-type: x proximity; scroll-padding-inline: var(--gutter, 1rem); scrollbar-width: none; align-items: flex-start; }
+    .x-season__row::-webkit-scrollbar { display: none; }
+    .x-season__row > :global(li) { flex: 0 0 min(78vw, 19rem); min-width: 0; scroll-snap-align: start; }
+    .x-plan__lists { grid-template-columns: minmax(0, 1fr); }
+    .x-plan__primary { flex: 1 0 100%; justify-content: center; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .x-tile__frame img, .x-tile__frame::after { transition: none; }
+    .x-tile:hover .x-tile__frame img { transform: none; }
   }
 </style>
 
 <script>
-  import { commit, isEmptyState, parseFilters } from '../../lib/v5-filter-state';
+  import { commit, getState, isEmptyState, itemMatches, parseFilters, parseItemFacets, toggleValue, type FilterState } from '../../lib/v5-filter-state';
 
-  const NOUN = 'experiences';
+  const NOUN = 'things to do';
 
-  function setBrowseHidden(hide: boolean) {
-    document
-      .querySelectorAll<HTMLElement>('[data-browse-layer]')
-      .forEach((el) => el.toggleAttribute('hidden', hide));
+  function sameSet(a: string[], b: string[]) {
+    return a.length === b.length && a.every((v) => b.indexOf(v) !== -1);
   }
 
-  // Registered at module scope rather than from init(), which re-runs on
-  // every astro:page-load; the handler resolves its targets at fire time.
-  // The directory is always open (round 2), so nothing has to be expanded
-  // before the hero anchor scrolls to it.
+  /** Reflect the filter state on the photo tiles and the results block. */
+  function paint(state: FilterState) {
+    const active = !isEmptyState(state);
+    const cats = state.cat ?? [];
+    document.querySelectorAll<HTMLElement>('[data-cat-tile]').forEach((tile) => {
+      const values = (tile.dataset.values || '').split(',').filter(Boolean);
+      tile.setAttribute('aria-pressed', sameSet(values, cats) ? 'true' : 'false');
+    });
+    const results = document.querySelector<HTMLElement>('[data-results]');
+    if (!results) return;
+    results.toggleAttribute('data-filtered', active);
+    // Any filter shows every match; no filter shows our first picks until asked.
+    results.toggleAttribute('data-collapsed', !active && !results.hasAttribute('data-expanded'));
+    // The bar (count, filters applied, a way back up to the filters) shows
+    // whenever the list is long: filtered, or opened in full.
+    results.querySelector<HTMLElement>('[data-results-bar]')?.toggleAttribute('hidden', !active && !results.hasAttribute('data-expanded'));
+
+    // Name each active filter in the bar, each one removable on its own.
+    const holder = results.querySelector<HTMLElement>('[data-active-filters]');
+    if (!holder) return;
+    const chips: { key: string; value: string; label: string }[] = [];
+    const tile = document.querySelector<HTMLElement>('[data-cat-tile][aria-pressed="true"]');
+    for (const key of Object.keys(state) as (keyof FilterState)[]) {
+      const values = state[key] ?? [];
+      if (key === 'cat' && tile) {
+        chips.push({ key, value: '*', label: tile.querySelector('.x-tile__label')?.textContent?.trim() || 'Kind' });
+        continue;
+      }
+      for (const value of values) {
+        const source = document.querySelector<HTMLElement>(`[data-key="${key}"][data-value="${CSS.escape(value)}"]`);
+        chips.push({ key, value, label: source?.textContent?.trim() || value.replace(/-/g, ' ') });
+      }
+    }
+    // A time filter can only match places with a recorded time. Say how many
+    // otherwise-matching places it leaves out, and offer them back.
+    const note = results.querySelector<HTMLElement>('[data-untimed-note]');
+    if (note) {
+      let untimed = 0;
+      if (state.time?.length) {
+        const rest: FilterState = { ...state };
+        delete rest.time;
+        results.querySelectorAll<HTMLElement>('.x-result').forEach((item) => {
+          const facets = parseItemFacets(item.dataset.facets);
+          if (!facets.time?.length && itemMatches(facets, rest)) untimed += 1;
+        });
+      }
+      note.toggleAttribute('hidden', untimed === 0);
+      const text = note.querySelector<HTMLElement>('[data-untimed-text]');
+      if (text) text.textContent = untimed === 1
+        ? 'One more place fits but has no set time, such as a market or a spa.'
+        : `${untimed} more places fit but have no set time, such as markets and spas.`;
+    }
+
+    holder.replaceChildren(...chips.map((chip) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.dataset.removeKey = chip.key;
+      button.dataset.removeValue = chip.value;
+      button.setAttribute('aria-label', `Remove filter: ${chip.label}`);
+      const cross = document.createElement('span');
+      cross.setAttribute('aria-hidden', 'true');
+      cross.textContent = '×';
+      button.append(chip.label, cross);
+      return button;
+    }));
+  }
+
+  // Registered at module scope: init() re-runs on every astro:page-load, and
+  // these handlers resolve their targets at fire time.
   document.addEventListener('pi:filters-changed', ((e: CustomEvent) => {
-    setBrowseHidden(!isEmptyState(e.detail?.filters ?? {}));
+    paint(e.detail?.filters ?? {});
   }) as EventListener);
 
-  // EmptyState's "Clear filters" primary action.
   document.addEventListener('click', (ev) => {
-    const btn = (ev.target as HTMLElement).closest('[data-action="clear-filters"]');
-    if (btn) commit({}, { source: 'clear', noun: NOUN });
+    const target = ev.target as HTMLElement;
+
+    // A photo tile picks one kind of outing; tapping it again clears the kind.
+    const tile = target.closest<HTMLElement>('[data-cat-tile]');
+    if (tile) {
+      const values = (tile.dataset.values || '').split(',').filter(Boolean);
+      const next: FilterState = { ...getState() };
+      if (tile.getAttribute('aria-pressed') === 'true') delete next.cat;
+      else next.cat = values;
+      commit(next, { source: 'chip', noun: NOUN });
+      return;
+    }
+
+    const remove = target.closest<HTMLElement>('[data-remove-key]');
+    if (remove) {
+      const key = remove.dataset.removeKey as keyof FilterState;
+      const value = remove.dataset.removeValue || '';
+      let next: FilterState = { ...getState() };
+      if (value === '*') delete next[key];
+      else next = toggleValue(next, key, value);
+      commit(next, { source: 'chip', noun: NOUN });
+      document.querySelector<HTMLElement>('[data-results-bar] [data-action="clear-filters"]')?.focus({ preventScroll: true });
+      return;
+    }
+
+    if (target.closest('[data-show-all]')) {
+      const results = document.querySelector<HTMLElement>('[data-results]');
+      if (!results) return;
+      const firstNew = results.querySelector<HTMLElement>('.x-result[data-beyond] a');
+      results.setAttribute('data-expanded', '');
+      results.removeAttribute('data-collapsed');
+      results.querySelector<HTMLElement>('[data-results-bar]')?.removeAttribute('hidden');
+      firstNew?.focus({ preventScroll: true });
+      return;
+    }
+
+    // "Clear" in the results bar and the empty state's primary action.
+    if (target.closest('[data-action="clear-filters"]')) commit({}, { source: 'clear', noun: NOUN });
   });
 
   function init() {
-    // Server renders everything visible; the browse layer yields to the
-    // filtered directory whenever any facet is active (URL or interaction).
-    setBrowseHidden(!isEmptyState(parseFilters(window.location.search)));
+    paint(parseFilters(window.location.search));
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);

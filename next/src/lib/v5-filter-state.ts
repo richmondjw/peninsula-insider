@@ -52,7 +52,9 @@
  */
 export const COUNTABLE_ATTR = 'data-filter-countable';
 
-export const FILTER_KEYS = ['place', 'cat', 'mood', 'price', 'party', 'date'] as const;
+// 'time' (how long an outing takes) was added 2026-11-21 for the Explore hub's
+// "How long have you got?" row. Only pages that tag items with it are affected.
+export const FILTER_KEYS = ['place', 'cat', 'mood', 'price', 'party', 'date', 'time'] as const;
 export type FilterKey = (typeof FILTER_KEYS)[number];
 
 /** Active selections per facet. Absent key = facet not filtering. */

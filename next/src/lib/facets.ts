@@ -243,6 +243,9 @@ export const SURFACE_FACET_VALUES: Record<string, Partial<Record<FacetKey, strin
   },
   explore: {
     cat: ['spa', 'walk', 'beach', 'golf', 'gallery', 'lookout', 'attraction', 'park', 'tour', 'garden', 'market'],
+    // The hub asks "Which part?" with the regions on the page itself, so its
+    // sheet lists towns only instead of mixing the two under one heading.
+    place: TOWN_OPTIONS.map((o) => o.value),
   },
 };
 
@@ -296,13 +299,14 @@ export const CHIP_PRESETS: Record<
     { key: 'mood', value: 'architecture', label: 'Architecture' },
     { key: 'party', value: 'family', label: 'With kids' },
   ],
+  // 2026-11-21: the kinds of outing (walks, beaches, springs, markets...) moved
+  // to the photo tiles above the bar on /explore/, and the time row sits beside
+  // them. These chips answer the third question: who is coming, or what day it is.
   explore: [
-    { key: 'cat', value: 'walk', label: 'Walks' },
-    { key: 'cat', value: 'beach', label: 'Beaches' },
-    { key: 'cat', value: 'market', label: 'Markets' },
     { key: 'party', value: 'family', label: 'With kids' },
     { key: 'mood', value: 'rainy-day', label: 'Rainy day' },
-    { key: 'cat', value: 'spa', label: 'Springs & spa' },
+    { key: 'mood', value: 'on-the-water', label: 'On the water' },
+    { key: 'mood', value: 'scenic', label: 'Big views' },
   ],
   plans: [
     { key: 'date', value: 'one-day', label: 'One day' },
