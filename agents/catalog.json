@@ -1,7 +1,7 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-11-21T13:27:17.486Z",
-  "snapshotId": "8a6bbe2c1cc41b449c16358ff09b78676e62a4a2c383b615d8e3e43cdf115d61",
+  "generatedAt": "2026-11-21T13:51:19.775Z",
+  "snapshotId": "5142764c0bce57d2caea231aec2f1c4c85dbf0771725a5fbfe5dc0ce2a48b3a2",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
@@ -13,7 +13,7 @@
       "section": "home",
       "canonicalUrl": "https://peninsulainsider.com.au/",
       "markdownUrl": "https://peninsulainsider.com.au/index.md",
-      "contentSha256": "fd5ed4ffa51b74d3aae33a59dab9ebe58beaa69b08396ed0ecb51cb88fefd22d",
+      "contentSha256": "10568ad8a732d6f20dcd0791123ab15471763807ddcf65753c188e38b22e4062",
       "citation": {
         "title": "Make a day of the Peninsula.",
         "publisher": "Peninsula Insider",
@@ -21,8 +21,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 202807,
-      "markdownBytes": 7562
+      "htmlBytes": 203626,
+      "markdownBytes": 7538
     },
     {
       "id": "https://peninsulainsider.com.au/about/",
@@ -2376,7 +2376,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/merricks/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/merricks/index.md",
-      "contentSha256": "9bd222bb7da40e9011e6a064d97e91b21d3f001a673a6f4fa18d2b9761115ee1",
+      "contentSha256": "f5fe636f72e5b8ec2566ea900d3326fb419b27847159774d6114aa5bdd29041d",
       "citation": {
         "title": "Merricks",
         "publisher": "Peninsula Insider",
@@ -2384,8 +2384,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 243965,
-      "markdownBytes": 17426
+      "htmlBytes": 244950,
+      "markdownBytes": 17450
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/moorooduc/",
@@ -4467,7 +4467,7 @@
       "section": "journal",
       "canonicalUrl": "https://peninsulainsider.com.au/journal/",
       "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
-      "contentSha256": "2a4998379c751001f99e408e728c045d4506f5f7cb5b3d04c77f73f3501d41df",
+      "contentSha256": "db9c6e728543079ce92e99ce343517bde1a4a8025d8839cae2b19ff3d46f1649",
       "citation": {
         "title": "Devilbend Farm Beer Co: a brewery on a working farm",
         "publisher": "Peninsula Insider",
@@ -4475,8 +4475,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 237348,
-      "markdownBytes": 19562
+      "htmlBytes": 238333,
+      "markdownBytes": 19586
     },
     {
       "id": "https://peninsulainsider.com.au/journal/a-flinders-weekend/",
@@ -9312,7 +9312,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "ef55a3bf5c25e7795f71a486afcd4d97ca2680e3bcb0b317b6c60dcfb42c1640",
+      "contentSha256": "e75f43b788519492da7d96eed265f3c6472bf45a0ea4f76ec1080b390a34a012",
       "citation": {
         "title": "What's on this weekend",
         "publisher": "Peninsula Insider",
@@ -9320,8 +9320,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-11-22"
       },
-      "htmlBytes": 152413,
-      "markdownBytes": 3386
+      "htmlBytes": 152383,
+      "markdownBytes": 3361
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
@@ -9482,7 +9482,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/index.md",
-      "contentSha256": "77fc8a70fa6cb329fd23dca590e817f6985efebe437ce0f6e90a3bc8340042b3",
+      "contentSha256": "b25ba308788c7469bf9f6422675a0dfd101c9a9b1242f86cf520cec067660462",
       "citation": {
         "title": "What we would actually go to this weekend",
         "publisher": "Peninsula Insider",
@@ -9490,8 +9490,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 162075,
-      "markdownBytes": 5690
+      "htmlBytes": 161977,
+      "markdownBytes": 5572
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/by-mood/when-it-rains/",
@@ -9669,7 +9669,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/culinary-garden-experience-at-laura-pt-leo-estate-2026-11-22/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/culinary-garden-experience-at-laura-pt-leo-estate-2026-11-22/index.md",
-      "contentSha256": "dceea9a81b86e574d83cf38c339407fde259ca584ded1ac2a73a46cf840b449e",
+      "contentSha256": "87cf05e528f5615325116eb7dc7184f53cfab6d478b275ab37b54f8bd956dab8",
       "citation": {
         "title": "Culinary Garden Experience at Laura Pt Leo Estate",
         "publisher": "Peninsula Insider",
@@ -9677,8 +9677,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 144950,
-      "markdownBytes": 3746
+      "htmlBytes": 145778,
+      "markdownBytes": 4058
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/dave-campbell-live-at-peninsula-beer-garden-2026-11-29/",

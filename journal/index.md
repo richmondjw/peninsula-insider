@@ -667,11 +667,11 @@ Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery p
 
 - [Sun, 22 Nov
 
-### Culinary Garden Experience at Laura Pt Leo Estate
+### ✦ Culinary Garden Experience at Laura Pt Leo Estate
 
 Merricks
 
-For garden lovers, vegetarians and those with a passion for provenance, experience produce-to-plate at its most extraordinary. Once a year, Pt.
+Tour Pt. Leo Estate's private culinary garden with head gardener Ella Swann, then return to Laura for canapés and a vegetarian lunch shaped by the spring harvest.
 
  Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/culinary-garden-experience-at-laura-pt-leo-estate-2026-11-22/>)
 

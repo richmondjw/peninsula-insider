@@ -97,7 +97,7 @@ Food & Wine  22 Nov
 
 ### [Culinary Garden Experience at Laura Pt Leo Estate](<https://peninsulainsider.com.au/whats-on/culinary-garden-experience-at-laura-pt-leo-estate-2026-11-22/>)
 
-For garden lovers, vegetarians and those with a passion for provenance, experience produce-to-plate at its most extraordinary.
+Tour Pt.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/culinary-garden-experience-at-laura-pt-leo-estate-2026-11-22/>)
 

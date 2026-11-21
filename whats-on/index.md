@@ -23,6 +23,14 @@ Start with the award-winning works, then take time with the wider survey of cont
 
 Exhibitions
 
+- Sun, 22 Nov · 11:30am–2pm · Merricks
+
+### [Culinary Garden Experience at Laura Pt Leo Estate](<https://peninsulainsider.com.au/whats-on/culinary-garden-experience-at-laura-pt-leo-estate-2026-11-22/>)
+
+A rare garden-to-table outing: Ella Swann leads a private garden tour before canapés and a vegetarian lunch at Laura.
+
+Food & Wine
+
 - Sun, 22 Nov · 3pm–6pm · Mornington
 
 ### [Audio Replica Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/audio-replica-live-at-tar-barrel-2026-11-22/>)
@@ -30,14 +38,6 @@ Exhibitions
 Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery produce award-winning craft beers alongside diverse tastes as part of their whiskey and gin distillery.
 
 Live Music
-
-- Sun, 22 Nov · 11:30am–2pm · Merricks
-
-### [Culinary Garden Experience at Laura Pt Leo Estate](<https://peninsulainsider.com.au/whats-on/culinary-garden-experience-at-laura-pt-leo-estate-2026-11-22/>)
-
-For garden lovers, vegetarians and those with a passion for provenance, experience produce-to-plate at its most extraordinary. Once a year, Pt.
-
-Food & Wine
 
 ## Day by day
 

@@ -79,11 +79,11 @@ Swipe or scroll through the picks
 
 - ### [Culinary Garden Experience at Laura Pt Leo Estate](<https://peninsulainsider.com.au/whats-on/culinary-garden-experience-at-laura-pt-leo-estate-2026-11-22/>)
 
-For garden lovers, vegetarians and those with a passion for provenance, experience produce-to-plate at its most extraordinary. Once a year, Pt.
+A rare garden-to-table outing: Ella Swann leads a private garden tour before canapés and a vegetarian lunch at Laura.
 
 Sun, 22 Nov   Laura Pt Leo Estate   Food & wine
 
-Event details checked 9 Nov 2026 · [Organiser’s page](<https://www.ptleoestate.com.au/whats-on-event/theproducersseries-gardenexperience/>)
+Event details checked 21 Nov 2026 · [Organiser’s page](<https://www.ptleoestate.com.au/whats-on-event/theproducersseries-gardenexperience/>)
 
 - ### [Tiana V Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/tiana-v-live-at-peninsula-beer-garden-2026-11-22/>)
 
