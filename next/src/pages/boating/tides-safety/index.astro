@@ -92,8 +92,8 @@ export const prerender = true;
         </ul>
 
         <p>
-          Look up tides at <a href={BF_EXTERNAL.willyweather} rel="external" data-bf-event="bf_tide_lookup" data-bf-source="pillar-tides-safety">Willyweather</a>
-          or <a href={BF_EXTERNAL.bom} rel="external" data-bf-event="bf_tide_lookup" data-bf-source="pillar-tides-safety">the Bureau of Meteorology</a>.
+          Look up tides at <a class="boating-action-link" href={BF_EXTERNAL.willyweather} rel="external" data-bf-event="bf_tide_lookup" data-bf-source="pillar-tides-safety">Willyweather</a>
+          or <a class="boating-action-link" href={BF_EXTERNAL.bom} rel="external" data-bf-event="bf_tide_lookup" data-bf-source="pillar-tides-safety">the Bureau of Meteorology</a>.
           The night before and morning of every trip.
         </p>
 
@@ -109,10 +109,10 @@ export const prerender = true;
         <h2>Marine forecasts</h2>
         <p>
           Read the Bureau of Meteorology local waters forecast for
-          <a href={BF_EXTERNAL.bomPortPhillip} rel="external">Port Phillip</a> or
-          <a href={BF_EXTERNAL.bomWesternPort} rel="external">Western Port</a>. It covers wind, weather and seas.
+          <a class="boating-action-link" href={BF_EXTERNAL.bomPortPhillip} rel="external">Port Phillip</a> or
+          <a class="boating-action-link" href={BF_EXTERNAL.bomWesternPort} rel="external">Western Port</a>. It covers wind, weather and seas.
           Check it the night before and again on the morning of your trip because conditions can change quickly. Check
-          <a href={BF_EXTERNAL.maritimeSafety} rel="external">Safe Transport Victoria</a> for current safety
+          <a class="boating-action-link" href={BF_EXTERNAL.maritimeSafety} rel="external">Safe Transport Victoria</a> for current safety
           notices and licensing requirements.
         </p>
 
@@ -123,10 +123,10 @@ export const prerender = true;
           and under 12 metres, it must be worn in heightened-risk situations. Children under 12 must wear one in an open
           area whenever the vessel is underway. Port Phillip Heads, within three nautical miles of Point Lonsdale, is a
           designated hazardous area where everyone on vessels under 12 metres must wear one. Check the current
-          <a href={BF_EXTERNAL.safeTransportLifejackets} rel="external">lifejacket rules</a>
+          <a class="boating-action-link" href={BF_EXTERNAL.safeTransportLifejackets} rel="external">lifejacket rules</a>
           before departure. For hire-and-drive boats, a marine licence is required when the vessel is capable of more
           than 10 knots; the owner must brief hirers on the vessel's operating requirements. See
-          <a href={BF_EXTERNAL.safeTransportLicensing} rel="external">Safe Transport Victoria's licensing guidance</a>.
+          <a class="boating-action-link" href={BF_EXTERNAL.safeTransportLicensing} rel="external">Safe Transport Victoria's licensing guidance</a>.
         </p>
 
         <h2>Return-to-ramp planning</h2>
@@ -172,6 +172,11 @@ export const prerender = true;
           <li><a href="/boating/hire/">Boat hire</a></li>
           <li><a href="/fishing/charters/first-charter-guide/">First-charter guide</a></li>
         </ul>
+
+        <p class="boating-correction">
+          <strong>Seen something change?</strong>
+          <a href="/contact/?subject=Boating%20safety%20correction">Report changed safety, access or tide information</a>.
+        </p>
       </div>
     </div>
   </article>

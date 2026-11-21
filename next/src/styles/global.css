@@ -1939,6 +1939,11 @@ body[data-page="stay"] .venue-card__hero--placeholder::after { content: 'Peninsu
   }
 }
 
+/* Large, reliable targets for tide, regulator, correction and ramp actions. */
+.boating-action-link { display:inline-flex; align-items:center; min-height:44px; margin-block:-.45rem; padding:.45rem .2rem; box-decoration-break:clone; -webkit-box-decoration-break:clone; }
+.experience-index .pi-card__title a,.boating-correction a { display:inline-flex; align-items:center; min-height:44px; }
+.boating-correction { margin-top:var(--space-7); padding:var(--space-4) var(--space-5); border-left:4px solid var(--harbour); background:var(--surface-alt,#f2f6f7); }
+
 /* =========================================================
    FAQ SECTION  -  used on best-of / SEO pages below the ranking grid
    ========================================================= */

@@ -84,8 +84,8 @@ export const prerender = true;
         {isTideDependent ? (
           <aside class="alert-block">
             <strong>Tide-dependent ramp.</strong> Check the tide before driving here with a boat on the trailer.
-            Use <a href={BF_EXTERNAL.willyweather} rel="external" data-bf-event="bf_tide_lookup" data-bf-source={`ramp-${data.slug}`}>Willyweather</a>
-            or <a href={BF_EXTERNAL.bom} rel="external" data-bf-event="bf_tide_lookup" data-bf-source={`ramp-${data.slug}`}>BOM tidal predictions</a>
+            Use <a class="boating-action-link" href={BF_EXTERNAL.willyweather} rel="external" data-bf-event="bf_tide_lookup" data-bf-source={`ramp-${data.slug}`}>Willyweather</a>
+            or <a class="boating-action-link" href={BF_EXTERNAL.bom} rel="external" data-bf-event="bf_tide_lookup" data-bf-source={`ramp-${data.slug}`}>BOM tidal predictions</a>
             for the {data.tideStation || 'relevant'} reference station.
             {data.safetyNotes ? <> {data.safetyNotes}</> : null}
           </aside>
@@ -123,6 +123,13 @@ export const prerender = true;
           ) : (
             <> the <a href={BF_EXTERNAL.betterBoating} rel="external">Better Boating Victoria</a> conditions app</>
           )} before your trip.
+        </p>
+
+        <p class="boating-correction">
+          <strong>Seen something change?</strong>
+          <a href={`/contact/?subject=${encodeURIComponent(`Boating correction: ${data.name}`)}`}>
+            Report changed ramp, access or safety information
+          </a>.
         </p>
       </div>
     </div>
