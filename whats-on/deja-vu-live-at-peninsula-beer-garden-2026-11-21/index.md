@@ -11,8 +11,6 @@ Event     Live Music     21 November 2026     One-off date
 
 Enjoy live music at Peninsula Beer Garden! Deja Vu are a dynamic duo playing upbeat covers, that make you want to get up and dance.
 
-[Book or check details](<https://peninsulabeergarden.com.au/live-music/>)
-
 Hosted at
 
 Peninsula Beer Garden
@@ -43,7 +41,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://peninsulabeergarden.com.au/live-music/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Deja+Vu+Live+at+Peninsula+Beer+Garden&dates=20261121T060000Z%2F20261121T090000Z&details=Enjoy+live+music+at+Peninsula+Beer+Garden%21+Deja+Vu+are+a+dynamic+duo+playing+upbeat+covers%2C+that+make+you+want+to+get+up+and+dance.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fdeja-vu-live-at-peninsula-beer-garden-2026-11-21%2F&location=Peninsula+Beer+Garden%2C+Boneo%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+Booking and calendar links are withdrawn; this session has finished.
 
 Keep planning
 

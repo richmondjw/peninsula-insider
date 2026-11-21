@@ -241,12 +241,12 @@ Live Music at Peninsula Beer Garden! Join Dave Campbell for your music fix.
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/dave-campbell-live-at-peninsula-beer-garden-2026-11-29/>)
 
-- [Sat, 21 Nov
+- [Fri, 27 Nov
 
-### Deja Vu Live at Peninsula Beer Garden
+### Emmie Li Live at Peninsula Beer Garden
 
 Boneo
 
-Enjoy live music at Peninsula Beer Garden! Deja Vu are a dynamic duo playing upbeat covers, that make you want to get up and dance.
+Enjoy live music at Peninsula Beer Garden! Join the cool vibes and coastal tunes from Emmie Li, a singer-songwriter and pianist, who is known for a mix of her own songs and well known covers.
 
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/deja-vu-live-at-peninsula-beer-garden-2026-11-21/>)
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/emmie-li-live-at-peninsula-beer-garden-2026-11-27/>)

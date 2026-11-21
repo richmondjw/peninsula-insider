@@ -111,7 +111,7 @@ Yes. The nearest alternative bay-side ramp is Mornington Park Boat Ramp to the n
 
 Ramp conditions, parking fees, lane availability, and managing authority information are subject to change. Confirm current conditions with [Mornington Peninsula Shire](<https://www.mornpen.vic.gov.au/>) before your trip.
 
-**Seen something change?** [Report changed ramp, access or safety information](<https://peninsulainsider.com.au/contact/?subject=Boating%20correction%3A%20Safety%20Beach%20Boat%20Ramp>).
+**Seen something change?** [Report changed ramp, access or safety information.](<https://peninsulainsider.com.au/contact/?type=correction&page=%2Fboating%2Framps%2Fsafety-beach-boat-ramp%2F&message=Something%20has%20changed%20on%20the%20Safety%20Beach%20Boat%20Ramp%20page.>)
 
 ## The Insider Note
 

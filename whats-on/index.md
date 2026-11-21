@@ -21,14 +21,6 @@ For garden lovers, vegetarians and those with a passion for provenance, experien
 
 Food & Wine
 
-- Sat, 21 Nov · 5pm–8pm · Boneo
-
-### [Deja Vu Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/deja-vu-live-at-peninsula-beer-garden-2026-11-21/>)
-
-Enjoy live music at Peninsula Beer Garden! Deja Vu are a dynamic duo playing upbeat covers, that make you want to get up and dance.
-
-Live Music
-
 - Sat, 21 Nov · 8pm–10pm · Main Ridge
 
 ### [Felicity Urquhart & Josh Cunningham Live at The Pig & Whistle Tavern](<https://peninsulainsider.com.au/whats-on/felicity-urquhart-and-josh-cunningham-live-at-the-pig-and-whistle-tavern-2026-11-21/>)
@@ -37,33 +29,17 @@ Multi-Award-winning singer-songwriters Felicity Urquhart & Josh Cunningham are h
 
 Live Music
 
+- Sun, 22 Nov · 3pm–6pm · Mornington
+
+### [Audio Replica Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/audio-replica-live-at-tar-barrel-2026-11-22/>)
+
+Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery produce award-winning craft beers alongside diverse tastes as part of their whiskey and gin distillery.
+
+Live Music
+
 ## Day by day
 
 ### Saturday 21 November
-
-- 11am
-
-[Peninsula VineHop Festival 2026](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
-
-Choose a shuttle ticket for four venues on one route, or the Festival Hub for a single-site day with parking and the main stage.
-
-Mount Martha · Festivals
-
-- 5pm
-
-[Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
-
-Sam O’Connell plays Spike Bar this Saturday, 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
-
-Fingal · Live Music · Recurring weekly
-
-- 5pm
-
-[Sam O'Connell Live at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/sam-o-connell-live-at-peppers-moonah-links-resort-2026-11-21/>)
-
-Ease into the weekend with live music every Saturday in the Spike Bar at Moonah Links. Enjoy a rotating line-up of talented local artists from 5pm to 8pm, creating the perfect atmosphere to relax with friends, family or colleagues.
-
-Fingal · Live Music
 
 - 6pm
 
@@ -118,14 +94,6 @@ Mornington · Exhibitions · Recurring weekly
 Enjoy live music at Peninsula Beer Garden! Join the cool vibes and coastal tunes from Tiana V, a Mornington Peninsula based singer & guitarist who started out when she was only 8 years old.
 
 Boneo · Live Music
-
-- 3pm
-
-[Audio Replica Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/audio-replica-live-at-tar-barrel-2026-11-22/>)
-
-Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery produce award-winning craft beers alongside diverse tastes as part of their whiskey and gin distillery. Have a drink, enjoy the menu and experience live music on the weekends!
-
-Mornington · Live Music
 
 ## Book ahead
 

@@ -657,16 +657,6 @@ Month
 
 - [Sat, 21 Nov
 
-### ✦ Acoustic Saturdays at Peppers Moonah Links
-
-Fingal
-
-Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
-
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
-
-- [Sat, 21 Nov
-
 ### Coco Michelle Live at Tar Barrel
 
 Mornington
@@ -677,10 +667,20 @@ Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery p
 
 - [Sat, 21 Nov
 
-### Deja Vu Live at Peninsula Beer Garden
+### Felicity Urquhart & Josh Cunningham Live at The Pig & Whistle Tavern
 
-Boneo
+Main Ridge
 
-Enjoy live music at Peninsula Beer Garden! Deja Vu are a dynamic duo playing upbeat covers, that make you want to get up and dance.
+Multi-Award-winning singer-songwriters Felicity Urquhart & Josh Cunningham are hitting the road again to celebrate their chart-topping, third studio album, Everything Around You.
 
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/deja-vu-live-at-peninsula-beer-garden-2026-11-21/>)
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/felicity-urquhart-and-josh-cunningham-live-at-the-pig-and-whistle-tavern-2026-11-21/>)
+
+- [Sat, 21 Nov
+
+### Oskar Proy Live at Jetty Road Brewery
+
+Dromana
+
+Live music every weekend at Jetty Road Brewery! Kick-back and enjoy a freshly brewed beer and bite while listening to live local music at Jetty Road Brewery.
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/oskar-proy-live-at-jetty-road-brewery-2026-11-21/>)

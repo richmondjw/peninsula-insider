@@ -77,22 +77,6 @@ Merricks
 
 Swipe or scroll through the picks
 
-- ### [Coco Michelle Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/coco-michelle-live-at-tar-barrel-2026-11-21/>)
-
-Live music from Coco Michelle at Tar Barrel in Mornington.
-
-Sat, 21 Nov   Tar Barrel   Live music
-
-Event details checked 9 Nov 2026 · [Organiser’s page](<https://tarbarrel.com.au/music/>)
-
-- ### [Deja Vu Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/deja-vu-live-at-peninsula-beer-garden-2026-11-21/>)
-
-Enjoy live music at Peninsula Beer Garden! Deja Vu are a dynamic duo playing upbeat covers, that make you want to get up and dance.
-
-Sat, 21 Nov   Peninsula Beer Garden   Live music
-
-Event details checked 9 Nov 2026 · [Organiser’s page](<https://peninsulabeergarden.com.au/live-music/>)
-
 - ### [Oskar Proy Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/oskar-proy-live-at-jetty-road-brewery-2026-11-21/>)
 
 Live music every weekend at Jetty Road Brewery!
@@ -100,6 +84,22 @@ Live music every weekend at Jetty Road Brewery!
 Sat, 21 Nov   Jetty Road Brewery   Live music
 
 Event details checked 9 Nov 2026 · [Organiser’s page](<https://www.jettyroad.com.au/dromana>)
+
+- ### [Taste & Create, Gourmet Bar](<https://peninsulainsider.com.au/whats-on/taste-and-create-gourmet-bar-2026-11-21/>)
+
+Taste 12 chocolates, then create your own Gourmet Chocolate Bar. Starts 11.30am.
+
+Sat, 21 Nov   The Chocolateries Mornington Peninsula   Food & wine
+
+Event details checked 9 Nov 2026 · [Organiser’s page](<https://www.mpchoc.com.au/events/taste-create-gourmet-bar-3/>)
+
+- ### [Vinehop at Phaedrus Estate](<https://peninsulainsider.com.au/whats-on/vinehop-2026-11-21/>)
+
+Phaedrus Estate is a host venue for the 2026 Vinehop festival, with live music and a DJ from Fudge and Jinxit from 11.30am to.
+
+Sat, 21 Nov   Phaedrus Estate   Cellar door
+
+Event details checked 9 Nov 2026 · [Organiser’s page](<https://www.phaedrus.com.au/vinehop-festival-0>)
 
 This season · Spring
 

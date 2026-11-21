@@ -179,7 +179,7 @@ Pick an alternative before you leave home, in case the first is full or the tide
 
  [Tides and safety in full](<https://peninsulainsider.com.au/boating/tides-safety/>)
 
-Conditions and access can change. [Report changed ramp or safety information](<https://peninsulainsider.com.au/contact/?subject=Boating%20correction>).
+Conditions and access can change. [Report changed ramp or safety information](<https://peninsulainsider.com.au/contact/?type=correction&page=%2Fboating%2F&message=Something%20has%20changed%20in%20the%20boating%20ramp%2C%20hire%20or%20safety%20guidance.>).
 
 How far the water moves   Typical rise and fall between low and high tide
 

@@ -11,8 +11,6 @@ Event     Live Music     21 November 2026     One-off date
 
 Ease into the weekend with live music every Saturday in the Spike Bar at Moonah Links. Enjoy a rotating line-up of talented local artists from 5pm to 8pm, creating the perfect atmosphere to relax with friends, family or colleagues.
 
-[Book or check details](<https://www.moonahlinks.com.au/>)
-
 Hosted at
 
 Peppers Moonah Links Resort
@@ -43,7 +41,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.moonahlinks.com.au/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Sam+O%27Connell+Live+at+Peppers+Moonah+Links+Resort&dates=20261121T060000Z%2F20261121T090000Z&details=Ease+into+the+weekend+with+live+music+every+Saturday+in+the+Spike+Bar+at+Moonah+Links.+Enjoy+a+rotating+line-up+of+talented+local+artists+from+5pm+to+8pm%2C+creating+the+perfect+atmosphere+to+relax+with+friends%2C+family+or+colleagues.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fsam-o-connell-live-at-peppers-moonah-links-resort-2026-11-21%2F&location=Peppers+Moonah+Links+Resort%2C+Fingal%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+Booking and calendar links are withdrawn; this session has finished.
 
 Keep planning
 

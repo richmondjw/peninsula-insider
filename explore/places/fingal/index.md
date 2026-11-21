@@ -407,7 +407,7 @@ Coming up in Fingal, pulled from the events registry.
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
-- [Sat, 21 Nov
+- [Sat, 28 Nov
 
 ### ✦ Acoustic Saturdays at Peppers Moonah Links
 

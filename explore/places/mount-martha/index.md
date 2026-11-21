@@ -241,16 +241,6 @@ Coming up in Mount Martha, pulled from the events registry.
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
-- [Sat, 21 Nov
-
-### ✦ Peninsula VineHop Festival 2026
-
-Mount Martha
-
-A one-day craft drinks festival across seven Mornington Peninsula venues on Saturday 21 November 2026, with tastings, food and live music. The event runs from 11am to 7pm and is strictly 18+, with shuttle, general admission and private bus options.
-
- Event · Festivals](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
-
 - [Sat, 5 Dec
 
 ### The Mount Martha Briars Market

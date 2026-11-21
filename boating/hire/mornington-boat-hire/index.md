@@ -87,6 +87,8 @@ Mornington Boat Hire operates from Schnapper Point Drive beside the Mornington P
 
 [Book Mornington Boat Hire →](<https://www.morningtonboathire.com.au/?utm_source=peninsula-insider&utm_medium=hire-page&utm_campaign=mornington-boat-hire-boat-hire&utm_content=footer-primary>)
 
+**Seen something change?** [Report changed availability, licence or operator information.](<https://peninsulainsider.com.au/contact/?type=correction&page=%2Fboating%2Fhire%2Fmornington-boat-hire%2F&message=Something%20has%20changed%20in%20the%20availability%2C%20licence%20or%20operator%20information%20for%20Mornington%20Boat%20Hire.>)
+
 ## The Insider Note
 
 The Peninsula worth knowing. An occasional email. What's on, where we'd go and what's worth knowing next.

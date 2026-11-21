@@ -1,11 +1,172 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-21T06:33:16.932Z",
+  "generatedAt": "2026-11-21T09:40:09.347Z",
   "baselineAvailable": true,
   "fromSnapshot": "c084318d42a14c48caefbe6d5cb542dc3e102ca3eaa40eea86239990832c6df7",
-  "toSnapshot": "c084318d42a14c48caefbe6d5cb542dc3e102ca3eaa40eea86239990832c6df7",
-  "previousGeneratedAt": "2026-11-21T05:44:52.189Z",
+  "toSnapshot": "1fc763660c60bb4d9fe624547e0d2bc16d261b209777b5ee9104df04ab31adb2",
+  "previousGeneratedAt": "2026-11-21T06:33:16.932Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 0,
-  "changes": []
+  "count": 20,
+  "changes": [
+    {
+      "id": "https://peninsulainsider.com.au/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/",
+      "markdownUrl": "https://peninsulainsider.com.au/index.md",
+      "contentSha256": "50b81b4808250c72965eaa49cbe6c1524b7f541361c812d33d9158db624443a0",
+      "previousContentSha256": "e56af262db9ff30e7d84d0ccbb6db58553dff1d9a11cf39d73d6f9370f037a9e"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/boating/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/boating/",
+      "markdownUrl": "https://peninsulainsider.com.au/boating/index.md",
+      "contentSha256": "8e4e549ffd8ef9ea16f02468678368927e6d2c8d11d6d971e23e1125209fb4e1",
+      "previousContentSha256": "6cac5fc20e2ef152c94f1169e22c13ce67e095d6eb84df18f4219e046c8eac20"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/boating/hire/mornington-boat-hire/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/boating/hire/mornington-boat-hire/",
+      "markdownUrl": "https://peninsulainsider.com.au/boating/hire/mornington-boat-hire/index.md",
+      "contentSha256": "d3b2dadf2f13d86055ab567d45178a0b1c4ef99ad89d622322c9931cb19a2782",
+      "previousContentSha256": "6125b49986c358d48a34184af2ce126c2a9a80fef9995c1b7105fd5f87502b14"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/boating/ramps/hastings-boat-ramp/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/boating/ramps/hastings-boat-ramp/",
+      "markdownUrl": "https://peninsulainsider.com.au/boating/ramps/hastings-boat-ramp/index.md",
+      "contentSha256": "4a4521336dbe190ea991ac10cc2d6182ae0e96a9d1a519c91dc7603bed4862d7",
+      "previousContentSha256": "47b1419aa61db67741eb4c0361feaf04429a4fc73a3b3ea236ce0de5ed974d9a"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/boating/ramps/mornington-park-boat-ramp/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/boating/ramps/mornington-park-boat-ramp/",
+      "markdownUrl": "https://peninsulainsider.com.au/boating/ramps/mornington-park-boat-ramp/index.md",
+      "contentSha256": "c1d49ca00181fafdd7ec3cec8479e100450dcbfd3708e910e2627c808530ea13",
+      "previousContentSha256": "5694e506adc7f96dd195ed23070e22bb0e483ac2d6882d99233ee01341c51556"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/boating/ramps/rye-boat-ramp/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/boating/ramps/rye-boat-ramp/",
+      "markdownUrl": "https://peninsulainsider.com.au/boating/ramps/rye-boat-ramp/index.md",
+      "contentSha256": "53b3035bd98802b71f3f7d8a0828b15b83de318d9d141c784026d0b414de1f60",
+      "previousContentSha256": "674cdc32f7f8ef8006bf6f9f804a25a610acb7c3239a373ba5e8e0eb481dd6a8"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/boating/ramps/safety-beach-boat-ramp/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/boating/ramps/safety-beach-boat-ramp/",
+      "markdownUrl": "https://peninsulainsider.com.au/boating/ramps/safety-beach-boat-ramp/index.md",
+      "contentSha256": "e70c94f3bd83e0fc3d695e9f17dd89f9ecee79115b8bf8527d36d317914accdb",
+      "previousContentSha256": "fdf67564b114f960a8d65d77aa108d1cefd9716da8c0e8606ab57e2dec57ff66"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/boating/ramps/sorrento-boat-ramp/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/boating/ramps/sorrento-boat-ramp/",
+      "markdownUrl": "https://peninsulainsider.com.au/boating/ramps/sorrento-boat-ramp/index.md",
+      "contentSha256": "2c2c10b2245a6710d114fc1a0a05e378f6a77c0905b940b3a188eeaee1f8510d",
+      "previousContentSha256": "f5821131a4949913547a2910f9707402583412ce54561824a9cfa8a61b226317"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/boating/ramps/warneet-boat-ramp/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/boating/ramps/warneet-boat-ramp/",
+      "markdownUrl": "https://peninsulainsider.com.au/boating/ramps/warneet-boat-ramp/index.md",
+      "contentSha256": "dc6c41e21ad4900bb4c6a56da877a87fb542d7d519617c2ca1e62c2b259e726f",
+      "previousContentSha256": "cc2478a9e0c875d8d68c418b0358ae4818733c243b7f21dd58d1a2f7b4eb23d0"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/boating/tides-safety/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/boating/tides-safety/",
+      "markdownUrl": "https://peninsulainsider.com.au/boating/tides-safety/index.md",
+      "contentSha256": "72cc803db9dfe22844c5d671a86f22ede8209e83cb423d1db5ae0515c9422abf",
+      "previousContentSha256": "c4565be71b3726b302ca81187ad6b0992f795ea20719e600c8d0e7ad3640fdee"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/boneo/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/boneo/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/boneo/index.md",
+      "contentSha256": "66803bf7b8c8fe3624b634817b9dcd53ab001586a9563e36eac9f5c49a90ff64",
+      "previousContentSha256": "4a8faa18f7193fc1224bb6634bd88d57432b370b77f1e55a23ff4fb22e46d5bc"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/fingal/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/fingal/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/fingal/index.md",
+      "contentSha256": "3143349a6e649b0cec54a8714e3226294227a6e7f2b6c833e82d65bd27ccc658",
+      "previousContentSha256": "1eb401343fa134e0a7a2d25ba28e5f3015d42338157b753baaadf805be34030a"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/mount-martha/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/mount-martha/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/mount-martha/index.md",
+      "contentSha256": "36efa54e60132bd04c2c8a9120427a5bd4a9b8d0dae35ed9e6d4aabec7a4bd87",
+      "previousContentSha256": "5156dc06ac6e02c8766ae7f9a144bfbc191a7d40a745debcb7f8b9b9a9b8933d"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
+      "contentSha256": "a551246b12fd338433ca17fd7c28ceba98fe60c3b5c6a76ec769160df1ddb7ba",
+      "previousContentSha256": "3c15770da956981de81438b486b31dfdb1c42816a93c85727ddc35c17b9fb439"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/index.md",
+      "contentSha256": "7a32d28a0065c5beafcad740d044fdafd6821738ea28004b1bfc307020b4b58e",
+      "previousContentSha256": "fcfe11c8ec714859a8faf507ee364d1bfdbd00e068e487a9d123cb7ede29c4cf"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
+      "contentSha256": "ac3048f614618550aca9784f46a8dfc034b849ab2079bf61b46d23f2867b17dd",
+      "previousContentSha256": "f7292547ee5aa1a00028e0b03afd2dc9189cc0cb4860ca8c3537c6099ecc484b"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/index.md",
+      "contentSha256": "dd11e2c64c0807ad7a40b86f679dcba07067f225a375ef098101f5512d727d8f",
+      "previousContentSha256": "a26bf71b9dae94053ca1930d532d503172961301bede6c875b2620c5f4ec2ba5"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/deja-vu-live-at-peninsula-beer-garden-2026-11-21/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/deja-vu-live-at-peninsula-beer-garden-2026-11-21/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/deja-vu-live-at-peninsula-beer-garden-2026-11-21/index.md",
+      "contentSha256": "001071b4ad33f25957a62ebdbaf516e5c456ed69350d8a913deb021dd19fc313",
+      "previousContentSha256": "5586ae5180420293a69d0a30013ea8a214ed9cf3d285bedc311a59152f5f53e1"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/index.md",
+      "contentSha256": "051b2a94b5806bca429a512aa2a67ce056028a6312e4969e0b7a002c04ee9554",
+      "previousContentSha256": "db77173e78ba15ff10b6c09d65cb207493686fe35bb6fe1aba5d36b306800797"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/sam-o-connell-live-at-peppers-moonah-links-resort-2026-11-21/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/sam-o-connell-live-at-peppers-moonah-links-resort-2026-11-21/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/sam-o-connell-live-at-peppers-moonah-links-resort-2026-11-21/index.md",
+      "contentSha256": "51ff6be965864361ce9cb083fe009d69ab26c65428af3abd60798124073e1c67",
+      "previousContentSha256": "d6875a7b87c68cad1fe3dc5053dee92fe1e38ba848ed5c5cbc535e972b30538b"
+    }
+  ]
 }
