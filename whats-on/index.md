@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/whats-on/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-11-21
+Modified: 2026-11-22
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -13,21 +13,15 @@ Find the date, place and reason to go, then check with the organiser before you 
 
 ## Reasons to go
 
-- Sun, 22 Nov · 11:30am–2pm · Merricks
+- Mornington Peninsula Regional Gallery, Mornington   Photo: pru\_mitchell / Wikimedia Commons, CC BY 2.0.
 
-### [Culinary Garden Experience at Laura Pt Leo Estate](<https://peninsulainsider.com.au/whats-on/culinary-garden-experience-at-laura-pt-leo-estate-2026-11-22/>)
+Sun, 22 Nov · 11am–4pm · Mornington
 
-For garden lovers, vegetarians and those with a passion for provenance, experience produce-to-plate at its most extraordinary. Once a year, Pt.
+### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
 
-Food & Wine
+Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
 
-- Sat, 21 Nov · 8pm–10pm · Main Ridge
-
-### [Felicity Urquhart & Josh Cunningham Live at The Pig & Whistle Tavern](<https://peninsulainsider.com.au/whats-on/felicity-urquhart-and-josh-cunningham-live-at-the-pig-and-whistle-tavern-2026-11-21/>)
-
-Multi-Award-winning singer-songwriters Felicity Urquhart & Josh Cunningham are hitting the road again to celebrate their chart-topping, third studio album, Everything Around You.
-
-Live Music
+Exhibitions
 
 - Sun, 22 Nov · 3pm–6pm · Mornington
 
@@ -37,29 +31,15 @@ Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery p
 
 Live Music
 
+- Sun, 22 Nov · 11:30am–2pm · Merricks
+
+### [Culinary Garden Experience at Laura Pt Leo Estate](<https://peninsulainsider.com.au/whats-on/culinary-garden-experience-at-laura-pt-leo-estate-2026-11-22/>)
+
+For garden lovers, vegetarians and those with a passion for provenance, experience produce-to-plate at its most extraordinary. Once a year, Pt.
+
+Food & Wine
+
 ## Day by day
-
-### Saturday 21 November
-
-- 6pm
-
-[Oskar Proy Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/oskar-proy-live-at-jetty-road-brewery-2026-11-21/>)
-
-Live music every weekend at Jetty Road Brewery! Kick-back and enjoy a freshly brewed beer and bite while listening to live local music at Jetty Road Brewery.
-
-Dromana · Live Music
-
-- [Taste & Create, Gourmet Bar](<https://peninsulainsider.com.au/whats-on/taste-and-create-gourmet-bar-2026-11-21/>)
-
-Taste 12 chocolates, then create your own Gourmet Chocolate Bar. Starts 11.30am.
-
-Flinders · Food & Wine
-
-- [Vinehop at Phaedrus Estate](<https://peninsulainsider.com.au/whats-on/vinehop-2026-11-21/>)
-
-Phaedrus Estate is a host venue for the 2026 Vinehop festival, with live music and a DJ from Fudge and Jinxit from 11.30am to 5pm and three food trucks. Festival tickets are sold through Vinehop.
-
-Moorooduc · Cellar Doors
 
 ### Sunday 22 November
 
@@ -70,14 +50,6 @@ Moorooduc · Cellar Doors
 A VFMA-accredited village market with local growers and specialty makers, supported by the Mt Eliza Chamber of Commerce.
 
 Mount Eliza · Markets · Recurring monthly
-
-- 11am
-
-[National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
-
-Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
-
-Mornington · Exhibitions · Recurring weekly
 
 - 1pm
 

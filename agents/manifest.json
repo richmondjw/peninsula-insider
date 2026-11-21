@@ -1,8 +1,8 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-11-21T10:20:14.054Z",
-  "snapshotId": "f9d8e4be346d42e4479652f121d153b073229e61a9f60eee42dc915a8723042a",
-  "count": 702,
+  "generatedAt": "2026-11-21T13:27:17.486Z",
+  "snapshotId": "8a6bbe2c1cc41b449c16358ff09b78676e62a4a2c383b615d8e3e43cdf115d61",
+  "count": 692,
   "catalogUrl": "https://peninsulainsider.com.au/agents/catalog.json",
   "changesUrl": "https://peninsulainsider.com.au/agents/changes.json",
   "guideUrl": "https://peninsulainsider.com.au/agents/",
@@ -155,7 +155,7 @@
     },
     {
       "section": "whats-on",
-      "count": 99,
+      "count": 89,
       "url": "https://peninsulainsider.com.au/agents/sections/whats-on.json"
     },
     {
@@ -219,11 +219,11 @@
       "section": "whats-on",
       "url": "https://peninsulainsider.com.au/agents/directories/whats-on.json",
       "htmlUrl": "https://peninsulainsider.com.au/agents/directories/whats-on-html.json",
-      "count": 99,
-      "bytes": 19069,
-      "distinctUrls": 99,
-      "htmlBytes": 18366,
-      "htmlDistinctUrls": 99
+      "count": 89,
+      "bytes": 17190,
+      "distinctUrls": 89,
+      "htmlBytes": 16557,
+      "htmlDistinctUrls": 89
     }
   ],
   "retrieval": {

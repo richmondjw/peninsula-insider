@@ -655,32 +655,32 @@ Month
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
-- [Sat, 21 Nov
+- [Sun, 22 Nov
 
-### Felicity Urquhart & Josh Cunningham Live at The Pig & Whistle Tavern
+### Audio Replica Live at Tar Barrel
 
-Main Ridge
+Mornington
 
-Multi-Award-winning singer-songwriters Felicity Urquhart & Josh Cunningham are hitting the road again to celebrate their chart-topping, third studio album, Everything Around You.
+Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery produce award-winning craft beers alongside diverse tastes as part of their whiskey and gin distillery. Have a drink, enjoy the menu and experience live music on the weekends!
 
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/felicity-urquhart-and-josh-cunningham-live-at-the-pig-and-whistle-tavern-2026-11-21/>)
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/audio-replica-live-at-tar-barrel-2026-11-22/>)
 
-- [Sat, 21 Nov
+- [Sun, 22 Nov
 
-### Oskar Proy Live at Jetty Road Brewery
+### Culinary Garden Experience at Laura Pt Leo Estate
 
-Dromana
+Merricks
 
-Live music every weekend at Jetty Road Brewery! Kick-back and enjoy a freshly brewed beer and bite while listening to live local music at Jetty Road Brewery.
+For garden lovers, vegetarians and those with a passion for provenance, experience produce-to-plate at its most extraordinary. Once a year, Pt.
 
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/oskar-proy-live-at-jetty-road-brewery-2026-11-21/>)
+ Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/culinary-garden-experience-at-laura-pt-leo-estate-2026-11-22/>)
 
-- [Sat, 21 Nov
+- [Sun, 22 Nov
 
-### Taste & Create, Gourmet Bar
+### ✦ Mt Eliza Farmers Market
 
-Flinders
+Mount Eliza
 
-Taste 12 chocolates, then create your own Gourmet Chocolate Bar. Starts 11.30am.
+VFMA-accredited farmers market on the Mount Eliza Village Green and Mt Eliza Way service road. The organiser lists 25 October and 22 November 2026, 9am–1pm..
 
- Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/taste-and-create-gourmet-bar-2026-11-21/>)
+ Event · Markets](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)

@@ -101,14 +101,6 @@ World-renowned whip artist Nathan “Whippy” Griggs brings his Aussie Tour to 
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/whippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13/>)
 
-Arts  21 Nov
-
-### [CREATE: Pottery for your table](<https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/>)
-
-A ceramic charcuterie platter workshop with Caitlin from Peachy Keen Ceramics, part of Mornington Peninsula Shire's CREATE programme.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/>)
-
 Arts  25 Nov
 
 ### [Improv Comedy Show at The Bay Hotel Mornington](<https://peninsulainsider.com.au/whats-on/improv-comedy-show-at-the-bay-hotel-mornington-2026-11-25/>)
@@ -116,6 +108,14 @@ Arts  25 Nov
 Come and finish the year out with our last student showcase of comedy!
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/improv-comedy-show-at-the-bay-hotel-mornington-2026-11-25/>)
+
+Arts  20 Dec
+
+### [Lawrence Mooney at St Andrews Beach Brewery](<https://peninsulainsider.com.au/whats-on/st-andrews-beach-brewery-lawrence-mooney-2026/>)
+
+Lawrence Mooney performs stand-up at St Andrews Beach Brewery in Fingal on Sunday 20 December.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/st-andrews-beach-brewery-lawrence-mooney-2026/>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 

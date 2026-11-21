@@ -382,13 +382,3 @@ Flinders
 Decorate a chocolate Christmas tree to take home in Flinders on 5–6 or 12–24 December. Drop in between 9am and 4pm; participation is subject to availability.
 
  Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-2026-12-05/>)
-
-- [Sat, 21 Nov
-
-### Taste & Create, Gourmet Bar
-
-Flinders
-
-Taste 12 chocolates, then create your own Gourmet Chocolate Bar. Starts 11.30am.
-
- Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/taste-and-create-gourmet-bar-2026-11-21/>)

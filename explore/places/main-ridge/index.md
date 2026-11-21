@@ -383,16 +383,6 @@ Coming up in Main Ridge, pulled from the events registry.
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
-- [Sat, 21 Nov
-
-### Felicity Urquhart & Josh Cunningham Live at The Pig & Whistle Tavern
-
-Main Ridge
-
-Multi-Award-winning singer-songwriters Felicity Urquhart & Josh Cunningham are hitting the road again to celebrate their chart-topping, third studio album, Everything Around You.
-
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/felicity-urquhart-and-josh-cunningham-live-at-the-pig-and-whistle-tavern-2026-11-21/>)
-
 - [Sun, 13 Dec
 
 ### Legends Of Sunbury: Spectrum, Madder Lake & Phil Manning Live at The Pig & Whistle Tavern
@@ -412,3 +402,13 @@ Main Ridge
 Get ready, Main Ridge! Two of the most respected names in Australian country music, Luke O’Shea and Lyn Bowtell, are coming with their highly anticipated ‘Love and Laughter Tour’!
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/luke-o-shea-and-lyn-bowtell-live-at-the-pig-and-whistle-tavern-2026-11-27/>)
+
+- [Thu, 3 Dec
+
+### ✦ Pub Carols at The Pig & Whistle
+
+Main Ridge
+
+A group carols night with a live band and two-course meal at The Pig & Whistle in Main Ridge. The organiser lists Thursday 3, 10 and 17 December, each from 6pm to 10pm.
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/pub-carols-pig-whistle-main-ridge-2026/>)

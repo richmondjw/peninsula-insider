@@ -77,29 +77,29 @@ Merricks
 
 Swipe or scroll through the picks
 
-- ### [Taste & Create, Gourmet Bar](<https://peninsulainsider.com.au/whats-on/taste-and-create-gourmet-bar-2026-11-21/>)
+- ### [Culinary Garden Experience at Laura Pt Leo Estate](<https://peninsulainsider.com.au/whats-on/culinary-garden-experience-at-laura-pt-leo-estate-2026-11-22/>)
 
-Taste 12 chocolates, then create your own Gourmet Chocolate Bar. Starts 11.30am.
+For garden lovers, vegetarians and those with a passion for provenance, experience produce-to-plate at its most extraordinary. Once a year, Pt.
 
-Sat, 21 Nov   The Chocolateries Mornington Peninsula   Food & wine
+Sun, 22 Nov   Laura Pt Leo Estate   Food & wine
 
-Event details checked 9 Nov 2026 · [Organiser’s page](<https://www.mpchoc.com.au/events/taste-create-gourmet-bar-3/>)
+Event details checked 9 Nov 2026 · [Organiser’s page](<https://www.ptleoestate.com.au/whats-on-event/theproducersseries-gardenexperience/>)
 
-- ### [Vinehop at Phaedrus Estate](<https://peninsulainsider.com.au/whats-on/vinehop-2026-11-21/>)
+- ### [Tiana V Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/tiana-v-live-at-peninsula-beer-garden-2026-11-22/>)
 
-Phaedrus Estate is a host venue for the 2026 Vinehop festival, with live music and a DJ from Fudge and Jinxit from 11.30am to.
+Enjoy live music at Peninsula Beer Garden!
 
-Sat, 21 Nov   Phaedrus Estate   Cellar door
+Sun, 22 Nov   Peninsula Beer Garden   Live music
 
-Event details checked 9 Nov 2026 · [Organiser’s page](<https://www.phaedrus.com.au/vinehop-festival-0>)
+Event details checked 9 Nov 2026 · [Organiser’s page](<https://peninsulabeergarden.com.au/live-music/>)
 
-- ### [Audio Replica Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/audio-replica-live-at-tar-barrel-2026-11-22/>)
+- ### [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
 
-Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery produce award-winning craft beers alongside diverse tastes as part of their whiskey and.
+A VFMA-accredited village market with local growers and specialty makers, supported by the Mt Eliza Chamber of Commerce.
 
-Sun, 22 Nov   Tar Barrel   Live music
+Sun, 22 Nov   Mt Eliza Village Precinct   Market
 
-Event details checked 9 Nov 2026 · [Organiser’s page](<https://tarbarrel.com.au/music/>)
+Event details checked 3 Oct 2026 · [Organiser’s page](<https://www.mtelizafarmersmarket.com.au/>)
 
 This season · Spring
 
