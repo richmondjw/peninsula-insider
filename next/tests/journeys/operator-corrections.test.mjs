@@ -100,7 +100,7 @@ for(const width of [390,1440]) {
 
 
 for (const width of [390,1440]) {
- test(`Pitmaster Saturday session time, ticket CTA, schema and calendar at ${width}px`,async()=>{
+ test(`Pitmaster Saturday session time and expiry state at ${width}px`,async()=>{
   const reader=await site.reader();
   const slug='pitmaster-masterclass-at-red-gum-bbq-2026-11-21',ticket='https://www.sevenrooms.com/events/redgumbbq';
   try {
@@ -111,9 +111,15 @@ for (const width of [390,1440]) {
    const links=await reader.page.$$eval('main a',els=>els.map(el=>el.href));
    assert.ok(links.includes(ticket));assert.ok(!links.some(h=>h.includes('redgumbbq.com.au/make-a-booking')));
    const schemas=await reader.page.$$eval('script[type="application/ld+json"]',els=>els.map(el=>JSON.parse(el.textContent)));
-   const event=schemas.flatMap(s=>s['@graph']??[s]).find(s=>s['@type']==='Event');assert.ok(event);
-   assert.equal(event.offers.url,ticket);
-   assert.equal(event.startDate,'2026-11-21T10:30:00+11:00');assert.equal(event.endDate,'2026-11-21T13:00:00+11:00');
+   const event=schemas.flatMap(s=>s['@graph']??[s]).find(s=>s['@type']==='Event');
+   if(event) {
+    assert.equal(event.offers.url,ticket);
+    assert.equal(event.startDate,'2026-11-21T10:30:00+11:00');assert.equal(event.endDate,'2026-11-21T13:00:00+11:00');
+   } else {
+    const robots=await reader.page.$eval('meta[name="robots"]',el=>el.content);
+    assert.match(robots,/noindex/,'an expired session is excluded from search');
+    assert.match(text,/Booking and calendar links are withdrawn/,'expired session cannot be booked');
+   }
    const calendar=links.find(h=>h.startsWith('https://calendar.google.com/calendar/render'));
    if(calendar) assert.equal(new URL(calendar).searchParams.get('dates'),'20261120T233000Z/20261121T020000Z');
    if(Date.now()<Date.parse('2026-11-21T02:00:00Z')) assert.ok(calendar);
