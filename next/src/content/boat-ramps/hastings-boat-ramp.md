@@ -7,14 +7,11 @@ coordinates:
   lng: 145.187
 address: Marine Parade, Hastings VIC 3915
 managingAuthority: Mornington Peninsula Shire (Better Boating Victoria-funded upgrade)
-laneCount: 4
-surface: concrete
 fee: Free to launch.
-parkingCapacity: Approximately 84 sealed car and trailer spaces, plus 130 overflow proposed
-parkingPressure: medium
-tideDependence: all-tide
+parkingCapacity: Check the current facility listing, signs and availability before travelling
+tideDependence: tidal-extreme
 tideStation: Western Port (Stony Point)
-maxVesselLength: 40-metre ramp accommodates large trailer boats up to approximately 8m. Vessels over 8m should confirm turning radius with Mornington Peninsula Shire.
+maxVesselLength: Check current ramp conditions and vessel suitability in the Boating Victoria ramp finder before travelling.
 nearbyRampAlternatives:
   - warneet-boat-ramp
   - sorrento-boat-ramp
@@ -24,49 +21,42 @@ accessibleSpecies:
   - snapper
   - gummy-shark
   - australian-salmon
-intro: Four-lane all-tide concrete ramp at Hastings, the busiest and best-equipped public ramp in Western Port. Recently upgraded (2024) with new pontoons including an all-abilities Hansa hoist on the southern pontoon. Adjacent to Westernport Marina; the primary departure point for Western Port charter operations.
-metaDescription: Hastings Boat Ramp - four lanes, all-tide, free, 40m concrete with new pontoons including all-abilities hoist. The best-equipped Western Port public ramp.
+intro: Shire-listed public ramp at Hastings. Better Boating Victoria records the upgraded ramp and second pontoon as open, with an all-abilities hoist. Check current conditions before travelling.
+metaDescription: Hastings Boat Ramp - upgraded and open, with a second pontoon and all-abilities hoist. Check current ramp, tide and parking conditions before travelling.
 faq:
   - question: Can I launch at Hastings at any tide?
-    answer: 'Yes. Hastings has all-tide access. The 2024 upgrade and dredging confirmed the approach depth supports standard recreational vessels at any tidal state. This is the defining advantage over Warneet, where caution is required at low tide.'
+    answer: 'Better Boating Victoria lists Hastings as upgraded and open, but does not guarantee suitability for every vessel or tide. Check current conditions and the BOM-listed Western Port (Stony Point) station before travelling.'
   - question: How busy does the parking get?
-    answer: 'Approximately 84 sealed car and trailer parks with 130 additional overflow proposed. The wide trailer spaces accommodate large trailer configurations. Snapper-season weekends and summer school holidays put pressure on the facility; arrive by 7am on a fine summer Saturday for a morning session.'
+    answer: 'Check the current facility listing and signs for parking arrangements. No live occupancy or guaranteed-space information is published, so allow extra time.'
   - question: Is Hastings accessible for users with mobility requirements?
-    answer: 'Yes. The 2024 upgrade delivered a new southern pontoon with a gangway and a Hansa all-abilities hoist, the most accessibility-capable ramp in the Western Port network.'
+    answer: 'Better Boating Victoria records an upgraded gangway, non-slip pontoon deck and all-abilities hoist. Confirm current availability before relying on the equipment.'
   - question: Is there an alternative ramp if Hastings is full?
-    answer: 'Warneet to the south is the next Western Port option but is tide-cautious at low water and a longer drive from Melbourne. For Port Phillip Bay access, Sorrento or Mornington-area ramps via the Mornington Peninsula Freeway. Hastings rarely runs out of ramp capacity even on busy days; parking is more often the bottleneck.'
+    answer: 'Warneet is the nearby Western Port alternative. Its precinct works are still in planning and design, so check current access and conditions before changing plans.'
 status: published
 verified: true
-lastVerified: 2026-04-30
+lastVerified: 2026-11-22
 publishedAt: 2026-04-30
 ---
 
 ## What this ramp is
 
-Hastings Boat Ramp sits on Marine Parade at the Hastings marina precinct on Western Port's western shore. From the Mornington Peninsula Freeway take the Hastings exit; follow Marine Parade south to the waterfront. Managed by [Mornington Peninsula Shire](https://www.mornpen.vic.gov.au/Activities/Sport-Recreation/Boating/Boat-ramps), free to launch.
+Hastings Boat Ramp sits on Marine Parade at the Hastings marina precinct on Western Port's western shore. [Mornington Peninsula Shire lists Hastings as a Shire-managed ramp and confirms that its ramps are free to use and park at](https://www.mornpen.vic.gov.au/Things-to-do/Sport-and-activities/Boating/Boat-ramps).
 
-This is the busiest and best-equipped public boat ramp in Western Port. The 2024 upgrade, funded through [Better Boating Victoria](https://betterboating.vic.gov.au/ramp-upgrades/hastings/), delivered a new southern pontoon with gangway and Hansa all-abilities hoist, refurbished the northern pontoon, resurfaced the ramp lanes, and dredged the approach. Four lanes, all-tide, with accessibility features unmatched elsewhere in the Peninsula boating network. Adjacent to [Westernport Marina](/fishing/charters/western-port-fishing-charters/), the primary departure point for Western Port charter operations.
+The [Better Boating Victoria Hastings project page](https://betterboating.vic.gov.au/ramp-upgrades/hastings/) records a resurfaced ramp, dredging, an upgraded northern pontoon and a second pontoon opened in November 2024 with a gangway, non-slip deck and all-abilities hoist. Confirm current equipment availability and ramp conditions before travelling.
 
 ## Tide dependence
 
-All-tide. This is the defining operational advantage of Hastings over [Warneet](/boating/ramps/warneet-boat-ramp/), where caution is required at low water. With Western Port's tidal range of approximately 2.5 to 2.8m, all-tide ramp status is materially valuable.
+Better Boating Victoria lists Hastings as upgraded and open, but does not publish a blanket suitability guarantee for every vessel or tide. Check current ramp conditions before travelling.
 
-Even at an all-tide ramp, Western Port anglers should still check the tide for fishing-ground access. Channel depth, current strength, and shallow-water locations change substantially with tidal state. Use the BOM-listed Western Port (Stony Point) station in the [BOM tidal predictions](https://www.bom.gov.au/australia/tides/).
+Western Port anglers should check the tide for fishing-ground access. Channel depth, current strength and shallow-water locations change with tidal state. Use the BOM-listed Western Port (Stony Point) station in the [BOM tidal predictions](https://www.bom.gov.au/australia/tides/).
 
 ## Parking and pressure
 
-Approximately 84 sealed car and trailer spaces, with a proposed 130 additional overflow. Wide spaces accommodate large trailer configurations that struggle at tighter metropolitan ramps. The all-tide access plus large parking make Hastings a practical choice on busy days, though snapper-season weekends (October to December) and summer school holidays still put pressure on the facility. The four-lane configuration means the ramp itself is rarely the bottleneck; parking is more often the constraint. Arrive by 7am for a morning launch on a fine summer Saturday.
+Check the current facility listing and signs for parking arrangements. The responsible authorities do not publish live occupancy or guarantee a space, so allow extra time and check current ramp information before departure.
 
 ## Best-paired locations and species
 
-Hastings accesses the northern and central Western Port fishing grounds:
-
-- [King George whiting](/fishing/species/king-george-whiting/) along the channel margins, 3 to 10km south, peak November to March, year-round availability. Drift over seagrass and sand in 2 to 5m; tidal timing is critical (the "no run no fun" rule).
-- Sand flathead on sandy substrate mid-bay, 4 to 8km, year-round on drift or slow troll at 3 to 8m.
-- Pink snapper in deeper channel areas, 8 to 15km. Different from the Port Phillip Bay snapper run; this is a Western Port-specific population.
-- Leatherjacket at structure and seagrass margins, 2 to 6km, year-round on light tackle.
-- [Gummy shark](/fishing/species/gummy-shark/) in the deeper bay, 5 to 15km, year-round on bottom rigs.
-- [Australian salmon](/fishing/species/australian-salmon/) bay-wide, peak April to September.
+Use the dedicated species guides for planning rather than treating a ramp page as fishing advice: [King George whiting](/fishing/species/king-george-whiting/), [gummy shark](/fishing/species/gummy-shark/) and [Australian salmon](/fishing/species/australian-salmon/).
 
 Charter departures from the adjacent marina: [Western Port Fishing Charters](/fishing/charters/western-port-fishing-charters/), and [I'm Hooked Fishing Charters](/fishing/charters/im-hooked-fishing-charters/) lists Hastings as a departure option.
 
@@ -76,8 +66,8 @@ Free to launch from. The Better Boating Victoria upgrade funding does not change
 
 ## Safety notes
 
-**Western Port tidal range.** Approximately 2.5 to 2.8m, significantly larger than Port Phillip Bay. Anglers accustomed to Port Phillip Bay should be aware that channel depth, current strength, and shallow-water locations change substantially with the tide. All-tide ramp access does not mean all-conditions access to all Western Port grounds.
+**Western Port tides.** Channel depth, current strength and shallow-water locations change substantially with the tide. Check official predictions, forecasts and warnings before departure.
 
-**Commercial traffic.** Western Port has active commercial shipping approaching Hastings and the oil terminal at Crib Point. The shipping channel must be respected. Crossing or loitering in the channel is prohibited. Check [Maritime Safety Victoria](https://www.maritimesafety.vic.gov.au) guidance on navigational obligations.
+**Commercial traffic.** Western Port has active commercial shipping. Check current [Safe Transport Victoria boating rules and safety guidance](https://safetransport.vic.gov.au/on-the-water/) and any local notices before departure; do not rely on this page as a substitute for navigational rules.
 
-**Return-to-ramp alternative.** [Warneet](/boating/ramps/warneet-boat-ramp/) to the south is the next Western Port option but is tide-cautious at low water. For Port Phillip Bay access, transit via the Mornington Peninsula Freeway is impractical from on-water; the bay is a separate journey.
+**Return-to-ramp alternative.** [Warneet](/boating/ramps/warneet-boat-ramp/) to the south is another Western Port option. Check its current access and conditions before departure. Port Phillip Bay is a separate road journey.

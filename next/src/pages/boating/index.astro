@@ -42,17 +42,14 @@ const RAMP_ORDER = [
 ];
 const RAMP_NOTES: Record<string, string> = {
   'sorrento-boat-ramp': 'Breakwater shelter and the shortest run to the southern snapper grounds and the Heads.',
-  'rye-boat-ramp': 'The biggest car park on the bay side, with about 127 trailer spaces and fish‑cleaning facilities.',
-  'safety-beach-boat-ramp': 'Plenty of trailer parking and a picnic ground alongside. Not one for a low-tide arrival.',
+  'rye-boat-ramp': 'A Shire-listed southern bay ramp. Check current conditions and parking before towing there.',
+  'safety-beach-boat-ramp': 'A Shire-listed mid-Peninsula ramp. Current maintenance and tide conditions matter.',
   'mornington-park-boat-ramp': 'Central bay shore. The car park is shared with the pier and the yacht club, so it is tight.',
   'hastings-boat-ramp': 'Upgraded in 2024, with an all-abilities hoist on the new southern pontoon. The base for Western Port charters.',
-  'warneet-boat-ramp': 'Smaller and quieter, with a central pontoon, for the whiting and flathead grounds of the northern arm.',
+  'warneet-boat-ramp': 'Planning and design for future ramp, parking and pontoon work is underway; check current access.',
 };
-// Launch windows stated in the ramp records' own text (high water at the ramp's station).
+// Only publish a fixed launch window when a current primary source states one.
 const RAMP_WINDOWS: Record<string, string> = {
-  'rye-boat-ramp': '1 to 2 hours either side of high water',
-  'safety-beach-boat-ramp': 'About 2 hours either side of high water',
-  'warneet-boat-ramp': '2 hours either side of high water for boats over 4.5 m',
 };
 const BOM_PENINSULA_FORECAST = 'https://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml';
 const RAMP_TIDE_STATIONS: Record<string, string> = {
@@ -67,10 +64,8 @@ const TIDE: Record<string, { label: string; low: boolean; mid: boolean; high: bo
   'all-tide': { label: 'Any tide', low: true, mid: true, high: true },
   'mid-to-high': { label: 'Mid to high tide', low: false, mid: true, high: true },
   'high-tide-only': { label: 'High tide only', low: false, mid: false, high: true },
-  'tidal-extreme': { label: 'Check the tide first', low: false, mid: false, high: true },
+  'tidal-extreme': { label: 'Check current conditions', low: false, mid: true, high: false },
 };
-const PRESSURE: Record<string, string> = { high: 'High', medium: 'Medium', low: 'Low' };
-
 const ordered = [
   ...RAMP_ORDER.map((slug) => allRamps.find((r) => r.data.slug === slug)).filter((r) => r !== undefined),
   ...allRamps.filter((r) => !RAMP_ORDER.includes(r.data.slug)),
@@ -80,7 +75,6 @@ const WATERS = [
   { key: 'western-port', name: 'Western Port', station: 'Western Port (Stony Point)', note: 'Strongly tidal. Time your launch and your return.' },
 ].map((w) => ({ ...w, ramps: ordered.filter((r) => r.data.region === w.key) }))
  .filter((w) => w.ramps.length > 0);
-const anyTideCount = allRamps.filter((r) => r.data.tideDependence === 'all-tide').length;
 
 const CHARTER_ORDER = ['proline-charters', 'western-port-fishing-charters', 'im-hooked-fishing-charters', 'reel-time-fishing-charters'];
 const CHARTER_NOTES: Record<string, string> = {
@@ -95,7 +89,7 @@ const charters = [
 ];
 const hire = allHire.find((h) => h.data.slug === 'mornington-boat-hire') ?? allHire[0];
 
-const trustLead = `Public ramps, all free to launch.${reviewedOn ? ` ${provenance.stampLabel} ` : ''}`;
+const trustLead = `Current-condition guidance with direct authority links.${reviewedOn ? ` ${provenance.stampLabel} ` : ''}`;
 
 const hero = pageImage('boating-hero');
 const pier = pageImage('boating-pier');
@@ -190,8 +184,8 @@ export const prerender = true;
       <div class="bh-head">
         <h2 id="ramps-title">Choose your ramp</h2>
         <p class="bh-head__dek">
-          The ramps in this guide are free to launch. The tide decides more than the drive does:
-          {anyTideCount} work at any tide, the rest need the water up. Heading for the Heads?
+          Shire-managed ramps are currently free to use; confirm Warneet's conditions with its precinct manager.
+          Tide, weather, maintenance and vessel draft all affect suitability. Heading for the Heads?
           Read <a class="bh-inline" href="#before-you-launch">Before you launch</a> first.
         </p>
       </div>
@@ -204,9 +198,6 @@ export const prerender = true;
               {water.note} Tide station: <strong>{water.station}</strong>.
               <a class="bh-tides boating-action-link" href={BF_EXTERNAL.bom} rel="external" data-bf-event="bf_tide_lookup" data-bf-source="hub-boating-chooser">Tide predictions<span class="sr-only"> on the Bureau of Meteorology site; choose {water.station} for {water.name}</span> <span aria-hidden="true">↗</span></a>
             </p>
-          </div>
-          <div class="bh-cols" aria-hidden="true">
-            <span>Ramp</span><span>Launch at</span><span>Lanes</span><span>Parking pressure</span>
           </div>
           <ul class="bh-ramplist" role="list">
             {water.ramps.map((ramp) => {
@@ -233,18 +224,6 @@ export const prerender = true;
                         </span>
                       </dd>
                     </div>
-                    {ramp.data.laneCount && (
-                      <div class="bh-fact">
-                        <dt>Lanes</dt>
-                        <dd>{ramp.data.laneCount}</dd>
-                      </div>
-                    )}
-                    {ramp.data.parkingPressure && (
-                      <div class="bh-fact">
-                        <dt>Parking pressure</dt>
-                        <dd>{PRESSURE[ramp.data.parkingPressure]}</dd>
-                      </div>
-                    )}
                   </dl>
                 </li>
               );
@@ -255,9 +234,8 @@ export const prerender = true;
 
       <div class="bh-source">
         <p>
-          Parking pressure is our own rating. Lanes and tide access are checked against
-          <a href={BF_EXTERNAL.betterBoating} rel="external">Better Boating Victoria</a> and the
-          <a href={BF_EXTERNAL.mornpenShire} rel="external">Mornington Peninsula Shire</a>.
+          Check current access with <a href={BF_EXTERNAL.betterBoating} rel="external">Better Boating Victoria</a>,
+          the <a href={BF_EXTERNAL.mornpenShire} rel="external">Mornington Peninsula Shire</a>, and the ramp manager named on each detail page.
         </p>
         <a class="bh-link bh-more" href="/boating/ramps/">Every ramp in detail <span aria-hidden="true">→</span></a>
       </div>
@@ -333,9 +311,9 @@ export const prerender = true;
     <div class="container bh-safety__grid">
       <div class="bh-safety__lead">
         <p class="bh-safety__rip">
-          <strong>Respect the Rip.</strong> South and south-westerly swell running into Port
-          Phillip Heads stands up into dangerous waves. Do not cross in unsuitable conditions,
-          whatever the size of your boat or your experience.
+          <strong>Plan for current conditions.</strong> Check official marine forecasts, warnings,
+          navigation rules and local notices before departure. Do not use this guide as a
+          substitute for current official safety information.
         </p>
         <ol class="bh-checks">
           <li>
@@ -365,40 +343,13 @@ export const prerender = true;
         </p>
       </div>
 
-      <figure class="bh-range" aria-labelledby="range-title">
-        <figcaption id="range-title">
-          <span class="bh-range__title">How far the water moves</span>
-          <span class="bh-range__sub">Typical rise and fall between low and high tide</span>
-        </figcaption>
-        <svg viewBox="0 0 360 214" width="360" height="214" role="img" aria-labelledby="range-desc" focusable="false">
-          <desc id="range-desc">Port Phillip Bay rises and falls about 0.5 to 1.0 metres. Western Port rises and falls about 2.5 to 2.8 metres, several times as much.</desc>
-          <g class="bh-range__grid">
-            <line x1="40" x2="350" y1="180" y2="180" />
-            <line x1="40" x2="350" y1="130" y2="130" />
-            <line x1="40" x2="350" y1="80" y2="80" />
-            <line x1="40" x2="350" y1="30" y2="30" />
-          </g>
-          <g class="bh-range__axis">
-            <text x="32" y="184">0 m</text>
-            <text x="32" y="134">1 m</text>
-            <text x="32" y="84">2 m</text>
-            <text x="32" y="34">3 m</text>
-          </g>
-          <rect class="bh-range__bar" x="54" y="155" width="52" height="25" rx="4" />
-          <rect class="bh-range__max" x="54.75" y="130.75" width="50.5" height="23.5" rx="4" />
-          <rect class="bh-range__bar" x="206" y="55" width="52" height="125" rx="4" />
-          <rect class="bh-range__max" x="206.75" y="40.75" width="50.5" height="13.5" rx="4" />
-          <text class="bh-range__val" x="114" y="148">0.5 to 1.0 m</text>
-          <text class="bh-range__val" x="266" y="56">2.5 to 2.8 m</text>
-          <text class="bh-range__name" x="80" y="204">Port Phillip Bay</text>
-          <text class="bh-range__name" x="232" y="204">Western Port</text>
-        </svg>
+      <aside class="bh-range" aria-labelledby="range-title">
+        <h3 class="bh-range__title" id="range-title">Do not use a generic launch window</h3>
         <p class="bh-range__note">
-          The dashed top of each bar is the spread between a small tide and a big one. Western
-          Port's bigger tide changes channel depth and ramp access through the day, which is why
-          Warneet wants the upper half of the tide.
+          Check the BOM-listed station shown for the ramp, then confirm the current ramp condition and
+          your vessel's limits. A tide prediction does not guarantee safe access, and maintenance can change conditions.
         </p>
-      </figure>
+      </aside>
     </div>
   </section>
 

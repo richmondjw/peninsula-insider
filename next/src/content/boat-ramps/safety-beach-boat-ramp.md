@@ -7,14 +7,11 @@ coordinates:
   lng: 144.987
 address: Shand Street and Marine Drive, Safety Beach VIC 3936
 managingAuthority: Mornington Peninsula Shire
-laneCount: 3
-surface: concrete
-fee: Free to launch. Adjacent car park fees may apply.
-parkingCapacity: Ample trailer parking on site
-parkingPressure: medium
-tideDependence: high-tide-only
+fee: Free to launch and park at this Shire-managed ramp; check current signs.
+parkingCapacity: Check the current facility listing, signs and availability before travelling
+tideDependence: tidal-extreme
 tideStation: Mornington
-maxVesselLength: Approximately 6m at high water. Vessels over 6m should confirm tidal-window and approach-depth feasibility with the Shire before launching.
+maxVesselLength: Check current ramp conditions and vessel suitability in the Boating Victoria ramp finder before travelling.
 nearbyRampAlternatives:
   - mornington-park-boat-ramp
   - rye-boat-ramp
@@ -26,61 +23,55 @@ accessibleSpecies:
   - squid
   - australian-salmon
 nearestHireSlug: mornington-boat-hire
-safetyNotes: At low water, depth at the ramp drops to roughly 0.3 metres, insufficient for any practical recreational vessel. The usable launch window is approximately two hours either side of high water at the BOM-listed Mornington station.
-intro: Three-lane concrete ramp on the mid-Peninsula bay shore at Safety Beach. Tide-dependent (high-tide access only), free to launch, ample trailer parking, and one of the better-provisioned family-side ramps with picnic facilities adjacent. Not suitable for low-tide arrivals.
-metaDescription: Safety Beach Boat Ramp - three concrete lanes, free, tide-dependent (high-tide access only), ample trailer parking. Mid-Peninsula access to Port Phillip Bay.
+safetyNotes: Conditions are tide-sensitive. Check the BOM-listed Mornington station and current Shire or Boating Victoria ramp information before travelling.
+intro: Shire-listed public ramp on the mid-Peninsula bay shore. The current Shire notice says Safety Beach remains open pending toe-clearing works. Check the latest notice, tide and ramp condition before travelling.
+metaDescription: Safety Beach Boat Ramp - a Shire-listed mid-Peninsula launch point. Check the current maintenance notice, tide and ramp condition before travelling.
 faq:
   - question: Can I launch at Safety Beach Boat Ramp at any tide?
-    answer: 'No. Safety Beach is tide-dependent. At low water, depth at the ramp is approximately one foot (0.3 metres), insufficient for launching any practical recreational vessel. The usable launch window is roughly two hours either side of high water. Check the BOM-listed Mornington station before departure.'
+    answer: 'Treat Safety Beach as tide-sensitive. Check the BOM-listed Mornington station and current ramp conditions before departure; vessel draft and maintenance can change whether a launch is suitable.'
   - question: Is there parking for a car with a boat trailer?
-    answer: 'Yes. Ample trailer parking is available on site, making this one of the better-provisioned mid-Peninsula ramps for trailer vehicles. In peak summer (January school holidays, summer long weekends), arrive by 7am to secure a trailer space.'
+    answer: 'Check the current facility listing and signs for parking arrangements. The Shire does not publish live occupancy or guarantee a space, so allow extra time.'
   - question: What is the maximum vessel size I can launch from Safety Beach?
-    answer: 'The practical maximum is constrained by the tidal window rather than ramp width. At high water, the depth supports standard recreational trailered vessels up to approximately 6 metres. At mid-tide, even smaller vessels may find the approach shallow.'
+    answer: 'Suitability depends on vessel draft, tide and current ramp condition. Check the Boating Victoria ramp finder and the managing authority before travelling with a larger or deep-draft vessel.'
   - question: Is there an alternative ramp if Safety Beach is unsuitable?
-    answer: 'Yes. The nearest alternative bay-side ramp is Mornington Park Boat Ramp to the north. Rye Boat Ramp provides a four-lane alternative further south. For Western Port access, Hastings Boat Ramp is the recommended all-tide, four-lane alternative.'
+    answer: 'Mornington Park and Rye are Shire-listed bay-side alternatives. Check current access, maintenance and tide conditions at the alternative before changing plans.'
 status: published
 verified: true
-lastVerified: 2026-04-30
+lastVerified: 2026-11-22
 publishedAt: 2026-04-30
 ---
 
 ## What this ramp is
 
-Safety Beach Boat Ramp sits off Shand Street and Marine Drive at Safety Beach, between Dromana and Mount Martha on the mid-Peninsula bay shore. The ramp is managed by [Mornington Peninsula Shire](https://www.mornpen.vic.gov.au/Activities/Sport-Recreation/Boating/Boat-ramps) and is free to use. Three concrete lanes plus an adjacent jetty, public toilets, picnic areas, a playground, and BBQ facilities make it one of the more family-friendly Peninsula bay ramps.
+Safety Beach Boat Ramp sits off Shand Street and Marine Drive at Safety Beach, between Dromana and Mount Martha on the mid-Peninsula bay shore. [Mornington Peninsula Shire lists Safety Beach as a Shire-managed ramp and confirms that its ramps are free to use and park at](https://www.mornpen.vic.gov.au/Things-to-do/Sport-and-activities/Boating/Boat-ramps).
 
-The critical operational constraint is the tide. This is not an all-tide ramp. At low water the bay margin shallows to roughly one foot (0.3 metres) of depth at the ramp surface, insufficient for any practical motorised vessel. Anglers unfamiliar with Safety Beach must check the tide before driving here with a boat on the trailer.
+Treat the ramp as tide-sensitive. The Shire's current maintenance notice also says planned toe-clearing works affect Safety Beach, so check the latest notice before driving with a boat on the trailer.
 
 ## Tide dependence
 
-The usable launch window runs from roughly two hours before high water to two hours after at the BOM-listed Mornington station. Outside that window, the ramp is effectively unusable. Use [BOM tidal predictions](https://www.bom.gov.au/australia/tides/) on the day.
+Use the BOM-listed Mornington station in [BOM tidal predictions](https://www.bom.gov.au/australia/tides/) on the day. A prediction is planning information, not a guarantee of safe depth for a particular vessel; check the current ramp condition too.
 
-The other consequence is return planning. Launch near the top of the tide and you have a hard window to return. Watching the tide drop from a productive whiting drift is not the time to discover this.
+Plan the return as carefully as the departure. Tide, wind and maintenance can change conditions during a session.
 
 ## Parking and pressure
 
-Trailer parking is ample by Peninsula standards, well above the constrained provision at Schnapper Point or Rye on a peak Saturday. The car park serves both the boat ramp and the family beach precinct, so summer mornings still fill up. The narrow tidal window has a side benefit: outside the launch window, the precinct is significantly quieter than an all-tide ramp would be.
+Check the current facility listing and signs for parking arrangements in this shared beach precinct. Live occupancy is not published, so allow extra time and identify an alternative before departure.
 
 ## Best-paired locations and species
 
-The ramp accesses Port Phillip Bay's mid-Peninsula grounds. Productive within the launch window:
-
-- [King George whiting](/fishing/species/king-george-whiting/) on the mid-bay sand flats, 3 to 8km offshore, peak November to March. Drift over 4 to 7m sand bottom.
-- [Snapper](/fishing/species/snapper/) on the southern bay structure, 15 to 25km south, peak October to December. Anchor and burley over rocky ground. Longer transit from this ramp than from Sorrento or Mornington.
-- Sand flathead within 2 to 5km, year-round. Drift or slow troll over sand and weed.
-- [Squid](/fishing/species/squid/) on the seagrass margins, 1 to 4km, peak autumn through winter. Jig early morning or dusk.
-- [Australian salmon](/fishing/species/australian-salmon/) bay-wide on metal lures, peak May to September.
+Use the dedicated species guides for planning rather than treating a ramp page as fishing advice: [King George whiting](/fishing/species/king-george-whiting/), [snapper](/fishing/species/snapper/), [squid](/fishing/species/squid/) and [Australian salmon](/fishing/species/australian-salmon/).
 
 ## Permits and fees
 
-The ramp is free to launch from. The Mornington Peninsula Shire-managed ramps are free as of 30 April 2026; car park fees may apply, confirm with [the Shire](https://www.mornpen.vic.gov.au) before your visit. A [Victorian Recreational Fishing Licence](https://www.vfa.vic.gov.au/recreational-fishing/fishing-licence) is required for all recreational fishing in Victorian waters, separate from the ramp.
+The [Shire's current boat-ramp page](https://www.mornpen.vic.gov.au/Things-to-do/Sport-and-activities/Boating/Boat-ramps) says no permit or fee is required to use and park at a Shire-managed ramp. Check signs for any precinct-specific restrictions. A [Victorian Recreational Fishing Licence](https://www.vfa.vic.gov.au/recreational-fishing/fishing-licence) is required unless an exemption applies.
 
 ## Safety notes
 
-The primary risk at Safety Beach is tidal mismanagement: launching while the water is dropping, then finding insufficient depth on return. Plan the session around the tidal window, not just the departure. Know what time the tide turns.
+Check the tide and current ramp condition for both departure and planned return. Conditions can change during a session.
 
-The prevailing exposure is northwesterly to westerly. A southwesterly generating swell creates difficult conditions on the bay approach. Check the wind forecast for the Point Nepean weather station before departure. A 15-knot southwesterly forecast for mid-morning means your return window may be uncomfortable.
+Check the official marine forecast and warnings before departure. Wind direction and strength can change the bay approach; use your vessel's operating limits and do not rely on a generic threshold.
 
-If conditions deteriorate and you cannot safely return, the nearest sheltered alternative is [Mornington Park Boat Ramp](/boating/ramps/mornington-park-boat-ramp/), approximately 7km north. In severe deterioration, [Hastings Boat Ramp](/boating/ramps/hastings-boat-ramp/) via the bay's eastern arm is an option.
+Identify a suitable alternative before departure. [Mornington Park Boat Ramp](/boating/ramps/mornington-park-boat-ramp/) is the nearest listed bay-side alternative, but current conditions must be checked there too. Do not improvise a new destination in deteriorating conditions.
 
 ## What we did not include
 
