@@ -1,84 +1,100 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-21T04:15:25.379Z",
+  "generatedAt": "2026-11-21T05:44:52.189Z",
   "baselineAvailable": true,
-  "fromSnapshot": "cccaca455303b31c910193e84b487512562d35487ebcbfc8099870ec7ddcc5cf",
-  "toSnapshot": "4532515a31b1493d86b28cfc5d88e38b51cfa8223edae6b272db1d1d0263bd3d",
-  "previousGeneratedAt": "2026-11-21T00:58:50.158Z",
+  "fromSnapshot": "4532515a31b1493d86b28cfc5d88e38b51cfa8223edae6b272db1d1d0263bd3d",
+  "toSnapshot": "c084318d42a14c48caefbe6d5cb542dc3e102ca3eaa40eea86239990832c6df7",
+  "previousGeneratedAt": "2026-11-21T04:15:25.379Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 9,
+  "count": 11,
   "changes": [
     {
-      "id": "https://peninsulainsider.com.au/",
+      "id": "https://peninsulainsider.com.au/boating/ramps/hastings-boat-ramp/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/",
-      "markdownUrl": "https://peninsulainsider.com.au/index.md",
-      "contentSha256": "e56af262db9ff30e7d84d0ccbb6db58553dff1d9a11cf39d73d6f9370f037a9e",
-      "previousContentSha256": "eafe8632bdbd75a8127999cd035b7fa59f4e18bb7ebc3d9dddb18c2fc77b2558"
+      "canonicalUrl": "https://peninsulainsider.com.au/boating/ramps/hastings-boat-ramp/",
+      "markdownUrl": "https://peninsulainsider.com.au/boating/ramps/hastings-boat-ramp/index.md",
+      "contentSha256": "47b1419aa61db67741eb4c0361feaf04429a4fc73a3b3ea236ce0de5ed974d9a",
+      "previousContentSha256": "c802ae542a88f10c644455a5ccd6cda571f0a7235a8f6678dee75f594cb99e48"
     },
     {
-      "id": "https://peninsulainsider.com.au/explore/places/balnarring/",
+      "id": "https://peninsulainsider.com.au/boating/ramps/mornington-park-boat-ramp/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/balnarring/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/balnarring/index.md",
-      "contentSha256": "b7647346a5b6d6649e489c97b23952d795432842f13c907af77360d4b497b8cf",
-      "previousContentSha256": "0b870636a83f4038f15081e7b38c95ff1d4071cd5d41a00315f37f1347d6ff45"
+      "canonicalUrl": "https://peninsulainsider.com.au/boating/ramps/mornington-park-boat-ramp/",
+      "markdownUrl": "https://peninsulainsider.com.au/boating/ramps/mornington-park-boat-ramp/index.md",
+      "contentSha256": "5694e506adc7f96dd195ed23070e22bb0e483ac2d6882d99233ee01341c51556",
+      "previousContentSha256": "0049b72e96076541813929315116f4006caa639c9c41a3d2801c3cd6dbaaed46"
     },
     {
-      "id": "https://peninsulainsider.com.au/explore/places/red-hill/",
+      "id": "https://peninsulainsider.com.au/boating/ramps/rye-boat-ramp/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/red-hill/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/red-hill/index.md",
-      "contentSha256": "b9b65736913c62908d66f9085b65a14d5c7add8255f723e95997071818bb0326",
-      "previousContentSha256": "8a7dd21526544d16b1d33bfa1d0c4073ec82f504db7a406522135d5df12ee009"
+      "canonicalUrl": "https://peninsulainsider.com.au/boating/ramps/rye-boat-ramp/",
+      "markdownUrl": "https://peninsulainsider.com.au/boating/ramps/rye-boat-ramp/index.md",
+      "contentSha256": "674cdc32f7f8ef8006bf6f9f804a25a610acb7c3239a373ba5e8e0eb481dd6a8",
+      "previousContentSha256": "831c23f30dc708babb714f80f7b5e0ea26eb8525d1ec7b0ae897a873d3519039"
     },
     {
-      "id": "https://peninsulainsider.com.au/journal/",
+      "id": "https://peninsulainsider.com.au/boating/ramps/safety-beach-boat-ramp/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
-      "contentSha256": "3c15770da956981de81438b486b31dfdb1c42816a93c85727ddc35c17b9fb439",
-      "previousContentSha256": "e489114af5c0c4c9216bf389640854227688d3983546cb355b5cca710a6d1603"
+      "canonicalUrl": "https://peninsulainsider.com.au/boating/ramps/safety-beach-boat-ramp/",
+      "markdownUrl": "https://peninsulainsider.com.au/boating/ramps/safety-beach-boat-ramp/index.md",
+      "contentSha256": "fdf67564b114f960a8d65d77aa108d1cefd9716da8c0e8606ab57e2dec57ff66",
+      "previousContentSha256": "467622dff9036aae203782a2575b12edbce298bb7c4d6873062906023ba08923"
     },
     {
-      "id": "https://peninsulainsider.com.au/journal/the-cellar-door-short-list/",
+      "id": "https://peninsulainsider.com.au/boating/ramps/sorrento-boat-ramp/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/the-cellar-door-short-list/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/the-cellar-door-short-list/index.md",
-      "contentSha256": "700f813983db419a969148ca5c9f96cc865c53226f3eb4f2f1fe6b6a9f111845",
-      "previousContentSha256": "24315b549e685e3ec972a04e0518d72b39edc9a8fcbf265378d585dbb6bc6d43"
+      "canonicalUrl": "https://peninsulainsider.com.au/boating/ramps/sorrento-boat-ramp/",
+      "markdownUrl": "https://peninsulainsider.com.au/boating/ramps/sorrento-boat-ramp/index.md",
+      "contentSha256": "f5821131a4949913547a2910f9707402583412ce54561824a9cfa8a61b226317",
+      "previousContentSha256": "09f11741e05bcd1db44d6a958fb648aefbcfbde15342833ce491a14517ecce70"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/boating/ramps/warneet-boat-ramp/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/boating/ramps/warneet-boat-ramp/",
+      "markdownUrl": "https://peninsulainsider.com.au/boating/ramps/warneet-boat-ramp/index.md",
+      "contentSha256": "cc2478a9e0c875d8d68c418b0358ae4818733c243b7f21dd58d1a2f7b4eb23d0",
+      "previousContentSha256": "a8cb0ef316efdb604c437d76736b7e1593f21b27083bd5e30552effa5bc23c63"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/boating/tides-safety/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/boating/tides-safety/",
+      "markdownUrl": "https://peninsulainsider.com.au/boating/tides-safety/index.md",
+      "contentSha256": "c4565be71b3726b302ca81187ad6b0992f795ea20719e600c8d0e7ad3640fdee",
+      "previousContentSha256": "dc8dadd1137f4190b3bc1694e8c83d212ce08d326bbbf1afa97ce008b6cee990"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/index.md",
+      "contentSha256": "664adceffd5fac57bf2b1b8c59012f43ddb4f4f37908762ca9eea4d656839781",
+      "previousContentSha256": "595e3d279c9c24e376c413921a29888b897cf3b9619b2aa6eb0464c86c07c80c"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/index.md",
+      "contentSha256": "939678c4542be46a2b76ef73f19f8739b578ed3d2d5ff660a503115ac363d17d",
+      "previousContentSha256": "3b59702af9a6390cca42f119586a7f94586cb41fc943748de5f67bc06c1d339d"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/summer-school-holidays-2026/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/summer-school-holidays-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/summer-school-holidays-2026/index.md",
+      "contentSha256": "05ff28aeecc46145e19e91f56f056e02a2453da0363bcabfbda9acafd386bb7c",
+      "previousContentSha256": "389120a45dd0d5c351897ba7ebccaddffe658d536ffd6c53f78569fd5f043f78"
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "4ed28ef73486a6f74fc3fe64ee7cd3cdf5e872ad4c24969f624d0131a9610a88",
-      "previousContentSha256": "e8ba2020997b6db175a018a26a2ce4146afc71d62320add32d04664f228f66cd"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/index.md",
-      "contentSha256": "c5ca3ae93264c96704c1fd08478f09d21f668eb20b652520110e5616591272f0",
-      "previousContentSha256": "185dd661bea29cf4abf2b537de397f0a2d73656257a7b48e217a2aaacc8d3ccf"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/emu-plains-market/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/emu-plains-market/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/emu-plains-market/index.md",
-      "contentSha256": "34d5ec1c3fb11d63e7fbf54366354bfea8dbf635cab900d4b5613e818c8a73af",
-      "previousContentSha256": "8f0da75f61d6f03b975593c7a322fa147dd2d39fc8a1432dbe7d478a865a9e24"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/pitmaster-masterclass-at-red-gum-bbq-2026-11-21/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/pitmaster-masterclass-at-red-gum-bbq-2026-11-21/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/pitmaster-masterclass-at-red-gum-bbq-2026-11-21/index.md",
-      "contentSha256": "9f82a4c1b5e7d74f1b4435921f8f81a67804f50cf893ee7ce273506a692eff55",
-      "previousContentSha256": "d3416720ed09098d9d94a0ea4910c9881a749082475f77a941d6d6dfe8f81773"
+      "contentSha256": "f7292547ee5aa1a00028e0b03afd2dc9189cc0cb4860ca8c3537c6099ecc484b",
+      "previousContentSha256": "4ed28ef73486a6f74fc3fe64ee7cd3cdf5e872ad4c24969f624d0131a9610a88"
     }
   ]
 }

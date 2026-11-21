@@ -29,15 +29,13 @@ Enjoy live music at Peninsula Beer Garden! Deja Vu are a dynamic duo playing upb
 
 Live Music
 
-- Mornington Peninsula Regional Gallery, Mornington   Photo: pru\_mitchell / Wikimedia Commons, CC BY 2.0.
+- Sat, 21 Nov · 8pm–10pm · Main Ridge
 
-Sat, 21 Nov · 11am–4pm · Mornington
+### [Felicity Urquhart & Josh Cunningham Live at The Pig & Whistle Tavern](<https://peninsulainsider.com.au/whats-on/felicity-urquhart-and-josh-cunningham-live-at-the-pig-and-whistle-tavern-2026-11-21/>)
 
-### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+Multi-Award-winning singer-songwriters Felicity Urquhart & Josh Cunningham are hitting the road again to celebrate their chart-topping, third studio album, Everything Around You.
 
-Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
-
-Exhibitions
+Live Music
 
 ## Day by day
 
@@ -83,14 +81,6 @@ Live music every weekend at Jetty Road Brewery! Kick-back and enjoy a freshly br
 
 Dromana · Live Music
 
-- 8pm
-
-[Felicity Urquhart & Josh Cunningham Live at The Pig & Whistle Tavern](<https://peninsulainsider.com.au/whats-on/felicity-urquhart-and-josh-cunningham-live-at-the-pig-and-whistle-tavern-2026-11-21/>)
-
-Multi-Award-winning singer-songwriters Felicity Urquhart & Josh Cunningham are hitting the road again to celebrate their chart-topping, third studio album, Everything Around You.
-
-Main Ridge · Live Music
-
 - [Taste & Create, Gourmet Bar](<https://peninsulainsider.com.au/whats-on/taste-and-create-gourmet-bar-2026-11-21/>)
 
 Taste 12 chocolates, then create your own Gourmet Chocolate Bar. Starts 11.30am.
@@ -112,6 +102,14 @@ Moorooduc · Cellar Doors
 A VFMA-accredited village market with local growers and specialty makers, supported by the Mt Eliza Chamber of Commerce.
 
 Mount Eliza · Markets · Recurring monthly
+
+- 11am
+
+[National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+
+Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
+
+Mornington · Exhibitions · Recurring weekly
 
 - 1pm
 

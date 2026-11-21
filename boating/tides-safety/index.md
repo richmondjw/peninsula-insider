@@ -99,6 +99,8 @@ Requirements depend on vessel size and operating area. Carry a correctly fitted 
 
 - [First-charter guide](<https://peninsulainsider.com.au/fishing/charters/first-charter-guide/>)
 
+**Seen something change?** [Report changed safety, access or tide information](<https://peninsulainsider.com.au/contact/?subject=Boating%20safety%20correction>).
+
 ## The Insider Note
 
 The Peninsula worth knowing. An occasional email. What's on, where we'd go and what's worth knowing next.

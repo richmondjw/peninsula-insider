@@ -105,6 +105,8 @@ Warneet to the south is the next Western Port option but is tide-cautious at low
 
 Ramp conditions, parking fees, lane availability, and managing authority information are subject to change. Confirm current conditions with [Mornington Peninsula Shire](<https://www.mornpen.vic.gov.au/>) before your trip.
 
+**Seen something change?** [Report changed ramp, access or safety information](<https://peninsulainsider.com.au/contact/?subject=Boating%20correction%3A%20Hastings%20Boat%20Ramp>).
+
 ## The Insider Note
 
 The Peninsula worth knowing. An occasional email. What's on, where we'd go and what's worth knowing next.

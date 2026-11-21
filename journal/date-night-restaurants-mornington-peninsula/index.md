@@ -211,7 +211,7 @@ Join Mornington Peninsula Regional Gallery for the launch of two summer exhibiti
 
  Event · Arts](<https://peninsulainsider.com.au/whats-on/mprg-summer-exhibitions-launch-2026/>)
 
-- [Sat, 21 Nov
+- [Sun, 22 Nov
 
 ### ✦ National Works on Paper 2026 (NWOP)
 
