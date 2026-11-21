@@ -35,6 +35,9 @@ const USES = {
   'home-door-stay': ['/', 'homepage Stay door', 'venues/jackalope', 'vv-26070116'],
   'home-door-wine': ['/', 'homepage Wine door', 'venues/green-olive-red-hill', 'vv-160008'],
   'home-door-explore': ['/', 'homepage Explore door', 'places/cape-schanck', 'vv-161977'],
+  'home-cover-weekend': ['/', 'homepage cover, This weekend scene', 'venues/mornington-farmers-market', 'vv-143094'],
+  'home-cover-wine': ['/', 'homepage cover, Wine country scene', 'venues/polperro', 'vv-143752'],
+  'home-cover-eat': ['/', 'homepage cover, Eat and drink scene', 'venues/trofeo-estate', 'vv-169308'],
   // Batch 4: hubs whose on-page hero is a published CMS override, so only the
   // link preview (and the Pagefind result image that mirrors it) changes.
   'whats-on-hub': ['/whats-on/', 'link preview', 'venues/mornington-farmers-market', 'vv-143094'],

@@ -5,6 +5,7 @@ import { loadOverrides } from '../../../lib/inline-edit/overrides';
 import { getCollection } from 'astro:content';
 import { isListableVenue } from '../../../lib/editorial';
 import { checkedSpan } from '../../../lib/checked-span';
+import { pageImage } from '../../../lib/page-images';
 // Trust line: how many places the guide covers and when they were last checked.
 const listed = (await getCollection('venues')).filter(isListableVenue);
 const checked = checkedSpan(listed.map((v) => v.data));
@@ -19,14 +20,62 @@ const published = overrides.image['cover.image'];
 const replacement = published?.src && published.alt?.trim() && published.credit?.trim() ? published : undefined;
 const photo = replacement ?? original;
 const statement = overrides.text['cover.statement'] ?? 'Make a day of the Peninsula.';
-const credit = photo.credit?.trim().replace(/\.$/, '') ?? '';
-const creditLine = /illustration/i.test(credit) ? credit + '.' : /^Courtesy of /i.test(credit) ? 'Photo courtesy of ' + credit.slice('Courtesy of '.length) + '.' : 'Photo: ' + credit + '.';
+const creditLineFor = (raw: string | undefined) => {
+  const c = raw?.trim().replace(/\.$/, '') ?? '';
+  return /illustration/i.test(c) ? c + '.' : /^Courtesy of /i.test(c) ? 'Photo courtesy of ' + c.slice('Courtesy of '.length) + '.' : 'Photo: ' + c + '.';
+};
+const captionFor = (p: { caption?: string; credit?: string }) => `${cleanCaption(p.caption).replace(/\.$/, '')}. ${creditLineFor(p.credit)}`;
+const creditLine = creditLineFor(photo.credit);
+
+// Cover scenes (2026-11-21). The cover answers the four paths under it: each
+// path has its own licensed photograph and its own invitation card. The coast
+// scene is the page as it always loaded (the one eager image, the plan card);
+// the other three load after the page has settled and crossfade in when their
+// path is hovered or focused, on a swipe, or on a slow automatic turn that a
+// reader can pause. Reduced-motion readers get no automatic turn and no fade.
+const scenes = [
+  {
+    id: 'coast',
+    path: '/explore/',
+    caption: captionFor(photo),
+    story: { href: '/explore/plans/flinders-and-cape-reset/', label: 'Start with the coast', title: 'Flinders & the Cape', line: 'Coastal walks and one excellent meal.' },
+  },
+  {
+    id: 'eat',
+    path: '/eat/',
+    image: pageImage('home-cover-eat'),
+    focal: '50% 55%',
+    story: { href: '/eat/best-restaurants/', label: 'Start with lunch', title: 'The best restaurants', line: 'Our editors’ picks for a long lunch.' },
+  },
+  {
+    id: 'wine',
+    path: '/wine/',
+    image: pageImage('home-cover-wine'),
+    focal: '70% 50%',
+    story: { href: '/wine/best-cellar-doors/', label: 'Start in the vines', title: 'The best cellar doors', line: 'Where to taste, and where to stay for lunch.' },
+  },
+  {
+    id: 'weekend',
+    path: '/whats-on/this-weekend/',
+    image: pageImage('home-cover-weekend'),
+    focal: '60% 50%',
+    story: { href: '/whats-on/this-weekend/', label: 'Start with this weekend', title: 'What’s on', line: 'What is happening across the Peninsula, day by day.' },
+  },
+].map((scene) => ({ ...scene, caption: scene.caption ?? captionFor(scene.image!) }));
+const sceneData = scenes.map(({ id, caption, story }) => ({ id, caption, story }));
+const sceneFor = (href: string) => scenes.find((scene) => scene.path === href)?.id;
 ---
 <section class="home-cover" aria-label="Your Peninsula starts here">
   <figure class="home-cover__plate">
     <img class="home-cover__media" data-pi-avif="true" src={photo.src} data-pi-responsive="100vw" alt={photo.alt} width="1280" height="853" fetchpriority="high" loading="eager" decoding="async" data-pi-no-hydrate="true" data-pi-requires-image-metadata="true" {...editableImage({entityType:'page',entitySlug:'home',fieldPath:'cover.image',label:'Cover image',purpose:'hero'})} />
-    {!isArtwork(photo) && <figcaption>{cleanCaption(photo.caption).replace(/\.$/, '')}. {creditLine}</figcaption>}
+    {scenes.filter((scene) => scene.image).map((scene) => (
+      <span class="home-cover__layer" data-cover-layer={scene.id} hidden>
+        <img class="home-cover__scene" src={scene.image!.src} data-pi-responsive="100vw" alt={scene.image!.alt} aria-hidden="true" width="1280" height="853" loading="lazy" decoding="async" data-pi-no-hydrate="true" style={`object-position:${scene.focal}`} />
+      </span>
+    ))}
+    {!isArtwork(photo) && <figcaption data-cover-caption>{cleanCaption(photo.caption).replace(/\.$/, '')}. {creditLine}</figcaption>}
   </figure>
+  <button type="button" class="home-cover__pause" data-cover-pause aria-pressed="false" hidden><span class="home-cover__pause-text">Pause the changing photographs</span></button>
   <div class="home-cover__content">
     <p class="home-cover__eyebrow">The independent guide to the Mornington Peninsula</p>
     <h1 class="home-cover__statement" {...editableText({entityType:'page',entitySlug:'home',fieldPath:'cover.statement',label:'Cover statement'})}>{statement === 'Make a day of the Peninsula.' ? <>Make a day<br />of the<br />Peninsula.</> : statement}</h1>
@@ -34,18 +83,19 @@ const creditLine = /illustration/i.test(credit) ? credit + '.' : /^Courtesy of /
     <nav class="home-cover__actions" aria-label="Start planning your Peninsula visit"><a href="#home-choose">Find a ready-made day <span aria-hidden="true">&#8595;</span></a></nav>
     <p class="home-cover__trust">Places chosen by our editors{checked ? `, ${checked}` : ''}. Never paid for. <a href="/about/#how-we-choose">How we choose</a></p>
   </div>
-  <a class="home-cover__story" href="/explore/plans/flinders-and-cape-reset/">
-    <span class="home-cover__story-label">Start with the coast</span>
-    <strong>Flinders &amp; the Cape</strong>
-    <span>Coastal walks and one excellent meal.</span>
+  <a class="home-cover__story" href="/explore/plans/flinders-and-cape-reset/" data-cover-story>
+    <span class="home-cover__story-label" data-story-label>Start with the coast</span>
+    <strong data-story-title>Flinders &amp; the Cape</strong>
+    <span data-story-line>Coastal walks and one excellent meal.</span>
     <b aria-hidden="true">&#8599;</b>
   </a>
+  <script type="application/json" data-cover-scenes set:html={JSON.stringify(sceneData)} />
 </section>
 <nav class="home-cover-paths" aria-label="Find your Peninsula">
-  <a href="/eat/">Eat &amp; drink <span aria-hidden="true">&#8599;</span></a>
-  <a href="/wine/">Wine country <span aria-hidden="true">&#8599;</span></a>
-  <a href="/explore/">Get outside <span aria-hidden="true">&#8599;</span></a>
-  <a href="/whats-on/this-weekend/">This weekend <span aria-hidden="true">&#8599;</span></a>
+  <a href="/eat/" data-cover-path={sceneFor('/eat/')}>Eat &amp; drink <span aria-hidden="true">&#8599;</span></a>
+  <a href="/wine/" data-cover-path={sceneFor('/wine/')}>Wine country <span aria-hidden="true">&#8599;</span></a>
+  <a href="/explore/" data-cover-path={sceneFor('/explore/')} data-active>Get outside <span aria-hidden="true">&#8599;</span></a>
+  <a href="/whats-on/this-weekend/" data-cover-path={sceneFor('/whats-on/this-weekend/')}>This weekend <span aria-hidden="true">&#8599;</span></a>
 </nav>
 
 <style>
@@ -99,4 +149,212 @@ const creditLine = /illustration/i.test(credit) ? credit + '.' : /^Courtesy of /
 }
 }
 @media(max-width:22.5em){.home-cover__story strong{font-size:1.25rem}.home-cover__story{padding-right:2.5rem}}
+
+/* Cover scenes (2026-11-21). Each further photograph sits in its own layer over the
+   first, under the scrim, and fades in. Opacity only, so it stays on the compositor. */
+.home-cover__layer{position:absolute;inset:0;z-index:-2;isolation:isolate;opacity:0;transition:opacity .9s ease}
+.home-cover__layer[data-on]{opacity:1}
+.home-cover__scene{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+/* The sun haze and cloud shadow were drawn for the Cape; they stay with it. */
+.home-cover__layer :global(picture):after{content:none!important}
+.home-cover[data-scene]:not([data-scene="coast"]) .home-cover__plate:after{visibility:hidden}
+/* The invitation card and credit change with the photograph. */
+.home-cover__story,.home-cover__plate figcaption{transition:opacity .22s ease}
+.home-cover__story[data-swapping],.home-cover__plate figcaption[data-swapping]{opacity:0}
+/* The path the cover is showing carries a sand rule; on the automatic turn it fills
+   over the time left before the next photograph. */
+.home-cover-paths a{position:relative}
+.home-cover-paths a:before{content:"";position:absolute;left:0;right:1.25rem;top:0;height:3px;background:#f5c177;transform:scaleX(0);transform-origin:left center}
+.home-cover-paths a:last-child:before{right:0}
+.home-cover-paths a[data-active]:before{transform:scaleX(1)}
+.home-cover-paths[data-auto] a[data-active]:before{animation:hc-turn var(--cover-turn,7s) linear both}
+.home-cover-paths[data-auto][data-held] a[data-active]:before{animation:none;transform:scaleX(1)}
+@keyframes hc-turn{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+/* Pause: the one control for the automatic turn. */
+.home-cover__pause{position:absolute;z-index:2;top:1rem;right:max(1rem,calc((var(--page-vw,100vw) - 1280px)/2));width:2.75rem;height:2.75rem;padding:0;border:1px solid rgba(255,255,255,.55);border-radius:50%;background:rgba(11,46,74,.72);color:#fff;cursor:pointer}
+.home-cover__pause[hidden]{display:none}
+.home-cover__pause:hover{background:#0b2e4a;border-color:#fff}
+.home-cover__pause:focus-visible{outline:3px solid #f5c177;outline-offset:3px}
+.home-cover__pause:before,.home-cover__pause:after{content:"";position:absolute;top:50%;width:3px;height:.8rem;background:currentColor;transform:translateY(-50%)}
+.home-cover__pause:before{left:calc(50% - 5px)}.home-cover__pause:after{left:calc(50% + 2px)}
+/* Paused: a play triangle. */
+.home-cover__pause[aria-pressed="true"]:before{left:calc(50% - 4px);width:0;height:0;background:none;border-style:solid;border-width:.45rem 0 .45rem .75rem;border-color:transparent transparent transparent currentColor}
+.home-cover__pause[aria-pressed="true"]:after{content:none}
+.home-cover__pause-text{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media(max-width:47.99em){
+.home-cover__scene{object-position:70% center!important}
+.home-cover-paths a:before{right:0}
+.home-cover__pause{top:.75rem;right:.75rem}
+}
+@media (prefers-reduced-motion: no-preference){
+@media(min-width:48em){.home-cover__scene{transform-origin:60% 40%;animation:hc-push 26s cubic-bezier(.45,0,.55,1) .2s infinite alternate both}}
+}
+@media (prefers-reduced-motion: reduce){
+.home-cover__layer,.home-cover__story,.home-cover__plate figcaption{transition:none}
+.home-cover-paths[data-auto] a[data-active]:before{animation:none}
+}
 </style>
+
+<script>
+  // Cover scenes. Every listener here is on an element of the cover itself, so a
+  // client-side navigation that replaces the cover takes its listeners with it;
+  // the one document listener is registered once, at module scope.
+  type Scene = { id: string; caption: string; story: { href: string; label: string; title: string; line: string } };
+  type Controller = { cover: HTMLElement; sync: () => void };
+
+  const FIRST_TURN = 9000;
+  const TURN = 7000;
+  let timer: number | undefined;
+  let controller: Controller | null = null;
+
+  document.addEventListener('visibilitychange', () => controller?.sync());
+
+  function start() {
+    const cover = document.querySelector<HTMLElement>('.home-cover');
+    if (!cover) { window.clearTimeout(timer); controller = null; return; }
+    if (controller?.cover === cover) return;
+    window.clearTimeout(timer);
+
+    const nav = document.querySelector<HTMLElement>('.home-cover-paths');
+    const story = cover.querySelector<HTMLAnchorElement>('[data-cover-story]');
+    const raw = cover.querySelector('[data-cover-scenes]')?.textContent;
+    if (!nav || !story || !raw) return;
+    let scenes: Scene[];
+    try { scenes = JSON.parse(raw); } catch { return; }
+
+    const paths = [...nav.querySelectorAll<HTMLAnchorElement>('a[data-cover-path]')];
+    const order = paths.map((p) => p.dataset.coverPath!).filter((id) => scenes.some((s) => s.id === id));
+    const caption = cover.querySelector<HTMLElement>('[data-cover-caption]');
+    const first = cover.querySelector<HTMLImageElement>('.home-cover__media');
+    const pause = cover.querySelector<HTMLButtonElement>('[data-cover-pause]');
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const auto = !reduce && order.length > 1;
+    const fade = reduce ? 0 : 220;
+
+    let current = paths.find((p) => p.hasAttribute('data-active'))?.dataset.coverPath ?? scenes[0].id;
+    let stopped = false; // the reader pressed pause
+    let hovering = false;
+    let focused = false;
+    let request = 0;
+
+    const layer = (id: string) => cover.querySelector<HTMLElement>(`[data-cover-layer="${id}"]`);
+
+    /** Bring a scene's photograph into the page and resolve once it can be shown. */
+    function ready(id: string): Promise<void> {
+      const el = layer(id);
+      if (!el) return Promise.resolve();
+      el.hidden = false;
+      const img = el.querySelector('img');
+      if (!img || (img.complete && img.naturalWidth > 0)) return Promise.resolve();
+      return new Promise((resolve) => {
+        const done = () => resolve();
+        img.addEventListener('load', done, { once: true });
+        img.addEventListener('error', done, { once: true });
+        window.setTimeout(done, 4000);
+      });
+    }
+
+    function markPath(id: string) {
+      // Re-adding the attribute restarts the rule's fill.
+      paths.forEach((p) => p.removeAttribute('data-active'));
+      void nav!.offsetWidth;
+      paths.find((p) => p.dataset.coverPath === id)?.setAttribute('data-active', '');
+    }
+
+    async function show(id: string) {
+      const scene = scenes.find((s) => s.id === id);
+      if (!scene || id === current) return;
+      const mine = ++request;
+      await ready(id);
+      if (mine !== request) return;
+      current = id;
+      cover!.dataset.scene = id;
+      cover!.querySelectorAll<HTMLElement>('[data-cover-layer]').forEach((el) => {
+        const on = el.dataset.coverLayer === id;
+        el.toggleAttribute('data-on', on);
+        el.querySelector('img')?.setAttribute('aria-hidden', on ? 'false' : 'true');
+      });
+      first?.setAttribute('aria-hidden', layer(id) ? 'true' : 'false');
+      markPath(id);
+      story!.setAttribute('data-swapping', '');
+      caption?.setAttribute('data-swapping', '');
+      window.setTimeout(() => {
+        if (mine !== request) return;
+        story!.setAttribute('href', scene.story.href);
+        const set = (hook: string, text: string) => { const el = story!.querySelector(hook); if (el) el.textContent = text; };
+        set('[data-story-label]', scene.story.label);
+        set('[data-story-title]', scene.story.title);
+        set('[data-story-line]', scene.story.line);
+        if (caption) caption.textContent = scene.caption;
+        story!.removeAttribute('data-swapping');
+        caption?.removeAttribute('data-swapping');
+      }, fade);
+      // Have the next photograph in hand before its turn.
+      const next = order[(order.indexOf(id) + 1) % order.length];
+      if (auto && !stopped) void ready(next);
+    }
+
+    function step(by: number) {
+      const at = Math.max(0, order.indexOf(current));
+      return show(order[(at + by + order.length) % order.length]);
+    }
+
+    /** One place decides whether the automatic turn is running. */
+    function sync(delay = TURN) {
+      window.clearTimeout(timer);
+      const running = auto && !stopped && !hovering && !focused && !document.hidden;
+      nav!.toggleAttribute('data-auto', auto && !stopped);
+      nav!.toggleAttribute('data-held', auto && !stopped && !running);
+      if (!running) return;
+      nav!.style.setProperty('--cover-turn', `${delay}ms`);
+      markPath(current);
+      timer = window.setTimeout(() => { void step(1).then(() => sync()); }, delay);
+    }
+
+    // The paths drive the cover: pointing at one, or tabbing to it, shows its scene.
+    paths.forEach((p) => {
+      const id = p.dataset.coverPath!;
+      p.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') void show(id); });
+      p.addEventListener('focus', () => { void show(id); });
+    });
+
+    // Hold the turn while the reader is pointing at, or focused in, the cover or its paths.
+    [cover, nav].forEach((zone) => {
+      zone.addEventListener('pointerenter', (e) => { if ((e as PointerEvent).pointerType === 'mouse') { hovering = true; sync(); } });
+      zone.addEventListener('pointerleave', (e) => { if ((e as PointerEvent).pointerType === 'mouse') { hovering = false; sync(); } });
+      zone.addEventListener('focusin', () => { focused = true; sync(); });
+      zone.addEventListener('focusout', () => { focused = false; sync(); });
+    });
+
+    // A sideways swipe on the cover turns it by hand.
+    let downX = 0;
+    let downY = 0;
+    cover.addEventListener('touchstart', (e) => { downX = e.touches[0].clientX; downY = e.touches[0].clientY; }, { passive: true });
+    cover.addEventListener('touchend', (e) => {
+      const dx = e.changedTouches[0].clientX - downX;
+      const dy = e.changedTouches[0].clientY - downY;
+      if (Math.abs(dx) < 48 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
+      void step(dx < 0 ? 1 : -1).then(() => sync());
+    }, { passive: true });
+
+    if (pause && auto) {
+      pause.hidden = false;
+      pause.addEventListener('click', () => {
+        stopped = !stopped;
+        pause.setAttribute('aria-pressed', stopped ? 'true' : 'false');
+        const text = pause.querySelector('.home-cover__pause-text');
+        if (text) text.textContent = stopped ? 'Play the changing photographs' : 'Pause the changing photographs';
+        sync();
+      });
+    }
+
+    cover.dataset.scene = current;
+    controller = { cover, sync: () => sync() };
+    // Let the first photograph and the page settle before fetching a second one.
+    const begin = () => { if (auto) void ready(order[(order.indexOf(current) + 1) % order.length]); sync(FIRST_TURN); };
+    window.setTimeout(begin, document.readyState === 'complete' ? 0 : 1500);
+  }
+
+  start();
+  document.addEventListener('astro:page-load', start);
+</script>

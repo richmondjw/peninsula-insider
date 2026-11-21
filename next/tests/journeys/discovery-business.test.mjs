@@ -202,7 +202,10 @@ test('wine visitors can choose a day or reach filtered places on a first visit',
   } finally { await reader.close(); }
 });
 
-test('homepage plan cards link to usable itineraries and the cover is a single still image', async () => {
+// 2026-11-21 (James): the cover now has four scenes, one per path under it. It
+// still loads as the one Cape photograph with the plan card; the other three
+// photographs are deferred and never count as the cover's eager image.
+test('homepage plan cards link to usable itineraries and the cover loads as one eager photograph', async () => {
   const reader = await site.reader();
   try {
     await reader.load('/');
@@ -216,6 +219,58 @@ test('homepage plan cards link to usable itineraries and the cover is a single s
     await reader.page.emulateMediaFeatures([{name:'prefers-reduced-motion',value:'reduce'}]);
     assert.equal(await reader.page.$$eval('[data-cover-motion]', els => els.length), 0);
   } finally { await reader.close(); }
+});
+
+test('the cover follows its four paths, can be paused, and stays still for reduced motion', async () => {
+  const reader = await site.reader();
+  try {
+    await reader.page.setViewport({width:1280,height:900});
+    await reader.load('/');
+    const cover = () => reader.page.evaluate(() => ({
+      scene: document.querySelector('.home-cover').dataset.scene,
+      story: document.querySelector('.home-cover__story').getAttribute('href'),
+      title: document.querySelector('.home-cover__story strong').textContent.trim(),
+      caption: document.querySelector('.home-cover__plate figcaption').textContent.trim(),
+      active: [...document.querySelectorAll('.home-cover-paths a[data-active]')].map(a => a.getAttribute('href')),
+      eager: [...document.querySelectorAll('.home-cover__plate img')].filter(i => i.loading !== 'lazy').length,
+    }));
+    const arrival = await cover();
+    assert.equal(arrival.scene, 'coast');
+    assert.equal(arrival.story, '/explore/plans/flinders-and-cape-reset/');
+    assert.deepEqual(arrival.active, ['/explore/']);
+    assert.equal(arrival.eager, 1, 'only the first photograph may load eagerly');
+    assert.equal(await reader.page.$$eval('.home-cover-paths a[data-cover-path]', els => els.length), 4);
+
+    // Tabbing to a path shows its scene: photograph, credit and invitation change together.
+    await reader.page.focus('.home-cover-paths a[href="/wine/"]');
+    await reader.waitFor(() => document.querySelector('.home-cover').dataset.scene === 'wine' && document.querySelector('.home-cover__story').getAttribute('href') === '/wine/best-cellar-doors/', 'wine scene did not show');
+    const wine = await cover();
+    assert.deepEqual(wine.active, ['/wine/']);
+    assert.notEqual(wine.caption, arrival.caption);
+    assert.match(wine.caption, /Visit Victoria/);
+    assert.ok(await reader.page.$eval('[data-cover-layer="wine"] img', i => i.complete && i.naturalWidth > 0 && i.getAttribute('aria-hidden') === 'false'));
+    assert.equal(await reader.page.$eval('.home-cover__media', i => i.getAttribute('aria-hidden')), 'true');
+
+    // The automatic turn has one labelled control, and pausing it is reported.
+    const pause = await reader.page.$eval('[data-cover-pause]', b => ({ hidden: b.hidden, name: b.textContent.trim(), pressed: b.getAttribute('aria-pressed'), w: b.getBoundingClientRect().width, h: b.getBoundingClientRect().height }));
+    assert.equal(pause.hidden, false); assert.match(pause.name, /Pause/); assert.equal(pause.pressed, 'false');
+    assert.ok(pause.w >= 44 && pause.h >= 44);
+    await reader.page.click('[data-cover-pause]');
+    assert.equal(await reader.page.$eval('[data-cover-pause]', b => b.getAttribute('aria-pressed')), 'true');
+    assert.equal(await reader.page.$eval('.home-cover-paths', n => n.hasAttribute('data-auto')), false);
+  } finally { await reader.close(); }
+
+  const still = await site.reader();
+  try {
+    await still.page.emulateMediaFeatures([{name:'prefers-reduced-motion',value:'reduce'}]);
+    await still.load('/');
+    const state = await still.page.evaluate(() => ({
+      pauseHidden: document.querySelector('[data-cover-pause]').hidden,
+      auto: document.querySelector('.home-cover-paths').hasAttribute('data-auto'),
+      scene: document.querySelector('.home-cover').dataset.scene,
+    }));
+    assert.deepEqual(state, { pauseHidden: true, auto: false, scene: 'coast' });
+  } finally { await still.close(); }
 });
 
 
