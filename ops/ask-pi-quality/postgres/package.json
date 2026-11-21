@@ -1,0 +1,7 @@
+{
+  "name": "ask-pi-isolated-postgres-tests",
+  "private": true,
+  "type": "module",
+  "scripts": {"test": "node --test *.test.mjs"},
+  "dependencies": {"pg": "8.23.1"}
+}
