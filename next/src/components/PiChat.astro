@@ -115,7 +115,11 @@ const starters = SHOW_ASK_PERSONA
             <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 16V4M5 9l5-5 5 5"/></svg>
           </button>
         </form>
-        <p class="pi-chat__fine">PI's picks and plans come from our published guides. Her notes are written by AI from those pages. Check hours and bookings before you go.</p>
+        <p class="pi-chat__fine">
+          {SHOW_ASK_VOICE
+            ? "PI's picks and plans come from our published guides. Her notes are written by AI from those pages. Check hours and bookings before you go."
+            : "PI matches your question to our published guides in this browser. Nothing you ask is sent or stored. Check hours and bookings before you go."}
+        </p>
       </footer>
     </section>
   </div>
@@ -351,11 +355,27 @@ const starters = SHOW_ASK_PERSONA
     function applyChrome() {
       const state = root!.dataset.state;
       const docked = state === 'open' && root!.dataset.mode === 'dock' && WIDE.matches;
+      const modal = state === 'open' && !DESKTOP.matches;
       document.documentElement.classList.toggle('pi-chat-docked', docked);
       document.documentElement.classList.toggle('pi-chat-open', state === 'open');
       panel.classList.toggle('is-docked', docked);
       placeUnderMasthead();
-      document.documentElement.classList.toggle('pi-chat-sheet', state === 'open' && !DESKTOP.matches);
+      document.documentElement.classList.toggle('pi-chat-sheet', modal);
+      panel.setAttribute('role', modal ? 'dialog' : 'region');
+      if (modal) panel.setAttribute('aria-modal', 'true');
+      else panel.removeAttribute('aria-modal');
+      // On phones the sheet covers the complete viewport. Remove the covered
+      // page from both focus order and the accessibility tree until PI closes.
+      for (const child of [...document.body.children] as HTMLElement[]) {
+        if (child === root) continue;
+        if (modal && !child.inert) {
+          child.inert = true;
+          child.dataset.piChatInert = 'true';
+        } else if (!modal && child.dataset.piChatInert === 'true') {
+          child.inert = false;
+          delete child.dataset.piChatInert;
+        }
+      }
       launch.classList.toggle('has-thread', turns.length > 0);
     }
 
@@ -420,7 +440,13 @@ const starters = SHOW_ASK_PERSONA
           root!.dataset.mode = store.get(localStorage, MODE) === 'float' ? 'float' : 'dock';
         }
       }, 220);
-      if (focus) (opener && opener.isConnected ? opener : launch).focus({ preventScroll: true });
+      if (focus) {
+        const mastheadAsk = document.querySelector<HTMLElement>('.ask-link');
+        const returnTo = opener && opener.isConnected ? opener : mastheadAsk || launch;
+        // Wait until the modal peers are focusable again. Focusing the hidden
+        // fallback launcher leaves keyboard users on the document body.
+        requestAnimationFrame(() => returnTo.focus({ preventScroll: true }));
+      }
     }
 
     /* ---------- rendering ---------- */
@@ -1179,7 +1205,17 @@ const starters = SHOW_ASK_PERSONA
     input.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' && !e.shiftKey && !e.isComposing) { e.preventDefault(); ask(input.value); }
     });
-    panel.addEventListener('keydown', (e) => { if (e.key === 'Escape') { e.stopPropagation(); minimise(); } });
+    panel.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') { e.stopPropagation(); minimise(); return; }
+      if (e.key !== 'Tab' || DESKTOP.matches) return;
+      const focusable = [...panel.querySelectorAll<HTMLElement>('a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])')]
+        .filter((el) => !el.hidden && el.getClientRects().length > 0);
+      if (!focusable.length) { e.preventDefault(); input.focus(); return; }
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    });
     async function swap(at: number) {
       const turn = latestPlan();
       if (!turn) return;
@@ -1327,7 +1363,7 @@ const starters = SHOW_ASK_PERSONA
       const q = (new URLSearchParams(location.search).get('q') || '').trim();
       const asked = [...turns].reverse().find((turn) => turn.role === 'you');
       if (q.length >= 3 && asked?.text !== q.slice(0, 500)) ask(q);
-      else open(false);
+      else open();
     }
     document.addEventListener('astro:page-load', () => { applyChrome(); offerHere(); arrive(); });
 
@@ -1445,7 +1481,7 @@ const starters = SHOW_ASK_PERSONA
     padding-top: max(var(--space-3), env(safe-area-inset-top));
     border-bottom: 1px solid var(--border);
   }
-  .pi-chat__head-face { width: 40px; height: 40px; border-radius: 50%; background: var(--pi-cream); flex: none; }
+  .pi-chat__head-face { width: 44px; height: 44px; border-radius: 50%; background: var(--pi-cream); flex: none; }
 
   /* ── Her figure, in parts ──
      The hat illustration cut into three layers from the approved mark (scripts/build-pi-layers.mjs):
@@ -1486,7 +1522,7 @@ const starters = SHOW_ASK_PERSONA
   .pi-chat[data-gesture="catch"] .pi-chat__head-face .pi-fig__hair { animation: pi-catch-hair 1040ms cubic-bezier(.3, .6, .3, 1) both; }
 
   /* ── The dial: how much of her ── */
-  .pi-chat__dial-open { flex: none; padding: 0; border: 0; background: none; border-radius: 50%; cursor: pointer; line-height: 0; }
+  .pi-chat__dial-open { flex: none; width: 44px; height: 44px; padding: 0; border: 0; background: none; border-radius: 50%; cursor: pointer; line-height: 0; }
   .pi-chat__dial-open:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
   .pi-chat__dial { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-2); padding: var(--space-2) var(--space-4); border-bottom: 1px solid var(--border); background: var(--bg); }
   .pi-chat__dial[hidden] { display: none; }
@@ -1540,7 +1576,7 @@ const starters = SHOW_ASK_PERSONA
 
   .pi-chat__chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-2); }
   .pi-chat__chip {
-    max-width: 100%; min-height: 40px; padding: 8px 14px; text-align: left;
+    max-width: 100%; min-height: 44px; padding: 8px 14px; text-align: left;
     background: var(--white); color: var(--text);
     border: 1px solid var(--border-control); border-radius: var(--radius-pill);
     font: 400 var(--fs-300)/1.3 var(--font-ui); cursor: pointer;
@@ -1725,13 +1761,13 @@ const starters = SHOW_ASK_PERSONA
   }
   .pi-chat__form:focus-within { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
   .pi-chat__form textarea {
-    flex: 1; min-width: 0; min-height: 40px; max-height: 132px; padding: 9px 0; resize: none;
+    flex: 1; min-width: 0; min-height: 44px; max-height: 132px; padding: 11px 0; resize: none;
     border: 0; background: transparent; color: var(--text); font: 400 var(--fs-400)/1.4 var(--font-ui);
   }
   .pi-chat .pi-chat__form textarea:focus, .pi-chat .pi-chat__form textarea:focus-visible { outline: none; box-shadow: none; }
   .pi-chat__form textarea::placeholder { color: var(--soft); }
   .pi-chat__send {
-    flex: none; display: grid; place-items: center; width: 40px; height: 40px; border: 0; border-radius: 50%;
+    flex: none; display: grid; place-items: center; width: 44px; height: 44px; border: 0; border-radius: 50%;
     background: var(--accent); color: var(--white); cursor: pointer;
   }
   .pi-chat__send:disabled { opacity: .5; cursor: progress; }

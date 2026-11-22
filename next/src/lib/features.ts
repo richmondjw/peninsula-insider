@@ -29,7 +29,7 @@ export const ASK_GUIDE_ON: boolean = SHOW_ASK_GUIDE && !SHOW_ASK_PI;
 // matcher cannot read, written by the platform API (/concierge/pi/*) from the
 // published pages and checked sentence by sentence there. false leaves the
 // chat working on the matcher's own fixed wording.
-export const SHOW_ASK_VOICE = true;
+export const SHOW_ASK_VOICE = false;
 
 // PI as a character (lib/ask-pi.mjs, lib/pi-lines.mjs): a day put in order
 // from published pages, her modes, and her own fixed lines for refusals and
@@ -45,7 +45,7 @@ export const SHOW_ASK_PERSONA = true;
 // spot-checked detail on its page; 5 of 12 lines dropped by the checks). With
 // it on, a plan sends the question and the candidate page addresses to the
 // platform. false returns plans to the site's own choices and authored lines.
-export const SHOW_ASK_COMPOSE = true;
+export const SHOW_ASK_COMPOSE = false;
 
 // PI in conversation (/concierge/pi/talk). With this on, an ordinary message
 // goes to the platform with the recent thread and the addresses of the guide
@@ -54,7 +54,7 @@ export const SHOW_ASK_COMPOSE = true;
 // those pages before it comes back. Plans, refusals for things she cannot
 // check, and her authored modes do not use it. Late, missing or unusable, the
 // chat answers from the guides as it did before. false turns it off.
-export const SHOW_ASK_TALK = true;
+export const SHOW_ASK_TALK = false;
 
 /**
  * PUBLIC_EVENT_OCCURRENCE_MODEL: the PI-008 occurrence model, three-state.

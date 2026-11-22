@@ -101,7 +101,26 @@ for (const width of [390, 1280, 1440]) {
         return { left: rect.left, right: rect.right, top: rect.top, bottom: rect.bottom, w: innerWidth, h: innerHeight };
       });
       assert.ok(box.left >= 0 && box.right <= box.w + 1 && box.top >= 0 && box.bottom <= box.h + 1, JSON.stringify(box));
-      assert.match(await page.$eval('.pi-chat__fine', el => el.textContent), /published guides.*written by AI/s);
+      assert.match(await page.$eval('.pi-chat__fine', el => el.textContent), voiceOn
+        ? /published guides.*written by AI/s
+        : /published guides.*Nothing you ask is sent or stored/s);
+      if (mobile) {
+        const modal = await page.$eval('#pi-chat-panel', panel => ({
+          role: panel.getAttribute('role'),
+          ariaModal: panel.getAttribute('aria-modal'),
+          focused: panel.contains(document.activeElement),
+          coveredPageInert: [...document.body.children]
+            .filter(child => child.id !== 'pi-chat')
+            .every(child => child.inert),
+        }));
+        assert.deepEqual(modal, {
+          role: 'dialog', ariaModal: 'true', focused: true, coveredPageInert: true,
+        }, 'the full-screen sheet is a real modal and receives focus');
+        assert.equal(await page.$$eval('#pi-chat-panel button, #pi-chat-panel textarea', controls => controls
+          .filter(control => control.getClientRects().length > 0)
+          .every(control => Math.min(control.getBoundingClientRect().width, control.getBoundingClientRect().height) >= 44)), true,
+        'visible chat controls meet the 44px mobile target floor');
+      }
 
       const lunch = await say(page, 'Where should we have lunch in Red Hill?');
       assert.deepEqual(lunch.tiles.map(tile => tile.href).sort(), ['/eat/red-gum-bbq/', '/eat/tedesca-osteria/']);
