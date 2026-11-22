@@ -58,7 +58,7 @@ The precinct serves the boat ramp, pier visitors and the yacht club. Live occupa
 
 Use the dedicated species guides for planning rather than treating a ramp page as fishing advice: [snapper](/fishing/species/snapper/), [King George whiting](/fishing/species/king-george-whiting/), [squid](/fishing/species/squid/) and [Australian salmon](/fishing/species/australian-salmon/).
 
-Charter operators that depart from Mornington-area ramps include [I'm Hooked Fishing Charters](/fishing/charters/im-hooked-fishing-charters/) and [Reel Time Fishing Charters](/fishing/charters/reel-time-fishing-charters/).
+[I'm Hooked Fishing Charters](/fishing/charters/im-hooked-fishing-charters/) advertises departures from various Port Phillip and Western Port locations. Confirm the exact ramp directly with the operator before travelling; Mornington is not guaranteed.
 
 ## Permits and fees
 

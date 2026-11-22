@@ -30,9 +30,9 @@ faq:
   - question: Is this a good charter for a corporate group or a hens or bucks event?
     answer: 'Yes. The 20-passenger capacity, large deck space, and food-and-drinks-friendly platform with the BBQ option make this the most suitable operator in this pack for large group events on Western Port. Lead time for catering and invoicing arrangements is typically longer than for shared charter bookings.'
   - question: Do you target snapper here?
-    answer: 'Pink snapper are a target species, but understand that Western Port''s pink-snapper population is distinct from the Port Phillip Bay warm-water snapper run. If you specifically want the Oct to Dec southern bay snapper experience, a Port Phillip Bay operator like I''m Hooked, Proline, or Reel Time is the right call.'
+    answer: 'Pink snapper are a target species, but Western Port conditions and seasonal patterns differ from Port Phillip Bay. If you specifically want a Port Phillip Bay snapper trip, compare the current trip areas advertised by I''m Hooked and Proline, then confirm the departure and target species directly before booking.'
   - question: Do I need my own fishing licence?
-    answer: 'Confirm directly with the operator at the time of booking whether guests are covered for the day or required to BYO licence. Most licensed Victorian charters cover guests; confirm in writing rather than assuming.'
+    answer: 'Unless a statutory exemption applies, each person using fishing equipment must hold their own valid Victorian Recreational Fishing Licence. Check current VFA rules and confirm the operator''s booking requirements before the trip.'
   - question: When should I book?
     answer: 'Western Port does not have the snapper-season booking surge that Port Phillip Bay operators experience. Summer weekends and the whiting peak still fill quickly; book 2 to 4 weeks ahead for weekend summer sessions. Corporate and large-group bookings require more lead time for logistics.'
 status: published
@@ -67,7 +67,7 @@ Captain Robin Gray has operated Western Port Fishing Charters from Hastings for 
 
 ## What's included
 
-Rods, reels, bait, and tackle on standard sessions. Food and drinks are not included; the operator can advise on provisions for the session length. Confirm fish-cleaning policy and licence cover at booking. The wheelchair-accessible configuration is confirmed; specific boarding arrangements at Westernport Marina should be confirmed at booking.
+Rods, reels, bait, and tackle on standard sessions. Food and drinks are not included; the operator can advise on provisions for the session length. Confirm fish-cleaning policy and booking requirements before travelling. The wheelchair-accessible configuration is confirmed; specific boarding arrangements at Westernport Marina should be confirmed at booking.
 
 ## Booking logic
 

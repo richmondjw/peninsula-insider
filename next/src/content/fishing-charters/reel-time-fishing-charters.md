@@ -37,9 +37,15 @@ faq:
     answer: 'Confirm the operator''s exact cancellation policy at the time of booking. The standard Peninsula practice is a full refund or session transfer when weather prevents departure; the specific policy varies by operator.'
   - question: Does Reel Time run the Portland Southern Bluefin Tuna trips?
     answer: 'Yes. The Portland tuna programme is a more ambitious itinerary distinct from the standard Peninsula product. Pricing and trip structure are separate from the bay sessions; contact the operator directly for current scheduling and lead-time requirements.'
-status: published
-verified: true
-lastVerified: 2026-04-30
+status: draft
+verified: false
+lastVerified: 2026-11-23
+editorialProvenance:
+  method: researched
+  reviewedOn: 2026-11-23
+  checkedOn: 2026-11-23
+  checkedBy: desk
+  source: 'The former operator website now redirects to Fin Chaser Fishing Charters; the current operator site does not support Reel Time as an active identity or the published fleet and group claims.'
 publishedAt: 2026-04-30
 ---
 

@@ -32,7 +32,6 @@ locationSlugs:
   - portsea-pier
 charterSlugs:
   - im-hooked-fishing-charters
-  - reel-time-fishing-charters
 eatLinks:
   - { label: "The seafood list (Peninsula Insider Journal)", href: "/journal/the-seafood-list/" }
   - { label: "Waterfront restaurants on the Mornington Peninsula", href: "/journal/waterfront-restaurants-mornington-peninsula/" }
@@ -47,7 +46,7 @@ faq:
   - question: What's the difference between squid and calamari?
     answer: '"Squid" and "calamari" are used interchangeably in conversation along the Peninsula. Technically, "calamari" is the more precise name for Sepioteuthis australis (southern calamari), the dominant species on Peninsula grounds. The VFA uses both terms. The bag limit is combined under the same category as octopus and cuttlefish.'
   - question: Do I need a fishing licence to catch squid?
-    answer: 'Yes. A Victorian Recreational Fishing Licence is required to take squid from Victorian waters for anglers aged 18 and over. Children under 18 are exempt. Anglers fishing from a licensed charter vessel are generally covered by the operator''s licence; confirm at booking.'
+    answer: 'Unless a statutory exemption applies, each person using fishing equipment must hold their own valid Victorian Recreational Fishing Licence. A licence is personal and cannot be shared. Check current VFA rules and the charter operator''s booking requirements before the trip.'
   - question: What is the best squid jig size for Peninsula squid jigging?
     answer: 'A 2.5 size egi is the workhorse for autumn squid on the Peninsula. The size 2.0 to 3.0 range covers the Peninsula''s squid sizes. Carry a selection of colours (pink/orange, natural shrimp, chartreuse purple) and switch if the chosen colour is not producing within 20 minutes.'
 status: published

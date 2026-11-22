@@ -110,7 +110,6 @@ export const BF_RAMPS_P2 = [
 export const BF_CHARTERS_P5 = [
   'im-hooked-fishing-charters',
   'proline-charters',
-  'reel-time-fishing-charters',
   'western-port-fishing-charters',
 ] as const;
 

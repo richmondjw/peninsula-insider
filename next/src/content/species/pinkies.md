@@ -30,7 +30,6 @@ locationSlugs:
   - sorrento-pier
 charterSlugs:
   - im-hooked-fishing-charters
-  - reel-time-fishing-charters
 eatLinks:
   - { label: "The seafood list (Peninsula Insider Journal)", href: "/journal/the-seafood-list/" }
 intro: 'Pinkies are the same species as adult snapper, but the editorial distinction matters: the fishing approach, gear, and locations differ substantially. Pinkies hold in shallower bay water, take smaller baits, run reliably from the bay piers, and provide accessible summer pier sessions for families and beginners. The 28cm minimum size and 10-per-day bag limit are identical to adult snapper.'

@@ -29,8 +29,7 @@ locationSlugs:
   - gunnamatta-beach
   - flinders-pier
   - sorrento-pier
-charterSlugs:
-  - reel-time-fishing-charters
+charterSlugs: []
 eatLinks:
   - { label: "The seafood list (Peninsula Insider Journal)", href: "/journal/the-seafood-list/" }
 intro: 'Australian salmon is the Peninsula''s winter surf species. Schools migrate east along Bass Strait from autumn into winter, arriving on Gunnamatta and the surrounding ocean beaches between June and August. The eating quality is divisive (oily, dark-fleshed, and worth nothing if not bled and iced fast); the sport quality is unambiguous.'

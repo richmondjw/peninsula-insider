@@ -51,7 +51,8 @@ const RAMP_NOTES: Record<string, string> = {
 // Only publish a fixed launch window when a current primary source states one.
 const RAMP_WINDOWS: Record<string, string> = {
 };
-const BOM_PENINSULA_FORECAST = 'https://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml';
+const BOM_PORT_PHILLIP_FORECAST = 'https://www.bom.gov.au/vic/forecasts/portphillip.shtml';
+const BOM_WESTERN_PORT_FORECAST = 'https://www.bom.gov.au/vic/forecasts/westernport.shtml';
 const RAMP_TIDE_STATIONS: Record<string, string> = {
   'sorrento-boat-ramp': 'Rosebud Jetty',
   'rye-boat-ramp': 'Rosebud Jetty',
@@ -76,12 +77,11 @@ const WATERS = [
 ].map((w) => ({ ...w, ramps: ordered.filter((r) => r.data.region === w.key) }))
  .filter((w) => w.ramps.length > 0);
 
-const CHARTER_ORDER = ['proline-charters', 'western-port-fishing-charters', 'im-hooked-fishing-charters', 'reel-time-fishing-charters'];
+const CHARTER_ORDER = ['proline-charters', 'western-port-fishing-charters', 'im-hooked-fishing-charters'];
 const CHARTER_NOTES: Record<string, string> = {
   'proline-charters': 'From Sorrento Pier since 1991, on two of the largest charter boats in Victoria.',
   'western-port-fishing-charters': 'A 15-metre (50-foot) flybridge out of Westernport Marina at Hastings. Western Port only.',
-  'im-hooked-fishing-charters': 'A 7-metre (24-foot) catamaran from several Peninsula ramps. Wheelchair-accessible.',
-  'reel-time-fishing-charters': 'Two trailer boats from several Peninsula ramps. Suits groups of 11 to 18.',
+  'im-hooked-fishing-charters': 'A current 9-metre vessel for up to eight guests. Departure points vary across Port Phillip and Western Port; bring a valid Victorian fishing licence.',
 };
 const charters = [
   ...CHARTER_ORDER.map((slug) => allCharters.find((c) => c.data.slug === slug)).filter((c) => c !== undefined),
@@ -290,7 +290,7 @@ export const prerender = true;
 
       <div class="bh-option bh-option--charters">
           <h3>Skippered fishing charters</h3>
-          <p class="bh-option__lead">The skipper handles the boat and finds the fish. These four are reviewed in our fishing guide.</p>
+          <p class="bh-option__lead">The skipper handles the boat and guides the fishing. These operators are reviewed in our fishing guide.</p>
           <ul class="bh-charters" role="list">
             {charters.map((c) => (
               <li>
@@ -318,8 +318,10 @@ export const prerender = true;
           <li>
             <h3>Read the forecast twice</h3>
             <p>
-              Check the <a href={BOM_PENINSULA_FORECAST} rel="external">Bureau of Meteorology forecast for the Peninsula</a>,
-              wind included, the night before and again on the morning you go.
+              Check the Bureau of Meteorology local-waters forecast for
+              <a href={BOM_PORT_PHILLIP_FORECAST} rel="external">Port Phillip</a> or
+              <a href={BOM_WESTERN_PORT_FORECAST} rel="external">Western Port</a>,
+              including wind and warnings, the night before and again on the morning you go.
             </p>
           </li>
           <li>

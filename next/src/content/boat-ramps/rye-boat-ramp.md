@@ -54,7 +54,7 @@ Check the current facility listing and signs for parking arrangements. No live o
 
 Use the dedicated species guides for planning rather than treating a ramp page as fishing advice: [snapper](/fishing/species/snapper/), [King George whiting](/fishing/species/king-george-whiting/) and [squid](/fishing/species/squid/). [Rye Pier](/fishing/locations/rye-pier/) has its own location guide.
 
-Charter operators that list Rye as a departure option include [I'm Hooked Fishing Charters](/fishing/charters/im-hooked-fishing-charters/) and [Reel Time Fishing Charters](/fishing/charters/reel-time-fishing-charters/).
+[I'm Hooked Fishing Charters](/fishing/charters/im-hooked-fishing-charters/) advertises departures from various Port Phillip and Western Port locations. Confirm the exact ramp directly with the operator before travelling; Rye is not guaranteed.
 
 ## Permits and fees
 

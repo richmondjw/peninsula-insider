@@ -30,7 +30,6 @@ locationSlugs:
   - mornington-pier
 charterSlugs:
   - im-hooked-fishing-charters
-  - reel-time-fishing-charters
   - western-port-fishing-charters
 eatLinks:
   - { label: "The seafood list (Peninsula Insider Journal)", href: "/journal/the-seafood-list/" }
