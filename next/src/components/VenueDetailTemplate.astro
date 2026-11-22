@@ -744,6 +744,16 @@ const hoursSchema = hasOpeningHours && !isPaused && isCanonicalSurface && sectio
         <blockquote class="venue-detail__verdict-text">{data.editorVerdict}</blockquote>
       </div>
     )}
+
+    {data.piLine && !isClosed && !isPaused && (
+      <div class="venue-detail__pi-line">
+        <img src="/images/pi/pi-avatar-96.webp" alt="" width="44" height="44" loading="lazy" decoding="async" />
+        <div>
+          <p class="label label--accent">PI’s line</p>
+          <p class="venue-detail__pi-line-text">{data.piLine}</p>
+        </div>
+      </div>
+    )}
   </div>
 </section>
 
@@ -994,6 +1004,12 @@ const hoursSchema = hasOpeningHours && !isPaused && isCanonicalSurface && sectio
 </script>
 
 <style>
+  /* PI's line: her one remark about the place, under the editor's note. */
+  .venue-detail__pi-line { display: flex; align-items: flex-start; gap: var(--space-3, .75rem); max-width: 68ch; margin-top: var(--space-6, 2rem); padding: var(--space-4, 1rem) var(--space-5, 1.25rem); border-left: 3px solid var(--pi-terracotta, #b4532a); background: color-mix(in srgb, currentColor 4%, transparent); }
+  .venue-detail__pi-line img { flex: none; width: 44px; height: 44px; border-radius: 50%; }
+  .venue-detail__pi-line p { margin: 0; }
+  .venue-detail__pi-line-text { margin-top: .25rem !important; font-size: 1.0625rem; line-height: 1.5; font-style: italic; }
+
   .venue-detail--text-first :global(.venue-detail__signature) { margin-bottom: 1.75rem; }
   .venue-detail--text-first :global(.venue-detail__booking-bar) { margin-bottom: 1.25rem; }
   .venue-detail--text-first :global(.venue-detail__grid) { border-top: 1px solid var(--border); padding-top: clamp(1.5rem, 3vw, 2.5rem); }

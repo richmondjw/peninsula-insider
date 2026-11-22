@@ -340,6 +340,10 @@ export function card(record) {
     // A small copy of the picture that page shows, and the credit it prints.
     image: record.im?.s || null,
     credit: record.im?.c || null,
+    // The booking button that page prints, word for word, and where it goes.
+    // Her line about the place, as its page prints it.
+    line: record.pl || null,
+    book: record.b ? { label: record.b[0], href: record.b[1] } : null,
   };
 }
 

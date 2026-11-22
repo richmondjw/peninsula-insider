@@ -1,0 +1,41 @@
+name: Weekly venue re-check
+
+# Reads each open venue's own website and compares it with our record: does the
+# site still load, does it say the place has closed, are our phone number and
+# street address on it. It changes nothing. The report is in the run's summary
+# and artifacts, for an editor to act on.
+
+on:
+  schedule:
+    - cron: '23 19 * * 0' # Monday 06:23 Melbourne (AEDT)
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: venue-recheck
+  cancel-in-progress: true
+
+jobs:
+  recheck:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Re-check venues
+        working-directory: next
+        env:
+          FIRECRAWL_API_KEY: ${{ secrets.FIRECRAWL_API_KEY }}
+        run: node scripts/venue-recheck.mjs --out reports/venue-recheck
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: venue-recheck
+          path: next/reports/venue-recheck
+          retention-days: 60

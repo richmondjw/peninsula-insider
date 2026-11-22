@@ -194,3 +194,17 @@ test('a tile gets a picture only when the page shows that picture itself, with t
   // Pictures hosted elsewhere are left alone.
   assert.equal(pageImage('<head><meta property="og:image" content="https://cdn.example/x.webp"></head><main><img src="https://cdn.example/x.webp"></main>'), null);
 });
+
+test('a booking button is carried only as the page marks and prints it', async () => {
+  const { bookingOn } = await import('./generate-ask-index.mjs');
+  const bar = (attrs, label) => `<html><body><main><a href="https://book.example.com/x?a=1&amp;b=2" ${attrs}> ${label} </a></main></body></html>`;
+  assert.deepEqual(bookingOn(bar('data-pi-book="booking" data-pi-surface="venue-booking-bar"', 'Reserve a table')), ['Reserve a table', 'https://book.example.com/x?a=1&b=2']);
+  // A contact button in the same place is not a booking button.
+  assert.equal(bookingOn(bar('data-pi-surface="venue-booking-bar"', 'Contact Ocean Eight')), null);
+  // A booking link elsewhere on the page is not the page's booking button.
+  assert.equal(bookingOn(bar('data-pi-book="booking" data-pi-surface="venue-restaurant"', 'Reserve a table')), null);
+  // A page that carries a commercial disclosure gives the chat no button at all.
+  assert.equal(bookingOn(bar('data-pi-book="booking" data-pi-surface="venue-booking-bar"', 'Reserve a table').replace('</main>', '<p>Sponsored</p></main>')), null);
+  // A link back to our own site is not a booking.
+  assert.equal(bookingOn('<main><a href="https://peninsulainsider.com.au/stay/" data-pi-book="booking" data-pi-surface="venue-booking-bar">Check availability</a></main>'), null);
+});

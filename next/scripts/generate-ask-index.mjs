@@ -13,8 +13,13 @@
  * page text, and dates come from /whats-on/upcoming.json, the feed the What's
  * On pages are built from.
  *
- * Deliberately left out: prices, opening hours, live status, booking links and
- * anything else a reader should check at the source. Those stay on the page.
+ * Deliberately left out: prices, opening hours, live status and anything else
+ * a reader should check at the source. Those stay on the page.
+ *
+ * A place's booking button is carried (record.b) only as the page itself
+ * prints it: the same label, the same address. A page that carries any
+ * commercial disclosure is left without one here, so the chat never shows a
+ * paid link away from the disclosure that belongs beside it.
  */
 import { createHash } from 'node:crypto';
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
@@ -41,6 +46,30 @@ export function kindFor(pathname) {
     if (section === 'explore' && second === 'plans') return 'plan';
     if (section === 'fishing' && (second === 'locations' || second === 'charters')) return 'fishing';
     if (section === 'boating' && (second === 'ramps' || second === 'hire')) return 'boating';
+  }
+  return null;
+}
+
+const DISCLOSED = /\b(?:sponsored|partner content|paid partnership|advertisement|affiliate|in partnership with)\b/i;
+/**
+ * The booking button a place's page prints at the top: its label and where it
+ * goes. Only a link the page itself marks as a booking action counts; a
+ * "contact" or "view options" button is not one.
+ */
+export function bookingOn(html) {
+  const from = html.indexOf('<main');
+  if (from < 0) return null;
+  const main = html.slice(from);
+  if (DISCLOSED.test(main.replace(/<[^>]+>/g, ' '))) return null;
+  for (const [, attrs, inner] of main.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/g)) {
+    if (!/data-pi-surface="venue-booking-bar"/.test(attrs) || !/data-pi-book="booking"/.test(attrs)) continue;
+    const href = attrs.match(/\bhref="(https:\/\/[^"\s]+)"/)?.[1]?.replace(/&amp;/g, '&');
+    const label = inner.replace(/<[^>]+>/g, ' ').replace(/&[#\w]+;/g, (entity) => ENTITIES[entity] ?? ' ').replace(/\s+/g, ' ').trim();
+    if (!href || !label || label.length > 40) continue;
+    let host;
+    try { host = new URL(href).hostname; } catch { continue; }
+    if (host.endsWith('peninsulainsider.com.au')) continue;
+    return [label, href];
   }
   return null;
 }
@@ -199,7 +228,7 @@ const ISO_DAY = /^\d{4}-\d{2}-\d{2}$/;
 
 /** Every string a card can show must be on the page. Returns the ones that are not. */
 export function unsupported(record, pageText) {
-  const shown = [record.t, record.s, record.ty, record.pn, ...(record.f || []).map(([, value]) => value)].filter(Boolean);
+  const shown = [record.t, record.s, record.ty, record.pn, record.pl, ...(record.f || []).map(([, value]) => value)].filter(Boolean);
   return shown.filter((value) => !pageText.includes(squash(value)));
 }
 
@@ -262,6 +291,11 @@ export function buildIndex(dist) {
     const htmlFile = join(dist, pathname, 'index.html');
     const image = existsSync(htmlFile) ? pageImage(readFileSync(htmlFile, 'utf8')) : null;
     if (image) record.im = { s: image.src, ...(image.credit ? { c: image.credit } : {}) };
+    const booking = !guide && ['eat', 'wine', 'stay', 'do'].includes(kind) && existsSync(htmlFile) ? bookingOn(readFileSync(htmlFile, 'utf8')) : null;
+    if (booking) record.b = booking;
+    // Her line, where the page prints one under the Insider's note.
+    const said = markdown.match(/(?:^|\n)PI’s line\n+([^\n]+)\n/)?.[1];
+    if (said) record.pl = plain(said);
 
     if (event) {
       const occurrence = event.dateMeaning === 'occurrence';

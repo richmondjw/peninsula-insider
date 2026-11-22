@@ -739,6 +739,13 @@ const venues = defineCollection({
      */
     editorVerdict: z.string().optional(),
     /**
+     * PI's line: one or two short sentences in PI's voice, shown on the venue
+     * page under the Insider's note and repeated by Ask PI beside this place.
+     * It may only turn what this record already says into advice for the
+     * reader. No new fact, price, hours or claim of a visit. See BRAND-PI.md.
+     */
+    piLine: z.string().max(160).optional(),
+    /**
      * Entity signals — 3–5 short noun phrases (2–4 words each) naming what
      * the venue is distinctively known for. Renders as a chip row below the
      * signature line (see VenueDetailTemplate.astro) and is emitted as

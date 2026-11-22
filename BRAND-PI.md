@@ -204,6 +204,14 @@ Keep PI scoped to interactive / conversational surfaces. Editorial pieces stay b
 
 ---
 
+## Phase two (22 November 2026)
+
+- **PI's line.** A venue record may carry `piLine`: one or two short sentences in her voice, shown on the venue page under the editor's note and repeated beside that place in the chat. It may only turn what the page already says into advice for the reader. No new fact, no price, no hours, no claim of a visit, nothing about who should avoid a place. Thirty-five are live; each was checked against the venue's own published text. They were drafted by the build agent and published on the owner's approval, without a separate editor's pass, and any of them can be removed by deleting the field.
+- **Booking button.** Under her call, or a lone pick, the chat shows the booking button that place's own page prints, with the same label and address. The site has no paid arrangement with any venue. A page that carries a commercial disclosure gives the chat no button.
+- **Memory between visits.** Kept in the reader's browser only: the last place she called, places they said they have done, kinds they ruled out, and how they like her to talk. She asks "Did you go?" on the next visit. "Forget me" erases it. It is on by default and disclosed on the privacy page; it is not opt-in.
+- **Support.** Told a page is wrong, she hands over to the editors' correction form, which gives a reference. Told the reader runs the place, she hands over to the business desk. She takes no details herself.
+- **Weekly venue re-check.** `next/scripts/venue-recheck.mjs` reads each open venue's own website and reports where it disagrees with our record. It changes nothing.
+
 ## Open creative directions
 
 **Things worth exploring:**
