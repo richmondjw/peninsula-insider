@@ -412,10 +412,13 @@ function strikeOffer(index, game, context) {
   const pool = index.records.filter((record) => isStop(record) && !done.has(record.u) && !game.noKinds.includes(record.k) && !game.noTowns.includes(record.p));
   if (!pool.length) return null;
   // Places with a picture and a "Best for" make better single offers; then the day's shuffle.
-  const rank = (record) => (record.im ? 0 : 1) + ((record.f || []).some(([label]) => label === 'Best for') ? 0 : 1);
+  const fit = (record) => (record.im ? 0 : 1) + ((record.f || []).some(([label]) => label === 'Best for') ? 0 : 1);
   // A different kind from the last offer when there is one, so two offers in a row are not alike.
+  // One number per place, from three things only: its kind against the last offer, whether its
+  // page has a picture and a "Best for", and the chat's shuffle. Nothing commercial is read.
   const last = game.lastKind;
-  return pool.sort((a, b) => Number(a.k === last) - Number(b.k === last) || rank(a) - rank(b) || daySeed(game.seed + a.u) - daySeed(game.seed + b.u))[0];
+  const ranked = pool.map((record) => ({ record, rank: (record.k === last ? 1e12 : 0) + fit(record) * 1e10 + daySeed(game.seed + record.u) }));
+  return ranked.sort((a, b) => a.rank - b.rank)[0].record;
 }
 
 function strikeScore(game, accepted, forced) {
