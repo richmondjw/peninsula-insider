@@ -256,7 +256,10 @@ Emitted by `components/PiChat.astro` through `window.piTrack`, so both carry the
 | `ask_plan` | PI shows a plan (`action: shown`, `variant`: number of stops), a reader swaps a stop (`action: swap`, `position`: which stop) or shares the plan (`action: share`). | `action`, `variant`, `position` |
 | `ask_feedback` | A reader presses "PI got it wrong" and then one of four buttons. | `action`: `wrong-place`, `missed-point`, `out-of-date` or `not-funny`. `variant`: the kind of reply (`plan`, `results`, `live` and so on). |
 
-Neither event carries the question, the answer, a town, a venue or any other text a reader typed or was shown. Ask PI stores no questions, so `ask_feedback` counts which kind of reply disappointed and why; it cannot be traced back to what was asked. Like every event, it reaches GA4 only with consent, and the confirmation a reader sees says so.
+| `ask_game` | A reader plays Three Strikes. | `variant`: `strikes`. `action`: `start`, `rejected`, `accepted` or `forced` (her call stood after three rejections). `value`: rejections used so far. |
+| `ask_dial` | A reader changes how much of PI they get. | `variant`: `straight`, `pi` or `full`. `action`: how it was changed (`said`, `chip`, `tap`). |
+
+None of these events carries the question, the answer, a town, a venue or any other text a reader typed or was shown, so `ask_feedback` counts which kind of reply disappointed and why and cannot be traced back to what was asked. Separately, since 21 November 2026 the platform keeps one row per conversation turn for the weekly gap report, with no identifiers, for 180 days; the privacy page describes it. Like every event, it reaches GA4 only with consent, and the confirmation a reader sees says so.
 
 ## 3. Reserved: named in the contract, deliberately not emitted
 

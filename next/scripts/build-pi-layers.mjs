@@ -6,7 +6,8 @@
  * (public/images/pi-concierge.svg). The art is flat colour, so it separates
  * cleanly by colour and position into:
  *   pi-layer-body  her shoulder
- *   pi-layer-hat   the hat, the underside of its brim, the chin strap, the strand at her cheek
+ *   pi-layer-hat   the hat, the underside of its brim, the strand at her cheek
+ *   pi-layer-strap the chin strap, from under the brim to her shoulder
  *   pi-layer-hair  the hair blowing out from under the brim
  * The cream disc behind her is drawn by CSS. Stacked in that order they
  * reproduce the mark; the chat moves them a little (wind in her hair, the hat
@@ -50,7 +51,13 @@ const UNDER_BRIM = [[455, 1125], [900, 985], [925, 1000], [870, 1150], [845, 120
 // Her shoulder: the sweep across the bottom right. The strap above it is a different colour.
 const BODY = [[560, 1760], [840, 1700], [1080, 1545], [1260, 1400], [1350, 1335], [1380, 1310], [1440, 1280], [1570, 1300], [1700, 1420], [1920, 1700], [1920, 1920], [560, 1920]];
 
-const layers = { body: Buffer.alloc(data.length), hat: Buffer.alloc(data.length), hair: Buffer.alloc(data.length) };
+// The chin strap: the two pale bands that run from under the brim to her shoulder. Cut on
+// its own so it can pull taut when the wind lifts the hat (the catch).
+const STRAP_SHADE = [209, 148, 119];
+const underBrim = (x, y) => x > 930 && x < 1480 && y < 1375 && y > 1098 - (x - 960) * 0.733 + 8;
+const isStrap = (i, x, y) => underBrim(x, y) && (far(i, HAT) < 44 || far(i, STRAP_SHADE) < 24) && !(x > 1330 && y < 1165 && far(i, HAT) > 26);
+
+const layers = { body: Buffer.alloc(data.length), hat: Buffer.alloc(data.length), hair: Buffer.alloc(data.length), strap: Buffer.alloc(data.length) };
 const put = (layer, i, rgb, alpha) => { layer[i] = rgb[0]; layer[i + 1] = rgb[1]; layer[i + 2] = rgb[2]; layer[i + 3] = alpha; };
 for (let y = 0; y < SIZE; y += 1) {
   for (let x = 0; x < SIZE; x += 1) {
@@ -63,6 +70,7 @@ for (let y = 0; y < SIZE; y += 1) {
       put(layers.hair, i, own, alpha);
       if (inside(UNDER_BRIM, x, y)) put(layers.hat, i, UNDER, 255);
     } else if (inside(BODY, x, y) && far(i, HAT) > 34) put(layers.body, i, own, alpha);
+    else if (isStrap(i, x, y)) put(layers.strap, i, own, alpha);
     else put(layers.hat, i, own, alpha);
   }
 }
@@ -77,8 +85,9 @@ const debug = process.env.PI_LAYER_DEBUG;
 if (debug) {
   const disc = Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="${SIZE}" height="${SIZE}"><circle cx="960" cy="960" r="854" fill="#F4EAD3"/></svg>`);
   const stack = async (list) => sharp({ create: { width: SIZE, height: SIZE, channels: 4, background: '#ffffff' } }).composite(list).png().toBuffer();
-  const [body, hat, hair] = await Promise.all([png(layers.body), png(layers.hat), png(layers.hair)]);
-  await sharp(await stack([{ input: disc }, { input: body }, { input: hat }, { input: hair }])).resize(800).toFile(join(debug, 'recomposed.png'));
+  const [body, hat, hair, strap] = await Promise.all([png(layers.body), png(layers.hat), png(layers.hair), png(layers.strap)]);
+  await sharp(await stack([{ input: disc }, { input: body }, { input: strap }, { input: hat }, { input: hair }])).resize(800).toFile(join(debug, 'recomposed.png'));
+  await sharp(await stack([{ input: strap }])).resize(800).toFile(join(debug, 'strap.png'));
   await sharp(await stack([{ input: disc }, { input: body }, { input: hat }])).resize(800).toFile(join(debug, 'no-hair.png'));
   await sharp(await stack([{ input: hair }, { input: body }])).resize(800).toFile(join(debug, 'hair-body.png'));
 }
