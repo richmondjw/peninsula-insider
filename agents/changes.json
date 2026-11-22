@@ -1,92 +1,11 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-22T03:34:47.937Z",
+  "generatedAt": "2026-11-22T04:27:08.296Z",
   "baselineAvailable": true,
-  "fromSnapshot": "10076bd2fcbf6eeecffa1a2ffc174e7ffb3c626b1754803a554c9509d9bfbe37",
+  "fromSnapshot": "97b6ac430ee57927f6acbe00b80e3b034aa2f07dffe7ec8dacbbb3cef6d06716",
   "toSnapshot": "97b6ac430ee57927f6acbe00b80e3b034aa2f07dffe7ec8dacbbb3cef6d06716",
-  "previousGeneratedAt": "2026-11-22T01:32:18.479Z",
+  "previousGeneratedAt": "2026-11-22T03:34:47.937Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 10,
-  "changes": [
-    {
-      "id": "https://peninsulainsider.com.au/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/",
-      "markdownUrl": "https://peninsulainsider.com.au/index.md",
-      "contentSha256": "71ec52f4ea0c24210ee65a7952a0c4325fa90a34077688fb1072211397e883fb",
-      "previousContentSha256": "da9063583545176cdd690ddcc8266325a1c191d107e0a80c6a7e858c2ee28e65"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/places/merricks/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/merricks/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/merricks/index.md",
-      "contentSha256": "c85cb3c7fd7e8aa69ccfe874584745902f748f56b564cf7d28b956994c446f47",
-      "previousContentSha256": "f5fe636f72e5b8ec2566ea900d3326fb419b27847159774d6114aa5bdd29041d"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/places/mount-eliza/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/mount-eliza/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/mount-eliza/index.md",
-      "contentSha256": "1aaf65db5500225cc54cf41e83c0d5abeb67494c9c21bd62d7f43ad8b09b6686",
-      "previousContentSha256": "1a2ac2da0f79c38e9c0a8c8233f80ae2bd9b90a2e1a3e9ba1f7a1dc75855a736"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/places/somers/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/somers/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/somers/index.md",
-      "contentSha256": "a947c4617406b6159b1e868bbb35241c6bf8b8181df86b79ac88160fb13afd34",
-      "previousContentSha256": "e0f501b779da331aac3bdee7fbf13af71633a5a3ceb19f12793a99e35e2539c9"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
-      "contentSha256": "b0bf939900988b542393d288f9f3b27fabb145163accffd908f57be4a253fb64",
-      "previousContentSha256": "db9c6e728543079ce92e99ce343517bde1a4a8025d8839cae2b19ff3d46f1649"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-20/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-20/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-20/index.md",
-      "contentSha256": "5f0d3f1ae025c6061f9bd47c8eeb0d02e3adb3b1c28530a5f6cb8892bccbbe43",
-      "previousContentSha256": "9d77a1378a3ee40a22bb7af441eeb956a42e60bffd914a6acf415e696048de47"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-13/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-13/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-13/index.md",
-      "contentSha256": "f4cb180367c62f8704712b93a5df6a27e28bea3dc2eee5d0793555cb8e8ab14a",
-      "previousContentSha256": "78ddb1db35f2654c77fc437bccb4838c85ff025a5afdfc5c1925f2e75870a065"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "2131361acaca6103c9cc7572816a3e4f2fd2ed22cb65c70d0dc187d85a6e074f",
-      "previousContentSha256": "e75f43b788519492da7d96eed265f3c6472bf45a0ea4f76ec1080b390a34a012"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/culinary-garden-experience-at-laura-pt-leo-estate-2026-11-22/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/culinary-garden-experience-at-laura-pt-leo-estate-2026-11-22/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/culinary-garden-experience-at-laura-pt-leo-estate-2026-11-22/index.md",
-      "contentSha256": "32f2e827c721b9e2e8826bbc6154d044731b0473a96e4aa8dc278ed4dcdeefca",
-      "previousContentSha256": "87cf05e528f5615325116eb7dc7184f53cfab6d478b275ab37b54f8bd956dab8"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/index.md",
-      "contentSha256": "6b0c1913975796980c024851a95208d7e9987de6b7eecfb01f8e7fd8b0a8225f",
-      "previousContentSha256": "fa0977dd65db0db97e1616e774298383de483c005bb028b5e280453d8a18dfc0"
-    }
-  ]
+  "count": 0,
+  "changes": []
 }
