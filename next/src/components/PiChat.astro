@@ -608,7 +608,7 @@ const starters = SHOW_ASK_PERSONA
         p.append(a);
         li.append(p);
       }
-      if (turn.next.length) li.append(nextChips(turn.next, turn.strike && !turn.strike.over ? 'Your move' : undefined));
+      if (turn.next.length) li.append(nextChips(turn.next, turn.strike && !turn.strike.over ? 'Your move' : turn.kind === 'interview' ? 'Your answer' : undefined));
       if (personaOn && !turn.error && turn.kind !== 'interview') li.append(feedback(turn));
       if (question && !turn.error && !NOT_A_PAGE.has(turn.kind || '')) {
         const pg = el('a', 'pi-msg__page', 'Open as a page') as HTMLAnchorElement;

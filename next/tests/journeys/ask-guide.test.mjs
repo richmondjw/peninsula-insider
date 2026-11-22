@@ -243,7 +243,8 @@ for (const width of [390, 1280]) {
       await openChat(reader, mobile);
 
       await tap('Plan my day');
-      assert.equal(await page.$eval(`${answers}:last-child .pi-msg__prose`, el => el.textContent), 'Before I plan anything: who’s coming?');
+      // She has a few ways of asking, chosen per visit; all of them end by asking who.
+      assert.match(await page.$eval(`${answers}:last-child .pi-msg__prose`, el => el.textContent), /(?:who’s coming|who am I planning for|who’s in the car)\?$/i);
       await tap('Just the two of us');
       await tap('Sorrento');
       await tap('Half a day');
@@ -254,7 +255,7 @@ for (const width of [390, 1280]) {
       const fixture = new Set(['/explore/coppins-track/', '/explore/sorrento-back-beach/', '/eat/bistro-elba/', '/eat/the-baths-sorrento/']);
       assert.ok(plan.stops.every(stop => fixture.has(stop.href)), JSON.stringify(plan.stops));
       assert.equal(plan.stops[1].name, 'Bistro Elba', 'the page that says "couples" comes first for two');
-      assert.match(await page.$eval(`${answers}:last-child .pi-msg__prose`, el => el.textContent), /^Just the two of you\. Easy\./);
+      assert.match(await page.$eval(`${answers}:last-child .pi-msg__prose`, el => el.textContent), /^Right\. Sorrento, 2 stops, in order\./);
       assert.match(await page.$eval(`${answers}:last-child .pi-msg__small`, el => el.textContent), /no cafe or bakery in Sorrento.*I can’t check hours or bookings/s);
       assert.ok(plan.stops.every(stop => stop.swap));
       const box = await page.$eval('#pi-chat-log .pi-note[data-pi-live]', el => { const r = el.getBoundingClientRect(); const t = document.querySelector('#pi-chat-thread').getBoundingClientRect(); return { left: r.left, right: r.right, tl: t.left, tr: t.right }; });

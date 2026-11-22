@@ -485,14 +485,23 @@ function townChips(index) {
 }
 const nextStep = (brief) => (brief.who === undefined ? 'who' : brief.place === undefined ? 'where' : brief.len === undefined ? 'long' : null);
 
-function interviewTurn(index, pi, brief, today, again = false) {
+function interviewTurn(index, pi, brief, today, again = false, context = {}) {
   const step = nextStep(brief);
-  if (!step) return planTurn(index, pi, brief, today);
+  // She has already said what she thinks of who is coming, so the plan opens without saying it again.
+  if (!step) return planTurn(index, pi, brief, today, pi.interview ? 'any' : undefined);
   const script = INTERVIEW[step];
   const chips = step === 'where' ? [...townChips(index), YOU_PICK] : script.chips;
+  // Which way she asks is settled by the chat's shuffle, so it differs between visits and holds within one.
+  const seed = `${today}:${Number.isInteger(context.shuffle) ? context.shuffle : 0}:`;
+  // She answers what she was just told before she asks the next thing.
+  const was = pi.interview?.step;
+  const told = again || !was || was === step ? '' : was === 'who' && INTERVIEW.heard[brief.who]
+    ? pick(INTERVIEW.heard[brief.who], daySeed(seed + 'who'))
+    : was === 'where' ? (brief.place ? fill(pick(INTERVIEW.heard.town, daySeed(seed + 'where')), { town: placeName(index, brief.place) }) : pick(INTERVIEW.heard.mine, daySeed(seed + 'where'))) : '';
+  const asks = pick(script.asks, daySeed(seed + step));
   return {
     pi: { ...pi, interview: { brief, step, miss: again ? (pi.interview?.miss || 0) + 1 : 0 } },
-    reply: { kind: 'interview', mood: 'think', lead: again ? script.again : script.ask, notes: [], cards: [], links: [], chips },
+    reply: { kind: 'interview', mood: 'think', lead: again ? script.again : `${told ? `${told} ` : ''}${asks}`, notes: [], cards: [], links: [], chips },
   };
 }
 
@@ -670,13 +679,13 @@ export function converse(index, question, state = null, context = {}) {
     const heard = readBrief(bare, index, context);
     if (step === 'long' && heard.len === undefined && /\bday\b/.test(bare)) heard.len = 'day';
     const answered = step === 'who' ? heard.who !== undefined : step === 'where' ? heard.place !== undefined : heard.len !== undefined;
-    if (answered) return finish(interviewTurn(index, pi, { ...brief, ...heard }, today));
+    if (answered) return finish(interviewTurn(index, pi, { ...brief, ...heard }, today, false, context));
     // Not an answer. If it is a question the guides can answer, answer that instead.
     const out = ask(index, asked, state, context);
     if (out?.reply.cards.length) { delete pi.interview; return finish({ pi, ...decorate(out, asked, bare, index, context) }); }
-    if (!miss) return finish(interviewTurn(index, pi, brief, today, true));
+    if (!miss) return finish(interviewTurn(index, pi, brief, today, true, context));
     const fallback = { who: 'any', where: null, long: 'half' }[step];
-    return finish(interviewTurn(index, pi, { ...brief, [step === 'where' ? 'place' : step === 'long' ? 'len' : 'who']: fallback }, today));
+    return finish(interviewTurn(index, pi, { ...brief, [step === 'where' ? 'place' : step === 'long' ? 'len' : 'who']: fallback }, today, false, context));
   }
 
   const anchor = pageAnchor(index, context.pagePath);
@@ -708,13 +717,13 @@ export function converse(index, question, state = null, context = {}) {
   }
   if (AROUND.test(bare)) {
     if (anchor && roleOf(anchor)) return finish(planTurn(index, pi, { who: 'any', place: anchor.p, len: 'half', anchor: anchor.u }, today, 'anchor'));
-    return finish(interviewTurn(index, pi, readBrief(bare, index, context), today));
+    return finish(interviewTurn(index, pi, readBrief(bare, index, context), today, false, context));
   }
   if (GOES_WITH.test(bare) && anchor) return finish({ pi, reply: goesWith(index, anchor, today) });
   if (NIGHT.test(bare)) return finish({ pi, reply: nightlife(index, asked, today) });
   if (PLAN.test(bare) || /^plan my day$/.test(bare)) {
     const notes = caveats();
-    return finish(interviewTurn(index, pi, { ...readBrief(bare, index, context), ...(notes.length ? { notes } : {}) }, today));
+    return finish(interviewTurn(index, pi, { ...readBrief(bare, index, context), ...(notes.length ? { notes } : {}) }, today, false, context));
   }
 
   const out = ask(index, asked, state, context);
