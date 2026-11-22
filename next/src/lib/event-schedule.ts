@@ -1,3 +1,4 @@
+import { resolveOccurrence } from './event-occurrence.mjs';
 const EDITORIAL_TIME_ZONE = 'Australia/Melbourne';
 
 function editorialDateParts(d: Date): { year: number; month: number; day: number } {
@@ -204,7 +205,13 @@ function baseRuleFor(event: { data: Record<string, any> }, now: Date): Occurrenc
   // An operator-confirmed date is the only date this policy may expose.
   // A monthly description alone must never generate an unannounced edition.
   if (data.occurrencePolicy === 'confirmed-only') {
-    return validNext && validNext >= today
+    // Keep the exact confirmed session through its declared overnight finish.
+    // This never advances the confirmation or infers another monthly edition.
+    const runningConfirmed = validNext && validNext < today
+      ? resolveOccurrence(data, isoDate(validNext), now)
+      : null;
+    return validNext && (validNext >= today ||
+      (runningConfirmed?.phase === 'running' && runningConfirmed.bookable && runningConfirmed.crossesMidnight))
       ? { kind: 'range', start: validNext, end: validNext }
       : null;
   }

@@ -8,8 +8,7 @@ import {astroRecord} from './publication.mjs';
 import {resolveOccurrence} from '../../next/src/lib/event-occurrence.mjs';
 const libraryBase=new URL('../../next/src/lib/',import.meta.url);
 async function realSchedule(){
- const source=stripTypeScriptTypes(await readFile(new URL('event-schedule.ts',libraryBase),'utf8'));
- return import(`data:text/javascript;base64,${Buffer.from(source).toString('base64')}`);
+ return import(new URL('event-schedule.ts',libraryBase).href);
 }
 async function realEvents(enabled){
  let source=stripTypeScriptTypes(await readFile(new URL('events.ts',libraryBase),'utf8'));
@@ -125,7 +124,7 @@ test('explicit monthly session uses exact target date across a changed weekday',
 test('actual homepage selects approved rescheduled sessions, omits unknown moved locations and refuses unchecked intelligence',async()=>{
  let source=stripTypeScriptTypes(await readFile(new URL('../../next/src/components/v5/home/home-data.ts',import.meta.url),'utf8'));
  source=source.replace(/import \{ USE_OCCURRENCE_MODEL \} from ['"]\.\.\/\.\.\/\.\.\/lib\/features['"];?/, 'const USE_OCCURRENCE_MODEL=false;');
- for(const name of ['event-schedule','daily-rotation']){const raw=stripTypeScriptTypes(await readFile(new URL(name+'.ts',libraryBase),'utf8'));source=source.replaceAll('../../../lib/'+name,'data:text/javascript;base64,'+Buffer.from(raw).toString('base64'));}
+ for(const name of ['event-schedule','daily-rotation']){source=source.replaceAll('../../../lib/'+name,new URL(name+'.ts',libraryBase).href);}
  source=source.replace(/from ['"](\.\.\/\.\.\/\.\.\/lib\/[^'"]+)['"]/g,(_,specifier)=>"from '"+new URL(specifier,new URL('../../next/src/components/v5/home/',import.meta.url)).href+"'");
  const home=await import('data:text/javascript;base64,'+Buffer.from(source).toString('base64'));
  const candidate=fixture();candidate.series.exceptions=[{date:'2026-10-09',status:'rescheduled',rescheduledTo:'2026-10-10',startTime:'14:00',endTime:'15:00'}];const record=explicitRecord(candidate);

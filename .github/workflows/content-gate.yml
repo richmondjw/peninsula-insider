@@ -27,6 +27,35 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  ask-pi-postgres:
+    name: Ask PI synthetic PostgreSQL atomicity
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    container: node:24-bookworm@sha256:9d266751ca3d7fdbe651c878ffd5ad0a42fed49a18c283509267c97f025b7496
+    services:
+      postgres:
+        image: pgvector/pgvector:0.8.0-pg17@sha256:40b404964359299eefdd5f8518facf1886c562848cf4de13b6eaf91cb70c2b87
+        env:
+          POSTGRES_DB: ask_pi_synthetic
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: synthetic-ci-only
+        options: >-
+          --health-cmd "pg_isready -U postgres -d ask_pi_synthetic"
+          --health-interval 10s --health-timeout 5s --health-retries 5
+    env:
+      ASK_PI_POSTGRES_CI: synthetic-only
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - name: Install locked test driver without lifecycle scripts
+        working-directory: ops/ask-pi-quality/postgres
+        run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Test synthetic transactions and constrained retrieval
+        working-directory: ops/ask-pi-quality/postgres
+        run: npm test
+
   content-gate:
     name: Reject placeholder stubs and schema-invalid content
     runs-on: ubuntu-latest
@@ -70,6 +99,8 @@ jobs:
           npm run test:how-we-check
           npm run test:event-safeguards
           npm run test:event-occurrence
+          node --test ../ops/ask-pi-quality/quality.test.mjs ../ops/ask-pi-quality/current-corpus.test.mjs ../ops/scripts/concierge-events.integration.test.mjs ../ops/ask-pi-quality/staged-index.test.mjs ../ops/ask-pi-quality/snapshot-transport.test.mjs ../ops/ask-pi-quality/event-grounding.test.mjs ../ops/ask-pi-quality/source-export.test.mjs ../ops/ask-pi-quality/cms-consistency.test.mjs
+          node ../ops/scripts/build-concierge-event-runtime.mjs --check
           npm run test:event-heroes
           node --test ../ops/scripts/post-publish-verify.test.mjs
           python3 scripts/recompute-occurrence.py --dry-run --today 2026-10-12 > /tmp/pi-market-occurrence-check.txt

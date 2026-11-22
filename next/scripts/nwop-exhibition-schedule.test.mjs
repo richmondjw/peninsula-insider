@@ -1,12 +1,9 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { stripTypeScriptTypes } from 'node:module';
+import { ruleFor, occursOnDay } from '../src/lib/event-schedule.ts';
 
 const record = JSON.parse(readFileSync(new URL('../src/content/events/national-works-on-paper-2026-nwop.json', import.meta.url), 'utf8'));
-const source = readFileSync(new URL('../src/lib/event-schedule.ts', import.meta.url), 'utf8');
-const moduleUrl = 'data:text/javascript;base64,' + Buffer.from(stripTypeScriptTypes(source)).toString('base64');
-const { ruleFor, occursOnDay } = await import(moduleUrl);
 const day = (iso) => new Date(iso + 'T12:00:00Z');
 
 test('National Works on Paper appears only on actual gallery opening days inside its exhibition run', () => {

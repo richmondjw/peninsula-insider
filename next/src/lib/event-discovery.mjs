@@ -43,10 +43,17 @@ export function selectEventPromotions(entries, { now = new Date(), windowDays = 
     if (!rule) continue;
     const slug = String(data.slug ?? originalEvent.slug ?? originalEvent.id ?? '');
     if (!slug || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug) || used.has(slug)) continue;
-    for (let date = start < today ? today : start; date <= end; date = addDays(date, 1)) {
+    const firstDay = start < today ? today : start;
+    // A session that began yesterday can still be running after Melbourne
+    // midnight. Inspect its original day so occurrence exceptions and approved
+    // clocks remain authoritative; never roll a past session onto today's date.
+    for (let date = addDays(firstDay, -1); date <= end; date = addDays(date, 1)) {
       if (!occursOnDay(rule, date)) continue;
       const day = isoDate(date), occurrence = resolveListingOccurrence(data, rule, day, now);
       if (!occurrence?.bookable || occurrence.phase === 'past') continue;
+      if (date < firstDay && (occurrence.phase !== 'running' || !occurrence.crossesMidnight ||
+          (rule.kind === 'range' && isoDate(rule.start) !== isoDate(rule.end) && occursOnDay(rule, firstDay)) ||
+          isoDate(occurrence.endsAt) < isoDate(start))) continue;
       const effective = occurrence.data ?? data;
       // Explicit moved sessions remove their old location. No shared receipt
       // can certify a different venue; omit until a per-session proof exists.
