@@ -1,0 +1,44 @@
+name: SEO/GEO Engine Liveness
+
+# The daily SEO/GEO cycle runs on the OpenClaw gateway, not here, and its
+# evidence lives in a gitignored directory on that host. From 21 September to
+# 22 November 2026 nobody reading this repository could tell whether it had run.
+#
+# After every terminal step the gateway runner now publishes a small status
+# document to the `geo-engine/status` branch (ops/geo-engine/scripts/
+# publish-status.py). This workflow reads it from outside the gateway and goes
+# red when the status is missing, older than 36 hours, or reports a degraded
+# cycle. A cycle cannot pass this check by not running.
+#
+# It asks a live question about a remote host, so like the other liveness
+# workflows it has no pull_request or push trigger and gates no merge.
+
+on:
+  schedule:
+    # 22:45 UTC = 08:45 AEST / 09:45 AEDT, after the 08:30 Melbourne completion target.
+    - cron: '45 22 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  liveness:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Read the published status
+        run: |
+          if git fetch --quiet --depth 1 origin geo-engine/status; then
+            git show FETCH_HEAD:status.json > "$RUNNER_TEMP/status.json"
+            git show FETCH_HEAD:latest-report.txt > "$RUNNER_TEMP/latest-report.txt" 2>/dev/null || true
+          fi
+      - name: Assert it is fresh and healthy
+        run: python3 ops/geo-engine/scripts/status-liveness.py "$RUNNER_TEMP/status.json" | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Attach the latest report
+        if: always()
+        run: |
+          if [ -s "$RUNNER_TEMP/latest-report.txt" ]; then
+            { echo; echo '```'; cat "$RUNNER_TEMP/latest-report.txt"; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+          fi

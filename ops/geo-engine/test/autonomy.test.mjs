@@ -91,6 +91,7 @@ test('exact patch application requires live agreement and successful JEV, not fa
     service:{decide:async()=>({provider:'jev',confidence:.99,value:{containsNewClaim:true}})},
     fetchImpl:async()=>({status:200,text:async()=>'<title>Brunch Mornington Peninsula</title>'})});
   assert.equal(unsafe.changes.length,0,'A confident finding of new facts is a veto, not approval');
+  assert.ok(unsafe.deferred[0].assessed.beforeEdit && unsafe.deferred[0].assessed.afterEdit,'the judged lines are retained for human calibration');
 });
 test('remote failure does not cache fallback under JEV identity',async t=>{
   const f=fixture(t),registry=new DecisionRegistry();
@@ -122,6 +123,7 @@ test('accepted exact JEV patch changes source and its durable manifest restores 
     policy:{enabled:true,maxChangesPerRun:5,confidenceThreshold:.92,allowedActions:['rewrite_title']},runId:'accepted',
     fetchImpl:async()=>({status:200,text:async()=>'<title>Brunch Mornington Peninsula</title>'})});
   assert.equal(result.changes.length,1);
+  assert.ok(result.changes[0].assessed.afterEdit,'an accepted patch keeps the lines the model judged');
   assert.notEqual(fs.readFileSync(f.file,'utf8'),before);
   const manifest=JSON.parse(fs.readFileSync(path.join(f.root,'ops/geo-engine/.rollback/accepted/manifest.json')));
   const set=new ChangeSet({root:f.root,runId:'accepted'});set.changes=manifest.changes;

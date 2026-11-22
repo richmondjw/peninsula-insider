@@ -243,6 +243,17 @@ def main():
             save(PIPELINE, p)
             result.update(release_handed_off=True, continuation_job=job_id)
             save(STATE / 'step-latest.json', result)
+    # Make the outcome readable without gateway access. Publication is best
+    # effort: it can never turn an accepted cycle into a failed one, and a
+    # degraded cycle is published as well.
+    if p['terminal']:
+        try:
+            with (RUNS / 'status-publish.log').open('a') as publish_log:
+                execute(['python3', str(ENGINE / 'scripts/publish-status.py')], env, publish_log, timeout=90)
+            result['status_published'] = True
+        except Exception as error:  # includes an interrupt: the receipt below must still be printed
+            result['status_published'] = False
+            result['status_publish_error'] = type(error).__name__
     print(json.dumps(result))
     return 0 if p['engine'] != 'degraded' else 2
 

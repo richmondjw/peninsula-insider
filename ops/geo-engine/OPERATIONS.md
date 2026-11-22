@@ -33,6 +33,27 @@ The runner owns its `next/node_modules` installation. Before each source or post
 
 If a step fails, keep its logs and checkpoint, diagnose the exact stage, and repair only that fault. The next ordinary cycle starts after a terminal failure; interrupted/nonterminal checkpoints require the documented recovery path and must never be blindly replayed. Do not bypass CI, change Jev confidence thresholds, or directly push to `main` to clear a queue. Restore a failed published change through the scoped revert PR path in `README.md`.
 
+## Visibility outside the gateway
+
+The runner's evidence is in the gitignored `.runs` directory on the gateway, so the repository alone could not show whether a cycle had run. After every terminal step, accepted or degraded, `scripts/publish-status.py` commits `status.json` and the matching `latest-report.txt` to the `geo-engine/status` branch. It uses a temporary index and never touches `main`, the working tree or `HEAD`, so the checkout fingerprint is unchanged. Publication is best effort and cannot fail a cycle; the step receipt records `status_published`.
+
+`.github/workflows/geo-engine-liveness.yml` reads that branch each morning and fails when the status is missing, older than 36 hours or unhealthy. It will be red until the first gateway cycle after this change publishes. To read the current state from any clone:
+
+```sh
+git fetch origin geo-engine/status && git show FETCH_HEAD:status.json
+```
+
+## Calibrating the release gate
+
+Each proposed source patch now keeps the exact before/after lines Jev judged (`assessed` on applied and rejected entries in the run summary). On the gateway:
+
+```sh
+node ops/geo-engine/scripts/export-calibration.mjs --limit 50 > calibration.csv
+node ops/geo-engine/scripts/export-calibration.mjs --score calibration-labelled.csv
+```
+
+The first command writes a sheet with two blank columns for James (`human_contains_new_claim`, `human_would_ship`). The second reports agreement and names any shipped patch he marks as adding a claim. Runs recorded before this change did not retain the judged lines and cannot be exported. The score is descriptive; it does not change a threshold.
+
 ## Scorecard and interpretation
 
 Track four separate lines in each weekly review:
