@@ -509,7 +509,9 @@ test('the default weekend offers no finished occurrence as a current result', as
     }));
     if(!state.rows.length){
       assert.ok(state.empty.length>0,'an empty verified calendar must explain the absence of listings');
-      assert.ok(state.empty.every(text=>/No verified event listings remain|Nothing in the registry/.test(text)),JSON.stringify(state.empty));
+      // Each of these explains why a day shows no row. The last two were added with the short list (#827):
+      // a day whose only event is held in the picks above, or began earlier in the weekend, says so.
+      assert.ok(state.empty.every(text=>/No verified event listings remain|Nothing in the registry|This day’s event is in the short list above|Everything on this day began earlier in the weekend and is listed above|No new event starts today/.test(text)),JSON.stringify(state.empty));
       assert.equal(await reader.page.$$eval('[data-wo-days] a[href^="/whats-on/"]',nodes=>nodes.length),0,'empty state must not invent event links');
     }
     assert.ok(state.rows.every(row => row.phase !== 'past' && !row.text.includes('Ended')));
