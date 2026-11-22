@@ -9,7 +9,7 @@ Privacy
 
 # Privacy Policy
 
-Last updated: 22 November 2026
+Last updated: 23 November 2026
 
 Peninsula Insider is an independent editorial publication. This policy explains the information involved when you browse the site, create an account, save places, plan a trip, subscribe or contact us.
 
@@ -45,7 +45,7 @@ When you chat with Ask PI, your message and the recent messages of that conversa
 
 So she can pick up where you left off, your browser also keeps a short note on your device: how you like her to talk and whether she reads aloud, places you told her you have done, kinds of place you ruled out, and the last place she recommended. The talk setting travels with each message so she can answer in that manner. The rest of the note stays on your device and is not sent to us. Say "forget me" in the chat, or press her hat and choose "Forget what you know about me", and the note is erased.
 
-You can talk to her and have her read her replies aloud. If you use the microphone, your browser turns your speech into text, and depending on the browser that may happen on its maker's servers, such as Google's or Apple's, under their terms. We receive only the text, exactly as if you had typed it. Her replies are read by the voice built into your device. We do not record or keep any audio.
+You can have her read her replies aloud, and when the chat offers a microphone you can talk to her. The microphone is not offered while the chat is answering only from our guides in your browser. If you use the microphone, your browser turns your speech into text, and depending on the browser that may happen on its maker's servers, such as Google's or Apple's, under their terms. We receive only the text, exactly as if you had typed it. Her replies are read by a voice built into your device; while the chat is answering only in your browser, a voice that needs an online service is never used. We do not record or keep any audio.
 
 ## Browser storage
 
