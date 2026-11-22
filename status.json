@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "publishedAt": "2026-11-22T18:39:15.680929+00:00",
+  "runId": "2026-11-23-0537-incremental-92205279",
+  "auditRunId": "2026-11-23-0537-incremental-92205279",
+  "auditCompletedAt": "2026-11-22T18:39:08.477Z",
+  "terminal": true,
+  "engine": "ok",
+  "completedStep": "release",
+  "releaseStatus": "no_changes",
+  "changeCount": 0,
+  "pr": null,
+  "liveVerified": false,
+  "analytics": {
+    "gsc": "observed",
+    "ga4": "observed"
+  },
+  "researchHandoff": "ok",
+  "error": null,
+  "decisionProvider": "jev",
+  "decisionProbeOk": true,
+  "health": {
+    "ok": true,
+    "label": "2026-11-23-0537-incremental-92205279 age=0.0h release=no_changes",
+    "problems": []
+  }
+}
