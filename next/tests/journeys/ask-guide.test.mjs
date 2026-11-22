@@ -179,6 +179,27 @@ for (const width of [390, 1280, 1440]) {
   });
 }
 
+test('guide-only privacy boundary does not restore replies from the retired generated engine', { skip: !guideOn }, async () => {
+  const reader = await site.reader();
+  try {
+    const page = reader.page;
+    await reader.load('/ask/');
+    await page.evaluate(() => {
+      sessionStorage.setItem('pi-chat-history', JSON.stringify([
+        { role: 'you', text: 'old question' },
+        { role: 'pi', text: 'old generated answer', places: [] },
+      ]));
+      sessionStorage.setItem('pi-chat-engine', JSON.stringify({ old: true }));
+    });
+    await page.reload({ waitUntil: 'networkidle0' });
+    await page.waitForSelector('#pi-chat-log');
+    assert.equal(await page.$eval('#pi-chat-log', node => node.textContent), '');
+    assert.match(await page.$eval('.pi-chat__fine', node => node.textContent), /Nothing you ask is sent or stored/);
+  } finally {
+    await reader.close();
+  }
+});
+
 for (const width of [390, 1280]) {
   test(`her checked note eases in above the picks, and the front desk handles the rest, at ${width}px`, { skip: !voiceOn }, async () => {
     const note = 'I’d start with Tedesca Osteria, a single-set-menu osteria in a restored farmhouse. Red Gum BBQ is the louder option.';
