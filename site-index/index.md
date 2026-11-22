@@ -461,8 +461,6 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
 
-- [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
-
 - [Pt. Leo Estate Sculpture Park](<https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/>)
 
 - [Restore & Pamper Retreat at Polperro Farmhouse](<https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/>)
@@ -475,8 +473,6 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [Mornington Wednesday Market (Main Street Market)](<https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/>)
 
-- [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
-
 - [Peninsula Hot Springs Studio Yoga](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/>)
 
 - [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
@@ -486,8 +482,6 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 - ["Whippy" Griggs Live for a Crackin' Night at The Ranch](<https://peninsulainsider.com.au/whats-on/whippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13/>)
 
 - [An Evening at BRASA by Montalto](<https://peninsulainsider.com.au/whats-on/an-evening-at-brasa-by-montalto-2026-12-05/>)
-
-- [Audio Replica Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/audio-replica-live-at-tar-barrel-2026-11-22/>)
 
 - [Author Talk: Jane Gilmore - Mornington Library](<https://peninsulainsider.com.au/whats-on/author-talk-jane-gilmore-mornington-library/>)
 
@@ -510,8 +504,6 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 - [Coco Michelle Live at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/coco-michelle-live-at-peppers-moonah-links-resort-2026-12-05/>)
 
 - [Countdown Classics 70's & 80's Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/countdown-classics-70-s-and-80-s-live-at-peninsula-beer-garden-2026-12-05/>)
-
-- [Culinary Garden Experience at Laura Pt Leo Estate](<https://peninsulainsider.com.au/whats-on/culinary-garden-experience-at-laura-pt-leo-estate-2026-11-22/>)
 
 - [Dave Campbell Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/dave-campbell-live-at-peninsula-beer-garden-2026-11-29/>)
 
@@ -586,8 +578,6 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 - [The Mount Martha Briars Market](<https://peninsulainsider.com.au/whats-on/the-mount-martha-briars-market-2026-12-05/>)
 
 - [The Mount Martha Briars Twilight Market](<https://peninsulainsider.com.au/whats-on/the-mount-martha-briars-twilight-market-2026-12-27/>)
-
-- [Tiana V Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/tiana-v-live-at-peninsula-beer-garden-2026-11-22/>)
 
 - [Tony J King Live at Fenian Wines](<https://peninsulainsider.com.au/whats-on/tony-j-king-live-at-fenian-wines-2026-12-19/>)
 

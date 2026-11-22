@@ -71,33 +71,35 @@ Merricks
 
 ## This weekend
 
-21–22 November
+28–29 November
 
  [See all events](<https://peninsulainsider.com.au/whats-on/>)
 
-No verified event picks remain for these dates. [Browse next weekend](<https://peninsulainsider.com.au/whats-on/?date=next-weekend>) or [find a place to explore](<https://peninsulainsider.com.au/explore/>).
-
-More ways to plan: the discovery links below are not dated event picks.
-
 Swipe or scroll through the picks
 
-- Explore more
+- ### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
-### [Browse the events calendar](<https://peninsulainsider.com.au/whats-on/>)
+Sam O’Connell plays Spike Bar this Saturday, 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
 
-Choose your dates and check the latest event details.
+Sat, 28 Nov   Peppers Moonah Links   Every Saturday
 
-- Explore more
+Event details checked 16 Nov 2026 · [Organiser’s page](<https://www.moonahlinks.com.au/cms/whats-on/>)
 
-### [Find a place to explore](<https://peninsulainsider.com.au/explore/>)
+- ### [Brad Kennedy Live at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/brad-kennedy-live-at-peppers-moonah-links-resort-2026-11-28/>)
 
-Browse walks, beaches and places across the Peninsula.
+Ease into the weekend with live music in the Spike Bar at Moonah Links.
 
-- Explore more
+Sat, 28 Nov   Peppers Moonah Links Resort   Live music
 
-### [Plan a Peninsula day](<https://peninsulainsider.com.au/explore/plans/>)
+Event details checked 9 Nov 2026 · [Organiser’s page](<https://www.moonahlinks.com.au/cms/dining/spike-bar/>)
 
-Find an itinerary to suit your time and interests.
+- ### [Meet The Makers at Hawkes Farm](<https://peninsulainsider.com.au/whats-on/meet-the-makers-at-hawkes-farm-2026-11-28/>)
+
+On the last Saturday of each month from September to April, Hawkes Farm comes alive with its Meet the Makers Market, bringing together a.
+
+Sat, 28 Nov   Hawkes Farm   Market
+
+Event details checked 9 Nov 2026 · [Organiser’s page](<https://store.hawkesfarm.com.au/blogs/news/meet-the-makers-market>)
 
 This season · Spring
 

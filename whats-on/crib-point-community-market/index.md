@@ -61,14 +61,6 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-Markets   Fourth Sunday October through November 2026, 9am to 1pm.
-
-### [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
-
-VFMA-accredited farmers market on the Mount Eliza Village Green and Mt Eliza Way service road.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
-
 Markets   Third Saturday October through December 2026, 9am to 2pm. January 2027 is a separately timed twilight market.
 
 ### [Emu Plains Market](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
@@ -88,6 +80,14 @@ Markets   Weekly – every Wednesday year-round (weather and wind policy depende
 Mornington's long-running artisan market fills Main Street every Wednesday, 9am to 3pm.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/>)
+
+Markets  28 Nov
+
+### [Meet The Makers at Hawkes Farm](<https://peninsulainsider.com.au/whats-on/meet-the-makers-at-hawkes-farm-2026-11-28/>)
+
+On the last Saturday of each month from September to April, Hawkes Farm comes alive with its Meet the Makers Market, bringing…
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/meet-the-makers-at-hawkes-farm-2026-11-28/>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 
