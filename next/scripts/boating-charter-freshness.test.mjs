@@ -27,6 +27,7 @@ test('retired charter and vessel claims do not survive on related fishing surfac
     'src/pages/fishing/charters/index.astro',
     'src/pages/fishing/charters/first-charter-guide/index.astro',
     'src/content/fishing-charters/western-port-fishing-charters.md',
+    'src/content/fishing-charters/proline-charters.md',
     'src/content/species/snapper.md',
     'src/content/species/king-george-whiting.md',
     'src/content/species/pinkies.md',
@@ -39,6 +40,8 @@ test('retired charter and vessel claims do not survive on related fishing surfac
   ).join('\n');
 
   assert.doesNotMatch(related, /Reel Time|reel-time-fishing-charters|Devil Cat|catamaran stability/i);
+  assert.doesNotMatch(related, /operators? cover the Victorian Recreational Fishing Licence|charters? cover guests/i);
+  assert.match(related, /licence is personal and cannot be shared/i);
 });
 
 test("I'm Hooked recommendation matches current operator evidence", async () => {

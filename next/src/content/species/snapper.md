@@ -43,7 +43,7 @@ metaDescription: 'How to catch snapper on the Mornington Peninsula. VFA bag limi
 vfaCitationUrl: 'https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide/catch-limits-and-closed-seasons/types-of-fish/marine-and-estuarine-scale-fish/snapper'
 faq:
   - question: Do I need a fishing licence to catch snapper in Victoria?
-    answer: 'Yes. A Victorian Recreational Fishing Licence is required for all anglers aged 18 and over fishing in Victorian waters. Licences can be purchased online via the VFA website, through Service Victoria, or from authorised agents including many tackle stores. Anglers fishing from a licensed charter vessel are generally covered by the charter''s licence arrangements; confirm with your operator before the trip.'
+    answer: 'Unless a statutory exemption applies, each person using fishing equipment must hold their own valid Victorian Recreational Fishing Licence. A licence is personal and cannot be shared. Check current VFA rules and the charter operator''s booking requirements before the trip.'
   - question: When is the best time to fish for snapper on the Peninsula?
     answer: 'October through December is the definitive snapper peak on the Mornington Peninsula. The run is triggered by rising water temperatures in the southern bay, typically when sea surface temperature exceeds 15°C in mid-October. November is statistically the highest-volume month. The best sessions are timed to the two hours either side of dusk or dawn on a building tide.'
   - question: Is there a closed season for snapper in Port Phillip Bay?
@@ -122,4 +122,4 @@ A ranked list of the best opportunities for a typical angler targeting snapper. 
 
 ## Cross-link: licensing and licence cover on charters
 
-If you're booking a charter for the snapper season, confirm the licence arrangement at the time of booking. Most licensed Peninsula charters cover guests under the operator's licence for the day, but operator practice varies. Browse the [Peninsula fishing charters hub](/fishing/charters/) for editorial comparison across operators by species and season.
+If you're booking a charter for the snapper season, check the current VFA rules and the operator's booking requirements before travelling. Unless a statutory exemption applies, each person using fishing equipment must hold their own valid Victorian Recreational Fishing Licence; it cannot be shared. Browse the [Peninsula fishing charters hub](/fishing/charters/) for editorial comparison across operators by species and season.

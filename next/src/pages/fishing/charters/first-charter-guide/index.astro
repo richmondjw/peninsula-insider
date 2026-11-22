@@ -44,7 +44,7 @@ const articleSchema = buildArticleSchema({
 });
 
 const faq = [
-  { q: 'Do I need a fishing licence on a charter?', a: 'Most licensed Peninsula charters cover guests under the operator\'s licence for the day. Confirm in writing at the time of booking; do not assume. The Victorian Recreational Fishing Licence is required for anglers aged 18 and over fishing in Victorian waters from any other platform (pier, beach, hire boat, own boat).' },
+  { q: 'Do I need a fishing licence on a charter?', a: 'Unless a statutory exemption applies, each person using fishing equipment in Victoria must hold their own valid Recreational Fishing Licence. A licence is personal and cannot be shared. Check current Victorian Fisheries Authority rules and the operator\'s booking requirements before the trip.' },
   { q: 'What should I bring on a fishing charter?', a: 'Layered warm clothing (autumn snapper sessions are cold), a waterproof outer layer, closed-toe non-slip footwear, a hat, sunscreen, sunglasses, and any personal medications. Most charters include rods, reels, bait, and tackle; food and drinks are typically not included on standard sessions. Bring an esky if you expect to take fish home.' },
   { q: 'What if I get seasick?', a: 'Ask a pharmacist or doctor about an appropriate seasickness preventative before the trip and follow their directions. Boat motion varies with the vessel, route and conditions, so do not assume one design guarantees a smoother ride. If you start to feel unwell, tell the crew early and stay where they direct you; fresh air and a view of the horizon may help.' },
   { q: 'What if the weather is bad?', a: 'Most operators issue a full refund or a session transfer when conditions prevent departure. Confirm the specific cancellation policy at booking; offshore operators (Bass Strait shark and tuna trips) typically have stricter weather thresholds than bay-side operators. Marginal forecasts can produce session adjustments rather than full cancellations; the skipper has discretion.' },
@@ -121,9 +121,10 @@ export const prerender = true;
         <h2>Step 2: Confirm what's covered</h2>
         <p>
           Charter inclusions vary by operator and by session type. The standard Peninsula charter package includes
-          rods, reels, bait, and tackle. Most operators cover the Victorian Recreational Fishing Licence under
-          the vessel's commercial licence; this means you do not need to buy a separate licence for the day.
-          <strong>Confirm the licence cover in writing at the time of booking</strong> rather than assuming.
+          rods, reels, bait, and tackle. Unless a statutory exemption applies, each person using fishing equipment
+          must hold their own valid Victorian Recreational Fishing Licence. The licence is personal and cannot be
+          shared. Check the current <a href="https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide/rule-reminders">Victorian Fisheries Authority rules</a>
+          and the operator's booking requirements before the trip.
         </p>
         <p>
           Food and drinks are not typically included on standard half-day or full-day sessions. Bring water and

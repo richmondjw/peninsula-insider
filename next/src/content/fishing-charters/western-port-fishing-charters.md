@@ -32,7 +32,7 @@ faq:
   - question: Do you target snapper here?
     answer: 'Pink snapper are a target species, but Western Port conditions and seasonal patterns differ from Port Phillip Bay. If you specifically want a Port Phillip Bay snapper trip, compare the current trip areas advertised by I''m Hooked and Proline, then confirm the departure and target species directly before booking.'
   - question: Do I need my own fishing licence?
-    answer: 'Confirm directly with the operator at the time of booking whether guests are covered for the day or required to BYO licence. Most licensed Victorian charters cover guests; confirm in writing rather than assuming.'
+    answer: 'Unless a statutory exemption applies, each person using fishing equipment must hold their own valid Victorian Recreational Fishing Licence. Check current VFA rules and confirm the operator''s booking requirements before the trip.'
   - question: When should I book?
     answer: 'Western Port does not have the snapper-season booking surge that Port Phillip Bay operators experience. Summer weekends and the whiting peak still fill quickly; book 2 to 4 weeks ahead for weekend summer sessions. Corporate and large-group bookings require more lead time for logistics.'
 status: published
@@ -67,7 +67,7 @@ Captain Robin Gray has operated Western Port Fishing Charters from Hastings for 
 
 ## What's included
 
-Rods, reels, bait, and tackle on standard sessions. Food and drinks are not included; the operator can advise on provisions for the session length. Confirm fish-cleaning policy and licence cover at booking. The wheelchair-accessible configuration is confirmed; specific boarding arrangements at Westernport Marina should be confirmed at booking.
+Rods, reels, bait, and tackle on standard sessions. Food and drinks are not included; the operator can advise on provisions for the session length. Confirm fish-cleaning policy and booking requirements before travelling. The wheelchair-accessible configuration is confirmed; specific boarding arrangements at Westernport Marina should be confirmed at booking.
 
 ## Booking logic
 
