@@ -145,6 +145,16 @@ export const PLAN_NOTES = {
 };
 
 /** Picks one line. The same words on the same day get the same line. */
+// ── About herself ──────────────────────────────────────────────────────────
+// "What's with the hat?" is a question about her, not a search for hats. These
+// are what she says if the conversation service is not there to answer in her
+// own words. About herself only: no place, and no claim to have been anywhere.
+export const ABOUT_HER = [
+  'The hat keeps the wind off the bay out of my notebook. What are we planning?',
+  'I’m PI. I keep the notebook and I make the call. What are you after?',
+  'The one with the hat and the opinions. Ask me where to go.',
+];
+
 // ── Three Strikes ──────────────────────────────────────────────────────────
 // "Surprise me": one place at a time, three rejections, then her call stands.
 // Every line is about the reader and the game. Blanks: {town}, {kind}, {n},

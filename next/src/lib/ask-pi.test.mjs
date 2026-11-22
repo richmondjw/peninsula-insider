@@ -396,3 +396,15 @@ test("a question about what the law allows is declined by the matcher, with no t
   assert.ok(declines("Not one for me. I do lunch, not elections."));
   assert.ok(!declines("I’d start with Moke Dining. Not one for crowds, are you?"));
 });
+
+test('a question about her is not a search: no pages, no tiles, and she answers as herself', () => {
+  for (const said of ["what's with the hat?", 'who are you anyway?', 'are you a real person?', 'what do you actually do?']) {
+    const turn = converse(index, said, null, { today });
+    assert.equal(turn.reply.kind, 'help', said);
+    assert.deepEqual(turn.reply.cards, [], said);
+    assert.ok(lines.ABOUT_HER.includes(turn.reply.lead), said);
+    assert.deepEqual(talkPages(index, said, [], turn.reply, [], { today }), [], said);
+  }
+  // A real question that mentions a hat-shaped word is still a question.
+  assert.notEqual(converse(index, 'where is good for lunch in Red Hill?', null, { today }).reply.kind, 'help');
+});
