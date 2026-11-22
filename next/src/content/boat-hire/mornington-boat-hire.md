@@ -8,29 +8,29 @@ vesselTypes:
   - 4-person tinnies
   - Polycraft fishing boats
 licenceRequired: false
-priceLow: 120
+priceLow: 130
 priceHigh: 165
-priceUnit: per-half-day
+priceUnit: per-session
 seasonalityNote: Year-round, weather-permitting. Bookings advised in summer school holidays and on long weekends.
 nearestRampSlug: mornington-park-boat-ramp
 coordinates:
   lat: -38.214
   lng: 145.038
-intro: Self-drive boat hire at Schnapper Point Drive, Mornington. Tinnies and polycraft for protected bay water, no marine licence required, fishing tackle available. Operated from the Schnapper Point precinct since the 1990s, currently the only no-licence hire on Port Phillip Bay's mid-Peninsula shore.
-metaDescription: Mornington Boat Hire at Schnapper Point Drive - no-licence tinnies and polycraft for Port Phillip Bay, hired by the two-hour session. Fishing tackle, family-friendly, the only operator at this part of the bay.
-whoSuits: Visiting Melbourne anglers and families who want time on the water without the logistics of trailering a boat, beginners chasing flathead, calamari, or whiting in the protected mid-bay grounds, and parents wanting a low-stakes introduction for kids. The no-licence requirement and small protected vessels make this the easiest entry point on the Peninsula.
-whoDoesnt: Anyone needing offshore capability, anyone targeting the snapper grounds in the southern bay (Sorrento or Portsea ramps are closer), or anyone wanting a guided session. This is self-drive only. The vessels are bay-rated and not for Bass Strait or the Heads.
+intro: Self-drive boat hire at Schnapper Point Drive, Mornington. The operator advertises tinnies and polycraft for protected bay water as no-licence hire; confirm the assigned vessel, briefing and current terms when booking.
+metaDescription: Mornington Boat Hire at Schnapper Point Drive - self-drive tinnies and polycraft for protected Port Phillip Bay water. Confirm vessel, licence and operating conditions directly.
+whoSuits: Visitors who want time on protected bay water without trailering their own boat. Confirm passenger limits, experience requirements and the surveyed operating area directly with the operator before booking.
+whoDoesnt: Anyone wanting a guided charter or travel outside the operator's published surveyed area. This is self-drive hire; confirm the assigned vessel and operating boundary before booking.
 faq:
   - question: Do I need a licence to hire a boat from Mornington Boat Hire?
     answer: The operator advertises this fleet as no-licence hire. Victorian rules require a marine licence for a hire-and-drive vessel capable of more than 10 knots, and the owner must brief hirers on the vessel's operating requirements. Confirm the assigned vessel and briefing when booking.
   - question: How much does it cost?
-    answer: Hire is charged by the session, starting at two hours and scaling up by duration and vessel size. Confirm current rates with the operator. Fishing tackle is available at additional cost. A Victorian Recreational Fishing Licence is required if you plan to fish and is not covered by the hire.
+    answer: 'Check the operator''s [current Schnapper Point rates page](https://www.morningtonboathire.com.au/rates/schnapper-point-rates/) before booking because rates and inclusions can change. A fishing licence is separate unless an exemption applies.'
   - question: Is fishing tackle included?
-    answer: Tackle is available to hire separately, not included in the boat-hire base rate. Bait is sometimes available on site, sometimes not. Confirm both at booking, and bring your own if you have specific preferences.
+    answer: Ask the operator what is included in the current booking and whether tackle or bait is available. Do not assume optional equipment is included.
   - question: What boats do they hire?
     answer: Small four-person tinnies and polycraft fishing boats rated for protected bay use. The vessels are functional, not luxury. The operator advertises the fleet as no-licence hire. They are not suitable for Bass Strait or for the Rip at Portsea Heads.
   - question: Where do I launch from?
-    answer: Mornington Boat Hire operates from Schnapper Point Drive beside the Mornington Park Boat Ramp precinct. The 2026 ramp upgrade is complete and the ramp has reopened. Check the operator's pickup instructions and the Shire's current ramp notices before travelling.
+    answer: Mornington Boat Hire operates from Schnapper Point Drive beside the Mornington Park Boat Ramp precinct. Better Boating Victoria lists the upgrade as complete and open, while the Shire flags further maintenance. Check the operator's pickup instructions and the latest Shire notice before travelling.
 status: published
 verified: true
 lastVerified: 2026-11-20
@@ -41,7 +41,7 @@ publishedAt: 2026-04-30
 
 Mornington Boat Hire is a self-drive operator at Schnapper Point. The fleet is small, functional, and tuned for local protected-bay conditions. The operator advertises the fleet as no-licence hire. [Victorian rules](https://safetransport.vic.gov.au/on-the-water/marine-licence-and-vessel-registration/licensing-and-registration/) require a marine licence for a hire-and-drive vessel capable of more than 10 knots, and the owner must brief each hirer on the assigned vessel. Confirm the session length and current terms directly when booking.
 
-The product is a complete novice-friendly entry point. A short briefing covers vessel operation, the surrounding bay, safety equipment, and the boundaries of where the hire vessel can operate. From the Schnapper Point precinct, the productive grounds for flathead, calamari, and whiting are within a 15 to 20 minute run.
+The owner must provide the required briefing for the assigned hire-and-drive vessel. Ask the operator to explain vessel operation, safety equipment and the surveyed operating boundary before departure.
 
 ## Where you can take it
 
@@ -49,13 +49,13 @@ The hire vessels are bay-rated, not offshore-rated. The [operator's current term
 
 ## What's included, what isn't
 
-The base hire includes the vessel, fuel, basic safety gear (PFDs, anchor, paddle, bailer), and the operational briefing. Fishing tackle is available to hire as an add-on. Bait is sometimes stocked on site. A Victorian Recreational Fishing Licence is not covered, since this is a hire (not a charter); buy one through Service Victoria before your session if you plan to fish.
+Confirm current inclusions directly with the operator rather than relying on an older package list. A Victorian Recreational Fishing Licence is separate from a boat-hire booking; obtain one through Service Victoria before fishing unless an exemption applies.
 
 > Prices may change. Confirm current rates directly with the venue or operator before booking.
 
 ## Booking
 
-Bookings are taken directly via the operator's website or by phone. Summer weekends and school holidays book out in advance. Off-peak weekday sessions are usually walk-up. The cancellation policy is operator-discretion: if conditions are unsafe, the operator pulls the booking and offers a credit or refund.
+Bookings are taken directly via the operator's website or phone. Confirm availability, cancellation treatment and weather decisions against the operator's current terms before paying or travelling.
 
 ## Cross-links
 
