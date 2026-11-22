@@ -75,6 +75,10 @@ Planted 1981 - Under-the-Radar Peninsula Estate
 
  [Book now](<https://elanvineyard.com.au/>)
 
+PI’s line
+
+A cellar door with art on the walls, so there is something to say between sips.
+
 Not sure how to build a day around Elan Vineyard & Gallery?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)

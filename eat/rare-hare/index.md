@@ -99,6 +99,10 @@ Restaurant
 
  [Book now](<https://www.sevenrooms.com/reservations/rarehare?venues=rarehare%2Cjackalope>)
 
+PI’s line
+
+Built for sharing, so bring people you like enough to share with.
+
 Not sure how to build a day around Rare Hare at Willow Creek?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)

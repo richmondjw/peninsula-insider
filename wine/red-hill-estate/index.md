@@ -103,6 +103,10 @@ Editor's verdict
 
  Red Hill Estate has reinvented itself under the Fabrizio family ownership - the Italian-farmhouse concept is genuine, not cosmetic, and Gigi's Piazza adds an outdoor dimension that few Peninsula estates offer as effectively. The variety range is wider than most (Prosecco, Fiano, Merlot alongside the Peninsula standards), making the cellar door a discovery exercise rather than a variation-on-Pinot exercise.
 
+PI’s line
+
+Yes, everyone photographs it. Take the picture, then sit down properly.
+
 ## Visiting
 
 Walk-ins welcome Thursday–Monday, 11am–5pm; bookings recommended via OpenTable. Standard Wine Experience (5 wines); Premium Wine Experience (4 single vineyard wines) is the dearer tier. Dogs welcome outdoors.

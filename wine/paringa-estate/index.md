@@ -129,6 +129,10 @@ Editor's verdict
 
  Paringa Estate does not need to justify itself. Lindsay McCall planted his first vines in 1985 and has been producing some of Red Hill South's most reliable Pinot Noir and Shiraz ever since. The one-hat restaurant is a Peninsula institution. This is old-guard Peninsula - estate-grown, single-vineyard, no fuss - and it still outperforms newer arrivals more often than not.
 
+PI’s line
+
+Dependable is a compliment. Take the terrace and stop second-guessing.
+
 ## Visiting
 
 Open daily 11am–5pm; cellar door bookings recommended. Confirm current arrangements with the estate.

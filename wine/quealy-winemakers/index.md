@@ -101,6 +101,10 @@ Editor's verdict
 
  Quealy Winemakers was the Peninsula estate that kept asking awkward questions: why not Friulano, why not skin-contact Pinot Gris, why not Ribolla Gialla? Kathleen Quealy and Kevin McCarthy started the project in 2003, and the answer turned out to be: those varieties grow beautifully here. Son Tom McCarthy now makes the wines - amphora fermentations, certified organic viticulture, a range that would feel at home in Friuli.
 
+PI’s line
+
+For anyone tired of Pinot Noir and afraid to say so.
+
 ## Visiting
 
 Walk-ins welcome daily 10am–5pm for groups under 6. Bookings preferred for larger groups. Wines by the glass. Artisan cheese plates and seasonal food pop-ups. No dogs.

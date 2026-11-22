@@ -99,6 +99,10 @@ Open Wednesday–Thursday 11 am–8 pm, Friday–Saturday 11 am–9 pm and Sunda
 
  [Book now](<https://redgumbbq.com.au/>)
 
+PI’s line
+
+For the day nobody wants to pretend to understand a wine list.
+
 Not sure how to build a day around Red Gum BBQ?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)

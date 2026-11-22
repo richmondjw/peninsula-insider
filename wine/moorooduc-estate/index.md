@@ -97,6 +97,10 @@ Editor's verdict
 
  Moorooduc Estate is one of the places you visit to understand where Peninsula wine came from. Richard McIntyre bought the land in 1982, planted the McIntyre Vineyard in 1983, and has been making wine with wild yeast and minimal intervention ever since - well before those approaches had marketing names. No restaurant, no cafe, no sculpture trail: the wines should speak for themselves. They do.
 
+PI’s line
+
+Order the Chardonnay people measure the others against, then form your own view.
+
 ## Visiting
 
 Walk-ins welcome daily 10am–5pm. Groups of 6+ require bookings. Personal wine tasting with a member of the team. No café, restaurant, or wine bar. Dogs on leads welcome.

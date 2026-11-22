@@ -149,6 +149,10 @@ Editor's verdict
 
  Pt. Leo Estate operates at a scale that few Peninsula producers can match: the Gandel family's investment has produced a world-class outdoor sculpture park, a fine-dining restaurant in Laura (2 hats), and a cellar door running four tasting tiers. The Rosé took Best Rosé at the Mornington Peninsula Wine Show in both 2024 and 2025. It's a destination property, and it knows it.
 
+PI’s line
+
+Walk the sculptures first. You will want to have earned the lunch.
+
 ## Visiting
 
 Walk-ins welcome for groups up to 6. Four tasting tiers: Standard, Red, White and Premium - all include 5 wines; fee partly refundable on bottle purchase. The estate advises restaurant reservations and requires them on weekends, during peak periods and on public holidays.

@@ -9,7 +9,7 @@ Privacy
 
 # Privacy Policy
 
-Last updated: 21 November 2026
+Last updated: 22 November 2026
 
 Peninsula Insider is an independent editorial publication. This policy explains the information involved when you browse the site, create an account, save places, plan a trip, subscribe or contact us.
 
@@ -42,6 +42,8 @@ With your analytics consent, we load Google Analytics 4 to understand site visit
 ### Ask PI
 
 When you chat with Ask PI, your message and the recent messages of that conversation are sent to our platform and to the AI model providers that write and check her reply, currently Groq and Cohere. We keep a record of each message and her reply for up to 180 days, to see what readers ask that our guides do not yet answer and to fix poor replies. That record holds no name, account, IP address or session identifier. Please do not put personal details in a chat message. The conversation itself is kept in your browser for the visit so it survives a change of page, and New conversation clears it.
+
+So she can pick up where you left off, your browser also keeps a short note on your device: how you like her to talk, places you told her you have done, kinds of place you ruled out, and the last place she recommended. The talk setting travels with each message so she can answer in that manner. The rest of the note stays on your device and is not sent to us. Say "forget me" in the chat, or press her hat and choose "Forget what you know about me", and the note is erased.
 
 ## Browser storage
 

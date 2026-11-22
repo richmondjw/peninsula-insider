@@ -75,6 +75,10 @@ Founding Peninsula Estate
 
  [Book now](<https://www.dromanaestate.com.au/>)
 
+PI’s line
+
+The quieter side. Go when you are done with being seen.
+
 Not sure how to build a day around Dromana Estate?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)

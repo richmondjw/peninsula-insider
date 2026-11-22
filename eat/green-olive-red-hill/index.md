@@ -95,6 +95,10 @@ Restaurant
 
  [Book now](<https://greenolive.com.au/dine>)
 
+PI’s line
+
+Order the board. The oil on it grew here.
+
 Not sure how to build a day around Green Olive at Red Hill?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)

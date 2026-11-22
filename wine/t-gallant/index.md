@@ -99,6 +99,10 @@ Editor's verdict
 
  T'Gallant's story is tangled but worth knowing: founded in 1990 as Australia's first serious Pinot Grigio operation, sold to Treasury Wine Estates, then sold again in 2022 to independent owners for AUD 9.7 million. The wines remain centred on Pinot Grigio and Gris - historical weight as Australian pioneers of the dual-style approach. And the Italian-inspired wood-fired food makes this the Peninsula's easiest drop-in for a weekday lunch.
 
+PI’s line
+
+Family-friendly and means it. Bring the small ones and nobody will sigh.
+
 ## Visiting
 
 Walk-ins welcome daily 10am–5pm. Bookings recommended on weekends. Guided 30-minute tasting of five wines, charged per person. Restaurant bookings via OpenTable. No dogs.

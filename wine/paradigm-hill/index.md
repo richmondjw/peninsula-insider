@@ -113,6 +113,10 @@ Editor's verdict
 
  Paradigm Hill is a doctor's estate in the best possible sense - George Mihaly brings the same precision to viticulture that he presumably brings to medicine. The result is a zero-carbon operation producing genuinely compelling Pinot Noir, Shiraz, and Riesling from Merricks vines planted in 1999. The name suggests philosophical ambition, and the wines deliver it. It's not an easy drop-in, but the effort is rewarded.
 
+PI’s line
+
+By appointment. Have a question ready.
+
 ## Visiting
 
 Appointment required except on the first weekend of each month (open 12pm–5pm walk-in). Standard tasting fee waived with purchase; Premium/private tasting fee non-refundable. Dogs welcome on deck and verandah. Seasonal picnic events in spring/summer.

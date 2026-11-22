@@ -109,6 +109,10 @@ Editor's verdict
 
  Main Ridge Estate is where the Mornington Peninsula wine story begins. Nat and Rosalie White planted the first vines in 1975; the first commercial vintage came in 1980. The Sexton family now stewards the property, and The Acre and Half Acre Pinot Noir continue to be two of the most recognisable bottles in Peninsula wine. This is a pilgrimage stop for anyone serious about the region's history.
 
+PI’s line
+
+Where it started. Pay it the respect of going first.
+
 ## Visiting
 
 Bookings required via the estate reservation system (including for dogs). Open Friday–Sunday 11am–5pm, tastings until 4pm. Tastings cover a selection of 6 wines, charged per person.

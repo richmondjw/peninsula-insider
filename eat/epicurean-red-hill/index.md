@@ -83,6 +83,10 @@ Restaurant
 
  [Book now](<https://www.theepicurean.com.au/shed-restaurant-reservations>)
 
+PI’s line
+
+A long table in an old packing shed. Bring the whole lot of you.
+
 Not sure how to build a day around The Epicurean?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)

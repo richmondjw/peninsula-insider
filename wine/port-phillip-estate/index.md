@@ -109,6 +109,10 @@ Editor's verdict
 
  Port Phillip Estate sits on the same address as Kooyong and shares winemaker Tim Perrin, but is the anchor: the home estate, the accommodation, the dining room, the full infrastructure. The Morillon and Red Hill Pinot Noir wines make a compelling site-specific argument for Red Hill South terroir. Adults-only accommodation, no pets, one-hat restaurant - wine-literate, food-serious destination.
 
+PI’s line
+
+The building is half the visit. Look up before you look at the list.
+
 ## Visiting
 
 Walk-ins welcomed. Standard tasting charged per person (non-refundable); Wine Tasting & Cheese, Single Block & Single Vineyard, and Wine Flights tiers also run - book direct for current prices. No pets permitted on premises.

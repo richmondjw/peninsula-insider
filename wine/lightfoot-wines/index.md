@@ -55,6 +55,10 @@ Winery
 
 [Check current hours →](<https://www.google.com/maps/search/?api=1&query=Lightfoot%20Wines%2C%20110%20Myers%20Rd%2C%20Main%20Ridge%20VIC%203928%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
 
+PI’s line
+
+The peaceful one. Use your indoor voice.
+
 Not sure how to build a day around Lightfoot Wines?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)

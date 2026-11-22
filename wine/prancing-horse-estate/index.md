@@ -75,6 +75,10 @@ Certified Organic & Biodynamic
 
  [Book now](<https://www.prancinghorseestate.com/>)
 
+PI’s line
+
+They pour the French ones next to their own. That takes nerve. Go and judge.
+
 Not sure how to build a day around Prancing Horse Estate?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)

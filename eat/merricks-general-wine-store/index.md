@@ -93,6 +93,10 @@ Restaurant
 
  [Book now](<https://merricksstore.com.au/reservations/>)
 
+PI’s line
+
+A general store that grew up well. Go hungry and leave with bread.
+
 Not sure how to build a day around Merricks General Wine Store?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)

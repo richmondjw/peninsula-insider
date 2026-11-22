@@ -69,6 +69,10 @@ Pub
 
  [Book now](<https://www.portseahotel.com.au/>)
 
+PI’s line
+
+Front row on the bay. Take the long lunch and cancel whatever was after it.
+
 Not sure how to build a day around Portsea Hotel?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)

@@ -77,6 +77,10 @@ Shiraz Specialist
 
  [Book now](<https://merricksestate.com.au/>)
 
+PI’s line
+
+Shiraz, here, on purpose. Go and be surprised.
+
 Not sure how to build a day around Merricks Estate?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)

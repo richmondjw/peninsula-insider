@@ -75,6 +75,10 @@ Good Food Guide 2024 · Chef of the Year Shortlist
 
  [Book now](<https://www.tedesca.com.au/>)
 
+PI’s line
+
+You don’t choose anything here. That is the point, and probably what your group needs.
+
 Not sure how to build a day around Tedesca Osteria?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)

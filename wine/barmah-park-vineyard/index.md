@@ -75,6 +75,10 @@ Peninsula's Only Canape-Paired Cellar Door
 
  [Book now](<https://www.barmahparkwines.com.au/experiences>)
 
+PI’s line
+
+Five wines, five canapes, in order. For people who like to be told what happens next.
+
 Not sure how to build a day around Barmah Park Vineyard?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)

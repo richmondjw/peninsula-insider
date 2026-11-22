@@ -103,6 +103,10 @@ Editor's verdict
 
  Eldridge Estate has always been a quiet achiever - planted in 1984, small production, estate-grown, no fuss. The change of ownership in 2022 (Elli and Vicki Tutungi bought from founder David Lloyd) has added energy without disturbing the character. The variety list still includes the thing that makes Eldridge unique on the Peninsula: Gamay. If you want to taste one of the few serious Peninsula Gamay expressions, this is the place.
 
+PI’s line
+
+For the friend who says “clone” out loud. Take them and let them have their day.
+
 ## Visiting
 
 Weekends 11am–5pm; also open daily in January. Bookings advised for 45-minute sessions. Tastings run as a 4-wine flight, charged per person. Gourmet cheese, charcuterie, and tapas platters available. Dogs welcome outdoors on leash.

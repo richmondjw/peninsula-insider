@@ -69,6 +69,10 @@ Café
 
  [Book now](<https://www.thesomersgeneral.com.au/>)
 
+PI’s line
+
+Small on purpose. Get there before the pastries make the decision for you.
+
 Not sure how to build a day around Somers General?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)

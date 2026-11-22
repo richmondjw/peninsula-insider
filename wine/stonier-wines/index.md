@@ -105,6 +105,10 @@ Editor's verdict
 
  Stonier is the Peninsula's original benchmark. Brian Stonier planted his vines in 1978 when 'Mornington Peninsula wine' was not yet a phrase anyone used outside this paddock. The estate returned to local family ownership in December 2022. The KBS Vineyard Chardonnay is still the Peninsula reference bottle for that variety - three decades of track record don't lie.
 
+PI’s line
+
+Grown-up and unflashy. It will not perform for you, and it does not need to.
+
 ## Visiting
 
 Walk-ins welcome daily for groups under 6 (final tastings 4pm); tasting fee redeemable on wine purchase; complimentary for Wine Club members. Reservations required for groups of 6+. Dogs welcome on the lawn.

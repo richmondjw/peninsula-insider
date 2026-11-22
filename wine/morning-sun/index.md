@@ -77,6 +77,10 @@ Sister Site of Foxeys Hangout
 
  [Book now](<https://foxeys-hangout.com.au/Morning-Sun/About-Morning-Sun>)
 
+PI’s line
+
+The quieter sibling. Choose it when you want the lunch and not the crowd.
+
 Not sure how to build a day around Morning Sun Vineyard?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)

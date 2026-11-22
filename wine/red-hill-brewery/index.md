@@ -91,6 +91,10 @@ Brewery
 
  [Book now](<https://redhillbrewery.com.au/>)
 
+PI’s line
+
+They grow their own hops. Order accordingly.
+
 Not sure how to build a day around Red Hill Brewery?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)

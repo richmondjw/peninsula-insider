@@ -109,6 +109,10 @@ Editor's verdict
 
  Ten Minutes by Tractor is where Mornington Peninsula wine stops apologising for its ambitions. Three original family vineyards, each named and separately vinified, plus a winemaking philosophy pulled straight from Burgundy's manual: high-density planting, spontaneous fermentation, gravity flow. The two-hat restaurant cements it as a full-day destination for anyone who takes wine seriously.
 
+PI’s line
+
+A degustation, so commit. This is not somewhere to pop in.
+
 ## Visiting
 
 Reservations recommended; walk-ins accepted subject to availability. Estate & 10X flight (fee waived on purchase); Single Vineyard flight and Terroir Masterclass are the premium tiers.

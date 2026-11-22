@@ -69,6 +69,10 @@ Pub
 
  [Book now](<https://ryehotel.com.au/>)
 
+PI’s line
+
+Enormous, which is the feature. Nobody will notice your children.
+
 Not sure how to build a day around Rye Hotel?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)

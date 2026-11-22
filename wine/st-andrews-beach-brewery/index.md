@@ -101,6 +101,10 @@ Peninsula's Signature Brewery Day-Out
 
  [Book now](<https://www.standrewsbeachbrewery.com.au/>)
 
+PI’s line
+
+You are drinking in a former stable. Lean into it.
+
 Not sure how to build a day around St Andrews Beach Brewery?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)

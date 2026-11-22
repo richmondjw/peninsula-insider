@@ -73,6 +73,10 @@ Restaurant
 
  [Book now](<https://www.sevenrooms.com/reservations/jackalope?venues=rarehare%2Cjackalope>)
 
+PI’s line
+
+The room is doing a lot. Dress as if you knew it would.
+
 Not sure how to build a day around Doot Doot Doot?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)

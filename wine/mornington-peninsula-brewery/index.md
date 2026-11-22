@@ -69,6 +69,10 @@ Brewery
 
  [Book now](<https://tarbarrel.com.au/>)
 
+PI’s line
+
+Paddles and pizza. Decide who is driving before you sit down.
+
 Not sure how to build a day around Tar Barrel Brewery & Distillery?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)

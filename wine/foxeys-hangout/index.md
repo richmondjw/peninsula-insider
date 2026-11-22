@@ -103,6 +103,10 @@ Editor's verdict
 
  Foxeys Hangout is the organic/biodynamic pioneer on the Peninsula and owns it entirely - first fully certified winemaking facility on the Mornington Peninsula. Michael and Tony Lee planted in 1997. The variety list is genuinely broad - 12+ varieties - and the 'Create Your Own Sparkling' disgorgement session is a hands-on experience rare among Peninsula cellar doors.
 
+PI’s line
+
+An all-day deck. Arrive early and act as if you had always planned to stay.
+
 ## Visiting
 
 Walk-in only, no bookings, groups up to 6. Standard tastings daily. Paid 'Create Your Own Sparkling' session for two. Morning Sun Vineyard walk with tasting available, charged per person. No dogs.
