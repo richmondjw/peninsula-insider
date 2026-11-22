@@ -71,7 +71,7 @@ Garfish on a float rig near the pier base is productive and accessible for begin
 
 ## Nearby ramp and charter options
 
-The [Rye Boat Ramp](/boating/ramps/rye-boat-ramp/) is 100m from the pier and provides four-lane access to the same whiting and squid grounds. Charter departures from Rye that target the same species: [I'm Hooked Fishing Charters](/fishing/charters/im-hooked-fishing-charters/) and [Reel Time Fishing Charters](/fishing/charters/reel-time-fishing-charters/).
+The [Rye Boat Ramp](/boating/ramps/rye-boat-ramp/) is near the pier and serves the same bay. [I'm Hooked Fishing Charters](/fishing/charters/im-hooked-fishing-charters/) advertises changing departure locations across Port Phillip and Western Port; confirm the exact ramp directly, because Rye is not guaranteed.
 
 ## Safety notes
 

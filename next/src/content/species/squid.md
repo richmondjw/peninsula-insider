@@ -32,7 +32,6 @@ locationSlugs:
   - portsea-pier
 charterSlugs:
   - im-hooked-fishing-charters
-  - reel-time-fishing-charters
 eatLinks:
   - { label: "The seafood list (Peninsula Insider Journal)", href: "/journal/the-seafood-list/" }
   - { label: "Waterfront restaurants on the Mornington Peninsula", href: "/journal/waterfront-restaurants-mornington-peninsula/" }

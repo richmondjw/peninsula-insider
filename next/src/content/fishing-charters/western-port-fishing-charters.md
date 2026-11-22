@@ -30,7 +30,7 @@ faq:
   - question: Is this a good charter for a corporate group or a hens or bucks event?
     answer: 'Yes. The 20-passenger capacity, large deck space, and food-and-drinks-friendly platform with the BBQ option make this the most suitable operator in this pack for large group events on Western Port. Lead time for catering and invoicing arrangements is typically longer than for shared charter bookings.'
   - question: Do you target snapper here?
-    answer: 'Pink snapper are a target species, but understand that Western Port''s pink-snapper population is distinct from the Port Phillip Bay warm-water snapper run. If you specifically want the Oct to Dec southern bay snapper experience, a Port Phillip Bay operator like I''m Hooked, Proline, or Reel Time is the right call.'
+    answer: 'Pink snapper are a target species, but Western Port conditions and seasonal patterns differ from Port Phillip Bay. If you specifically want a Port Phillip Bay snapper trip, compare the current trip areas advertised by I''m Hooked and Proline, then confirm the departure and target species directly before booking.'
   - question: Do I need my own fishing licence?
     answer: 'Confirm directly with the operator at the time of booking whether guests are covered for the day or required to BYO licence. Most licensed Victorian charters cover guests; confirm in writing rather than assuming.'
   - question: When should I book?
