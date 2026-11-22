@@ -24,7 +24,7 @@
 import { readFileSync, writeFileSync, mkdirSync, appendFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { converse, talkPages, cardsFor, hasSubject } from '../src/lib/ask-pi.mjs';
+import { converse, talkPages, cardsFor, hasSubject, declines } from '../src/lib/ask-pi.mjs';
 import { melbourneDay } from '../src/lib/ask-guide.mjs';
 
 const args = process.argv.slice(2);
@@ -130,7 +130,7 @@ async function hold(conversation) {
       const got = await say({ message: q, history: history.slice(-8), pages, followUp });
       // What the reader would see: her picks, or the guides' matches when she named nowhere for a real question.
       let cards = cardsFor(index, got.picks);
-      if (got.say && !cards.length && ['results', 'named', 'place'].includes(matched.reply.kind) && matched.reply.cards.length && hasSubject(index, q, { today })) cards = matched.reply.cards.slice(0, 3);
+      if (got.say && !declines(got.say) && !cards.length && ['results', 'named', 'place'].includes(matched.reply.kind) && matched.reply.cards.length && hasSubject(index, q, { today })) cards = matched.reply.cards.slice(0, 3);
       turn = { q, say: got.say, tiles: cards.map((card) => card.title), named: cardsFor(index, got.picks).length, ms: got.ms, firstMs: got.firstMs, status: got.status, error: got.error };
       shown = cards.length ? cards.map((card) => card.href) : pages.slice(0, 5);
     }

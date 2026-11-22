@@ -20,7 +20,7 @@
 import { ask, card, select, normalise, parseQuestion, questionWords, melbourneDay, sayDay, daySeed, ASK_MAX_LENGTH } from './ask-guide.mjs';
 import {
   REFUSALS, REFUSAL_TOPICS, INTERVIEW, YOU_PICK, PLAN_LEADS, SWAP_LINES, SWAP_ONLY, CRITIQUE, ARGUMENT, NIGHTLIFE,
-  WITH_THIS, CALLBACKS, REACTIONS, NEWSLETTER, PLAN_NOTES, pick, fill, STRIKES,
+  WITH_THIS, CALLBACKS, REACTIONS, NEWSLETTER, PLAN_NOTES, pick, fill, STRIKES, ABOUT_HER,
 } from './pi-lines.mjs';
 
 // ── Reading a page's own words ─────────────────────────────────────────────
@@ -80,6 +80,8 @@ const AROUND = /\b(?:build|plan) a day around (?:this|here|it)\b/;
 const GOES_WITH = /\bwhat goes with (?:this|it|here)\b/;
 const NIGHT = /\b(?:night ?life|night out|after dark|late night|cocktails?|bars)\b|\ba bar\b/;
 const FIX = /^fix it for me$/;
+// A question about her. The matcher would otherwise search the guides for "hat" and find a restaurant's chef's hats.
+const HERSELF = /\b(?:(?:your|the|that) hat|whats with the hat|your notebook|who are you|what are you|what do you (?:actually )?do|are you (?:real|human|an? (?:real |actual )?(?:bot|robot|person|human|machine|ai))|your name)\b/;
 const KIDS = /\b(?:kids?|children|toddlers?|bab(?:y|ies)|little ones?)\b/;
 
 const PERSON = '(?:mum|mom|mother|dad|father|nan|nana|nanna|gran|grandma|grandpa|pop|wife|husband|partner|girlfriend|boyfriend|sister|brother|daughter|son|best friend|mate|boss)';
@@ -671,6 +673,10 @@ export function converse(index, question, state = null, context = {}) {
     return [MANY_DAYS.test(bare) ? PLAN_NOTES.oneDay : null, flags.price ? pick(REFUSALS.price, daySeed(bare)) : null].filter(Boolean);
   };
 
+  // About her: no pages go with it, so she answers as herself and names nowhere.
+  if (HERSELF.test(bare) && !pi.interview && !pi.await && !pi.strikes) {
+    return finish({ pi, reply: { kind: 'help', mood: 'wink', lead: pick(ABOUT_HER, daySeed(bare)), notes: [], cards: [], links: [], chips: ['Plan my day', 'Surprise me'] } });
+  }
   if (pi.await === 'critique') return finish(critique(index, pi, asked, bare));
   if (pi.await === 'argument' && !PLAN.test(bare)) return finish(argument(index, pi, asked, today));
 
