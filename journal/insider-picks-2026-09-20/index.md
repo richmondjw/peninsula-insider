@@ -27,9 +27,9 @@ Jetty Road’s spring seasonal taps are the reason to visit right now rather tha
 
 **WALK - Coolart Wetlands boardwalk, Somers**
 
-The heathland around Coolart is doing what it does for about four weeks every spring, and this is the middle of it. Spider orchids are flowering along the path edges between the car park and the boardwalk entrance. The boardwalk itself skirts the edge of a freshwater wetland where Pacific black ducks and royal spoonbills are actively nesting right now. The light is best in the first two hours after sunrise, when the mist sits over the open water and the grey teal are moving. The loop from the car park to the far hide and back takes 45 minutes at a steady pace, longer if you stop at each hide. Bring binoculars. Wear closed shoes - the gravel path is fine but the heathland sections either side are damp from recent rain. Entry is free. Pair a Coolart morning with lunch at the Balnarring Bakehouse, twelve minutes north on Bittern-Dromana Road.
+The heathland around Coolart is doing what it does for about four weeks every spring, and this is the middle of it. Spider orchids are flowering along the path edges between the car park and the boardwalk entrance. The boardwalk itself skirts the edge of a freshwater wetland where Pacific black ducks and royal spoonbills are actively nesting right now. Plan a morning visit from 9am, when the park opens; daily park access ends at 5pm. The loop from the car park to the far hide and back takes 45 minutes at a steady pace, longer if you stop at each hide. Bring binoculars. Wear closed shoes - the gravel path is fine but the heathland sections either side are damp from recent rain. Entry is free. Pair a Coolart morning with lunch at the Balnarring Bakehouse, twelve minutes north on Bittern-Dromana Road.
 
-**Coolart Wetlands and Homestead** · Lord Somers Road, Somers · Open daily, no booking required
+**Coolart Wetlands and Homestead** · Lord Somers Road, Somers · Park: daily 9am-5pm. Homestead ground floor: Wednesday, Saturday and Sunday 11am-3pm. Check [Parks Victoria’s live conditions](<https://www.parks.vic.gov.au/places-to-see/parks/coolart-historic-area>) before travelling.
 
 **DISCOVERY - National Works on Paper 2026, Mornington Peninsula Regional Gallery**
 
@@ -43,7 +43,7 @@ NWOP is the longest-running acquisitive works-on-paper prize in Australia, and t
 
 **Drink** | Jetty Road Brewery | 12-14 Brasser Avenue, Dromana | Open daily; ask about rotating spring taps |
 
-**Walk** | Coolart Wetlands boardwalk | Lord Somers Road, Somers | Free; 45-min loop; best light at dawn |
+**Walk** | Coolart Wetlands boardwalk | Lord Somers Road, Somers | Morning from 9am; park closes 5pm; check live conditions |
 
 **Discovery** | Mornington Peninsula Regional Gallery | Dunns Road, Mornington | Tue–Sun 11am–4pm; free; closes 22 Nov |
 
@@ -57,9 +57,9 @@ When is Jetty Road Brewery open, and where is it?
 
 Jetty Road Brewery is at 12-14 Brasser Avenue, Dromana. It currently opens Monday to Wednesday 12pm-9pm, Thursday and Friday 12pm-10pm, Saturday 11am-11pm, and Sunday 11am-7pm. Check jettyroad.com.au for current hours.
 
-Where is the Coolart Wetlands boardwalk, and how long does it take?
+Where is Coolart, and what are the park and homestead opening hours?
 
-Coolart Wetlands and Homestead is at Lord Somers Road, Somers. The main boardwalk loop takes around 45 minutes. Open daily. No booking required. Free entry to the wetlands.
+Coolart is on Lord Somers Road, Somers. The park opens daily from 9am to 5pm. The homestead ground floor opens 11am to 3pm on Wednesday, Saturday and Sunday. Check Parks Victoria's current conditions before visiting.
 
 When does National Works on Paper 2026 close at MPRG?
 

@@ -11,8 +11,6 @@ Event     Food & Wine     22 November 2026     One-off date
 
 Tour Pt. Leo Estate's private culinary garden with head gardener Ella Swann, then return to Laura for canapés and a vegetarian lunch shaped by the spring harvest.
 
-[Book or check details](<https://www.ptleoestate.com.au/whats-on-event/theproducersseries-gardenexperience/>)
-
 Editor's verdict
 
 A rare garden-to-table outing: Ella Swann leads a private garden tour before canapés and a vegetarian lunch at Laura.
@@ -49,7 +47,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.ptleoestate.com.au/whats-on-event/theproducersseries-gardenexperience/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Culinary+Garden+Experience+at+Laura+Pt+Leo+Estate&dates=20261122T003000Z%2F20261122T030000Z&details=Tour+Pt.+Leo+Estate%27s+private+culinary+garden+with+head+gardener+Ella+Swann%2C+then+return+to+Laura+for+canap%C3%A9s+and+a+vegetarian+lunch+shaped+by+the+spring+harvest.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fculinary-garden-experience-at-laura-pt-leo-estate-2026-11-22%2F&location=Laura+Pt+Leo+Estate%2C+Merricks%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+Booking and calendar links are withdrawn; this session has finished.
 
 Keep planning
 

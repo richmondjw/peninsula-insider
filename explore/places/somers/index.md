@@ -9,6 +9,8 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Somers
 
+ [Coolart access and live park conditions](<https://www.parks.vic.gov.au/places-to-see/parks/coolart-historic-area>)
+
 Somers is a quiet residential village on the Mornington Peninsula's Western Port coast, 80 km from Melbourne, fronting a long sheltered beach and bordering Coolart Wetlands and Homestead Reserve.
 
 Somers is the quiet Western Port answer to the bay-side beach villages, and it has been keeping that profile low on purpose for a century. The village is set back from a long shallow beach with tea-tree banking the dunes, a small general store, a yacht club that has changed almost nothing about itself since the 1950s, and not much else. Coolart Wetlands and Homestead, set in its 87-hectare reserve on the village edge, is the other reason to come - one of the best places to walk a wetland boardwalk under a winter sky on the entire Peninsula. The Lord Somers Camp gives the village a residual association with leadership weeks and a particular kind of Australian institutional history. Stay here if you want a beach village without polish, where the loudest sound in the morning is birds in the reserve.
@@ -69,7 +71,7 @@ Somers in brief
 
 - 02   Best for: birders; families wanting flat, safe wading water; readers who want to disappear into a holiday-house weekend.
 
-- 03   Signature experience: a dawn walk through Coolart wetlands, then a long swim from the beach when the tide is in.
+- 03   Signature experience: a morning walk through Coolart wetlands from 9am, then a long swim from the beach when the tide is in.
 
 - 04   Two nights minimum, ideally midweek in spring.
 
@@ -79,7 +81,7 @@ A perfect day here
 
 ## A day in Somers
 
-Dawn at Coolart on the wetland boardwalk, late breakfast back at the rental, midday swim from the beach, afternoon read on the dunes, sundowner from the verandah.
+Morning at Coolart from 9am on the wetland boardwalk, late breakfast back at the rental, midday swim from the beach, afternoon read on the dunes, sundowner from the verandah. The park opens daily 9am-5pm; the homestead ground floor opens Wednesday, Saturday and Sunday 11am-3pm. Check Parks Victoria's live conditions before travelling.
 
 Coolart's homestead and wetland walk is one of the Peninsula's most underrated free experiences - go in winter for the migratory wading birds.
 
@@ -139,11 +141,11 @@ The long lunches get the headlines. But the Peninsula's first hour of the day - 
 
 Insider Edit   4 min
 
-### [Somers General on a Spring Sunday, the Bushrangers Bay Cliff Loop, and National Works on Paper at MPRG](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-13/>)
+### [Somers General on a Spring Sunday, the Bushrangers Bay return walk, and National Works on Paper at MPRG](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-13/>)
 
 13 October 2026
 
-A Western Port brunch stop with Peninsula pantry goods, a coastal trail above Flinders at peak wildflower, and a national paper art survey open until 22 November at Mornington Peninsula Regional Gallery.
+A Western Port brunch stop with Peninsula pantry goods, a return walk from Cape Schanck to Bushrangers Bay, and a national paper art survey open until 22 November at Mornington Peninsula Regional Gallery.
 
 Insider Edit   4 min
 

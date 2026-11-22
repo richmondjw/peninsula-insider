@@ -77,22 +77,6 @@ Merricks
 
 Swipe or scroll through the picks
 
-- ### [Tiana V Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/tiana-v-live-at-peninsula-beer-garden-2026-11-22/>)
-
-Enjoy live music at Peninsula Beer Garden!
-
-Sun, 22 Nov   Peninsula Beer Garden   Live music
-
-Event details checked 9 Nov 2026 · [Organiser’s page](<https://peninsulabeergarden.com.au/live-music/>)
-
-- ### [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
-
-A VFMA-accredited village market with local growers and specialty makers, supported by the Mt Eliza Chamber of Commerce.
-
-Sun, 22 Nov   Mt Eliza Village Precinct   Market
-
-Event details checked 3 Oct 2026 · [Organiser’s page](<https://www.mtelizafarmersmarket.com.au/>)
-
 - Mornington Peninsula Regional Gallery, Mornington   Photo: Robert Blackburn, courtesy of Visit Victoria.
 
 ### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
@@ -102,6 +86,22 @@ Start with the award-winning works, then take time with the wider survey of cont
 Sun, 22 Nov   Mornington Peninsula Regional Gallery   Tuesday to Sunday, 11am to 4pm
 
 Event details checked 16 Nov 2026 · [Organiser’s page](<https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026>)
+
+- ### [Audio Replica Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/audio-replica-live-at-tar-barrel-2026-11-22/>)
+
+Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery produce award-winning craft beers alongside diverse tastes as part of their whiskey and.
+
+Sun, 22 Nov   Tar Barrel   Live music
+
+Event details checked 9 Nov 2026 · [Organiser’s page](<https://tarbarrel.com.au/music/>)
+
+- ### [Tiana V Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/tiana-v-live-at-peninsula-beer-garden-2026-11-22/>)
+
+Enjoy live music at Peninsula Beer Garden!
+
+Sun, 22 Nov   Peninsula Beer Garden   Live music
+
+Event details checked 9 Nov 2026 · [Organiser’s page](<https://peninsulabeergarden.com.au/live-music/>)
 
 This season · Spring
 

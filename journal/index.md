@@ -667,20 +667,20 @@ Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery p
 
 - [Sun, 22 Nov
 
-### ✦ Culinary Garden Experience at Laura Pt Leo Estate
+### ✦ National Works on Paper 2026 (NWOP)
 
-Merricks
+Mornington
 
-Tour Pt. Leo Estate's private culinary garden with head gardener Ella Swann, then return to Laura for canapés and a vegetarian lunch shaped by the spring harvest.
+National Works on Paper 2026 is MPRG's survey of contemporary Australian art made on and with paper. Visit 5 September to 22 November, Tuesday to Sunday, 11am to 4pm; the gallery is closed Mondays.
 
- Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/culinary-garden-experience-at-laura-pt-leo-estate-2026-11-22/>)
+ Event · Exhibitions](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
 
 - [Sun, 22 Nov
 
-### ✦ Mt Eliza Farmers Market
+### Tiana V Live at Peninsula Beer Garden
 
-Mount Eliza
+Boneo
 
-VFMA-accredited farmers market on the Mount Eliza Village Green and Mt Eliza Way service road. The organiser lists 25 October and 22 November 2026, 9am–1pm..
+Enjoy live music at Peninsula Beer Garden! Join the cool vibes and coastal tunes from Tiana V, a Mornington Peninsula based singer & guitarist who started out when she was only 8 years old.
 
- Event · Markets](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/tiana-v-live-at-peninsula-beer-garden-2026-11-22/>)

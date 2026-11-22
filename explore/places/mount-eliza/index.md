@@ -189,16 +189,6 @@ Coming up in Mount Eliza, pulled from the events registry.
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
-- [Sun, 22 Nov
-
-### ✦ Mt Eliza Farmers Market
-
-Mount Eliza
-
-VFMA-accredited farmers market on the Mount Eliza Village Green and Mt Eliza Way service road. The organiser lists 25 October and 22 November 2026, 9am–1pm..
-
- Event · Markets](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
-
 - [Sun, 6 Dec
 
 ### Sunday Sessions: Pottery Workshops at Peachy Keen Ceramics

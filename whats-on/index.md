@@ -23,14 +23,6 @@ Start with the award-winning works, then take time with the wider survey of cont
 
 Exhibitions
 
-- Sun, 22 Nov · 11:30am–2pm · Merricks
-
-### [Culinary Garden Experience at Laura Pt Leo Estate](<https://peninsulainsider.com.au/whats-on/culinary-garden-experience-at-laura-pt-leo-estate-2026-11-22/>)
-
-A rare garden-to-table outing: Ella Swann leads a private garden tour before canapés and a vegetarian lunch at Laura.
-
-Food & Wine
-
 - Sun, 22 Nov · 3pm–6pm · Mornington
 
 ### [Audio Replica Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/audio-replica-live-at-tar-barrel-2026-11-22/>)
@@ -39,25 +31,19 @@ Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery p
 
 Live Music
 
+- Sun, 22 Nov · 1pm–5pm · Boneo
+
+### [Tiana V Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/tiana-v-live-at-peninsula-beer-garden-2026-11-22/>)
+
+Enjoy live music at Peninsula Beer Garden!
+
+Live Music
+
 ## Day by day
 
 ### Sunday 22 November
 
-- 9am
-
-[Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
-
-A VFMA-accredited village market with local growers and specialty makers, supported by the Mt Eliza Chamber of Commerce.
-
-Mount Eliza · Markets · Recurring monthly
-
-- 1pm
-
-[Tiana V Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/tiana-v-live-at-peninsula-beer-garden-2026-11-22/>)
-
-Enjoy live music at Peninsula Beer Garden! Join the cool vibes and coastal tunes from Tiana V, a Mornington Peninsula based singer & guitarist who started out when she was only 8 years old.
-
-Boneo · Live Music
+This day’s event is in the short list above.
 
 ## Book ahead
 
