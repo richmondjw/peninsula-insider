@@ -41,11 +41,11 @@ const RAMP_ORDER = [
   'warneet-boat-ramp',
 ];
 const RAMP_NOTES: Record<string, string> = {
-  'sorrento-boat-ramp': 'Breakwater shelter and the shortest run to the southern snapper grounds and the Heads.',
+  'sorrento-boat-ramp': 'A Shire-listed southern bay ramp beside the ferry precinct. Check current ramp, tide and navigation conditions.',
   'rye-boat-ramp': 'A Shire-listed southern bay ramp. Check current conditions and parking before towing there.',
   'safety-beach-boat-ramp': 'A Shire-listed mid-Peninsula ramp. Current maintenance and tide conditions matter.',
-  'mornington-park-boat-ramp': 'Central bay shore. The car park is shared with the pier and the yacht club, so it is tight.',
-  'hastings-boat-ramp': 'Upgraded in 2024, with an all-abilities hoist on the new southern pontoon. The base for Western Port charters.',
+  'mornington-park-boat-ramp': 'Central bay shore in a shared pier and yacht-club precinct. Check current parking and ramp access.',
+  'hastings-boat-ramp': 'Better Boating Victoria lists this ramp as upgraded and open. Check current equipment and ramp conditions.',
   'warneet-boat-ramp': 'Planning and design for future ramp, parking and pontoon work is underway; check current access.',
 };
 // Only publish a fixed launch window when a current primary source states one.
@@ -132,7 +132,7 @@ export const prerender = true;
 
 <BaseLayout
   title="Boating on the Mornington Peninsula · Peninsula Insider"
-  description="Where to launch on the Mornington Peninsula, which ramps work at low tide, where to hire a boat without a licence, and the checks to make before you go out."
+  description="Where to launch on the Mornington Peninsula, how to check current ramp and tide conditions, where to hire a boat, and the checks to make before you go out."
   section="boating"
   canonical="https://peninsulainsider.com.au/boating/"
   ogImage={pageImage('boating-hub').src}
@@ -273,9 +273,8 @@ export const prerender = true;
               {!hire.data.licenceRequired && ' The operator advertises this fleet as no-licence hire.'}
             </p>
             <p class="bh-option__meta">
-              The operator limits the boats to its surveyed area within 2 nautical miles of Mornington Pier.
-              They must not approach the Rip. Expect a cancellation if the operator judges the weather unsafe.
-              {hire.data.seasonalityNote && ' Open year-round when the weather allows; book ahead in the summer holidays and on long weekends.'}
+              Confirm the assigned vessel, briefing, surveyed operating area and weather policy directly with the operator.
+              Check current availability and terms before travelling.
             </p>
           </div>
         )}
