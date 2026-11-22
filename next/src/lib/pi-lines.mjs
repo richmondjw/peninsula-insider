@@ -155,6 +155,22 @@ export const ABOUT_HER = [
   'The one with the hat and the opinions. Ask me where to go.',
 ];
 
+// ── Support ────────────────────────────────────────────────────────────────
+// A reader says a page is wrong, or says they run the place. She does not
+// argue and does not take the details herself: the editors' correction form
+// gives a reference, and the business desk is a separate door.
+export const SUPPORT = {
+  wrong: [
+    'Then I want it fixed. Tell the editors exactly what is wrong and they give you a reference to hold them to.',
+    'Good catch, if you’re right. I don’t take corrections myself. The editors do, and you get a reference.',
+  ],
+  owner: [
+    'Then you want the business desk, not me. I only do the recommending, and that part is not for sale.',
+    'Yours, is it? The business desk looks after listings. I stay out of it, so my picks stay mine.',
+  ],
+  links: { wrong: 'Report a correction', wrongHere: 'Report a correction to this page', owner: 'For Peninsula businesses', update: 'Update my listing' },
+};
+
 // ── Three Strikes ──────────────────────────────────────────────────────────
 // "Surprise me": one place at a time, three rejections, then her call stands.
 // Every line is about the reader and the game. Blanks: {town}, {kind}, {n},

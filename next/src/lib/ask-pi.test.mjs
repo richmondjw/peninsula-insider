@@ -408,3 +408,28 @@ test('a question about her is not a search: no pages, no tiles, and she answers 
   // A real question that mentions a hat-shaped word is still a question.
   assert.notEqual(converse(index, 'where is good for lunch in Red Hill?', null, { today }).reply.kind, 'help');
 });
+
+test('a wrong page or an owner is handed to the right desk, with no search and no details taken', () => {
+  for (const said of ["that's wrong, it has closed down", 'this listing is out of date', 'the address is wrong', 'I want to report an error']) {
+    const turn = converse(index, said, null, { today });
+    assert.equal(turn.reply.kind, 'support', said);
+    assert.deepEqual(turn.reply.cards, [], said);
+    assert.ok(lines.SUPPORT.wrong.includes(turn.reply.lead), said);
+    assert.equal(turn.reply.links[0].href, '/contact/#correction', said);
+  }
+  for (const said of ['I own this restaurant', "I'm the owner", 'how do I update my listing?', 'add my business']) {
+    const turn = converse(index, said, null, { today });
+    assert.equal(turn.reply.kind, 'support', said);
+    assert.ok(lines.SUPPORT.owner.includes(turn.reply.lead), said);
+    assert.equal(turn.reply.links[0].href, '/partners/', said);
+  }
+  // On a place's page the correction form opens with that page filled in, and nothing the reader typed.
+  const place = index.records.find((record) => record.k === 'eat' && !record.g);
+  const here = converse(index, 'this is wrong', null, { today, pagePath: place.u });
+  assert.ok(here.reply.links[0].href.startsWith('/contact/?page=') && here.reply.links[0].href.endsWith('#correction'));
+  assert.ok(!here.reply.links[0].href.includes('wrong'));
+  // Ordinary questions that use the same words are still questions.
+  for (const said of ['lunch in Red Hill that is not wrong for kids', 'is the Rye Hotel closed on Mondays?', 'which wineries are family run?']) {
+    assert.notEqual(converse(index, said, null, { today }).reply.kind, 'support', said);
+  }
+});

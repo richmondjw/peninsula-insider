@@ -257,6 +257,8 @@ Emitted by `components/PiChat.astro` through `window.piTrack`, so both carry the
 | `ask_feedback` | A reader presses "PI got it wrong" and then one of four buttons. | `action`: `wrong-place`, `missed-point`, `out-of-date` or `not-funny`. `variant`: the kind of reply (`plan`, `results`, `live` and so on). |
 
 | `ask_game` | A reader plays Three Strikes. | `variant`: `strikes`. `action`: `start`, `rejected`, `accepted` or `forced` (her call stood after three rejections). `value`: rejections used so far. |
+| `ask_book` | A reader presses the booking button under one of PI's picks. The button is the one the place's own page prints. | `variant`: the section of the place (`eat`, `wine`, `stay`, `explore`). `action`: `call` (under her call) or `only` (a lone pick). No destination is recorded. |
+| `ask_memory` | A reader answers her "did you go?" on a return visit, or erases what she remembers. | `action`: `loved`, `meh`, `no` or `forget`. The place is not recorded. |
 | `ask_dial` | A reader changes how much of PI they get. | `variant`: `straight`, `pi` or `full`. `action`: how it was changed (`said`, `chip`, `tap`). |
 
 None of these events carries the question, the answer, a town, a venue or any other text a reader typed or was shown, so `ask_feedback` counts which kind of reply disappointed and why and cannot be traced back to what was asked. Separately, since 21 November 2026 the platform keeps one row per conversation turn for the weekly gap report, with no identifiers, for 180 days; the privacy page describes it. Like every event, it reaches GA4 only with consent, and the confirmation a reader sees says so.

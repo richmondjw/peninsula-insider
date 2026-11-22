@@ -20,7 +20,7 @@
 import { ask, card, select, normalise, parseQuestion, questionWords, melbourneDay, sayDay, daySeed, ASK_MAX_LENGTH } from './ask-guide.mjs';
 import {
   REFUSALS, REFUSAL_TOPICS, INTERVIEW, YOU_PICK, PLAN_LEADS, SWAP_LINES, SWAP_ONLY, CRITIQUE, ARGUMENT, NIGHTLIFE,
-  WITH_THIS, CALLBACKS, REACTIONS, NEWSLETTER, PLAN_NOTES, pick, fill, STRIKES, ABOUT_HER,
+  WITH_THIS, CALLBACKS, REACTIONS, NEWSLETTER, PLAN_NOTES, pick, fill, STRIKES, ABOUT_HER, SUPPORT,
 } from './pi-lines.mjs';
 
 // ── Reading a page's own words ─────────────────────────────────────────────
@@ -81,6 +81,8 @@ const GOES_WITH = /\bwhat goes with (?:this|it|here)\b/;
 const NIGHT = /\b(?:night ?life|night out|after dark|late night|cocktails?|bars)\b|\ba bar\b/;
 const FIX = /^fix it for me$/;
 // A question about her. The matcher would otherwise search the guides for "hat" and find a restaurant's chef's hats.
+const SAYS_OWNER = /\b(?:i (?:own|run|manage)|(?:its|this is|thats) (?:my|our) (?:venue|business|restaurant|winery|cafe|pub|place|listing|cellar door|shop|brewery)|im the (?:owner|manager)|were the owners?|(?:claim|update|change|fix|edit|remove) (?:my|our) (?:listing|page|business)|(?:add|list) my business|get (?:my business |us |me )?listed)\b/;
+const SAYS_WRONG = /\b(?:(?:thats|that is|this is|its|it is|youre|you are|(?:the |that |this |your )?(?:listing|page|info|information|address|number|details) (?:is|are)) (?:wrong|incorrect|out of date|outdated|not right)|(?:has|have|is|its|theyve|they have|it) (?:closed down|shut down|permanently closed|closed for good)|no longer (?:open|there|exists?|trading|operating)|report (?:a |an )?(?:error|mistake|problem|correction)|wrong (?:address|phone|number|hours|name|photo|details)|needs? (?:fixing|correcting|updating))\b/;
 const HERSELF = /\b(?:(?:your|the|that) hat|whats with the hat|your notebook|who are you|what are you|what do you (?:actually )?do|are you (?:real|human|an? (?:real |actual )?(?:bot|robot|person|human|machine|ai))|your name)\b/;
 const KIDS = /\b(?:kids?|children|toddlers?|bab(?:y|ies)|little ones?)\b/;
 
@@ -673,6 +675,17 @@ export function converse(index, question, state = null, context = {}) {
     return [MANY_DAYS.test(bare) ? PLAN_NOTES.oneDay : null, flags.price ? pick(REFUSALS.price, daySeed(bare)) : null].filter(Boolean);
   };
 
+  // Support: a page is wrong, or the reader runs the place. She hands over to
+  // the editors' correction form (which gives a reference) or the business
+  // desk, and takes no details herself. Only the page address goes in the link.
+  if (!pi.interview && !pi.await && !pi.strikes && (SAYS_OWNER.test(bare) || SAYS_WRONG.test(bare))) {
+    const owner = SAYS_OWNER.test(bare);
+    const here = typeof context.pagePath === 'string' && index.records.some((record) => record.u === context.pagePath) ? context.pagePath : null;
+    const links = owner
+      ? [{ href: '/partners/', label: SUPPORT.links.owner }, { href: '/contact/#business', label: SUPPORT.links.update }]
+      : [{ href: here ? `/contact/?page=${encodeURIComponent('https://peninsulainsider.com.au' + here)}#correction` : '/contact/#correction', label: here ? SUPPORT.links.wrongHere : SUPPORT.links.wrong }];
+    return finish({ pi, reply: { kind: 'support', mood: owner ? 'wink' : 'think', lead: pick(owner ? SUPPORT.owner : SUPPORT.wrong, daySeed(bare)), notes: [], cards: [], links, chips: [], support: owner ? 'owner' : 'wrong' } });
+  }
   // About her: no pages go with it, so she answers as herself and names nowhere.
   if (HERSELF.test(bare) && !pi.interview && !pi.await && !pi.strikes) {
     return finish({ pi, reply: { kind: 'help', mood: 'wink', lead: pick(ABOUT_HER, daySeed(bare)), notes: [], cards: [], links: [], chips: ['Plan my day', 'Surprise me'] } });

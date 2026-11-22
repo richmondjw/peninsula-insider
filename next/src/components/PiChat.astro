@@ -77,6 +77,7 @@ const starters = SHOW_ASK_PERSONA
         <button type="button" class="pi-chat__dial-opt" data-pi-dial="straight" aria-pressed="false">Straight<span>Just the answer</span></button>
         <button type="button" class="pi-chat__dial-opt" data-pi-dial="pi" aria-pressed="true">PI<span>As she comes</span></button>
         <button type="button" class="pi-chat__dial-opt" data-pi-dial="full" aria-pressed="false">Full hat<span>Let her talk</span></button>
+        <button type="button" class="pi-chat__forget" id="pi-chat-forget">Forget what you know about me</button>
       </div>
       <div class="pi-chat__thread" id="pi-chat-thread" data-lenis-prevent>
         <div class="pi-chat__hello" id="pi-chat-hello">
@@ -85,6 +86,10 @@ const starters = SHOW_ASK_PERSONA
           <p class="pi-chat__hello-body">{SHOW_ASK_PERSONA
             ? "A long lunch, a walk, somewhere to stay, what's on this weekend. Or hand me the whole day and I'll put it in order."
             : "A long lunch, a walk, somewhere to stay, what's on this weekend. Name a town and I'll narrow it."}</p>
+          <div class="pi-chat__here" id="pi-chat-back" hidden>
+            <p class="pi-chat__here-label" id="pi-chat-back-label"></p>
+            <ul class="pi-chat__chips" role="list" id="pi-chat-back-chips" aria-labelledby="pi-chat-back-label"></ul>
+          </div>
           <div class="pi-chat__here" id="pi-chat-here" hidden>
             <p class="pi-chat__here-label" id="pi-chat-here-label"></p>
             <ul class="pi-chat__chips" role="list" id="pi-chat-here-chips" aria-labelledby="pi-chat-here-label"></ul>
@@ -116,8 +121,8 @@ const starters = SHOW_ASK_PERSONA
   import { converse, swapStop, pageOffers, composeRequest, applyCompose, talkPages, cardsFor, hasSubject, declines } from '../lib/ask-pi.mjs';
   import { loadAskIndex } from '../scripts/ask-guide-ui';
 
-  type Place = { href: string; title: string; why: string; section: string; image: string | null; alt: string; credit?: string | null; facts?: [string, string][]; badge?: string | null; note?: string | null };
-  type Card = { href: string; title: string; meta: string; summary?: string; facts: [string, string][]; badge: string | null; image?: string | null; credit?: string | null };
+  type Place = { href: string; title: string; why: string; section: string; image: string | null; alt: string; credit?: string | null; facts?: [string, string][]; badge?: string | null; note?: string | null; book?: { label: string; href: string } | null; line?: string | null };
+  type Card = { href: string; title: string; meta: string; summary?: string; facts: [string, string][]; badge: string | null; image?: string | null; credit?: string | null; book?: { label: string; href: string } | null; line?: string | null };
   type Plan = { title: string; town: string; trip: string | null; stops: { label: string; card: Card; swappable: boolean; line?: string | null }[] };
   type Turn =
     | { role: 'you'; text: string }
@@ -126,7 +131,7 @@ const starters = SHOW_ASK_PERSONA
         strike?: { over: boolean; strikes: number; offers?: number; final?: boolean; line?: string } };
   type PiTurn = Extract<Turn, { role: 'pi' }>;
   const toPlaces = (cards: Card[]): Place[] => cards.map((card) => ({
-    href: card.href, title: card.title, why: card.summary || '', section: card.meta, image: card.image || null, alt: '', credit: card.credit || null, facts: card.facts, badge: card.badge,
+    href: card.href, title: card.title, why: card.summary || '', section: card.meta, image: card.image || null, alt: '', credit: card.credit || null, facts: card.facts, badge: card.badge, book: card.book || null, line: card.line || null,
   }));
   // What she is doing while a reader waits for her note.
   const THINKING = ['Checking my notebook…', 'Reading what our pages say…', 'Making the call…'];
@@ -190,13 +195,33 @@ const starters = SHOW_ASK_PERSONA
     // Where "Surprise me" starts. Different on each visit, so it is not the same town every time.
     const shuffle = Math.floor(Math.random() * 1000);
     // What she has learned about this reader between visits, kept on this device only:
-    // places they told her they have done, and kinds of place they ruled out.
+    // places they told her they have done, kinds of place they ruled out, and the
+    // last place she called for them (a page address and its title, nothing they typed).
     const LEDGER = 'pi-ledger';
-    const ledger = (): { done: string[]; noKinds: string[]; caught?: boolean } => { try { return { done: [], noKinds: [], ...JSON.parse(store.get(localStorage, LEDGER) || '{}') }; } catch { return { done: [], noKinds: [] }; } };
-    const learn = (patch: Partial<{ done: string[]; noKinds: string[]; caught: boolean }>) => {
+    type Last = { u: string; t: string };
+    type Ledger = { done: string[]; noKinds: string[]; caught?: boolean; last?: Last | null };
+    const ledger = (): Ledger => { try { return { done: [], noKinds: [], ...JSON.parse(store.get(localStorage, LEDGER) || '{}') }; } catch { return { done: [], noKinds: [] }; } };
+    const learn = (patch: Partial<Ledger>) => {
       const was = ledger();
-      store.set(localStorage, LEDGER, JSON.stringify({ done: [...new Set([...was.done, ...(patch.done || [])])].slice(-60), noKinds: patch.noKinds ? patch.noKinds.slice(0, 2) : was.noKinds, caught: patch.caught ?? was.caught }));
+      store.set(localStorage, LEDGER, JSON.stringify({ done: [...new Set([...was.done, ...(patch.done || [])])].slice(-60), noKinds: patch.noKinds ? patch.noKinds.slice(0, 2) : was.noKinds, caught: patch.caught ?? was.caught, last: patch.last === undefined ? was.last || null : patch.last }));
     };
+    // The call she made on an earlier visit. Read once, so a call made in this visit is not "last time".
+    const seenLast = ledger().last;
+    let back: Last | null = seenLast && typeof seenLast.u === 'string' && typeof seenLast.t === 'string' ? seenLast : null;
+    const BACK = {
+      label: (place: string) => `Back again. Last time I sent you to ${place}. Did you go?`,
+      loved: 'Went. Loved it',
+      meh: 'Went. Not for me',
+      no: 'Didn’t go',
+      forget: 'Forget me',
+      say: {
+        loved: 'Of course you did. That one comes off your list, and the next one is on me.',
+        meh: 'Noted, and not held against you. I won’t send you back.',
+        no: 'Then it’s still waiting for you. So am I.',
+        forgot: 'Gone. Clean page, and I never saw you.',
+      },
+    };
+    const SAY_FORGET = /^forget (?:me|everything|all of it|what you know(?: about me)?)[.!]?$/i;
     const matchGuides = (index: any, q: string, state: any, context: Record<string, unknown>): any => converse(index, q, state, { ...context, persona: personaOn, shuffle, done: ledger().done, noKinds: ledger().noKinds });
 
     /* ---------- the dial ---------- */
@@ -231,6 +256,48 @@ const starters = SHOW_ASK_PERSONA
       dialBox.hidden = true;
       dialOpen.setAttribute('aria-expanded', 'false');
       say(DIAL_LINE[dial]);
+    });
+    const backBox = document.getElementById('pi-chat-back') as HTMLElement;
+    function showBack() {
+      backBox.hidden = !(back && personaOn);
+      if (backBox.hidden || !back) return;
+      document.getElementById('pi-chat-back-label')!.textContent = BACK.label(back.t);
+      document.getElementById('pi-chat-back-chips')!.replaceChildren(...[BACK.loved, BACK.meh, BACK.no, BACK.forget].map((q) => {
+        const li = el('li');
+        const b = el('button', 'pi-chat__chip', q) as HTMLButtonElement;
+        b.type = 'button';
+        b.dataset.piQ = q;
+        li.append(b);
+        return li;
+      }));
+    }
+    function forget() {
+      store.del(localStorage, LEDGER);
+      store.del(localStorage, DIAL);
+      back = null;
+      setDial('pi', 'forget');
+      showBack();
+      track('ask_memory', { action: 'forget' });
+    }
+    /** A message that is only about what she remembers is answered by her own line. */
+    function memoryReply(q: string): string | null {
+      const said = q.trim();
+      if (SAY_FORGET.test(said)) { forget(); return BACK.say.forgot; }
+      if (!back) return null;
+      const which = said === BACK.loved ? 'loved' : said === BACK.meh ? 'meh' : said === BACK.no ? 'no' : null;
+      if (!which) return null;
+      learn({ done: which === 'no' ? [] : [back.u], last: null });
+      back = null;
+      showBack();
+      track('ask_memory', { action: which });
+      return BACK.say[which];
+    }
+    showBack();
+    document.getElementById('pi-chat-forget')!.addEventListener('click', () => {
+      forget();
+      dialBox.hidden = true;
+      dialOpen.setAttribute('aria-expanded', 'false');
+      say(BACK.say.forgot);
     });
 
     /* ---------- her two gestures ---------- */
@@ -448,7 +515,9 @@ const starters = SHOW_ASK_PERSONA
         if (place.section) body.append(el('span', 'pi-tile__section', place.section));
         body.append(el('span', 'pi-tile__title', place.title));
         if (place.badge) body.append(el('strong', 'pi-tile__badge', place.badge));
+        // What she says about it: her checked note for this reply, or else the line its page prints.
         if (place.note) body.append(el('span', 'pi-tile__note', place.note));
+        else if (place.line && (called || ordered.length === 1)) body.append(el('span', 'pi-tile__note', place.line));
         for (const [label, value] of place.facts ?? []) body.append(el('span', 'pi-tile__fact', `${label}: ${value}`));
         if (place.why) body.append(el('span', 'pi-tile__why', place.why));
         if (place.image) {
@@ -472,6 +541,17 @@ const starters = SHOW_ASK_PERSONA
           a.append(body);
         }
         li.append(a);
+        // Under her call, or a lone pick: the booking button that place's own page prints.
+        if (place.book && (called || ordered.length === 1)) {
+          const row = el('span', 'pi-tile__book');
+          const go = el('a', 'pi-tile__book-go', `${place.book.label} ↗`) as HTMLAnchorElement;
+          go.href = place.book.href;
+          go.target = '_blank';
+          go.rel = 'noopener noreferrer';
+          go.addEventListener('click', () => track('ask_book', { variant: place.href.split('/').filter(Boolean)[0] || 'place', action: called ? 'call' : 'only' }));
+          row.append(go, el('span', 'pi-tile__book-note', 'Their own booking page. Opens in a new tab.'));
+          li.append(row);
+        }
         list.append(li);
       }
       return list;
@@ -739,8 +819,8 @@ const starters = SHOW_ASK_PERSONA
     }
 
     /** A line of hers that answers nothing: a setting confirmed. No model, no page. */
-    function say(text: string) {
-      const turn: PiTurn = { role: 'pi', text, places: [], next: [], kind: 'interview' };
+    function say(text: string, next: string[] = []) {
+      const turn: PiTurn = { role: 'pi', text, places: [], next, kind: 'interview' };
       turns.push(turn);
       save();
       const node = piNode(turn);
@@ -765,6 +845,8 @@ const starters = SHOW_ASK_PERSONA
       save();
       render();
       log.lastElementChild?.classList.add('is-new');
+      const memo = memoryReply(q);
+      if (memo) { say(memo, ['Plan my day', 'Surprise me']); return; }
       // A message that is only about how she talks changes the dial and is answered by her own line.
       const cue: Dial | null = SAY_PI.test(q) ? 'pi' : SAY_FULL.test(q.trim()) && !engine?.pi?.strikes ? 'full' : SAY_STRAIGHT.test(q) ? 'straight' : null;
       if (cue) {
@@ -928,6 +1010,9 @@ const starters = SHOW_ASK_PERSONA
 
         turns.push(turn);
         save();
+        // Her call is what she asks about next visit.
+        const calledPlace = turn.call ? places.find((place) => place.href === turn.call) : null;
+        if (calledPlace) learn({ last: { u: calledPlace.href, t: calledPlace.title } });
         // Only the plan the engine holds can be swapped. When that changes,
         // redraw the thread so an older plan's buttons go.
         const redraw = Boolean(reply.plan) || (hadPlan && !engine?.pi?.plan);
@@ -1392,6 +1477,12 @@ const starters = SHOW_ASK_PERSONA
   .pi-tile--text .pi-tile__why { -webkit-line-clamp: 3; }
   .pi-tile__credit { margin-top: 2px; color: var(--soft); font: 400 0.6875rem/1.3 var(--font-ui); overflow-wrap: anywhere; }
   .pi-tile__badge { justify-self: start; padding: 1px var(--space-2); border: 1px solid currentColor; border-radius: var(--radius-s); color: var(--pi-terracotta); font: 600 var(--fs-200)/1.4 var(--font-ui); }
+  .pi-chat__forget { grid-column: 1 / -1; justify-self: center; min-height: 44px; padding: 0 var(--space-3); border: 0; background: none; color: var(--soft); font: 400 var(--fs-200)/1.3 var(--font-ui); text-decoration: underline; text-underline-offset: .2em; cursor: pointer; }
+  .pi-tile__book { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); margin-top: var(--space-2); }
+  .pi-tile__book-go { display: inline-flex; align-items: center; min-height: 44px; padding: 0 var(--space-4); border-radius: 999px; background: var(--text); color: var(--bg); font: 600 var(--fs-300)/1 var(--font-ui); text-decoration: none; }
+  .pi-tile__book-go:focus-visible { outline: 2px solid var(--pi-terracotta); outline-offset: 2px; }
+  .pi-tile__book-note { color: var(--soft); font: 400 var(--fs-200)/1.3 var(--font-ui); }
+  @media (hover: hover) { .pi-tile__book-go:hover { background: var(--accent); } }
   /* Her call */
   .pi-tile--call { grid-template-columns: minmax(0, 1fr); gap: 0; padding: 0; overflow: hidden; border-color: color-mix(in srgb, var(--pi-terracotta) 55%, var(--border)); }
   .pi-tile--call .pi-tile__media { aspect-ratio: 16 / 9; border-radius: 0; }
