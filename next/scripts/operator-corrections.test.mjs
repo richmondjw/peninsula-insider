@@ -53,12 +53,17 @@ test('Red Gum Red Hill contact, map pin and opening days match operator evidence
 });
 
 
-test('November Pitmaster session keeps Saturday and uses the dated seller time and ticket source', () => {
+test('Archived November Pitmaster session retains the dated seller time and ticket source', () => {
   const e=JSON.parse(read('content/events/pitmaster-masterclass-at-red-gum-bbq-2026-11-21.json'));
   assert.equal(e.eventId,'MP-EVT-0152');
   assert.equal(e.startDate,'2026-11-21');assert.equal(e.startTime,'10:30');assert.equal(e.endTime,'13:00');
   for(const field of ['bookingUrl','officialEventUrl','primarySourceUrl','sourceUrl']) assert.equal(e[field],'https://www.sevenrooms.com/events/redgumbbq');
-  assert.notEqual(e.cancelled,true);assert.notEqual(e.postponed,true);assert.notEqual(e.status,'archived');
+  // This dated session has ended. Archiving preserves its correction history;
+  // it must not be republished merely to satisfy an operator-fact regression.
+  assert.equal(e.status,'archived');
+  assert.equal(e.venueName,'Red Gum BBQ');assert.equal(e.suburb,'Red Hill');
+  assert.equal(e.recurrence,'one-off');
+  assert.notEqual(e.cancelled,true);assert.notEqual(e.postponed,true);
   assert.ok(!e.bookingStatus || e.bookingStatus==='unknown');
   assert.match(e.editorNote,/current availability before booking/);
 });
