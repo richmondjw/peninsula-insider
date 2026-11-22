@@ -667,16 +667,6 @@ Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery p
 
 - [Sun, 22 Nov
 
-### ✦ National Works on Paper 2026 (NWOP)
-
-Mornington
-
-National Works on Paper 2026 is MPRG's survey of contemporary Australian art made on and with paper. Visit 5 September to 22 November, Tuesday to Sunday, 11am to 4pm; the gallery is closed Mondays.
-
- Event · Exhibitions](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
-
-- [Sun, 22 Nov
-
 ### Tiana V Live at Peninsula Beer Garden
 
 Boneo
@@ -684,3 +674,13 @@ Boneo
 Enjoy live music at Peninsula Beer Garden! Join the cool vibes and coastal tunes from Tiana V, a Mornington Peninsula based singer & guitarist who started out when she was only 8 years old.
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/tiana-v-live-at-peninsula-beer-garden-2026-11-22/>)
+
+- [Wed, 25 Nov
+
+### Improv Comedy Show at The Bay Hotel Mornington
+
+Mornington
+
+Come and finish the year out with our last student showcase of comedy! Before the silly season gets you too busy, relax UPSTAIRS at the Bay Hotel in Mornington for a totally made up improv comedy show.
+
+ Event · Arts](<https://peninsulainsider.com.au/whats-on/improv-comedy-show-at-the-bay-hotel-mornington-2026-11-25/>)

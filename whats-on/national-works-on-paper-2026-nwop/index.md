@@ -11,8 +11,6 @@ Event     Exhibitions     5 September – 22 November 2026     Recurs weekly
 
 National Works on Paper 2026 is MPRG's survey of contemporary Australian art made on and with paper. Visit 5 September to 22 November, Tuesday to Sunday, 11am to 4pm; the gallery is closed Mondays.
 
-[Check exhibition details](<https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026>)
-
 Mornington Peninsula Regional Gallery, Mornington  Photo · pru\_mitchell [CC BY 2.0](<https://creativecommons.org/licenses/by/2.0/>)[Image source](<https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_Regional_Gallery.jpg>) Converted from JPEG to WebP and resized for this site.
 
 Editor's verdict
@@ -63,7 +61,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Check exhibition details](<https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026>)
+Booking and calendar links are withdrawn; this session has finished.
 
 Filed under
 

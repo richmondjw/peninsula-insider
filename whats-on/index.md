@@ -13,16 +13,6 @@ Find the date, place and reason to go, then check with the organiser before you 
 
 ## Reasons to go
 
-- Mornington Peninsula Regional Gallery, Mornington   Photo: pru\_mitchell / Wikimedia Commons, CC BY 2.0.
-
-Sun, 22 Nov · 11am–4pm · Mornington
-
-### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
-
-Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
-
-Exhibitions
-
 - Sun, 22 Nov · 3pm–6pm · Mornington
 
 ### [Audio Replica Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/audio-replica-live-at-tar-barrel-2026-11-22/>)

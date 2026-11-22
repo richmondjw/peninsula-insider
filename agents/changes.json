@@ -1,11 +1,68 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-22T05:02:14.718Z",
+  "generatedAt": "2026-11-22T05:44:21.855Z",
   "baselineAvailable": true,
   "fromSnapshot": "97b6ac430ee57927f6acbe00b80e3b034aa2f07dffe7ec8dacbbb3cef6d06716",
-  "toSnapshot": "97b6ac430ee57927f6acbe00b80e3b034aa2f07dffe7ec8dacbbb3cef6d06716",
-  "previousGeneratedAt": "2026-11-22T04:27:08.296Z",
+  "toSnapshot": "2708439f9dca4361f171b6114cf9b912de8a21fb195e1377e05e9869cfa9b830",
+  "previousGeneratedAt": "2026-11-22T05:02:14.718Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 0,
-  "changes": []
+  "count": 7,
+  "changes": [
+    {
+      "id": "https://peninsulainsider.com.au/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/",
+      "markdownUrl": "https://peninsulainsider.com.au/index.md",
+      "contentSha256": "5ed3ca00c722216199d5d0a88cbd49de1a055fd79266f223d537f2e94e4c3c13",
+      "previousContentSha256": "71ec52f4ea0c24210ee65a7952a0c4325fa90a34077688fb1072211397e883fb"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
+      "contentSha256": "0aff28d12a73549a0cf2ba17c0d4e1c38411ba8a4da65a9c1463c29c296c4cd9",
+      "previousContentSha256": "b0bf939900988b542393d288f9f3b27fabb145163accffd908f57be4a253fb64"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/index.md",
+      "contentSha256": "74ba42acb01e6feb9ab4a5bd02b46af50c5c7679087a2c0cd946711fb69e8868",
+      "previousContentSha256": "664adceffd5fac57bf2b1b8c59012f43ddb4f4f37908762ca9eea4d656839781"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/index.md",
+      "contentSha256": "44253fd4a5553aa9e519bef9de27bab31d7ca10c0b7f0d85124ce21e295fc171",
+      "previousContentSha256": "939678c4542be46a2b76ef73f19f8739b578ed3d2d5ff660a503115ac363d17d"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/summer-school-holidays-2026/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/summer-school-holidays-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/summer-school-holidays-2026/index.md",
+      "contentSha256": "a73fcf5e14313c5e3741c609d8f461ffc5e43b6e25c1fa39c2529cdd8ba52c69",
+      "previousContentSha256": "05ff28aeecc46145e19e91f56f056e02a2453da0363bcabfbda9acafd386bb7c"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
+      "contentSha256": "3b991d1f6630f7bec6c192a6eeabf4e1baa4bec26ba12ce068b5571744fac27c",
+      "previousContentSha256": "2131361acaca6103c9cc7572816a3e4f2fd2ed22cb65c70d0dc187d85a6e074f"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/index.md",
+      "contentSha256": "3f713f056a28ff694dfc6c0509326fd976256e4873c28951256db06c0ac7fc38",
+      "previousContentSha256": "7df109d6b3f778076a4c94f43a1643e033e1adff5ac9b895e6fa87b18c9e95bc"
+    }
+  ]
 }

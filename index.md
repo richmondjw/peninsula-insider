@@ -75,17 +75,9 @@ Merricks
 
  [See all events](<https://peninsulainsider.com.au/whats-on/>)
 
+More ways to plan: the discovery links below are not dated event picks.
+
 Swipe or scroll through the picks
-
-- Mornington Peninsula Regional Gallery, Mornington   Photo: Robert Blackburn, courtesy of Visit Victoria.
-
-### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
-
-Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
-
-Sun, 22 Nov   Mornington Peninsula Regional Gallery   Tuesday to Sunday, 11am to 4pm
-
-Event details checked 16 Nov 2026 · [Organiser’s page](<https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026>)
 
 - ### [Audio Replica Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/audio-replica-live-at-tar-barrel-2026-11-22/>)
 
@@ -102,6 +94,12 @@ Enjoy live music at Peninsula Beer Garden!
 Sun, 22 Nov   Peninsula Beer Garden   Live music
 
 Event details checked 9 Nov 2026 · [Organiser’s page](<https://peninsulabeergarden.com.au/live-music/>)
+
+- Explore more
+
+### [Browse the events calendar](<https://peninsulainsider.com.au/whats-on/>)
+
+Choose your dates and check the latest event details.
 
 This season · Spring
 

@@ -308,13 +308,3 @@ Mornington
 Join Mornington Peninsula Regional Gallery for the launch of two summer exhibitions on Saturday 5 December. Acting director Julie McLaren introduces work by Gareth Sansom and Warren Cooke from 2pm to 4pm.
 
  Event · Arts](<https://peninsulainsider.com.au/whats-on/mprg-summer-exhibitions-launch-2026/>)
-
-- [Sun, 22 Nov
-
-### ✦ National Works on Paper 2026 (NWOP)
-
-Mornington
-
-National Works on Paper 2026 is MPRG's survey of contemporary Australian art made on and with paper. Visit 5 September to 22 November, Tuesday to Sunday, 11am to 4pm; the gallery is closed Mondays.
-
- Event · Exhibitions](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)

@@ -1,7 +1,7 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-11-22T05:02:14.718Z",
-  "snapshotId": "97b6ac430ee57927f6acbe00b80e3b034aa2f07dffe7ec8dacbbb3cef6d06716",
+  "generatedAt": "2026-11-22T05:44:21.855Z",
+  "snapshotId": "2708439f9dca4361f171b6114cf9b912de8a21fb195e1377e05e9869cfa9b830",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
@@ -13,7 +13,7 @@
       "section": "home",
       "canonicalUrl": "https://peninsulainsider.com.au/",
       "markdownUrl": "https://peninsulainsider.com.au/index.md",
-      "contentSha256": "71ec52f4ea0c24210ee65a7952a0c4325fa90a34077688fb1072211397e883fb",
+      "contentSha256": "5ed3ca00c722216199d5d0a88cbd49de1a055fd79266f223d537f2e94e4c3c13",
       "citation": {
         "title": "Make a day of the Peninsula.",
         "publisher": "Peninsula Insider",
@@ -21,8 +21,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 187964,
-      "markdownBytes": 7690
+      "htmlBytes": 176731,
+      "markdownBytes": 7338
     },
     {
       "id": "https://peninsulainsider.com.au/about/",
@@ -4467,7 +4467,7 @@
       "section": "journal",
       "canonicalUrl": "https://peninsulainsider.com.au/journal/",
       "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
-      "contentSha256": "b0bf939900988b542393d288f9f3b27fabb145163accffd908f57be4a253fb64",
+      "contentSha256": "0aff28d12a73549a0cf2ba17c0d4e1c38411ba8a4da65a9c1463c29c296c4cd9",
       "citation": {
         "title": "Devilbend Farm Beer Co: a brewery on a working farm",
         "publisher": "Peninsula Insider",
@@ -4475,8 +4475,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 240676,
-      "markdownBytes": 19643
+      "htmlBytes": 236882,
+      "markdownBytes": 19671
     },
     {
       "id": "https://peninsulainsider.com.au/journal/a-flinders-weekend/",
@@ -4807,7 +4807,7 @@
       "section": "journal",
       "canonicalUrl": "https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/",
       "markdownUrl": "https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/index.md",
-      "contentSha256": "664adceffd5fac57bf2b1b8c59012f43ddb4f4f37908762ca9eea4d656839781",
+      "contentSha256": "74ba42acb01e6feb9ab4a5bd02b46af50c5c7679087a2c0cd946711fb69e8868",
       "citation": {
         "title": "Date Night on the Mornington Peninsula: Where to Book for Two",
         "publisher": "Peninsula Insider",
@@ -4815,8 +4815,8 @@
         "publishedAt": "2026-11-10T00:00:00.000Z",
         "modifiedAt": "2026-11-10T00:00:00.000Z"
       },
-      "htmlBytes": 200400,
-      "markdownBytes": 12872
+      "htmlBytes": 192918,
+      "markdownBytes": 12497
     },
     {
       "id": "https://peninsulainsider.com.au/journal/devilbend-farm-beer-co/",
@@ -6660,7 +6660,7 @@
       "section": "journal",
       "canonicalUrl": "https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/",
       "markdownUrl": "https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/index.md",
-      "contentSha256": "939678c4542be46a2b76ef73f19f8739b578ed3d2d5ff660a503115ac363d17d",
+      "contentSha256": "44253fd4a5553aa9e519bef9de27bab31d7ca10c0b7f0d85124ce21e295fc171",
       "citation": {
         "title": "The Mornington Peninsula in Summer: How to Do It Well",
         "publisher": "Peninsula Insider",
@@ -6668,8 +6668,8 @@
         "publishedAt": "2026-11-10T00:00:00.000Z",
         "modifiedAt": "2026-11-10T00:00:00.000Z"
       },
-      "htmlBytes": 234164,
-      "markdownBytes": 21407
+      "htmlBytes": 226682,
+      "markdownBytes": 21032
     },
     {
       "id": "https://peninsulainsider.com.au/journal/mornington-peninsula-in-winter/",
@@ -6915,7 +6915,7 @@
       "section": "journal",
       "canonicalUrl": "https://peninsulainsider.com.au/journal/summer-school-holidays-2026/",
       "markdownUrl": "https://peninsulainsider.com.au/journal/summer-school-holidays-2026/index.md",
-      "contentSha256": "05ff28aeecc46145e19e91f56f056e02a2453da0363bcabfbda9acafd386bb7c",
+      "contentSha256": "a73fcf5e14313c5e3741c609d8f461ffc5e43b6e25c1fa39c2529cdd8ba52c69",
       "citation": {
         "title": "Summer School Holidays on the Mornington Peninsula, 2026-27",
         "publisher": "Peninsula Insider",
@@ -6923,8 +6923,8 @@
         "publishedAt": "2026-11-10T00:00:00.000Z",
         "modifiedAt": "2026-11-10T00:00:00.000Z"
       },
-      "htmlBytes": 232810,
-      "markdownBytes": 20261
+      "htmlBytes": 225328,
+      "markdownBytes": 19886
     },
     {
       "id": "https://peninsulainsider.com.au/journal/the-briars/",
@@ -9329,7 +9329,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "2131361acaca6103c9cc7572816a3e4f2fd2ed22cb65c70d0dc187d85a6e074f",
+      "contentSha256": "3b991d1f6630f7bec6c192a6eeabf4e1baa4bec26ba12ce068b5571744fac27c",
       "citation": {
         "title": "What's on this weekend",
         "publisher": "Peninsula Insider",
@@ -9337,8 +9337,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-11-22"
       },
-      "htmlBytes": 148090,
-      "markdownBytes": 2677
+      "htmlBytes": 143616,
+      "markdownBytes": 2289
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
@@ -10026,7 +10026,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/index.md",
-      "contentSha256": "7df109d6b3f778076a4c94f43a1643e033e1adff5ac9b895e6fa87b18c9e95bc",
+      "contentSha256": "3f713f056a28ff694dfc6c0509326fd976256e4873c28951256db06c0ac7fc38",
       "citation": {
         "title": "National Works on Paper 2026 (NWOP)",
         "publisher": "Peninsula Insider",
@@ -10034,8 +10034,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 147240,
-      "markdownBytes": 5002
+      "htmlBytes": 146486,
+      "markdownBytes": 4824
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/new-year-s-day-at-mornington-racecourse-2027-01-01/",
