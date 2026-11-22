@@ -433,3 +433,43 @@ test('a wrong page or an owner is handed to the right desk, with no search and n
     assert.notEqual(converse(index, said, null, { today }).reply.kind, 'support', said);
   }
 });
+
+test('the Tie-breaker: three kinds on the table, a vote each, and she counts', () => {
+  const open = converse(index, 'Put it to a vote', null, { today });
+  assert.equal(open.reply.kind, 'vote');
+  assert.equal(open.reply.cards.length, 3);
+  assert.equal(new Set(open.reply.cards.map((item) => item.href.split('/')[1])).size, 3, 'one of each kind');
+  assert.deepEqual(open.reply.notes, [lines.TIEBREAK.rule]);
+  const [a, b] = open.reply.chips;
+  let turn = converse(index, a, open.state, { today });
+  assert.equal(turn.reply.vote.total, 1);
+  assert.deepEqual(turn.reply.cards, [], 'a vote does not repeat the tiles');
+  turn = converse(index, a, turn.state, { today });
+  turn = converse(index, b, turn.state, { today });
+  assert.equal(turn.reply.vote.total, 3);
+  const counted = converse(index, lines.TIEBREAK.chips.count, turn.state, { today });
+  assert.equal(counted.reply.vote.over, true);
+  assert.equal(counted.reply.cards.length, 1);
+  assert.equal(counted.reply.cards[0].title, a, 'two votes beat one');
+  assert.ok(counted.reply.lead.includes(a) && counted.reply.lead.includes('2 to 1 to 0'));
+  assert.ok(!counted.state.pi.vote, 'the vote is closed');
+});
+
+test('the Tie-breaker: a tie or no votes is her call, and a real question leaves the vote', () => {
+  const open = converse(index, 'tie breaker in Red Hill', null, { today });
+  assert.equal(open.reply.kind, 'vote');
+  const [a, b] = open.reply.chips;
+  let turn = converse(index, a, open.state, { today });
+  turn = converse(index, b, turn.state, { today });
+  const tied = converse(index, 'count them', turn.state, { today });
+  assert.equal(tied.reply.vote.tied, true);
+  assert.ok([a, b].includes(tied.reply.cards[0].title), 'she picks one of the leaders');
+  const none = converse(index, 'count the votes', open.state, { today });
+  assert.equal(none.reply.vote.over, true);
+  assert.equal(none.reply.cards.length, 1);
+  const left = converse(index, 'where is good for lunch in Sorrento?', open.state, { today });
+  assert.notEqual(left.reply.kind, 'vote');
+  assert.ok(!left.state.pi.vote);
+  // Ordinary questions that mention deciding are not a vote.
+  assert.notEqual(converse(index, "we can't decide between a winery lunch and a pub in Flinders for six people", null, { today }).reply.kind, 'vote');
+});

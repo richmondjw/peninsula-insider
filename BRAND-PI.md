@@ -210,6 +210,7 @@ Keep PI scoped to interactive / conversational surfaces. Editorial pieces stay b
 - **Booking button.** Under her call, or a lone pick, the chat shows the booking button that place's own page prints, with the same label and address. The site has no paid arrangement with any venue. A page that carries a commercial disclosure gives the chat no button.
 - **Memory between visits.** Kept in the reader's browser only: the last place she called, places they said they have done, kinds they ruled out, and how they like her to talk. She asks "Did you go?" on the next visit. "Forget me" erases it. It is on by default and disclosed on the privacy page; it is not opt-in.
 - **Support.** Told a page is wrong, she hands over to the editors' correction form, which gives a reference. Told the reader runs the place, she hands over to the business desk. She takes no details herself.
+- **The Tie-breaker.** "Put it to a vote": three places, one of each kind, on one phone passed around the group. One vote each, she counts, and a tie is hers to break. No model; her lines are authored. Votes are not shared between phones.
 - **Weekly venue re-check.** `next/scripts/venue-recheck.mjs` reads each open venue's own website and reports where it disagrees with our record. It changes nothing.
 
 ## Open creative directions

@@ -171,6 +171,28 @@ export const SUPPORT = {
   links: { wrong: 'Report a correction', wrongHere: 'Report a correction to this page', owner: 'For Peninsula businesses', update: 'Update my listing' },
 };
 
+// ── The Tie-breaker ────────────────────────────────────────────────────────
+// A group that cannot agree passes one phone around. Three places, one vote
+// each, and she counts. A tie is hers to break. Blanks: {place}, {n}, {score}.
+export const TIEBREAK = {
+  rule: 'Pass the phone. One vote each, no campaigning. Tell me when everyone has voted and I count.',
+  open: [
+    'A group that can’t agree. My favourite kind. Three on the table.',
+    'Democracy, then. It rarely works, but let’s watch. Three on the table.',
+  ],
+  openTown: 'Three in {town}, so nobody can complain about the drive.',
+  voted: [
+    'One for {place}. Next voter.',
+    '{place} gets a vote. Pass it on.',
+    'Noted, {place}. Who’s next?',
+  ],
+  won: '{place}, {score}. The losers may sulk in the car.',
+  unanimous: '{place}, and nobody argued. I don’t believe you needed me.',
+  tied: 'A tie, {score}. So it’s my call, which is how I like it. {place}.',
+  none: 'Nobody voted. Typical. My call, then: {place}.',
+  chips: { count: 'Count the votes', again: 'Vote again' },
+};
+
 // ── Three Strikes ──────────────────────────────────────────────────────────
 // "Surprise me": one place at a time, three rejections, then her call stands.
 // Every line is about the reader and the game. Blanks: {town}, {kind}, {n},

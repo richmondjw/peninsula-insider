@@ -256,7 +256,7 @@ Emitted by `components/PiChat.astro` through `window.piTrack`, so both carry the
 | `ask_plan` | PI shows a plan (`action: shown`, `variant`: number of stops), a reader swaps a stop (`action: swap`, `position`: which stop) or shares the plan (`action: share`). | `action`, `variant`, `position` |
 | `ask_feedback` | A reader presses "PI got it wrong" and then one of four buttons. | `action`: `wrong-place`, `missed-point`, `out-of-date` or `not-funny`. `variant`: the kind of reply (`plan`, `results`, `live` and so on). |
 
-| `ask_game` | A reader plays Three Strikes. | `variant`: `strikes`. `action`: `start`, `rejected`, `accepted` or `forced` (her call stood after three rejections). `value`: rejections used so far. |
+| `ask_game` | A reader plays Three Strikes or the Tie-breaker. | `variant`: `strikes` or `tiebreak`. For `strikes`, `action`: `start`, `rejected`, `accepted` or `forced` (her call stood after three rejections) and `value`: rejections used so far. For `tiebreak`, `action`: `start`, `counted` or `tied` (she broke the tie) and `value`: votes cast. Which place won is not recorded. |
 | `ask_book` | A reader presses the booking button under one of PI's picks. The button is the one the place's own page prints. | `variant`: the section of the place (`eat`, `wine`, `stay`, `explore`). `action`: `call` (under her call) or `only` (a lone pick). No destination is recorded. |
 | `ask_memory` | A reader answers her "did you go?" on a return visit, or erases what she remembers. | `action`: `loved`, `meh`, `no` or `forget`. The place is not recorded. |
 | `ask_dial` | A reader changes how much of PI they get. | `variant`: `straight`, `pi` or `full`. `action`: how it was changed (`said`, `chip`, `tap`). |

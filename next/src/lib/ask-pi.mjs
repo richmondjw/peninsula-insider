@@ -20,7 +20,7 @@
 import { ask, card, select, normalise, parseQuestion, questionWords, melbourneDay, sayDay, daySeed, ASK_MAX_LENGTH } from './ask-guide.mjs';
 import {
   REFUSALS, REFUSAL_TOPICS, INTERVIEW, YOU_PICK, PLAN_LEADS, SWAP_LINES, SWAP_ONLY, CRITIQUE, ARGUMENT, NIGHTLIFE,
-  WITH_THIS, CALLBACKS, REACTIONS, NEWSLETTER, PLAN_NOTES, pick, fill, STRIKES, ABOUT_HER, SUPPORT,
+  WITH_THIS, CALLBACKS, REACTIONS, NEWSLETTER, PLAN_NOTES, pick, fill, STRIKES, ABOUT_HER, SUPPORT, TIEBREAK,
 } from './pi-lines.mjs';
 
 // ── Reading a page's own words ─────────────────────────────────────────────
@@ -481,6 +481,69 @@ function strikeTurn(index, pi, bare, context, start) {
   };
 }
 
+// ── The Tie-breaker ────────────────────────────────────────────────────────
+// A group passes one phone around: three places, one of each kind, a vote
+// each, and she counts. No model. The tiles are the pages' own words.
+const TIE_START = /\b(?:tie ?breaker|group vote|take a vote|put it to (?:a|the) vote|lets vote|vote on it)\b/;
+const TIE_STUCK = /^(?:we )?(?:cant|cannot) (?:decide|agree)\b/;
+const TIE_COUNT = /^(?:count (?:them|it|up|the votes)|thats everyone|everyones voted|everyone has voted|tally)\b/;
+export const startsVote = (bare) => TIE_START.test(bare) || (TIE_STUCK.test(bare) && bare.split(' ').length <= 6) || bare === normalise(TIEBREAK.chips.again);
+
+function tieOptions(index, seed, context, town) {
+  const done = new Set(context.done || []);
+  const all = index.records.filter((record) => isStop(record) && !done.has(record.u));
+  const local = town ? all.filter((record) => record.p === town) : [];
+  // One of each kind, so the vote is a real choice. A named town is kept only if it can offer all three.
+  const pool = ['eat', 'wine', 'do'].every((kind) => local.some((record) => record.k === kind)) ? local : all;
+  // One number per place: whether its page has a picture, then the chat's shuffle. Nothing commercial is read.
+  const first = (kind) => pool.filter((record) => record.k === kind)
+    .map((record) => ({ record, rank: (record.im ? 0 : 1e10) + daySeed(seed + record.u) }))
+    .sort((a, b) => a.rank - b.rank)[0]?.record;
+  return { options: ['eat', 'wine', 'do'].map(first).filter(Boolean), local: pool === local && local.length > 0 };
+}
+
+function tieTurn(index, pi, asked, bare, context, start) {
+  const seed = `${context.today}:${Number.isInteger(context.shuffle) ? context.shuffle : 0}:${pi.salt || 0}:vote:`;
+  if (start) {
+    const town = parseQuestion(asked, index, context).place?.slug || null;
+    const { options, local } = tieOptions(index, seed, context, town);
+    if (options.length < 3) return null;
+    const lead = local ? fill(TIEBREAK.openTown, { town: placeName(index, town) }) : pick(TIEBREAK.open, daySeed(seed));
+    return {
+      pi: { ...pi, vote: { options: options.map((record) => ({ u: record.u, t: record.t })), tally: [0, 0, 0] }, strikes: undefined, plan: undefined, interview: undefined, salt: (pi.salt || 0) + 1 },
+      reply: { kind: 'vote', mood: 'wink', lead, notes: [TIEBREAK.rule], cards: options.map(card), links: [], chips: [...options.map((record) => record.t), TIEBREAK.chips.count], vote: { over: false, total: 0 } },
+    };
+  }
+  const game = { options: pi.vote.options, tally: [...pi.vote.tally] };
+  const chips = [...game.options.map((option) => option.t), TIEBREAK.chips.count];
+  const at = game.options.findIndex((option) => bare === normalise(option.t) || (bare.length >= 4 && normalise(option.t).includes(bare)) || bare.includes(normalise(option.t)));
+  const total = () => game.tally.reduce((sum, n) => sum + n, 0);
+  if (at >= 0) {
+    game.tally[at] += 1;
+    return {
+      pi: { ...pi, vote: game },
+      reply: { kind: 'vote', mood: 'think', lead: fill(pick(TIEBREAK.voted, daySeed(seed + total())), { place: game.options[at].t }), notes: [], cards: [], links: [], chips, vote: { over: false, total: total() } },
+    };
+  }
+  if (!TIE_COUNT.test(bare) && bare !== normalise(TIEBREAK.chips.count)) return null;
+  const top = Math.max(...game.tally);
+  const leaders = game.tally.map((n, i) => (n === top ? i : -1)).filter((i) => i >= 0);
+  // A tie, or no votes at all, is hers to break.
+  const winner = leaders.length === 1 ? leaders[0] : leaders[daySeed(seed + game.tally.join('-')) % leaders.length];
+  const score = [...game.tally].sort((a, b) => b - a).join(' to ');
+  const place = game.options[winner].t;
+  const lead = total() === 0 ? fill(TIEBREAK.none, { place })
+    : leaders.length > 1 ? fill(TIEBREAK.tied, { place, score })
+      : top === total() && total() > 1 ? fill(TIEBREAK.unanimous, { place })
+        : fill(TIEBREAK.won, { place, score });
+  const record = index.records.find((item) => item.u === game.options[winner].u);
+  return {
+    pi: { ...pi, vote: undefined },
+    reply: { kind: 'vote', mood: 'call', lead, notes: [footer(index)], cards: record ? [card(record)] : [], links: [], chips: [TIEBREAK.chips.again, 'Plan my day'],
+      vote: { over: true, total: total(), tied: leaders.length > 1, line: game.options.map((option, i) => `${option.t} ${game.tally[i]}`).join(' · ') } },
+  };
+}
+
 // ── The three taps ─────────────────────────────────────────────────────────
 function townChips(index) {
   const counts = new Map();
@@ -675,6 +738,17 @@ export function converse(index, question, state = null, context = {}) {
     return [MANY_DAYS.test(bare) ? PLAN_NOTES.oneDay : null, flags.price ? pick(REFUSALS.price, daySeed(bare)) : null].filter(Boolean);
   };
 
+  // The Tie-breaker. While a vote is open a place's name is a vote and "count"
+  // ends it. Anything else leaves the vote behind.
+  if (pi.vote) {
+    const moved = tieTurn(index, pi, asked, bare, { ...context, today }, false);
+    if (moved) return finish(moved);
+    pi = { ...pi, vote: undefined };
+  }
+  if (!pi.interview && !pi.await && startsVote(bare)) {
+    const opened = tieTurn(index, pi, asked, bare, { ...context, today }, true);
+    if (opened) return finish(opened);
+  }
   // Support: a page is wrong, or the reader runs the place. She hands over to
   // the editors' correction form (which gives a reference) or the business
   // desk, and takes no details herself. Only the page address goes in the link.

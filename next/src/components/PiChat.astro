@@ -36,7 +36,7 @@ import { ASK_GUIDE_ON, SHOW_ASK_VOICE, SHOW_ASK_PERSONA, SHOW_ASK_COMPOSE, SHOW_
 import { CONCIERGE_API_URL as API_URL } from '../lib/concierge-config';
 
 const starters = SHOW_ASK_PERSONA
-  ? ['Plan my day', 'Surprise me', 'Talk me out of it', 'Settle an argument', 'Rainy day rescue', 'A long lunch in Red Hill', "What's on this weekend"]
+  ? ['Plan my day', 'Surprise me', 'Talk me out of it', 'Settle an argument', 'Put it to a vote', 'Rainy day rescue', 'A long lunch in Red Hill', "What's on this weekend"]
   : ['A long lunch in Red Hill', "What's on this weekend", 'Somewhere to stay for our anniversary'];
 ---
 
@@ -128,7 +128,8 @@ const starters = SHOW_ASK_PERSONA
     | { role: 'you'; text: string }
     | { role: 'pi'; text: string; places: Place[]; next: string[]; notes?: string[]; links?: { href: string; label: string }[]; error?: boolean;
         kind?: string; mood?: string; aside?: string | null; plan?: Plan; offer?: { line: string; label: string; href: string }; call?: string; fb?: boolean;
-        strike?: { over: boolean; strikes: number; offers?: number; final?: boolean; line?: string } };
+        strike?: { over: boolean; strikes: number; offers?: number; final?: boolean; line?: string };
+        vote?: { over: boolean; total: number; tied?: boolean; line?: string } };
   type PiTurn = Extract<Turn, { role: 'pi' }>;
   const toPlaces = (cards: Card[]): Place[] => cards.map((card) => ({
     href: card.href, title: card.title, why: card.summary || '', section: card.meta, image: card.image || null, alt: '', credit: card.credit || null, facts: card.facts, badge: card.badge, book: card.book || null, line: card.line || null,
@@ -680,6 +681,8 @@ const starters = SHOW_ASK_PERSONA
         li.append(marks);
       }
       if (turn.strike?.over && turn.strike.line) li.append(el('p', 'pi-strikes__score', turn.strike.line));
+      if (turn.vote?.over && turn.vote.line) li.append(el('p', 'pi-strikes__score', turn.vote.line));
+      else if (turn.vote && turn.vote.total > 0) li.append(el('p', 'pi-strikes', `${turn.vote.total} ${turn.vote.total === 1 ? 'vote' : 'votes'} in`));
       if (turn.notes?.length || turn.links?.length) li.append(smallPrint(turn));
       if (turn.offer) {
         const p = el('p', 'pi-msg__offer', `${turn.offer.line} `);
@@ -688,7 +691,7 @@ const starters = SHOW_ASK_PERSONA
         p.append(a);
         li.append(p);
       }
-      if (turn.next.length) li.append(nextChips(turn.next, turn.strike && !turn.strike.over ? 'Your move' : turn.kind === 'interview' ? 'Your answer' : undefined));
+      if (turn.next.length) li.append(nextChips(turn.next, turn.strike && !turn.strike.over ? 'Your move' : turn.vote && !turn.vote.over ? 'Your vote' : turn.kind === 'interview' ? 'Your answer' : undefined));
       if (personaOn && !turn.error && turn.kind !== 'interview') li.append(feedback(turn));
       if (question && !turn.error && !NOT_A_PAGE.has(turn.kind || '')) {
         const pg = el('a', 'pi-msg__page', 'Open as a page') as HTMLAnchorElement;
@@ -978,6 +981,14 @@ const starters = SHOW_ASK_PERSONA
           track('ask_game', { variant: 'strikes', action: reply.strike.over ? (reply.strike.forced ? 'forced' : 'accepted') : reply.strike.offers === 1 ? 'start' : 'rejected', value: reply.strike.strikes });
           // A second rejection in a row, or being asked to surprise them, is what catches her out.
           if (!reply.strike.over && (reply.strike.strikes === 2 || reply.strike.offers === 1)) gesture('catch');
+        }
+        // The Tie-breaker: the winner is her call, and the tally sits under it.
+        if (reply.kind === 'vote' && reply.vote) {
+          turn.vote = reply.vote;
+          if (reply.vote.over && places.length) turn.call = places[0].href;
+          if (reply.vote.over || reply.vote.total === 0) track('ask_game', { variant: 'tiebreak', action: reply.vote.over ? (reply.vote.tied ? 'tied' : 'counted') : 'start', value: reply.vote.total });
+          // Being asked to referee is the other thing that catches her out.
+          if (!reply.vote.over && reply.vote.total === 0) gesture('catch');
         }
         // The dial is found where it is wanted: a way to get less after a long reply, more after a short one.
         if (spoken && places.length && turn.next.length < 3) {
