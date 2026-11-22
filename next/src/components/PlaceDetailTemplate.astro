@@ -260,7 +260,7 @@ const factual = place.data.factualLede ?? '';
         <a class="pdv2-hero__action pdv2-hero__action--quiet" href="#escapes">Build a weekend <span aria-hidden="true">↓</span></a>
       </div>
     )}
-    {place.data.visitSource && (
+    {(editorialHero || placeSlug === 'somers') && place.data.visitSource && (
       <a class="pdv2-hero__visit-source" href={place.data.visitSource.url} target="_blank" rel="noopener noreferrer">
         {place.data.visitSource.label} <span aria-hidden="true">↗</span>
       </a>

@@ -28,7 +28,7 @@ clusterLinks:
 faq:
   - question: "When is Jetty Road Brewery open, and where is it?"
     answer: "Jetty Road Brewery is at 12-14 Brasser Avenue, Dromana. It currently opens Monday to Wednesday 12pm-9pm, Thursday and Friday 12pm-10pm, Saturday 11am-11pm, and Sunday 11am-7pm. Check jettyroad.com.au for current hours."
-  - question: "Where is the Coolart Wetlands boardwalk, and how long does it take?"
+  - question: "Where is Coolart, and what are the park and homestead opening hours?"
     answer: "Coolart is on Lord Somers Road, Somers. The park opens daily from 9am to 5pm. The homestead ground floor opens 11am to 3pm on Wednesday, Saturday and Sunday. Check Parks Victoria's current conditions before visiting."
   - question: "When does National Works on Paper 2026 close at MPRG?"
     answer: "National Works on Paper 2026 runs until 22 November 2026 at Mornington Peninsula Regional Gallery, Civic Reserve, Dunns Road, Mornington. Open Tuesday to Sunday, 11am–4pm. Free entry."
