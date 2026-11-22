@@ -131,6 +131,59 @@ export const PLAN_NOTES = {
 };
 
 /** Picks one line. The same words on the same day get the same line. */
+// ── Three Strikes ──────────────────────────────────────────────────────────
+// "Surprise me": one place at a time, three rejections, then her call stands.
+// Every line is about the reader and the game. Blanks: {town}, {kind}, {n},
+// {nth} ("second"), {left}. None states a fact about a place.
+export const STRIKES = {
+  rule: 'One place at a time. You get three rejections, and you have to say why. After that it’s my call and you’re going.',
+  open: [
+    'Terms accepted. First offer, and I’m not opening with my best.',
+    'Good. I prefer it when you don’t get a say. First offer.',
+    'Finally, someone who trusts me. Briefly. First offer.',
+    'No brief, no excuses. Here’s where I’d send you.',
+  ],
+  remembered: 'Still no {kind}, I assume. I kept a note.',
+  done: [
+    'Of course you have. That tells me what you are. Next.',
+    'Noted. You get around. Try this instead.',
+    'Good. Then I can stop being polite. Next offer.',
+  ],
+  far: [
+    'Fine. Nothing in {town}. I had hopes for you.',
+    'Not {town}, then. Staying closer.',
+    '{town} is off the list. Your loss, but it’s your petrol.',
+  ],
+  kind: [
+    'No more {kind}. Understood, and frankly a relief.',
+    'Striking every one of the {kind}. That narrows it nicely.',
+    'So it’s not a day for {kind}. I can work with that.',
+  ],
+  mood: [
+    'Not the mood. All right. Something else entirely.',
+    'You’re difficult. I’m starting to enjoy it.',
+    'That’s a no with no reason, which I’ll allow once. Different direction.',
+  ],
+  left: ['You have {left} left.', 'That leaves you {left}.'],
+  final: [
+    'That’s three. My call now, and you’re going.',
+    'Three strikes. You had your say. This is where you’re going.',
+    'Out of rejections. This one I kept back for exactly this.',
+  ],
+  accept: [
+    'Accepted on the {nth} offer. I knew you’d come round.',
+    'Sold on the {nth}. You’re easier than you pretend.',
+    'The {nth} offer. Good instinct, eventually.',
+  ],
+  acceptFirst: ['First offer. I like you already.', 'Taken on the first offer. Either I’m good or you’re hungry.'],
+  acceptFinal: ['Wise. You didn’t have a choice, but still.', 'Good. It was never really a question.'],
+  beaten: 'You’ve beaten the notebook. That doesn’t happen often. Tell the editors what’s missing.',
+  chips: { done: 'Done it', far: 'Too far', mood: 'Not today', yes: 'Go on then', again: 'Play again' },
+  nth: ['first', 'second', 'third', 'final'],
+  kinds: { eat: 'places to eat', wine: 'wineries and cellar doors', do: 'things to do' },
+  score: { accepted: 'Accepted on the {nth} offer.', forced: 'Three strikes. PI’s call stood.', rejected: 'Rejected: {list}.', why: { done: 'done it', far: 'too far', kind: 'not that kind of day', mood: 'not the mood' } },
+};
+
 export function pick(lines, seed) {
   const list = Array.isArray(lines) ? lines : [lines];
   return list[Math.abs(seed) % list.length];

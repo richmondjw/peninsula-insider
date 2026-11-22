@@ -54,7 +54,7 @@ const starters = SHOW_ASK_PERSONA
 
     <section class="pi-chat__panel" id="pi-chat-panel" aria-labelledby="pi-chat-name" hidden>
       <header class="pi-chat__head">
-        <span class="pi-fig pi-fig--round pi-chat__head-face" aria-hidden="true"><span class="pi-fig__art"><span class="pi-fig__go pi-fig__go--body"><img class="pi-fig__part pi-fig__body" src="/images/pi/pi-layer-body-160.webp" srcset="/images/pi/pi-layer-body-160.webp 160w, /images/pi/pi-layer-body-320.webp 320w" sizes="45px" alt="" width="40" height="40" decoding="async" /></span><span class="pi-fig__go pi-fig__go--hat"><img class="pi-fig__part pi-fig__hat" src="/images/pi/pi-layer-hat-160.webp" srcset="/images/pi/pi-layer-hat-160.webp 160w, /images/pi/pi-layer-hat-320.webp 320w" sizes="45px" alt="" width="40" height="40" decoding="async" /></span><span class="pi-fig__go pi-fig__go--hair"><img class="pi-fig__part pi-fig__hair" src="/images/pi/pi-layer-hair-160.webp" srcset="/images/pi/pi-layer-hair-160.webp 160w, /images/pi/pi-layer-hair-320.webp 320w" sizes="45px" alt="" width="40" height="40" decoding="async" /></span></span></span>
+        <button type="button" class="pi-chat__dial-open" id="pi-chat-dial-open" aria-haspopup="true" aria-expanded="false" aria-controls="pi-chat-dial" aria-label="How much PI: change how she talks"><span class="pi-fig pi-fig--round pi-chat__head-face" aria-hidden="true"><span class="pi-fig__art"><span class="pi-fig__go pi-fig__go--body"><img class="pi-fig__part pi-fig__body" src="/images/pi/pi-layer-body-160.webp" srcset="/images/pi/pi-layer-body-160.webp 160w, /images/pi/pi-layer-body-320.webp 320w" sizes="45px" alt="" width="40" height="40" decoding="async" /></span><span class="pi-fig__go pi-fig__go--strap"><img class="pi-fig__part pi-fig__strap" src="/images/pi/pi-layer-strap-160.webp" srcset="/images/pi/pi-layer-strap-160.webp 160w, /images/pi/pi-layer-strap-320.webp 320w" sizes="45px" alt="" width="40" height="40" decoding="async" /></span><span class="pi-fig__go pi-fig__go--hat"><img class="pi-fig__part pi-fig__hat" src="/images/pi/pi-layer-hat-160.webp" srcset="/images/pi/pi-layer-hat-160.webp 160w, /images/pi/pi-layer-hat-320.webp 320w" sizes="45px" alt="" width="40" height="40" decoding="async" /></span><span class="pi-fig__go pi-fig__go--hair"><img class="pi-fig__part pi-fig__hair" src="/images/pi/pi-layer-hair-160.webp" srcset="/images/pi/pi-layer-hair-160.webp 160w, /images/pi/pi-layer-hair-320.webp 320w" sizes="45px" alt="" width="40" height="40" decoding="async" /></span></span></span></button>
         <div class="pi-chat__head-id">
           <h2 class="pi-chat__name" id="pi-chat-name">PI</h2>
           <p class="pi-chat__role">The Peninsula Insider</p>
@@ -73,9 +73,14 @@ const starters = SHOW_ASK_PERSONA
         </div>
       </header>
 
+      <div class="pi-chat__dial" id="pi-chat-dial" role="group" aria-label="How much PI" hidden>
+        <button type="button" class="pi-chat__dial-opt" data-pi-dial="straight" aria-pressed="false">Straight<span>Just the answer</span></button>
+        <button type="button" class="pi-chat__dial-opt" data-pi-dial="pi" aria-pressed="true">PI<span>As she comes</span></button>
+        <button type="button" class="pi-chat__dial-opt" data-pi-dial="full" aria-pressed="false">Full hat<span>Let her talk</span></button>
+      </div>
       <div class="pi-chat__thread" id="pi-chat-thread" data-lenis-prevent>
         <div class="pi-chat__hello" id="pi-chat-hello">
-          <span class="pi-fig pi-fig--disc pi-chat__portrait" aria-hidden="true"><span class="pi-fig__art"><span class="pi-fig__go pi-fig__go--body"><img class="pi-fig__part pi-fig__body" src="/images/pi/pi-layer-body-320.webp" srcset="/images/pi/pi-layer-body-320.webp 320w, /images/pi/pi-layer-body-640.webp 640w" sizes="168px" alt="" width="168" height="168" decoding="async" /></span><span class="pi-fig__go pi-fig__go--hat"><img class="pi-fig__part pi-fig__hat" src="/images/pi/pi-layer-hat-320.webp" srcset="/images/pi/pi-layer-hat-320.webp 320w, /images/pi/pi-layer-hat-640.webp 640w" sizes="168px" alt="" width="168" height="168" decoding="async" /></span><span class="pi-fig__go pi-fig__go--hair"><img class="pi-fig__part pi-fig__hair" src="/images/pi/pi-layer-hair-320.webp" srcset="/images/pi/pi-layer-hair-320.webp 320w, /images/pi/pi-layer-hair-640.webp 640w" sizes="168px" alt="" width="168" height="168" decoding="async" /></span></span></span>
+          <span class="pi-fig pi-fig--disc pi-chat__portrait" aria-hidden="true"><span class="pi-fig__art"><span class="pi-fig__go pi-fig__go--body"><img class="pi-fig__part pi-fig__body" src="/images/pi/pi-layer-body-320.webp" srcset="/images/pi/pi-layer-body-320.webp 320w, /images/pi/pi-layer-body-640.webp 640w" sizes="168px" alt="" width="168" height="168" decoding="async" /></span><span class="pi-fig__go pi-fig__go--strap"><img class="pi-fig__part pi-fig__strap" src="/images/pi/pi-layer-strap-320.webp" srcset="/images/pi/pi-layer-strap-320.webp 320w, /images/pi/pi-layer-strap-640.webp 640w" sizes="168px" alt="" width="168" height="168" decoding="async" /></span><span class="pi-fig__go pi-fig__go--hat"><img class="pi-fig__part pi-fig__hat" src="/images/pi/pi-layer-hat-320.webp" srcset="/images/pi/pi-layer-hat-320.webp 320w, /images/pi/pi-layer-hat-640.webp 640w" sizes="168px" alt="" width="168" height="168" decoding="async" /></span><span class="pi-fig__go pi-fig__go--hair"><img class="pi-fig__part pi-fig__hair" src="/images/pi/pi-layer-hair-320.webp" srcset="/images/pi/pi-layer-hair-320.webp 320w, /images/pi/pi-layer-hair-640.webp 640w" sizes="168px" alt="" width="168" height="168" decoding="async" /></span></span></span>
           <p class="pi-chat__hello-lead">Tell me what you're after.</p>
           <p class="pi-chat__hello-body">{SHOW_ASK_PERSONA
             ? "A long lunch, a walk, somewhere to stay, what's on this weekend. Or hand me the whole day and I'll put it in order."
@@ -117,7 +122,8 @@ const starters = SHOW_ASK_PERSONA
   type Turn =
     | { role: 'you'; text: string }
     | { role: 'pi'; text: string; places: Place[]; next: string[]; notes?: string[]; links?: { href: string; label: string }[]; error?: boolean;
-        kind?: string; mood?: string; aside?: string | null; plan?: Plan; offer?: { line: string; label: string; href: string }; call?: string; fb?: boolean };
+        kind?: string; mood?: string; aside?: string | null; plan?: Plan; offer?: { line: string; label: string; href: string }; call?: string; fb?: boolean;
+        strike?: { over: boolean; strikes: number; offers?: number; final?: boolean; line?: string } };
   type PiTurn = Extract<Turn, { role: 'pi' }>;
   const toPlaces = (cards: Card[]): Place[] => cards.map((card) => ({
     href: card.href, title: card.title, why: card.summary || '', section: card.meta, image: card.image || null, alt: '', credit: card.credit || null, facts: card.facts, badge: card.badge,
@@ -183,7 +189,66 @@ const starters = SHOW_ASK_PERSONA
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     // Where "Surprise me" starts. Different on each visit, so it is not the same town every time.
     const shuffle = Math.floor(Math.random() * 1000);
-    const matchGuides = (index: any, q: string, state: any, context: Record<string, unknown>): any => converse(index, q, state, { ...context, persona: personaOn, shuffle });
+    // What she has learned about this reader between visits, kept on this device only:
+    // places they told her they have done, and kinds of place they ruled out.
+    const LEDGER = 'pi-ledger';
+    const ledger = (): { done: string[]; noKinds: string[]; caught?: boolean } => { try { return { done: [], noKinds: [], ...JSON.parse(store.get(localStorage, LEDGER) || '{}') }; } catch { return { done: [], noKinds: [] }; } };
+    const learn = (patch: Partial<{ done: string[]; noKinds: string[]; caught: boolean }>) => {
+      const was = ledger();
+      store.set(localStorage, LEDGER, JSON.stringify({ done: [...new Set([...was.done, ...(patch.done || [])])].slice(-60), noKinds: patch.noKinds ? patch.noKinds.slice(0, 2) : was.noKinds, caught: patch.caught ?? was.caught }));
+    };
+    const matchGuides = (index: any, q: string, state: any, context: Record<string, unknown>): any => converse(index, q, state, { ...context, persona: personaOn, shuffle, done: ledger().done, noKinds: ledger().noKinds });
+
+    /* ---------- the dial ---------- */
+    // How much of her the reader wants: straight, pi or full. It changes how she
+    // talks and never what she recommends. Set by saying so, by a chip, or by
+    // tapping her hat. Remembered on this device.
+    type Dial = 'straight' | 'pi' | 'full';
+    const DIAL = 'pi-dial';
+    const SAY_STRAIGHT = /\b(?:give it to me straight|straight answer|just (?:the answer|tell me|answer)|be serious|seriously(?: though)?|less chat|no jokes|cut the (?:chat|act)|shorter)\b/i;
+    const SAY_FULL = /^(?:go on(?: then)?[.!]?|more|be honest|let her talk|full hat|say more|go off)$/i;
+    const SAY_PI = /\b(?:back to normal|normal again|as you were|be yourself)\b/i;
+    const DIAL_LINE: Record<Dial, string> = {
+      straight: 'Straight it is. I’ll save the commentary.',
+      pi: 'As I come, then.',
+      full: 'You asked. Don’t say I didn’t warn you.',
+    };
+    const dialBox = document.getElementById('pi-chat-dial') as HTMLElement;
+    const dialOpen = document.getElementById('pi-chat-dial-open') as HTMLButtonElement;
+    let dial: Dial = (['straight', 'pi', 'full'] as Dial[]).find((d) => d === store.get(localStorage, DIAL)) || 'pi';
+    function setDial(next: Dial, how: string) {
+      if (next !== dial) track('ask_dial', { variant: next, action: how });
+      dial = next;
+      store.set(localStorage, DIAL, next);
+      for (const b of dialBox.querySelectorAll<HTMLButtonElement>('[data-pi-dial]')) b.setAttribute('aria-pressed', String(b.dataset.piDial === next));
+    }
+    setDial(dial, 'restore');
+    dialOpen.addEventListener('click', () => { dialBox.hidden = !dialBox.hidden; dialOpen.setAttribute('aria-expanded', String(!dialBox.hidden)); });
+    dialBox.addEventListener('click', (e) => {
+      const b = (e.target as HTMLElement).closest<HTMLButtonElement>('[data-pi-dial]');
+      if (!b) return;
+      setDial(b.dataset.piDial as Dial, 'tap');
+      dialBox.hidden = true;
+      dialOpen.setAttribute('aria-expanded', 'false');
+      say(DIAL_LINE[dial]);
+    });
+
+    /* ---------- her two gestures ---------- */
+    // The tilt marks a call. Once a reply, and she skips it when she has made a
+    // call in each of the last three, so it stays a gesture. The catch is a
+    // reaction: once a conversation at most, and not on two visits running.
+    const still = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let calls = 0;
+    let caught = false;
+    const caughtLast = Boolean(ledger().caught);
+    learn({ caught: false });
+    function gesture(name: 'tilt' | 'catch') {
+      if (still.matches || root.dataset.state !== 'open' || root.dataset.gesture) return;
+      if (name === 'tilt') { calls += 1; if (calls % 4 === 0) return; }
+      if (name === 'catch') { if (caught || caughtLast) return; caught = true; learn({ caught: true }); }
+      root.dataset.gesture = name;
+      window.setTimeout(() => { delete root.dataset.gesture; }, name === 'catch' ? 1100 : 680);
+    }
     const track = (name: string, params: Record<string, unknown>) => { try { (window as any).piTrack?.(name, params, { component: 'pi-chat' }); } catch { /* never breaks the chat */ } };
     let turns: Turn[] = [];
     try { turns = JSON.parse(store.get(sessionStorage, HISTORY) || '[]'); } catch { turns = []; }
@@ -428,12 +493,12 @@ const starters = SHOW_ASK_PERSONA
       return wrap;
     }
 
-    function nextChips(items: string[]) {
+    function nextChips(items: string[], label = 'Ask me next') {
       const wrap = el('div', 'pi-msg__next');
-      wrap.append(el('p', 'pi-msg__next-label', 'Ask me next'));
+      wrap.append(el('p', 'pi-msg__next-label', label));
       const ul = el('ul', 'pi-chat__chips');
       ul.setAttribute('role', 'list');
-      for (const q of items.slice(0, 3)) {
+      for (const q of items.slice(0, 4)) {
         const li = el('li');
         const b = el('button', 'pi-chat__chip', q) as HTMLButtonElement;
         b.type = 'button';
@@ -527,6 +592,14 @@ const starters = SHOW_ASK_PERSONA
       li.append(byline(turn.mood), prose);
       if (turn.plan) li.append(notebook(turn, live));
       else if (turn.places.length) li.append(tiles(turn.places, turn.call));
+      if (turn.strike && !turn.strike.over) {
+        const marks = el('p', 'pi-strikes');
+        marks.setAttribute('aria-label', `${turn.strike.strikes} of 3 rejections used`);
+        for (let i = 0; i < 3; i += 1) marks.append(el('span', `pi-strikes__mark${i < turn.strike.strikes ? ' is-used' : ''}`));
+        marks.append(el('span', '', turn.strike.final ? 'My call stands' : `${3 - turn.strike.strikes} left`));
+        li.append(marks);
+      }
+      if (turn.strike?.over && turn.strike.line) li.append(el('p', 'pi-strikes__score', turn.strike.line));
       if (turn.notes?.length || turn.links?.length) li.append(smallPrint(turn));
       if (turn.offer) {
         const p = el('p', 'pi-msg__offer', `${turn.offer.line} `);
@@ -535,7 +608,7 @@ const starters = SHOW_ASK_PERSONA
         p.append(a);
         li.append(p);
       }
-      if (turn.next.length) li.append(nextChips(turn.next));
+      if (turn.next.length) li.append(nextChips(turn.next, turn.strike && !turn.strike.over ? 'Your move' : undefined));
       if (personaOn && !turn.error && turn.kind !== 'interview') li.append(feedback(turn));
       if (question && !turn.error && !NOT_A_PAGE.has(turn.kind || '')) {
         const pg = el('a', 'pi-msg__page', 'Open as a page') as HTMLAnchorElement;
@@ -665,6 +738,18 @@ const starters = SHOW_ASK_PERSONA
       });
     }
 
+    /** A line of hers that answers nothing: a setting confirmed. No model, no page. */
+    function say(text: string) {
+      const turn: PiTurn = { role: 'pi', text, places: [], next: [], kind: 'interview' };
+      turns.push(turn);
+      save();
+      const node = piNode(turn);
+      node.classList.add('is-arriving');
+      log.append(node);
+      hello.hidden = true;
+      scrollToMsg(node);
+    }
+
     /* ---------- asking ---------- */
 
     async function ask(raw: string) {
@@ -680,6 +765,12 @@ const starters = SHOW_ASK_PERSONA
       save();
       render();
       log.lastElementChild?.classList.add('is-new');
+      // A message that is only about how she talks changes the dial and is answered by her own line.
+      const cue: Dial | null = SAY_PI.test(q) ? 'pi' : SAY_FULL.test(q.trim()) && !engine?.pi?.strikes ? 'full' : SAY_STRAIGHT.test(q) ? 'straight' : null;
+      if (cue) {
+        setDial(cue, 'said');
+        if (q.trim().split(/\s+/).length <= 6) { say(DIAL_LINE[cue]); return; }
+      }
 
       const live = el('li', 'pi-msg pi-msg--pi is-live');
       const prose = el('div', 'pi-msg__prose');
@@ -720,7 +811,7 @@ const starters = SHOW_ASK_PERSONA
           const pages = talkPages(index, q, said, result.reply, shownBefore(), context) as string[];
           // Her words appear in the waiting bubble as each sentence arrives.
           let saying: HTMLElement | null = null;
-          spoken = await streamTalk({ message: q, history: recent(8), pages, onPage: location.pathname, followUp: !hasSubject(index, q, context) }, AbortSignal.any([signal, waited.signal]), (text, first) => {
+          spoken = await streamTalk({ message: q, history: recent(8), pages, onPage: location.pathname, followUp: !hasSubject(index, q, context), dial }, AbortSignal.any([signal, waited.signal]), (text, first) => {
             if (first) {
               window.clearTimeout(timer);
               window.clearInterval(thinking);
@@ -796,6 +887,22 @@ const starters = SHOW_ASK_PERSONA
           plan: reply.plan,
           offer: reply.offer,
         };
+        // Three Strikes: one place, stamped as her call, with the strikes under it.
+        if (reply.kind === 'strike' && reply.strike) {
+          turn.strike = reply.strike;
+          // An offer is a compact tile, so the reader's move stays on screen. Her stamp goes on only when her call stands.
+          if (places.length && (reply.strike.final || reply.strike.over)) turn.call = places[0].href;
+          if (reply.strike.learned) learn(reply.strike.learned);
+          track('ask_game', { variant: 'strikes', action: reply.strike.over ? (reply.strike.forced ? 'forced' : 'accepted') : reply.strike.offers === 1 ? 'start' : 'rejected', value: reply.strike.strikes });
+          // A second rejection in a row, or being asked to surprise them, is what catches her out.
+          if (!reply.strike.over && (reply.strike.strikes === 2 || reply.strike.offers === 1)) gesture('catch');
+        }
+        // The dial is found where it is wanted: a way to get less after a long reply, more after a short one.
+        if (spoken && places.length && turn.next.length < 3) {
+          const count = spoken.say.split(/(?<=[.!?])\s+/).length;
+          if (dial !== 'straight' && count >= 5) turn.next = [...turn.next.slice(0, 2), 'Shorter'];
+          else if (dial !== 'full' && count <= 2) turn.next = [...turn.next.slice(0, 2), 'Go on'];
+        }
 
         // Her words come first, then the picks. So for a list of picks the
         // answer is held until her checked note is back, or until the wait is
@@ -829,6 +936,9 @@ const starters = SHOW_ASK_PERSONA
 
         const node = redraw ? (log.lastElementChild as HTMLElement) : piNode(turn, q);
         node.classList.add('is-arriving');
+        // Her hat dips as she makes the call.
+        // In the game an offer is not yet a call: she nods only when her call stands.
+        if (turn.call && !turn.strike?.over) gesture('tilt');
         if (streamed) node.classList.add('is-streamed');
         if (voiced) node.querySelector('.pi-msg__prose')?.classList.add('is-voiced');
         if (redraw) live.remove(); else live.replaceWith(node);
@@ -941,7 +1051,16 @@ const starters = SHOW_ASK_PERSONA
     panel.addEventListener('click', (e) => {
       const target = e.target as HTMLElement;
       const chip = target.closest<HTMLElement>('[data-pi-q]');
-      if (chip) { ask(chip.dataset.piQ || ''); return; }
+      if (chip) {
+        const said = chip.dataset.piQ || '';
+        if (said === 'Shorter' || said === 'Go on') {
+          setDial(said === 'Shorter' ? 'straight' : 'full', 'chip');
+          const last = [...turns].reverse().find((t) => t.role === 'you');
+          if (last) { ask(last.text); return; }
+        }
+        ask(said);
+        return;
+      }
       const swapper = target.closest<HTMLElement>('[data-pi-swap]');
       if (swapper) { void swap(Number(swapper.dataset.piSwap)); return; }
       const sharer = target.closest<HTMLElement>('[data-pi-share]');
@@ -1131,9 +1250,10 @@ const starters = SHOW_ASK_PERSONA
 
   /* ── Her figure, in parts ──
      The hat illustration cut into three layers from the approved mark (scripts/build-pi-layers.mjs):
-     shoulder, hat, hair. Stacked they are the mark. She looks up, hat then hair, the first time the
-     panel opens on a page. That is the only time she moves. The small mark in the header never does:
-     it sits beside text a reader is reading, and steps aside while the large portrait is on show. */
+     shoulder, strap, hat, hair. Stacked they are the mark. She looks up, hat then hair, the first
+     time the panel opens on a page. After that she is still, except for two gestures tied to the
+     conversation (below). Nothing moves on a timer. The small mark steps aside while the large
+     portrait is on show. */
   .pi-fig { position: relative; display: block; flex: none; }
   .pi-fig__art, .pi-fig__go, .pi-fig__part { position: absolute; inset: 0; width: 100%; height: 100%; }
   .pi-fig--round { overflow: hidden; }
@@ -1143,6 +1263,44 @@ const starters = SHOW_ASK_PERSONA
   .pi-fig__hair { transform-origin: 37% 60%; }
   .pi-fig__hat { transform-origin: 48% 52%; }
   .pi-fig__go--hair { transform-origin: 37% 60%; }
+  .pi-fig__strap { transform-origin: 71% 70%; }
+  .pi-chat.is-in.is-greeting .pi-chat__portrait .pi-fig__go--strap { transform-origin: 48% 52%; animation: pi-hat-in 700ms var(--pi-ease) both; }
+
+  /* ── Two gestures, and only two ──
+     Motion here is punctuation: she moves when something happened in the conversation and at no
+     other time. Nothing loops. Both play on the small mark in the header, once, and are over in
+     under a second.
+     The tilt: the brim dips toward the reader as she makes a call. Fast in, slower back, one degree past rest.
+     The catch: the wind gets under the brim, the strap pulls taut, she seats the hat again. Rare:
+     at most once a conversation, and never on two visits running. */
+  @keyframes pi-tilt-hat { 0% { transform: none; } 25% { transform: rotate(6deg); } 82% { transform: rotate(-1deg); } 100% { transform: none; } }
+  @keyframes pi-tilt-hair { 0%, 12% { transform: none; } 38% { transform: rotate(-3.5deg); } 88% { transform: rotate(.6deg); } 100% { transform: none; } }
+  @keyframes pi-tilt-strap { 0% { transform: none; } 25% { transform: rotate(3deg); } 82% { transform: rotate(-.5deg); } 100% { transform: none; } }
+  .pi-chat[data-gesture="tilt"] .pi-chat__head-face .pi-fig__hat { animation: pi-tilt-hat 540ms cubic-bezier(.3, .7, .3, 1) both; }
+  .pi-chat[data-gesture="tilt"] .pi-chat__head-face .pi-fig__hair { animation: pi-tilt-hair 620ms cubic-bezier(.3, .7, .3, 1) both; }
+  .pi-chat[data-gesture="tilt"] .pi-chat__head-face .pi-fig__strap { animation: pi-tilt-strap 540ms cubic-bezier(.3, .7, .3, 1) both; }
+  @keyframes pi-catch-hat { 0% { transform: none; } 34% { transform: translateY(-8%) rotate(-4deg); } 53% { transform: translateY(-8%) rotate(-4deg); } 90% { transform: translateY(.8%) rotate(.5deg); } 100% { transform: none; } }
+  @keyframes pi-catch-strap { 0% { transform: none; } 34% { transform: scaleY(1.2) skewX(-3deg); } 53% { transform: scaleY(1.2) skewX(-3deg); } 90% { transform: scaleY(.98); } 100% { transform: none; } }
+  @keyframes pi-catch-hair { 0% { transform: none; } 30% { transform: rotate(11deg) skewX(-5deg); } 55% { transform: rotate(9deg) skewX(-4deg); } 82% { transform: rotate(-2.5deg); } 100% { transform: none; } }
+  .pi-chat[data-gesture="catch"] .pi-chat__head-face .pi-fig__hat { animation: pi-catch-hat 640ms cubic-bezier(.3, .6, .3, 1) both; }
+  .pi-chat[data-gesture="catch"] .pi-chat__head-face .pi-fig__strap { animation: pi-catch-strap 640ms cubic-bezier(.3, .6, .3, 1) both; }
+  .pi-chat[data-gesture="catch"] .pi-chat__head-face .pi-fig__hair { animation: pi-catch-hair 1040ms cubic-bezier(.3, .6, .3, 1) both; }
+
+  /* ── The dial: how much of her ── */
+  .pi-chat__dial-open { flex: none; padding: 0; border: 0; background: none; border-radius: 50%; cursor: pointer; line-height: 0; }
+  .pi-chat__dial-open:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+  .pi-chat__dial { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-2); padding: var(--space-2) var(--space-4); border-bottom: 1px solid var(--border); background: var(--bg); }
+  .pi-chat__dial[hidden] { display: none; }
+  .pi-chat__dial-opt { display: grid; gap: 2px; min-height: 44px; padding: var(--space-2); border: 1px solid var(--border-control); border-radius: var(--radius-m); background: transparent; color: var(--text); font: 600 var(--fs-300)/1.2 var(--font-ui); text-align: center; cursor: pointer; }
+  .pi-chat__dial-opt span { color: var(--soft); font: 400 var(--fs-200)/1.2 var(--font-ui); }
+  .pi-chat__dial-opt[aria-pressed="true"] { border-color: var(--pi-terracotta); background: var(--pi-cream); }
+  .pi-chat__dial-opt:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+  /* ── Three Strikes ── */
+  .pi-strikes { display: flex; align-items: center; gap: var(--space-2); margin: var(--space-3) 0 0; color: var(--soft); font: 400 var(--fs-200)/1.3 var(--font-ui); }
+  .pi-strikes__mark { width: 10px; height: 10px; border-radius: 50%; border: 1.5px solid var(--pi-terracotta); }
+  .pi-strikes__mark.is-used { background: var(--pi-terracotta); }
+  .pi-strikes__score { margin: var(--space-3) 0 0; padding: var(--space-3) var(--space-4); border-radius: var(--radius-m); background: var(--pi-cream); color: var(--text); font: italic 500 var(--fs-300)/1.4 var(--font-ui); }
   .pi-fig__go--hat { transform-origin: 48% 52%; }
   /* One portrait at a time. */
   .pi-chat__head-face { transition: opacity 200ms linear; }

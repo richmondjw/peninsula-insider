@@ -104,6 +104,31 @@ Correct and flat is a failure. In conversation PI is the friend with better tast
 
 The running version is `CHARACTER` in the platform's `apps/api/src/lib/pi-talk.ts`. The nightly exam (`next/scripts/ask-eval.mjs`) fails a reply that opens flat.
 
+### Phase one of "the local you text" (22 November 2026)
+
+The direction: PI ends the argument. She makes the call, says why in one breath, and enjoys being right.
+
+**What she believes** (in `CHARACTER`, the source of her lines): lunch is the day; fewer stops; bad weather is the better Peninsula; indecision is a poor choice; the famous place is famous for a reason and you still might not want it today; the notebook is always right. She is rude to the situation, never to the person.
+
+**The dial.** Three settings, changed by saying so ("give it to me straight", "go on then"), by a "Shorter" or "Go on" chip, or by tapping her hat. Remembered on the device. It changes how she talks and never what she recommends, and a serious message is always answered plainly.
+
+| Setting | What the reader gets |
+| --- | --- |
+| Straight | The name, one reason, the link. Two sentences at most. |
+| PI | As she comes. |
+| Full hat | She takes more room. Still one place first. |
+
+**Three Strikes.** "Surprise me" is a game: one place at a time, three rejections with a reason, then her call stands. Each reason removes a slice of the guide ("done it" that place, "too far" that town, a named kind that kind). It needs no model: her lines are in `pi-lines.mjs` (`STRIKES`) and each tile is the page's own words. A reader's vetoes are remembered on their device, so next time she can say "Still no wineries, I assume."
+
+**Her two gestures.** Motion is punctuation: she moves when something happened in the conversation and at no other time, and nothing runs on a timer.
+
+- **The tilt.** The brim dips as she makes a call. Once a reply, and she skips one in four.
+- **The catch.** The wind gets under the brim, the chin strap pulls taut, she seats the hat again. A reaction, at most once a conversation and never on two visits running.
+
+Both play on the small mark in the chat header and are off for readers who ask for reduced motion. The chin strap was cut from the approved mark as its own layer; nothing new was drawn.
+
+**"PI's line."** One editor-written sentence in her voice per venue. Forty drafts are in `ops/reports/ask-pi/pi-lines-drafts-2026-11-22.md`. None is live: each needs an editor's approval and a place on the venue's page, because she may only say what is published.
+
 ### When the model writes for a plan (on since 20 November 2026)
 
 `SHOW_ASK_COMPOSE` in `next/src/lib/features.ts`, with `CONCIERGE_COMPOSE_ENABLED` on the platform, lets the model do two things for a plan: choose one page for each part of the day from the short list the site sends, and write an opening and one line per stop. It runs on an open model on Groq (`openai/gpt-oss-120b`). The key lives in the platform's Vercel project; without it composing fails closed and the plan is shown as the site built it.

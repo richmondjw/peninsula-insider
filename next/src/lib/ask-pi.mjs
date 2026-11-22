@@ -20,7 +20,7 @@
 import { ask, card, select, normalise, parseQuestion, questionWords, melbourneDay, sayDay, daySeed, ASK_MAX_LENGTH } from './ask-guide.mjs';
 import {
   REFUSALS, REFUSAL_TOPICS, INTERVIEW, YOU_PICK, PLAN_LEADS, SWAP_LINES, SWAP_ONLY, CRITIQUE, ARGUMENT, NIGHTLIFE,
-  WITH_THIS, CALLBACKS, REACTIONS, NEWSLETTER, PLAN_NOTES, pick, fill,
+  WITH_THIS, CALLBACKS, REACTIONS, NEWSLETTER, PLAN_NOTES, pick, fill, STRIKES,
 } from './pi-lines.mjs';
 
 // ── Reading a page's own words ─────────────────────────────────────────────
@@ -396,6 +396,84 @@ export function cardsFor(index, hrefs) {
   return [...new Set(Array.isArray(hrefs) ? hrefs : [])].map((href) => byPath.get(href)).filter(Boolean).slice(0, 5).map(card);
 }
 
+// ── Three Strikes ──────────────────────────────────────────────────────────
+// "Surprise me" is a game: one place at a time, three rejections with a
+// reason, then her call stands. Each reason removes a slice of the guide, so
+// the next offer is narrower. No model: the lines are hers (pi-lines.mjs) and
+// the tile is the page's own words.
+const STRIKE_YES = /^(?:go on(?: then)?|fine(?: going)?|ok(?:ay)?|yes|yep|yeah|sold|deal|perfect|love it|lets go|going|sounds good|that one|ill take it|you win)\b/;
+const STRIKE_DONE = /\b(?:done (?:it|that)|been(?: there)?|did (?:it|that)|already|heaps|a hundred times|go there all the time|know it)\b/;
+const STRIKE_FAR = /\b(?:too far|far|long drive|other side|wrong side|closer|nearer)\b/;
+const STRIKE_KIND = [[/\b(?:winer\w*|wine|cellar doors?|vineyards?|tastings?|brewer\w*|distiller\w*)\b/, 'wine'], [/\b(?:eat\w*|food|restaurants?|lunch|dinner|cafes?|pubs?|hungry)\b/, 'eat'], [/\b(?:walks?|hikes?|beach\w*|galler\w*|lookouts?|activit\w*|outdoors?)\b/, 'do']];
+const kindIn = (bare) => STRIKE_KIND.find(([pattern]) => pattern.test(bare))?.[1] || null;
+
+function strikeOffer(index, game, context) {
+  const done = new Set([...(context.done || []), ...game.offered]);
+  const pool = index.records.filter((record) => isStop(record) && !done.has(record.u) && !game.noKinds.includes(record.k) && !game.noTowns.includes(record.p));
+  if (!pool.length) return null;
+  // Places with a picture and a "Best for" make better single offers; then the day's shuffle.
+  const rank = (record) => (record.im ? 0 : 1) + ((record.f || []).some(([label]) => label === 'Best for') ? 0 : 1);
+  // A different kind from the last offer when there is one, so two offers in a row are not alike.
+  const last = game.lastKind;
+  return pool.sort((a, b) => Number(a.k === last) - Number(b.k === last) || rank(a) - rank(b) || daySeed(game.seed + a.u) - daySeed(game.seed + b.u))[0];
+}
+
+function strikeScore(game, accepted, forced) {
+  const offers = game.offered.length;
+  const rejected = game.rejected.map((item) => `${item.t} (${STRIKES.score.why[item.why]})`);
+  return { offers, accepted, forced, strikes: game.rejected.length, line: [forced ? STRIKES.score.forced : fill(STRIKES.score.accepted, { nth: STRIKES.nth[offers - 1] || STRIKES.nth[3] }), rejected.length ? fill(STRIKES.score.rejected, { list: rejected.join(', ') }) : ''].filter(Boolean).join(' ') };
+}
+
+function strikeTurn(index, pi, bare, context, start) {
+  const seed = `${context.today}:${Number.isInteger(context.shuffle) ? context.shuffle : 0}:${pi.salt || 0}:`;
+  // What she has learned about this reader: from earlier games in this chat, and from the device between visits.
+  context = { ...context, noKinds: [...new Set([...(context.noKinds || []), ...(pi.ledger?.noKinds || [])])], done: [...new Set([...(context.done || []), ...(pi.ledger?.done || [])])] };
+  let game = start
+    ? { seed, offered: [], rejected: [], noKinds: [...new Set([...(context.noKinds || []), ...(kindIn(bare.replace(/^surprise me/, '')) ? [kindIn(bare.replace(/^surprise me/, ''))] : [])])].slice(0, 2), noTowns: [], lastKind: null }
+    : { ...pi.strikes, offered: [...pi.strikes.offered], rejected: [...pi.strikes.rejected], noKinds: [...pi.strikes.noKinds], noTowns: [...pi.strikes.noTowns] };
+  const byPath = new Map(index.records.map((record) => [record.u, record]));
+  const current = byPath.get(game.offered.at(-1));
+  const chips = [STRIKES.chips.yes, STRIKES.chips.done, STRIKES.chips.far, STRIKES.chips.mood];
+  const done = (lead, record, score) => ({
+    pi: { ...pi, strikes: undefined, plan: undefined, salt: (pi.salt || 0) + 1, ledger: { noKinds: game.noKinds.slice(0, 2), done: [...new Set([...(pi.ledger?.done || []), ...game.rejected.filter((item) => item.why === 'done').map((item) => item.u)])].slice(-40) } },
+    reply: { kind: 'strike', mood: 'wink', lead, notes: [footer(index)], cards: record ? [card(record)] : [], links: [], chips: [STRIKES.chips.again], strike: { over: true, ...score, learned: { done: game.rejected.filter((item) => item.why === 'done').map((item) => item.u), noKinds: game.noKinds } } },
+  });
+
+  let lead;
+  if (!start && current) {
+    if (STRIKE_YES.test(bare) && !STRIKE_DONE.test(bare)) {
+      const n = game.offered.length;
+      const forced = game.rejected.length >= 3;
+      const line = forced ? pick(STRIKES.acceptFinal, daySeed(seed + n)) : n === 1 ? pick(STRIKES.acceptFirst, daySeed(seed)) : fill(pick(STRIKES.accept, daySeed(seed + n)), { nth: STRIKES.nth[n - 1] });
+      return done(line, current, strikeScore(game, true, forced));
+    }
+    // After the third strike there is nothing left to reject: her call stands.
+    if (game.rejected.length >= 3) return done(pick(STRIKES.acceptFinal, daySeed(seed)), current, strikeScore(game, false, true));
+    const kind = kindIn(bare);
+    const why = STRIKE_DONE.test(bare) ? 'done' : STRIKE_FAR.test(bare) ? 'far' : kind ? 'kind' : 'mood';
+    game.rejected.push({ u: current.u, t: current.t, why });
+    if (why === 'far' && current.p) game.noTowns.push(current.p);
+    if (why === 'kind') game.noKinds = [...new Set([...game.noKinds, kind])];
+    // "Not today" with no reason: move to a different kind of place, without banning this kind.
+    game.lastKind = current.k;
+    const left = 3 - game.rejected.length;
+    const react = fill(pick(STRIKES[why], daySeed(seed + bare + game.rejected.length)), { town: placeName(index, current.p) || 'there', kind: STRIKES.kinds[why === 'kind' ? kind : current.k] });
+    lead = left > 0 ? `${react} ${fill(pick(STRIKES.left, daySeed(seed + left)), { left: left === 1 ? 'one rejection' : 'two rejections' })}` : pick(STRIKES.final, daySeed(seed));
+  } else {
+    const kept = (context.noKinds || []).find((kind) => game.noKinds.includes(kind));
+    lead = `${kept ? `${fill(STRIKES.remembered, { kind: STRIKES.kinds[kept] })} ` : ''}${pick(STRIKES.open, daySeed(seed))}`;
+  }
+  // If two kinds are ruled out and the third runs dry, the bans come off one at a time before she gives up.
+  let record = strikeOffer(index, game, context);
+  if (!record) return { pi: { ...pi, strikes: undefined }, reply: { kind: 'none', mood: 'brow', lead: STRIKES.beaten, notes: [], cards: [], links: [{ href: '/explore/plans/', label: 'Browse ready-made plans' }], chips: [STRIKES.chips.again], gap: 'strikes' } };
+  game.offered.push(record.u);
+  const final = game.rejected.length >= 3;
+  return {
+    pi: { ...pi, strikes: game, plan: undefined, interview: undefined },
+    reply: { kind: 'strike', mood: final ? 'wink' : 'brow', lead, notes: start ? [STRIKES.rule] : [], cards: [card(record)], links: [], chips: final ? [STRIKES.chips.yes] : chips, strike: { over: false, strikes: game.rejected.length, offers: game.offered.length, final } },
+  };
+}
+
 // ── The three taps ─────────────────────────────────────────────────────────
 function townChips(index) {
   const counts = new Map();
@@ -606,21 +684,12 @@ export function converse(index, question, state = null, context = {}) {
   }
   if (ARGUE.test(bare)) return finish(argument(index, pi, asked, today));
   if (FIX.test(bare) && pi.fix) return finish(planTurn(index, { ...pi, fix: undefined }, { who: 'any', ...pi.fix, salt: (pi.salt || 0) }, today));
-  if (SURPRISE.test(bare)) {
-    // A new chat starts somewhere different each time (the chat hands in a
-    // random number), and she does not repeat a town until she has been round them all.
-    const start = pi.salt ?? (Number.isInteger(context.shuffle) ? context.shuffle : 0);
-    const been = pi.surprised || [];
-    let turn;
-    let fresh = false;
-    for (let tries = 1; tries <= 12 && !fresh; tries += 1) {
-      const salt = start + tries;
-      turn = planTurn(index, { ...pi, salt }, { who: pi.plan?.brief?.who || 'any', place: null, len: 'half', salt }, today, 'surprise');
-      fresh = !turn.pi.plan || !been.includes(turn.pi.plan.brief.place);
-    }
-    const town = turn.pi.plan?.brief.place;
-    return finish({ ...turn, pi: { ...turn.pi, surprised: town ? [...(fresh ? been : []), town] : been } });
-  }
+  // Three Strikes. "Surprise me" starts a game; while one is open, a short
+  // reply is a move in it. A real question (a town, a kind of place, a plan)
+  // leaves the game.
+  if (SURPRISE.test(bare) || bare === normalise(STRIKES.chips.again)) return finish(strikeTurn(index, { ...pi, strikes: undefined }, bare, { ...context, today }, true));
+  if (pi.strikes && bare.split(' ').length <= 8 && !PLAN.test(bare) && !CRITIC.test(bare) && !ARGUE.test(bare) && !RAINY.test(bare) && !(parseQuestion(asked, index, context).place)) return finish(strikeTurn(index, pi, bare, { ...context, today }, false));
+  if (pi.strikes) pi = { ...pi, strikes: undefined };
   if (ELSEWHERE.test(bare) && pi.plan?.brief && !pi.plan.brief.argument) {
     const salt = (pi.salt || 0) + 1;
     const was = pi.plan.brief;

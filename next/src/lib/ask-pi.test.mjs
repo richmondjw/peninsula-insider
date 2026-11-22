@@ -119,10 +119,8 @@ test('a plan asked for with a price or for a weekend says what she will not do, 
   assert.ok(lines.REFUSALS.price.includes(turn.reply.notes[1]));
 });
 
-test('surprise me picks the town; somewhere else moves; rainy day rescue keeps the day and goes under a roof', () => {
-  const first = talk('Surprise me');
-  assert.equal(first.reply.kind, 'plan');
-  assert.ok(lines.PLAN_LEADS.surprise.some((line) => first.reply.lead.startsWith(line.split('{')[0])));
+test('somewhere else moves a plan; rainy day rescue keeps the day and goes under a roof', () => {
+  const first = talk('plan a day in Flinders for the two of us, the whole day');
   const moved = converse(index, 'Somewhere else', first.state, { today });
   assert.notEqual(moved.reply.plan.town, first.reply.plan.town);
   const wet = talk('plan a day in Flinders for the two of us, the whole day', 'Rainy day rescue');
@@ -131,6 +129,60 @@ test('surprise me picks the town; somewhere else moves; rainy day rescue keeps t
   // Where the guides have nothing indoors, she says so rather than sending them outside.
   const none = talk('plan a morning in Red Hill for the two of us', 'Rainy day rescue');
   assert.ok(none.reply.notes.some((note) => /no things to do in Red Hill under a roof/.test(note)) || none.reply.kind === 'none');
+});
+
+test('Three Strikes: one place at a time, each rejection narrows the next offer, and the third makes it her call', () => {
+  const play = (said, state, context = {}) => converse(index, said, state, { today, shuffle: 3, ...context });
+  const open = play('Surprise me. If you suggest another winery, we are done.', null);
+  assert.equal(open.reply.kind, 'strike');
+  assert.equal(open.reply.cards.length, 1, 'one place, not a list');
+  assert.deepEqual(open.reply.strike, { over: false, strikes: 0, offers: 1, final: false });
+  assert.ok(open.reply.notes.includes(lines.STRIKES.rule), 'the rule is said once, at the start');
+  const kindOf = (turn) => index.records.find((record) => record.u === turn.reply.cards[0].href).k;
+  assert.notEqual(kindOf(open), 'wine', 'the opening veto is honoured');
+
+  // "Done it" removes that place; "too far" removes its town; a named kind removes the kind.
+  const second = play('done it. heaps.', open.state);
+  assert.equal(second.reply.strike.strikes, 1);
+  assert.notEqual(second.reply.cards[0].href, open.reply.cards[0].href);
+  const town = index.records.find((record) => record.u === second.reply.cards[0].href).p;
+  const third = play('too far', second.state);
+  assert.notEqual(index.records.find((record) => record.u === third.reply.cards[0].href).p, town);
+  const last = play('not today', third.state);
+  assert.equal(last.reply.strike.final, true);
+  assert.deepEqual(last.reply.chips, [lines.STRIKES.chips.yes], 'after three strikes there is nothing left to reject');
+  for (const turn of [open, second, third, last]) assert.notEqual(kindOf(turn), 'wine');
+
+  // A fourth "no" does not buy a fifth place: her call stands, and the score says so.
+  const end = play('no', last.state);
+  assert.equal(end.reply.strike.over, true);
+  assert.equal(end.reply.strike.forced, true);
+  assert.equal(end.reply.cards[0].href, last.reply.cards[0].href);
+  assert.match(end.reply.strike.line, /Three strikes\. PI’s call stood\. Rejected: .+\(done it\), .+\(too far\), .+\(not the mood\)\./);
+  assert.deepEqual(end.reply.strike.learned.done, [open.reply.cards[0].href]);
+  assert.deepEqual(end.reply.strike.learned.noKinds, ['wine']);
+  // Every tile is a published page's own words.
+  for (const turn of [open, second, third, last, end]) for (const item of turn.reply.cards) for (const text of [item.title, item.summary, ...item.facts.flat()]) assert.ok(!text || allowed.has(text));
+});
+
+test('Three Strikes: accepting ends it with a score, she remembers a veto next time, and a real question leaves the game', () => {
+  const open = converse(index, 'Surprise me', null, { today, shuffle: 9 });
+  const yes = converse(index, 'Go on then', open.state, { today, shuffle: 9 });
+  assert.equal(yes.reply.strike.over, true);
+  assert.equal(yes.reply.strike.line, 'Accepted on the first offer.');
+  assert.ok(!yes.state.pi.strikes);
+  // What the device remembers comes back as a line and as a rule.
+  const again = converse(index, 'Surprise me', null, { today, shuffle: 9, noKinds: ['wine'], done: [open.reply.cards[0].href] });
+  assert.match(again.reply.lead, /^Still no wineries and cellar doors, I assume\./);
+  assert.notEqual(again.reply.cards[0].href, open.reply.cards[0].href, 'a place they have done is not offered again');
+  // Mid-game, a question with a town in it is answered as a question.
+  const aside = converse(index, 'where is good for lunch in Red Hill?', open.state, { today, shuffle: 9 });
+  assert.notEqual(aside.reply.kind, 'strike');
+  assert.ok(!aside.state?.pi?.strikes);
+  // A different start gives a different first offer.
+  const firsts = new Set();
+  for (let shuffle = 0; shuffle < 30; shuffle += 1) firsts.add(converse(index, 'Surprise me', null, { today, shuffle }).reply.cards[0].href);
+  assert.ok(firsts.size > 1);
 });
 
 test('a thin town is declined in plain words, not padded', () => {
@@ -326,19 +378,6 @@ test('a short reply mid-thread stays on the thread, not on a page that shares on
   assert.equal(isFollowUp(index, 'church', [], { today }), false);
 });
 
-test('"Surprise me" starts somewhere different per chat and does not repeat a town until she has been round them', () => {
-  const first = new Set();
-  for (let shuffle = 0; shuffle < 40; shuffle += 1) first.add(converse(index, 'Surprise me', null, { today, shuffle }).reply.plan?.title);
-  assert.ok(first.size > 1, 'the first surprise depends on where the chat starts');
-  let state = null;
-  const towns = [];
-  for (let i = 0; i < 2; i += 1) {
-    const turn = converse(index, 'Surprise me', state, { today, shuffle: 5 });
-    state = turn.state;
-    towns.push(turn.reply.plan?.title);
-  }
-  assert.notEqual(towns[0], towns[1]);
-});
 
 test('a message has a subject when it names a town or a kind of place, and small talk does not', () => {
   assert.equal(hasSubject(index, 'lunch in Red Hill', { today }), true);
