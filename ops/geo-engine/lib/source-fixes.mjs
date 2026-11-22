@@ -239,15 +239,19 @@ export async function applySourceFixes({findings,pages,service,policy,runId,root
         const destination=await fetchImpl(ORIGIN+patch.expected.link,{signal:AbortSignal.timeout(20000)});
         if(destination.status!==200)continue;
       }
-      const verdict = await service.decide('risk.exact_source_patch',patchAssessmentInput(patch));
+      // Keep the exact lines the model judged, so its verdicts can later be
+      // compared with a human's. Recording them changes nothing about the gate.
+      const assessmentInput = patchAssessmentInput(patch);
+      const assessed = {action:patch.action,beforeEdit:assessmentInput.beforeEdit,afterEdit:assessmentInput.afterEdit};
+      const verdict = await service.decide('risk.exact_source_patch',assessmentInput);
       if (verdict.provider !== 'jev' || verdict.error || !Number.isFinite(verdict.confidence) || verdict.confidence < Math.max(.92,policy.confidenceThreshold)
           || verdict.value?.containsNewClaim !== false) {
-        deferred.push({urlPath:patch.urlPath,reason:'exact patch assessment not accepted',verdict}); continue;
+        deferred.push({urlPath:patch.urlPath,reason:'exact patch assessment not accepted',verdict,assessed}); continue;
       }
       const result = changeSet.applyTextChange({file:path.join(root,patch.file),plane:PLANE.SOURCE,
         opportunity:{id:`${finding.rule}:${patch.urlPath}`,proposedAction:patch.action},
         transform:s=>{if(sha256(s)!==patch.hashBefore)throw Error('source changed during assessment');return patch.after;}});
-      if (result.changed) changes.push({...patch,before:undefined,after:undefined,...result.change,verdict,
+      if (result.changed) changes.push({...patch,before:undefined,after:undefined,...result.change,verdict,assessed,
         problem:finding.detail, scoresBefore:pages[patch.urlPath]?.scores??null,
         geoBefore:pages[patch.urlPath]?.scores?.geoScore??null,
         expectedOutcome:'Remove the verified technical defect; observe search changes without claiming causation.',
