@@ -887,12 +887,13 @@ const starters = SHOW_ASK_PERSONA
       // An Australian voice if the device has one, a woman's by name where the device says. Else British, else any English.
       const named = /karen|catherine|natasha|matilda|olivia|lee|female|woman/i;
       const fit = (v: SpeechSynthesisVoice) => (/^en[-_]AU/i.test(v.lang) ? 0 : /^en[-_]GB/i.test(v.lang) ? 10 : /^en/i.test(v.lang) ? 20 : 99) + (named.test(v.name) ? 0 : 1);
-      herVoice = all.filter((v) => /^en/i.test(v.lang)).map((v) => ({ v, rank: fit(v) })).sort((a, b) => a.rank - b.rank)[0]?.v || null;
+      // While the chat promises that nothing is sent, only a voice that runs on the device itself may read.
+      herVoice = all.filter((v) => /^en/i.test(v.lang) && (voiceOn || v.localService)).map((v) => ({ v, rank: fit(v) })).sort((a, b) => a.rank - b.rank)[0]?.v || null;
     }
     if (synth) {
       pickVoice();
-      synth.addEventListener?.('voiceschanged', pickVoice);
-      speakBtn.hidden = false;
+      synth.addEventListener?.('voiceschanged', () => { pickVoice(); speakBtn.hidden = !(voiceOn || herVoice); });
+      speakBtn.hidden = !(voiceOn || herVoice);
     }
     function showSpeak() {
       speakBtn.setAttribute('aria-pressed', String(speakOn));
@@ -901,7 +902,7 @@ const starters = SHOW_ASK_PERSONA
     showSpeak();
     function hush() { try { synth?.cancel(); } catch { /* nothing was being said */ } }
     function speak(text: string) {
-      if (!synth || !speakOn || !text.trim()) return;
+      if (!synth || !speakOn || !text.trim() || (!voiceOn && !herVoice)) return;
       const u = new SpeechSynthesisUtterance(text.trim());
       if (herVoice) { u.voice = herVoice; u.lang = herVoice.lang; } else u.lang = 'en-AU';
       u.rate = 1.03;
@@ -922,7 +923,9 @@ const starters = SHOW_ASK_PERSONA
 
     let hearing: any = null;
     function stopHearing() { try { hearing?.stop(); } catch { /* already stopped */ } }
-    if (Recognition) {
+    // Turning speech into text can happen on the browser maker's servers, so the
+    // microphone is offered only when the chat is not promising that nothing is sent.
+    if (Recognition && voiceOn) {
       micBtn.hidden = false;
       micBtn.addEventListener('click', () => {
         if (hearing) { stopHearing(); return; }
