@@ -11,8 +11,6 @@ Event     Live Music     22 November 2026     One-off date
 
 Enjoy live music at Peninsula Beer Garden! Join the cool vibes and coastal tunes from Tiana V, a Mornington Peninsula based singer & guitarist who started out when she was only 8 years old.
 
-[Book or check details](<https://peninsulabeergarden.com.au/live-music/>)
-
 Hosted at
 
 Peninsula Beer Garden
@@ -43,7 +41,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://peninsulabeergarden.com.au/live-music/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Tiana+V+Live+at+Peninsula+Beer+Garden&dates=20261122T020000Z%2F20261122T060000Z&details=Enjoy+live+music+at+Peninsula+Beer+Garden%21+Join+the+cool+vibes+and+coastal+tunes+from+Tiana+V%2C+a+Mornington+Peninsula+based+singer+%26+guitarist+who+started+out+when+she+was+only+8+years+old.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Ftiana-v-live-at-peninsula-beer-garden-2026-11-22%2F&location=Peninsula+Beer+Garden%2C+Boneo%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+Booking and calendar links are withdrawn; this session has finished.
 
 Keep planning
 

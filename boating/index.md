@@ -25,7 +25,7 @@ Calmer water and a small tidal range. Use the BOM-listed station shown for your 
 
 - #### [Sorrento](<https://peninsulainsider.com.au/boating/ramps/sorrento-boat-ramp/>)
 
-Breakwater shelter and the shortest run to the southern snapper grounds and the Heads.
+A Shire-listed southern bay ramp beside the ferry precinct. Check current ramp, tide and navigation conditions.
 
 **Launch at**
 
@@ -49,7 +49,7 @@ Check current conditions  Station: Mornington
 
 - #### [Mornington Park](<https://peninsulainsider.com.au/boating/ramps/mornington-park-boat-ramp/>)
 
-Central bay shore. The car park is shared with the pier and the yacht club, so it is tight.
+Central bay shore in a shared pier and yacht-club precinct. Check current parking and ramp access.
 
 **Launch at**
 
@@ -61,7 +61,7 @@ Strongly tidal. Time your launch and your return. Tide station: **Western Port (
 
 - #### [Hastings](<https://peninsulainsider.com.au/boating/ramps/hastings-boat-ramp/>)
 
-Upgraded in 2024, with an all-abilities hoist on the new southern pontoon. The base for Western Port charters.
+Better Boating Victoria lists this ramp as upgraded and open. Check current equipment and ramp conditions.
 
 **Launch at**
 
@@ -87,7 +87,7 @@ Sorrento Long Pier, Mornington Peninsula   Photo · Robert Blackburn, courtesy o
 
 [Mornington Boat Hire](<https://peninsulainsider.com.au/boating/hire/mornington-boat-hire/>) runs tinnies and polycraft for the protected bay from Schnapper Point Drive, Mornington. The operator advertises this fleet as no-licence hire.
 
-The operator limits the boats to its surveyed area within 2 nautical miles of Mornington Pier. They must not approach the Rip. Expect a cancellation if the operator judges the weather unsafe. Open year-round when the weather allows; book ahead in the summer holidays and on long weekends.
+Confirm the assigned vessel, briefing, surveyed operating area and weather policy directly with the operator. Check current availability and terms before travelling.
 
 ### Fish from a pier
 

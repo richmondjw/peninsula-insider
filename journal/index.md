@@ -655,26 +655,6 @@ Month
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
-- [Sun, 22 Nov
-
-### Audio Replica Live at Tar Barrel
-
-Mornington
-
-Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery produce award-winning craft beers alongside diverse tastes as part of their whiskey and gin distillery. Have a drink, enjoy the menu and experience live music on the weekends!
-
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/audio-replica-live-at-tar-barrel-2026-11-22/>)
-
-- [Sun, 22 Nov
-
-### Tiana V Live at Peninsula Beer Garden
-
-Boneo
-
-Enjoy live music at Peninsula Beer Garden! Join the cool vibes and coastal tunes from Tiana V, a Mornington Peninsula based singer & guitarist who started out when she was only 8 years old.
-
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/tiana-v-live-at-peninsula-beer-garden-2026-11-22/>)
-
 - [Wed, 25 Nov
 
 ### Improv Comedy Show at The Bay Hotel Mornington
@@ -684,3 +664,23 @@ Mornington
 Come and finish the year out with our last student showcase of comedy! Before the silly season gets you too busy, relax UPSTAIRS at the Bay Hotel in Mornington for a totally made up improv comedy show.
 
  Event · Arts](<https://peninsulainsider.com.au/whats-on/improv-comedy-show-at-the-bay-hotel-mornington-2026-11-25/>)
+
+- [Wed, 25 Nov
+
+### ✦ Mornington Wednesday Market (Main Street Market)
+
+Mornington
+
+Mornington's long-running artisan market fills Main Street every Wednesday, 9am to 3pm. Expect local makers, produce and food; severe weather can cancel the market or limit stalls.
+
+ Event · Markets](<https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/>)
+
+- [Thu, 26 Nov
+
+### Author Talk: Jane Gilmore - Mornington Library
+
+Mornington
+
+Hear journalist and author Jane Gilmore discuss her new book, helping adults talk to kids about consent, relationships and online life.
+
+ Event · Writers & Ideas](<https://peninsulainsider.com.au/whats-on/author-talk-jane-gilmore-mornington-library/>)

@@ -11,29 +11,11 @@ Fri 20 – Sun 22 November  · Mornington Peninsula
 
 Find the date, place and reason to go, then check with the organiser before you head out.
 
-## Reasons to go
-
-- Sun, 22 Nov · 3pm–6pm · Mornington
-
-### [Audio Replica Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/audio-replica-live-at-tar-barrel-2026-11-22/>)
-
-Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery produce award-winning craft beers alongside diverse tastes as part of their whiskey and gin distillery.
-
-Live Music
-
-- Sun, 22 Nov · 1pm–5pm · Boneo
-
-### [Tiana V Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/tiana-v-live-at-peninsula-beer-garden-2026-11-22/>)
-
-Enjoy live music at Peninsula Beer Garden!
-
-Live Music
-
 ## Day by day
 
 ### Sunday 22 November
 
-This day’s event is in the short list above.
+No verified event listings remain for this day. Choose another date.
 
 ## Book ahead
 

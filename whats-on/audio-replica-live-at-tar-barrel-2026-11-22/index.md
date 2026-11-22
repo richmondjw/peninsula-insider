@@ -11,8 +11,6 @@ Event     Live Music     22 November 2026     One-off date
 
 Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery produce award-winning craft beers alongside diverse tastes as part of their whiskey and gin distillery. Have a drink, enjoy the menu and experience live music on the weekends!
 
-[Book or check details](<https://tarbarrel.com.au/music/>)
-
 Hosted at
 
 Tar Barrel
@@ -43,7 +41,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://tarbarrel.com.au/music/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Audio+Replica+Live+at+Tar+Barrel&dates=20261122T040000Z%2F20261122T070000Z&details=Located+in+the+Mornington+Industrial+Estate%2C+Tar+Barrel+Brewery+and+Distillery+produce+award-winning+craft+beers+alongside+diverse+tastes+as+part+of+their+whiskey+and+gin+distillery.+Have+a+drink%2C+enjoy+the+menu+and+experience+live+music+on+the+weekends%21%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Faudio-replica-live-at-tar-barrel-2026-11-22%2F&location=Tar+Barrel%2C+Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+Booking and calendar links are withdrawn; this session has finished.
 
 Keep planning
 

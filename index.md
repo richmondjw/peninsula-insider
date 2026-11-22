@@ -75,31 +75,29 @@ Merricks
 
  [See all events](<https://peninsulainsider.com.au/whats-on/>)
 
+No verified event picks remain for these dates. [Browse next weekend](<https://peninsulainsider.com.au/whats-on/?date=next-weekend>) or [find a place to explore](<https://peninsulainsider.com.au/explore/>).
+
 More ways to plan: the discovery links below are not dated event picks.
 
 Swipe or scroll through the picks
-
-- ### [Audio Replica Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/audio-replica-live-at-tar-barrel-2026-11-22/>)
-
-Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery produce award-winning craft beers alongside diverse tastes as part of their whiskey and.
-
-Sun, 22 Nov   Tar Barrel   Live music
-
-Event details checked 9 Nov 2026 · [Organiser’s page](<https://tarbarrel.com.au/music/>)
-
-- ### [Tiana V Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/tiana-v-live-at-peninsula-beer-garden-2026-11-22/>)
-
-Enjoy live music at Peninsula Beer Garden!
-
-Sun, 22 Nov   Peninsula Beer Garden   Live music
-
-Event details checked 9 Nov 2026 · [Organiser’s page](<https://peninsulabeergarden.com.au/live-music/>)
 
 - Explore more
 
 ### [Browse the events calendar](<https://peninsulainsider.com.au/whats-on/>)
 
 Choose your dates and check the latest event details.
+
+- Explore more
+
+### [Find a place to explore](<https://peninsulainsider.com.au/explore/>)
+
+Browse walks, beaches and places across the Peninsula.
+
+- Explore more
+
+### [Plan a Peninsula day](<https://peninsulainsider.com.au/explore/plans/>)
+
+Find an itinerary to suit your time and interests.
 
 This season · Spring
 
