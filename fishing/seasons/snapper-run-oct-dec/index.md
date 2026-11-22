@@ -51,11 +51,9 @@ Western Port is about timing the tide. The 2.5 to 2.8m tidal range produces stro
 
 ## Charters that target the snapper run
 
-- [I'm Hooked Fishing Charters](<https://peninsulainsider.com.au/fishing/charters/im-hooked-fishing-charters/>) · Licence covered
+- [I'm Hooked Fishing Charters](<https://peninsulainsider.com.au/fishing/charters/im-hooked-fishing-charters/>)
 
 - [Proline Charters](<https://peninsulainsider.com.au/fishing/charters/proline-charters/>)
-
-- [Reel Time Fishing Charters](<https://peninsulainsider.com.au/fishing/charters/reel-time-fishing-charters/>)
 
 ## Where to cook your catch
 

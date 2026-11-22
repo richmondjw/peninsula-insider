@@ -17,11 +17,9 @@ Last reviewed Thu, 30 Apr 2026.
 
 The first decision is what you want to catch and how big your group is. The Peninsula charter fleet covers four operating profiles, each suited to a different brief:
 
-- **Snapper specialist (Oct to Dec).** If your trip falls in October to December and you want to chase the southern bay snapper run, book [I'm Hooked Fishing Charters](<https://peninsulainsider.com.au/fishing/charters/im-hooked-fishing-charters/>). The 2024 Devil Cat catamaran, multi-ramp model, and Mal's 40-plus years of bay-snapper knowledge are the reasons. Capacity 8.
+- **Bay or offshore group of up to eight.** [I'm Hooked Fishing Charters](<https://peninsulainsider.com.au/fishing/charters/im-hooked-fishing-charters/>) runs a current 9-metre Seaquest across Port Phillip, Western Port and Bass Strait. The operator confirms the departure point; guests currently need a valid Victorian fishing licence.
 
 - **Large group or Bass Strait offshore.** Groups of 10 to 20, corporate functions, or shark and tuna trips into Bass Strait: [Proline Charters](<https://peninsulainsider.com.au/fishing/charters/proline-charters/>)' 60-foot Due South or 41-foot Strait Shooter from Sorrento Pier. Family operation since 1991.
-
-- **Mid-size group at the lower price band.** 11 to 18 passengers across two trailer boats running simultaneously: [Reel Time Fishing Charters](<https://peninsulainsider.com.au/fishing/charters/reel-time-fishing-charters/>).
 
 - **Western Port specialist.** Whiting in the channel systems, leatherjacket on the bay margins, the Western Port-resident pink-snapper population: [Western Port Fishing Charters](<https://peninsulainsider.com.au/fishing/charters/western-port-fishing-charters/>) from Hastings, Captain Robin Gray's 50-foot Westcoaster.
 
@@ -31,7 +29,7 @@ For the editorial side-by-side, see the [charters hub](<https://peninsulainsider
 
 ## Step 2: Confirm what's covered
 
-Charter inclusions vary by operator and by session type. The standard Peninsula charter package includes rods, reels, bait, and tackle. Most operators cover the Victorian Recreational Fishing Licence under the vessel's commercial licence; this means you do not need to buy a separate licence for the day. **Confirm the licence cover in writing at the time of booking** rather than assuming.
+Charter inclusions vary by operator and by session type. The standard Peninsula charter package includes rods, reels, bait, and tackle. Unless a statutory exemption applies, each person using fishing equipment must hold their own valid Victorian Recreational Fishing Licence. The licence is personal and cannot be shared. Check the current [Victorian Fisheries Authority rules](<https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide/rule-reminders>) and the operator's booking requirements before the trip.
 
 Food and drinks are not typically included on standard half-day or full-day sessions. Bring water and a substantial breakfast or lunch. The vessel will have ice on board for kept fish, but bring an esky for the drive home.
 
@@ -67,7 +65,7 @@ The Peninsula has 14-plus public piers, jetties, and beaches that produce fish w
 
 ### Do I need a fishing licence on a charter?
 
-Most licensed Peninsula charters cover guests under the operator's licence for the day. Confirm in writing at the time of booking; do not assume. The Victorian Recreational Fishing Licence is required for anglers aged 18 and over fishing in Victorian waters from any other platform (pier, beach, hire boat, own boat).
+Unless a statutory exemption applies, each person using fishing equipment in Victoria must hold their own valid Recreational Fishing Licence. A licence is personal and cannot be shared. Check current Victorian Fisheries Authority rules and the operator's booking requirements before the trip.
 
 ### What should I bring on a fishing charter?
 
@@ -75,7 +73,7 @@ Layered warm clothing (autumn snapper sessions are cold), a waterproof outer lay
 
 ### What if I get seasick?
 
-Take a seasickness preventative the night before and the morning of your trip. The catamaran platforms (I'm Hooked's Devil Cat) are more stable than mono-hulls in chop. Larger purpose-built vessels (Proline's 60-foot Due South, Western Port FC's 50-foot Westcoaster) are more stable still. Position yourself on deck rather than below in cabin if you start to feel unwell; fresh air and the horizon help.
+Ask a pharmacist or doctor about an appropriate seasickness preventative before the trip and follow their directions. Boat motion varies with the vessel, route and conditions, so do not assume one design guarantees a smoother ride. If you start to feel unwell, tell the crew early and stay where they direct you; fresh air and a view of the horizon may help.
 
 ### What if the weather is bad?
 
@@ -87,15 +85,13 @@ A small tip per person for a productive session is customary across the Peninsul
 
 ### Can children come on a charter?
 
-Yes, and most operators welcome them. Confirm minimum age with the operator at booking; some shark and offshore trips have minimum age requirements. The Devil Cat catamaran (I'm Hooked) is family-friendly with the catamaran stability advantage. Children should wear closed-toe footwear and a sun hat; life jackets for under-12s are recommended even where not formally required.
+Many operators welcome children, but minimum ages and suitable trip types vary. Confirm the child's age, the planned waters, life-jacket arrangements and any offshore restrictions directly with the operator before booking. Children should wear closed-toe footwear, sun protection and the safety equipment directed by the crew.
 
 ## Compare all Peninsula fishing charters
 
-- [I'm Hooked Fishing Charters](<https://peninsulainsider.com.au/fishing/charters/im-hooked-fishing-charters/>) · Licence covered
+- [I'm Hooked Fishing Charters](<https://peninsulainsider.com.au/fishing/charters/im-hooked-fishing-charters/>) · BYO licence
 
 - [Proline Charters](<https://peninsulainsider.com.au/fishing/charters/proline-charters/>)
-
-- [Reel Time Fishing Charters](<https://peninsulainsider.com.au/fishing/charters/reel-time-fishing-charters/>)
 
 - [Western Port Fishing Charters](<https://peninsulainsider.com.au/fishing/charters/western-port-fishing-charters/>)
 

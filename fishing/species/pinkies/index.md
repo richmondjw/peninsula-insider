@@ -77,9 +77,7 @@ Source: [Victorian Fisheries Authority](<https://vfa.vic.gov.au/recreational-fis
 
 ## Charter operators that target pinky snapper
 
-- [I'm Hooked Fishing Charters](<https://peninsulainsider.com.au/fishing/charters/im-hooked-fishing-charters/>) · Licence covered
-
-- [Reel Time Fishing Charters](<https://peninsulainsider.com.au/fishing/charters/reel-time-fishing-charters/>)
+- [I'm Hooked Fishing Charters](<https://peninsulainsider.com.au/fishing/charters/im-hooked-fishing-charters/>) · BYO licence
 
 Operators are listed because they demonstrably target pinky snapper, not as a default reference. Browse [all Peninsula charters](<https://peninsulainsider.com.au/fishing/charters/>) to compare across species and seasons.
 

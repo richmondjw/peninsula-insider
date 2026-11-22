@@ -97,7 +97,7 @@ Yes. Eight to ten-hour trips into Bass Strait target gummy shark, mako, and blue
 
 ### Do I need my own fishing licence?
 
-Confirm directly with Proline Charters at the time of booking whether guests are covered for the day or required to BYO licence. Most licensed Victorian charters cover guests, but confirm in writing rather than assuming.
+Unless a statutory exemption applies, each person using fishing equipment must hold their own valid Victorian Recreational Fishing Licence. Check current VFA rules and confirm Proline's booking requirements before the trip.
 
 ### What about King Island and Portland trips?
 
@@ -111,9 +111,7 @@ Confirm the exact refund and transfer policy at the time of booking. Offshore ca
 
 ## Compare other Peninsula charters
 
-- [I'm Hooked Fishing Charters](<https://peninsulainsider.com.au/fishing/charters/im-hooked-fishing-charters/>) · Licence covered
-
-- [Reel Time Fishing Charters](<https://peninsulainsider.com.au/fishing/charters/reel-time-fishing-charters/>)
+- [I'm Hooked Fishing Charters](<https://peninsulainsider.com.au/fishing/charters/im-hooked-fishing-charters/>) · BYO licence
 
 - [Western Port Fishing Charters](<https://peninsulainsider.com.au/fishing/charters/western-port-fishing-charters/>)
 

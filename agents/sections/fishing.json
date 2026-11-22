@@ -1,9 +1,9 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-11-22T14:29:24.341Z",
-  "snapshotId": "a0ae499c375fade25e4ae86bec03573b46e5d74d2aaa8b01cb02e5867dd0df69",
+  "generatedAt": "2026-11-22T19:03:32.423Z",
+  "snapshotId": "665344a45472ffd8a9b574903f840caeffb2c37ecdf33a12a2da30a755c5f4b3",
   "section": "fishing",
-  "count": 34,
+  "count": 33,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/fishing/",
@@ -28,7 +28,7 @@
       "section": "fishing",
       "canonicalUrl": "https://peninsulainsider.com.au/fishing/charters/",
       "markdownUrl": "https://peninsulainsider.com.au/fishing/charters/index.md",
-      "contentSha256": "f46f5c5b09141da3556fe15a167125f5e513ae283ea2e5178441d8a9fd5779dd",
+      "contentSha256": "e500daad3f4eafa11702c130b8627c30758680ac243cd66e424e65845d25786d",
       "citation": {
         "title": "Peninsula fishing charters, compared",
         "publisher": "Peninsula Insider",
@@ -36,8 +36,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-04-30"
       },
-      "htmlBytes": 133509,
-      "markdownBytes": 3576
+      "htmlBytes": 132130,
+      "markdownBytes": 2969
     },
     {
       "id": "https://peninsulainsider.com.au/fishing/charters/first-charter-guide/",
@@ -45,7 +45,7 @@
       "section": "fishing",
       "canonicalUrl": "https://peninsulainsider.com.au/fishing/charters/first-charter-guide/",
       "markdownUrl": "https://peninsulainsider.com.au/fishing/charters/first-charter-guide/index.md",
-      "contentSha256": "7b479e109aeb1d4741d1ac7b92415fe77932be52462400888c5d393f6dc42074",
+      "contentSha256": "0ed693146fef69b639b054aeb2dd7e419c03ae52340d4a47552da67c13c1a6f9",
       "citation": {
         "title": "Your first Peninsula fishing charter",
         "publisher": "Peninsula Insider",
@@ -53,8 +53,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-04-30"
       },
-      "htmlBytes": 139430,
-      "markdownBytes": 8162
+      "htmlBytes": 138791,
+      "markdownBytes": 7794
     },
     {
       "id": "https://peninsulainsider.com.au/fishing/charters/im-hooked-fishing-charters/",
@@ -62,16 +62,16 @@
       "section": "fishing",
       "canonicalUrl": "https://peninsulainsider.com.au/fishing/charters/im-hooked-fishing-charters/",
       "markdownUrl": "https://peninsulainsider.com.au/fishing/charters/im-hooked-fishing-charters/index.md",
-      "contentSha256": "80b53de410b6d9dfd9cb077a960c595076076b6661f28c6fc2e26d51ecee4dbb",
+      "contentSha256": "d49fae0fdf745f176e3b122f5013dd349334881e9a7f15cd1df65cc92cc3a12b",
       "citation": {
         "title": "I'm Hooked Fishing Charters",
         "publisher": "Peninsula Insider",
         "url": "https://peninsulainsider.com.au/fishing/charters/im-hooked-fishing-charters/",
         "publishedAt": null,
-        "modifiedAt": "2026-04-30"
+        "modifiedAt": "2026-11-23"
       },
-      "htmlBytes": 144433,
-      "markdownBytes": 10252
+      "htmlBytes": 138842,
+      "markdownBytes": 6437
     },
     {
       "id": "https://peninsulainsider.com.au/fishing/charters/proline-charters/",
@@ -79,7 +79,7 @@
       "section": "fishing",
       "canonicalUrl": "https://peninsulainsider.com.au/fishing/charters/proline-charters/",
       "markdownUrl": "https://peninsulainsider.com.au/fishing/charters/proline-charters/index.md",
-      "contentSha256": "7802ea42250148c03972c022459871d0d6028fcb24bc0f52a5678c389c667108",
+      "contentSha256": "250d3c4563f03bdb1b1bc4e75d699bd5255455acef9161f2a784754ffe4918fd",
       "citation": {
         "title": "Proline Charters",
         "publisher": "Peninsula Insider",
@@ -87,25 +87,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-04-30"
       },
-      "htmlBytes": 143880,
-      "markdownBytes": 9652
-    },
-    {
-      "id": "https://peninsulainsider.com.au/fishing/charters/reel-time-fishing-charters/",
-      "title": "Reel Time Fishing Charters",
-      "section": "fishing",
-      "canonicalUrl": "https://peninsulainsider.com.au/fishing/charters/reel-time-fishing-charters/",
-      "markdownUrl": "https://peninsulainsider.com.au/fishing/charters/reel-time-fishing-charters/index.md",
-      "contentSha256": "606425ef4c03f9e578b38da3b2d8ba50a5aaca6d8a6f0f58d61f3f3360bac9fe",
-      "citation": {
-        "title": "Reel Time Fishing Charters",
-        "publisher": "Peninsula Insider",
-        "url": "https://peninsulainsider.com.au/fishing/charters/reel-time-fishing-charters/",
-        "publishedAt": null,
-        "modifiedAt": "2026-04-30"
-      },
-      "htmlBytes": 142459,
-      "markdownBytes": 9064
+      "htmlBytes": 143680,
+      "markdownBytes": 9539
     },
     {
       "id": "https://peninsulainsider.com.au/fishing/charters/western-port-fishing-charters/",
@@ -113,7 +96,7 @@
       "section": "fishing",
       "canonicalUrl": "https://peninsulainsider.com.au/fishing/charters/western-port-fishing-charters/",
       "markdownUrl": "https://peninsulainsider.com.au/fishing/charters/western-port-fishing-charters/index.md",
-      "contentSha256": "01ca42600b8589723d1723bf9e13a6b6445788e30cea7a2fb53bd1fec2fbcf7c",
+      "contentSha256": "7082e1ea56322e9093a772e381dd1241722f648351dc3b40b4aa862a4173557d",
       "citation": {
         "title": "Western Port Fishing Charters",
         "publisher": "Peninsula Insider",
@@ -121,8 +104,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-04-30"
       },
-      "htmlBytes": 144546,
-      "markdownBytes": 10241
+      "htmlBytes": 144365,
+      "markdownBytes": 10153
     },
     {
       "id": "https://peninsulainsider.com.au/fishing/locations/",
@@ -266,7 +249,7 @@
       "section": "fishing",
       "canonicalUrl": "https://peninsulainsider.com.au/fishing/locations/rye-pier/",
       "markdownUrl": "https://peninsulainsider.com.au/fishing/locations/rye-pier/index.md",
-      "contentSha256": "9bb38b48c147429ad49b734bb0e4e66657c5a58ffbe234358960a1b20a1d3673",
+      "contentSha256": "5bf5ee4dbd71e25059e960340055c18ee64a52ceaf27fa8ce392b3cd1854fb81",
       "citation": {
         "title": "Rye Pier",
         "publisher": "Peninsula Insider",
@@ -274,8 +257,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-04-30"
       },
-      "htmlBytes": 147948,
-      "markdownBytes": 11189
+      "htmlBytes": 147891,
+      "markdownBytes": 11110
     },
     {
       "id": "https://peninsulainsider.com.au/fishing/locations/safety-beach-foreshore/",
@@ -351,7 +334,7 @@
       "section": "fishing",
       "canonicalUrl": "https://peninsulainsider.com.au/fishing/seasons/snapper-run-oct-dec/",
       "markdownUrl": "https://peninsulainsider.com.au/fishing/seasons/snapper-run-oct-dec/index.md",
-      "contentSha256": "66c7ab1ca2d836ac809b0e8e6bd05141fb5be17ca444b0bef50bb354d116cb4e",
+      "contentSha256": "bad92182ed6a8252bf1475c854edbe7b10a1563fdc18f3a44f32c778abfb4dee",
       "citation": {
         "title": "The Peninsula snapper season , week by week",
         "publisher": "Peninsula Insider",
@@ -359,8 +342,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-04-30"
       },
-      "htmlBytes": 138497,
-      "markdownBytes": 8006
+      "htmlBytes": 138266,
+      "markdownBytes": 7875
     },
     {
       "id": "https://peninsulainsider.com.au/fishing/species/",
@@ -385,7 +368,7 @@
       "section": "fishing",
       "canonicalUrl": "https://peninsulainsider.com.au/fishing/species/australian-salmon/",
       "markdownUrl": "https://peninsulainsider.com.au/fishing/species/australian-salmon/index.md",
-      "contentSha256": "a8d8efa59705d8a662590fcccd43499a4f6714a729d01503ea6ab3bce675f802",
+      "contentSha256": "be6455afe3fe47ede3668c82b5110c7c490416300a2e013e6bfe8d89f5a62bb4",
       "citation": {
         "title": "Australian Salmon on the Mornington Peninsula",
         "publisher": "Peninsula Insider",
@@ -393,8 +376,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-04-30"
       },
-      "htmlBytes": 146364,
-      "markdownBytes": 12322
+      "htmlBytes": 145852,
+      "markdownBytes": 11932
     },
     {
       "id": "https://peninsulainsider.com.au/fishing/species/bream/",
@@ -419,7 +402,7 @@
       "section": "fishing",
       "canonicalUrl": "https://peninsulainsider.com.au/fishing/species/flathead/",
       "markdownUrl": "https://peninsulainsider.com.au/fishing/species/flathead/index.md",
-      "contentSha256": "fbb99216af4244fb04534060c307ffeefde854a259328e2e4f9a0221729870bf",
+      "contentSha256": "8b7569af5baba6a6a566d2c80ccaca63b023dfa0d27279bfe5a3b32d394b7bf0",
       "citation": {
         "title": "Flathead on the Mornington Peninsula",
         "publisher": "Peninsula Insider",
@@ -427,8 +410,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-04-30"
       },
-      "htmlBytes": 141714,
-      "markdownBytes": 9264
+      "htmlBytes": 141503,
+      "markdownBytes": 9148
     },
     {
       "id": "https://peninsulainsider.com.au/fishing/species/garfish/",
@@ -453,7 +436,7 @@
       "section": "fishing",
       "canonicalUrl": "https://peninsulainsider.com.au/fishing/species/gummy-shark/",
       "markdownUrl": "https://peninsulainsider.com.au/fishing/species/gummy-shark/index.md",
-      "contentSha256": "cfa1e2b33e6ff5149ade4a191b990c268c57788f0aa40106a5e378a8c4c44adf",
+      "contentSha256": "b9ac544911e0572ed9ba16adab4e815c3651540c6ef89ede03d8b6785d9acae4",
       "citation": {
         "title": "Gummy Shark on the Mornington Peninsula",
         "publisher": "Peninsula Insider",
@@ -461,8 +444,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-04-30"
       },
-      "htmlBytes": 142278,
-      "markdownBytes": 9179
+      "htmlBytes": 142274,
+      "markdownBytes": 9175
     },
     {
       "id": "https://peninsulainsider.com.au/fishing/species/king-george-whiting/",
@@ -470,7 +453,7 @@
       "section": "fishing",
       "canonicalUrl": "https://peninsulainsider.com.au/fishing/species/king-george-whiting/",
       "markdownUrl": "https://peninsulainsider.com.au/fishing/species/king-george-whiting/index.md",
-      "contentSha256": "02ee92f56b3faf673df3121752ebf49e634491ce755411849bba1ad3d1bc7532",
+      "contentSha256": "4776fcb06c87c2aa942b5e867d5309b81654d9fb40a820d635a175fd2875d3f3",
       "citation": {
         "title": "King George Whiting on the Mornington Peninsula",
         "publisher": "Peninsula Insider",
@@ -478,8 +461,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-04-30"
       },
-      "htmlBytes": 148735,
-      "markdownBytes": 14273
+      "htmlBytes": 148513,
+      "markdownBytes": 14157
     },
     {
       "id": "https://peninsulainsider.com.au/fishing/species/mulloway/",
@@ -504,7 +487,7 @@
       "section": "fishing",
       "canonicalUrl": "https://peninsulainsider.com.au/fishing/species/pinkies/",
       "markdownUrl": "https://peninsulainsider.com.au/fishing/species/pinkies/index.md",
-      "contentSha256": "c948fd6f6632f63fc46bca92e7516f56a91849b10f83c405fcb90ac4a21778ec",
+      "contentSha256": "43be89062cf5abf115a640ba2fcd7a6cf70761bfcc3771c6dea001818b8fdf20",
       "citation": {
         "title": "Pinky Snapper on the Mornington Peninsula",
         "publisher": "Peninsula Insider",
@@ -512,8 +495,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-04-30"
       },
-      "htmlBytes": 141051,
-      "markdownBytes": 8138
+      "htmlBytes": 140841,
+      "markdownBytes": 8022
     },
     {
       "id": "https://peninsulainsider.com.au/fishing/species/silver-trevally/",
@@ -521,7 +504,7 @@
       "section": "fishing",
       "canonicalUrl": "https://peninsulainsider.com.au/fishing/species/silver-trevally/",
       "markdownUrl": "https://peninsulainsider.com.au/fishing/species/silver-trevally/index.md",
-      "contentSha256": "c5be99a03a4417a25f4299d6739931182fc174e8e944e1acde0aed33d6ae8578",
+      "contentSha256": "ab68f2df06fa3ea3bc92470384d758ecf3310ad1fcfaf6c9b4521a2bbd174864",
       "citation": {
         "title": "Silver Trevally on the Mornington Peninsula",
         "publisher": "Peninsula Insider",
@@ -529,8 +512,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-04-30"
       },
-      "htmlBytes": 139581,
-      "markdownBytes": 7008
+      "htmlBytes": 139577,
+      "markdownBytes": 7004
     },
     {
       "id": "https://peninsulainsider.com.au/fishing/species/snapper/",
@@ -538,7 +521,7 @@
       "section": "fishing",
       "canonicalUrl": "https://peninsulainsider.com.au/fishing/species/snapper/",
       "markdownUrl": "https://peninsulainsider.com.au/fishing/species/snapper/index.md",
-      "contentSha256": "89fe2b739ac1d957d2291531662cbdd3a5f048edb8400ed3ab62f192f1a92326",
+      "contentSha256": "72b729d2655464c205685e68f1b7636adf0cd7ef81193e455886fcc8b22b8808",
       "citation": {
         "title": "Snapper on the Mornington Peninsula",
         "publisher": "Peninsula Insider",
@@ -546,8 +529,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-04-30"
       },
-      "htmlBytes": 150257,
-      "markdownBytes": 15695
+      "htmlBytes": 149851,
+      "markdownBytes": 15518
     },
     {
       "id": "https://peninsulainsider.com.au/fishing/species/squid/",
@@ -555,7 +538,7 @@
       "section": "fishing",
       "canonicalUrl": "https://peninsulainsider.com.au/fishing/species/squid/",
       "markdownUrl": "https://peninsulainsider.com.au/fishing/species/squid/index.md",
-      "contentSha256": "5066f6706bb12a624d5ec2877469157a56ec3bf7ca3a1ff84db7a4e379dc6f1f",
+      "contentSha256": "6067cdca792d1be2d446a5916d77a21125fc0760b949231bd704dcc7fcd5bef2",
       "citation": {
         "title": "Southern Calamari on the Mornington Peninsula",
         "publisher": "Peninsula Insider",
@@ -563,8 +546,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-04-30"
       },
-      "htmlBytes": 147004,
-      "markdownBytes": 13186
+      "htmlBytes": 146802,
+      "markdownBytes": 13073
     },
     {
       "id": "https://peninsulainsider.com.au/fishing/species/yellowtail-kingfish/",

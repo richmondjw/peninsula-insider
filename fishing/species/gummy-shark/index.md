@@ -83,7 +83,7 @@ Source: [Victorian Fisheries Authority](<https://vfa.vic.gov.au/recreational-fis
 
 ## Charter operators that target gummy shark
 
-- [I'm Hooked Fishing Charters](<https://peninsulainsider.com.au/fishing/charters/im-hooked-fishing-charters/>) · Licence covered
+- [I'm Hooked Fishing Charters](<https://peninsulainsider.com.au/fishing/charters/im-hooked-fishing-charters/>) · BYO licence
 
 - [Proline Charters](<https://peninsulainsider.com.au/fishing/charters/proline-charters/>)
 

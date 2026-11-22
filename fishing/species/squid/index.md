@@ -113,9 +113,7 @@ Source: [Victorian Fisheries Authority Recreational Fishing Guide](<https://vfa.
 
 ## Charter operators that target southern calamari
 
-- [I'm Hooked Fishing Charters](<https://peninsulainsider.com.au/fishing/charters/im-hooked-fishing-charters/>) · Licence covered
-
-- [Reel Time Fishing Charters](<https://peninsulainsider.com.au/fishing/charters/reel-time-fishing-charters/>)
+- [I'm Hooked Fishing Charters](<https://peninsulainsider.com.au/fishing/charters/im-hooked-fishing-charters/>) · BYO licence
 
 Operators are listed because they demonstrably target southern calamari, not as a default reference. Browse [all Peninsula charters](<https://peninsulainsider.com.au/fishing/charters/>) to compare across species and seasons.
 
@@ -141,7 +139,7 @@ A combined total of 10 per person per day for squid, calamari, octopus and cuttl
 
 ### Do I need a fishing licence to catch squid?
 
-Yes. A Victorian Recreational Fishing Licence is required to take squid from Victorian waters for anglers aged 18 and over. Children under 18 are exempt. Anglers fishing from a licensed charter vessel are generally covered by the operator's licence; confirm at booking.
+Unless a statutory exemption applies, each person using fishing equipment must hold their own valid Victorian Recreational Fishing Licence. A licence is personal and cannot be shared. Check current VFA rules and the charter operator's booking requirements before the trip.
 
 ### What is the best squid jig size for Peninsula squid jigging?
 

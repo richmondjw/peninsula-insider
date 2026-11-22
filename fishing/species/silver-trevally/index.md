@@ -75,7 +75,7 @@ Source: [Victorian Fisheries Authority Recreational Fishing Guide](<https://vfa.
 
 ## Charter operators that target silver trevally
 
-- [I'm Hooked Fishing Charters](<https://peninsulainsider.com.au/fishing/charters/im-hooked-fishing-charters/>) · Licence covered
+- [I'm Hooked Fishing Charters](<https://peninsulainsider.com.au/fishing/charters/im-hooked-fishing-charters/>) · BYO licence
 
 Operators are listed because they demonstrably target silver trevally, not as a default reference. Browse [all Peninsula charters](<https://peninsulainsider.com.au/fishing/charters/>) to compare across species and seasons.
 

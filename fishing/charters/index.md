@@ -13,9 +13,9 @@ The buyer's guide. Each operator profile names the species they actually target,
 
 ## [I'm Hooked Fishing Charters](<https://peninsulainsider.com.au/fishing/charters/im-hooked-fishing-charters/>)
 
-Licence covered
+BYO licence
 
-Skipper Mal and a 2024 24-foot Devil Cat catamaran out of multiple Peninsula ramps. Calendar built around the Oct to Dec snapper run; mixed-bag sessions through the rest of the year. Wheelchair-accessible vessel, family-friendly without sacrificing the technical fishing. Licence covered for the day.
+Skipper Mal runs bay and offshore fishing trips on a 9-metre Seaquest for up to eight guests. Departure points vary across Port Phillip and Western Port and are confirmed with the operator. Guests need a valid Victorian Recreational Fishing Licence.
 
 [Operator profile →](<https://peninsulainsider.com.au/fishing/charters/im-hooked-fishing-charters/>)
 
@@ -24,12 +24,6 @@ Skipper Mal and a 2024 24-foot Devil Cat catamaran out of multiple Peninsula ram
 Operating from Berth 1 at Sorrento Pier since 1991. The two vessels (60-foot Due South and 41-foot Strait Shooter) are the largest fishing-charter platforms in Victoria. Standard product is a five-hour bay session for snapper, whiting, and squid. The differentiator is what becomes possible at scale: 15 to 20 passenger groups, Bass Strait shark expeditions, multi-day King Island and Portland tuna runs.
 
 [Operator profile →](<https://peninsulainsider.com.au/fishing/charters/proline-charters/>)
-
-## [Reel Time Fishing Charters](<https://peninsulainsider.com.au/fishing/charters/reel-time-fishing-charters/>)
-
-Operating since 2004 with two trailer boats (8 passenger and 10 passenger) capable of running simultaneously across multiple Peninsula ramps. Lower per-person price band than the larger purpose-built charters. Suits mid-size groups of 11 to 18 who want everyone on the water at the same session time without booking a 60-foot vessel.
-
-[Operator profile →](<https://peninsulainsider.com.au/fishing/charters/reel-time-fishing-charters/>)
 
 ## [Western Port Fishing Charters](<https://peninsulainsider.com.au/fishing/charters/western-port-fishing-charters/>)
 

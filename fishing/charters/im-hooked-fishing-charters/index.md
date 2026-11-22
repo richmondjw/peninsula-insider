@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/fishing/charters/im-hooked-fishing-charters/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-04-30
+Modified: 2026-11-23
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -9,65 +9,51 @@ Fishing · Charters
 
 # I'm Hooked Fishing Charters
 
-Last fact-verified Thu, 30 Apr 2026 · [Operator website](<https://imhookedfishingcharters.com.au/>)
+Last fact-verified Mon, 23 Nov 2026 · [Operator website](<https://imhookedfishingcharters.com.au/>)
 
 [Book I'm Hooked Fishing Charters →](<https://imhookedfishingcharters.com.au/?utm_source=peninsula-insider&utm_medium=charter-page&utm_campaign=im-hooked-fishing-charters-charter&utm_content=hero-primary>)
 
 ## Key facts
 
-Vessel | Devil Cat - 24-foot twin-engine catamaran (2024 build) |
+Vessel | Seaquest 9m - 9-metre 2026 Seaquest diesel vessel with cabin and toilet |
 
-Capacity | 2 to 8 passengers |
-
-Departure points |  [hastings](<https://peninsulainsider.com.au/boating/ramps/hastings-boat-ramp/>), [rye](<https://peninsulainsider.com.au/boating/ramps/rye-boat-ramp/>), [mornington park](<https://peninsulainsider.com.au/boating/ramps/mornington-park-boat-ramp/>) |
+Capacity | 5 to 8 passengers |
 
 Target species |  [snapper](<https://peninsulainsider.com.au/fishing/species/snapper/>) , [king george whiting](<https://peninsulainsider.com.au/fishing/species/king-george-whiting/>) , [squid](<https://peninsulainsider.com.au/fishing/species/squid/>) , [gummy shark](<https://peninsulainsider.com.au/fishing/species/gummy-shark/>) |
 
-Fishing licence | **Licence covered for the day** |
+Fishing licence | **BYO licence required** |
 
-Operating season | Year-round. Snapper focus October to December; mixed-bag sessions January to September. |
+Operating season | Bay and offshore trips vary by target species, conditions and season. |
 
 ## Who this suits
 
-Groups of two to eight wanting a genuinely skilled snapper session in October through December, families needing the stability and accessibility of a catamaran platform, anglers based in Melbourne's south-east who want flexibility on which ramp they board from. Skipper Mal's 40-plus years of Peninsula experience is the differentiator.
+Groups of five to eight wanting a guided bay trip, or a private group considering an offshore Bass Strait trip. Beginners are welcomed and the operator supplies bait and tackle.
 
 ## Who it doesn't suit
 
-Corporate groups of 15-plus or large event bookings; capacity caps at 8. Anglers wanting a fixed Sorrento-departure experience or a guaranteed Western Port-only session; the multi-ramp model adapts to conditions, which means departure point can change. Anyone who wants a budget-tier session at the lower price brackets; this is a mid-band operator.
+Anyone needing a fixed departure point before booking, a group larger than eight, or step-free boarding that has not been confirmed directly with the operator. Conditions and the chosen trip determine where the boat departs.
 
-## What this charter actually is
+## What this charter currently offers
 
-I’m Hooked runs out of multiple Peninsula ramps (Hastings, Rye, Mornington, and Carrum on the Melbourne side), giving them flexibility that single-ramp operators cannot match. The core product is a shared or private session targeting southern Port Phillip Bay, with the calendar structured explicitly around the warm-water snapper run between October and December. Outside that window, skipper Mal shifts to mixed-bag sessions chasing whiting, squid, gummy shark, flathead, and tuna depending on conditions.
+I’m Hooked advertises guided fishing across Port Phillip Bay, Western Port and Bass Strait. The bay product targets snapper, whiting, flathead, garfish and squid, while offshore trips may target kingfish, tuna, mako shark, gummy shark and reef species. Conditions, season and the chosen trip determine the final fishing ground.
 
-The vessel is a 2024-built 24-foot Devil Cat catamaran, a twin-engine platform that offers more deck space and stability than a comparably priced mono-hull. That matters on a five-to-eight-hour session and matters more for guests prone to seasickness. The operation is decidedly family-friendly without sacrificing fishing quality. The multi-ramp departure model means Melbourne-based anglers can board close to home rather than driving to the end of the Peninsula.
+The current boat is a 9-metre Seaquest with a 340 hp diesel engine, a sheltered cabin, a toilet and room advertised for eight guests. This replaces the older vessel description previously carried by this guide. The operator lists changing departure locations across Port Phillip and Western Port rather than one guaranteed Peninsula ramp.
 
-## Why we chose this charter
+## Why it may suit your group
 
-First, the Oct to Dec snapper focus: I’m Hooked is one of the few operators who build the entire seasonal calendar around the southern bay’s warm-water snapper run, rather than running snapper sessions as one of many product lines. Second, the catamaran platform: stability on a marginal-weather autumn morning is a genuine guest-experience advantage, not marketing copy. Skipper Mal’s 40-plus years of Peninsula experience is real, and the multi-ramp operational model reflects deep knowledge of where the fish are at any given point in the season.
+The clearest fit is a group of five to eight that wants a guided bay session with bait and tackle supplied. The operator also offers private offshore trips. Beginners are welcomed, but this remains a weather-dependent marine activity and no catch is guaranteed.
 
-The honest caveat: capacity caps at 8 passengers (6 offshore), so this is not the right call for a corporate group of 15 or a large event booking. For groups of two to eight wanting a genuinely skilled snapper session or a flexible mixed-bag day, this is a strong choice.
+The trade-off is flexibility: the departure point is confirmed around the trip and conditions, so this is not the best option if your group needs a fixed ramp before booking. Groups larger than eight need another operator. Anyone with mobility requirements should confirm boarding, transfer, cabin and toilet access for the assigned ramp and tide; the current operator pages reviewed do not advertise wheelchair boarding.
 
-## The trip format
+## Before booking
 
-Sessions run five to eight hours. Morning snapper sessions during October to December typically depart between 6am and 7am; tide windows drive the exact time, so confirm with the skipper the evening before. The method for snapper is anchor and burley over structure: hold position on a known mark, lay a burley trail, fish baited rigs in the lane. This is the dominant and most productive Peninsula method for southern bay snapper.
+Confirm the trip type, date, departure ramp, meeting time, minimum group, total cost and cancellation terms directly with the operator. Recheck the forecast and final departure point before travelling.
 
-Off-season mixed sessions (January to September) use a combination of drift and anchor depending on target species. Whiting sessions drift over sand flats at 4 to 8 metres; squid sessions work structure with jigs. The vessel covers more ground than many competitors because of its twin-engine platform and the flexibility of launching from whichever ramp suits the tidal window and forecast.
+Guests are currently told to bring suitable clothing, food and drinks without glass, an esky for the catch and a valid Victorian Recreational Fishing Licence. Bait and tackle are supplied. Do not rely on older descriptions saying the licence is covered.
 
-The multi-ramp model means departure location can change with conditions. Guests should arrive at the nominated ramp at least 15 minutes before departure for gear allocation and the safety briefing. Session times are approximate and subject to tidal windows, weather, and skipper discretion.
+## Current evidence
 
-## Operator and vessel
-
-Skipper Mal has operated Peninsula fishing charters for over 40 years. The operation holds the commercial charter endorsement required under Victorian recreational fishing regulations and operates a Marine Safety Victoria-registered commercial vessel. The vessel is a 2024-built 24-foot Devil Cat catamaran with twin motors, a toilet, ice boxes, and seating for up to 8 passengers. The large cabin offers weather protection on cold autumn mornings. The vessel is described by the operator as wheelchair accessible; confirm specific boarding arrangements directly at time of booking.
-
-## What’s included
-
-Rods, reels, bait, and tackle are all provided. The Victorian Recreational Fishing Licence is covered for the day. Guests do not need to bring their own gear or a licence. Confirm the fish-cleaning policy at booking. A modest cash tip per person for a productive session is customary but never expected.
-
-Prices may change. Confirm current rates directly with the venue or operator before booking.
-
-## Booking logic
-
-For October to December snapper sessions, book 4 to 8 weeks ahead for weekend slots. Off-season sessions typically book 1 to 2 weeks out, though popular long weekends fill faster. An October to December session is genuinely different from a June mixed-bag day; book knowing which experience you want.
+The operator’s public site was checked on 23 November 2026 for the vessel, capacity, trip areas, inclusions and licence requirement. These details can change, so the operator remains the source for the final booking terms and accessibility arrangements.
 
 ## Species this charter targets
 
@@ -81,37 +67,31 @@ For October to December snapper sessions, book 4 to 8 weeks ahead for weekend sl
 
 ## Frequently asked questions
 
-### What happens if weather prevents the charter from departing?
+### Where does the charter depart?
 
-Standard Peninsula practice is a full refund or transfer to another date when conditions prevent departure. Confirm the operator's exact policy in writing at the time of booking so there is no ambiguity on a marginal forecast day.
+The operator lists various departure locations across Port Phillip and Western Port. Confirm the exact ramp and meeting time directly before travelling.
 
-### Can I book a private charter for my group, or is this a shared vessel?
+### How many guests can go?
 
-Both. Private bookings cap the vessel at 8 passengers (6 offshore). Private sessions typically attract a minimum booking fee rather than a per-person rate. Contact the operator for a private quote.
+The current vessel is advertised for up to eight guests. The bay product lists a minimum of five people; private and offshore arrangements differ, so confirm your group directly.
 
-### Do I need my own fishing licence, or is it covered by the charter?
+### Do I need a Victorian Recreational Fishing Licence?
 
-Licence is covered for the day when fishing with I'm Hooked on their licensed charter vessel. Guests do not need to purchase a separate Victorian Recreational Fishing Licence for the day. Confirm at booking.
+Yes. The operator currently tells guests to bring a valid Victorian Recreational Fishing Licence.
 
-### What level of fishing experience do I need?
+### What should I bring?
 
-None. The crew provides instruction on technique, baiting, and rod handling. Children are welcome. The catamaran platform offers more stability than most comparable vessels, making it a practical choice for guests who are new to offshore fishing or prone to seasickness.
+The operator supplies bait and tackle. Bring clothing for the conditions, food and drinks without glass, an esky for your catch and your valid fishing licence.
 
-### How does the multi-ramp model work - where will I actually board?
+### Is wheelchair boarding available?
 
-The departure ramp is confirmed by the operator in advance based on conditions, tidal windows, and the day's target ground. At booking you nominate preferred locations, but the skipper may adjust based on the forecast. Confirm the final departure point the evening before your session.
-
-### What if snapper season is over, can I still book?
-
-Yes. Outside the October to December run, the operator shifts to mixed-bag sessions targeting whiting, squid, gummy shark, and flathead depending on conditions. These sessions are not inferior; they are a different experience. A January whiting session over southern bay sand flats is a technically interesting and productive day; it is simply not snapper.
+The current operator pages reviewed do not advertise wheelchair boarding. Ask about the exact ramp, transfer, cabin and toilet access before booking if anyone in your group has mobility requirements.
 
 [Book I'm Hooked Fishing Charters →](<https://imhookedfishingcharters.com.au/?utm_source=peninsula-insider&utm_medium=charter-page&utm_campaign=im-hooked-fishing-charters-charter&utm_content=footer-primary>)
 
 ## Compare other Peninsula charters
 
 - [Proline Charters](<https://peninsulainsider.com.au/fishing/charters/proline-charters/>)
-
-- [Reel Time Fishing Charters](<https://peninsulainsider.com.au/fishing/charters/reel-time-fishing-charters/>)
 
 - [Western Port Fishing Charters](<https://peninsulainsider.com.au/fishing/charters/western-port-fishing-charters/>)
 

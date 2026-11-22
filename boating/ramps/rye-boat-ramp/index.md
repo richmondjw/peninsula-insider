@@ -45,7 +45,7 @@ Check the current facility listing and signs for parking arrangements. No live o
 
 Use the dedicated species guides for planning rather than treating a ramp page as fishing advice: [snapper](<https://peninsulainsider.com.au/fishing/species/snapper/>), [King George whiting](<https://peninsulainsider.com.au/fishing/species/king-george-whiting/>) and [squid](<https://peninsulainsider.com.au/fishing/species/squid/>). [Rye Pier](<https://peninsulainsider.com.au/fishing/locations/rye-pier/>) has its own location guide.
 
-Charter operators that list Rye as a departure option include [I’m Hooked Fishing Charters](<https://peninsulainsider.com.au/fishing/charters/im-hooked-fishing-charters/>) and [Reel Time Fishing Charters](<https://peninsulainsider.com.au/fishing/charters/reel-time-fishing-charters/>).
+[I’m Hooked Fishing Charters](<https://peninsulainsider.com.au/fishing/charters/im-hooked-fishing-charters/>) advertises departures from various Port Phillip and Western Port locations. Confirm the exact ramp directly with the operator before travelling; Rye is not guaranteed.
 
 ## Permits and fees
 

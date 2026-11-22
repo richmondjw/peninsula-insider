@@ -61,7 +61,7 @@ Captain Robin Gray has operated Western Port Fishing Charters from Hastings for 
 
 ## What’s included
 
-Rods, reels, bait, and tackle on standard sessions. Food and drinks are not included; the operator can advise on provisions for the session length. Confirm fish-cleaning policy and licence cover at booking. The wheelchair-accessible configuration is confirmed; specific boarding arrangements at Westernport Marina should be confirmed at booking.
+Rods, reels, bait, and tackle on standard sessions. Food and drinks are not included; the operator can advise on provisions for the session length. Confirm fish-cleaning policy and booking requirements before travelling. The wheelchair-accessible configuration is confirmed; specific boarding arrangements at Westernport Marina should be confirmed at booking.
 
 ## Booking logic
 
@@ -93,11 +93,11 @@ Yes. The 20-passenger capacity, large deck space, and food-and-drinks-friendly p
 
 ### Do you target snapper here?
 
-Pink snapper are a target species, but understand that Western Port's pink-snapper population is distinct from the Port Phillip Bay warm-water snapper run. If you specifically want the Oct to Dec southern bay snapper experience, a Port Phillip Bay operator like I'm Hooked, Proline, or Reel Time is the right call.
+Pink snapper are a target species, but Western Port conditions and seasonal patterns differ from Port Phillip Bay. If you specifically want a Port Phillip Bay snapper trip, compare the current trip areas advertised by I'm Hooked and Proline, then confirm the departure and target species directly before booking.
 
 ### Do I need my own fishing licence?
 
-Confirm directly with the operator at the time of booking whether guests are covered for the day or required to BYO licence. Most licensed Victorian charters cover guests; confirm in writing rather than assuming.
+Unless a statutory exemption applies, each person using fishing equipment must hold their own valid Victorian Recreational Fishing Licence. Check current VFA rules and confirm the operator's booking requirements before the trip.
 
 ### When should I book?
 
@@ -107,11 +107,9 @@ Western Port does not have the snapper-season booking surge that Port Phillip Ba
 
 ## Compare other Peninsula charters
 
-- [I'm Hooked Fishing Charters](<https://peninsulainsider.com.au/fishing/charters/im-hooked-fishing-charters/>) · Licence covered
+- [I'm Hooked Fishing Charters](<https://peninsulainsider.com.au/fishing/charters/im-hooked-fishing-charters/>) · BYO licence
 
 - [Proline Charters](<https://peninsulainsider.com.au/fishing/charters/proline-charters/>)
-
-- [Reel Time Fishing Charters](<https://peninsulainsider.com.au/fishing/charters/reel-time-fishing-charters/>)
 
 Browse all [Peninsula fishing charters](<https://peninsulainsider.com.au/fishing/charters/>), or the [fishing tours hub](<https://peninsulainsider.com.au/tour/fishing-tours/>) for charter-as-curated-experience options.
 

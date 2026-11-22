@@ -113,9 +113,7 @@ Source: [Victorian Fisheries Authority](<https://vfa.vic.gov.au/recreational-fis
 
 ## Charter operators that target king george whiting
 
-- [I'm Hooked Fishing Charters](<https://peninsulainsider.com.au/fishing/charters/im-hooked-fishing-charters/>) · Licence covered
-
-- [Reel Time Fishing Charters](<https://peninsulainsider.com.au/fishing/charters/reel-time-fishing-charters/>)
+- [I'm Hooked Fishing Charters](<https://peninsulainsider.com.au/fishing/charters/im-hooked-fishing-charters/>) · BYO licence
 
 - [Western Port Fishing Charters](<https://peninsulainsider.com.au/fishing/charters/western-port-fishing-charters/>)
 

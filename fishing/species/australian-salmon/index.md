@@ -97,12 +97,6 @@ Source: [Victorian Fisheries Authority](<https://vfa.vic.gov.au/recreational-fis
 
 - [Portsea Pier](<https://peninsulainsider.com.au/fishing/locations/portsea-pier/>) · Port Phillip Bay
 
-## Charter operators that target australian salmon
-
-- [Reel Time Fishing Charters](<https://peninsulainsider.com.au/fishing/charters/reel-time-fishing-charters/>)
-
-Operators are listed because they demonstrably target australian salmon, not as a default reference. Browse [all Peninsula charters](<https://peninsulainsider.com.au/fishing/charters/>) to compare across species and seasons.
-
 ## Where to cook your catch
 
 - [The seafood list (Peninsula Insider Journal)](<https://peninsulainsider.com.au/journal/the-seafood-list/>)

@@ -95,7 +95,7 @@ No boat at all? Our [fishing spots guide](<https://peninsulainsider.com.au/fishi
 
 ### Skippered fishing charters
 
-The skipper handles the boat and finds the fish. These four are reviewed in our fishing guide.
+The skipper handles the boat and guides the fishing. These operators are reviewed in our fishing guide.
 
 - [Proline Charters](<https://peninsulainsider.com.au/fishing/charters/proline-charters/>)
 
@@ -107,11 +107,7 @@ A 15-metre (50-foot) flybridge out of Westernport Marina at Hastings. Western Po
 
 - [I'm Hooked Fishing Charters](<https://peninsulainsider.com.au/fishing/charters/im-hooked-fishing-charters/>)
 
-A 7-metre (24-foot) catamaran from several Peninsula ramps. Wheelchair-accessible.
-
-- [Reel Time Fishing Charters](<https://peninsulainsider.com.au/fishing/charters/reel-time-fishing-charters/>)
-
-Two trailer boats from several Peninsula ramps. Suits groups of 11 to 18.
+A current 9-metre vessel for up to eight guests. Departure points vary across Port Phillip and Western Port; bring a valid Victorian fishing licence.
 
 ## Before you launch
 
@@ -119,7 +115,7 @@ Two trailer boats from several Peninsula ramps. Suits groups of 11 to 18.
 
 - ### Read the forecast twice
 
-Check the [Bureau of Meteorology forecast for the Peninsula](<https://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml>), wind included, the night before and again on the morning you go.
+Check the Bureau of Meteorology local-waters forecast for [Port Phillip](<https://www.bom.gov.au/vic/forecasts/portphillip.shtml>) or [Western Port](<https://www.bom.gov.au/vic/forecasts/westernport.shtml>), including wind and warnings, the night before and again on the morning you go.
 
 - ### Use the right tide station
 

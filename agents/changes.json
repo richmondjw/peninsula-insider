@@ -1,11 +1,172 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-22T14:29:24.341Z",
+  "generatedAt": "2026-11-22T19:03:32.423Z",
   "baselineAvailable": true,
   "fromSnapshot": "a0ae499c375fade25e4ae86bec03573b46e5d74d2aaa8b01cb02e5867dd0df69",
-  "toSnapshot": "a0ae499c375fade25e4ae86bec03573b46e5d74d2aaa8b01cb02e5867dd0df69",
-  "previousGeneratedAt": "2026-11-22T13:32:12.768Z",
+  "toSnapshot": "665344a45472ffd8a9b574903f840caeffb2c37ecdf33a12a2da30a755c5f4b3",
+  "previousGeneratedAt": "2026-11-22T14:29:24.341Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 0,
-  "changes": []
+  "count": 20,
+  "changes": [
+    {
+      "id": "https://peninsulainsider.com.au/boating/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/boating/",
+      "markdownUrl": "https://peninsulainsider.com.au/boating/index.md",
+      "contentSha256": "c8133dac65dd4c9347d991670780314773fe91efd6f32242e46fc5472da1e1ff",
+      "previousContentSha256": "c307dd21d1ca463035572c5c5c01d8f225bea8d5a39a3ed57dc713850970f240"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/boating/ramps/mornington-park-boat-ramp/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/boating/ramps/mornington-park-boat-ramp/",
+      "markdownUrl": "https://peninsulainsider.com.au/boating/ramps/mornington-park-boat-ramp/index.md",
+      "contentSha256": "a43e02a93b13c51de5a11f9b62319068749aa501fb3ed0c35bf0fea3ee637c66",
+      "previousContentSha256": "e3b3dbfdb391d6f32083891cf0e633d17c4fdb56505723823cbed587e0131771"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/boating/ramps/rye-boat-ramp/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/boating/ramps/rye-boat-ramp/",
+      "markdownUrl": "https://peninsulainsider.com.au/boating/ramps/rye-boat-ramp/index.md",
+      "contentSha256": "01a3127efeeebe56a4b7c3272093d9b507f1fddabc2ddd864832687f9d17507d",
+      "previousContentSha256": "9d8876ffda44c7fc8ceefd1eb056cfafcad7fe5646d3acba8945ab0212844efc"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/fishing/charters/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/fishing/charters/",
+      "markdownUrl": "https://peninsulainsider.com.au/fishing/charters/index.md",
+      "contentSha256": "e500daad3f4eafa11702c130b8627c30758680ac243cd66e424e65845d25786d",
+      "previousContentSha256": "f46f5c5b09141da3556fe15a167125f5e513ae283ea2e5178441d8a9fd5779dd"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/fishing/charters/first-charter-guide/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/fishing/charters/first-charter-guide/",
+      "markdownUrl": "https://peninsulainsider.com.au/fishing/charters/first-charter-guide/index.md",
+      "contentSha256": "0ed693146fef69b639b054aeb2dd7e419c03ae52340d4a47552da67c13c1a6f9",
+      "previousContentSha256": "7b479e109aeb1d4741d1ac7b92415fe77932be52462400888c5d393f6dc42074"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/fishing/charters/im-hooked-fishing-charters/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/fishing/charters/im-hooked-fishing-charters/",
+      "markdownUrl": "https://peninsulainsider.com.au/fishing/charters/im-hooked-fishing-charters/index.md",
+      "contentSha256": "d49fae0fdf745f176e3b122f5013dd349334881e9a7f15cd1df65cc92cc3a12b",
+      "previousContentSha256": "80b53de410b6d9dfd9cb077a960c595076076b6661f28c6fc2e26d51ecee4dbb"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/fishing/charters/proline-charters/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/fishing/charters/proline-charters/",
+      "markdownUrl": "https://peninsulainsider.com.au/fishing/charters/proline-charters/index.md",
+      "contentSha256": "250d3c4563f03bdb1b1bc4e75d699bd5255455acef9161f2a784754ffe4918fd",
+      "previousContentSha256": "7802ea42250148c03972c022459871d0d6028fcb24bc0f52a5678c389c667108"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/fishing/charters/western-port-fishing-charters/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/fishing/charters/western-port-fishing-charters/",
+      "markdownUrl": "https://peninsulainsider.com.au/fishing/charters/western-port-fishing-charters/index.md",
+      "contentSha256": "7082e1ea56322e9093a772e381dd1241722f648351dc3b40b4aa862a4173557d",
+      "previousContentSha256": "01ca42600b8589723d1723bf9e13a6b6445788e30cea7a2fb53bd1fec2fbcf7c"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/fishing/locations/rye-pier/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/fishing/locations/rye-pier/",
+      "markdownUrl": "https://peninsulainsider.com.au/fishing/locations/rye-pier/index.md",
+      "contentSha256": "5bf5ee4dbd71e25059e960340055c18ee64a52ceaf27fa8ce392b3cd1854fb81",
+      "previousContentSha256": "9bb38b48c147429ad49b734bb0e4e66657c5a58ffbe234358960a1b20a1d3673"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/fishing/seasons/snapper-run-oct-dec/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/fishing/seasons/snapper-run-oct-dec/",
+      "markdownUrl": "https://peninsulainsider.com.au/fishing/seasons/snapper-run-oct-dec/index.md",
+      "contentSha256": "bad92182ed6a8252bf1475c854edbe7b10a1563fdc18f3a44f32c778abfb4dee",
+      "previousContentSha256": "66c7ab1ca2d836ac809b0e8e6bd05141fb5be17ca444b0bef50bb354d116cb4e"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/fishing/species/australian-salmon/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/fishing/species/australian-salmon/",
+      "markdownUrl": "https://peninsulainsider.com.au/fishing/species/australian-salmon/index.md",
+      "contentSha256": "be6455afe3fe47ede3668c82b5110c7c490416300a2e013e6bfe8d89f5a62bb4",
+      "previousContentSha256": "a8d8efa59705d8a662590fcccd43499a4f6714a729d01503ea6ab3bce675f802"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/fishing/species/flathead/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/fishing/species/flathead/",
+      "markdownUrl": "https://peninsulainsider.com.au/fishing/species/flathead/index.md",
+      "contentSha256": "8b7569af5baba6a6a566d2c80ccaca63b023dfa0d27279bfe5a3b32d394b7bf0",
+      "previousContentSha256": "fbb99216af4244fb04534060c307ffeefde854a259328e2e4f9a0221729870bf"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/fishing/species/gummy-shark/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/fishing/species/gummy-shark/",
+      "markdownUrl": "https://peninsulainsider.com.au/fishing/species/gummy-shark/index.md",
+      "contentSha256": "b9ac544911e0572ed9ba16adab4e815c3651540c6ef89ede03d8b6785d9acae4",
+      "previousContentSha256": "cfa1e2b33e6ff5149ade4a191b990c268c57788f0aa40106a5e378a8c4c44adf"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/fishing/species/king-george-whiting/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/fishing/species/king-george-whiting/",
+      "markdownUrl": "https://peninsulainsider.com.au/fishing/species/king-george-whiting/index.md",
+      "contentSha256": "4776fcb06c87c2aa942b5e867d5309b81654d9fb40a820d635a175fd2875d3f3",
+      "previousContentSha256": "02ee92f56b3faf673df3121752ebf49e634491ce755411849bba1ad3d1bc7532"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/fishing/species/pinkies/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/fishing/species/pinkies/",
+      "markdownUrl": "https://peninsulainsider.com.au/fishing/species/pinkies/index.md",
+      "contentSha256": "43be89062cf5abf115a640ba2fcd7a6cf70761bfcc3771c6dea001818b8fdf20",
+      "previousContentSha256": "c948fd6f6632f63fc46bca92e7516f56a91849b10f83c405fcb90ac4a21778ec"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/fishing/species/silver-trevally/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/fishing/species/silver-trevally/",
+      "markdownUrl": "https://peninsulainsider.com.au/fishing/species/silver-trevally/index.md",
+      "contentSha256": "ab68f2df06fa3ea3bc92470384d758ecf3310ad1fcfaf6c9b4521a2bbd174864",
+      "previousContentSha256": "c5be99a03a4417a25f4299d6739931182fc174e8e944e1acde0aed33d6ae8578"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/fishing/species/snapper/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/fishing/species/snapper/",
+      "markdownUrl": "https://peninsulainsider.com.au/fishing/species/snapper/index.md",
+      "contentSha256": "72b729d2655464c205685e68f1b7636adf0cd7ef81193e455886fcc8b22b8808",
+      "previousContentSha256": "89fe2b739ac1d957d2291531662cbdd3a5f048edb8400ed3ab62f192f1a92326"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/fishing/species/squid/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/fishing/species/squid/",
+      "markdownUrl": "https://peninsulainsider.com.au/fishing/species/squid/index.md",
+      "contentSha256": "6067cdca792d1be2d446a5916d77a21125fc0760b949231bd704dcc7fcd5bef2",
+      "previousContentSha256": "5066f6706bb12a624d5ec2877469157a56ec3bf7ca3a1ff84db7a4e379dc6f1f"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/tour/fishing-tours/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/tour/fishing-tours/",
+      "markdownUrl": "https://peninsulainsider.com.au/tour/fishing-tours/index.md",
+      "contentSha256": "cc2900b39a6d01729cc4234c2ed29b5e8eed72f2031407cb6b0a57a81a803cc9",
+      "previousContentSha256": "7f0a2cd320778ee55fa695d37051c0d3896e820006a8a7ba54002c9601fb704a"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/fishing/charters/reel-time-fishing-charters/",
+      "kind": "representation-removed",
+      "canonicalUrl": "https://peninsulainsider.com.au/fishing/charters/reel-time-fishing-charters/",
+      "markdownUrl": null,
+      "contentSha256": null,
+      "previousContentSha256": "606425ef4c03f9e578b38da3b2d8ba50a5aaca6d8a6f0f58d61f3f3360bac9fe"
+    }
+  ]
 }
