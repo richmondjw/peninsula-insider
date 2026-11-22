@@ -1,6 +1,6 @@
 ---
-title: "Somers General on a Spring Sunday, the Bushrangers Bay Cliff Loop, and National Works on Paper at MPRG"
-dek: A Western Port brunch stop with Peninsula pantry goods, a coastal trail above Flinders at peak wildflower, and a national paper art survey open until 22 November at Mornington Peninsula Regional Gallery.
+title: "Somers General on a Spring Sunday, the Bushrangers Bay return walk, and National Works on Paper at MPRG"
+dek: A Western Port brunch stop with Peninsula pantry goods, a return walk from Cape Schanck to Bushrangers Bay, and a national paper art survey open until 22 November at Mornington Peninsula Regional Gallery.
 author: "editorial"
 houseByline: true
 publishedAt: 2026-10-13
@@ -29,7 +29,7 @@ faq:
   - question: "Where is Somers General and when is it open?"
     answer: "Somers General is at 2 The Boulevard, Somers. It operates as a cafe and general store - check their Instagram or website for current trading hours before you go, as weekend hours can shift in spring."
   - question: "Where does the Bushrangers Bay trail start and how long is it?"
-    answer: "The main trailhead is at the end of Cape Schank Road near Bushrangers Bay, Flinders. The loop to the bay and back via the clifftop is roughly 5 km and takes around 90 minutes at a comfortable pace."
+    answer: "Start at the eastern Cape Schanck car park. Bushrangers Bay Track is 5 km return along the same track, with steep stairs and narrow, sandy, unsealed paths. Pet dogs are prohibited."
   - question: "When does National Works on Paper 2026 close at Mornington Peninsula Regional Gallery?"
     answer: "The exhibition runs until Sunday 22 November 2026. The gallery is at Civic Reserve, Dunns Road, Mornington, open daily 11am–4pm. Entry is free."
 ---
@@ -42,11 +42,11 @@ Somers General runs a weekend brunch menu that has no business being this consid
 
 ---
 
-## EXPERIENCE - Bushrangers Bay Clifftop Loop, Flinders
+## EXPERIENCE - Bushrangers Bay return walk, Cape Schanck
 
-The clifftop section of the Bushrangers Bay trail is where the Peninsula's spring wildflower show is most concentrated right now. Native guinea flowers and scurvyweed are coming through the heath above the basalt platforms, and the banksias along the descent track are in bud. The loop runs roughly 5 km from the Cape Schank Road trailhead, drops through tea-tree to the bay itself, then returns via the cliff edge with views back toward Cape Schanck lighthouse. Mid-morning Tuesday through Thursday, this week, the trail is quiet enough to hear the shearwaters working offshore. Wear shoes with grip - the basalt at the bay is always slippery regardless of recent rain. Dogs are permitted on lead on the clifftop section; check Parks Victoria for current fire restriction status before you go. Pair the walk with a stop at Flinders Sourdough, ten minutes back up the road, for a Beach Bun while stocks last.
+Start at the eastern Cape Schanck car park for the [Bushrangers Bay Track](https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park/things-to-do/Bushrangers-Bay-Track). Walk to the bay and return along the same track: 5 km in total, with steep stairs and narrow, sandy, unsealed paths. Pet dogs are prohibited; [assistance-dog entry requirements](https://www.parks.vic.gov.au/get-into-nature/all-abilities-access/assistance-dogs) are separate. Bring drinking water and check the park manager's live conditions before travelling. The beach is unpatrolled and swimming is not recommended. Pair the walk with a stop at Flinders Sourdough for a Beach Bun while stocks last.
 
-**Bushrangers Bay trailhead, Cape Schank Road, Flinders. Free entry. Allow 90 minutes. No booking.**
+**Bushrangers Bay Track, eastern Cape Schanck car park, Cape Schanck. 5 km return along the same track. Steep stairs; pet dogs prohibited.**
 
 ---
 
@@ -63,5 +63,5 @@ The National Works on Paper survey - MPRG's annually contested open prize exhibi
 | | Venue | Address | Practical |
 |---|---|---|---|
 | **EAT** | Somers General | 2 The Boulevard, Somers | Weekend brunch; arrive by 9:30am |
-| **WALK** | Bushrangers Bay Clifftop Loop | Cape Schank Road trailhead, Flinders | ~5 km, 90 min; dogs on lead permitted |
+| **WALK** | Bushrangers Bay Track | Eastern Cape Schanck car park | 5 km return; steep stairs; pet dogs prohibited |
 | **DISCOVERY** | National Works on Paper 2026, MPRG | Dunns Road, Mornington | Daily 11am–4pm; free; closes 22 Nov |
