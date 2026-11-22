@@ -4,9 +4,9 @@
 
 **Loop health:** 🟢 healthy — Actions recorded but none re-measured yet — learning signal not flowing (expected until GSC re-crawls the actioned pages).
 
-**Generated:** 2026-11-22 07:04 AEDT  
+**Generated:** 2026-11-23 07:05 AEDT  
 **Season:** Spring  
-**Inputs used:** gsc-search-analytics, gsc-coverage, sitemap-inventory, events-calendar:64-upcoming, seasonal-calendar:spring  
+**Inputs used:** gsc-search-analytics, gsc-coverage, sitemap-inventory, events-calendar:61-upcoming, seasonal-calendar:spring  
 
 ## Where we stand
 
@@ -19,11 +19,11 @@
 | Pages indexed by Google | 0 |
 | Pages known-not-indexed | 26 |
 | Pages in sitemap | 408 |
-| Open opportunities | 105 |
+| Open opportunities | 102 |
 
 ## Day-over-day (is the strategy improving?)
 
-_Compared with 2026-11-21._
+_Compared with 2026-11-22._
 
 - Average position held by 0.00.
 - Clicks flat 0 vs last snapshot.
@@ -83,39 +83,39 @@ Ranked by the strategy model (performance + season + coverage + effort). The orc
 - **Why:** 'mornington cup 2026 date' ranks avg position 8.8 on 23 impressions — small, targeted improvement could reach page 1 and start earning clicks.
 - **Do:** Strengthen the ranking page for this exact query: expand the relevant section, add an FAQ answer, tighten the H1/intro, add internal links from related hub pages.
 
-### 6. [EVENT · score 2.992] Preview: The Creators Network: End of Year Catch-up for Creatives (18d out)
+### 6. [EVENT · score 2.992] Preview: The Creators Network: End of Year Catch-up for Creatives (17d out)
 - **Desk:** dispatch-desk
-- **Why:** The Creators Network: End of Year Catch-up for Creatives is 18 days out (2026-12-10, Mornington) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** The Creators Network: End of Year Catch-up for Creatives is 17 days out (2026-12-10, Mornington) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 7. [EVENT · score 2.992] Preview: James Vincent Live at Fenian Wines (20d out)
+### 7. [EVENT · score 2.992] Preview: James Vincent Live at Fenian Wines (19d out)
 - **Desk:** dispatch-desk
-- **Why:** James Vincent Live at Fenian Wines is 20 days out (2026-12-12, Red Hill) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** James Vincent Live at Fenian Wines is 19 days out (2026-12-12, Red Hill) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 8. [EVENT · score 2.992] Preview: Legends Of Sunbury: Spectrum, Madder Lake & Phil Manning Live at The Pig & Whistle Tavern (21d out)
+### 8. [EVENT · score 2.992] Preview: Legends Of Sunbury: Spectrum, Madder Lake & Phil Manning Live at The Pig & Whistle Tavern (20d out)
 - **Desk:** dispatch-desk
-- **Why:** Legends Of Sunbury: Spectrum, Madder Lake & Phil Manning Live at The Pig & Whistle Tavern is 21 days out (2026-12-13, Main Ridge) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Legends Of Sunbury: Spectrum, Madder Lake & Phil Manning Live at The Pig & Whistle Tavern is 20 days out (2026-12-13, Main Ridge) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 9. [EVENT · score 2.992] Preview: "Whippy" Griggs Live for a Crackin' Night at The Ranch (21d out)
+### 9. [EVENT · score 2.992] Preview: "Whippy" Griggs Live for a Crackin' Night at The Ranch (20d out)
 - **Desk:** dispatch-desk
-- **Why:** "Whippy" Griggs Live for a Crackin' Night at The Ranch is 21 days out (2026-12-13, Boneo) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** "Whippy" Griggs Live for a Crackin' Night at The Ranch is 20 days out (2026-12-13, Boneo) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 10. [EVENT · score 2.992] Preview: Mornington Twilight Christmas Series at Mornington Racecourse (24d out)
+### 10. [EVENT · score 2.992] Preview: Mornington Twilight Christmas Series at Mornington Racecourse (23d out)
 - **Desk:** dispatch-desk
-- **Why:** Mornington Twilight Christmas Series at Mornington Racecourse is 24 days out (2026-12-16, Mornington) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Mornington Twilight Christmas Series at Mornington Racecourse is 23 days out (2026-12-16, Mornington) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 11. [EVENT · score 2.992] Preview: Pub Carols - Thursday 17th December (25d out)
+### 11. [EVENT · score 2.992] Preview: Pub Carols - Thursday 17th December (24d out)
 - **Desk:** dispatch-desk
-- **Why:** Pub Carols - Thursday 17th December is 25 days out (2026-12-17, ) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Pub Carols - Thursday 17th December is 24 days out (2026-12-17, ) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 12. [EVENT · score 2.992] Preview: Tony J King Live at Fenian Wines (27d out)
+### 12. [EVENT · score 2.992] Preview: Tony J King Live at Fenian Wines (26d out)
 - **Desk:** dispatch-desk
-- **Why:** Tony J King Live at Fenian Wines is 27 days out (2026-12-19, Red Hill) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Tony J King Live at Fenian Wines is 26 days out (2026-12-19, Red Hill) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
 ## Coverage snapshot
