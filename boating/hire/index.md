@@ -15,7 +15,7 @@ Tinnies and polycraft from Mornington, Sorrento, Rye, and Safety Beach. No-licen
 
 Schnapper Point Drive, Mornington · No licence required
 
-Self-drive boat hire at Schnapper Point Drive, Mornington. Tinnies and polycraft for protected bay water, no marine licence required, fishing tackle available. Operated from the Schnapper Point precinct since the 1990s, currently the only no-licence hire on Port Phillip Bay's mid-Peninsula shore.
+Self-drive boat hire at Schnapper Point Drive, Mornington. The operator advertises tinnies and polycraft for protected bay water as no-licence hire; confirm the assigned vessel, briefing and current terms when booking.
 
 [Operator profile →](<https://peninsulainsider.com.au/boating/hire/mornington-boat-hire/>)
 

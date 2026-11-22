@@ -83,7 +83,7 @@ Garfish on float rig with bread burley is the most productive Safety Beach metho
 
 ## Nearby launching
 
-Nearest ramp: [Safety Beach Boat Ramp](<https://peninsulainsider.com.au/boating/ramps/safety-beach-boat-ramp/>). Tide-dependent (high tide only). Free to launch. Adjacent car park fees may apply.
+Nearest ramp: [Safety Beach Boat Ramp](<https://peninsulainsider.com.au/boating/ramps/safety-beach-boat-ramp/>). Tide-tidal-extreme. Free to launch and park at this Shire-managed ramp; check current signs.
 
 ## Frequently asked questions
 

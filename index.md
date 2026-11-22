@@ -77,14 +77,6 @@ Merricks
 
 Swipe or scroll through the picks
 
-- ### [Culinary Garden Experience at Laura Pt Leo Estate](<https://peninsulainsider.com.au/whats-on/culinary-garden-experience-at-laura-pt-leo-estate-2026-11-22/>)
-
-A rare garden-to-table outing: Ella Swann leads a private garden tour before canapés and a vegetarian lunch at Laura.
-
-Sun, 22 Nov   Laura Pt Leo Estate   Food & wine
-
-Event details checked 21 Nov 2026 · [Organiser’s page](<https://www.ptleoestate.com.au/whats-on-event/theproducersseries-gardenexperience/>)
-
 - ### [Tiana V Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/tiana-v-live-at-peninsula-beer-garden-2026-11-22/>)
 
 Enjoy live music at Peninsula Beer Garden!
@@ -100,6 +92,16 @@ A VFMA-accredited village market with local growers and specialty makers, suppor
 Sun, 22 Nov   Mt Eliza Village Precinct   Market
 
 Event details checked 3 Oct 2026 · [Organiser’s page](<https://www.mtelizafarmersmarket.com.au/>)
+
+- Mornington Peninsula Regional Gallery, Mornington   Photo: Robert Blackburn, courtesy of Visit Victoria.
+
+### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+
+Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
+
+Sun, 22 Nov   Mornington Peninsula Regional Gallery   Tuesday to Sunday, 11am to 4pm
+
+Event details checked 16 Nov 2026 · [Organiser’s page](<https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026>)
 
 This season · Spring
 

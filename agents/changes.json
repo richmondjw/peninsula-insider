@@ -1,11 +1,148 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-21T22:21:14.180Z",
+  "generatedAt": "2026-11-22T01:32:18.479Z",
   "baselineAvailable": true,
   "fromSnapshot": "d36e7c95af2e2b8bcba3b070464a351300acff68446880bf069b360feeaf437c",
-  "toSnapshot": "d36e7c95af2e2b8bcba3b070464a351300acff68446880bf069b360feeaf437c",
-  "previousGeneratedAt": "2026-11-21T20:18:15.266Z",
+  "toSnapshot": "10076bd2fcbf6eeecffa1a2ffc174e7ffb3c626b1754803a554c9509d9bfbe37",
+  "previousGeneratedAt": "2026-11-21T22:21:14.180Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 0,
-  "changes": []
+  "count": 17,
+  "changes": [
+    {
+      "id": "https://peninsulainsider.com.au/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/",
+      "markdownUrl": "https://peninsulainsider.com.au/index.md",
+      "contentSha256": "da9063583545176cdd690ddcc8266325a1c191d107e0a80c6a7e858c2ee28e65",
+      "previousContentSha256": "10568ad8a732d6f20dcd0791123ab15471763807ddcf65753c188e38b22e4062"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/boating/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/boating/",
+      "markdownUrl": "https://peninsulainsider.com.au/boating/index.md",
+      "contentSha256": "ac3d60cf75525ab2bce7c8887557e4735e8414fdfd2bf3da9626e51175c49b88",
+      "previousContentSha256": "8e4e549ffd8ef9ea16f02468678368927e6d2c8d11d6d971e23e1125209fb4e1"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/boating/hire/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/boating/hire/",
+      "markdownUrl": "https://peninsulainsider.com.au/boating/hire/index.md",
+      "contentSha256": "407670d27be21f85cd31996f5d957275ea9f1a81cccdf78a59115b8f95a5dacf",
+      "previousContentSha256": "8b7880d2d3303401efa14d546309decb5a5447207da62da24343c544d8e1fc14"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/boating/hire/mornington-boat-hire/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/boating/hire/mornington-boat-hire/",
+      "markdownUrl": "https://peninsulainsider.com.au/boating/hire/mornington-boat-hire/index.md",
+      "contentSha256": "c87ea11907dbfb6c8a59fae660eb25e24be7fd0ecbf7865a61265a2fa569965a",
+      "previousContentSha256": "d3b2dadf2f13d86055ab567d45178a0b1c4ef99ad89d622322c9931cb19a2782"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/boating/ramps/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/boating/ramps/",
+      "markdownUrl": "https://peninsulainsider.com.au/boating/ramps/index.md",
+      "contentSha256": "daef7dde66fe21280a79344799408223d357628a5e5c635e669ca10586afcf9e",
+      "previousContentSha256": "656facb8618d714b9937d67c3ec07812b243910519724224d53f2f360df0b7f2"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/boating/ramps/hastings-boat-ramp/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/boating/ramps/hastings-boat-ramp/",
+      "markdownUrl": "https://peninsulainsider.com.au/boating/ramps/hastings-boat-ramp/index.md",
+      "contentSha256": "64b220812c398234970c40ca51ed250c7ae7a9005d30bcd01530f4dd43e82c32",
+      "previousContentSha256": "4a4521336dbe190ea991ac10cc2d6182ae0e96a9d1a519c91dc7603bed4862d7"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/boating/ramps/mornington-park-boat-ramp/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/boating/ramps/mornington-park-boat-ramp/",
+      "markdownUrl": "https://peninsulainsider.com.au/boating/ramps/mornington-park-boat-ramp/index.md",
+      "contentSha256": "e3b3dbfdb391d6f32083891cf0e633d17c4fdb56505723823cbed587e0131771",
+      "previousContentSha256": "c1d49ca00181fafdd7ec3cec8479e100450dcbfd3708e910e2627c808530ea13"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/boating/ramps/rye-boat-ramp/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/boating/ramps/rye-boat-ramp/",
+      "markdownUrl": "https://peninsulainsider.com.au/boating/ramps/rye-boat-ramp/index.md",
+      "contentSha256": "9d8876ffda44c7fc8ceefd1eb056cfafcad7fe5646d3acba8945ab0212844efc",
+      "previousContentSha256": "53b3035bd98802b71f3f7d8a0828b15b83de318d9d141c784026d0b414de1f60"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/boating/ramps/safety-beach-boat-ramp/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/boating/ramps/safety-beach-boat-ramp/",
+      "markdownUrl": "https://peninsulainsider.com.au/boating/ramps/safety-beach-boat-ramp/index.md",
+      "contentSha256": "5deb9a13ce80fc74df4e171d8f10f172b08c9542fa15de9a2cc0b46079d6b679",
+      "previousContentSha256": "e70c94f3bd83e0fc3d695e9f17dd89f9ecee79115b8bf8527d36d317914accdb"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/boating/ramps/sorrento-boat-ramp/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/boating/ramps/sorrento-boat-ramp/",
+      "markdownUrl": "https://peninsulainsider.com.au/boating/ramps/sorrento-boat-ramp/index.md",
+      "contentSha256": "fb29c8ddc08aecfa535b0c1d3c3a0efbb032bcae36e18862da8f06a188fd0803",
+      "previousContentSha256": "2c2c10b2245a6710d114fc1a0a05e378f6a77c0905b940b3a188eeaee1f8510d"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/boating/ramps/warneet-boat-ramp/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/boating/ramps/warneet-boat-ramp/",
+      "markdownUrl": "https://peninsulainsider.com.au/boating/ramps/warneet-boat-ramp/index.md",
+      "contentSha256": "0f150109ac799095d0633671d04f1850209ce8444b0d4620c19e433441496f7e",
+      "previousContentSha256": "dc6c41e21ad4900bb4c6a56da877a87fb542d7d519617c2ca1e62c2b259e726f"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/boating/tides-safety/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/boating/tides-safety/",
+      "markdownUrl": "https://peninsulainsider.com.au/boating/tides-safety/index.md",
+      "contentSha256": "1b0fe7576eb9c9da2f73a0cbfe1a3398f0a41ae17baa0242e801e2170039ee31",
+      "previousContentSha256": "72cc803db9dfe22844c5d671a86f22ede8209e83cb423d1db5ae0515c9422abf"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/fishing/locations/hastings-jetty/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/fishing/locations/hastings-jetty/",
+      "markdownUrl": "https://peninsulainsider.com.au/fishing/locations/hastings-jetty/index.md",
+      "contentSha256": "a083e2aba9cfe244247c754267924125dc07ef9122a53b2a29b9470918dc79ff",
+      "previousContentSha256": "dd4d21efe12288122151a626ec1755992af20055a93f4816002401b61b018014"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/fishing/locations/mornington-pier/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/fishing/locations/mornington-pier/",
+      "markdownUrl": "https://peninsulainsider.com.au/fishing/locations/mornington-pier/index.md",
+      "contentSha256": "744300b2d2f5f8775e151df20bcd142dae4665447609d37dbbfe4c1a9da62485",
+      "previousContentSha256": "462aa7c1fb5a1570bc56545e8b7325313ce7a93bbbae34cc24ef34be4a12fea3"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/fishing/locations/portsea-pier/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/fishing/locations/portsea-pier/",
+      "markdownUrl": "https://peninsulainsider.com.au/fishing/locations/portsea-pier/index.md",
+      "contentSha256": "e6ff9b678397b842c1a2c7a7dc5af897ae1fddd8ab32de6b8e730d922090ff3f",
+      "previousContentSha256": "eab5b7813a638fa8998bfbc8b6f53912da1facb5b47868fc20afbd9a880c5acc"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/fishing/locations/rye-pier/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/fishing/locations/rye-pier/",
+      "markdownUrl": "https://peninsulainsider.com.au/fishing/locations/rye-pier/index.md",
+      "contentSha256": "9bb38b48c147429ad49b734bb0e4e66657c5a58ffbe234358960a1b20a1d3673",
+      "previousContentSha256": "0553096c7fb6ba2de4bc7437fc4dd97be399d37ac7ec0f58b31d3b2358c984d0"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/fishing/locations/safety-beach-foreshore/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/fishing/locations/safety-beach-foreshore/",
+      "markdownUrl": "https://peninsulainsider.com.au/fishing/locations/safety-beach-foreshore/index.md",
+      "contentSha256": "d5f302bec9df9e1daa3516dd7e6ed5a8339af6a2e20f265300a7f602c8c44127",
+      "previousContentSha256": "bfc4e5ab8cd3340e41819c55ec3cc9e372ed30362486e7510f4233c5534dfb1c"
+    }
+  ]
 }

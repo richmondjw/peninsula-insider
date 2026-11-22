@@ -13,63 +13,51 @@ Last fact-verified Fri, 20 Nov 2026 · Managing authority: Mornington Peninsula 
 
 ## Key facts
 
-Launch lanes | 2 |
-
-Surface | concrete |
-
-Tide dependence | **All-tide** |
+Tide dependence | **Check current tide and ramp conditions** |
 
 Tide reference station | Mornington |
 
 Fee | Free to launch. |
 
-Parking | Limited; precinct shared with the Schnapper Point pier and yacht club car parks · Peak pressure: high |
+Parking | Check current precinct parking and ramp conditions before travelling |
 
-Max vessel length | Standard recreational trailer boats up to approximately 6 to 7m. The car park turning radius is the practical constraint for longer trailers. |
+Max vessel length | Check current ramp conditions and vessel suitability in the Boating Victoria ramp finder before travelling. |
 
 Address | Schnapper Point Drive, Mornington VIC 3931 |
+
+**Tide-dependent ramp.** Check the tide before driving here with a boat on the trailer. Use [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<https://www.bom.gov.au/australia/tides/>) for the Mornington reference station.
 
 ## What this ramp is
 
 Mornington Park Boat Ramp serves the Mornington precinct on Port Phillip Bay’s central Peninsula shore. It is managed by [Mornington Peninsula Shire](<https://www.mornpen.vic.gov.au/Things-to-do/Sport-and-activities/Boating/Boat-ramps>) and is free to launch. The precinct sits at Schnapper Point Drive beside Mornington Pier and Mornington Yacht Club.
 
-**The 2026 upgrade is complete.** The Shire records the Schnapper Point boat-ramp and jetty project as completed on 5 October 2026 and the ramp as open. Maintenance can still affect access, so check the [current Shire boat-ramp notice](<https://www.mornpen.vic.gov.au/Things-to-do/Sport-and-activities/Boating/Boat-ramps>) before driving with a trailer.
+**The 2026 upgrade is complete.** [Better Boating Victoria lists Mornington – Schnapper Point as upgraded and open](<https://betterboating.vic.gov.au/ramp-upgrades/mornington-schnapper-point/>). Maintenance can still affect access, so check the [current Shire boat-ramp notice](<https://www.mornpen.vic.gov.au/Things-to-do/Sport-and-activities/Boating/Boat-ramps>) before driving with a trailer.
 
 ## Tide dependence
 
-All-tide for standard recreational trailer boats with care required on the lowest tides. Use the BOM-listed Mornington station and check [BOM tidal predictions](<https://www.bom.gov.au/australia/tides/>) before launching with a deep-keeled vessel or anything over 6m.
+Use the BOM-listed Mornington station and check [BOM tidal predictions](<https://www.bom.gov.au/australia/tides/>) plus current ramp conditions before launching. Tide predictions do not guarantee suitability for a particular vessel.
 
 ## Parking and pressure
 
-The precinct serves three masters: the boat ramp, the pier walking-and-fishing crowd, and the yacht club. Trailer parking is constrained relative to the demand. Summer Saturdays in January school holidays: full before 8am. Snapper-season weekends: full by 7am for an early launch on a fine forecast. Overflow on Schnapper Point Drive is available for standard vehicles but is impractical for trailers due to turning radius.
+The precinct serves the boat ramp, pier visitors and the yacht club. Live occupancy is not published, so check current parking conditions and identify an alternative before departure.
 
 ## Best-paired locations and species
 
-The ramp accesses Port Phillip Bay’s central-Peninsula grounds. Within practical day-trip range:
-
-- [Snapper](<https://peninsulainsider.com.au/fishing/species/snapper/>) on the southern bay structure, 12 to 20km south-southwest, peak October to December.
-
-- [King George whiting](<https://peninsulainsider.com.au/fishing/species/king-george-whiting/>) on the mid-bay sand flats, 5 to 10km southwest, peak November to March.
-
-- Sand flathead within 2 to 6km, year-round on drift or slow troll over sand.
-
-- [Squid](<https://peninsulainsider.com.au/fishing/species/squid/>) on the seagrass margins 1 to 3km, autumn to spring.
-
-- [Australian salmon](<https://peninsulainsider.com.au/fishing/species/australian-salmon/>) on the bay foreshore, peak May to September.
+Use the dedicated species guides for planning rather than treating a ramp page as fishing advice: [snapper](<https://peninsulainsider.com.au/fishing/species/snapper/>), [King George whiting](<https://peninsulainsider.com.au/fishing/species/king-george-whiting/>), [squid](<https://peninsulainsider.com.au/fishing/species/squid/>) and [Australian salmon](<https://peninsulainsider.com.au/fishing/species/australian-salmon/>).
 
 Charter operators that depart from Mornington-area ramps include [I’m Hooked Fishing Charters](<https://peninsulainsider.com.au/fishing/charters/im-hooked-fishing-charters/>) and [Reel Time Fishing Charters](<https://peninsulainsider.com.au/fishing/charters/reel-time-fishing-charters/>).
 
 ## Permits and fees
 
-Free to launch from. Mornington Peninsula Shire-managed ramps are free as of 30 April 2026; car park fees may apply. A [Victorian Recreational Fishing Licence](<https://www.vfa.vic.gov.au/recreational-fishing/fishing-licence>) is required for recreational fishing.
+The [Shire’s current boat-ramp page](<https://www.mornpen.vic.gov.au/Things-to-do/Sport-and-activities/Boating/Boat-ramps>) says no permit or fee is required to use and park at a Shire-managed ramp. Check signs for any precinct-specific restrictions. A [Victorian Recreational Fishing Licence](<https://www.vfa.vic.gov.au/recreational-fishing/fishing-licence>) is required unless an exemption applies.
 
 ## Safety notes
 
-**Prevailing wind.** The ramp faces northeast into the bay. A southwest-to-southerly wind generating swell across the bay makes the return approach more challenging. A westerly does not create the same issue.
+**Conditions.** Check official marine forecasts, warnings and current ramp information for both departure and return. Use your vessel’s operating limits and do not rely on a generic wind rule from a guide.
 
 **Current access.** The upgrade is complete and the ramp is open. Check the Shire notice before departure for temporary maintenance or access changes.
 
-**Return-to-ramp alternative.** [Safety Beach](<https://peninsulainsider.com.au/boating/ramps/safety-beach-boat-ramp/>) 7km south is the closest alternative but is tide-dependent. [Rye](<https://peninsulainsider.com.au/boating/ramps/rye-boat-ramp/>) 25km south is the high-capacity bay-side alternative. [Hastings](<https://peninsulainsider.com.au/boating/ramps/hastings-boat-ramp/>) via Frankston-Flinders Road is the all-tide Western Port alternative if the bay is unworkable.
+**Return-to-ramp alternative.** [Safety Beach](<https://peninsulainsider.com.au/boating/ramps/safety-beach-boat-ramp/>) and [Rye](<https://peninsulainsider.com.au/boating/ramps/rye-boat-ramp/>) are Shire-listed bay-side alternatives. Plan alternatives before departure and check current conditions at the alternative too.
 
 ## Cross-links
 
@@ -81,19 +69,19 @@ Free to launch from. Mornington Peninsula Shire-managed ramps are free as of 30 
 
 ### Is the Mornington ramp open after the 2026 upgrade?
 
-Yes. Mornington Peninsula Shire records the Schnapper Point upgrade as complete and the ramp reopened. Check the Shire boat-ramp notice before travelling because maintenance can still affect access.
+Yes. Better Boating Victoria records the Schnapper Point upgrade as complete and open. Check the Shire boat-ramp notice before travelling because maintenance can still affect access.
 
 ### Can I launch at any tide?
 
-Yes for standard trailer boats, with care required on the lowest tides. Deep-keeled or larger vessels should check the BOM-listed Mornington station before launching.
+Check the BOM-listed Mornington station and current ramp condition before travelling. Suitability depends on vessel draft, tide, weather and maintenance.
 
 ### How busy does the parking get?
 
-Very busy. The precinct serves the boat ramp, the Mornington Pier, and the yacht club, so trailer parking is constrained relative to demand. Summer Saturdays in January school holidays: the car park typically fills before 8am. Snapper-season weekends (October to December): arrive by 7am.
+The precinct serves the boat ramp, Mornington Pier and the yacht club. Live occupancy is not published, so check current conditions and identify an alternative before departure.
 
 ### What is the alternative ramp if Mornington is full?
 
-Safety Beach 7km south is the closest alternative but is tide-dependent (high-tide access only). Rye 25km south is the high-capacity bay-side alternative. For Western Port access, Hastings Boat Ramp via Frankston-Flinders Road is the all-tide alternative.
+Safety Beach and Rye are Shire-listed bay-side alternatives. Check current access, maintenance and tide conditions at the alternative before changing plans.
 
 ## Related
 

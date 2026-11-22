@@ -79,7 +79,7 @@ When public access is restored and current rules permit fishing, squid jigs work
 
 ## Nearby launching
 
-Nearest ramp: [Sorrento Boat Ramp](<https://peninsulainsider.com.au/boating/ramps/sorrento-boat-ramp/>). All-tide. Free to launch. Parking fees may apply in the broader Sorrento foreshore precinct.
+Nearest ramp: [Sorrento Boat Ramp](<https://peninsulainsider.com.au/boating/ramps/sorrento-boat-ramp/>). Tide-tidal-extreme. Free to launch. Parking fees may apply in the broader Sorrento foreshore precinct.
 
 ## Frequently asked questions
 

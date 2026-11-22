@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/boating/ramps/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-04-30
+Modified: 2026-11-20
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -19,33 +19,33 @@ Port Phillip Bay
 
 ### [Mornington Park Boat Ramp](<https://peninsulainsider.com.au/boating/ramps/mornington-park-boat-ramp/>)
 
-2 lanes · All-tide · Free to launch.
+Check current ramp, tide and maintenance conditions · Free to launch.
 
-Public two-lane ramp at Schnapper Point serving the central Peninsula bay shore. The 2026 upgrade is complete and the ramp is open. It is free to launch, with constrained parking shared by the pier and yacht club precinct.
+Shire-listed public ramp at Schnapper Point. Better Boating Victoria lists the 2026 upgrade as complete and open; the current Shire notice flags further toe-clearing work. Check the latest notice before travelling.
 
 [Ramp guide →](<https://peninsulainsider.com.au/boating/ramps/mornington-park-boat-ramp/>)
 
 ### [Rye Boat Ramp](<https://peninsulainsider.com.au/boating/ramps/rye-boat-ramp/>)
 
-4 lanes · Mid–high tide · Free to launch.
+Check current ramp, tide and maintenance conditions · Free to launch.
 
-Four-lane concrete ramp at Rye, the highest-capacity public ramp on the Peninsula's bay side. Free, with jetties, fish-cleaning facilities, and approximately 127 trailer spaces. Tide-affected at low water (dredging history); plan launches around mid-to-high tide.
+Public concrete ramp at Rye on the Peninsula's bay side. The Shire lists Rye among its free-to-use ramps. Check current ramp conditions and tide predictions before travelling.
 
 [Ramp guide →](<https://peninsulainsider.com.au/boating/ramps/rye-boat-ramp/>)
 
 ### [Safety Beach Boat Ramp](<https://peninsulainsider.com.au/boating/ramps/safety-beach-boat-ramp/>)
 
-3 lanes · High-tide only · Free to launch. Adjacent car park fees may apply.
+Check current ramp, tide and maintenance conditions · Free to launch and park at this Shire-managed ramp; check current signs.
 
-Three-lane concrete ramp on the mid-Peninsula bay shore at Safety Beach. Tide-dependent (high-tide access only), free to launch, ample trailer parking, and one of the better-provisioned family-side ramps with picnic facilities adjacent. Not suitable for low-tide arrivals.
+Shire-listed public ramp on the mid-Peninsula bay shore. The current Shire notice says Safety Beach remains open pending toe-clearing works. Check the latest notice, tide and ramp condition before travelling.
 
 [Ramp guide →](<https://peninsulainsider.com.au/boating/ramps/safety-beach-boat-ramp/>)
 
 ### [Sorrento Boat Ramp](<https://peninsulainsider.com.au/boating/ramps/sorrento-boat-ramp/>)
 
-3 lanes · All-tide · Free to launch. Parking fees may apply in the broader Sorrento foreshore precinct.
+Check current ramp, tide and maintenance conditions · Free to launch. Parking fees may apply in the broader Sorrento foreshore precinct.
 
-Three-lane concrete ramp at Sorrento, the southern bay's all-tide launching point. Breakwater-sheltered approach, jetties either side, modern facilities, free to launch. Shortest transit on the bay side to the southern snapper grounds and the Heads.
+Shire-listed public ramp at Sorrento beside the ferry precinct. Launch use is free, while the Sorrento Ferry car park has parking fees. Check current ramp and tide conditions before travelling.
 
 [Ramp guide →](<https://peninsulainsider.com.au/boating/ramps/sorrento-boat-ramp/>)
 
@@ -55,17 +55,17 @@ Western Port
 
 ### [Hastings Boat Ramp](<https://peninsulainsider.com.au/boating/ramps/hastings-boat-ramp/>)
 
-4 lanes · All-tide · Free to launch.
+Check current ramp, tide and maintenance conditions · Free to launch.
 
-Four-lane all-tide concrete ramp at Hastings, the busiest and best-equipped public ramp in Western Port. Recently upgraded (2024) with new pontoons including an all-abilities Hansa hoist on the southern pontoon. Adjacent to Westernport Marina; the primary departure point for Western Port charter operations.
+Shire-listed public ramp at Hastings. Better Boating Victoria records the upgraded ramp and second pontoon as open, with an all-abilities hoist. Check current conditions before travelling.
 
 [Ramp guide →](<https://peninsulainsider.com.au/boating/ramps/hastings-boat-ramp/>)
 
 ### [Warneet Boat Ramp](<https://peninsulainsider.com.au/boating/ramps/warneet-boat-ramp/>)
 
-2 lanes · Mid–high tide · Free to launch.
+Check current ramp, tide and maintenance conditions · Confirm current launch and parking conditions with the precinct manager.
 
-Two-lane concrete ramp with central pontoon at Warneet on Western Port's eastern shore. Tide-sensitive - launch on the upper half of the tidal cycle. Smaller and quieter than Hastings, primary access to the productive whiting and flathead grounds of the northern Western Port arm.
+Public ramp precinct at Warneet on Western Port's eastern shore. Future ramp, car-park and pontoon work is in planning and design. Check current access, conditions and tide before travelling.
 
 [Ramp guide →](<https://peninsulainsider.com.au/boating/ramps/warneet-boat-ramp/>)
 

@@ -105,7 +105,7 @@ Not the right pier for anglers chasing snapper specifically. The water depth is 
 
 ## Nearby launching
 
-Nearest ramp: [Rye Boat Ramp](<https://peninsulainsider.com.au/boating/ramps/rye-boat-ramp/>). Tide-mid-to-high. Free to launch.
+Nearest ramp: [Rye Boat Ramp](<https://peninsulainsider.com.au/boating/ramps/rye-boat-ramp/>). Tide-tidal-extreme. Free to launch.
 
 ## Frequently asked questions
 

@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/boating/ramps/sorrento-boat-ramp/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-04-30
+Modified: 2026-11-22
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -9,71 +9,57 @@ Boating · Ramps · Port Phillip Bay
 
 # Sorrento Boat Ramp
 
-Last fact-verified Thu, 30 Apr 2026 · Managing authority: Mornington Peninsula Shire (ramp); Parks Victoria (channel)
+Last fact-verified Sun, 22 Nov 2026 · Managing authority: Mornington Peninsula Shire
 
 ## Key facts
 
-Launch lanes | 3 |
-
-Surface | concrete |
-
-Tide dependence | **All-tide** |
+Tide dependence | **Check current tide and ramp conditions** |
 
 Tide reference station | Rosebud Jetty |
 
 Fee | Free to launch. Parking fees may apply in the broader Sorrento foreshore precinct. |
 
-Parking | Over 50 car and trailer spots across three designated areas · Peak pressure: high |
+Parking | Check the current facility listing, signs and availability in the shared foreshore precinct |
 
-Max vessel length | Suits most standard recreational trailer boats up to approximately 7m. The breakwater shelter and three-lane configuration accommodate larger trailers; turning radius is the practical constraint. |
+Max vessel length | Check current ramp conditions and vessel suitability in the Boating Victoria ramp finder before travelling. |
 
 Address | Point Nepean Road and St Aubins Way, Sorrento VIC 3943 (Melway 157 B6) |
 
+**Tide-dependent ramp.** Check the tide before driving here with a boat on the trailer. Use [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<https://www.bom.gov.au/australia/tides/>) for the Rosebud Jetty reference station.
+
 ## What this ramp is
 
-Sorrento Boat Ramp sits off Point Nepean Road and St Aubins Way, immediately east of [Sorrento Pier](<https://peninsulainsider.com.au/fishing/locations/sorrento-pier/>) and the Searoad Ferries terminal. The ramp is managed by [Mornington Peninsula Shire](<https://www.mornpen.vic.gov.au/Activities/Sport-Recreation/Boating/Boat-ramps>); the channel adjacent is managed by [Parks Victoria](<https://www.parks.vic.gov.au/>) under the Sorrento Local Port Area Plan.
+Sorrento Boat Ramp sits off Point Nepean Road and St Aubins Way, immediately east of [Sorrento Pier](<https://peninsulainsider.com.au/fishing/locations/sorrento-pier/>) and the Searoad Ferries terminal. [Mornington Peninsula Shire lists Sorrento as a Shire-managed ramp and confirms that its ramps are free to use](<https://www.mornpen.vic.gov.au/Things-to-do/Sport-and-activities/Boating/Boat-ramps>).
 
-Three concrete lanes, jetties on each side, and a breakwater that shelters the launch area from the prevailing bay swell. This combination makes Sorrento one of the most practical and comfortable launching facilities on the entire bay side. Toilets, playground, picnic areas, BBQ facilities, lighting (so early-morning and late-evening operations are supported).
+Use the Boating Victoria ramp finder linked from the Shire page for the current facility list and condition. Do not rely on older lane, depth or amenity counts when planning a launch.
 
 ## Tide dependence
 
-Sorrento is all-tide. Approach depth has been documented at 0.3 to 0.8 metres across the tidal range, and the breakwater removes the swell problem that affects exposed bay ramps at low water. For a standard recreational trailer boat, Sorrento launches and retrieves at any tidal state. This is a material advantage over [Safety Beach](<https://peninsulainsider.com.au/boating/ramps/safety-beach-boat-ramp/>) and [Rye](<https://peninsulainsider.com.au/boating/ramps/rye-boat-ramp/>), comparable to [Hastings](<https://peninsulainsider.com.au/boating/ramps/hastings-boat-ramp/>) on the Western Port side.
+Conditions and suitability vary with tide, weather, maintenance and vessel draft. Check current ramp information before towing to Sorrento.
 
 For deep-keeled or very large trailered boats, even at Sorrento it is prudent to check the BOM-listed Rosebud Jetty station in the [BOM tidal predictions](<https://www.bom.gov.au/australia/tides/>).
 
 ## Parking and pressure
 
-Sorrento’s foreshore serves the boat ramp, the pier, and the Searoad Ferries Queenscliff service. The three designated areas combine to over 50 car and trailer spots, but they compete with ferry-day traffic. On a fine summer Saturday, the car park fills early. Plan to arrive by 7am for a morning launch during snapper season and through January school holidays. Christmas week, Easter, and New Year’s Day are particularly tight.
-
-Adjacent paid parking applies in the broader Sorrento foreshore precinct; ramp-specific parking has historically been free but the position is worth confirming with [the Shire](<https://www.mornpen.vic.gov.au/>) before your visit.
+Sorrento’s foreshore serves the boat ramp, the pier and the Searoad Ferries Queenscliff service. Check the current facility listing and signs because live occupancy is not published. The [Shire’s current notice](<https://www.mornpen.vic.gov.au/Things-to-do/Sport-and-activities/Boating/Boat-ramps>) says parking fees apply at the Sorrento Ferry car park.
 
 ## Best-paired locations and species
 
-Sorrento’s southern position gives the shortest bay-side transit to the snapper grounds and to the Heads area for kingfish and tuna in season:
-
-- [Snapper](<https://peninsulainsider.com.au/fishing/species/snapper/>) on the southern bay structure, 5 to 15km south and southwest, peak October to December. Anchor and burley over reef.
-
-- [King George whiting](<https://peninsulainsider.com.au/fishing/species/king-george-whiting/>) on the southern bay sand flats, 3 to 8km, peak November to March. Among the most productive whiting grounds on the Peninsula.
-
-- [Yellowtail kingfish](<https://peninsulainsider.com.au/fishing/species/yellowtail-kingfish/>) around the channel edges 3 to 5km west, peak December to April. Light tackle or live bait.
-
-- Southern Bluefin Tuna offshore through the Heads, January to May. Experienced operators only.
-
-- [Squid](<https://peninsulainsider.com.au/fishing/species/squid/>) on the seagrass margins near the pier, 0.5 to 2km, year-round. The adjacent [Sorrento Pier](<https://peninsulainsider.com.au/fishing/locations/sorrento-pier/>) is itself a productive squid ground.
+Use the dedicated species guides for planning rather than treating a ramp page as fishing advice: [snapper](<https://peninsulainsider.com.au/fishing/species/snapper/>), [King George whiting](<https://peninsulainsider.com.au/fishing/species/king-george-whiting/>), [yellowtail kingfish](<https://peninsulainsider.com.au/fishing/species/yellowtail-kingfish/>) and [squid](<https://peninsulainsider.com.au/fishing/species/squid/>). The adjacent [Sorrento Pier](<https://peninsulainsider.com.au/fishing/locations/sorrento-pier/>) has its own location guide.
 
 Charter operators departing Sorrento: [Proline Charters](<https://peninsulainsider.com.au/fishing/charters/proline-charters/>) at Berth 1, Sorrento Pier.
 
 ## Permits and fees
 
-The ramp is free to launch from. Mornington Peninsula Shire-managed ramps are free as of 30 April 2026. A [Victorian Recreational Fishing Licence](<https://www.vfa.vic.gov.au/recreational-fishing/fishing-licence>) is required for recreational fishing.
+The [Shire’s current boat-ramp page](<https://www.mornpen.vic.gov.au/Things-to-do/Sport-and-activities/Boating/Boat-ramps>) says no permit or fee is required to use a Shire-managed ramp, while parking fees apply at the Sorrento Ferry car park. A [Victorian Recreational Fishing Licence](<https://www.vfa.vic.gov.au/recreational-fishing/fishing-licence>) is required unless an exemption applies.
 
 ## Safety notes
 
-**Proximity to the Heads.** Sorrento is the closest bay-side ramp to Port Phillip Heads. The Rip generates significant currents and standing waves, particularly on an ebb tide combined with a southwesterly swell. Departing vessels must stay well clear of the Heads channel. The Rip is one of Australia’s most dangerous tidal passages for small vessels.
+**Navigation.** Sorrento is beside an active ferry precinct and near Port Phillip Heads. Check current official navigation rules, marine forecasts, warnings and local notices before departure; do not use this guide as a substitute for them.
 
-**Ferry traffic.** Sorrento Pier adjacent to the ramp is the departure point for [Searoad Ferries](<https://www.searoad.com.au/>). Ferry traffic must be given way. Do not cross the ferry lane without clearance, particularly during departure and arrival windows.
+**Ferry traffic.** Sorrento Pier adjacent to the ramp is the departure point for [Searoad Ferries](<https://www.searoad.com.au/>). Check current official navigation requirements and local notices before operating near the precinct.
 
-**Return-to-ramp alternative.** If conditions deteriorate, the nearest sheltered alternative is [Rye Boat Ramp](<https://peninsulainsider.com.au/boating/ramps/rye-boat-ramp/>) approximately 6km northeast. Do not attempt to transit to Queenscliff via the Heads if conditions are marginal; the channel deteriorates faster than bay conditions.
+**Return-to-ramp alternative.** [Rye Boat Ramp](<https://peninsulainsider.com.au/boating/ramps/rye-boat-ramp/>) is the nearest Shire-listed alternative on the same bay shore. Plan alternatives before departure and check current conditions at the alternative too.
 
 ## What we did not include
 
@@ -83,19 +69,19 @@ This page covers public boat launch facilities only. The Sorrento Pier fishing e
 
 ### Can I launch at Sorrento Boat Ramp at any tide?
 
-Yes. Sorrento is an all-tide ramp with a breakwater-sheltered approach. Documented depth of 0.3 to 0.8 metres across the tidal range supports launch at any tidal state for standard recreational trailer boats. Deep-keeled vessels should still check the BOM-listed Rosebud Jetty station.
+Check the current ramp condition and the BOM-listed Rosebud Jetty station before travelling. Tide predictions do not guarantee suitability for every vessel.
 
 ### Is there parking for a car with a boat trailer?
 
-Yes, over 50 car and trailer spots across three areas. The foreshore serves both the boat ramp and the Sorrento ferry terminal, so parking pressure is higher than at a ramp-only facility. Arrive by 7am on summer weekends. On ferry-peak days (school holidays, long weekends, Christmas week) the car park can fill before 8am.
+The ramp is in a precinct shared with the pier and ferry terminal. Check the current facility listing and signs; the Shire does not publish live occupancy or guarantee a space, and parking fees apply at the Sorrento Ferry car park.
 
 ### What is the maximum vessel size I can launch from Sorrento?
 
-The three-lane concrete ramp with jetties suits most standard recreational trailer boats. The all-tide access removes depth as the primary constraint; the car park turning radius for longer trailers is more often the limiting factor.
+Suitability depends on vessel draft, tide, weather and current ramp condition. Check the Boating Victoria ramp finder and the managing authority before travelling.
 
 ### Is there an alternative ramp if Sorrento is full?
 
-The nearest alternative is Rye Boat Ramp approximately 6km northeast, generally suitable for most tidal states. For Western Port access, Hastings Boat Ramp is the best-equipped all-tide alternative.
+Rye is the nearest Shire-listed alternative on the same bay shore. Check current conditions there before changing plans.
 
 ## Related
 

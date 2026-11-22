@@ -83,7 +83,7 @@ Light tackle for bream and whiting; medium for flathead; heavier for snapper or 
 
 ## Nearby launching
 
-Nearest ramp: [Hastings Boat Ramp](<https://peninsulainsider.com.au/boating/ramps/hastings-boat-ramp/>). All-tide. Free to launch.
+Nearest ramp: [Hastings Boat Ramp](<https://peninsulainsider.com.au/boating/ramps/hastings-boat-ramp/>). Tide-tidal-extreme. Free to launch.
 
 ## Frequently asked questions
 

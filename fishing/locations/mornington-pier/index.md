@@ -95,7 +95,7 @@ Not suitable for surf fishing or targeting Australian salmon; the sheltered inne
 
 ## Nearby launching
 
-Nearest ramp: [Mornington Park Boat Ramp](<https://peninsulainsider.com.au/boating/ramps/mornington-park-boat-ramp/>). All-tide. Free to launch.
+Nearest ramp: [Mornington Park Boat Ramp](<https://peninsulainsider.com.au/boating/ramps/mornington-park-boat-ramp/>). Tide-tidal-extreme. Free to launch.
 
 ## Frequently asked questions
 

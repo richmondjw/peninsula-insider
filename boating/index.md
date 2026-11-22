@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/boating/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-04-30
+Modified: 2026-11-20
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -11,13 +11,13 @@ Two coastlines, two very different tides. Pick the ramp that suits the water tod
 
 [Find a ramp](<https://peninsulainsider.com.au/boating/#ramps>) [No boat? Hire or charter](<https://peninsulainsider.com.au/boating/#no-boat>)
 
-Public ramps, all free to launch. Last reviewed  30 April 2026.
+Current-condition guidance with direct authority links. Last reviewed  20 November 2026.
 
 Dromana Pier, Mornington Peninsula   Photo · Peter Tarasiuk, courtesy of Visit Victoria
 
 ## Choose your ramp
 
-The ramps in this guide are free to launch. The tide decides more than the drive does: 3 work at any tide, the rest need the water up. Heading for the Heads? Read [Before you launch](<https://peninsulainsider.com.au/boating/#before-you-launch>) first.
+Shire-managed ramps are currently free to use; confirm Warneet's conditions with its precinct manager. Tide, weather, maintenance and vessel draft all affect suitability. Heading for the Heads? Read [Before you launch](<https://peninsulainsider.com.au/boating/#before-you-launch>) first.
 
 ### Port Phillip Bay
 
@@ -29,47 +29,23 @@ Breakwater shelter and the shortest run to the southern snapper grounds and the 
 
 **Launch at**
 
-Any tide  Station: Rosebud Jetty
-
-**Lanes**
-
-3
-
-**Parking pressure**
-
-High
+Check current conditions  Station: Rosebud Jetty
 
 - #### [Rye](<https://peninsulainsider.com.au/boating/ramps/rye-boat-ramp/>)
 
-The biggest car park on the bay side, with about 127 trailer spaces and fish‑cleaning facilities.
+A Shire-listed southern bay ramp. Check current conditions and parking before towing there.
 
 **Launch at**
 
-Mid to high tide  1 to 2 hours either side of high water   Station: Rosebud Jetty
-
-**Lanes**
-
-4
-
-**Parking pressure**
-
-High
+Check current conditions  Station: Rosebud Jetty
 
 - #### [Safety Beach](<https://peninsulainsider.com.au/boating/ramps/safety-beach-boat-ramp/>)
 
-Plenty of trailer parking and a picnic ground alongside. Not one for a low-tide arrival.
+A Shire-listed mid-Peninsula ramp. Current maintenance and tide conditions matter.
 
 **Launch at**
 
-High tide only  About 2 hours either side of high water   Station: Mornington
-
-**Lanes**
-
-3
-
-**Parking pressure**
-
-Medium
+Check current conditions  Station: Mornington
 
 - #### [Mornington Park](<https://peninsulainsider.com.au/boating/ramps/mornington-park-boat-ramp/>)
 
@@ -77,15 +53,7 @@ Central bay shore. The car park is shared with the pier and the yacht club, so i
 
 **Launch at**
 
-Any tide  Station: Mornington
-
-**Lanes**
-
-2
-
-**Parking pressure**
-
-High
+Check current conditions  Station: Mornington
 
 ### Western Port
 
@@ -97,33 +65,17 @@ Upgraded in 2024, with an all-abilities hoist on the new southern pontoon. The b
 
 **Launch at**
 
-Any tide  Station: Western Port (Stony Point)
-
-**Lanes**
-
-4
-
-**Parking pressure**
-
-Medium
+Check current conditions  Station: Western Port (Stony Point)
 
 - #### [Warneet](<https://peninsulainsider.com.au/boating/ramps/warneet-boat-ramp/>)
 
-Smaller and quieter, with a central pontoon, for the whiting and flathead grounds of the northern arm.
+Planning and design for future ramp, parking and pontoon work is underway; check current access.
 
 **Launch at**
 
-Mid to high tide  2 hours either side of high water for boats over 4.5 m   Station: Western Port (Stony Point)
+Check current conditions  Station: Western Port (Stony Point)
 
-**Lanes**
-
-2
-
-**Parking pressure**
-
-Medium
-
-Parking pressure is our own rating. Lanes and tide access are checked against [Better Boating Victoria](<https://www.betterboating.vic.gov.au/>) and the [Mornington Peninsula Shire](<https://www.mornpen.vic.gov.au/>).
+Check current access with [Better Boating Victoria](<https://www.betterboating.vic.gov.au/>), the [Mornington Peninsula Shire](<https://www.mornpen.vic.gov.au/>), and the ramp manager named on each detail page.
 
  [Every ramp in detail](<https://peninsulainsider.com.au/boating/ramps/>)
 
@@ -163,7 +115,7 @@ Two trailer boats from several Peninsula ramps. Suits groups of 11 to 18.
 
 ## Before you launch
 
-**Respect the Rip.** South and south-westerly swell running into Port Phillip Heads stands up into dangerous waves. Do not cross in unsuitable conditions, whatever the size of your boat or your experience.
+**Plan for current conditions.** Check official marine forecasts, warnings, navigation rules and local notices before departure. Do not use this guide as a substitute for current official safety information.
 
 - ### Read the forecast twice
 
@@ -181,9 +133,9 @@ Pick an alternative before you leave home, in case the first is full or the tide
 
 Conditions and access can change. [Report changed ramp or safety information](<https://peninsulainsider.com.au/contact/?type=correction&page=%2Fboating%2F&message=Something%20has%20changed%20in%20the%20boating%20ramp%2C%20hire%20or%20safety%20guidance.>).
 
-How far the water moves   Typical rise and fall between low and high tide
+### Do not use a generic launch window
 
-The dashed top of each bar is the spread between a small tide and a big one. Western Port's bigger tide changes channel depth and ramp access through the day, which is why Warneet wants the upper half of the tide.
+Check the BOM-listed station shown for the ramp, then confirm the current ramp condition and your vessel's limits. A tide prediction does not guarantee safe access, and maintenance can change conditions.
 
 ## The Insider Note
 

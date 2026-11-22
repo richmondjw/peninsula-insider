@@ -9763,68 +9763,6 @@
       ]
     },
     {
-      "source": "/images/generated/events/cooking-class.webp",
-      "format": "webp",
-      "originalBytes": 56718,
-      "variants": [
-        {
-          "src": "/_media/6f43ccff2b4ee6db4ef7-480.webp",
-          "width": 480,
-          "height": 320,
-          "bytes": 13814
-        },
-        {
-          "src": "/_media/6f43ccff2b4ee6db4ef7-800.webp",
-          "width": 800,
-          "height": 533,
-          "bytes": 24436
-        },
-        {
-          "src": "/_media/6f43ccff2b4ee6db4ef7-1280.webp",
-          "width": 1280,
-          "height": 853,
-          "bytes": 39786
-        },
-        {
-          "src": "/_media/6f43ccff2b4ee6db4ef7-1536.webp",
-          "width": 1536,
-          "height": 1024,
-          "bytes": 53522
-        }
-      ]
-    },
-    {
-      "source": "/images/generated/events/cooking-class.webp",
-      "format": "avif",
-      "originalBytes": 56718,
-      "variants": [
-        {
-          "src": "/_media/9a04b7849dd21dd403a7-480.avif",
-          "width": 480,
-          "height": 320,
-          "bytes": 7309
-        },
-        {
-          "src": "/_media/9a04b7849dd21dd403a7-800.avif",
-          "width": 800,
-          "height": 533,
-          "bytes": 10793
-        },
-        {
-          "src": "/_media/9a04b7849dd21dd403a7-1280.avif",
-          "width": 1280,
-          "height": 853,
-          "bytes": 15386
-        },
-        {
-          "src": "/_media/9a04b7849dd21dd403a7-1536.avif",
-          "width": 1536,
-          "height": 1024,
-          "bytes": 20265
-        }
-      ]
-    },
-    {
       "source": "/images/generated/events/music-microphone.webp",
       "format": "webp",
       "originalBytes": 24324,
@@ -10032,6 +9970,68 @@
           "width": 1536,
           "height": 1024,
           "bytes": 11225
+        }
+      ]
+    },
+    {
+      "source": "/images/generated/events/cooking-class.webp",
+      "format": "webp",
+      "originalBytes": 56718,
+      "variants": [
+        {
+          "src": "/_media/6f43ccff2b4ee6db4ef7-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 13814
+        },
+        {
+          "src": "/_media/6f43ccff2b4ee6db4ef7-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 24436
+        },
+        {
+          "src": "/_media/6f43ccff2b4ee6db4ef7-1280.webp",
+          "width": 1280,
+          "height": 853,
+          "bytes": 39786
+        },
+        {
+          "src": "/_media/6f43ccff2b4ee6db4ef7-1536.webp",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 53522
+        }
+      ]
+    },
+    {
+      "source": "/images/generated/events/cooking-class.webp",
+      "format": "avif",
+      "originalBytes": 56718,
+      "variants": [
+        {
+          "src": "/_media/9a04b7849dd21dd403a7-480.avif",
+          "width": 480,
+          "height": 320,
+          "bytes": 7309
+        },
+        {
+          "src": "/_media/9a04b7849dd21dd403a7-800.avif",
+          "width": 800,
+          "height": 533,
+          "bytes": 10793
+        },
+        {
+          "src": "/_media/9a04b7849dd21dd403a7-1280.avif",
+          "width": 1280,
+          "height": 853,
+          "bytes": 15386
+        },
+        {
+          "src": "/_media/9a04b7849dd21dd403a7-1536.avif",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 20265
         }
       ]
     },

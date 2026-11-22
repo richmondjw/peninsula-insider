@@ -45,11 +45,13 @@ Carry a correctly fitted lifejacket for every person. On a powered vessel up to 
 
 Before you launch, identify your nearest alternative ramp in case conditions deteriorate. A boat that cannot safely return to its launch ramp needs an alternative. This is not hypothetical; it is a basic pre-trip planning step. Useful alternative pairings:
 
-- [Safety Beach](<https://peninsulainsider.com.au/boating/ramps/safety-beach-boat-ramp/>) (tide-dependent) → [Mornington Park](<https://peninsulainsider.com.au/boating/ramps/mornington-park-boat-ramp/>) or [Sorrento](<https://peninsulainsider.com.au/boating/ramps/sorrento-boat-ramp/>) (all-tide).
+- [Safety Beach](<https://peninsulainsider.com.au/boating/ramps/safety-beach-boat-ramp/>) → check [Mornington Park](<https://peninsulainsider.com.au/boating/ramps/mornington-park-boat-ramp/>) or [Sorrento](<https://peninsulainsider.com.au/boating/ramps/sorrento-boat-ramp/>).
 
-- [Sorrento](<https://peninsulainsider.com.au/boating/ramps/sorrento-boat-ramp/>) → [Rye](<https://peninsulainsider.com.au/boating/ramps/rye-boat-ramp/>) (both southern bay).
+- [Sorrento](<https://peninsulainsider.com.au/boating/ramps/sorrento-boat-ramp/>) → check [Rye](<https://peninsulainsider.com.au/boating/ramps/rye-boat-ramp/>).
 
-- [Warneet](<https://peninsulainsider.com.au/boating/ramps/warneet-boat-ramp/>) (tide-cautious) → [Hastings](<https://peninsulainsider.com.au/boating/ramps/hastings-boat-ramp/>) (all-tide, four-lane).
+- [Warneet](<https://peninsulainsider.com.au/boating/ramps/warneet-boat-ramp/>) → check [Hastings](<https://peninsulainsider.com.au/boating/ramps/hastings-boat-ramp/>).
+
+These are geographic pairings, not live suitability endorsements. Recheck tide, weather, maintenance and ramp access for both locations before departure.
 
 ## Species and tide
 
