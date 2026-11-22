@@ -56,11 +56,25 @@ export const REFUSAL_TOPICS = [
 ];
 
 export const INTERVIEW = {
+  // Each question has a few ways of being asked, so a second visit does not read like a form.
+  // `ask` stays as the first of them. Every line is about the reader, never a place.
   who: { ask: 'Before I plan anything: who’s coming?', again: 'Humour me. Who’s coming?',
+    asks: ['Before I plan anything: who’s coming?', 'Hand it over, then. Who am I planning for?', 'Good. I like being in charge. Who’s coming?', 'I’ll take it from here. First: who’s in the car?'],
     chips: ['Just the two of us', 'Kids in tow', 'A group', 'Just me'] },
-  where: { ask: 'Whereabouts? Or leave it to me.', again: 'A town, or say “you pick”.' },
+  where: { ask: 'Whereabouts? Or leave it to me.', again: 'A town, or say “you pick”.',
+    asks: ['Whereabouts? Or leave it to me.', 'Where are we pointing the car? Or say “you pick” and I will.', 'Got a town in mind, or do I get to choose?'] },
   long: { ask: 'And how much of the day do I get?', again: 'Morning, half a day or the whole day?',
+    asks: ['And how much of the day do I get?', 'Last one. How long have I got you for?', 'How much of the day are you giving me?'],
     chips: ['Just the morning', 'Half a day', 'The whole day'] },
+  // What she says to the answer she has just been given, before her next question.
+  heard: {
+    couple: ['Two of you. Easy. Nobody to herd.', 'Just the two of you. Good, I can be ambitious.', 'A pair. That I can work with.'],
+    family: ['Kids in tow. Brave. I’ll keep it short and near a snack.', 'Children. Noted, and respected. Fewer stops, then.', 'Small people. I’ll plan around the meltdowns.'],
+    group: ['A group. Someone will be late. I’ll plan for that.', 'A group, so somebody will have opinions. I’ll ignore most of them.', 'Several of you. I’ll keep it simple enough to survive a committee.'],
+    solo: ['Just you. No negotiating. My favourite kind.', 'On your own. Good. Nobody to slow us down.', 'Solo. Then we do exactly what’s worth doing.'],
+    town: ['{town}. Fine choice, I’ll allow it.', '{town} it is. I have thoughts.', '{town}. Good, that narrows my notebook nicely.'],
+    mine: ['My pick, then. You won’t regret that. Probably.', 'Leaving it to me. Sensible.', 'I choose. Excellent. I was going to anyway.'],
+  },
 };
 export const YOU_PICK = 'You pick';
 

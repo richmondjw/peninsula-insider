@@ -50,12 +50,13 @@ const titles = (result) => result.reply.cards.map((item) => item.title);
 test('a plan is asked for in three taps, then put in order from pages in one town', () => {
   let turn = converse(index, 'Create me a plan', null, { today });
   assert.equal(turn.reply.kind, 'interview');
-  assert.equal(turn.reply.lead, lines.INTERVIEW.who.ask);
+  assert.ok(lines.INTERVIEW.who.asks.includes(turn.reply.lead), turn.reply.lead);
   turn = converse(index, 'Kids in tow', turn.state, { today });
-  assert.equal(turn.reply.lead, lines.INTERVIEW.where.ask);
+  // She answers what she was told, then asks the next thing.
+  assert.ok(lines.INTERVIEW.heard.family.some((heard) => turn.reply.lead.startsWith(heard)) && lines.INTERVIEW.where.asks.some((ask) => turn.reply.lead.endsWith(ask)), turn.reply.lead);
   assert.ok(turn.reply.chips.includes('Flinders') && turn.reply.chips.includes(lines.YOU_PICK));
   turn = converse(index, 'Flinders', turn.state, { today });
-  assert.equal(turn.reply.lead, lines.INTERVIEW.long.ask);
+  assert.ok(lines.INTERVIEW.long.asks.some((ask) => turn.reply.lead.endsWith(ask)), turn.reply.lead);
   turn = converse(index, 'The whole day', turn.state, { today });
   assert.equal(turn.reply.kind, 'plan');
   assert.equal(turn.reply.plan.title, 'A day in Flinders');
@@ -65,7 +66,8 @@ test('a plan is asked for in three taps, then put in order from pages in one tow
   // With children along, the page that says "family" comes first and the last stop is not a tasting.
   assert.equal(turn.reply.plan.stops[0].card.title, 'Flinders General Store');
   assert.notEqual(turn.reply.plan.stops[3].card.title, 'Nazaaray Estate');
-  assert.match(turn.reply.lead, /^Kids in tow\. Brave\./);
+  // She reacted to "kids in tow" when she was told; the plan itself opens without repeating it.
+  assert.match(turn.reply.lead, /^Right\. Flinders, 4 stops, in order\./);
   assert.ok(turn.reply.notes.includes(lines.PLAN_NOTES.order));
 });
 
