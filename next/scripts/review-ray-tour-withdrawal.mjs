@@ -16,7 +16,7 @@ const withdrawn = [
   '/tour/operators/global-ballooning/',
 ];
 const forbidden = /bunyip|global-ballooning|Global Ballooning/i;
-const report = { head: process.env.REVIEW_HEAD_SHA, pages: [], retired: [], searches: [], requests: [], browserErrors: [],
+const report = { head: process.env.REVIEW_HEAD_SHA, pages: [], retired: [], searches: [], requests: [], browserErrors: [], searchHttp: [], searchConsole: [], workers: [],
   cmsScope: 'Built overrides plus deterministic empty runtime CMS response. Live CMS is not certified by this test.', passed: false };
 assert.match(report.head ?? '', /^[a-f0-9]{40}$/);
 report.checkout = execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim();
@@ -25,14 +25,19 @@ assert.equal(report.checkout,report.head,'Evidence must use the requested exact 
 const mime = {'.html':'text/html','.js':'application/javascript','.json':'application/json','.css':'text/css','.svg':'image/svg+xml','.wasm':'application/wasm','.png':'image/png','.webp':'image/webp','.woff2':'font/woff2'};
 // Serve real generated Pagefind and Ask files, never the journey harness stubs.
 const server = http.createServer(async (req,res) => {
+  let pathname;
   try {
-    const pathname = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
+    pathname = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
     let file = path.resolve(dist, '.' + pathname);
     if (!file.startsWith(dist + path.sep) && file !== dist) { res.writeHead(403); res.end(); return; }
     if (!path.extname(file)) file = path.join(file,'index.html');
     const bytes = await fs.readFile(file);
+    if (pathname.startsWith('/pagefind/')) report.searchHttp.push({path:pathname,status:200,bytes:bytes.length});
     res.writeHead(200, {'Content-Type':mime[path.extname(file)] ?? 'application/octet-stream'}); res.end(bytes);
-  } catch { res.writeHead(404, {'Content-Type':'text/plain'}); res.end('Not found'); }
+  } catch (error) {
+    if (pathname?.startsWith('/pagefind/')) report.searchHttp.push({path:pathname,status:404,error:error.code});
+    res.writeHead(404, {'Content-Type':'text/plain'}); res.end('Not found');
+  }
 });
 await new Promise(resolve => server.listen(0,'127.0.0.1',resolve));
 const origin = `http://127.0.0.1:${server.address().port}`;
@@ -52,12 +57,12 @@ try {
     const page = await browser.newPage();
     await page.setViewport({width,height:900});
     page.on('pageerror', error => report.browserErrors.push({width,error:error.message}));
+    page.on('console', message => { if (['warn','warning','error'].includes(message.type())) report.searchConsole.push({width,type:message.type(),text:message.text()}); });
+    page.on('workercreated', worker => report.workers.push({width,url:worker.url()}));
     page.on('requestfailed', req => report.requests.push({width,url:req.url(),failure:req.failure()?.errorText}));
     await page.setRequestInterception(true);
     page.on('request', req => {
-      // Generated search may execute a same-origin blob worker. It is part of
-      // the real local index, not an external service to abort.
-      if (req.url().startsWith(origin + '/') || req.url().startsWith('blob:' + origin + '/') || req.url().startsWith('data:')) return req.continue();
+      if (req.url().startsWith(origin + '/') || req.url().startsWith('data:')) return req.continue();
       // No form submission or real CMS mutation; deterministic runtime boundary.
       if (req.url().includes('.supabase.co/')) return req.respond({status:200,contentType:'application/json',body:'[]'});
       return req.abort();
@@ -116,7 +121,7 @@ try {
 } catch (error) { report.error=error.stack; throw error; }
 finally {
   await fs.writeFile(path.join(out,'report.json'),JSON.stringify(report,null,2));
-  console.log(JSON.stringify({head:report.head,passed:report.passed,phase:report.phase,pages:report.pages.map(p=>({route:p.route,width:p.width})),searches:report.searches,error:report.error,browserErrors:report.browserErrors,localRequestFailures:report.requests.filter(r=>r.url.startsWith(origin+'/') || r.url.startsWith('blob:'+origin+'/'))}));
+  console.log(JSON.stringify({head:report.head,passed:report.passed,phase:report.phase,pages:report.pages.map(p=>({route:p.route,width:p.width})),searches:report.searches,error:report.error,browserErrors:report.browserErrors,searchHttp:report.searchHttp,searchConsole:report.searchConsole,workers:report.workers,localRequestFailures:report.requests.filter(r=>r.url.startsWith(origin+'/'))}));
   if (browser) await browser.close();
   await new Promise(resolve=>server.close(resolve));
 }
