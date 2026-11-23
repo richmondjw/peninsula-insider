@@ -1,0 +1,87 @@
+---
+/**
+ * PlanFinderGuide (v5, /explore/plans/) - the finder, said plainly.
+ *
+ * The finder at the top of the hub is a closed toggle that works in
+ * script. A reader on a slow connection, a screen-reader user skimming by
+ * heading, and an answer engine reading the HTML all get the same thing
+ * here instead: what the finder filters on, and every itinerary laid out
+ * against those same three choices. Nothing in this table is written by
+ * hand; each cell is the label the form shows for a choice that returns
+ * that itinerary (plan-finder.test.mjs holds that line).
+ *
+ * House rules: no em-dashes, no dollar figures, no tourism adjectives, and
+ * no catalogue totals in reader copy (ops/count-free-copy-20261117.md).
+ */
+import { FACET_OPTIONS } from '../../../lib/facets';
+import { buildFaqSchema } from '../../../lib/schema';
+import { finderOptions, finderRows, listLabels } from './plan-finder';
+import { matchesLength } from './plan-match';
+import type { PlansModel } from './plans-data';
+export interface Props { model: PlansModel; }
+const { model } = Astro.props;
+const options = finderOptions(model.plans, FACET_OPTIONS);
+const rows = finderRows(model.plans, options, matchesLength);
+const lower = (labels: string[]) => listLabels(labels.map(label => label.toLowerCase()));
+const count = rows.length;
+const faq = [
+  {
+    q: 'Can I filter Mornington Peninsula plans by trip length, who is coming and what we are into?',
+    a: `Yes. The plan finder on this page filters Peninsula Insider's editor-written itineraries three ways: by trip length (${lower(options.lengths.map(o => o.label))}), by who is coming (${lower(options.who.map(o => o.label))}) and by what you are into (${lower(options.interests.map(o => o.label))}). Choices combine, and there is a wet-weather option.`,
+  },
+  {
+    q: 'Does the plan finder generate an itinerary?',
+    a: 'No. It matches your answers to itineraries our editors have already written, with the stops in order. Nothing is generated. Where no itinerary meets every choice, it shows the closest ones and says which choice each one misses.',
+  },
+  {
+    q: 'Can I share or save a filtered set of plans?',
+    a: 'Yes. Your choices are kept in the page address, so a filtered view can be bookmarked or sent to the people you are travelling with. Any itinerary can then be copied into My Trip and changed.',
+  },
+];
+---
+{count > 0 && <section class="plan-finder-guide" id="plan-finder" aria-labelledby="plan-finder-heading">
+  <script type="application/ld+json" set:html={JSON.stringify(buildFaqSchema(faq)).replace(/</g, '\\u003c')} />
+  <div class="container">
+    <h2 id="plan-finder-heading">Every itinerary by length, company and interest</h2>
+    <p class="plan-finder-guide__intro">The <a href="#build">plan finder</a> at the top of this page filters our itineraries by how long you have, who is coming and what you are into. This table is the same information laid out in full.</p>
+    <table class="plan-finder-guide__table">
+      <thead><tr><th scope="col">Itinerary</th><th scope="col">Trip length</th><th scope="col">Who it suits</th><th scope="col">What it is for</th></tr></thead>
+      <tbody>{rows.map(row => <tr>
+        <th scope="row"><a href={row.plan.href}>{row.plan.displayTitle}</a></th>
+        <td data-label="Trip length">{row.lengths.join(', ') || 'Not set'}</td>
+        <td data-label="Who it suits">{row.who.join(', ') || 'Anyone'}</td>
+        <td data-label="What it is for">{row.interests.join(', ') || 'A mix'}</td>
+      </tr>)}</tbody>
+    </table>
+    <div class="plan-finder-guide__faq">
+      <h2 id="plan-finder-questions">About the plan finder</h2>
+      {faq.map(item => <div class="plan-finder-guide__qa"><h3>{item.q}</h3><p>{item.a}</p></div>)}
+    </div>
+  </div>
+</section>}
+<style>
+  .plan-finder-guide{padding:var(--space-6) 0 var(--space-7);scroll-margin-top:8rem}
+  h2{font:500 var(--fs-700)/1.2 var(--font-display);letter-spacing:-.04em;margin:0}
+  .plan-finder-guide__intro{font:var(--fs-400)/1.6 var(--font-ui);color:var(--soft);max-width:62ch;margin:var(--space-3) 0 var(--space-5)}
+  .plan-finder-guide__intro a{color:var(--accent);font-weight:600;text-underline-offset:.2em}
+  table{width:100%;border-collapse:collapse;font:var(--fs-300)/1.5 var(--font-ui);color:var(--text)}
+  thead th{text-align:left;font-weight:600;color:var(--soft);padding:0 var(--space-4) var(--space-2) 0;border-bottom:1px solid var(--border-control)}
+  tbody th,td{text-align:left;vertical-align:top;padding:var(--space-3) var(--space-4) var(--space-3) 0;border-bottom:1px solid var(--border-control)}
+  tbody th{font:500 var(--fs-400)/1.35 var(--font-display);letter-spacing:-.02em;min-width:14ch}
+  tbody th a{color:var(--text);text-decoration:none;display:inline-flex;align-items:center;min-height:44px}tbody th a:hover{text-decoration:underline;text-underline-offset:.15em}
+  tbody th a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:var(--radius-s)}
+  .plan-finder-guide__faq{margin-top:var(--space-7);max-width:68ch}
+  .plan-finder-guide__qa{margin-top:var(--space-5)}
+  h3{font:500 var(--fs-500)/1.3 var(--font-display);letter-spacing:-.025em;margin:0 0 var(--space-2)}
+  .plan-finder-guide__qa p{font:var(--fs-400)/1.6 var(--font-ui);margin:0}
+  /* Phones: each itinerary becomes a short labelled block, so nothing scrolls sideways. */
+  @media(max-width:45rem){
+    .plan-finder-guide{padding:var(--space-5) 0 var(--space-6)}
+    thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+    table,tbody,tr,tbody th,td{display:block}
+    tr{padding:var(--space-3) 0;border-bottom:1px solid var(--border-control)}
+    tbody th,td{border:0;padding:0}
+    td{padding-top:.2rem}
+    td::before{content:attr(data-label) ": ";color:var(--soft)}
+  }
+</style>

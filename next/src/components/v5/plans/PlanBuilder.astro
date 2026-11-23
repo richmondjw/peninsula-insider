@@ -1,20 +1,18 @@
 ---
-import { FACET_OPTIONS, type FacetKey } from '../../../lib/facets';
+import { FACET_OPTIONS } from '../../../lib/facets';
+import { finderOptions } from './plan-finder';
 import type { PlansModel } from './plans-data';
 export interface Props { model: PlansModel; }
 const { model } = Astro.props;
-const present = (key: FacetKey, excluded: string[] = []) => FACET_OPTIONS[key].filter(option =>
-  !excluded.includes(option.value) && model.plans.some(plan => (plan.facets[key] ?? []).includes(option.value)));
-const interests = [...present('cat', ['plan']), ...present('mood', ['rainy-day'])]
-  .filter((option, i, list) => list.findIndex(item => item.value === option.value) === i);
-const lengths = [{ value: 'one-day', label: 'One day' }, { value: 'weekend', label: 'A weekend' }, { value: 'longer', label: 'Two nights or more' }];
-const who = present('party');
+// The choices live in plan-finder.ts so the plain table under the catalogue
+// (PlanFinderGuide) describes exactly the filter this form offers.
+const { lengths, who, interests } = finderOptions(model.plans, FACET_OPTIONS);
 const labels = { length: Object.fromEntries(lengths.map(o => [o.value, o.label])), who: Object.fromEntries(who.map(o => [o.value, o.label])), into: Object.fromEntries(interests.map(o => [o.value, o.label])), weather: { 'rainy-day': 'Wet-weather option' } };
 ---
 <div class="plan-builder" id="build">
   <details class="plan-builder__panel" data-plan-matcher>
     <summary>
-      <span id="plan-builder-heading" class="plan-builder__heading">Narrow it down</span>
+      <span id="plan-builder-heading" class="plan-builder__heading">Plan finder <span class="plan-builder__hint">Filter by trip length, who’s coming and what you’re into</span></span>
       <span class="plan-builder__toggle" aria-hidden="true">+</span>
     </summary>
     <form class="plan-builder__form" data-plan-form aria-labelledby="plan-builder-heading">
@@ -38,6 +36,9 @@ const labels = { length: Object.fromEntries(lengths.map(o => [o.value, o.label])
   .plan-builder{margin:0 0 .5rem;scroll-margin-top:8rem}
   summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:.5rem;min-height:44px;font:600 var(--fs-300)/1.4 var(--font-ui);color:var(--accent)}
   summary::-webkit-details-marker{display:none}
+  /* The label names the tool; the hint says what it filters on, in words a reader or a crawler can use. */
+  .plan-builder__hint{font-weight:400;color:var(--soft);margin-left:.35rem}
+  @media(max-width:45rem){summary{align-items:flex-start;padding:.6rem 0}.plan-builder__hint{display:block;margin:.1rem 0 0}}
   summary:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
   .plan-builder__toggle{font-size:var(--fs-400);line-height:1;transition:transform 150ms ease}
   details[open] .plan-builder__toggle{transform:rotate(45deg)}
