@@ -10,6 +10,7 @@
  * roman folios, hairline rules, restrained colour, photography-led.
  */
 
+import OpenAIPixel from '../components/OpenAIPixel.astro';
 import harbourScreenStyles from '../styles/v6-tokens.css?url';
 
 export interface Props {
@@ -30,6 +31,7 @@ const canonicalUrl = `${SITE_URL}${rawPathname === '/' ? '/' : rawPathname.repla
 <html lang="en-AU">
 <head>
   <meta charset="utf-8" />
+  <OpenAIPixel />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="noindex, nofollow" />
   <title>{title}</title>

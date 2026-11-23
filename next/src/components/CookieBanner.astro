@@ -7,11 +7,10 @@
  * use the compact corner card near the control that requested them.
  *
  * Two-tier consent (Accept all / Preferences). Strictly necessary
- * storage for sign-in and consent preferences is always on; analytics (Google Analytics)
- * is opt-in.
+ * storage for sign-in and consent preferences is always on; analytics and ad measurement each require an opt-in.
  *
  * Persistence: localStorage key `pi-consent-v1`. Shape:
- *   { necessary: true, analytics: boolean, ts: ISO date string, version: 1 }
+ *   { necessary: true, analytics: boolean, adMeasurement?: boolean, ts: ISO date string, version: 1 }
  *
  * On consent change the component dispatches a `pi:consent-changed` window
  * event with the new state. BaseLayout listens for that to load gtag.js
@@ -42,7 +41,7 @@
     <div class="cookie-banner__copy">
       <p class="cookie-banner__title">A note on cookies</p>
       <p class="cookie-banner__body">
-        <span class="cookie-banner__essential">Sign-in storage is essential.</span> Analytics is optional.
+        <span class="cookie-banner__essential">Sign-in storage is essential.</span> Analytics and ad measurement are optional.
         <a href="/privacy/">Privacy policy.</a>
       </p>
     </div>
@@ -77,6 +76,17 @@
             <input type="checkbox" id="cookie-toggle-analytics" />
             <span class="cookie-banner__toggle-knob" aria-hidden="true"></span>
             <span class="visually-hidden">Allow analytics cookies</span>
+          </label>
+        </li>
+        <li class="cookie-banner__row">
+          <div class="cookie-banner__row-text">
+            <p class="cookie-banner__row-title">Ad measurement</p>
+            <p class="cookie-banner__row-dek">Allow the OpenAI Pixel to measure how our ChatGPT ads perform.</p>
+          </div>
+          <label class="cookie-banner__toggle">
+            <input type="checkbox" id="cookie-toggle-ad-measurement" />
+            <span class="cookie-banner__toggle-knob" aria-hidden="true"></span>
+            <span class="visually-hidden">Allow OpenAI ad measurement</span>
           </label>
         </li>
       </ul>
@@ -160,30 +170,32 @@
       if (actions) actions.hidden = true;
       var toggle = document.getElementById('cookie-toggle-analytics');
       var existing = read();
-      if (toggle && existing) toggle.checked = !!existing.analytics;
+      if (toggle) toggle.checked = !!(existing && existing.analytics);
+      document.getElementById('cookie-toggle-ad-measurement').checked = existing?.adMeasurement === true;
       // The button that was focused just got hidden with its row; move focus
       // into the panel rather than dropping it on <body>.
       if (toggle) toggle.focus();
     }
 
-    function save(analyticsOn) {
+    function save(analyticsOn, adMeasurementOn) {
       var state = {
         version: VERSION,
         necessary: true,
         analytics: !!analyticsOn,
+        adMeasurement: !!adMeasurementOn,
         ts: new Date().toISOString(),
       };
       write(state);
       hide();
     }
 
-    document.getElementById('cookie-accept-all').addEventListener('click', function () { save(true); });
+    document.getElementById('cookie-accept-all').addEventListener('click', function () { save(true, true); });
     document.getElementById('cookie-manage').addEventListener('click', expandManage);
     document.getElementById('cookie-save').addEventListener('click', function () {
       var toggle = document.getElementById('cookie-toggle-analytics');
-      save(toggle && toggle.checked);
+      save(toggle && toggle.checked, document.getElementById('cookie-toggle-ad-measurement').checked);
     });
-    document.getElementById('cookie-reject-all').addEventListener('click', function () { save(false); });
+    document.getElementById('cookie-reject-all').addEventListener('click', function () { save(false, false); });
 
     // Escape dismisses the toast. No choice is recorded, so nothing is written
     // to storage, no consent event fires, and the toast returns next visit.
