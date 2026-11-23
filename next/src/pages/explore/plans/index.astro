@@ -4,6 +4,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import PlanContextEngine from '../../../components/v5/plans/PlanContextEngine.astro';
 import PlanBuilder from '../../../components/v5/plans/PlanBuilder.astro';
 import PlanIndexRows from '../../../components/v5/plans/PlanIndexRows.astro';
+import PlanFinderGuide from '../../../components/v5/plans/PlanFinderGuide.astro';
 import PlanNextStep from '../../../components/v5/plans/PlanNextStep.astro';
 import { buildPlansModel } from '../../../components/v5/plans/plans-data';
 import HubEntry from '../../../components/v5/hub/HubEntry.astro';
@@ -25,9 +26,9 @@ const itemListSchema = {
 };
 export const prerender = true;
 ---
-<BaseLayout title="Mornington Peninsula Plans · Peninsula Insider" description="Choose a Peninsula day or weekend, with editorial itineraries, clear routes and practical planning guides. Use an itinerary in My Trip and make it yours." section="explore" canonical="https://peninsulainsider.com.au/explore/plans/" ogImage={pageImage('plans-hub').src}>
+<BaseLayout title="Mornington Peninsula Plans and Plan Finder · Peninsula Insider" description="Filter Mornington Peninsula plans by trip length, who’s coming and what you’re into, or pick one of our editors’ ready-made days and weekends and make it yours in My Trip." section="explore" canonical="https://peninsulainsider.com.au/explore/plans/" ogImage={pageImage('plans-hub').src}>
   <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
-  <!-- One opening (headline, standfirst, matcher, editor's pick), then the other itineraries, guides and a quiet close. -->
+  <!-- One opening (headline, standfirst, matcher, editor's pick), then the other itineraries, guides, the finder said plainly as a table, and a quiet close. -->
   {pick?.image ? <HubEntry
     kicker="Plans"
     title="Don’t plan. Pick one of ours."
@@ -43,6 +44,7 @@ export const prerender = true;
     <PlanBuilder slot="matcher" model={model} />
     <PlanContextEngine model={model} />
   </PlanIndexRows>
+  <PlanFinderGuide model={model} />
   <PlanNextStep />
 </BaseLayout>
 <style>
