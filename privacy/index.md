@@ -49,7 +49,7 @@ Ask PI currently matches what you type against Peninsula Insider’s published g
 
 So she can pick up where you left off, your browser also keeps a short note on your device: how you like her to talk, places you told her you have done, kinds of place you ruled out, and the last place she recommended. This note is not sent to us. Say “forget me” in the chat, or press her hat and choose “Forget what you know about me”, and the note is erased.
 
-If you press “PI got it wrong” and allow analytics, Google Analytics receives only the feedback button you choose and the kind of reply. It does not receive your question or Ask PI’s answer. Reading aloud and the microphone are switched off while Ask PI is answering only from the guides in your browser.
+If you press “PI got it wrong” and allow analytics, Google Analytics receives only the feedback button you choose and the kind of reply. It does not receive your question or Ask PI’s answer. By default the chat answers from the guides in your browser and sends nothing, with reading aloud and the microphone off. If you press Go Live it switches to a live conversation: your messages are then sent to our platform, which writes and checks her reply and gives her a spoken voice, and the microphone becomes available. Starting a new conversation, or pressing Live again, ends it.
 
 ## Browser storage
 

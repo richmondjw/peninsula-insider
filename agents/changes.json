@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-23T02:43:06.661Z",
+  "generatedAt": "2026-11-23T03:04:36.129Z",
   "baselineAvailable": true,
-  "fromSnapshot": "e7dedeed5c90429e633ab768b091f40287c09fc7ac214efac14839afb7a69a13",
-  "toSnapshot": "ec98fed9ce5bdf62623ab04fa8d5a3c4f99a7eeac41fd5e3922bf3fcb240b1f1",
-  "previousGeneratedAt": "2026-11-23T02:24:53.573Z",
+  "fromSnapshot": "ec98fed9ce5bdf62623ab04fa8d5a3c4f99a7eeac41fd5e3922bf3fcb240b1f1",
+  "toSnapshot": "c4b3af0c3c2bf801c3a0b246bf4a50b8007076bcdcd1b371b893d94b835be566",
+  "previousGeneratedAt": "2026-11-23T02:43:06.661Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
   "count": 1,
   "changes": [
@@ -13,8 +13,8 @@
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/privacy/",
       "markdownUrl": "https://peninsulainsider.com.au/privacy/index.md",
-      "contentSha256": "c6941b0ab35dc7b4f9d773a7c914e55c2223fa66a355c762210340276686a882",
-      "previousContentSha256": "b49332e0a2c164174681f4fa245968a6a9b0cb2e723acae2bf04955f16db5ecd"
+      "contentSha256": "130935f4f64dab5aebbd2d32846da14f3f76df8865ff9a6794dbe4e1e7269e2d",
+      "previousContentSha256": "c6941b0ab35dc7b4f9d773a7c914e55c2223fa66a355c762210340276686a882"
     }
   ]
 }
