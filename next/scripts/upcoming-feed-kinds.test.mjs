@@ -8,6 +8,7 @@ async function loadRoute(seriesOnly=false) {
   let source = stripTypeScriptTypes(await readFile(new URL('../src/pages/whats-on/upcoming.json.ts', import.meta.url), 'utf8'));
   let stubs = `
     import {resolveOccurrence} from '${occurrenceUrl}';
+    export const buildNow = () => new Date('${fixedNow}');
     export const startOfDay = () => new Date('2026-10-10T00:00:00Z');
     export const addDays = (date,count) => new Date(date.getTime()+count*86400000);
     export const isoDate = date => date.toISOString().slice(0,10);
@@ -25,6 +26,7 @@ async function loadRoute(seriesOnly=false) {
   if(seriesOnly) stubs=`
  import {resolveListingOccurrence} from '${new URL('../src/lib/whatson-listing.mjs',import.meta.url).href}';
  import {occurrenceSchemaStatus} from '${occurrenceUrl}';
+ export const buildNow=()=>new Date('${fixedNow}');
  export const startOfDay=()=>new Date('2026-10-10');export const addDays=(d,n)=>new Date(d.getTime()+n*86400000);export const isoDate=d=>d.toISOString().slice(0,10);
  export const weekendWindow=()=>({start:new Date('2026-10-10'),end:new Date('2026-10-11'),label:'Test'});
  export const occursInWindow=()=>true;export const occursOnDay=(r,d)=>r.dates.includes(isoDate(d));
@@ -32,7 +34,7 @@ async function loadRoute(seriesOnly=false) {
  export const loadLiveEvents=async()=>[{href:'/whats-on/synthetic-series/',rule:{kind:'explicit',start:new Date('2026-10-09'),end:new Date('2026-10-30'),dates:['2026-10-10']},event:{data:{title:'Synthetic series',summary:'Synthetic only',contentKind:'event',recurrence:'weekly',venueName:'Original venue',place:{id:'old-place'},venue:{id:'old-venue'},intelligence:{revision:'test-only'},seriesOccurrences:[{id:'fixture',originalDate:'2026-10-09',date:'2026-10-10',status:'rescheduled',venueName:'New venue',startTime:'14:00',endTime:'15:00',sourceUrl:'https://example.com/change'}]}}}];
  `;
  const stubUrl = `data:text/javascript;base64,${Buffer.from(stubs).toString('base64')}`;
-  source = source.replace(/import \{\s*addDays,[\s\S]*?\} from ['"]\.\/_data['"];?/, `import {addDays,isoDate,loadLiveEvents,occurrenceStateFor,occursInWindow,occursOnDay,startOfDay,weekendWindow} from '${stubUrl}';`);
+  source = source.replace(/import \{\s*addDays,[\s\S]*?\} from ['"]\.\/_data['"];?/, `import {addDays,buildNow,isoDate,loadLiveEvents,occurrenceStateFor,occursInWindow,occursOnDay,startOfDay,weekendWindow} from '${stubUrl}';`);
   source = source.replace(/from ['"]([^'"]+)['"]/g, (_, specifier) => {
     return `from '${specifier.startsWith('.') ? new URL('../src/pages/whats-on/'+specifier, import.meta.url).href : specifier}'`;
   });

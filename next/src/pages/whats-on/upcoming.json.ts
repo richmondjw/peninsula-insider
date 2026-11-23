@@ -2,6 +2,7 @@ import {hasExplicitSeries,occurrenceData,hasLegacyExceptions} from '../../lib/in
 import type { APIRoute } from 'astro';
 import {
   addDays,
+  buildNow,
   isoDate,
   loadLiveEvents,
   occurrenceStateFor,
@@ -25,7 +26,7 @@ const SITE = 'https://peninsulainsider.com.au';
 const WINDOW_DAYS = 90;
 
 export const GET: APIRoute = async () => {
-  const now = new Date();
+  const now = buildNow();
   const today = startOfDay(now);
   const window: ScopeWindow = {
     start: today,

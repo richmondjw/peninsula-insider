@@ -15,7 +15,7 @@ import EventChipBar from '../../../components/EventChipBar.astro';
 import NewsletterBlock from '../../../components/NewsletterBlock.astro';
 import { chips, eventsForChip, getChip } from '../../../lib/events';
 import { routeSlug } from '../../../lib/editorial';
-import { loadLiveEvents } from '../_data';
+import { buildNow, loadLiveEvents } from '../_data';
 
 export async function getStaticPaths() {
   return chips.map((chip) => ({
@@ -32,7 +32,7 @@ if (!chip) {
 
 // Pull the same date- and status-qualified event set as the What's On hub so
 // an archived record can never leak into an otherwise indexable mood lane.
-const now = new Date();
+const now = buildNow();
 const allEvents = (await loadLiveEvents(now)).map(({ event }) => event);
 
 const events = eventsForChip(chip, allEvents);

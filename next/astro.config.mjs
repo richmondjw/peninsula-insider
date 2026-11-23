@@ -56,6 +56,16 @@ export default defineConfig({
     remarkPlugins: [remarkBlockIds],
   },
   integrations: [
+    {
+      name: 'pi-build-clock',
+      hooks: {
+        'astro:build:start': () => {
+          // All prerendered event surfaces use one instant, even when a build
+          // crosses midnight in Melbourne.
+          process.env.PI_ASTRO_BUILD_NOW = new Date().toISOString();
+        },
+      },
+    },
     mdx({
       // MDX uses the same remark pipeline as plain markdown, but plugins
       // declared at the top level don't carry through — they have to be

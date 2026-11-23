@@ -45,7 +45,7 @@ export type EventEntry = CollectionEntry<'events'>;
 // ---------------------------------------------------------------------------
 
 import { startOfDay, addDays, isoDate, rangeLabel, dayHeading, weekendWindow, SCHOOL_HOLIDAY_RANGES, schoolHolidayWindow, ruleFor, occursOnDay, occursInWindow, type ScopeWindow, type OccurrenceRule } from '../../lib/event-schedule';
-export { startOfDay, addDays, isoDate, rangeLabel, dayHeading, weekendWindow, SCHOOL_HOLIDAY_RANGES, schoolHolidayWindow, ruleFor, occursOnDay, occursInWindow, type ScopeWindow, type OccurrenceRule } from '../../lib/event-schedule';
+export { buildNow, startOfDay, addDays, isoDate, rangeLabel, dayHeading, weekendWindow, SCHOOL_HOLIDAY_RANGES, schoolHolidayWindow, ruleFor, occursOnDay, occursInWindow, type ScopeWindow, type OccurrenceRule } from '../../lib/event-schedule';
 
 // ---------------------------------------------------------------------------
 // Event loading + presentation helpers
