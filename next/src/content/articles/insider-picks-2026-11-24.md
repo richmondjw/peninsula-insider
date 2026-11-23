@@ -1,6 +1,6 @@
 ---
-title: "Jetty Road Brewery's seasonal taps, the Arthurs Seat wildflower loop, and Mornington's Wednesday street market"
-dek: "Rotating taps at Jetty Road Brewery in Dromana, the Serafino Track wildflower loop on Arthurs Seat, and the Wednesday street market running down Main Street Mornington until 3pm."
+title: "Jetty Road Brewery, the Arthurs Seat Summit Circuit and Mornington’s Wednesday market"
+dek: "A Dromana brewery stop, a short summit walk with steps, and a Wednesday street market mixing growers and makers on Main Street Mornington."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-11-24
@@ -27,48 +27,34 @@ clusterLinks:
     href: "/explore/best-walks/"
 faq:
   - question: "When does the Mornington Main Street Market run?"
-    answer: "Every Wednesday, 9am–3pm, along Main Street Mornington. No bookings required. Street parking is tight midmorning; walk in from the Mornington foreshore car parks."
-  - question: "Do I need to book Jetty Road Brewery in advance?"
-    answer: "Walk-ins are usually fine on weekdays and early Saturday mornings. For larger groups or weekend afternoons, check the website and book ahead. Jetty Road Brewery is at 1–3 Old Mornington Road, Dromana, next to the Dromana Drive-In."
-  - question: "Where does the Serafino Track wildflower loop start on Arthurs Seat?"
-    answer: "From the Arthurs Seat State Park carpark off Arthurs Seat Road, Dromana. The Serafino Track connects to the Eagle Track for a loop of roughly 4km. No booking required. Wear closed shoes; the trail surface is loose granite in places."
+    answer: "The Chamber's market page lists Wednesdays, 9 am to 3 pm, weather permitting. Check the organiser’s update before setting out, especially if arriving in the afternoon."
+  - question: "Where is Jetty Road Brewery and how do I book?"
+    answer: "Jetty Road Brewery is at 12–14 Brasser Avenue, Dromana. The brewery's venue page has a booking link."
+  - question: "How long is the Arthurs Seat Summit Circuit?"
+    answer: "Parks Victoria lists the Summit Circuit as 1.8 km and about an hour. It is a moderate formed track with some steps. Check park alerts before heading out."
 ---
 
 ## Drink: Jetty Road Brewery, Dromana
 
-The rotating taps at Jetty Road are where the head brewer takes risks, and spring is reliably the season to pay attention. Right now there are several seasonal releases on alongside the core range, and asking what is currently pouring gets a different answer than reading the printed menu.
+If you’re making a brewery stop in Dromana, look for Brasser Avenue. Jetty Road posts its tap list separately from the food menu, which is handy if there’s a particular beer you want to try. Check the list before making a special trip for a seasonal release.
 
-The taproom sits next to the Dromana Drive-In, which makes the location feel deliberately un-precious. The deck faces west and catches the late-afternoon bay light. This week the weather is tracking warm, which means the deck fills early. If you are coming Friday or Saturday, aim for before 4pm or after 6pm to get a spot without waiting.
-
-The core pale ale and the wheat beer are reliable, but the seasonals are the reason to visit this week specifically. Spend 90 minutes, order a tasting paddle first, then commit to a pint of whichever seasonal stands out.
-
-**Jetty Road Brewery**, 1–3 Old Mornington Road, Dromana. Walk-ins welcome; book ahead for groups via the website.
-
-Pair with a walk along the Dromana foreshore before or after - the town beach is five minutes on foot.
+**Jetty Road Brewery**, 12–14 Brasser Avenue, Dromana. Find the [tap list and table bookings on the brewery’s venue page](https://www.jettyroad.com.au/dromana).
 
 ---
 
-## Walk: Serafino Track wildflower loop, Arthurs Seat State Park
+## Walk: Summit Circuit, Arthurs Seat State Park
 
-The Serafino Track on Arthurs Seat is at its best in the two weeks either side of late November, when the heath and sclerophyll scrub along the ridge carry flowering teatree, trigger plants, and native wisteria simultaneously. By mid-December the peak is over.
+For a shorter walk on Arthurs Seat, plan around Parks Victoria’s Summit Circuit. The 1.8 km loop takes about an hour and connects Seawinds Gardens, the Matthew Flinders Cairn and several lookouts. The track is formed but has steps, and Parks Victoria rates it moderate.
 
-The loop connects the Serafino Track with the Eagle Track for a circuit of roughly 4km from the main carpark off Arthurs Seat Road. The first 300 metres climb steeply through granite outcrops before the ridge opens out. At the junction with the Eagle Track, bear left to stay on the exposed ridge line, where the views down to Port Phillip open between the scribbly gums. The descent back through the lower bush takes another 40 minutes at an easy pace.
-
-Allow 90 minutes total. Wear closed shoes - the granite surface is loose in sections, and the track gets slippery after recent rain. No booking required. The carpark is free.
-
-Pair with a stop at Jetty Road Brewery in Dromana on the way back down the hill.
+Read the [official walking guide](https://www.parks.vic.gov.au/places-to-see/parks/arthurs-seat-state-park/things-to-do/walking) and [check park alerts](https://www.parks.vic.gov.au/coc-listing) before setting out. Leave the walk out of the day if conditions or access don’t suit.
 
 ---
 
 ## Discovery: Mornington Main Street Market, Mornington
 
-The Wednesday street market along Main Street Mornington runs every week through to late April 2027, and late November is exactly the right moment to be there. The stalls extend from the Esplanade end toward the library, and by 10am the fruit and vegetable producers from the Red Hill and Moorooduc flatlands have the best of their early-summer crop out: the first cherry tomatoes, zucchini flowers, and stone fruit that arrives before Christmas.
+This market runs along the shopping street itself. Growers and bakers trade alongside makers, with the permanent shops between the stalls. That makes it a useful Wednesday stop if you want to pick up produce or browse for a gift.
 
-This is not a craft market. It is primarily a produce market with some handmade goods and food stalls on the edges. The olive oil producer who works the third stall from the northern end is worth seeking out specifically - the oil is cold-pressed from Red Hill grove trees and sells in unlabelled bottles. It moves fast.
-
-Go Wednesday 25 November, 9am–3pm. Walk in from the foreshore carparks on Esplanade; street parking along Main Street disappears before 9:30am. No booking, no entry fee.
-
-Pair with a coffee at one of the Main Street cafes before you work through the stalls.
+The [Chamber’s market page](https://mainstreetmornington.com.au/mornington-main-street-market/) lists Wednesdays, 9 am to 3 pm, weather permitting. On Wednesday 25 November, go in the morning if you can: the Chamber’s own pages list different closing times and severe weather can shorten trading or cancel the market.
 
 ---
 
@@ -76,6 +62,6 @@ Pair with a coffee at one of the Main Street cafes before you work through the s
 
 | Pick | Where | When | Practical |
 |---|---|---|---|
-| Jetty Road Brewery | 1–3 Old Mornington Road, Dromana | Daily; check website for hours | Walk-in or book ahead for groups |
-| Serafino Track loop, Arthurs Seat | Arthurs Seat State Park, Arthurs Seat Road, Dromana | Any day, allow 90 min | No booking; free carpark |
-| Mornington Main Street Market | Main Street, Mornington | Wednesdays 9am–3pm (runs to April 2027) | No booking; walk in from foreshore |
+| Jetty Road Brewery | 12–14 Brasser Avenue, Dromana | Check the venue page | Tap list and table bookings online |
+| Summit Circuit | Arthurs Seat State Park | Allow about an hour | 1.8 km, some steps; check park alerts |
+| Mornington Main Street Market | Main Street, Mornington | Wednesday 25 November, weather permitting | Aim for morning; check the organiser’s update |
