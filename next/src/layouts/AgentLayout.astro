@@ -1,5 +1,6 @@
 ---
 // Static shell for the public agent guide. Reader pages keep BaseLayout.
+import OpenAIPixel from '../components/OpenAIPixel.astro';
 import '../styles/global.css';
 interface Props { title: string; description: string; }
 const { title, description } = Astro.props;
@@ -14,6 +15,7 @@ const suppressImageMeta = false;
 <html lang="en-AU">
 <head>
   <meta charset="utf-8" />
+  <OpenAIPixel />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta http-equiv="content-language" content="en-AU" />
   <!-- v6: fonts are self-hosted via @font-face in v6-tokens.css (no external

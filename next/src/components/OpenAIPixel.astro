@@ -1,0 +1,39 @@
+<script is:inline>
+  (function () {
+    if (!['peninsulainsider.com.au', 'www.peninsulainsider.com.au'].includes(location.hostname)) return;
+    if (window.__piOpenAIPixelInstalled) return;
+    window.__piOpenAIPixelInstalled = true;
+
+    var key = 'pi-consent-v1';
+    function readChoice() {
+      try { return JSON.parse(localStorage.getItem(key)); }
+      catch (_) { return null; }
+    }
+
+    function applyChoice(choice) {
+      var allowed = !!choice && choice.version === 1 && choice.adMeasurement === true;
+      if (window.oaiq) {
+        window.oaiq('consent', allowed);
+        return;
+      }
+      if (!allowed) return;
+
+      var queue = function () { queue.q.push(arguments); };
+      queue.q = [];
+      window.oaiq = queue;
+      queue('consent', true);
+      queue('init', { pixelId: 'DYoVGn5Kp8wobzjMbk4w3S', debug: true });
+
+      var sdk = document.createElement('script');
+      sdk.async = true;
+      sdk.src = 'https://bzrcdn.openai.com/sdk/oaiq.min.js';
+      document.head.appendChild(sdk);
+    }
+
+    applyChoice(readChoice());
+    window.addEventListener('pi:consent-changed', function (event) { applyChoice(event.detail); });
+    window.addEventListener('storage', function (event) {
+      if (event.key === key || event.key === null) applyChoice(readChoice());
+    });
+  })();
+</script>

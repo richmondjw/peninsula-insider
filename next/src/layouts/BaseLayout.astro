@@ -1,4 +1,5 @@
 ---
+import OpenAIPixel from '../components/OpenAIPixel.astro';
 import { agentDirectories } from '../lib/agent-guide.mjs';
 /**
  * Peninsula Insider  -  BaseLayout
@@ -155,6 +156,7 @@ const showNewsletterPopup = !isPlanningJourney && !isPlaceGuide && normalizedPat
 <html lang="en-AU">
 <head>
   <meta charset="utf-8" />
+  <OpenAIPixel />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta http-equiv="content-language" content="en-AU" />
   <!-- v6: fonts are self-hosted via @font-face in v6-tokens.css (no external
