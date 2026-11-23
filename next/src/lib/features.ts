@@ -63,6 +63,12 @@ export const SHOW_ASK_TALK = false;
 // reader's browser remembered from before.
 export const SHOW_ASK_SPEECH = false;
 
+// The Go Live button: steps a session up to a live conversation with her voice.
+// Hidden since 23 November 2026 while a good voice is chosen. The feature is
+// built and tested; flip this true once PI_VOICE_ID points at a voice the owner
+// is happy with. false hides the button and keeps every session guide-only.
+export const SHOW_ASK_LIVE = false;
+
 /**
  * PUBLIC_EVENT_OCCURRENCE_MODEL: the PI-008 occurrence model, three-state.
  *
