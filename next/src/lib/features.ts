@@ -56,6 +56,13 @@ export const SHOW_ASK_COMPOSE = false;
 // chat answers from the guides as it did before. false turns it off.
 export const SHOW_ASK_TALK = false;
 
+// PI reading her replies aloud, and the microphone beside it. Off since
+// 23 November 2026: the only voice available was the device's own, which
+// sounded robotic and is not hers. It stays off until her voice has been
+// chosen. false hides both controls and nothing is ever spoken, whatever a
+// reader's browser remembered from before.
+export const SHOW_ASK_SPEECH = false;
+
 /**
  * PUBLIC_EVENT_OCCURRENCE_MODEL: the PI-008 occurrence model, three-state.
  *

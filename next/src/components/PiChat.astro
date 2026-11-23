@@ -32,7 +32,7 @@
  * refusals and her asides are fixed lines written by a person. None of it is
  * generated and none of it is sent anywhere. SHOW_ASK_PERSONA turns it off.
  */
-import { ASK_GUIDE_ON, SHOW_ASK_VOICE, SHOW_ASK_PERSONA, SHOW_ASK_COMPOSE, SHOW_ASK_TALK } from '../lib/features';
+import { ASK_GUIDE_ON, SHOW_ASK_VOICE, SHOW_ASK_PERSONA, SHOW_ASK_COMPOSE, SHOW_ASK_TALK, SHOW_ASK_SPEECH } from '../lib/features';
 import { CONCIERGE_API_URL as API_URL } from '../lib/concierge-config';
 
 const starters = SHOW_ASK_PERSONA
@@ -41,7 +41,7 @@ const starters = SHOW_ASK_PERSONA
 ---
 
 {ASK_GUIDE_ON && (
-  <div class="pi-chat" id="pi-chat" data-api={API_URL} data-voice={SHOW_ASK_VOICE ? 'on' : 'off'} data-persona={SHOW_ASK_PERSONA ? 'on' : 'off'} data-compose={SHOW_ASK_PERSONA && SHOW_ASK_VOICE && SHOW_ASK_COMPOSE ? 'on' : 'off'} data-talk={SHOW_ASK_PERSONA && SHOW_ASK_VOICE && SHOW_ASK_TALK ? 'on' : 'off'} data-state="closed" data-mode="dock" transition:persist="pi-chat" data-pagefind-ignore>
+  <div class="pi-chat" id="pi-chat" data-api={API_URL} data-voice={SHOW_ASK_VOICE ? 'on' : 'off'} data-speech={SHOW_ASK_SPEECH ? 'on' : 'off'} data-persona={SHOW_ASK_PERSONA ? 'on' : 'off'} data-compose={SHOW_ASK_PERSONA && SHOW_ASK_VOICE && SHOW_ASK_COMPOSE ? 'on' : 'off'} data-talk={SHOW_ASK_PERSONA && SHOW_ASK_VOICE && SHOW_ASK_TALK ? 'on' : 'off'} data-state="closed" data-mode="dock" transition:persist="pi-chat" data-pagefind-ignore>
     <svg class="pi-chat__sr" width="0" height="0" aria-hidden="true" focusable="false"><filter id="pi-ink" x="-6%" y="-12%" width="112%" height="124%"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="11" result="grain" /><feDisplacementMap in="SourceGraphic" in2="grain" scale="1.3" /></filter></svg>
     <button type="button" class="pi-chat__launch" id="pi-chat-launch" aria-controls="pi-chat-panel" aria-expanded="false">
       <img class="pi-chat__launch-face" src="/images/pi/pi-avatar-96.webp" alt="" width="44" height="44" decoding="async" />
@@ -879,7 +879,9 @@ const starters = SHOW_ASK_PERSONA
     const micBtn = document.getElementById('pi-chat-mic') as HTMLButtonElement;
     const synth: SpeechSynthesis | null = 'speechSynthesis' in window ? window.speechSynthesis : null;
     const Recognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition || null;
-    let speakOn = Boolean(synth) && store.get(localStorage, SPEAK) === 'on';
+    // Off until her own voice is chosen: no switch, no microphone, and nothing spoken.
+    const speechOn = root.dataset.speech === 'on';
+    let speakOn = speechOn && Boolean(synth) && store.get(localStorage, SPEAK) === 'on';
     let herVoice: SpeechSynthesisVoice | null = null;
     function pickVoice() {
       if (!synth) return;
@@ -892,8 +894,8 @@ const starters = SHOW_ASK_PERSONA
     }
     if (synth) {
       pickVoice();
-      synth.addEventListener?.('voiceschanged', () => { pickVoice(); speakBtn.hidden = !(voiceOn || herVoice); });
-      speakBtn.hidden = !(voiceOn || herVoice);
+      synth.addEventListener?.('voiceschanged', () => { pickVoice(); speakBtn.hidden = !speechOn || !(voiceOn || herVoice); });
+      speakBtn.hidden = !speechOn || !(voiceOn || herVoice);
     }
     function showSpeak() {
       speakBtn.setAttribute('aria-pressed', String(speakOn));
@@ -902,7 +904,7 @@ const starters = SHOW_ASK_PERSONA
     showSpeak();
     function hush() { try { synth?.cancel(); } catch { /* nothing was being said */ } }
     function speak(text: string) {
-      if (!synth || !speakOn || !text.trim() || (!voiceOn && !herVoice)) return;
+      if (!speechOn || !synth || !speakOn || !text.trim() || (!voiceOn && !herVoice)) return;
       const u = new SpeechSynthesisUtterance(text.trim());
       if (herVoice) { u.voice = herVoice; u.lang = herVoice.lang; } else u.lang = 'en-AU';
       u.rate = 1.03;
@@ -925,7 +927,7 @@ const starters = SHOW_ASK_PERSONA
     function stopHearing() { try { hearing?.stop(); } catch { /* already stopped */ } }
     // Turning speech into text can happen on the browser maker's servers, so the
     // microphone is offered only when the chat is not promising that nothing is sent.
-    if (Recognition && voiceOn) {
+    if (Recognition && voiceOn && speechOn) {
       micBtn.hidden = false;
       micBtn.addEventListener('click', () => {
         if (hearing) { stopHearing(); return; }
