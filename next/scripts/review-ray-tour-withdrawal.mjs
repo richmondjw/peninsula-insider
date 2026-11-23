@@ -172,12 +172,12 @@ try {
   // deletion, shared profile reuse, RPC mutation, or external contact forms.
   const liveContext = await browser.createBrowserContext();
   const livePage = await liveContext.newPage();
-  report.liveBaseline = {rpcResponses:[],surfaces:[]};
+  report.liveBaseline = {rpcResponses:[],surfaces:[],errors:[]};
   const liveReads = [];
   livePage.on('response',response=>{
-    if(response.url().endsWith('/rest/v1/rpc/search')) liveReads.push(response.json().then(rows=>{
+    if(response.url().endsWith('/rest/v1/rpc/search') && response.request().method()==='POST') liveReads.push(response.json().then(rows=>{
       report.liveBaseline.rpcResponses.push({status:response.status(),rows:rows.map(({entity_type,entity_slug,href})=>({entity_type,entity_slug,href}))});
-    }));
+    }).catch(error=>report.liveBaseline.errors.push(error.message)));
   });
   await livePage.goto('https://peninsulainsider.com.au/search/',{waitUntil:'networkidle0'});
   for(const surface of ['full','overlay']) {
@@ -191,6 +191,8 @@ try {
     }
   }
   await Promise.all(liveReads);
+  assert.deepEqual(report.liveBaseline.errors,[],'Live POST search responses must remain readable');
+  assert.ok(report.liveBaseline.rpcResponses.length>0,'Fresh-context diagnosis must observe real RPC responses');
   await liveContext.close();
   assert.deepEqual(report.interceptionErrors,[],'No unhandled interception errors');
   report.passed=true;
