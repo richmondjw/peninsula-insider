@@ -10,7 +10,8 @@
  * hand; each cell is the label the form shows for a choice that returns
  * that itinerary (plan-finder.test.mjs holds that line).
  *
- * House rules: no em-dashes, no dollar figures, no tourism adjectives.
+ * House rules: no em-dashes, no dollar figures, no tourism adjectives, and
+ * no catalogue totals in reader copy (ops/count-free-copy-20261117.md).
  */
 import { FACET_OPTIONS } from '../../../lib/facets';
 import { buildFaqSchema } from '../../../lib/schema';
@@ -26,7 +27,7 @@ const count = rows.length;
 const faq = [
   {
     q: 'Can I filter Mornington Peninsula plans by trip length, who is coming and what we are into?',
-    a: `Yes. The plan finder on this page filters Peninsula Insider's ${count} editor-written itineraries three ways: by trip length (${lower(options.lengths.map(o => o.label))}), by who is coming (${lower(options.who.map(o => o.label))}) and by what you are into (${lower(options.interests.map(o => o.label))}). Choices combine, and there is a wet-weather option.`,
+    a: `Yes. The plan finder on this page filters Peninsula Insider's editor-written itineraries three ways: by trip length (${lower(options.lengths.map(o => o.label))}), by who is coming (${lower(options.who.map(o => o.label))}) and by what you are into (${lower(options.interests.map(o => o.label))}). Choices combine, and there is a wet-weather option.`,
   },
   {
     q: 'Does the plan finder generate an itinerary?',
