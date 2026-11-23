@@ -60,6 +60,7 @@ const starters = SHOW_ASK_PERSONA
           <p class="pi-chat__role">The Peninsula Insider</p>
         </div>
         <div class="pi-chat__tools">
+          <button type="button" class="pi-chat__live-btn" id="pi-chat-live" aria-pressed="false" title="Talk to PI live"><span class="pi-chat__live-dot" aria-hidden="true"></span><span class="pi-chat__live-label">Go Live</span></button>
           <button type="button" class="pi-chat__tool pi-chat__tool--mode" id="pi-chat-mode" aria-label="Float the chat over the page" title="Float over the page">
             <svg class="pi-chat__icon-float" viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="3.5" width="15" height="13" rx="2"/><rect x="10" y="9" width="5.5" height="5.5" rx="1" fill="currentColor" stroke="none"/></svg>
             <svg class="pi-chat__icon-dock" viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="3.5" width="15" height="13" rx="2"/><path d="M12 3.5v13"/><rect x="12" y="3.5" width="5.5" height="13" fill="currentColor" stroke="none"/></svg>
@@ -115,10 +116,11 @@ const starters = SHOW_ASK_PERSONA
             <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 16V4M5 9l5-5 5 5"/></svg>
           </button>
         </form>
-        <p class="pi-chat__fine">
+        <p class="pi-chat__live-note" id="pi-chat-live-note" role="status" hidden></p>
+        <p class="pi-chat__fine" id="pi-chat-fine">
           {SHOW_ASK_VOICE
             ? "PI's picks and plans come from our published guides. Her notes are written by AI from those pages. Check hours and bookings before you go."
-            : "PI matches your question to our published guides in this browser. Nothing you ask is sent or stored. Check hours and bookings before you go."}
+            : "PI matches your question to our published guides in this browser. Nothing you ask is sent or stored. Press Go Live to talk to her. Check hours and bookings before you go."}
         </p>
       </footer>
     </section>
@@ -197,10 +199,14 @@ const starters = SHOW_ASK_PERSONA
     const send = document.getElementById('pi-chat-send') as HTMLButtonElement;
     const modeBtn = document.getElementById('pi-chat-mode') as HTMLButtonElement;
 
-    const voiceOn = root.dataset.voice === 'on' && !!api;
     const personaOn = root.dataset.persona === 'on';
-    const composeOn = voiceOn && root.dataset.compose === 'on';
-    const talkOn = voiceOn && root.dataset.talk === 'on';
+    // Guide-only by default: the chat answers in the browser and sends nothing.
+    // Go Live flips a session up to a real conversation on the platform.
+    const BUILD = { voice: root.dataset.voice === 'on' && !!api, compose: root.dataset.compose === 'on', talk: root.dataset.talk === 'on', speech: root.dataset.speech === 'on' };
+    let isLive = false;
+    let voiceOn = BUILD.voice;
+    let composeOn = BUILD.voice && BUILD.compose;
+    let talkOn = BUILD.voice && BUILD.talk;
     const here = document.getElementById('pi-chat-here') as HTMLElement;
     const hereLabel = document.getElementById('pi-chat-here-label') as HTMLElement;
     const hereChips = document.getElementById('pi-chat-here-chips') as HTMLElement;
@@ -879,45 +885,80 @@ const starters = SHOW_ASK_PERSONA
     const micBtn = document.getElementById('pi-chat-mic') as HTMLButtonElement;
     const synth: SpeechSynthesis | null = 'speechSynthesis' in window ? window.speechSynthesis : null;
     const Recognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition || null;
-    // Off until her own voice is chosen: no switch, no microphone, and nothing spoken.
-    const speechOn = root.dataset.speech === 'on';
+    // Her read-aloud setting, and the live conversation it belongs to.
+    let speechOn = BUILD.speech;
     let speakOn = speechOn && Boolean(synth) && store.get(localStorage, SPEAK) === 'on';
+    const liveBtn = document.getElementById('pi-chat-live') as HTMLButtonElement;
+    const liveNote = document.getElementById('pi-chat-live-note') as HTMLElement | null;
+    const fine = document.getElementById('pi-chat-fine') as HTMLElement | null;
+    const fineGuide = fine ? (fine.textContent || '') : '';
+    const FINE_LIVE = "You\u2019re live with PI. Your messages are sent to our platform, which writes and checks her reply and gives her a voice. New conversation ends it.";
     let herVoice: SpeechSynthesisVoice | null = null;
     function pickVoice() {
       if (!synth) return;
       const all = synth.getVoices();
-      // An Australian voice if the device has one, a woman's by name where the device says. Else British, else any English.
       const named = /karen|catherine|natasha|matilda|olivia|lee|female|woman/i;
       const fit = (v: SpeechSynthesisVoice) => (/^en[-_]AU/i.test(v.lang) ? 0 : /^en[-_]GB/i.test(v.lang) ? 10 : /^en/i.test(v.lang) ? 20 : 99) + (named.test(v.name) ? 0 : 1);
-      // While the chat promises that nothing is sent, only a voice that runs on the device itself may read.
+      // Her real voice comes from the platform when live; a device voice is only the fallback.
       herVoice = all.filter((v) => /^en/i.test(v.lang) && (voiceOn || v.localService)).map((v) => ({ v, rank: fit(v) })).sort((a, b) => a.rank - b.rank)[0]?.v || null;
     }
-    if (synth) {
-      pickVoice();
-      synth.addEventListener?.('voiceschanged', () => { pickVoice(); speakBtn.hidden = !speechOn || !(voiceOn || herVoice); });
-      speakBtn.hidden = !speechOn || !(voiceOn || herVoice);
+    if (synth) { pickVoice(); synth.addEventListener?.('voiceschanged', pickVoice); }
+
+    // Her voice, from the platform, one checked sentence at a time, in order.
+    const player = new Audio();
+    let saying: Promise<void> = Promise.resolve();
+    let spell = 0;
+    function hush() {
+      spell += 1;
+      saying = Promise.resolve();
+      try { player.pause(); } catch { /* nothing playing */ }
+      try { synth?.cancel(); } catch { /* nothing said */ }
+    }
+    async function clip(text: string): Promise<string | null> {
+      if (!isLive || !api) return null;
+      try {
+        const r = await fetch(`${api}/concierge/pi/speech`, { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Session-Id': sessionId() }, body: JSON.stringify({ text }) });
+        return r.ok ? URL.createObjectURL(await r.blob()) : null;
+      } catch { return null; }
+    }
+    const playClip = (url: string) => new Promise<void>((done) => {
+      const end = () => { player.removeEventListener('ended', end); player.removeEventListener('error', end); player.removeEventListener('pause', end); URL.revokeObjectURL(url); done(); };
+      player.addEventListener('ended', end); player.addEventListener('error', end); player.addEventListener('pause', end);
+      player.src = url; player.play().catch(end);
+    });
+    const deviceSay = (text: string) => new Promise<void>((done) => {
+      if (!synth) { done(); return; }
+      const u = new SpeechSynthesisUtterance(text);
+      if (herVoice) { u.voice = herVoice; u.lang = herVoice.lang; } else u.lang = 'en-AU';
+      u.rate = 1.03; u.pitch = 1.05;
+      const timer = window.setTimeout(done, Math.max(2500, text.length * 95));
+      u.onend = u.onerror = () => { window.clearTimeout(timer); done(); };
+      try { synth.speak(u); } catch { window.clearTimeout(timer); done(); }
+    });
+    function speak(raw: string) {
+      const text = raw.trim();
+      // A guide-only session sends nothing, so it never speaks. Only a live one does.
+      if (!isLive || !speakOn || !text) return;
+      const mine = spell;
+      const ready = clip(text.slice(0, 420));
+      saying = saying.then(async () => {
+        if (mine !== spell) return;
+        const url = await ready;
+        if (mine !== spell) { if (url) URL.revokeObjectURL(url); return; }
+        if (url) await playClip(url); else await deviceSay(text);
+      });
     }
     function showSpeak() {
       speakBtn.setAttribute('aria-pressed', String(speakOn));
       speakBtn.setAttribute('aria-label', speakOn ? 'Stop PI reading her replies aloud' : 'Have PI read her replies aloud');
-    }
-    showSpeak();
-    function hush() { try { synth?.cancel(); } catch { /* nothing was being said */ } }
-    function speak(text: string) {
-      if (!speechOn || !synth || !speakOn || !text.trim() || (!voiceOn && !herVoice)) return;
-      const u = new SpeechSynthesisUtterance(text.trim());
-      if (herVoice) { u.voice = herVoice; u.lang = herVoice.lang; } else u.lang = 'en-AU';
-      u.rate = 1.03;
-      u.pitch = 1.05;
-      try { synth.speak(u); } catch { /* the device would not speak */ }
     }
     function setSpeak(on: boolean, how: string) {
       if (on === speakOn) return;
       speakOn = on;
       store.set(localStorage, SPEAK, on ? 'on' : 'off');
       if (!on) hush();
-      // Phones only let a page speak after a tap: this empty line, said on the tap, opens the way.
-      else try { synth?.speak(new SpeechSynthesisUtterance(' ')); } catch { /* no voice */ }
+      // Phones only let a page speak or play after a tap: an empty line and silence, played now, open the way.
+      else { try { synth?.speak(new SpeechSynthesisUtterance(' ')); } catch { /* no voice */ } try { player.src = 'data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQAAAAA='; player.play().catch(() => {}); } catch { /* no player */ } }
       showSpeak();
       track('ask_voice', { action: on ? 'speak_on' : 'speak_off', variant: how });
     }
@@ -925,43 +966,59 @@ const starters = SHOW_ASK_PERSONA
 
     let hearing: any = null;
     function stopHearing() { try { hearing?.stop(); } catch { /* already stopped */ } }
-    // Turning speech into text can happen on the browser maker's servers, so the
-    // microphone is offered only when the chat is not promising that nothing is sent.
-    if (Recognition && voiceOn && speechOn) {
-      micBtn.hidden = false;
-      micBtn.addEventListener('click', () => {
-        if (hearing) { stopHearing(); return; }
-        hush();
-        // Talked to, she talks back.
-        if (synth) setSpeak(true, 'mic');
-        const r = new Recognition();
-        r.lang = 'en-AU';
-        r.interimResults = true;
-        r.maxAlternatives = 1;
-        let heard = '';
-        const was = input.placeholder;
-        r.onstart = () => { hearing = r; micBtn.setAttribute('aria-pressed', 'true'); input.placeholder = 'Listening…'; };
-        r.onresult = (e: any) => {
-          heard = Array.from(e.results as ArrayLike<any>).map((res: any) => res[0]?.transcript || '').join(' ').replace(/\s+/g, ' ').trim();
-          input.value = heard.slice(0, 500);
-          autoGrow();
-        };
-        r.onerror = (e: any) => {
-          if (e?.error === 'not-allowed' || e?.error === 'service-not-allowed') {
-            input.placeholder = 'The microphone is blocked for this site. Type instead.';
-            track('ask_voice', { action: 'blocked' });
-            window.setTimeout(() => { input.placeholder = was; }, 5000);
-          }
-        };
-        r.onend = () => {
-          hearing = null;
-          micBtn.setAttribute('aria-pressed', 'false');
-          if (input.placeholder === 'Listening…') input.placeholder = was;
-          if (heard.length >= 2) { track('ask_voice', { action: 'mic' }); ask(heard); }
-        };
-        try { r.start(); } catch { hearing = null; }
-      });
+    function listen() {
+      if (!Recognition || !isLive) return;
+      if (hearing) { stopHearing(); return; }
+      hush();
+      if (synth || api) setSpeak(true, 'mic');
+      const r = new Recognition();
+      r.lang = 'en-AU'; r.interimResults = true; r.maxAlternatives = 1;
+      let heard = ''; const was = input.placeholder;
+      r.onstart = () => { hearing = r; micBtn.setAttribute('aria-pressed', 'true'); input.placeholder = 'Listening\u2026'; };
+      r.onresult = (e: any) => { heard = Array.from(e.results as ArrayLike<any>).map((res: any) => res[0]?.transcript || '').join(' ').replace(/\s+/g, ' ').trim(); input.value = heard.slice(0, 500); autoGrow(); };
+      r.onerror = (e: any) => { if (e?.error === 'not-allowed' || e?.error === 'service-not-allowed') { input.placeholder = 'The microphone is blocked for this site. Type instead.'; track('ask_voice', { action: 'blocked' }); window.setTimeout(() => { input.placeholder = was; }, 5000); } };
+      r.onend = () => { hearing = null; micBtn.setAttribute('aria-pressed', 'false'); if (input.placeholder === 'Listening\u2026') input.placeholder = was; if (heard.length >= 2) { track('ask_voice', { action: 'mic' }); ask(heard); } };
+      try { r.start(); } catch { hearing = null; }
     }
+    micBtn.addEventListener('click', listen);
+
+    // Go Live: a session steps up from guide-only to a live conversation. She
+    // answers in full, talks back in her own voice, and takes the microphone;
+    // her messages now go to the platform. Guide-only stays everyone's default.
+    function applyLive() {
+      voiceOn = isLive || BUILD.voice;
+      composeOn = voiceOn && (isLive || BUILD.compose);
+      talkOn = voiceOn && (isLive || BUILD.talk);
+      speechOn = isLive || BUILD.speech;
+      root.dataset.live = isLive ? 'on' : 'off';
+      liveBtn.setAttribute('aria-pressed', String(isLive));
+      const label = liveBtn.querySelector('.pi-chat__live-label');
+      if (label) label.textContent = isLive ? 'Live' : 'Go Live';
+      liveBtn.title = isLive ? 'End the live conversation' : 'Talk to PI live';
+      speakBtn.hidden = !(isLive && (synth || api));
+      micBtn.hidden = !(isLive && Recognition);
+      if (liveNote) { liveNote.hidden = !isLive; liveNote.textContent = isLive ? 'You\u2019re live \u2014 talking to PI. Press Live again to step back.' : ''; }
+      if (fine) fine.textContent = isLive ? FINE_LIVE : fineGuide;
+    }
+    function goLive() {
+      if (isLive) { endLive(); return; }
+      isLive = true;
+      applyLive();
+      pickVoice();
+      setSpeak(true, 'live');
+      track('ask_voice', { action: 'live_on' });
+      input.focus();
+    }
+    function endLive() {
+      isLive = false;
+      hush(); stopHearing();
+      speakOn = false; showSpeak();
+      applyLive();
+      pickVoice();
+      track('ask_voice', { action: 'live_off' });
+    }
+    liveBtn.addEventListener('click', goLive);
+    applyLive();
 
     /* ---------- asking ---------- */
 
@@ -1198,6 +1255,7 @@ const starters = SHOW_ASK_PERSONA
     document.getElementById('pi-chat-min')!.addEventListener('click', () => minimise());
     document.getElementById('pi-chat-new')!.addEventListener('click', () => {
       try { window.speechSynthesis?.cancel(); } catch { /* nothing was being said */ }
+      hush(); stopHearing();
       controller?.abort();
       turns = [];
       engine = null;
@@ -1786,6 +1844,17 @@ const starters = SHOW_ASK_PERSONA
   @media (prefers-reduced-motion: reduce) { .pi-chat__mic[aria-pressed="true"] { animation: none; } }
   .pi-chat__tool--speak[aria-pressed="true"] { color: var(--pi-terracotta); }
   .pi-chat__tool--speak[aria-pressed="true"] .pi-chat__speak-off, .pi-chat__tool--speak[aria-pressed="false"] .pi-chat__speak-on { display: none; }
+  /* Go Live: step a session up to a real conversation with her voice. */
+  .pi-chat__live-btn { display: inline-flex; align-items: center; gap: var(--space-2); min-height: 36px; margin-right: auto; padding: 0 var(--space-3); border: 1px solid color-mix(in srgb, var(--pi-terracotta) 55%, var(--border)); border-radius: 999px; background: transparent; color: var(--text); font: 600 var(--fs-200)/1 var(--font-ui); cursor: pointer; }
+  .pi-chat__live-btn:hover { border-color: var(--pi-terracotta); }
+  .pi-chat__live-btn:focus-visible { outline: 2px solid var(--pi-terracotta); outline-offset: 2px; }
+  .pi-chat__live-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--pi-terracotta); }
+  .pi-chat[data-live="on"] .pi-chat__live-btn { background: var(--pi-terracotta); color: var(--white); border-color: var(--pi-terracotta); }
+  .pi-chat[data-live="on"] .pi-chat__live-dot { background: var(--white); animation: pi-live 1.4s ease-in-out infinite; }
+  @keyframes pi-live { 50% { opacity: .3; } }
+  @media (prefers-reduced-motion: reduce) { .pi-chat[data-live="on"] .pi-chat__live-dot { animation: none; } }
+  .pi-chat__live-note { margin: 0; padding: var(--space-2) var(--space-4); color: var(--pi-terracotta); font: 600 var(--fs-200)/1.4 var(--font-ui); text-align: center; }
+  .pi-chat__live-note[hidden] { display: none; }
   .pi-chat__fine { margin: var(--space-2) 0 0; color: var(--soft); font: 400 var(--fs-200)/1.4 var(--font-ui); text-align: center; }
 
   /* Reduced motion: nothing travels, turns or draws. A new reply still fades in
