@@ -46,7 +46,13 @@ interface RankedSpa {
   suits?: string;
   lessSuited?: string;
   practical?: Array<{ label: string; value: string }>;
-  checked?: string;
+  /**
+   * Slug of the article whose dated source check stands behind `practical`.
+   * The date printed under the facts is read from that record's
+   * `lastVerified`, never typed here, so it moves only when that check does
+   * (PI-004: a verification date is written only by something that verified).
+   */
+  checkedFrom?: string;
 }
 
 const ranked: RankedSpa[] = [
@@ -121,10 +127,24 @@ const ranked: RankedSpa[] = [
       { label: 'Bookings', value: 'General springs, private springs and spa treatments are separate bookings. A night at The Sanctuary is a separate reservation again.' },
       { label: 'Changing plans', value: 'Alba states a 48-hour window for standard bookings, and seven days for retreats and full-day spa packages.' },
     ],
-    checked:
-      'Spa menu checked against Alba’s own pages on 7 September 2026; visitor rules, inclusions and cancellation terms on 18 September 2026. The terms shown for your booking take precedence.',
+    checkedFrom: 'peninsula-hot-springs-vs-alba',
   },
 ];
+
+/* The check date for an entry's visitor facts, read from the article that made the check. */
+const articles = await getCollection('articles');
+const checkedNotes = new Map<string, { label: string; href: string; title: string }>();
+for (const s of ranked) {
+  if (!s.checkedFrom) continue;
+  const article = articles.find((a) => a.id.replace(/\.mdx?$/, '') === s.checkedFrom);
+  const verified = article?.data.lastVerified;
+  if (!article || !verified) continue;
+  checkedNotes.set(s.slug, {
+    label: new Date(verified).toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Australia/Melbourne' }),
+    href: `/journal/${s.checkedFrom}/`,
+    title: article.data.title,
+  });
+}
 
 /* Join each ranked spa to its venue record for hero + save metadata. */
 const venues = (await getCollection('venues')).filter(isListableVenue);
@@ -385,7 +405,9 @@ export const prerender = true;
                   <dl class="sr__facts">
                     {s.practical.map((fact) => (<><dt>{fact.label}</dt><dd>{fact.value}</dd></>))}
                   </dl>
-                  {s.checked && <p class="sr__checked">{s.checked}</p>}
+                  {checkedNotes.get(s.slug) && (
+                    <p class="sr__checked">Visitor rules, inclusions and booking terms were checked against the operator's own pages on {checkedNotes.get(s.slug)!.label}, for <a href={checkedNotes.get(s.slug)!.href}>our hot springs comparison</a>. The terms shown for your booking take precedence.</p>
+                  )}
                 </div>
               )}
               {s.address && <p class="sr__bestfor"><strong>Visit</strong> {s.address}{s.phone && <> · <a href={`tel:${s.phone.replace(/\D/g, '')}`}>{s.phone}</a></>}</p>}
@@ -784,6 +806,7 @@ export const prerender = true;
   .sr__facts { display: grid; grid-template-columns: minmax(9rem, max-content) minmax(0, 1fr); gap: .5rem 1.25rem; margin: .5rem 0 0; font: 400 var(--fs-300, .95rem)/1.55 var(--font-ui); }
   .sr__facts dt { font-weight: 600; color: var(--text); }
   .sr__facts dd { margin: 0; color: var(--text); max-width: 56ch; }
+  .sr__fit .sr__checked a { color: var(--accent); text-underline-offset: .2em; }
   .sr__fit .sr__checked { color: var(--soft); font-size: var(--fs-200, .85rem); margin-top: .75rem; }
   @media (max-width: 45rem) { .sr__facts { grid-template-columns: 1fr; gap: 0; } .sr__facts dd { margin-bottom: .6rem; } }
   .sr__bestfor {
