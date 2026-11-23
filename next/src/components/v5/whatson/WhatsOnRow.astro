@@ -37,6 +37,13 @@ export interface Props {
    * checked from the built HTML.
    */
   statusLabel?: string | null;
+  /**
+   * "Checked 16 Nov 2026": the day this listing's facts were last checked
+   * against its source, when the record carries one. It closes the meta line
+   * so every row answers "is this current?" the way the weekend cards do.
+   * Omitted, never guessed, when the record has no check date.
+   */
+  checkedLabel?: string;
   phase?: 'upcoming' | 'running' | 'past';
   bookable?: boolean;
 }
@@ -52,10 +59,11 @@ const {
   spanLabel = '',
   surface = 'whatson',
   statusLabel = null,
+  checkedLabel = '',
   phase = 'upcoming',
   bookable = true,
 } = Astro.props;
-const metaText = [meta.join(' · '), spanLabel, statusLabel].filter(Boolean).join(' · ');
+const metaText = [meta.join(' · '), spanLabel, statusLabel, checkedLabel].filter(Boolean).join(' · ');
 ---
 
 <li class:list={['wo-row', { 'wo-row--undated': !schedule }]} data-occurrence-phase={phase} data-occurrence-bookable={String(bookable)}>

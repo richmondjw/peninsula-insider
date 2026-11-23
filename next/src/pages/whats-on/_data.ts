@@ -562,7 +562,33 @@ export interface FeedEntry {
    * the month-ahead view contradicts the weekend view above it.
    */
   x?: string;
+  /**
+   * ISO day the listing's facts were last checked against its source, when
+   * the record carries one. The server-rendered rows print it, so the rows
+   * the client island draws for other date scopes must be able to as well.
+   */
+  ck?: string;
   statusData?: Record<string, any>;
+}
+
+/**
+ * The day a listing's facts were last checked against its source, or null.
+ * `editorialProvenance.checkedOn` is the record's earned fact-check date and
+ * wins; `lastCheckedDate` is the event desk's own recheck stamp and is the
+ * fallback. This is the same order /whats-on/upcoming.json publishes as
+ * `factCheckedOn`, so a row and the feed can never disagree about a listing.
+ */
+export function factCheckedOn(data: Record<string, any>): Date | null {
+  const value = data.editorialProvenance?.checkedOn ?? data.lastCheckedDate;
+  if (!value) return null;
+  const date = value instanceof Date ? value : new Date(value);
+  return Number.isNaN(date.getTime()) ? null : date;
+}
+
+/** "Checked 16 Nov 2026", the wording the weekend cards already use. */
+export function checkedLabel(data: Record<string, any>): string {
+  const date = factCheckedOn(data);
+  return date ? `Checked ${date.toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'Australia/Melbourne' })}` : '';
 }
 
 export function feedFor(events: LiveEvent[]): FeedEntry[] {
@@ -595,6 +621,8 @@ export function feedFor(events: LiveEvent[]): FeedEntry[] {
     if (live.rule.nth !== undefined) entry.nth = live.rule.nth;
     if (live.rule.months) entry.months = live.rule.months;
     if (live.statusLabel) entry.x = live.statusLabel;
+    const checked = factCheckedOn(live.event.data);
+    if (checked) entry.ck = isoDate(checked);
     return entry;
   });
 }

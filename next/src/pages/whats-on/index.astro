@@ -38,6 +38,7 @@ import {
   startOfDay,
   addDays,
   occursInWindow,
+  checkedLabel,
   type OccurrenceState,
 } from './_data';
 import { eventCategoryLabel } from '../../lib/editorial';
@@ -224,7 +225,8 @@ const pickCards = picks.map((p, i) => {
     // Say the date once per card: day, time and place in the one line above the
     // title (no date tile on the image, no second date in the meta line).
     leadMark: [p.dayLabel, compactEventTime(data.startTime, data.endTime), p.live.placeLabel].filter(Boolean).join(' · '),
-    meta: [p.live.accessLabel ?? p.live.categoryLabel].filter(Boolean),
+    // The check date closes the meta line, as it does on every row below.
+    meta: [p.live.accessLabel ?? p.live.categoryLabel, checkedLabel(data)].filter(Boolean),
     position: i + 1,
   };
 });
@@ -329,6 +331,7 @@ const hubImage = categoryHero('whats-on');
                     meta={rowMeta(it.live.meta, it.live.event.data.startTime)}
                     spanLabel={rowSpan(it)}
                     statusLabel={it.statusLabel}
+                    checkedLabel={checkedLabel(it.live.event.data)}
                     phase={it.phase}
                     bookable={it.bookable}
                   />
@@ -370,7 +373,7 @@ const hubImage = categoryHero('whats-on');
         </div>
         <ul class="wo-flexible__list" role="list">
           {flexibleExperiences.map((live) => (
-            <WhatsOnRow schedule={false} title={live.title} href={live.href} slug={live.slug} oneLiner={live.oneLiner} meta={[live.placeLabel, live.categoryLabel].filter(Boolean)} />
+            <WhatsOnRow schedule={false} title={live.title} href={live.href} slug={live.slug} oneLiner={live.oneLiner} meta={[live.placeLabel, live.categoryLabel].filter(Boolean)} checkedLabel={checkedLabel(live.event.data)} />
           ))}
         </ul>
       </div>
@@ -442,6 +445,7 @@ const hubImage = categoryHero('whats-on');
     nth?: number;
     months?: number[];
     x?: string;
+    ck?: string;
     statusData?: Record<string, any>;
   }
 
@@ -577,6 +581,8 @@ const hubImage = categoryHero('whats-on');
         chips.join(' · '),
         spanLabel,
         occurrence ? (occurrence.label ?? '') : (e.x ?? ''),
+        // Same closing note the server-rendered rows carry.
+        e.ck ? `Checked ${new Date(`${e.ck}T12:00:00Z`).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' })}` : '',
       ]
         .filter(Boolean)
         .join(' · ');
