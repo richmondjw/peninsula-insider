@@ -11,6 +11,7 @@ import { createClient } from '@supabase/supabase-js';
 import yurtRecord from '../content/venues/yurt-hideaway.json';
 import mallorcaRecord from '../content/venues/villa-mallorca.json';
 import brewersCottageRecord from '../content/venues/brewers-cottage.json';
+import { isWithdrawnTourSearchHit } from './withdrawn-tour-search.mjs';
 // `pi` is a non-default schema, so the inferred client type does not match
 // the public-default SupabaseClient. Treat the client opaquely.
 type SupabaseClient = ReturnType<typeof createClient<any, 'pi'>>;
@@ -110,7 +111,8 @@ export async function search(params: SearchParams): Promise<SearchHit[]> {
     return [];
   }
   return ((data as SearchHit[]) ?? []).filter((hit) =>
-    !(hit.entity_type === 'venue' && pausedVenueSlugs.has(hit.entity_slug))
+    !(hit.entity_type === 'venue' && pausedVenueSlugs.has(hit.entity_slug)) &&
+    !isWithdrawnTourSearchHit(hit)
   );
 }
 

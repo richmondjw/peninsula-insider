@@ -16,8 +16,10 @@ const withdrawn = [
   '/tour/operators/global-ballooning/',
 ];
 const forbidden = /bunyip|global-ballooning|Global Ballooning/i;
+const staleRpcRows = withdrawn.slice(0,3).map(url => ({entity_type:'tour',entity_slug:url.split('/')[2],href:url,title:url.includes('bunyip')?'Bunyip withdrawn tour':'Global Ballooning withdrawn flight',dek:null,facets:{},hero_image:null}));
+const localWayRow = {entity_type:'tour',entity_slug:'local-way-wine-cheese-tour',href:'/tour/local-way-wine-cheese-tour/',title:'Local Way retained tour',dek:'Existing Local Way tour',facets:{},hero_image:null};
 const report = { head: process.env.REVIEW_HEAD_SHA, pages: [], retired: [], searches: [], requests: [], browserErrors: [], searchHttp: [], searchConsole: [], workers: [], interceptionErrors: [],
-  cmsScope: 'Built overrides plus deterministic empty runtime CMS response. Live CMS is not certified by this test.', passed: false };
+  cmsScope: 'Built overrides; synthetic stale search RPC rows and empty other runtime CMS responses. Live baseline is separately recorded, not candidate acceptance.', passed: false };
 assert.match(report.head ?? '', /^[a-f0-9]{40}$/);
 report.checkout = execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim();
 report.tree = execFileSync('git',['rev-parse','HEAD^{tree}'],{encoding:'utf8'}).trim();
@@ -54,7 +56,9 @@ try {
   browser = await puppeteer.launch({ headless:true, args:['--no-sandbox','--disable-setuid-sandbox'] });
   const routes = ['/tour/','/tour/small-group-tours/','/tour/wine-tours/','/tour/hot-springs-tours/','/tour/full-day-tours/','/tour/for-couples/','/tour/for-families/','/tour/private-tours/','/tour/operators/','/tour-packages/','/tour-packages/thermal-springs-wine-weekend/','/tour-packages/anniversary-long-weekend/','/tour/plunge-hot-springs-wine-tour/'];
   for (const width of [390,1440]) {
-    const page = await browser.newPage();
+    const context = await browser.createBrowserContext();
+    const page = await context.newPage();
+    const rpcRequests = [];
     await page.setViewport({width,height:900});
     page.on('pageerror', error => report.browserErrors.push({width,error:error.message}));
     page.on('console', message => { if (['warn','warning','error'].includes(message.type())) report.searchConsole.push({width,type:message.type(),text:message.text()}); });
@@ -69,7 +73,13 @@ try {
         if (request.url.startsWith(origin + '/') || request.url.startsWith('data:')) {
           await interception.send('Fetch.continueRequest',{requestId});
         } else if (request.url.includes('.supabase.co/')) {
-          await interception.send('Fetch.fulfillRequest',{requestId,responseCode:200,responseHeaders:[{name:'Content-Type',value:'application/json'}],body:Buffer.from('[]').toString('base64')});
+          let rows = [];
+          if (request.url.endsWith('/rpc/search') && request.method === 'POST') {
+            const query = JSON.parse(request.postData || '{}').q || '';
+            rpcRequests.push(query);
+            rows = /local way|mixed/i.test(query) ? [staleRpcRows[0],localWayRow,{entity_type:'venue',entity_slug:'yurt-hideaway',href:'/stay/yurt-hideaway/',title:'Paused venue'},...staleRpcRows.slice(1)] : /bunyip/i.test(query) ? staleRpcRows.slice(0,2) : /global ballooning/i.test(query) ? staleRpcRows.slice(2) : [];
+          }
+          await interception.send('Fetch.fulfillRequest',{requestId,responseCode:200,responseHeaders:[{name:'Content-Type',value:'application/json'},{name:'Access-Control-Allow-Origin',value:'*'},{name:'Access-Control-Allow-Headers',value:'*'}],body:Buffer.from(JSON.stringify(rows)).toString('base64')});
         } else {
           await interception.send('Fetch.failRequest',{requestId,errorReason:'Aborted'});
         }
@@ -104,6 +114,36 @@ try {
     assert.equal((await page.goto(origin+control,{waitUntil:'networkidle0'})).status(),200);
     assert.ok(await page.$('a[data-pi-book="booking"]'));
     report.pages.push({route:control,width,retained:true});
+    // Both public UIs share the real bundled RPC client. Inject stale transport
+    // rows, not a replacement window.PISearchRpc implementation.
+    await page.goto(origin+'/search/',{waitUntil:'networkidle0'});
+    await page.waitForFunction(()=>window.PISearchRpc?.available);
+    const clientResults = await page.evaluate(async()=>({
+      bunyip:await window.PISearchRpc.search({q:'Bunyip'}),
+      balloon:await window.PISearchRpc.typeahead('Global Ballooning'),
+      control:await window.PISearchRpc.search({q:'Local Way'}),
+    }));
+    assert.deepEqual(clientResults.bunyip,[]);
+    assert.deepEqual(clientResults.balloon,[]);
+    assert.deepEqual(clientResults.control,[localWayRow],'mixed rows preserve Local Way and existing paused-venue exclusion');
+    for (const surface of ['full','overlay']) {
+      if (surface==='overlay') await page.click('a[href="/search/"]');
+      const input = surface==='full'?'#searchPageInput':'#siteSearchOverlayInput';
+      const region = surface==='full'?'main':'#siteSearchOverlay';
+      for (const query of ['Bunyip','Global Ballooning','Local Way']) {
+        const before = rpcRequests.length;
+        await page.$eval(input,(el,q)=>{el.value=q;el.dispatchEvent(new Event('input',{bubbles:true}));},query);
+        if (surface==='full') await page.$eval('#searchPageForm',form=>form.dispatchEvent(new Event('submit',{bubbles:true,cancelable:true})));
+        await page.waitForNetworkIdle({idleTime:1000,timeout:30000});
+        assert.ok(rpcRequests.length>before,`${surface} ${query}: real client must query the transport fixture`);
+        const links = await page.$eval(region,el=>[...el.querySelectorAll('a[href]')].map(a=>a.getAttribute('href')));
+        assert.ok(!links.some(url=>withdrawn.includes(new URL(url,origin).pathname)),`${surface} ${query}: no withdrawn result links`);
+        if(query==='Local Way') assert.ok(links.some(url=>new URL(url,origin).pathname===control),`${surface}: retained Local Way result`);
+        await page.screenshot({path:path.join(out,`rpc-${surface}-${query.replaceAll(' ','-')}-${width}.png`),fullPage:true});
+      }
+    }
+    report.rpcUi ??= [];
+    report.rpcUi.push({width,clientResults,requests:rpcRequests,passed:true});
     report.phase = {width,step:'real-pagefind-search'};
     const searches = await page.evaluate(async () => {
       const bounded = (promise,label) => {
@@ -126,7 +166,32 @@ try {
     report.searches.push({width,results:searches});
     assert.deepEqual(report.interceptionErrors,[],'Request policy must settle every paused request');
     await page.close();
+    await context.close();
   }
+  // Independent live diagnosis in a genuinely new browser context: no cache
+  // deletion, shared profile reuse, RPC mutation, or external contact forms.
+  const liveContext = await browser.createBrowserContext();
+  const livePage = await liveContext.newPage();
+  report.liveBaseline = {rpcResponses:[],surfaces:[]};
+  const liveReads = [];
+  livePage.on('response',response=>{
+    if(response.url().endsWith('/rest/v1/rpc/search')) liveReads.push(response.json().then(rows=>{
+      report.liveBaseline.rpcResponses.push({status:response.status(),rows:rows.map(({entity_type,entity_slug,href})=>({entity_type,entity_slug,href}))});
+    }));
+  });
+  await livePage.goto('https://peninsulainsider.com.au/search/',{waitUntil:'networkidle0'});
+  for(const surface of ['full','overlay']) {
+    if(surface==='overlay') await livePage.click('a[href="/search/"]');
+    for(const query of ['Bunyip','Global Ballooning','Local Way']) {
+      const input=surface==='full'?'#searchPageInput':'#siteSearchOverlayInput';
+      await livePage.$eval(input,(el,q)=>{el.value=q;el.dispatchEvent(new Event('input',{bubbles:true}));},query);
+      if(surface==='full') await livePage.$eval('#searchPageForm',form=>form.dispatchEvent(new Event('submit',{bubbles:true,cancelable:true})));
+      await livePage.waitForNetworkIdle({idleTime:1000,timeout:30000});
+      report.liveBaseline.surfaces.push({surface,query,...await livePage.$eval(surface==='full'?'main':'#siteSearchOverlay',el=>({text:el.innerText,links:[...el.querySelectorAll('a[href]')].map(a=>a.href)}))});
+    }
+  }
+  await Promise.all(liveReads);
+  await liveContext.close();
   assert.deepEqual(report.interceptionErrors,[],'No unhandled interception errors');
   report.passed=true;
 } catch (error) { report.error=error.stack; throw error; }
