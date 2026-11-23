@@ -1,11 +1,20 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-23T10:35:28.921Z",
+  "generatedAt": "2026-11-23T11:53:55.437Z",
   "baselineAvailable": true,
   "fromSnapshot": "d9c12d0f65cd6a6185cbdadcf296cadb1ef032b9f5793ae550928d257d4725f5",
-  "toSnapshot": "d9c12d0f65cd6a6185cbdadcf296cadb1ef032b9f5793ae550928d257d4725f5",
-  "previousGeneratedAt": "2026-11-23T09:18:14.996Z",
+  "toSnapshot": "de493843f599526f752882b9b38e241ed8ee79e66f8e7393e30556487537f63e",
+  "previousGeneratedAt": "2026-11-23T10:35:28.921Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 0,
-  "changes": []
+  "count": 1,
+  "changes": [
+    {
+      "id": "https://peninsulainsider.com.au/explore/plans/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/plans/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/plans/index.md",
+      "contentSha256": "a79579899cff3ef16e862298ad2ab9381a82c32449d67f550bb655d0f6adddd3",
+      "previousContentSha256": "fa3bcef506f74123cfc64efaa7515bdf5776284e2ebd861e93b443039381c811"
+    }
+  ]
 }

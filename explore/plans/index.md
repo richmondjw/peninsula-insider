@@ -17,7 +17,7 @@ Point Nepean, Mornington Peninsula. Photo: Jesse Hisco, courtesy of Visit Victor
 
 ## Ready-made itineraries
 
-Narrow it down
+Plan finder  Filter by trip length, who’s coming and what you’re into
 
 Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula · Photo: Two Palms Australia, courtesy of Visit Victoria
 
@@ -168,6 +168,38 @@ Peninsula golf courses, nearby stays, and the booking checks that make a trip wo
 ### [Where to stay for the springs](<https://peninsulainsider.com.au/explore/plans/mornington-peninsula-stay-and-soak/>)
 
 Sleep beside the springs, choose a base with a drive, or make the hotel spa your destination.
+
+## Every itinerary by length, company and interest
+
+The [plan finder](<https://peninsulainsider.com.au/explore/plans/#build>) at the top of this page filters our itineraries by how long you have, who is coming and what you are into. This table is the same information laid out in full.
+
+Itinerary | Trip length | Who it suits | What it is for |
+
+[Ridge to sea](<https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/>) | A weekend, Two nights or more | Couples | Beaches, Food & wine |
+
+[Flinders and the Cape](<https://peninsulainsider.com.au/explore/plans/flinders-and-cape-reset/>) | A weekend | Couples | Beaches, Food & wine, Slow |
+
+[The family day out](<https://peninsulainsider.com.au/explore/plans/the-family-day-out/>) | One day | Family | Beaches |
+
+[Sorrento, off season](<https://peninsulainsider.com.au/explore/plans/sorrento-off-season-weekend/>) | A weekend, Two nights or more | Couples | Beaches, Food & wine, Slow |
+
+[The wellness weekend](<https://peninsulainsider.com.au/explore/plans/wellness-weekend/>) | A weekend, Two nights or more | Couples | Springs & spa, Beaches, Wellness |
+
+[The golf weekend](<https://peninsulainsider.com.au/explore/plans/the-peninsula-golf-weekend/>) | A weekend, Two nights or more | Group | Golf, Food & wine |
+
+## About the plan finder
+
+### Can I filter Mornington Peninsula plans by trip length, who is coming and what we are into?
+
+Yes. The plan finder on this page filters Peninsula Insider's editor-written itineraries three ways: by trip length (one day, a weekend and two nights or more), by who is coming (couples, family and group) and by what you are into (markets, springs & spa, walks, beaches, golf, food & wine, long lunch, slow and wellness). Choices combine, and there is a wet-weather option.
+
+### Does the plan finder generate an itinerary?
+
+No. It matches your answers to itineraries our editors have already written, with the stops in order. Nothing is generated. Where no itinerary meets every choice, it shows the closest ones and says which choice each one misses.
+
+### Can I share or save a filtered set of plans?
+
+Yes. Your choices are kept in the page address, so a filtered view can be bookmarked or sent to the people you are travelling with. Any itinerary can then be copied into My Trip and changed.
 
 ## None of these fit?
 
