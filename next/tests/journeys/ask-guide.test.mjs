@@ -127,6 +127,10 @@ for (const width of [390, 1280, 1440]) {
       assert.equal(lunch.tiles.find(tile => tile.href === '/eat/tedesca-osteria/').why, 'A single-set-menu osteria inside a restored Red Hill farmhouse.');
       assert.match(lunch.prose, /places to eat and drink in Red Hill/, 'the matcher\'s own line stands in for her note');
       assert.ok(lunch.chips.includes('Places to stay in Red Hill'), lunch.chips.join(' | '));
+      assert.equal(await page.$eval(`${answers}:last-child .pi-tile__title`, node => {
+        const style = getComputedStyle(node);
+        return Number.parseFloat(style.lineHeight) / Number.parseFloat(style.fontSize) >= 1.3;
+      }), true, 'result-card titles keep readable leading');
 
       // The picks run down the thread: nothing in the chat scrolls sideways.
       const sideways = await page.$eval('#pi-chat-thread', thread => [...thread.querySelectorAll('.pi-tiles, .pi-tile')].filter(el => el.scrollWidth > el.clientWidth + 1 || el.getBoundingClientRect().right > thread.getBoundingClientRect().right + 1).length);
@@ -195,6 +199,23 @@ test('guide-only privacy boundary does not restore replies from the retired gene
     await page.waitForSelector('#pi-chat-log');
     assert.equal(await page.$eval('#pi-chat-log', node => node.textContent), '');
     assert.match(await page.$eval('.pi-chat__fine', node => node.textContent), /Nothing you ask is sent or stored/);
+  } finally {
+    await reader.close();
+  }
+});
+
+test('the published privacy policy matches the guide-only Ask boundary', { skip: !guideOn }, async () => {
+  const reader = await site.reader();
+  try {
+    await reader.load('/privacy/');
+    const policy = await reader.page.$eval('.legal__body', node => node.textContent);
+    assert.match(policy, /question and her answer are not sent to us or to an AI model provider/);
+    assert.match(policy, /Google Analytics receives only the feedback button you choose and the kind of reply/);
+    assert.doesNotMatch(policy, /Groq|Cohere|up to 180 days/);
+    assert.equal(await reader.page.$eval('.footer-bottom > p:first-child', node => {
+      const style = getComputedStyle(node);
+      return node.getBoundingClientRect().width / (Number.parseFloat(style.fontSize) * 0.5) <= 75;
+    }), true, 'footer acknowledgement stays within the reading-measure ceiling');
   } finally {
     await reader.close();
   }
