@@ -1,7 +1,7 @@
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 import { routeSlug, isStayVenue, isListableVenue } from '../lib/editorial';
-import { loadLiveEvents } from './whats-on/_data';
+import { buildNow, loadLiveEvents } from './whats-on/_data';
 
 // SEOMIG rebuild 2026-07-11 (seo-migration-plan.md §4.1).
 // Inclusion contract - a URL enters the sitemap iff ALL of:
@@ -473,7 +473,7 @@ export const GET: APIRoute = async () => {
   // Event detail pages - only records with an occurrence from today onward.
   // loadLiveEvents is recurrence-aware and rejects ended series, so a stale
   // recurring label can no longer keep an expired URL in machine indexes.
-  const today = new Date();
+  const today = buildNow();
   // includeCancelled: a cancelled event keeps an indexable notice page, so it
   // must stay in the sitemap. Dropping it here while [slug].astro still emits
   // index would create a sitemap-absent finding and regress the SEO ratchet.

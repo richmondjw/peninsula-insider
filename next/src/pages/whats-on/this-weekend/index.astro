@@ -39,6 +39,7 @@ import { wallClockToInstant } from '../../../lib/event-occurrence.mjs';
 import { resolveHero } from '../../../lib/inline-edit/resolve-hero';
 import {
   loadLiveEvents,
+  buildNow,
   occursInWindow,
   firstDayInWindow,
   startOfDay,
@@ -57,7 +58,7 @@ if (!latest) {
 const { Content } = await render(latest);
 
 const canonical = 'https://peninsulainsider.com.au/whats-on/this-weekend/';
-const now = new Date();
+const now = buildNow();
 const currentWeekend = weekendWindow(now);
 const latestWeekendEnd = new Date(ptwWeekendEndIso(latest));
 const hasCurrentDispatch = latestWeekendEnd >= startOfDay(now);

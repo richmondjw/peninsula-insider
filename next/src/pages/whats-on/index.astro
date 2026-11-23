@@ -28,6 +28,7 @@ import WhatsOnScopeBar from '../../components/v5/whatson/WhatsOnScopeBar.astro';
 import WhatsOnRow from '../../components/v5/whatson/WhatsOnRow.astro';
 import {
   loadLiveEvents,
+  buildNow,
   isDatedCalendarEvent,
   weekendWindow,
   schoolHolidayWindow,
@@ -43,7 +44,7 @@ import { eventCategoryLabel } from '../../lib/editorial';
 
 export const prerender = true;
 
-const now = new Date();
+const now = buildNow();
 const events = await loadLiveEvents(now);
 const calendarEvents = events.filter(isDatedCalendarEvent);
 const flexibleExperiences = events.filter((live) => eventContentKind(live.event.data) === 'experience').slice(0, 4);

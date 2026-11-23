@@ -10,15 +10,15 @@
  * Prerendered at build time, same freshness cadence as the page.
  */
 import type { APIRoute } from 'astro';
-import { loadLiveEvents, feedFor, feedEligibleEvents } from './_data';
+import { buildNow, isoDate, loadLiveEvents, feedFor, feedEligibleEvents } from './_data';
 
 export const prerender = true;
 
 export const GET: APIRoute = async () => {
-  const now = new Date();
+  const now = buildNow();
   const events = await loadLiveEvents(now);
   const body = JSON.stringify({
-    generated: now.toISOString().slice(0, 10),
+    generated: isoDate(now),
     events: feedFor(feedEligibleEvents(events, now)),
   });
   return new Response(body, {

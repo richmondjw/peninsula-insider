@@ -1,5 +1,14 @@
 const EDITORIAL_TIME_ZONE = 'Australia/Melbourne';
 
+export function buildNow(timestamp: string | undefined = process.env.PI_ASTRO_BUILD_NOW): Date {
+  if (!timestamp) return new Date();
+  const instant = new Date(timestamp);
+  if (!Number.isFinite(instant.valueOf()) || instant.toISOString() !== timestamp) {
+    throw new Error('Invalid PI_ASTRO_BUILD_NOW');
+  }
+  return instant;
+}
+
 function editorialDateParts(d: Date): { year: number; month: number; day: number } {
   const parts = new Intl.DateTimeFormat('en-CA', {
     timeZone: EDITORIAL_TIME_ZONE,

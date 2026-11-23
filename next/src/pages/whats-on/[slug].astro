@@ -28,7 +28,7 @@ import {
   isListableVenue,
   weatherCopy,
 } from '../../lib/editorial';
-import { isCancelledEvent, isCurrentEvent, loadLiveEvents } from './_data';
+import { buildNow, isCancelledEvent, isCurrentEvent, loadLiveEvents } from './_data';
 import { currentVerifiedPrice, eventContentKind, isPublicEventRecord, publicEventData } from '../../lib/event-publication.mjs';
 import { USE_OCCURRENCE_MODEL } from '../../lib/features';
 import { dayIsoOf, recordDisposition, resolveOccurrence } from '../../lib/event-occurrence.mjs';
@@ -50,7 +50,7 @@ const hostVenueLinks = hostVenueEntries.filter((host) => host && !venueRelations
 const hostGuideEntries = await Promise.all((originalEvent.data.hostGuides ?? []).map((ref: { collection: 'articles'; id: string }) => getEntry(ref)));
 const hostGuideLinks = hostGuideEntries.filter((guide) => guide?.data.status === 'published' && !guide.data.sitemapExclude).map((guide) => ({ label: guide!.data.title, href: `/journal/${routeSlug(guide)}/` }));
 const hostCoverageLinks = [...hostVenueLinks, ...hostGuideLinks];
-const now = new Date();
+const now = buildNow();
 const explicitSeries = hasExplicitSeries(originalEvent.data) || hasLegacyExceptions(originalEvent.data);
 const event = explicitSeries ? {...originalEvent, data: nextSeriesData(originalEvent.data, now)} : originalEvent;
 const contentKind = eventContentKind(event.data);
