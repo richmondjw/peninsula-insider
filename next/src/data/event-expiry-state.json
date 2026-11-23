@@ -1,18 +1,18 @@
 {
   "model": "pi-008-occurrence-v1",
-  "generatedAt": "2026-11-22T19:09:11.381Z",
+  "generatedAt": "2026-11-23T19:08:59.936Z",
   "ok": true,
-  "asOf": "2026-11-23",
+  "asOf": "2026-11-24",
   "totals": {
     "records": 231,
-    "live": 76,
+    "live": 72,
     "expired": 0,
     "cancelled": 3,
     "postponed": 0,
     "rescheduled": 0,
     "soldOut": 1,
     "unverified": 0,
-    "withheldFromPromotion": 7,
+    "withheldFromPromotion": 6,
     "queued": 0
   }
 }
