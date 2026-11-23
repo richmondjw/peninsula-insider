@@ -36,7 +36,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.head_ref == 'fix/ray-tour-withdrawal-20261123' && github.event.pull_request.head.sha || github.sha }}
+          ref: ${{ (github.head_ref == 'fix/ray-tour-withdrawal-20261123' || github.head_ref == 'fix/ray-search-withdrawal-20261123') && github.event.pull_request.head.sha || github.sha }}
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
@@ -62,14 +62,16 @@ jobs:
           npm ci --no-audit --no-fund
           npm run build:search
       - name: Review Ray tour withdrawal at mobile and desktop
-        if: github.event_name == 'pull_request' && github.head_ref == 'fix/ray-tour-withdrawal-20261123'
+        if: github.event_name == 'pull_request' && (github.head_ref == 'fix/ray-tour-withdrawal-20261123' || github.head_ref == 'fix/ray-search-withdrawal-20261123')
         working-directory: next
         env:
           REVIEW_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
-        run: node scripts/review-ray-tour-withdrawal.mjs
+        run: |
+          node --test src/lib/withdrawn-tour-search.test.mjs
+          node scripts/review-ray-tour-withdrawal.mjs
 
       - name: Retain Ray tour withdrawal evidence
-        if: always() && github.event_name == 'pull_request' && github.head_ref == 'fix/ray-tour-withdrawal-20261123'
+        if: always() && github.event_name == 'pull_request' && (github.head_ref == 'fix/ray-tour-withdrawal-20261123' || github.head_ref == 'fix/ray-search-withdrawal-20261123')
         uses: actions/upload-artifact@v4
         with:
           name: ray-tour-withdrawal-${{ github.event.pull_request.head.sha }}
