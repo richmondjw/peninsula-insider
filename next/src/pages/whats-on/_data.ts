@@ -621,8 +621,11 @@ export function feedFor(events: LiveEvent[]): FeedEntry[] {
     if (live.rule.nth !== undefined) entry.nth = live.rule.nth;
     if (live.rule.months) entry.months = live.rule.months;
     if (live.statusLabel) entry.x = live.statusLabel;
-    const checked = factCheckedOn(live.event.data);
-    if (checked) entry.ck = isoDate(checked);
+    // Same rule as factCheckedOn above, written out here because this function
+    // is lifted out and run on its own by the feed tests, with nothing else in scope.
+    const checkedValue = (live.event.data as any).editorialProvenance?.checkedOn ?? (live.event.data as any).lastCheckedDate;
+    const checkedDate = checkedValue ? new Date(checkedValue) : null;
+    if (checkedDate && !Number.isNaN(checkedDate.getTime())) entry.ck = isoDate(checkedDate);
     return entry;
   });
 }
