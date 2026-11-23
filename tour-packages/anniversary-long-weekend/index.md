@@ -13,10 +13,6 @@ Two nights on the Peninsula built around a private wine tour and a cellar door l
 
 ## Package overview
 
-Experiences
-
-Operator-led experiences
-
 Anchor stay
 
 [Jackalope](<https://peninsulainsider.com.au/stay/jackalope/>)
@@ -36,28 +32,6 @@ Anniversary
 ## Why this combination works
 
 The Peninsula's wine country is at its best when you are not rushing back to Melbourne. Two nights removes the time pressure that compresses every single-day visit. The wine tour on day two is the event; the stay is what makes the event possible.
-
-Component tours
-
-## What you are booking
-
-Each tour is booked separately, directly with the operator. See the individual tour pages for booking intelligence and availability notes.
-
-Full day   All guests
-
-### [Mornington Peninsula Wine Tour](<https://peninsulainsider.com.au/tour/bunyip-mornington-peninsula-wine-tour/>)
-
-by [Bunyip Tours](<https://peninsulainsider.com.au/tour/operators/bunyip-tours/>)
-
-Bunyip Tours has been running small-group day tours from Melbourne to the Mornington Peninsula since 1998. The wine t...
-
- [Read notes →](<https://peninsulainsider.com.au/tour/bunyip-mornington-peninsula-wine-tour/>)
-
-### Mornington Peninsula Wine Tour
-
-Operated by Bunyip Tours. Book directly with the operator.
-
- [Book this tour →](<https://www.bunyiptours.com/mornington-peninsula-day-trips/?utm_source=peninsula-insider&utm_medium=tour-vertical&utm_campaign=bunyip-mornington-peninsula-wine-tour&utm_content=package-cta>)
 
 Anchor stay
 

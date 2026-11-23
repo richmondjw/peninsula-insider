@@ -27,16 +27,6 @@ Australian Journeys operates exclusively private tours for groups of 2 to 11, wi
 
  [Read notes →](<https://peninsulainsider.com.au/tour/australian-journeys-luxury-peninsula-day/>)
 
-Half day   Couples
-
-### [Global Ballooning Peninsula Sunrise Flight](<https://peninsulainsider.com.au/tour/global-ballooning-peninsula-sunrise/>)
-
-by [Global Ballooning Australia](<https://peninsulainsider.com.au/tour/operators/global-ballooning/>)
-
-Global Ballooning's Peninsula sunrise flight launches at dawn over the Red Hill and Merricks wine country, with appro...
-
- [Read notes →](<https://peninsulainsider.com.au/tour/global-ballooning-peninsula-sunrise/>)
-
 Full day   Couples
 
 ### [Private Driver-Guide Wine Day - Mornington Peninsula](<https://peninsulainsider.com.au/tour/localing-private-wine-day/>)

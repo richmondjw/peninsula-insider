@@ -1,11 +1,140 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-23T05:06:42.048Z",
+  "generatedAt": "2026-11-23T09:18:14.996Z",
   "baselineAvailable": true,
   "fromSnapshot": "c4b3af0c3c2bf801c3a0b246bf4a50b8007076bcdcd1b371b893d94b835be566",
-  "toSnapshot": "c4b3af0c3c2bf801c3a0b246bf4a50b8007076bcdcd1b371b893d94b835be566",
-  "previousGeneratedAt": "2026-11-23T03:22:04.345Z",
+  "toSnapshot": "d9c12d0f65cd6a6185cbdadcf296cadb1ef032b9f5793ae550928d257d4725f5",
+  "previousGeneratedAt": "2026-11-23T05:06:42.048Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 0,
-  "changes": []
+  "count": 16,
+  "changes": [
+    {
+      "id": "https://peninsulainsider.com.au/tour-packages/anniversary-long-weekend/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/tour-packages/anniversary-long-weekend/",
+      "markdownUrl": "https://peninsulainsider.com.au/tour-packages/anniversary-long-weekend/index.md",
+      "contentSha256": "f4db3be5d6cfc462f5af6492c0cfebd8596d20cf6ec09cd55790a2f359b1eba3",
+      "previousContentSha256": "9884fd23f68501c9a52f9bfc8ac7f785edbf1c4bd023cae8dbfe287b107281a7"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/tour-packages/thermal-springs-wine-weekend/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/tour-packages/thermal-springs-wine-weekend/",
+      "markdownUrl": "https://peninsulainsider.com.au/tour-packages/thermal-springs-wine-weekend/index.md",
+      "contentSha256": "45b1d3284421eeb942e14e9cc2a20f48da0d6939cb2af0b29c8abc6c736b7354",
+      "previousContentSha256": "d4e5be59507c3f90525d235895ae4d2b52ad74be0a39042bb503ba46c0c2fdf4"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/tour/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/tour/",
+      "markdownUrl": "https://peninsulainsider.com.au/tour/index.md",
+      "contentSha256": "7f390250b9fbf224c71a2ec325acb74dc026d78c50a95e5b4908b44c4616db83",
+      "previousContentSha256": "b8c8362a0d6e197a8c358fbd40ebc944247be8e722484933ded1f4ff5d1928cd"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/tour/for-couples/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/tour/for-couples/",
+      "markdownUrl": "https://peninsulainsider.com.au/tour/for-couples/index.md",
+      "contentSha256": "987dc6d79d15d0b28e50e33d1c0f88db4305671ba87339c14d28a46722bf5c2b",
+      "previousContentSha256": "e061c4c3bfd2aa80eacf6e3a513709d6f9e4a6eaa27bf7d99a6f7ea76aec9094"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/tour/full-day-tours/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/tour/full-day-tours/",
+      "markdownUrl": "https://peninsulainsider.com.au/tour/full-day-tours/index.md",
+      "contentSha256": "be15eb92d6bc48f33237c4db10210920f5f55b0f82df98e17915988ed666269b",
+      "previousContentSha256": "b335da5c2956c4bfa54ed2d2d3f6387538117a5e8aa05bac7586b7cad5dc2260"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/tour/hot-springs-tours/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/tour/hot-springs-tours/",
+      "markdownUrl": "https://peninsulainsider.com.au/tour/hot-springs-tours/index.md",
+      "contentSha256": "c25b89d61fb932c27b3331f64b10fc5f249de98462371a79a2589fc8a25b8cf4",
+      "previousContentSha256": "fc2e9018ab6dc2e45a6d01328e018cb025a4ae81781069ae35b7acd83b668bbc"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/tour/operators/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/tour/operators/",
+      "markdownUrl": "https://peninsulainsider.com.au/tour/operators/index.md",
+      "contentSha256": "dcb1e281c7e7021e8bc78d5615d1356bf770714a3429fdfe4940a920480df9c0",
+      "previousContentSha256": "8aa770526ae79bf8570f5933170f5a0f997738dfa83edd3c0f7eaa3c9f654172"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/tour/plunge-hot-springs-wine-tour/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/tour/plunge-hot-springs-wine-tour/",
+      "markdownUrl": "https://peninsulainsider.com.au/tour/plunge-hot-springs-wine-tour/index.md",
+      "contentSha256": "b70d39d64256d4dc42f09c52bd221f1122648c4e3afc864ee3be60a2d16bec2b",
+      "previousContentSha256": "64e4f1364caf4a499bef701bf7f49119f4bfbe5a0086fb047c292308b0044533"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/tour/private-tours/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/tour/private-tours/",
+      "markdownUrl": "https://peninsulainsider.com.au/tour/private-tours/index.md",
+      "contentSha256": "dc7e3c5631d52c3d2118da7f6820a30fa0cff9a5068d0490ec9c98d971607346",
+      "previousContentSha256": "4b1a0975630bfa5d0cba70bdb0029e7300c69de058b003be7b01a17cbedb6959"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/tour/small-group-tours/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/tour/small-group-tours/",
+      "markdownUrl": "https://peninsulainsider.com.au/tour/small-group-tours/index.md",
+      "contentSha256": "3fce082d4fba7807f26a026788e8ea2858651098982b8dc7e3a768744e044c5e",
+      "previousContentSha256": "f3c6b77e11b13390fb2e68eb1796833f6a70328c8c570164dabe7227203394ab"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/tour/wine-tours/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/tour/wine-tours/",
+      "markdownUrl": "https://peninsulainsider.com.au/tour/wine-tours/index.md",
+      "contentSha256": "ee20fff2dcbcd9bef85998261f1ca2aad36826a98653f5f754591a631cfb19b3",
+      "previousContentSha256": "111b2b1538226daa347c462be26ae2b999b6a072a67341626f0a786eddc16843"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/tour/bunyip-hot-springs-day-tour/",
+      "kind": "representation-removed",
+      "canonicalUrl": "https://peninsulainsider.com.au/tour/bunyip-hot-springs-day-tour/",
+      "markdownUrl": null,
+      "contentSha256": null,
+      "previousContentSha256": "594818422fedf4f6db211ea11f570a6e0235c96f70f99dcf95343c6605dd2322"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/tour/bunyip-mornington-peninsula-wine-tour/",
+      "kind": "representation-removed",
+      "canonicalUrl": "https://peninsulainsider.com.au/tour/bunyip-mornington-peninsula-wine-tour/",
+      "markdownUrl": null,
+      "contentSha256": null,
+      "previousContentSha256": "afd6728849ce1fa0a90b8e077e206065c78c1d3018912c9f0e4ae9c2fef038f3"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/tour/global-ballooning-peninsula-sunrise/",
+      "kind": "representation-removed",
+      "canonicalUrl": "https://peninsulainsider.com.au/tour/global-ballooning-peninsula-sunrise/",
+      "markdownUrl": null,
+      "contentSha256": null,
+      "previousContentSha256": "2e57b768bdb4c9b00206762b0068d0028d312b93f3cddeb9eace1b4af7df04f1"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/tour/operators/bunyip-tours/",
+      "kind": "representation-removed",
+      "canonicalUrl": "https://peninsulainsider.com.au/tour/operators/bunyip-tours/",
+      "markdownUrl": null,
+      "contentSha256": null,
+      "previousContentSha256": "c4440382d1c0ba29ff5486796690a769dba58df860b9c785539e931e7c2839a8"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/tour/operators/global-ballooning/",
+      "kind": "representation-removed",
+      "canonicalUrl": "https://peninsulainsider.com.au/tour/operators/global-ballooning/",
+      "markdownUrl": null,
+      "contentSha256": null,
+      "previousContentSha256": "3bc121257f2a215409908373b1cc4e27342a6db489afdc9b9fd404134cdd1dde"
+    }
+  ]
 }

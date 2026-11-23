@@ -63,16 +63,6 @@ Autopia Tours has been running small-group day tours from Melbourne since 1987 a
 
 Full day   All guests
 
-### [Mornington Peninsula Wine Tour](<https://peninsulainsider.com.au/tour/bunyip-mornington-peninsula-wine-tour/>)
-
-by [Bunyip Tours](<https://peninsulainsider.com.au/tour/operators/bunyip-tours/>)
-
-Bunyip Tours has been running small-group day tours from Melbourne to the Mornington Peninsula since 1998. The wine t...
-
- [Read notes →](<https://peninsulainsider.com.au/tour/bunyip-mornington-peninsula-wine-tour/>)
-
-Full day   All guests
-
 ### [Mornington Peninsula Wine and Cheese Tour](<https://peninsulainsider.com.au/tour/local-way-wine-cheese-tour/>)
 
 by [Local Way Tours](<https://peninsulainsider.com.au/tour/operators/local-way-tours/>)

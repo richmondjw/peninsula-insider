@@ -63,22 +63,6 @@ Bayplay Adventure runs guided snorkelling and other outdoor experiences from Por
 
  [View operator →](<https://peninsulainsider.com.au/tour/operators/bayplay/>)
 
-Group Tours   Assessed
-
-### [Bunyip Tours](<https://peninsulainsider.com.au/tour/operators/bunyip-tours/>)
-
-Bunyip Tours is one of the longest-established small-group tour operators on the Melbourne-to-Mornington-Peninsula ro...
-
- [View operator →](<https://peninsulainsider.com.au/tour/operators/bunyip-tours/>)
-
-Activity Specialist   Assessed
-
-### [Global Ballooning Australia](<https://peninsulainsider.com.au/tour/operators/global-ballooning/>)
-
-Global Ballooning Australia runs dawn hot air balloon flights over the Mornington Peninsula wine country, with flight...
-
- [View operator →](<https://peninsulainsider.com.au/tour/operators/global-ballooning/>)
-
 Premium Private   Assessed
 
 ### [Great Private Tours](<https://peninsulainsider.com.au/tour/operators/great-private-tours/>)

@@ -21,16 +21,6 @@ Hot springs tours
 
 ## Peninsula hot springs tours
 
-Full day   All guests
-
-### [Hot Springs Day Tour - Mornington Peninsula](<https://peninsulainsider.com.au/tour/bunyip-hot-springs-day-tour/>)
-
-by [Bunyip Tours](<https://peninsulainsider.com.au/tour/operators/bunyip-tours/>)
-
-Bunyip Tours has been running small-group day tours from Melbourne since 1998, and this tour solves a specific logist...
-
- [Read notes →](<https://peninsulainsider.com.au/tour/bunyip-hot-springs-day-tour/>)
-
 Full day   Adults
 
 ### [Hot Springs + Wine Combination Tour](<https://peninsulainsider.com.au/tour/plunge-hot-springs-wine-tour/>)

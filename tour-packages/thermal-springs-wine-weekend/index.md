@@ -43,16 +43,6 @@ Component tours
 
 Each tour is booked separately, directly with the operator. See the individual tour pages for booking intelligence and availability notes.
 
-Full day   All guests
-
-### [Mornington Peninsula Wine Tour](<https://peninsulainsider.com.au/tour/bunyip-mornington-peninsula-wine-tour/>)
-
-by [Bunyip Tours](<https://peninsulainsider.com.au/tour/operators/bunyip-tours/>)
-
-Bunyip Tours has been running small-group day tours from Melbourne to the Mornington Peninsula since 1998. The wine t...
-
- [Read notes →](<https://peninsulainsider.com.au/tour/bunyip-mornington-peninsula-wine-tour/>)
-
 Full day   Adults
 
 ### [Hot Springs + Wine Combination Tour](<https://peninsulainsider.com.au/tour/plunge-hot-springs-wine-tour/>)
@@ -62,12 +52,6 @@ by [Mornington Peninsula Plunge Wine Tours](<https://peninsulainsider.com.au/tou
 Plunge Wine Tours is a private boutique operation run by Arthur O'Bryan, who brings over 25 years of Mornington Penin...
 
  [Read notes →](<https://peninsulainsider.com.au/tour/plunge-hot-springs-wine-tour/>)
-
-### Mornington Peninsula Wine Tour
-
-Operated by Bunyip Tours. Book directly with the operator.
-
- [Book this tour →](<https://www.bunyiptours.com/mornington-peninsula-day-trips/?utm_source=peninsula-insider&utm_medium=tour-vertical&utm_campaign=bunyip-mornington-peninsula-wine-tour&utm_content=package-cta>)
 
 ### Hot Springs + Wine Combination Tour
 

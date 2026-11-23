@@ -63,10 +63,6 @@ This is not definitively confirmed in the operator's published data and must be 
 
 Swimwear is required. Towels can be hired at the springs at additional cost, or bring your own. The outdoor pools range from cool plunge (approximately 15 degrees Celsius) to warm bath (approximately 38 to 40 degrees). Reef-safe sunscreen is recommended for daytime sessions. The combination of wine tasting earlier in the day and extended thermal bathing warrants pacing alcohol intake carefully.
 
-### How does this tour differ from the shared-group hot springs day tours?
-
-The shared-group operators such as Bunyip run departures for up to 24 guests at a lower per-person rate. Plunge is a private charter with an expert wine guide at a premium per-person rate. The difference is exclusivity and guide depth: Plunge delivers a private experience with Arthur O'Bryan's specialist Peninsula wine knowledge; the shared-group operators deliver reliable group logistics at a lower price point.
-
 Related planning
 
 ## Build this into a longer trip

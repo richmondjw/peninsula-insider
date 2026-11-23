@@ -27,16 +27,6 @@ The Arthurs Seat Eagle gondola connects its Base Station on Arthurs Seat Road in
 
  [Read notes →](<https://peninsulainsider.com.au/tour/arthurs-seat-eagle-gondola/>)
 
-Half day   Couples
-
-### [Global Ballooning Peninsula Sunrise Flight](<https://peninsulainsider.com.au/tour/global-ballooning-peninsula-sunrise/>)
-
-by [Global Ballooning Australia](<https://peninsulainsider.com.au/tour/operators/global-ballooning/>)
-
-Global Ballooning's Peninsula sunrise flight launches at dawn over the Red Hill and Merricks wine country, with appro...
-
- [Read notes →](<https://peninsulainsider.com.au/tour/global-ballooning-peninsula-sunrise/>)
-
 Under 2 hours   Families
 
 ### [Moonlit Sanctuary Twilight Tour](<https://peninsulainsider.com.au/tour/moonlit-sanctuary-twilight-tour/>)
@@ -76,6 +66,16 @@ by [Temptation Sailing](<https://peninsulainsider.com.au/tour/operators/temptati
 Temptation Sailing's bay cruise departs Sorrento Pier aboard a classic sailing vessel for a half-day passage across P...
 
  [Read notes →](<https://peninsulainsider.com.au/tour/temptation-sailing-bay-cruise/>)
+
+Full day   Adults
+
+### [Boutique Wine Tour - Mornington Peninsula](<https://peninsulainsider.com.au/tour/amour-of-the-grape-boutique-wine-tour/>)
+
+by [Amour of the Grape Tours](<https://peninsulainsider.com.au/tour/operators/amour-of-the-grape/>)
+
+Amour of the Grape is an owner-operated boutique wine tour run by Paul and Liz Gough, who live on the Peninsula and l...
+
+ [Read notes →](<https://peninsulainsider.com.au/tour/amour-of-the-grape-boutique-wine-tour/>)
 
 Browse by experience
 
@@ -133,14 +133,6 @@ Arthurs Seat Eagle is a gondola lift connecting its Base Station on Arthurs Seat
 
 Activity Specialist   Assessed
 
-### [Global Ballooning Australia](<https://peninsulainsider.com.au/tour/operators/global-ballooning/>)
-
-Global Ballooning Australia runs dawn hot air balloon flights over the Mornington Peninsula wine country, with flight...
-
- [View operator →](<https://peninsulainsider.com.au/tour/operators/global-ballooning/>)
-
-Activity Specialist   Assessed
-
 ### [Moonlit Sanctuary Wildlife Conservation Park](<https://peninsulainsider.com.au/tour/operators/moonlit-sanctuary/>)
 
 Moonlit Sanctuary is a conservation wildlife park at Pearcedale, specialising in threatened Australian native species...
@@ -154,6 +146,14 @@ Activity Specialist   Assessed
 Moonraker Charters operates marine wildlife cruises from Sorrento Pier, with whale watching tours running from June t...
 
  [View operator →](<https://peninsulainsider.com.au/tour/operators/moonraker-charters/>)
+
+Activity Specialist   Assessed
+
+### [Polperro Dolphin Swims](<https://peninsulainsider.com.au/tour/operators/polperro-dolphin-swims/>)
+
+Polperro Dolphin Swims has run marine wildlife tours from Sorrento Pier for over 20 years, operating small-group in-w...
+
+ [View operator →](<https://peninsulainsider.com.au/tour/operators/polperro-dolphin-swims/>)
 
 Planning your visit
 
