@@ -18,7 +18,7 @@ const methodReviewedLabel = new Date(`${editorialMethod.reviewedOn}T12:00:00Z`).
 
 <BaseLayout
   title="About Peninsula Insider"
-  description="Meet the independent local guide to the Mornington Peninsula. See how we choose our picks, keep editorial judgement separate from commercial work and correct what changes."
+  description="Peninsula Insider is an independent guide to the Mornington Peninsula. See what earns a recommendation, how each check works, and recent decisions with the sources behind them."
   canonical="https://peninsulainsider.com.au/about/"
   ogImage={coast.src}
 >
@@ -59,6 +59,32 @@ const methodReviewedLabel = new Date(`${editorialMethod.reviewedOn}T12:00:00Z`).
           <p>Practical details are checked against the operator or responsible authority. A source check is not a visit: we distinguish confirmed facts from our judgement and make material gaps clear. A whole-record review date shows when that check was completed, not a guarantee that nothing has changed.</p>
           <p class="pi-about__method-review"><strong>Method reviewed:</strong> <time datetime={editorialMethod.reviewedOn}>{methodReviewedLabel}</time>.</p>
         </div>
+      </div>
+      <div class="container">
+        <h3 class="pi-about__subhead" id="what-earns-a-recommendation">What earns a recommendation</h3>
+        <ol class="pi-about__questions">
+          <li><span class="pi-about__number" aria-hidden="true">01</span><h4>A reason to go</h4><p>Something the place does that sets it apart on the Peninsula. A listing has to say what that is in plain words.</p></li>
+          <li><span class="pi-about__number" aria-hidden="true">02</span><h4>A clear fit</h4><p>We say who it suits and when it works best. Where a place will not suit a reader, we say that too.</p></li>
+          <li><span class="pi-about__number" aria-hidden="true">03</span><h4>Details that hold up</h4><p>Address, opening, booking and access details are traced to the operator or the responsible authority, not to another guide.</p></li>
+          <li><span class="pi-about__number" aria-hidden="true">04</span><h4>No payment</h4><p>A business cannot buy a recommendation, a ranking or an Insider Pick. Paid work is labelled and kept apart.</p></li>
+        </ol>
+
+        <h3 class="pi-about__subhead" id="how-a-check-works">How a check works</h3>
+        <ol class="pi-about__steps">
+          <li><strong>Start with the source.</strong> We read the operator's own current pages: its website, booking page and published policies. For an event that is the organiser. For a park, pier or road it is the responsible authority.</li>
+          <li><strong>Rank what disagrees.</strong> Where sources conflict, the operator or authority outranks listings sites, press and social posts.</li>
+          <li><strong>Date the check.</strong> A checked date on a page is the day that source check was completed. It is not a visit, and it is not a promise that nothing has changed since.</li>
+          <li><strong>Qualify, link or pause.</strong> If a material detail cannot be confirmed, we say so, point to the source, or take the listing down until it can be.</li>
+        </ol>
+
+        <h3 class="pi-about__subhead" id="decisions-on-the-record">Decisions on the record</h3>
+        <p class="pi-about__lede">Four recent calls, with the source that settled each one.</p>
+        <ul class="pi-about__decisions">
+          <li><time datetime="2026-11-23">23 November 2026</time><p><strong>Tour listings withdrawn.</strong> We removed three tour listings and two operator profiles after the operators' own catalogues did not support them as bookable Peninsula trips. That is a statement about what we could confirm, not about the operators.</p></li>
+          <li><time datetime="2026-11-17">17 November 2026</time><p><strong>A description corrected.</strong> Main Ridge Dairy's own site says goat tours and feeding are not currently offered, so we removed our description of animal viewing and corrected the producer guide that repeated it.</p></li>
+          <li><time datetime="2026-11-17">17 November 2026</time><p><strong>A listing paused.</strong> We paused a cheese producer's listing while its current operator, location and offering are confirmed. A pause is not a claim that a business has closed.</p></li>
+          <li><time datetime="2026-10-03">3 October 2026</time><p><strong>A closure reported.</strong> When Parks Victoria closed <a href="/fishing/locations/portsea-pier/">Portsea Pier</a> for maintenance, we replaced our fishing directions with a dated closure notice, the authority's link and places that were open.</p></li>
+        </ul>
       </div>
     </section>
 
@@ -153,10 +179,21 @@ const methodReviewedLabel = new Date(`${editorialMethod.reviewedOn}T12:00:00Z`).
   .pi-about__section-head .pi-about__eyebrow { padding-top: .5rem; }
   .pi-about__section-head h2, .pi-about__current h2, .pi-about__next h2 { margin: 0; font: 600 clamp(2.5rem, 4vw, 4.5rem)/1.13 var(--font-display); letter-spacing: -.03em; text-wrap: balance; }
   .pi-about__section-head > div > p:not(.pi-about__method-review) { max-width: 58ch; margin: 1.25rem 0 0; color: var(--soft); font: 400 clamp(1.1rem, 1.4vw, 1.3rem)/1.62 var(--font-ui); }
+  .pi-about__subhead { margin: clamp(3.5rem, 6vw, 6rem) 0 0; font: 600 clamp(1.6rem, 2.4vw, 2.3rem)/1.2 var(--font-display); letter-spacing: -.025em; scroll-margin-top: 8.25rem; }
+  .pi-about__subhead + .pi-about__questions { margin-top: 1.5rem; }
+  .pi-about__steps { max-width: 68ch; margin: 1.5rem 0 0; padding-left: 1.4rem; color: var(--soft); font: 400 1.03rem/1.62 var(--font-ui); }
+  .pi-about__steps li { padding: .45rem 0 .45rem .3rem; }
+  .pi-about__steps strong, .pi-about__decisions strong { color: var(--text); }
+  .pi-about__lede { max-width: 58ch; margin: .9rem 0 0; color: var(--soft); font: 400 1.03rem/1.62 var(--font-ui); }
+  .pi-about__decisions { margin: 1.5rem 0 0; padding: 0; list-style: none; border-bottom: 1px solid #ccd6d9; }
+  .pi-about__decisions li { display: grid; grid-template-columns: 11rem minmax(0, 1fr); column-gap: 2rem; padding: 1.3rem 0; border-top: 1px solid #ccd6d9; }
+  .pi-about__decisions time { color: var(--gold-text); font: 700 .82rem/1.9 var(--font-ui); letter-spacing: .08em; text-transform: uppercase; }
+  .pi-about__decisions p { max-width: 62ch; margin: 0; color: var(--soft); font: 400 1.03rem/1.62 var(--font-ui); }
+  .pi-about__decisions a { color: var(--accent); font-weight: 600; text-underline-offset: .2em; }
   .pi-about__questions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(3rem, 8vw, 9rem); margin: clamp(3.5rem, 6vw, 6rem) 0 0; padding: 0; list-style: none; border-bottom: 1px solid #ccd6d9; }
   .pi-about__questions li { display: grid; grid-template-columns: 3.5rem minmax(0, 1fr); column-gap: 1rem; align-content: start; padding: 1.8rem 0 2.5rem; border-top: 1px solid #ccd6d9; }
   .pi-about__number { grid-row: span 2; padding-top: .22rem; color: var(--gold-text); font: 700 .82rem/1.5 var(--font-ui); letter-spacing: .12em; }
-  .pi-about__questions h3 { margin: 0; font: 600 clamp(1.3rem, 2vw, 1.8rem)/1.25 var(--font-display); letter-spacing: -.02em; }
+  .pi-about__questions h3, .pi-about__questions h4 { margin: 0; font: 600 clamp(1.3rem, 2vw, 1.8rem)/1.25 var(--font-display); letter-spacing: -.02em; }
   .pi-about__questions p { grid-column: 2; max-width: 40ch; margin: .7rem 0 0; color: var(--soft); font: 400 1.03rem/1.62 var(--font-ui); }
 
   .pi-about__check-standard { margin-top: clamp(3rem, 5vw, 5rem); padding: clamp(2rem, 4vw, 3.5rem); color: #fff; background: #0b2e4a; border-radius: .35rem; }
@@ -239,6 +276,7 @@ const methodReviewedLabel = new Date(`${editorialMethod.reviewedOn}T12:00:00Z`).
     .pi-about__check-standard { padding: 1.7rem; }
     .pi-about__check-standard > ol, .pi-about__example dl { grid-template-columns: 1fr; }
     .pi-about__example { grid-template-columns: 1fr; gap: 1rem; padding: 1.7rem; }
+    .pi-about__decisions li { grid-template-columns: 1fr; row-gap: .2rem; }
     .pi-about__questions li { grid-template-columns: 2.5rem minmax(0, 1fr); padding: 1.45rem 0 1.7rem; }
     .pi-about__questions p { font-size: 1rem; }
     .pi-about__independence { padding: 4.5rem 0; }
