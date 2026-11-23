@@ -35,6 +35,24 @@ interface RankedSpa {
   sourceUrl?: string;
   address?: string;
   phone?: string;
+  /**
+   * The verdict, pulled apart for a reader deciding between spas: when to
+   * choose it, who it suits and who it does not, then the visitor details
+   * that change a booking. Every line here must already be supported by a
+   * dated operator source named in `checked`; restructuring a record is not
+   * a fresh check of it.
+   */
+  choose?: string;
+  suits?: string;
+  lessSuited?: string;
+  practical?: Array<{ label: string; value: string }>;
+  /**
+   * Slug of the article whose dated source check stands behind `practical`.
+   * The date printed under the facts is read from that record's
+   * `lastVerified`, never typed here, so it moves only when that check does
+   * (PI-004: a verification date is written only by something that verified).
+   */
+  checkedFrom?: string;
 }
 
 const ranked: RankedSpa[] = [
@@ -96,8 +114,37 @@ const ranked: RankedSpa[] = [
       'Alba combines geothermal bathing with massage, facials, body treatments and water and steam therapies at 282 Browns Road, Fingal. Choose it when you want bathing and a booked treatment in the same visit. Compare the inclusions of your chosen treatment or package before booking; overnight accommodation is a separate reservation at The Sanctuary.',
     bestFor: 'A bathing-and-treatment day in Fingal, with an overnight option at The Sanctuary.',
     sourceUrl: 'https://albathermalsprings.com.au/alba-experiences/spa/',
+    choose:
+      'Choose Alba when you want geothermal bathing and a booked spa treatment in the same visit, or a private springs session rather than shared pools.',
+    suits:
+      'Couples and friends building a day around a treatment, and adults marking an occasion. Families can use the general springs: under-16s are admitted with an adult.',
+    lessSuited:
+      'Anyone who needs a phone to hand. Phones, smart watches and laptops are not permitted in the springs, spa or restaurant. Private springs are for guests aged 16 and over.',
+    practical: [
+      { label: 'Where', value: '282 Browns Road, Fingal' },
+      { label: 'Included with springs entry', value: 'Towel, bathrobe and locker' },
+      { label: 'Ages', value: 'Under-16s need an adult in the general springs. Private springs are 16 and over. Spa guests aged 16 to 18 need an adult in the treatment room.' },
+      { label: 'Bookings', value: 'General springs, private springs and spa treatments are separate bookings. A night at The Sanctuary is a separate reservation again.' },
+      { label: 'Changing plans', value: 'Alba states a 48-hour window for standard bookings, and seven days for retreats and full-day spa packages.' },
+    ],
+    checkedFrom: 'peninsula-hot-springs-vs-alba',
   },
 ];
+
+/* The check date for an entry's visitor facts, read from the article that made the check. */
+const articles = await getCollection('articles');
+const checkedNotes = new Map<string, { label: string; href: string; title: string }>();
+for (const s of ranked) {
+  if (!s.checkedFrom) continue;
+  const article = articles.find((a) => a.id.replace(/\.mdx?$/, '') === s.checkedFrom);
+  const verified = article?.data.lastVerified;
+  if (!article || !verified) continue;
+  checkedNotes.set(s.slug, {
+    label: new Date(verified).toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Australia/Melbourne' }),
+    href: `/journal/${s.checkedFrom}/`,
+    title: article.data.title,
+  });
+}
 
 /* Join each ranked spa to its venue record for hero + save metadata. */
 const venues = (await getCollection('venues')).filter(isListableVenue);
@@ -170,6 +217,10 @@ const faqs = [
   {
     q: 'Is Jackalope Spa open to non-guests?',
     a: 'Yes, treatments are bookable for non-guests. Availability is limited - book 2–3 weeks ahead for weekend slots.',
+  },
+  {
+    q: 'What do the Peninsula Insider editors say about Alba Thermal Springs, and who does it suit?',
+    a: 'Choose Alba when you want geothermal bathing and a booked spa treatment in the same visit, or a private springs session rather than shared pools. It suits couples and friends building a day around a treatment, and adults marking an occasion. Under-16s can use the general springs with an adult, while private springs are for guests aged 16 and over. Springs entry includes a towel, bathrobe and locker.',
   },
 ];
 
@@ -340,6 +391,25 @@ export const prerender = true;
               </ul>
               <p class="sr__verdict">{s.verdict}</p>
               <p class="sr__bestfor"><strong>Best for</strong> {s.bestFor}</p>
+              {s.choose && (
+                <div class="sr__fit">
+                  <h3 class="sr__fit-h">Our verdict</h3>
+                  <p>{s.choose}</p>
+                  {s.suits && <p><strong>Who it suits</strong> {s.suits}</p>}
+                  {s.lessSuited && <p><strong>Less suited to</strong> {s.lessSuited}</p>}
+                </div>
+              )}
+              {s.practical && (
+                <div class="sr__fit">
+                  <h3 class="sr__fit-h">Before you book</h3>
+                  <dl class="sr__facts">
+                    {s.practical.map((fact) => (<><dt>{fact.label}</dt><dd>{fact.value}</dd></>))}
+                  </dl>
+                  {checkedNotes.get(s.slug) && (
+                    <p class="sr__checked">Visitor rules, inclusions and booking terms were checked against the operator's own pages on {checkedNotes.get(s.slug)!.label}, for <a href={checkedNotes.get(s.slug)!.href}>our hot springs comparison</a>. The terms shown for your booking take precedence.</p>
+                  )}
+                </div>
+              )}
               {s.address && <p class="sr__bestfor"><strong>Visit</strong> {s.address}{s.phone && <> · <a href={`tel:${s.phone.replace(/\D/g, '')}`}>{s.phone}</a></>}</p>}
               {s.sourceUrl && <p class="sr__bestfor"><a href={s.sourceUrl} target="_blank" rel="noopener noreferrer">View the operator's treatment menu →</a></p>}
             </div>
@@ -729,6 +799,16 @@ export const prerender = true;
     color: var(--text);
     margin: 0 0 var(--space-4);
   }
+  .sr__fit { margin-top: var(--space-4, 1rem); padding-top: var(--space-4, 1rem); border-top: 1px solid var(--border-control, #ccd6d9); }
+  .sr__fit-h { margin: 0 0 .4rem; font: 600 var(--fs-400, 1.05rem)/1.3 var(--font-display); letter-spacing: -.02em; color: var(--text); }
+  .sr__fit p { margin: .4rem 0 0; max-width: 62ch; font: 400 var(--fs-300, .95rem)/1.6 var(--font-ui); color: var(--text); }
+  .sr__fit p strong { font-weight: 600; margin-right: .35rem; }
+  .sr__facts { display: grid; grid-template-columns: minmax(9rem, max-content) minmax(0, 1fr); gap: .5rem 1.25rem; margin: .5rem 0 0; font: 400 var(--fs-300, .95rem)/1.55 var(--font-ui); }
+  .sr__facts dt { font-weight: 600; color: var(--text); }
+  .sr__facts dd { margin: 0; color: var(--text); max-width: 56ch; }
+  .sr__fit .sr__checked a { color: var(--accent); text-underline-offset: .2em; }
+  .sr__fit .sr__checked { color: var(--soft); font-size: var(--fs-200, .85rem); margin-top: .75rem; }
+  @media (max-width: 45rem) { .sr__facts { grid-template-columns: 1fr; gap: 0; } .sr__facts dd { margin-bottom: .6rem; } }
   .sr__bestfor {
     font-size: var(--fs-300);
     line-height: var(--lh-ui);
