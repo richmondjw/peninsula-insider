@@ -161,6 +161,38 @@ Alba combines geothermal bathing with massage, facials, body treatments and wate
 
 **Best for** A bathing-and-treatment day in Fingal, with an overnight option at The Sanctuary.
 
+### Our verdict
+
+Choose Alba when you want geothermal bathing and a booked spa treatment in the same visit, or a private springs session rather than shared pools.
+
+**Who it suits** Couples and friends building a day around a treatment, and adults marking an occasion. Families can use the general springs: under-16s are admitted with an adult.
+
+**Less suited to** Anyone who needs a phone to hand. Phones, smart watches and laptops are not permitted in the springs, spa or restaurant. Private springs are for guests aged 16 and over.
+
+### Before you book
+
+**Where**
+
+282 Browns Road, Fingal
+
+**Included with springs entry**
+
+Towel, bathrobe and locker
+
+**Ages**
+
+Under-16s need an adult in the general springs. Private springs are 16 and over. Spa guests aged 16 to 18 need an adult in the treatment room.
+
+**Bookings**
+
+General springs, private springs and spa treatments are separate bookings. A night at The Sanctuary is a separate reservation again.
+
+**Changing plans**
+
+Alba states a 48-hour window for standard bookings, and seven days for retreats and full-day spa packages.
+
+Visitor rules, inclusions and booking terms were checked against the operator's own pages on 18 September 2026, for [our hot springs comparison](<https://peninsulainsider.com.au/journal/peninsula-hot-springs-vs-alba/>). The terms shown for your booking take precedence.
+
 [View the operator's treatment menu →](<https://albathermalsprings.com.au/alba-experiences/spa/>)
 
 Alba Thermal Springs & Spa in photographs
@@ -286,6 +318,10 @@ Peninsula Hot Springs is primarily a thermal bathing experience - outdoor pools 
 Is Jackalope Spa open to non-guests?
 
 Yes, treatments are bookable for non-guests. Availability is limited - book 2–3 weeks ahead for weekend slots.
+
+What do the Peninsula Insider editors say about Alba Thermal Springs, and who does it suit?
+
+Choose Alba when you want geothermal bathing and a booked spa treatment in the same visit, or a private springs session rather than shared pools. It suits couples and friends building a day around a treatment, and adults marking an occasion. Under-16s can use the general springs with an adult, while private springs are for guests aged 16 and over. Springs entry includes a towel, bathrobe and locker.
 
 ## Also consider
 

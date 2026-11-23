@@ -1,20 +1,36 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-23T11:53:55.437Z",
+  "generatedAt": "2026-11-23T12:11:59.394Z",
   "baselineAvailable": true,
-  "fromSnapshot": "d9c12d0f65cd6a6185cbdadcf296cadb1ef032b9f5793ae550928d257d4725f5",
-  "toSnapshot": "de493843f599526f752882b9b38e241ed8ee79e66f8e7393e30556487537f63e",
-  "previousGeneratedAt": "2026-11-23T10:35:28.921Z",
+  "fromSnapshot": "de493843f599526f752882b9b38e241ed8ee79e66f8e7393e30556487537f63e",
+  "toSnapshot": "c34ebbbcbb4548ba2b81266649b448103ef4834c52efd021486f3a85c1e555cb",
+  "previousGeneratedAt": "2026-11-23T11:53:55.437Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 1,
+  "count": 3,
   "changes": [
     {
-      "id": "https://peninsulainsider.com.au/explore/plans/",
+      "id": "https://peninsulainsider.com.au/about/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/plans/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/plans/index.md",
-      "contentSha256": "a79579899cff3ef16e862298ad2ab9381a82c32449d67f550bb655d0f6adddd3",
-      "previousContentSha256": "fa3bcef506f74123cfc64efaa7515bdf5776284e2ebd861e93b443039381c811"
+      "canonicalUrl": "https://peninsulainsider.com.au/about/",
+      "markdownUrl": "https://peninsulainsider.com.au/about/index.md",
+      "contentSha256": "3850f375b5c7d79defe6cfbd2f2d9e0de6d1252d1307eeb4a5e04e8274d77da2",
+      "previousContentSha256": "a9e85590adbeb481dc2bf7909ca5d34885616b7ef73ed3806563f672c5410eb7"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/spas-and-wellness/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/spas-and-wellness/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/spas-and-wellness/index.md",
+      "contentSha256": "02e776e8883bc95f48a445fa929c6b09c6bdfd30cc57b93aee9a6d7c44c3555a",
+      "previousContentSha256": "01fa21afada29984cc73c77c68e8c5e3cf0fdf85d9e21392aa932ff270a1208c"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
+      "contentSha256": "941964af8a427531bb6383a3669bf71b06caa2dff4b3865f4c2201b6b71e05ff",
+      "previousContentSha256": "eb78ad05c624b9fa00e41a802dc936454f28058d344ba031f666a782f4483054"
     }
   ]
 }
