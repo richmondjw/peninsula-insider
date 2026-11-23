@@ -628,7 +628,13 @@ function srcBasename(src: string | null | undefined): string {
 
 /** Current displayed src for either an <img> or a background-image div. */
 function currentImageSrc(el: HTMLElement): string {
-  if (el instanceof HTMLImageElement) return el.dataset.piImageOriginalSrc || el.currentSrc || el.src;
+  if (el instanceof HTMLImageElement) {
+    if (el.dataset.piImageOriginalSrc) return el.dataset.piImageOriginalSrc;
+    // Mobile-only renditions preserve the canonical original in the img src.
+    // Compare that identity, not the current small source, during hydration.
+    if (el.closest('picture')?.querySelector('source[data-pi-responsive-source]')) return el.src;
+    return el.currentSrc || el.src;
+  }
   const cardImage = el.classList.contains('pi-card__media') ? el.querySelector('img') : null;
   if (cardImage) return currentImageSrc(cardImage);
   const bg = window.getComputedStyle(el).backgroundImage;
@@ -639,8 +645,8 @@ function currentImageSrc(el: HTMLElement): string {
 /** Update either an <img> or a background-image div with a new src. */
 function setImageSrc(el: HTMLElement, src: string) {
   if (el instanceof HTMLImageElement) {
-    // A published replacement must not keep the former photograph's AVIF source.
-    el.closest?.('picture')?.querySelectorAll('source[data-pi-avif-source]').forEach(source => source.remove());
+    // A published replacement must not keep the former photograph's picture sources.
+    el.closest?.('picture')?.querySelectorAll('source[data-pi-avif-source], source[data-pi-responsive-source]').forEach(source => source.remove());
     el.removeAttribute('srcset');
     el.removeAttribute('sizes');
     delete el.dataset.piImageOriginalSrc;

@@ -79,6 +79,15 @@ const relatedSummary = new Map((place.data.relatedPlaceSummaries ?? []).map((ent
 const requiresHeroMetadata = ['main-ridge', 'merricks-north', 'dromana', 'red-hill-south', 'shoreham', 'fingal'].includes(placeSlug);
 const hero = await resolveHero('place', placeSlug, place.data, 'heroImage',
   requiresHeroMetadata ? { requireOverrideMetadata: true } : {});
+// Do not introduce a generic fallback photograph as the place's mobile cover.
+// The general resolver treats place-* images as generic on venue cards.
+// On the matching place detail page the credited locality's own image is valid.
+const hasNamedPlacePhoto = hero.src === `/images/sourced/place-${placeSlug}-01.webp`
+  && hero.src === place.data.heroImage?.src
+  && Boolean(place.data.heroImage?.alt?.trim() && place.data.heroImage?.credit?.trim());
+const mobileHeroHasPhoto = (hero.hasPhoto || hasNamedPlacePhoto) && !hero.decorative;
+const ryePublishedPhoto = hero.src.endsWith('/place/rye/heroImage-1779885269485.jpg');
+const mobileHeroSize = ryePublishedPhoto ? '134vw' : '100vw';
 const heroCredit = formatHeroCredit(hero.override ? hero.override.credit : place.data.heroImage?.credit);
 const heroSourceUrl = !hero.override && /^https?:\/\/\S+$/.test(String(place.data.heroImage?.sourceUrl)) ? place.data.heroImage.sourceUrl : undefined;
 const heroLicenceUrl = !hero.override ? place.data.heroImage?.licenseUrl : undefined;
@@ -220,16 +229,23 @@ const factual = place.data.factualLede ?? '';
 <Breadcrumbs items={breadcrumbItems} />
 
 <!-- ═══════════════════════════════════════════════════════════════════════
-     1. FULL-BLEED CINEMATIC HERO
+     1. PLACE HERO
      ═══════════════════════════════════════════════════════════════════════ -->
-<section class:list={['pdv2-hero', { 'pdv2-hero--editorial': editorialHero }]}>
-  <img class="pdv2-hero__image" src={hero.src} srcset={editorialHero && !hero.override ? place.data.heroImage?.responsive?.srcset : undefined} sizes={editorialHero && !hero.override ? place.data.heroImage?.responsive?.sizes : undefined} width={editorialHero && !hero.override ? 1920 : undefined} height={editorialHero && !hero.override ? 1280 : undefined} alt={heroAlt} role={heroPresentation ? 'presentation' : undefined} fetchpriority="high" decoding="async"
-    {...editableImage({
-      entityType: 'place', entitySlug: placeSlug, fieldPath: 'heroImage',
-      label: `${place.data.name} hero`, purpose: 'hero',
-    })}
-    data-pi-requires-image-metadata={requiresHeroMetadata ? 'true' : undefined}
-    data-pi-no-hydrate={requiresHeroMetadata ? 'true' : undefined} />
+<section class:list={['pdv2-hero', { 'pdv2-hero--editorial': editorialHero }]}
+  data-place-mobile-no-photo={mobileHeroHasPhoto ? undefined : 'true'}>
+  <div class="pdv2-hero__media">
+    <img class="pdv2-hero__image" src={hero.src} srcset={editorialHero && !hero.override ? place.data.heroImage?.responsive?.srcset : undefined} sizes={editorialHero && !hero.override ? place.data.heroImage?.responsive?.sizes : undefined}
+      data-pi-responsive={mobileHeroHasPhoto ? mobileHeroSize : undefined}
+      data-pi-responsive-media={mobileHeroHasPhoto ? '(max-width: 600px)' : undefined}
+      width={editorialHero && !hero.override ? 1920 : undefined} height={editorialHero && !hero.override ? 1280 : undefined}
+      alt={heroAlt} role={heroPresentation ? 'presentation' : undefined} fetchpriority="high" decoding="async"
+      {...editableImage({
+        entityType: 'place', entitySlug: placeSlug, fieldPath: 'heroImage',
+        label: `${place.data.name} hero`, purpose: 'hero',
+      })}
+      data-pi-requires-image-metadata={requiresHeroMetadata ? 'true' : undefined}
+      data-pi-no-hydrate={requiresHeroMetadata ? 'true' : undefined} />
+  </div>
   <div class="pdv2-hero__scrim"></div>
   <div class="pdv2-hero__inner container">
     {/* ONE eyebrow (2026-07-24, per James - the old zone · kind line doubled
@@ -252,7 +268,7 @@ const factual = place.data.factualLede ?? '';
     {place.data.heroDeck && (editorialHero || !hero.override) ? (
       <p class="pdv2-hero__alt">{place.data.heroDeck}</p>
     ) : !hero.override && !place.data.heroImage?.decorative && place.data.heroImage?.alt && (
-      <p class="pdv2-hero__alt">{place.data.heroImage.alt}</p>
+      <p class="pdv2-hero__alt pdv2-hero__photo-description">{place.data.heroImage.alt}</p>
     )}
     {placeSlug === 'fingal' && (
       <div class="pdv2-hero__actions" aria-label="Plan a Fingal visit">
@@ -874,9 +890,10 @@ const factual = place.data.factualLede ?? '';
     align-items: flex-end;
     overflow: hidden;
   }
-  /* The semantic hero image replaces the former CSS background. Keep it out
-     of document flow so it fills the hero rather than creating a second,
-     empty-height block on narrow screens. */
+  /* Keep the image in its original flex/grid position on desktop. The
+     wrapper becomes a bounded photo stage only on mobile. */
+  .pdv2-hero__media { display: contents; }
+  .pdv2-hero__media :global(picture) { display: contents; }
   .pdv2-hero__image {
     position: absolute;
     inset: 0;
@@ -993,42 +1010,6 @@ const factual = place.data.factualLede ?? '';
     text-transform: uppercase;
     color: rgba(255,255,255,0.7);
   }
-  @media (max-width: 600px) {
-    .pdv2-hero {
-      min-height: 70vh;
-      flex-direction: column;
-      justify-content: flex-end;
-      align-items: stretch;
-    }
-    .pdv2-hero__title { font-size: clamp(3rem, 14vw, 5rem); }
-    .pdv2-hero__inner {
-      padding-inline: max(1.25rem, env(safe-area-inset-left)) max(1.25rem, env(safe-area-inset-right));
-      padding-bottom: 0.75rem;
-    }
-    .pdv2-hero__credit {
-      position: relative;
-      right: auto;
-      bottom: auto;
-      align-self: flex-start;
-      max-width: calc(100% - 3rem);
-      margin: 0 1.5rem 1rem;
-      font-size: 0.75rem;
-      letter-spacing: 0.01em;
-      line-height: 1.5;
-      text-transform: none;
-      color: var(--white);
-    }
-    .pdv2-hero__credit a {
-      display: inline-flex;
-      align-items: center;
-      min-height: 44px;
-      padding: 0 0.35rem;
-      color: var(--white);
-      text-decoration: underline;
-      text-underline-offset: 0.18em;
-    }
-  }
-
     /* A place-specific editorial treatment keeps a truthful but modest local
      photograph in proportion and moves its caption and licence into flow. */
   .pdv2-hero--editorial {
@@ -1155,6 +1136,122 @@ const factual = place.data.factualLede ?? '';
       grid-column: 1;
       grid-row: 4;
     }
+  }
+
+  @media (max-width: 600px) {
+    .pdv2-hero,
+    .pdv2-hero--editorial {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: stretch;
+      min-height: 0;
+      padding: 0;
+      background: var(--bg-alt);
+      color: var(--dark);
+    }
+    .pdv2-hero__media {
+      display: block;
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      position: relative;
+      overflow: hidden;
+    }
+    .pdv2-hero__image,
+    .pdv2-hero--editorial .pdv2-hero__image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      aspect-ratio: auto;
+      border-radius: 0;
+      object-position: 50% 50%;
+    }
+    /* Set framing only on the reviewed asset. Both the source and the
+       existing responsive integration's provenance attribute are supported.
+       The inline editor clears responsive provenance when replacing src. */
+    .pdv2-hero__image:is(
+      [src$="/place/rye/heroImage-1779885269485.jpg"],
+      [data-pi-image-original-src$="/place/rye/heroImage-1779885269485.jpg"]
+    ) {
+      transform: scale(1.34);
+      transform-origin: 40% 0;
+    }
+    .pdv2-hero__image:is(
+      [src="/images/sourced/place-rye-01.webp"],
+      [data-pi-image-original-src="/images/sourced/place-rye-01.webp"]
+    ) { object-position: 50% 35%; }
+    .pdv2-hero__image:is(
+      [src="/images/sourced/place-flinders-01.webp"],
+      [data-pi-image-original-src="/images/sourced/place-flinders-01.webp"]
+    ) { object-position: 50% 35%; }
+    .pdv2-hero__scrim { display: none; }
+    .pdv2-hero__inner,
+    .pdv2-hero--editorial .pdv2-hero__inner {
+      max-width: none;
+      margin: 0;
+      padding: 1.125rem max(1.25rem, env(safe-area-inset-right)) 1.375rem max(1.25rem, env(safe-area-inset-left));
+    }
+    .pdv2-hero__eyebrow {
+      color: var(--teal-text);
+      margin-bottom: 0.4rem;
+      text-shadow: none;
+    }
+    .pdv2-hero__region { min-height: 24px; align-content: center; }
+    .pdv2-hero__region:focus-visible {
+      outline: 2px solid var(--teal-text);
+      outline-offset: 3px;
+    }
+    .pdv2-hero__title,
+    .pdv2-hero--editorial .pdv2-hero__title {
+      max-width: none;
+      font-size: clamp(2rem, 9vw, 3rem);
+      overflow-wrap: break-word;
+      color: var(--dark);
+      text-shadow: none;
+    }
+    .pdv2-hero__alt,
+    .pdv2-hero--editorial .pdv2-hero__alt {
+      margin-top: 0.65rem;
+      color: var(--soft);
+      font-size: var(--fs-200);
+      text-shadow: none;
+    }
+    .pdv2-hero__action {
+      border-color: var(--teal-text);
+      background: var(--teal-text);
+      color: var(--white);
+    }
+    .pdv2-hero__action--quiet {
+      background: transparent;
+      color: var(--teal-text);
+    }
+    .pdv2-hero__action:hover { color: var(--dark); }
+    .pdv2-hero__action:focus-visible { outline-color: var(--teal-text); }
+    .pdv2-hero--editorial .pdv2-hero__caption,
+    .pdv2-hero__credit,
+    .pdv2-hero--editorial .pdv2-hero__credit {
+      position: static;
+      max-width: none;
+      margin: 0 max(1.25rem, env(safe-area-inset-right)) 0.65rem max(1.25rem, env(safe-area-inset-left));
+      color: var(--soft);
+      font-size: 0.8rem;
+      letter-spacing: 0.01em;
+      line-height: 1.5;
+      text-transform: none;
+    }
+    .pdv2-hero__credit a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0 0.35rem;
+      color: var(--teal-text);
+      text-decoration: underline;
+      text-underline-offset: 0.18em;
+    }
+    .pdv2-hero:is([data-place-mobile-no-photo], [data-place-mobile-image-failed]) :is(
+      .pdv2-hero__media, .pdv2-hero__caption, .pdv2-hero__credit, .pdv2-hero__photo-description
+    ) { display: none; }
   }
 
   /* ── 2. EDITORIAL LEDE ──────────────────────────────────────────────── */
@@ -1754,3 +1851,36 @@ const factual = place.data.factualLede ?? '';
     margin-top: 0.5rem;
   }
 </style>
+
+<script>
+  const placeHeroImages = '.pdv2-hero__image';
+  function checkPlaceHeroImage(img: HTMLImageElement) {
+    if (!img.complete || !window.matchMedia('(max-width: 600px)').matches) return;
+    const hero = img.closest('.pdv2-hero');
+    // A no-photo page needs a reviewed SSR image/attribution pair before
+    // showing a new cover. Image-only client hydration cannot supply that pair.
+    if (!hero || hero.hasAttribute('data-place-mobile-no-photo')) return;
+    if (img.naturalWidth > 0) {
+      hero.removeAttribute('data-place-mobile-image-failed');
+      return;
+    }
+    const derivative = img.closest('picture')?.querySelector('source[data-pi-responsive-source]');
+    if (derivative) {
+      // The optional mobile rendition failed. Removing the source restores
+      // the untouched original image and its existing desktop srcset.
+      derivative.remove();
+      return;
+    }
+    hero.setAttribute('data-place-mobile-image-failed', 'true');
+  }
+  const checkPlaceHeroes = () => document.querySelectorAll<HTMLImageElement>(placeHeroImages).forEach(checkPlaceHeroImage);
+  for (const type of ['error', 'load']) {
+    document.addEventListener(type, event => {
+      const target = event.target;
+      if (target instanceof HTMLImageElement && target.matches(placeHeroImages)) checkPlaceHeroImage(target);
+    }, true);
+  }
+  document.addEventListener('astro:page-load', checkPlaceHeroes);
+  window.matchMedia('(max-width: 600px)').addEventListener('change', checkPlaceHeroes);
+  checkPlaceHeroes();
+</script>

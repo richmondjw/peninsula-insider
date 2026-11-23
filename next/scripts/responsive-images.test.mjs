@@ -116,18 +116,60 @@ test('opt-in AVIF images preserve the original and retain native WebP fallback',
   }finally{await rm(root,{recursive:true,force:true});}
 });
 
-test('editor image replacement removes the former AVIF source as well as srcset', async () => {
+test('editor image replacement removes prior picture sources as well as srcset', async () => {
   const source=await readFile(new URL('../src/lib/inline-edit/client.ts',import.meta.url),'utf8');
   const fn=source.slice(source.indexOf('function setImageSrc('),source.indexOf('function readImageDescriptor(')).replace('el: HTMLElement, src: string','el, src');
   const removed=[];
   class HTMLImageElement {
     dataset={piImageOriginalSrc:'/old.webp'};
     removeAttribute(name){removed.push(name);}
-    closest(selector){assert.equal(selector,'picture');return {querySelectorAll(selector){assert.equal(selector,'source[data-pi-avif-source]');return [{remove(){removed.push('avif');}}];}};}
+    closest(selector){assert.equal(selector,'picture');return {querySelectorAll(selector){assert.equal(selector,'source[data-pi-avif-source], source[data-pi-responsive-source]');return [{remove(){removed.push('avif');}},{remove(){removed.push('responsive');}}];}};}
   }
   const el=new HTMLImageElement();
   vm.runInNewContext(fn+'\nsetImageSrc(el,"/replacement.jpg");',{HTMLImageElement,el});
   assert.equal(el.src,'/replacement.jpg');
-  assert.deepEqual(removed,['avif','srcset','sizes']);
+  assert.deepEqual(removed,['avif','responsive','srcset','sizes']);
   assert.equal(el.dataset.piImageOriginalSrc,undefined);
+});
+
+
+test('mobile-only derivatives preserve the exact desktop img and respect the zoom-adjusted mobile size', async () => {
+  const original = '<img src="/original.jpg" srcset="/desktop.jpg 1920w" sizes="620px" alt="The named place" data-pi-responsive="134vw" data-pi-responsive-media="(max-width: 600px)">';
+  const resolve = async (src) => {
+    assert.equal(src, '/original.jpg');
+    return [{ src: '/_media/mobile.webp', width: 480 }, { src: '/_media/mobile-large.webp', width: 1280 }];
+  };
+  const actual = await optimiseHtml(original, resolve);
+  assert.equal(actual,
+    '<picture><source data-pi-responsive-source type="image/webp" media="(max-width: 600px)" srcset="/_media/mobile.webp 480w, /_media/mobile-large.webp 1280w" sizes="134vw">' + original + '</picture>');
+  assert.equal(await optimiseHtml(actual, () => assert.fail('must not reprocess a picture')), actual);
+});
+
+test('an unavailable optional mobile source leaves the existing image intact, without weakening other image gates', async () => {
+  const original = '<img src="/original.jpg" data-pi-responsive="100vw" data-pi-responsive-media="(max-width: 600px)">';
+  const notifications = [];
+  const unavailable = async () => { throw new Error('unavailable fixture'); };
+  assert.equal(await optimiseHtml(original, unavailable, (error, src) => notifications.push([error.message, src])), original);
+  assert.deepEqual(notifications, [['unavailable fixture', '/original.jpg']]);
+  await assert.rejects(optimiseHtml('<img src="/required.jpg" data-pi-responsive="100vw">', unavailable), /unavailable fixture/);
+});
+
+
+test('mobile source selection does not look like a new CMS photo to the inline editor', async () => {
+  const source = await readFile(new URL('../src/lib/inline-edit/client.ts', import.meta.url), 'utf8');
+  const fn = source.slice(source.indexOf('function currentImageSrc('), source.indexOf('function setImageSrc('))
+    .replace('el: HTMLElement): string', 'el)');
+  class HTMLImageElement {
+    dataset = {};
+    src = 'https://example.test/original.jpg';
+    currentSrc = 'https://example.test/_media/mobile.webp';
+    closest(selector) {
+      assert.equal(selector, 'picture');
+      return { querySelector: (source) => source === 'source[data-pi-responsive-source]' };
+    }
+  }
+  const el = new HTMLImageElement();
+  assert.equal(vm.runInNewContext(fn + '\ncurrentImageSrc(el);', { HTMLImageElement, el }), el.src);
+  el.dataset.piImageOriginalSrc = 'https://example.test/legacy-original.jpg';
+  assert.equal(vm.runInNewContext(fn + '\ncurrentImageSrc(el);', { HTMLImageElement, el }), el.dataset.piImageOriginalSrc);
 });
