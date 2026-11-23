@@ -1,7 +1,7 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-11-23T12:11:59.394Z",
-  "snapshotId": "c34ebbbcbb4548ba2b81266649b448103ef4834c52efd021486f3a85c1e555cb",
+  "generatedAt": "2026-11-23T13:31:02.697Z",
+  "snapshotId": "7b23ad25881cad56d9eafa2c5cce6c3221351ad0127a50490b6ddc1a19c28849",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
@@ -13,7 +13,7 @@
       "section": "home",
       "canonicalUrl": "https://peninsulainsider.com.au/",
       "markdownUrl": "https://peninsulainsider.com.au/index.md",
-      "contentSha256": "4db15888e9b418a79585f1d7768119bd2c47e0bee566bae54ea773fa511bbfd7",
+      "contentSha256": "fe5f3ce342dbed4887448161dedbcd682f970a1691873fa1abf327943f11d7e9",
       "citation": {
         "title": "Make a day of the Peninsula.",
         "publisher": "Peninsula Insider",
@@ -21,8 +21,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 209274,
-      "markdownBytes": 7574
+      "htmlBytes": 208985,
+      "markdownBytes": 7509
     },
     {
       "id": "https://peninsulainsider.com.au/about/",
@@ -1577,7 +1577,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/index.md",
-      "contentSha256": "a02b00c840199868f61d3d07bd92867355ae1eef8ede3238a9a07c1bb8d82527",
+      "contentSha256": "01048e4e10b60b552bb63f6b3d71c1280d7670f7c2f6cfff1da8e4a4caf31d27",
       "citation": {
         "title": "Walks, beaches and hot springs",
         "publisher": "Peninsula Insider",
@@ -2495,7 +2495,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/portsea/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/portsea/index.md",
-      "contentSha256": "a7c1fd55b1c55ba2799190cae264a9d8e6ce2451d2a896166303cc78f127dc4b",
+      "contentSha256": "6925dc80a725985e7fb0f8d98143554aaa9188249175f3a131a4ccd75acdcb8a",
       "citation": {
         "title": "Portsea",
         "publisher": "Peninsula Insider",
@@ -2503,8 +2503,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 219455,
-      "markdownBytes": 12956
+      "htmlBytes": 223632,
+      "markdownBytes": 13432
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/red-hill-south/",
@@ -7493,7 +7493,7 @@
       "section": "quick-note",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "73ca61f2e2f8b843fbc9f28098344443403e6b4cb6ee37f526ff4e48964e336d",
+      "contentSha256": "7ac8a534d1807cf4aae5949884b4b422e8932d9545067bcf035b4ae3d9128806",
       "citation": {
         "title": "Quick Note",
         "publisher": "Peninsula Insider",
@@ -7501,8 +7501,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 124190,
-      "markdownBytes": 1195
+      "htmlBytes": 124194,
+      "markdownBytes": 1196
     },
     {
       "id": "https://peninsulainsider.com.au/site-index/",
@@ -9244,13 +9244,13 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "941964af8a427531bb6383a3669bf71b06caa2dff4b3865f4c2201b6b71e05ff",
+      "contentSha256": "e3f18407e8bd1ac0233506b6290f7aa1c71832f5c0c48d98e9f4376aed30bf7e",
       "citation": {
         "title": "What's on this weekend",
         "publisher": "Peninsula Insider",
         "url": "https://peninsulainsider.com.au/whats-on/",
         "publishedAt": null,
-        "modifiedAt": "2026-11-23"
+        "modifiedAt": "2026-11-24"
       },
       "htmlBytes": 178320,
       "markdownBytes": 6204

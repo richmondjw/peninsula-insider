@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/whats-on/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-11-23
+Modified: 2026-11-24
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -13,14 +13,6 @@ Find the date, place and reason to go, then check with the organiser before you 
 
 ## Reasons to go
 
-- Sat, 28 Nov · 10am–2pm · Boneo
-
-### [Meet The Makers at Hawkes Farm](<https://peninsulainsider.com.au/whats-on/meet-the-makers-at-hawkes-farm-2026-11-28/>)
-
-On the last Saturday of each month from September to April, Hawkes Farm comes alive with its Meet the Makers Market, bringing together a curated collection of talented local artisans, makers and small-batch producers.
-
-Markets   Checked 9 Nov 2026
-
 - Sat, 28 Nov · 5pm–8pm · Fingal
 
 ### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
@@ -28,6 +20,14 @@ Markets   Checked 9 Nov 2026
 Sam O’Connell plays Spike Bar this Saturday, 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
 
 Live Music   Checked 16 Nov 2026
+
+- Sat, 28 Nov · 10am–2pm · Boneo
+
+### [Meet The Makers at Hawkes Farm](<https://peninsulainsider.com.au/whats-on/meet-the-makers-at-hawkes-farm-2026-11-28/>)
+
+On the last Saturday of each month from September to April, Hawkes Farm comes alive with its Meet the Makers Market, bringing together a curated collection of talented local artisans, makers and small-batch producers.
+
+Markets   Checked 9 Nov 2026
 
 - Fri, 27 Nov · 6pm–9pm · Dromana
 
