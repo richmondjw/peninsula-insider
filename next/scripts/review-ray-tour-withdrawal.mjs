@@ -16,7 +16,7 @@ const withdrawn = [
   '/tour/operators/global-ballooning/',
 ];
 const forbidden = /bunyip|global-ballooning|Global Ballooning/i;
-const report = { head: process.env.REVIEW_HEAD_SHA, pages: [], retired: [], searches: [],
+const report = { head: process.env.REVIEW_HEAD_SHA, pages: [], retired: [], searches: [], requests: [], browserErrors: [],
   cmsScope: 'Built overrides plus deterministic empty runtime CMS response. Live CMS is not certified by this test.', passed: false };
 assert.match(report.head ?? '', /^[a-f0-9]{40}$/);
 report.checkout = execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim();
@@ -51,9 +51,13 @@ try {
   for (const width of [390,1440]) {
     const page = await browser.newPage();
     await page.setViewport({width,height:900});
+    page.on('pageerror', error => report.browserErrors.push({width,error:error.message}));
+    page.on('requestfailed', req => report.requests.push({width,url:req.url(),failure:req.failure()?.errorText}));
     await page.setRequestInterception(true);
     page.on('request', req => {
-      if (req.url().startsWith(origin) || req.url().startsWith('data:')) return req.continue();
+      // Generated search may execute a same-origin blob worker. It is part of
+      // the real local index, not an external service to abort.
+      if (req.url().startsWith(origin + '/') || req.url().startsWith('blob:' + origin + '/') || req.url().startsWith('data:')) return req.continue();
       // No form submission or real CMS mutation; deterministic runtime boundary.
       if (req.url().includes('.supabase.co/')) return req.respond({status:200,contentType:'application/json',body:'[]'});
       return req.abort();
@@ -86,12 +90,17 @@ try {
     assert.equal((await page.goto(origin+control,{waitUntil:'networkidle0'})).status(),200);
     assert.ok(await page.$('a[data-pi-book="booking"]'));
     report.pages.push({route:control,width,retained:true});
+    report.phase = {width,step:'real-pagefind-search'};
     const searches = await page.evaluate(async () => {
-      const pf=await import('/pagefind/pagefind.js');
+      const bounded = (promise,label) => {
+        let timer;
+        return Promise.race([promise,new Promise((_,reject)=>{timer=setTimeout(()=>reject(new Error(label+' did not complete within 30 seconds')),30000);})]).finally(()=>clearTimeout(timer));
+      };
+      const pf=await bounded(import('/pagefind/pagefind.js'),'Pagefind import');
       const results=[];
       for (const query of ['Bunyip','Global Ballooning','Local Way']) {
-        const found=await pf.search(query);
-        results.push({query,hits:await Promise.all(found.results.map(async r=>{const d=await r.data();return {url:d.url,title:d.meta?.title,content:d.content};}))});
+        const found=await bounded(pf.search(query),'Pagefind query '+query);
+        results.push({query,hits:await bounded(Promise.all(found.results.map(async r=>{const d=await r.data();return {url:d.url,title:d.meta?.title,content:d.content};})),'Pagefind result data '+query)});
       }
       return results;
     });
@@ -107,6 +116,7 @@ try {
 } catch (error) { report.error=error.stack; throw error; }
 finally {
   await fs.writeFile(path.join(out,'report.json'),JSON.stringify(report,null,2));
+  console.log(JSON.stringify({head:report.head,passed:report.passed,phase:report.phase,pages:report.pages.map(p=>({route:p.route,width:p.width})),searches:report.searches,error:report.error,browserErrors:report.browserErrors,localRequestFailures:report.requests.filter(r=>r.url.startsWith(origin+'/') || r.url.startsWith('blob:'+origin+'/'))}));
   if (browser) await browser.close();
   await new Promise(resolve=>server.close(resolve));
 }
