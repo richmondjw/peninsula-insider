@@ -12,7 +12,7 @@ Rules:
   may enter these states while the GSC blocker (B-1) is open.** Nothing below is
   marked recovered today, and that is correct rather than pessimistic.
 
-Last updated: 2026-09-19.
+Last updated: 2026-11-23.
 
 ---
 
@@ -34,6 +34,7 @@ Last updated: 2026-09-19.
 | R-8 | `/explore/bushrangers-bay/`, `/explore/plans/the-producer-trail/` | `googleCanonical` resolves to an unrelated URL, `/explore/places/rosebud/`, instead of each page's declared target | GSC URL Inspection, 19 Sep; both carry identical `lastCrawlTime` 28 Jun 05:03:01 | Unknown — not checked against the live redirect map; do not assume cause from GSC data alone | P1 | Low (mechanism unconfirmed) | DIAGNOSED | — |
 | R-9 | Homepage, `/eat/best-restaurants/` | LCP 5.09s / 7.01s — both above Google's 4s "poor" threshold | Lighthouse CI, GH run `35397859501`, 18 Sep | Unconfirmed; candidate correlation with the 10–11 Jun homepage redesign (PRs #242–#245) — no pre-redesign Lighthouse baseline exists | P1 | Med | DIAGNOSED | — |
 | R-10 | Whole site | TLS 1.0 / 1.1 still served — SiteOne flags CRITICAL; security score 6.5/10 | SiteOne crawl, GH run `35397859501`, 18 Sep | Server/CDN TLS config not restricted to 1.2+ | P2 | High | DIAGNOSED | — |
+| R-11 | Whole site | From 24 May–11 Jun and 24 Jun–3 Aug (58 days), an inline script in `BaseLayout` redirected every visitor without a `pi-access-v1` localStorage key — Google's renderer included — to `/access/`, a `noindex, nofollow` "Coming Soon" page | Git history of `BaseLayout.astro` and `pages/access/`; position cliff 12–13 Jun; R-8's 28 Jun crawl; DataForSEO footprint 510→252 keywords 8 Aug–23 Sep | Temporary password gate implemented as a client-side redirect on the public pages | P0 | High for mechanism; causation not yet tested against the daily GSC series | DEPLOYED (gate removed 3 Aug, source deleted 20 Sep; 0 of 1,165 live HTML files carry it) — recrawl unmeasured | `932001b`, `b497afd` |
 
 ## Verified complete (do not redo)
 
@@ -52,6 +53,7 @@ Last updated: 2026-09-19.
 | B-1 | Search Console OAuth fails `unauthorized_client` | **RESOLVED 19 Sep** — 42 live URL Inspection calls and multiple Search Analytics queries succeeded with no auth error. Downstream states (`LIVE_VERIFIED`, `GOOGLE_RECRAWLED`, `RECOVERED`) can now be pursued. | James |
 | B-2 | Live domain blocked by egress policy from this environment (403 CONNECT) | Cloudflare edge redirects, real HTTP codes and headers unverified. Artefact conclusions unaffected (`gh-pages` measured directly) | James / infra |
 | B-3 | Repo-root leftovers from the retired root-deploy model, incl. a 408-URL stale `sitemap.xml` | Not served, but has already produced one wrong measurement | Decision needed |
+| B-4 | A Search Console manual action has not been ruled out | If present it, not R-11, is the operative cause; only visible in the GSC UI (Security & Manual Actions) | James |
 
 ## Next actions, ranked by Impact × Confidence ÷ Effort
 
@@ -88,6 +90,14 @@ event took roughly a fortnight to become visible in GSC and months to fully land
 the reversal will lag comparably.
 
 ## Re-measurement log
+
+- **2026-11-23** — No cohort re-check (URL Inspection not reachable from this session). New root
+  cause logged as R-11: the password gate redirected every page to a `noindex` Coming Soon page for
+  58 days; it explains the 13 June cliff more directly than R-9 and accounts for R-8's canonicals.
+  GSC from 9 Nov: 566 impressions, 8 clicks over ISO weeks 46–47 (second partial); content pages at position 60–90,
+  home page at 12. Deployed artefact audited clean (0 noindex-in-sitemap, 0 canonical losers,
+  0 broken internal links). Decisive next measurement: `npm run crawl-age` in `ops/scripts/seo`.
+  Full detail: `ops/reports/seo/indexation-recovery-forensics-2026-11-23.md`.
 
 - **2026-09-19** — First cohort re-check since B-1 cleared (previous snapshot: 22 Aug, largely
   against stale pre-fix crawls). Group A: 2 of 10 recovered (`/wine/onannon/`,
