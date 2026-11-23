@@ -16,7 +16,7 @@ const withdrawn = [
   '/tour/operators/global-ballooning/',
 ];
 const forbidden = /bunyip|global-ballooning|Global Ballooning/i;
-const report = { head: process.env.REVIEW_HEAD_SHA, pages: [], retired: [], searches: [], requests: [], browserErrors: [], searchHttp: [], searchConsole: [], workers: [],
+const report = { head: process.env.REVIEW_HEAD_SHA, pages: [], retired: [], searches: [], requests: [], browserErrors: [], searchHttp: [], searchConsole: [], workers: [], interceptionErrors: [],
   cmsScope: 'Built overrides plus deterministic empty runtime CMS response. Live CMS is not certified by this test.', passed: false };
 assert.match(report.head ?? '', /^[a-f0-9]{40}$/);
 report.checkout = execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim();
@@ -60,13 +60,22 @@ try {
     page.on('console', message => { if (['warn','warning','error'].includes(message.type())) report.searchConsole.push({width,type:message.type(),text:message.text()}); });
     page.on('workercreated', worker => report.workers.push({width,url:worker.url()}));
     page.on('requestfailed', req => report.requests.push({width,url:req.url(),failure:req.failure()?.errorText}));
-    await page.setRequestInterception(true);
-    page.on('request', req => {
-      if (req.url().startsWith(origin + '/') || req.url().startsWith('data:')) return req.continue();
-      // No form submission or real CMS mutation; deterministic runtime boundary.
-      if (req.url().includes('.supabase.co/')) return req.respond({status:200,contentType:'application/json',body:'[]'});
-      return req.abort();
+    // Puppeteer 24.x can send worker continuation commands to the wrong
+    // session (upstream #15509/#15605). Settle each paused request on this
+    // exact session. Keep the same local-only/empty-CMS network policy.
+    const interception = await page.createCDPSession();
+    interception.on('Fetch.requestPaused', async ({requestId,request}) => {
+      try {
+        if (request.url.startsWith(origin + '/') || request.url.startsWith('data:')) {
+          await interception.send('Fetch.continueRequest',{requestId});
+        } else if (request.url.includes('.supabase.co/')) {
+          await interception.send('Fetch.fulfillRequest',{requestId,responseCode:200,responseHeaders:[{name:'Content-Type',value:'application/json'}],body:Buffer.from('[]').toString('base64')});
+        } else {
+          await interception.send('Fetch.failRequest',{requestId,errorReason:'Aborted'});
+        }
+      } catch (error) { report.interceptionErrors.push({width,error:error.message}); }
     });
+    await interception.send('Fetch.enable',{patterns:[{urlPattern:'*',requestStage:'Request'}]});
     for (const route of withdrawn) {
       const response = await page.goto(origin+route,{waitUntil:'networkidle0'});
       assert.equal(response.status(),404,route);
@@ -115,13 +124,15 @@ try {
     }
     assert.ok(searches.find(r=>r.query==='Local Way').hits.some(h=>new URL(h.url,origin).pathname===control),'Real Pagefind retained-tour positive control');
     report.searches.push({width,results:searches});
+    assert.deepEqual(report.interceptionErrors,[],'Request policy must settle every paused request');
     await page.close();
   }
+  assert.deepEqual(report.interceptionErrors,[],'No unhandled interception errors');
   report.passed=true;
 } catch (error) { report.error=error.stack; throw error; }
 finally {
   await fs.writeFile(path.join(out,'report.json'),JSON.stringify(report,null,2));
-  console.log(JSON.stringify({head:report.head,passed:report.passed,phase:report.phase,pages:report.pages.map(p=>({route:p.route,width:p.width})),searches:report.searches,error:report.error,browserErrors:report.browserErrors,searchHttp:report.searchHttp,searchConsole:report.searchConsole,workers:report.workers,localRequestFailures:report.requests.filter(r=>r.url.startsWith(origin+'/'))}));
+  console.log(JSON.stringify({head:report.head,passed:report.passed,phase:report.phase,pages:report.pages.map(p=>({route:p.route,width:p.width})),searches:report.searches,error:report.error,browserErrors:report.browserErrors,searchHttp:report.searchHttp,searchConsole:report.searchConsole,workers:report.workers,interceptionErrors:report.interceptionErrors,localRequestFailures:report.requests.filter(r=>r.url.startsWith(origin+'/'))}));
   if (browser) await browser.close();
   await new Promise(resolve=>server.close(resolve));
 }
