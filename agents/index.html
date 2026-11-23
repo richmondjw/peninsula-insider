@@ -1,4 +1,42 @@
-<!DOCTYPE html><html lang="en-AU" data-astro-cid-xlwzy6fz> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta http-equiv="content-language" content="en-AU"><!-- v6: fonts are self-hosted via @font-face in v6-tokens.css (no external
+<!DOCTYPE html><html lang="en-AU" data-astro-cid-xlwzy6fz> <head><meta charset="utf-8"><script>
+  (function () {
+    if (!['peninsulainsider.com.au', 'www.peninsulainsider.com.au'].includes(location.hostname)) return;
+    if (window.__piOpenAIPixelInstalled) return;
+    window.__piOpenAIPixelInstalled = true;
+
+    var key = 'pi-consent-v1';
+    function readChoice() {
+      try { return JSON.parse(localStorage.getItem(key)); }
+      catch (_) { return null; }
+    }
+
+    function applyChoice(choice) {
+      var allowed = !!choice && choice.version === 1 && choice.adMeasurement === true;
+      if (window.oaiq) {
+        window.oaiq('consent', allowed);
+        return;
+      }
+      if (!allowed) return;
+
+      var queue = function () { queue.q.push(arguments); };
+      queue.q = [];
+      window.oaiq = queue;
+      queue('consent', true);
+      queue('init', { pixelId: 'DYoVGn5Kp8wobzjMbk4w3S', debug: true });
+
+      var sdk = document.createElement('script');
+      sdk.async = true;
+      sdk.src = 'https://bzrcdn.openai.com/sdk/oaiq.min.js';
+      document.head.appendChild(sdk);
+    }
+
+    applyChoice(readChoice());
+    window.addEventListener('pi:consent-changed', function (event) { applyChoice(event.detail); });
+    window.addEventListener('storage', function (event) {
+      if (event.key === key || event.key === null) applyChoice(readChoice());
+    });
+  })();
+</script><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta http-equiv="content-language" content="en-AU"><!-- v6: fonts are self-hosted via @font-face in v6-tokens.css (no external
        Google Fonts request). Preload the two hero-critical faces. --><link rel="preload" href="/fonts/sora-600.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fonts/figtree-400.woff2" as="font" type="font/woff2" crossorigin><title>A welcome for agents · Peninsula Insider</title><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="description" content="The shortest routes to Peninsula Insider's public guides, events, stories and compact page formats, with clear dates, sources and permissions."><link rel="canonical" href="https://peninsulainsider.com.au/agents/"><link rel="describedby" href="/llms.txt" type="text/plain" title="Peninsula Insider agent guide"><link rel="alternate" type="application/rss+xml" title="Peninsula Insider stories" href="/feed.xml"><meta name="robots" content="index, follow, max-image-preview:large"><!-- Open Graph --><meta property="og:title" content="A welcome for agents · Peninsula Insider"><meta property="og:description" content="The shortest routes to Peninsula Insider's public guides, events, stories and compact page formats, with clear dates, sources and permissions."><meta property="og:image" content="https://peninsulainsider.com.au/images/sourced/explore-hub-hero-01.webp?v=199413d0"><meta property="og:url" content="https://peninsulainsider.com.au/agents/"><meta property="og:type" content="website"><meta property="og:site_name" content="Peninsula Insider"><meta property="og:locale" content="en_AU"><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="A welcome for agents · Peninsula Insider"><meta name="twitter:description" content="The shortest routes to Peninsula Insider's public guides, events, stories and compact page formats, with clear dates, sources and permissions."><meta name="twitter:image" content="https://peninsulainsider.com.au/images/sourced/explore-hub-hero-01.webp?v=199413d0"><script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsMediaOrganization","@id":"https://peninsulainsider.com.au/#organization","name":"Peninsula Insider","legalName":"Peninsula Insider","url":"https://peninsulainsider.com.au","description":"The independent editorial guide to the Mornington Peninsula: honest, opinionated coverage of eating, drinking, staying, and exploring. Every pick is independently researched and earns its place.","foundingDate":"2024","areaServed":{"@type":"Place","name":"Mornington Peninsula, Victoria, Australia"},"sameAs":["https://www.instagram.com/peninsula_insider/","https://www.facebook.com/profile.php?id=61568754749670","https://www.linkedin.com/company/peninsula-insider"],"contactPoint":[{"@type":"ContactPoint","contactType":"editorial","email":"hello@peninsulainsider.com.au"},{"@type":"ContactPoint","contactType":"corrections","email":"corrections@peninsulainsider.com.au"}],"publishingPrinciples":"https://peninsulainsider.com.au/about/","correctionsPolicy":"https://peninsulainsider.com.au/corrections/","diversityPolicy":"https://peninsulainsider.com.au/about/","ethicsPolicy":"https://peninsulainsider.com.au/about/"}</script><script>
     (function () {
       try {
