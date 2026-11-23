@@ -15,6 +15,8 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 
 ## Recent selections
 
+- [Jetty Road Brewery's seasonal taps, the Arthurs Seat wildflower loop, and Mornington's Wednesday street market](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-24/>) - Rotating taps at Jetty Road Brewery in Dromana, the Serafino Track wildflower loop on Arthurs Seat, and the Wednesday street market running down Main Street Mornington until 3pm.
+
 - [Vault dining in Mornington, the coastal boardwalk at Cape Schanck, and the Emu Plains Market at Balnarring](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-23/>) - The Bay Hotel's converted bank vault for a group dinner, the Cape Schanck boardwalk in full spring light, and Emu Plains Market running Saturdays until 19 December.
 
 - [Insider Picks - Sunday 22 November 2026](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-22/>) - Wood-fired sourdough at The Red Hill Baker in Balnarring, the final hours of the National Works on Paper exhibition in Mornington, and cape weed in full flower along the Bushrangers Bay trail.
@@ -36,8 +38,6 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 - [Two Bays on tap, waratahs on the Bushrangers Bay track, and the VineHop Festival this Saturday](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-14/>) - A gluten-free pale ale that holds up without the qualifier at Two Bays in Dromana, waratah season on the Bushrangers Bay Walk near Flinders, and what to know before Saturday's Peninsula VineHop Festival.
 
 - [Lindenderry's garden walk, the NWOP's final weekend, and live music at Fingal](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-13/>) - Red Hill estate gardens at their spring peak, the National Works on Paper closing Sunday at Mornington Peninsula Regional Gallery, and acoustic sets at Peppers Moonah Links in Fingal.
-
-- [Main Ridge Dairy, the Arthurs Seat wildflower loop, and the NWOP's last weekend](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-12/>) - Goat cheeses at a working dairy, spring orchids on the Arthurs Seat Eagle trail network, and the National Works on Paper exhibition closing Sunday at Mornington Peninsula Regional Gallery.
 
 ## Planning a particular weekend?
 
