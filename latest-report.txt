@@ -1,11 +1,11 @@
 PENINSULA INSIDER SEO/GEO
-2026-11-24 · incremental cycle · run 2026-11-24-0536-incremental-e1c3eff0
+2026-11-25 · incremental cycle · run 2026-11-25-0538-incremental-3f7a2cec
 
 STATUS
 Model-weighted technical health: needs attention (67/100); not a full live-site certification
-Raw technical findings: 1161; severity and materiality require evidence.
+Raw technical findings: 1166; severity and materiality require evidence.
 Live crawler evidence: available; fresh; matches current deployment: false
-Pages checked: 1160 (989 new or changed since last run)
+Pages checked: 1162 (901 new or changed since last run)
 Critical issues: 0 critical, 2 major
 Audit target: next/dist (freshly built source)
   This is unreleased output; findings may already be fixed relative to the live site.
@@ -15,13 +15,13 @@ None. The engine is in apply mode.
 0 change(s) planned, 0 pass the opportunity gate; this is not proof of an available or approved source patch.
 
 SEARCH
-713 impressions, 0 clicks, CTR 0% (available page/query rows; not whole-property totals)
+751 impressions, 0 clicks, CTR 0% (available page/query rows; not whole-property totals)
 
-Search Console property totals: 903 impressions, 11 clicks (separate from query rows).
+Search Console property totals: 948 impressions, 13 clicks (separate from query rows).
 Demand signals: 0 newly observed, 0 rising, 0 declining; 0 multi-page query groups to review (not proven cannibalisation).
 GEO
-Benchmark: 614 questions, 200 assessed this cycle. 127 have a good answer on the site, 24 do not.
-Citation readiness across 1160 scored pages: 2 strong, 738 workable, 420 weak.
+Benchmark: 614 questions, 200 assessed this cycle. 51 have a good answer on the site, 76 do not.
+Citation readiness across 1162 scored pages: 3 strong, 740 workable, 419 weak.
 AI answer surfaces: not_yet_measurable. No observed AI-answer receipts. Inferred page coverage is not citation visibility.
 Latest discovery collector: not_yet_measurable at 2026-11-21T18:30:39.354Z; Provider returned answers without explicit citation metadata; receipts retained, no AI citation observations imported..
 Site coverage above is INFERRED from Peninsula Insider's own pages, not an AI citation measurement.
@@ -37,22 +37,22 @@ None worth raising this cycle.
 
 OPERATOR ATTENTION — Remy
 - Crawler receipt does not match the current deployment; refresh matching live evidence.
-- 52 source candidate(s) deferred: no supported evidence-qualified source patch; operator source review required.
+- 53 source candidate(s) deferred: no supported evidence-qualified source patch; operator source review required.
 
 NEEDS JAMES
 Nothing requiring a human decision this cycle.
 
 SYSTEM
 Decision layer: Jev via https://api.typesafe.ai (model jev-latest) — probe passed
-Crawler: local corpus reader over 1160 rendered production-surface pages; candidate patches separately checked against live pages
+Crawler: local corpus reader over 1162 rendered production-surface pages; candidate patches separately checked against live pages
 Analytics: Search Console rows from gateway:analytics-live.json
-GA4 organic engagement: observed; 14 pages joined.
-CMS/source: Astro content collections: 136 venues, 213 events, 37 towns
+GA4 organic engagement: observed; 13 pages joined.
+CMS/source: Astro content collections: 136 venues, 214 events, 37 towns
 Scheduled job: OpenClaw pi-seo-daily-pull — 05:30 Australia/Melbourne daily; expanded Sunday. GitHub Actions validates releases, not the JEV schedule.
-Decisions this run: 13009 (100% without a frontier model, est. cost $0.1147)
-Decision provenance: 3474 JEV, 9535 deterministic; 2000 remote calls; 2680 same-batch reuses. Cost excludes orchestration and infrastructure.
+Decisions this run: 12139 (100% without a frontier model, est. cost $0.1149)
+Decision provenance: 3424 JEV, 8715 deterministic; 2000 remote calls; 2615 same-batch reuses. Cost excludes orchestration and infrastructure.
 Remote decision allowance exhausted; remaining analysis used explicitly labelled rules.
 Execution errors: none. Operational blockers are reported separately; this is not live-site acceptance.
 
 NEXT
-Next cycle: re-check 4 newly-seen issue(s) and 1157 recurring one(s), starting with not_in_sitemap on /photography/. Sunday runs the expanded audit.
+Next cycle: re-check 5 newly-seen issue(s) and 1161 recurring one(s), starting with not_in_sitemap on /photography/. Sunday runs the expanded audit.
