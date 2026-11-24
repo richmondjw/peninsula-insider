@@ -1,36 +1,11 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-24T08:15:45.830Z",
+  "generatedAt": "2026-11-24T12:06:55.075Z",
   "baselineAvailable": true,
-  "fromSnapshot": "324c58f106155c6a416fa94a536bc2b5c4b720b379919a125743e854f15f366a",
+  "fromSnapshot": "84c3b41408062340a9dffe595d2de1dfdd4b58dd9314043e02595fddbf97d1c5",
   "toSnapshot": "84c3b41408062340a9dffe595d2de1dfdd4b58dd9314043e02595fddbf97d1c5",
-  "previousGeneratedAt": "2026-11-24T06:50:40.790Z",
+  "previousGeneratedAt": "2026-11-24T08:15:45.830Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 3,
-  "changes": [
-    {
-      "id": "https://peninsulainsider.com.au/site-index/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/site-index/",
-      "markdownUrl": "https://peninsulainsider.com.au/site-index/index.md",
-      "contentSha256": "b953af5f20f36c94f2f3eb2d64d549e2414465479f1a81424b8e418214622d3d",
-      "previousContentSha256": "e46e5faa1396edd1337b3e97e07aab22b08ad8128c7c96e1f86194664258bd3d"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/index.md",
-      "contentSha256": "e32de7135a2ec47dee3dff67e8bae5305a8b765ce5e98b2d269c77bf17d98c21",
-      "previousContentSha256": "43057e7b7941f7301177d682fcdb9ad62f2c9b089771d66786f6c9067962fc51"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/nye-party-at-terrys-2026-12-31/",
-      "kind": "representation-added",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/nye-party-at-terrys-2026-12-31/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/nye-party-at-terrys-2026-12-31/index.md",
-      "contentSha256": "b1ea9d4893d30f2063560e478047a1d61a3cb45af9997ed3673fed64b83d1005",
-      "previousContentSha256": null
-    }
-  ]
+  "count": 0,
+  "changes": []
 }
