@@ -183,7 +183,7 @@ for (const width of [390, 1280, 1440]) {
   });
 }
 
-test('guide-only privacy boundary does not restore replies from the retired generated engine', { skip: !guideOn }, async () => {
+test('a thread saved under an older answer engine is not restored, and the small print matches the mode', { skip: !guideOn }, async () => {
   const reader = await site.reader();
   try {
     const page = reader.page;
@@ -198,20 +198,28 @@ test('guide-only privacy boundary does not restore replies from the retired gene
     await page.reload({ waitUntil: 'networkidle0' });
     await page.waitForSelector('#pi-chat-log');
     assert.equal(await page.$eval('#pi-chat-log', node => node.textContent), '');
-    assert.match(await page.$eval('.pi-chat__fine', node => node.textContent), /Nothing you ask is sent or stored/);
+    assert.match(await page.$eval('.pi-chat__fine', node => node.textContent), voiceOn ? /written by AI from those pages/ : /Nothing you ask is sent or stored/);
   } finally {
     await reader.close();
   }
 });
 
-test('the published privacy policy matches the guide-only Ask boundary', { skip: !guideOn }, async () => {
+test('the published privacy policy matches what Ask PI sends', { skip: !guideOn }, async () => {
   const reader = await site.reader();
   try {
     await reader.load('/privacy/');
     const policy = await reader.page.$eval('.legal__body', node => node.textContent);
-    assert.match(policy, /question and her answer are not sent to us or to an AI model provider/);
+    if (voiceOn) {
+      // In conversation her replies are written on the platform, and the policy has to say so.
+      assert.match(policy, /sent to our platform and to the AI model providers/);
+      assert.match(policy, /Groq and Cohere/);
+      assert.match(policy, /up to 180 days/);
+      assert.doesNotMatch(policy, /not sent to us or to an AI model provider/);
+    } else {
+      assert.match(policy, /question and her answer are not sent to us or to an AI model provider/);
+      assert.doesNotMatch(policy, /Groq|Cohere|up to 180 days/);
+    }
     assert.match(policy, /Google Analytics receives only the feedback button you choose and the kind of reply/);
-    assert.doesNotMatch(policy, /Groq|Cohere|up to 180 days/);
     assert.equal(await reader.page.$eval('.footer-bottom > p:first-child', node => {
       const style = getComputedStyle(node);
       return node.getBoundingClientRect().width / (Number.parseFloat(style.fontSize) * 0.5) <= 75;

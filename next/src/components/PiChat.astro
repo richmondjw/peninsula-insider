@@ -164,9 +164,9 @@ const starters = SHOW_ASK_PERSONA
   const FEEDBACK: [string, string][] = [['wrong-place', 'Wrong sort of place'], ['missed-point', 'Missed the point'], ['out-of-date', 'Out of date'], ['not-funny', 'Not funny']];
 
   // Version the session namespace whenever the answer engine's privacy boundary
-  // changes. Old generated replies must never survive into this guide-only UI.
-  const HISTORY = 'pi-chat-history-guide-v2';
-  const ENGINE = 'pi-chat-engine-guide-v2';
+  // changes, so a thread from one mode never carries into the other.
+  const HISTORY = 'pi-chat-history-talk-v3';
+  const ENGINE = 'pi-chat-engine-talk-v3';
   const STATE = 'pi-chat-state';
   const MODE = 'pi-chat-mode';
   const DESKTOP = window.matchMedia('(min-width: 64em)');
