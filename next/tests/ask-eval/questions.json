@@ -1,6 +1,6 @@
 {
  "version": 1,
- "note": "Questions PI is tested on every night. Each turn's `expect` is what a reply must do: pick (true: name at least one published page; false: name none), mentions and never (regular expressions on her words). Every reply is also checked for her banned words, prices, clock times and claims to have been somewhere.",
+ "note": "Questions PI is tested on every night. Each turn's `expect` is what a reply must do: pick (true: name at least one published page; false: name none), mentions and never (regular expressions on her words). Every reply is also checked for her banned words, prices, clock times and claims to have been somewhere. Questions tagged explore can only be answered well from inside the /explore guides (beaches, walks, hot springs, getting here, markets, day trips, golf), not from their opening lines.",
  "conversations": [
   {
    "tag": "direct",
@@ -1074,6 +1074,156 @@
       "pick": false,
       "mentions": "13 11 14",
       "fixed": true
+     }
+    }
+   ]
+  },
+  {
+   "tag": "explore",
+   "turns": [
+    {
+     "q": "which beach is best for toddlers?",
+     "expect": {
+      "pick": true,
+      "mentions": "Balnarring"
+     }
+    }
+   ]
+  },
+  {
+   "tag": "explore",
+   "turns": [
+    {
+     "q": "what should we avoid at the beach with young kids?",
+     "expect": {
+      "mentions": "ocean|rip|back beach|gunnamatta"
+     }
+    }
+   ]
+  },
+  {
+   "tag": "explore",
+   "turns": [
+    {
+     "q": "Peninsula Hot Springs or Alba, which one?",
+     "expect": {
+      "pick": true,
+      "mentions": "first|crowd|calm|quiet|variety|return"
+     }
+    }
+   ]
+  },
+  {
+   "tag": "explore",
+   "turns": [
+    {
+     "q": "is Peninsula Hot Springs ok for kids?",
+     "expect": {
+      "mentions": "child|kid|famil"
+     }
+    }
+   ]
+  },
+  {
+   "tag": "explore",
+   "turns": [
+    {
+     "q": "best short walk with a big payoff?",
+     "expect": {
+      "pick": true,
+      "mentions": "Cape Schanck"
+     }
+    }
+   ]
+  },
+  {
+   "tag": "explore",
+   "turns": [
+    {
+     "q": "which walk has the best scenery without the crowds?",
+     "expect": {
+      "pick": true,
+      "mentions": "Bushrangers"
+     }
+    }
+   ]
+  },
+  {
+   "tag": "explore",
+   "turns": [
+    {
+     "q": "how long is the Two Bays Walking Track?",
+     "expect": {
+      "mentions": "26"
+     }
+    }
+   ]
+  },
+  {
+   "tag": "explore",
+   "turns": [
+    {
+     "q": "how long is the drive from Melbourne to Sorrento?",
+     "expect": {
+      "mentions": "hour|minutes|freeway"
+     }
+    }
+   ]
+  },
+  {
+   "tag": "explore",
+   "turns": [
+    {
+     "q": "can we get there without a car?",
+     "expect": {
+      "mentions": "Frankston|788|bus|train"
+     }
+    }
+   ]
+  },
+  {
+   "tag": "explore",
+   "turns": [
+    {
+     "q": "where does the Sorrento ferry go?",
+     "expect": {
+      "mentions": "Queenscliff"
+     }
+    }
+   ]
+  },
+  {
+   "tag": "explore",
+   "turns": [
+    {
+     "q": "which market is on a Wednesday?",
+     "expect": {
+      "pick": true,
+      "mentions": "Mornington"
+     }
+    }
+   ]
+  },
+  {
+   "tag": "explore",
+   "turns": [
+    {
+     "q": "is there a walk and soak route?",
+     "expect": {
+      "pick": true,
+      "mentions": "soak|hot springs|Alba"
+     }
+    }
+   ]
+  },
+  {
+   "tag": "explore",
+   "turns": [
+    {
+     "q": "best golf if we can't get into a private club?",
+     "expect": {
+      "pick": true,
+      "mentions": "Moonah|St Andrews|RACV|Eagle Ridge|Dunes|Flinders|Rosebud|public"
      }
     }
    ]
