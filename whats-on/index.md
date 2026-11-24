@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/whats-on/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-11-24
+Modified: 2026-11-25
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -13,13 +13,13 @@ Find the date, place and reason to go, then check with the organiser before you 
 
 ## Reasons to go
 
-- Sat, 28 Nov · 5pm–8pm · Fingal
+- Fri, 27 Nov · 6pm–9pm · Dromana
 
-### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+### [Ben Smith Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
 
-Sam O’Connell plays Spike Bar this Saturday, 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
+Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes.
 
-Live Music   Checked 16 Nov 2026
+Live Music   Checked 9 Nov 2026
 
 - Sat, 28 Nov · 10am–2pm · Boneo
 
@@ -29,11 +29,11 @@ On the last Saturday of each month from September to April, Hawkes Farm comes al
 
 Markets   Checked 9 Nov 2026
 
-- Fri, 27 Nov · 6pm–9pm · Dromana
+- Sat, 28 Nov · 5pm–8pm · Fingal
 
-### [Ben Smith Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
+### [Brad Kennedy Live at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/brad-kennedy-live-at-peppers-moonah-links-resort-2026-11-28/>)
 
-Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes.
+Ease into the weekend with live music in the Spike Bar at Moonah Links.
 
 Live Music   Checked 9 Nov 2026
 
@@ -75,11 +75,11 @@ Dromana · Food & Wine · Checked 9 Nov 2026
 
 - 5pm
 
-[Brad Kennedy Live at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/brad-kennedy-live-at-peppers-moonah-links-resort-2026-11-28/>)
+[Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
-Ease into the weekend with live music in the Spike Bar at Moonah Links. Enjoy a rotating line-up of talented local artists from 5pm to 8pm, creating the perfect atmosphere to relax with friends, family or colleagues.
+Sam O’Connell plays Spike Bar this Saturday, 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
 
-Fingal · Live Music · Checked 9 Nov 2026
+Fingal · Live Music · Recurring weekly · Checked 16 Nov 2026
 
 - 6pm
 

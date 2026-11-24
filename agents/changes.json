@@ -1,11 +1,44 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-24T12:06:55.075Z",
+  "generatedAt": "2026-11-24T13:34:14.096Z",
   "baselineAvailable": true,
   "fromSnapshot": "84c3b41408062340a9dffe595d2de1dfdd4b58dd9314043e02595fddbf97d1c5",
-  "toSnapshot": "84c3b41408062340a9dffe595d2de1dfdd4b58dd9314043e02595fddbf97d1c5",
-  "previousGeneratedAt": "2026-11-24T08:15:45.830Z",
+  "toSnapshot": "6b3984474599f4e83d3a11324cc41ed6e1e58d4767c78705191beacd1ecfd90f",
+  "previousGeneratedAt": "2026-11-24T12:06:55.075Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 0,
-  "changes": []
+  "count": 4,
+  "changes": [
+    {
+      "id": "https://peninsulainsider.com.au/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/",
+      "markdownUrl": "https://peninsulainsider.com.au/index.md",
+      "contentSha256": "b08c4a6eefd0e83b0c3db1a8236d1549f5355c87b4d4578d66f7fd20f01c2836",
+      "previousContentSha256": "b63214a915f497a8733ac4802e9577c863356c37a7786a4d806c00644e2499bd"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/index.md",
+      "contentSha256": "34ef66a59ce741be31cac685f4a51917d486661f8e2a81c99fd8ee0addb82162",
+      "previousContentSha256": "b8e39c12d0d3e9ab111017cfd912ec18ff79ec8746342917049c9ad0455acbd1"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/quick-note/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
+      "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
+      "contentSha256": "79e0619c42c9571a597fe729599e2461d77cd629083033f6f785532c8287e39a",
+      "previousContentSha256": "7ac8a534d1807cf4aae5949884b4b422e8932d9545067bcf035b4ae3d9128806"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
+      "contentSha256": "a6797103932c37196ad5eb56adc35cf5d9469b22fcc92f53d7a1efc1cc9a4ad9",
+      "previousContentSha256": "e3f18407e8bd1ac0233506b6290f7aa1c71832f5c0c48d98e9f4376aed30bf7e"
+    }
+  ]
 }

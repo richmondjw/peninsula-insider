@@ -77,14 +77,6 @@ Merricks
 
 Swipe or scroll through the picks
 
-- ### [Meet The Makers at Hawkes Farm](<https://peninsulainsider.com.au/whats-on/meet-the-makers-at-hawkes-farm-2026-11-28/>)
-
-On the last Saturday of each month from September to April, Hawkes Farm comes alive with its Meet the Makers Market, bringing together a.
-
-Sat, 28 Nov   Hawkes Farm   Market
-
-Event details checked 9 Nov 2026 · [Organiser’s page](<https://store.hawkesfarm.com.au/blogs/news/meet-the-makers-market>)
-
 - ### [November Cellar Door Opening](<https://peninsulainsider.com.au/whats-on/november-cellar-door-opening-2026-11-28/>)
 
 Taste and purchase wines while enjoying a guided tour of Elgee Park’s sculpture collection. Starts 12pm.
@@ -100,6 +92,14 @@ Delicious, Festive, Exciting!
 Sat, 28 Nov   Peninsula Gourmet Cooking School   Food & wine
 
 Event details checked 9 Nov 2026 · [Organiser’s page](<https://peninsulagourmetcookingschool.com.au/classes>)
+
+- ### [Dave Campbell Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/dave-campbell-live-at-peninsula-beer-garden-2026-11-29/>)
+
+Live Music at Peninsula Beer Garden! Join Dave Campbell for your music fix.
+
+Sun, 29 Nov   Peninsula Beer Garden   Live music
+
+Event details checked 9 Nov 2026 · [Organiser’s page](<https://peninsulabeergarden.com.au/>)
 
 This season · Spring
 
