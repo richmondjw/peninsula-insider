@@ -541,6 +541,8 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [New Year’s Eve at Portsea Hotel](<https://peninsulainsider.com.au/whats-on/new-year-s-eve-2026-12-31/>)
 
+- [New Year's Eve at Terry's](<https://peninsulainsider.com.au/whats-on/nye-party-at-terrys-2026-12-31/>)
+
 - [New Years Eve Event 2026/2027](<https://peninsulainsider.com.au/whats-on/new-years-eve-event-2026-2027-2026-12-31/>)
 
 - [November Cellar Door Opening](<https://peninsulainsider.com.au/whats-on/november-cellar-door-opening-2026-11-28/>)

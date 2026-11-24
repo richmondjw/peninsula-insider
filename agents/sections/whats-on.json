@@ -1,9 +1,9 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-11-24T06:50:40.790Z",
-  "snapshotId": "324c58f106155c6a416fa94a536bc2b5c4b720b379919a125743e854f15f366a",
+  "generatedAt": "2026-11-24T08:15:45.830Z",
+  "snapshotId": "84c3b41408062340a9dffe595d2de1dfdd4b58dd9314043e02595fddbf97d1c5",
   "section": "whats-on",
-  "count": 85,
+  "count": 86,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/whats-on/",
@@ -19,7 +19,7 @@
         "publishedAt": null,
         "modifiedAt": "2026-11-24"
       },
-      "htmlBytes": 178288,
+      "htmlBytes": 178344,
       "markdownBytes": 6204
     },
     {
@@ -147,7 +147,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/index.md",
-      "contentSha256": "43057e7b7941f7301177d682fcdb9ad62f2c9b089771d66786f6c9067962fc51",
+      "contentSha256": "e32de7135a2ec47dee3dff67e8bae5305a8b765ce5e98b2d269c77bf17d98c21",
       "citation": {
         "title": "Things that start after the sun goes down",
         "publisher": "Peninsula Insider",
@@ -155,8 +155,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 173750,
-      "markdownBytes": 5696
+      "htmlBytes": 176838,
+      "markdownBytes": 6063
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/",
@@ -769,6 +769,23 @@
       },
       "htmlBytes": 149971,
       "markdownBytes": 3766
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/nye-party-at-terrys-2026-12-31/",
+      "title": "New Year's Eve at Terry's",
+      "section": "whats-on",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/nye-party-at-terrys-2026-12-31/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/nye-party-at-terrys-2026-12-31/index.md",
+      "contentSha256": "b1ea9d4893d30f2063560e478047a1d61a3cb45af9997ed3673fed64b83d1005",
+      "citation": {
+        "title": "New Year's Eve at Terry's",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/whats-on/nye-party-at-terrys-2026-12-31/",
+        "publishedAt": null,
+        "modifiedAt": null
+      },
+      "htmlBytes": 150433,
+      "markdownBytes": 3402
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/olivia-mae-live-at-jetty-road-brewery-2026-11-29/",

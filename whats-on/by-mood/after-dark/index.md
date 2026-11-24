@@ -85,6 +85,14 @@ World-renowned whip artist Nathan “Whippy” Griggs brings his Aussie Tour to 
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/whippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13/>)
 
+Live Music  31 Dec
+
+### [New Year's Eve at Terry's](<https://peninsulainsider.com.au/whats-on/nye-party-at-terrys-2026-12-31/>)
+
+Brendan “Pianomaniac” and Rohan Windle lead a duelling piano marathon at Terry's in Rye from 7:30pm, with karaoke and a midnight countdown.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/nye-party-at-terrys-2026-12-31/>)
+
 Food & Wine  31 Dec
 
 ### [New Years Eve Event 2026/2027](<https://peninsulainsider.com.au/whats-on/new-years-eve-event-2026-2027-2026-12-31/>)
