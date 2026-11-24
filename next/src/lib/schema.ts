@@ -59,7 +59,7 @@ export function buildWinerySchema(data: any, slug: string, section = 'wine') {
   ].filter(Boolean);
 
   const pageUrl = absUrl(`/${section}/${slug}`);
-
+  const isPublicVisitUnconfirmed = data.visiting?.publicVisitStatus === 'unconfirmed';
   const schema: any = {
     '@context': 'https://schema.org',
     '@type': ['Winery', 'LocalBusiness'],
@@ -73,13 +73,15 @@ export function buildWinerySchema(data: any, slug: string, section = 'wine') {
     ...(data.heroImage?.src && !data.heroImage.src.includes('placeholder')
       ? { image: `${SITE}${data.heroImage.src}` }
       : {}),
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: data.address,
-      addressRegion: 'VIC',
-      addressCountry: 'AU',
-    },
-    ...(data.coordinates?.lat != null
+    ...(!isPublicVisitUnconfirmed ? {
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: data.address,
+        addressRegion: 'VIC',
+        addressCountry: 'AU',
+      },
+    } : {}),
+    ...(!isPublicVisitUnconfirmed && data.coordinates?.lat != null
       ? {
           geo: {
             '@type': 'GeoCoordinates',
@@ -109,7 +111,7 @@ export function buildWinerySchema(data: any, slug: string, section = 'wine') {
     ...buildKnownForProperties(data.knownFor),
   };
 
-  if (data.visiting?.openingHours?.length) {
+  if (!isPublicVisitUnconfirmed && data.visiting?.openingHours?.length) {
     schema.openingHoursSpecification = data.visiting.openingHours.map((h: any) => ({
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: Array.isArray(h.days) ? h.days : [h.days],
