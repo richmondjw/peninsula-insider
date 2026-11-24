@@ -15,6 +15,8 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 
 ## Recent selections
 
+- [Moke in Flinders, the ocean cliff loop at West Head, and Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-25/>) - A 20-seat chef's table in Flinders, the West Head cliff loop at peak wildflower season, and live music on the golf grounds at Fingal this Saturday.
+
 - [Jetty Road Brewery's seasonal taps, the Arthurs Seat wildflower loop, and Mornington's Wednesday street market](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-24/>) - Rotating taps at Jetty Road Brewery in Dromana, the Serafino Track wildflower loop on Arthurs Seat, and the Wednesday street market running down Main Street Mornington until 3pm.
 
 - [Vault dining in Mornington, the coastal boardwalk at Cape Schanck, and the Emu Plains Market at Balnarring](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-23/>) - The Bay Hotel's converted bank vault for a group dinner, the Cape Schanck boardwalk in full spring light, and Emu Plains Market running Saturdays until 19 December.
@@ -36,8 +38,6 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 - [Barragunda Dining, Bushrangers Bay and planning for VineHop](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-15/>) - Book directly with Barragunda, check Parks Victoria's coastal-walk guidance, and plan transport for VineHop on 21 November.
 
 - [Two Bays on tap, waratahs on the Bushrangers Bay track, and the VineHop Festival this Saturday](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-14/>) - A gluten-free pale ale that holds up without the qualifier at Two Bays in Dromana, waratah season on the Bushrangers Bay Walk near Flinders, and what to know before Saturday's Peninsula VineHop Festival.
-
-- [Lindenderry's garden walk, the NWOP's final weekend, and live music at Fingal](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-13/>) - Red Hill estate gardens at their spring peak, the National Works on Paper closing Sunday at Mornington Peninsula Regional Gallery, and acoustic sets at Peppers Moonah Links in Fingal.
 
 ## Planning a particular weekend?
 
