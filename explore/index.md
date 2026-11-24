@@ -621,6 +621,154 @@ Quiet back roads linking cellar doors, farms and viewpoints. Make it a half-day 
 
  [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3619,145.0543>)
 
+## Start with a town
+
+Already know where you are heading? Each town has its own guide: what it does best, when to go and what to skip.
+
+ [All 37 towns](<https://peninsulainsider.com.au/explore/places/>)
+
+- Sorrento & Portsea
+
+### [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
+
+Ocean baths carved from limestone at the tip of the Peninsula.
+
+- Photo: Two Palms Australia, courtesy of Visit Victoria.
+
+Red Hill & Merricks
+
+### [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+
+The most concentrated food and wine precinct on the Peninsula, on the plateau above the bay.
+
+- Flinders & the Ocean Coast
+
+### [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
+
+The village that the Peninsula keeps to itself.
+
+- Sorrento & Portsea
+
+### [Portsea](<https://peninsulainsider.com.au/explore/places/portsea/>)
+
+The most private end of the Peninsula - the back beach is one of the best in Victoria.
+
+- Photo courtesy of Visit Victoria.
+
+Mornington & the Bay
+
+### [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
+
+The commercial hub - the most town-like part of the Peninsula, still worth knowing.
+
+- Photo courtesy of Visit Victoria.
+
+Flinders & the Ocean Coast
+
+### [Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)
+
+The boardwalk at the tip of the headland, where the Southern Ocean comes in.
+
+- Photo courtesy of Visit Victoria.
+
+Flinders & the Ocean Coast
+
+### [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
+
+The Peninsula’s thermal heart - where the weekend slows all the way down.
+
+- Mornington & the Bay
+
+### [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+
+The gateway town - more accessible than the hinterland, still genuinely Peninsula.
+
+### Every town, by area
+
+**[Mornington & the Bay](<https://peninsulainsider.com.au/explore/regions/mornington-bay-coast/>)**
+
+- [Capel Sound](<https://peninsulainsider.com.au/explore/places/capel-sound/>)
+
+- [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+
+- [McCrae](<https://peninsulainsider.com.au/explore/places/mccrae/>)
+
+- [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
+
+- [Mount Eliza](<https://peninsulainsider.com.au/explore/places/mount-eliza/>)
+
+- [Mount Martha](<https://peninsulainsider.com.au/explore/places/mount-martha/>)
+
+- [Rosebud](<https://peninsulainsider.com.au/explore/places/rosebud/>)
+
+- [Safety Beach](<https://peninsulainsider.com.au/explore/places/safety-beach/>)
+
+**[Red Hill & Merricks](<https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/>)**
+
+- [Arthurs Seat](<https://peninsulainsider.com.au/explore/places/arthurs-seat/>)
+
+- [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/>)
+
+- [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
+
+- [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
+
+- [Merricks Beach](<https://peninsulainsider.com.au/explore/places/merricks-beach/>)
+
+- [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
+
+- [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
+
+- [Point Leo](<https://peninsulainsider.com.au/explore/places/point-leo/>)
+
+- [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+
+- [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
+
+- [Tuerong](<https://peninsulainsider.com.au/explore/places/tuerong/>)
+
+**[Sorrento & Portsea](<https://peninsulainsider.com.au/explore/regions/peninsula-tip/>)**
+
+- [Blairgowrie](<https://peninsulainsider.com.au/explore/places/blairgowrie/>)
+
+- [Point Nepean](<https://peninsulainsider.com.au/explore/places/point-nepean/>)
+
+- [Portsea](<https://peninsulainsider.com.au/explore/places/portsea/>)
+
+- [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
+
+- [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
+
+- [Tootgarook](<https://peninsulainsider.com.au/explore/places/tootgarook/>)
+
+**[Flinders & the Ocean Coast](<https://peninsulainsider.com.au/explore/regions/ocean-coast/>)**
+
+- [Boneo](<https://peninsulainsider.com.au/explore/places/boneo/>)
+
+- [Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)
+
+- [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
+
+- [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
+
+- [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
+
+- [St Andrews Beach](<https://peninsulainsider.com.au/explore/places/st-andrews-beach/>)
+
+**[Western Port](<https://peninsulainsider.com.au/explore/regions/western-port/>)**
+
+- [Bittern](<https://peninsulainsider.com.au/explore/places/bittern/>)
+
+- [Crib Point](<https://peninsulainsider.com.au/explore/places/crib-point/>)
+
+- [Hastings](<https://peninsulainsider.com.au/explore/places/hastings/>)
+
+- [Somers](<https://peninsulainsider.com.au/explore/places/somers/>)
+
+- [Stony Point](<https://peninsulainsider.com.au/explore/places/stony-point/>)
+
+- [Tyabb](<https://peninsulainsider.com.au/explore/places/tyabb/>)
+
 ## Turn it into a day
 
 “+ Trip” on any card adds it to My trip. The bookmark keeps a place for later. Or start from a day we have already planned, with the right lunch and the right bed.
@@ -642,8 +790,6 @@ Quiet back roads linking cellar doors, farms and viewpoints. Make it a half-day 
 - [The golf guide  Public, resort and private courses side by side.](<https://peninsulainsider.com.au/explore/golf/>)
 
 ### Getting your bearings
-
-- [Explore the towns](<https://peninsulainsider.com.au/explore/places/>)
 
 - [Day trips](<https://peninsulainsider.com.au/explore/day-trips/>)
 
