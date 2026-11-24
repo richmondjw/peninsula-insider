@@ -77,14 +77,6 @@ Merricks
 
 Swipe or scroll through the picks
 
-- ### [DJ Sophie Joy Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/dj-sophie-joy-live-at-jetty-road-brewery-2026-11-28/>)
-
-Live music every weekend at Jetty Road Brewery!
-
-Sat, 28 Nov   Jetty Road Brewery   Live music
-
-Event details checked 9 Nov 2026 · [Organiser’s page](<https://www.jettyroad.com.au/dromana>)
-
 - ### [Meet The Makers at Hawkes Farm](<https://peninsulainsider.com.au/whats-on/meet-the-makers-at-hawkes-farm-2026-11-28/>)
 
 On the last Saturday of each month from September to April, Hawkes Farm comes alive with its Meet the Makers Market, bringing together a.
@@ -100,6 +92,14 @@ Taste and purchase wines while enjoying a guided tour of Elgee Park’s sculptur
 Sat, 28 Nov   Elgee Park   Exhibition
 
 Event details checked 9 Nov 2026 · [Organiser’s page](<https://www.elgeeparkwines.com.au/news/november-cellar-door-opening>)
+
+- ### [Summer Xmas Seafood Class at Peninsula Gourmet Cooking School](<https://peninsulainsider.com.au/whats-on/summer-xmas-seafood-class-at-peninsula-gourmet-cooking-school-2026-11-28/>)
+
+Delicious, Festive, Exciting!
+
+Sat, 28 Nov   Peninsula Gourmet Cooking School   Food & wine
+
+Event details checked 9 Nov 2026 · [Organiser’s page](<https://peninsulagourmetcookingschool.com.au/classes>)
 
 This season · Spring
 
