@@ -11,7 +11,8 @@ import { checkedSpan } from '../../lib/checked-span';
  *
  *   hero → the finder (what kind of outing, how long, who is coming) →
  *   results as photographs with the reason and the practical facts →
- *   what is good this season → turn it into a day → Journal → FAQ.
+ *   what is good this season → start with a town → turn it into a day →
+ *   Journal → FAQ.
  *
  * - One FilterBar still owns the filter state (lib/v5-filter-state). The photo
  *   tiles and the time row sit inside it through its "lead" slot, so the
@@ -35,6 +36,7 @@ import {
   timeBucket, timeLabel, EXPLORE_PICKS, TIME_OPTIONS,
 } from '../../components/v5/hub/explore-summaries.mjs';
 import { getFacets, FACET_OPTIONS, PLACE_TO_REGION } from '../../lib/facets';
+import { FEATURED_TOWNS } from '../../lib/featured-towns';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
 import { routeSlug, placeLabel, titleize, venueHref, isListableVenue } from '../../lib/editorial';
 import { getAustralianSeasonLower } from '../../lib/season';
@@ -234,6 +236,51 @@ const seasonal = things
   .filter((r) => (seasonalPlaces.has(placeKey(r)) ? false : (seasonalPlaces.add(placeKey(r)), true)))
   .slice(0, 3);
 
+// ── Start with a town ────────────────────────────────────────────────────────
+// The finder answers "what do I feel like doing?". This answers "I am going to
+// Sorrento": a way from Explore into the town guides, which the finder's
+// results never link to.
+const places = await getCollection('places');
+const placeBySlug = new Map(places.map((p) => [routeSlug(p), p]));
+const TOWN_RAIL_COUNT = 8;
+// The rail is photographs, so a town is shown there only with a real
+// photograph of the town itself: no placeholder, no illustrative stand-in.
+// Every town, pictured or not, is in the index beneath it.
+const townRail = (await Promise.all(
+  FEATURED_TOWNS
+    .map((slug) => placeBySlug.get(slug))
+    .filter((p): p is NonNullable<typeof p> => Boolean(p))
+    .map(async (p) => {
+      const slug = routeSlug(p);
+      const hero = await resolveHero('place', slug, p.data);
+      const own = p.data.heroImage as { credit?: string; depictionStatus?: string } | undefined;
+      return {
+        slug,
+        name: curly(p.data.name),
+        href: `/explore/places/${slug}/`,
+        line: curly(p.data.signature),
+        area: p.data.regionLabel as string | undefined,
+        pictured: hero.hasPhoto && (Boolean(hero.override) || own?.depictionStatus !== 'illustrative'),
+        image: { src: hero.src, alt: hero.alt, credit: hero.override ? hero.override.credit : own?.credit },
+      };
+    }),
+)).filter((t) => t.pictured).slice(0, TOWN_RAIL_COUNT);
+
+// Every town, under the same five parts of the Peninsula the finder uses.
+const townAreas = FACET_OPTIONS.place
+  .filter((o) => regionValues.has(o.value))
+  .map((o) => ({
+    slug: o.value,
+    label: o.label,
+    href: `/explore/regions/${o.value}/`,
+    towns: places
+      .filter((p) => (PLACE_TO_REGION[routeSlug(p)] ?? p.data.regionSlug) === o.value)
+      .map((p) => ({ name: curly(p.data.name), href: `/explore/places/${routeSlug(p)}/` }))
+      .sort((a, b) => a.name.localeCompare(b.name)),
+  }))
+  .filter((area) => area.towns.length > 0);
+const townTotal = places.length;
+
 // ── Turn it into a day ───────────────────────────────────────────────────────
 const guideLinks = [
   { href: '/explore/walks/', label: 'The best walks, ranked', line: 'From a 45-minute clifftop to the full Two Bays.' },
@@ -244,8 +291,8 @@ const guideLinks = [
   { href: '/explore/golf/', label: 'The golf guide', line: 'Public, resort and private courses side by side.' },
 ];
 // Every link the previous hub carried stays reachable from here (link graph).
+// The towns have their own section above.
 const planLinks = [
-  { href: '/explore/places/', label: 'Explore the towns' },
   { href: '/explore/day-trips/', label: 'Day trips' },
   { href: '/explore/weekend-trips/', label: 'Weekend trips' },
   { href: '/explore/getting-here/', label: 'Getting here' },
@@ -514,6 +561,53 @@ export const prerender = true;
     </section>
   )}
 
+  {townRail.length > 0 && (
+    <section class="x-towns" id="towns" aria-labelledby="towns-heading">
+      <div class="container">
+        <div class="x-shelf__header">
+          <div>
+            <h2 class="x-towns__heading" id="towns-heading">Start with a town</h2>
+            <p class="x-towns__line">Already know where you are heading? Each town has its own guide: what it does best, when to go and what to skip.</p>
+          </div>
+          <a class="x-shelf__all" href="/explore/places/">All {townTotal} towns <span aria-hidden="true">→</span></a>
+        </div>
+        <ul class="x-towns__rail" aria-labelledby="towns-heading">
+          {townRail.map((t, i) => (
+            <Card
+              variant="place"
+              title={t.name}
+              href={t.href}
+              entityType="place"
+              entitySlug={t.slug}
+              image={t.image}
+              imageSizes="(max-width: 640px) 70vw, (max-width: 1023px) 50vw, 300px"
+              eyebrow={t.area}
+              verdict={t.line}
+              actions={false}
+              surface="explore-towns"
+              position={i + 1}
+            />
+          ))}
+        </ul>
+        <div class="x-towns__index">
+          <h3 class="x-towns__index-heading" id="towns-index-heading">Every town, by area</h3>
+          <dl class="x-towns__areas">
+            {townAreas.map((area) => (
+              <div class="x-towns__area">
+                <dt><a href={area.href}>{area.label}</a></dt>
+                <dd>
+                  <ul role="list" aria-label={`Towns in ${area.label}`}>
+                    {area.towns.map((town) => <li><a href={town.href}>{town.name}</a></li>)}
+                  </ul>
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </div>
+    </section>
+  )}
+
   <section class="x-plan" aria-labelledby="plan-heading">
     <div class="container x-plan__grid">
       <div class="x-plan__lead">
@@ -596,8 +690,8 @@ export const prerender = true;
 
 <style>
   /* One section rhythm from the spacing scale; space separates sections. */
-  .x-find, .x-season, .x-plan, .x-journal, .x-faq { padding: var(--space-7) 0; }
-  .x-find__heading, .x-season__heading, .x-plan__heading, .x-journal__heading, .x-faq__heading { margin: 0; color: var(--text); font: 600 var(--fs-700)/1.15 var(--font-display); letter-spacing: -0.025em; text-wrap: balance; }
+  .x-find, .x-season, .x-towns, .x-plan, .x-journal, .x-faq { padding: var(--space-7) 0; }
+  .x-find__heading, .x-season__heading, .x-towns__heading, .x-plan__heading, .x-journal__heading, .x-faq__heading { margin: 0; color: var(--text); font: 600 var(--fs-700)/1.15 var(--font-display); letter-spacing: -0.025em; text-wrap: balance; }
 
   /* An arrow after link text: spaced, and never underlined with the words. */
   .x-arrow { display: inline-block; margin-left: .35em; text-decoration: none; }
@@ -728,6 +822,30 @@ export const prerender = true;
   .x-season__item { position: relative; display: flex; min-width: 0; list-style: none; }
   .x-season__item :global(.pi-card) { width: 100%; }
 
+  /* ── Start with a town ──────────────────────────────────────────────────── */
+  .x-towns { scroll-margin-top: 4rem; }
+  .x-towns .x-shelf__header { align-items: end; margin-bottom: var(--space-5); }
+  .x-towns__line { margin: var(--space-2) 0 0; max-width: 56ch; color: var(--soft); font-size: var(--fs-400); line-height: 1.55; text-wrap: pretty; }
+  .x-towns__rail { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-6) var(--space-5); list-style: none; margin: 0; padding: 0; }
+  .x-towns__rail > :global(li) { min-width: 0; }
+  .x-towns__rail :global(.pi-card__media) { aspect-ratio: 3 / 2; }
+  .x-towns__rail :global(.pi-card__eyebrow) { color: var(--accent); letter-spacing: .06em; }
+  .x-towns__rail :global(.pi-card.pi-card .pi-card__title) { font-size: var(--fs-500); line-height: 1.25; }
+  .x-towns__rail :global(.pi-card__dek) { display: block; overflow: visible; -webkit-line-clamp: unset; line-clamp: unset; }
+  /* Every town as a plain link, under the finder's five parts of the Peninsula. */
+  .x-towns__index { margin-top: var(--space-7); padding-top: var(--space-5); border-top: 1px solid var(--border); }
+  .x-towns__index-heading { margin: 0 0 var(--space-3); color: var(--text); font: 600 var(--fs-600)/1.2 var(--font-display); letter-spacing: -0.02em; }
+  .x-towns__areas { margin: 0; }
+  .x-towns__area { display: grid; grid-template-columns: 14rem minmax(0, 1fr); align-items: baseline; gap: 0 var(--space-4); border-top: 1px solid var(--border); }
+  .x-towns__area:first-child { border-top: 0; }
+  .x-towns__area dt, .x-towns__area dd { margin: 0; }
+  .x-towns__area ul { display: flex; flex-wrap: wrap; gap: 0 var(--space-5); list-style: none; margin: 0; padding: 0; }
+  .x-towns__area a { display: inline-flex; align-items: center; min-height: 44px; text-decoration: none; }
+  .x-towns__area dt a { color: var(--text); font: 600 var(--fs-300)/1.3 var(--font-ui); }
+  .x-towns__area dd a { color: var(--accent); font: 500 var(--fs-400)/1.3 var(--font-ui); }
+  .x-towns__area a:hover { text-decoration: underline; text-underline-offset: .2em; }
+  .x-towns a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
   /* ── Turn it into a day ─────────────────────────────────────────────────── */
   .x-plan__grid { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.5fr); gap: var(--space-6) var(--space-8); align-items: start; }
   .x-plan__dek { margin: var(--space-4) 0 0; max-width: 40ch; color: var(--soft); font-size: var(--fs-400); line-height: 1.55; text-wrap: pretty; }
@@ -764,13 +882,14 @@ export const prerender = true;
   @media (max-width: 63.99em) {
     .x-find__tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     .x-results__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .x-towns__rail { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .x-plan__grid, .x-season__head { grid-template-columns: minmax(0, 1fr); }
     .x-season__head { align-items: start; }
   }
 
   /* ── Phone ──────────────────────────────────────────────────────────────── */
   @media (max-width: 40em) {
-    .x-find, .x-season, .x-plan, .x-journal, .x-faq { padding: var(--space-6) 0; }
+    .x-find, .x-season, .x-towns, .x-plan, .x-journal, .x-faq { padding: var(--space-6) 0; }
     .x-find { padding-top: var(--space-4); }
     .x-find :global(.v5-filterbar) { margin-top: var(--space-3); }
     /* All eight kinds in view at once: four across, two rows, nothing to swipe. */
@@ -838,6 +957,12 @@ export const prerender = true;
     .x-season__row { display: flex; gap: var(--space-4); overflow-x: auto; margin-inline: calc(-1 * var(--gutter, 1rem)); padding: 2px var(--gutter, 1rem) var(--space-2); scroll-snap-type: x proximity; scroll-padding-inline: var(--gutter, 1rem); scrollbar-width: none; align-items: flex-start; }
     .x-season__row::-webkit-scrollbar { display: none; }
     .x-season__row > :global(li) { flex: 0 0 min(78vw, 19rem); min-width: 0; scroll-snap-align: start; }
+    /* The towns take one swipeable line, like the seasonal picks above. */
+    .x-towns__rail { display: flex; gap: var(--space-4); overflow-x: auto; margin-inline: calc(-1 * var(--gutter, 1rem)); padding: 2px var(--gutter, 1rem) var(--space-2); scroll-snap-type: x proximity; scroll-padding-inline: var(--gutter, 1rem); scrollbar-width: none; align-items: flex-start; }
+    .x-towns__rail::-webkit-scrollbar { display: none; }
+    .x-towns__rail > :global(li) { flex: 0 0 min(70vw, 17rem); scroll-snap-align: start; }
+    .x-towns__index { margin-top: var(--space-6); }
+    .x-towns__area { grid-template-columns: minmax(0, 1fr); padding-bottom: var(--space-2); }
     .x-plan__lists { grid-template-columns: minmax(0, 1fr); }
     .x-plan__primary { flex: 1 0 100%; justify-content: center; }
   }

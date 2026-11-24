@@ -11,24 +11,16 @@ import ArticleCard from '../../../components/ArticleCard.astro';
 import { routeSlug, isListableVenue } from '../../../lib/editorial';
 import { buildCollectionPageSchema, buildFaqSchema, buildBreadcrumbSchema } from '../../../lib/schema';
 import { editableText } from '../../../lib/inline-edit/attrs';
+import { FEATURED_TOWNS } from '../../../lib/featured-towns';
 
 // ── Data ──────────────────────────────────────────────────────────────────────
 const places = (await getCollection('places')).sort((a, b) => a.data.name.localeCompare(b.data.name));
 const venues = (await getCollection('venues')).filter(isListableVenue);
 const experiences = await getCollection('experiences');
 
-// Curated destination order - editorial priority, not alphabetical or regional.
-// Reflects search importance, Peninsula recognition, and editorial strength.
-// Update this array to change what appears and in what order.
-// Curated primary destinations in editorial priority order.
-// Reflects search importance, Peninsula recognition, and editorial strength.
-// Fingal added (Peninsula Hot Springs, Moonah Links, Cape Schanck access).
-// Dromana promoted (Dromana Drive-In, Arthurs Seat Eagle, gateway positioning).
-const CURATED_ORDER = [
-  'sorrento', 'red-hill', 'flinders', 'portsea', 'mornington',
-  'cape-schanck', 'fingal', 'dromana', 'main-ridge', 'merricks',
-  'blairgowrie', 'rye',
-];
+// Curated destination order lives in lib/featured-towns, shared with the
+// Explore hub's town rail. Update it there to change what leads this page.
+const CURATED_ORDER = FEATURED_TOWNS;
 
 // Primary curated destinations - shown in editorial order at the top of the hub
 const primaryDestinations = CURATED_ORDER

@@ -150,7 +150,7 @@ const configuredV5Pillars = [
       { key: 'fishing', label: 'Fishing',        href: '/fishing/' },
     ],
     browse: [
-      { key: 'all-places', label: 'All places', href: '/explore/places/' },
+      { key: 'all-places', label: 'All towns', href: '/explore/places/' },
       { key: 'map',        label: 'Open the map', href: '/map/' },
     ],
     rail: {
