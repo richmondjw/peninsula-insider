@@ -81,7 +81,7 @@ Related guides
 
 ### [Best Cafes](<https://peninsulainsider.com.au/eat/cafes/>)
 
-The specialty coffee destination and the village cafes worth knowing - from Commonfolk to Flinders General Store.
+Specialty coffee and village cafés, including Commonfolk in Mornington.
 
 [See the list →](<https://peninsulainsider.com.au/eat/cafes/>)
 

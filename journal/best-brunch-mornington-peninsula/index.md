@@ -33,7 +33,7 @@ The [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>) m
 
 ## Flinders and the South Coast
 
-The [Flinders General Store](<https://peninsulainsider.com.au/eat/flinders-general-store/>) is the south coast answer to Commonfolk - a good cafe in a small town, doing the basics well. The coffee is strong, the food is unfussy, and the village setting makes it feel like you are starting the day somewhere specific rather than somewhere generic. It is a small operation and weekends fill quickly, but the outdoor tables overlooking the street are worth the wait when the weather cooperates.
+If you’re heading through Flinders and want coffee to go, the [Flinders General Store](<https://peninsulainsider.com.au/eat/flinders-general-store/>) is a grocery and deli on Cook Street. Treat it as a takeaway stop rather than a brunch booking.
 
 [Flinders Hotel](<https://peninsulainsider.com.au/stay/flinders-hotel/>) does a proper hotel breakfast that works well if you are staying in the area. Cooked breakfast, good eggs, the kind of spread that means you do not need lunch for a while. It is not the most exciting option, but it is reliable, the room is comfortable, and the coffee is fine.
 

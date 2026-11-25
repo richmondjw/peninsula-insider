@@ -109,7 +109,7 @@ The bay side runs to pubs, fish and chips and cafés more than destination lunch
 
 Some of the best Peninsula lunches are bought over a counter and eaten somewhere with a view.
 
-**Flinders General Store** is the working heart of the village: coffee, a daily loaf from the bakery, breakfast sandwiches and a pastry cabinet that is better than it needs to be. Take lunch to the Flinders foreshore or the start of the West Head walk.
+**[Flinders General Store](<https://peninsulainsider.com.au/eat/flinders-general-store/>)** is a grocery and deli on Cook Street. Pick up a sandwich and takeaway coffee for the Flinders foreshore.
 
 **Somers General**, on the quiet Western Port side, is small, tightly curated and worth the detour: pastries, sourdough, a cheese counter and a local wine shelf.
 

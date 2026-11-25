@@ -27,7 +27,7 @@ The autumn menu on the Peninsula is built around the long lunch. The cellar door
 
 The cellar door tasting experience is better in autumn than any other season. The new vintage isn't released yet - that happens in spring - but the current-release wines are at peak drinking window, the staff have time for actual conversation rather than summer-crowd management, and the rooms feel more intimate. At [Baillieu Vineyard](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>) and [Avani](<https://peninsulainsider.com.au/wine/avani-wines/>), the smaller operations, the owner is often pouring. That doesn't happen in summer.
 
-For something more casual, the [Flinders General Store](<https://peninsulainsider.com.au/eat/flinders-general-store/>) and [Balnarring Bakehouse](<https://peninsulainsider.com.au/eat/balnarring-bakehouse/>) are at their best in autumn - less of the tourist rush, quicker tables, and the same honest food that justifies the drive in any season. The [Heritage](<https://peninsulainsider.com.au/eat/balnarring-pub/>) at Balnarring in autumn is a particular pleasure: cold outside, fire inside, the kind of afternoon that doesn't need to go anywhere.
+For a takeaway lunch in Flinders, pick up a sandwich at the [Flinders General Store](<https://peninsulainsider.com.au/eat/flinders-general-store/>). The [Balnarring Bakehouse](<https://peninsulainsider.com.au/eat/balnarring-bakehouse/>) is another stop if you’re going through Balnarring. The [Heritage](<https://peninsulainsider.com.au/eat/balnarring-pub/>) at Balnarring in autumn is a particular pleasure: cold outside, fire inside, the kind of afternoon that doesn't need to go anywhere.
 
 ## Where to Stay
 

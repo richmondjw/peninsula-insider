@@ -115,18 +115,6 @@ slow  solo
 
 [Read notes](<https://peninsulainsider.com.au/eat/commonfolk-coffee/>) [Book](<https://www.commonfolkcoffee.com.au/pages/locations/mornington>)
 
-providore  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
-
-### [Flinders General Store](<https://peninsulainsider.com.au/eat/flinders-general-store/>)
-
-48 Cook St, Flinders VIC 3929
-
-A Cook Street grocery and deli for takeaway coffee, freshly made sandwiches and picnic provisions.
-
-slow  walk
-
-[Read notes](<https://peninsulainsider.com.au/eat/flinders-general-store/>)
-
 ## Frequently asked questions
 
 ### Best family-friendly restaurants on the Peninsula?
@@ -135,7 +123,7 @@ Red Gum BBQ (Red Hill): BBQ, outdoor tables, food kids want. Montalto Piazza: wa
 
 ### Best for young children?
 
-Red Gum BBQ and Montalto Piazza. Flinders General Store for a casual village stop. Most hatted rooms are not suited to young children.
+Red Gum BBQ and Montalto Piazza. Most hatted rooms are not suited to young children.
 
 ### Family-friendly winery restaurants?
 

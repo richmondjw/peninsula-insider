@@ -47,7 +47,7 @@ Anything described in tourism marketing as "family-friendly" without specifics d
 
 **Morning:** Arrive early at Moonlit Sanctuary (opens 10am, allow two to three hours). It's near Pearcedale, slightly off the main Peninsula route - go directly there first before continuing south.
 
-**Lunch:** Flinders General Store or the bakery at Balnarring - both casual, child-tolerant, good food, no long waits. Alternatively, a picnic at one of the bay beaches before the afternoon swim.
+**Lunch:** Pick up takeaway sandwiches at [Flinders General Store](<https://peninsulainsider.com.au/eat/flinders-general-store/>) or stop at the bakery in Balnarring. Leave time for a picnic at a bay beach before the afternoon swim.
 
 **Afternoon:** A bay beach - Mount Martha or Mornington if you're in the north, Safety Beach or Dromana if you want to continue south. Two hours in the water is usually enough.
 

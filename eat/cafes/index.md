@@ -11,7 +11,7 @@ Eat & Drink     Cafes
 
 The Peninsula's cafe scene concentrates in Mornington and the hinterland villages. Commonfolk Coffee in Mornington is the benchmark for specialty coffee - a house roaster, an excellent kitchen, and the kind of back courtyard that makes a weekday morning feel like a weekend decision. Below it, a scattered set of village cafes and general stores doing honest work without trying to be anything they are not.
 
-The pattern on the Peninsula is the general store cafe: a converted grocery or provisions building now serving coffee, pastries, and a limited food menu. Somers General, Flinders General Store, and Merricks General Wine Store are the strongest examples. Each is worth a stop rather than a destination, unless you are already in the right part of the Peninsula for another reason.
+The pattern on the Peninsula is the general store cafe: a converted grocery or provisions building now serving coffee, pastries, and a limited food menu. Look to Somers General and Merricks General Wine Store for café stops. Each is worth a stop rather than a destination, unless you are already in the right part of the Peninsula for another reason.
 
 Researched from published sources. Every venue listed was reviewed April 2026 or later.
 
@@ -73,18 +73,6 @@ slow  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>) [Book](<https://merricksstore.com.au/reservations/>)
 
-providore  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
-
-### [Flinders General Store](<https://peninsulainsider.com.au/eat/flinders-general-store/>)
-
-48 Cook St, Flinders VIC 3929
-
-A Cook Street grocery and deli for takeaway coffee, freshly made sandwiches and picnic provisions.
-
-slow  walk
-
-[Read notes](<https://peninsulainsider.com.au/eat/flinders-general-store/>)
-
 ## Frequently asked questions
 
 ### What is the best cafe on the Mornington Peninsula?
@@ -93,7 +81,7 @@ Commonfolk Coffee (Mornington, 16 Progress Street) is the benchmark for specialt
 
 ### Which cafes are dog-friendly?
 
-Commonfolk Coffee (back courtyard), Somers General Store (outdoor seating), and Flinders General Store (outdoor area) are confirmed dog-friendly. Check directly with venues as outdoor seating policies can change.
+The options listed here are Commonfolk Coffee’s back courtyard and the outdoor seating at Somers General Store. Check directly with venues as outdoor seating policies can change.
 
 ### Where should I go for brunch?
 

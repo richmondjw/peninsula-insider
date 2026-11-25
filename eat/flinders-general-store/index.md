@@ -79,6 +79,22 @@ Hub Guide   8 min
 
 Flinders is the quiet southern village that proves the Peninsula does not need theatre to be good. Come for the harder light, the ocean edge, and a day shaped by a walk, a bakery and one proper lunch rather than a schedule full of noise.
 
+Service   7 min
+
+### [Casual Lunch on the Mornington Peninsula: Where to Eat Well Without Making a Day of It](<https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/>)
+
+10 November 2026
+
+Not every Peninsula lunch needs a degustation and four hours. The places that do a relaxed, good midday meal, sorted by where you will be and who you are with.
+
+Service   7 min
+
+### [Where to Eat Without a Booking](<https://peninsulainsider.com.au/journal/where-to-eat-without-a-booking/>)
+
+10 April 2026
+
+The walk-in dining guide to the Mornington Peninsula - the pubs, cafés, bakeries and bars where you can turn up hungry, without a reservation, and leave properly fed.
+
 ## Related editorial selections
 
 Selected as related reading; these pieces may not mention this place in their text.
@@ -99,21 +115,17 @@ Slow Peninsula   7 min
 
 When Red Hill is booked out and Sorrento feels like a queue, there is another version of the Peninsula weekend that runs south of everything, closer to the ocean, and slower on purpose.
 
-Service   7 min
+Insider Edit   7 min
 
-### [Casual Lunch on the Mornington Peninsula: Where to Eat Well Without Making a Day of It](<https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/>)
+### [Breakfast Before the Crowds: Peninsula Mornings Worth an Early Start](<https://peninsulainsider.com.au/journal/breakfast-before-the-crowds/>)
 
-10 November 2026
+9 April 2026
 
-Not every Peninsula lunch needs a degustation and four hours. The places that do a relaxed, good midday meal, sorted by where you will be and who you are with.
+The long lunches get the headlines. But the Peninsula's first hour of the day - the flat white, the croissant out of the oven, the eggs on a working bakery's sourdough - is the quieter, better-value half of the food story. Here is where locals go, and the order to do it in.
 
-More reading (3)
-
-- [Breakfast Before the Crowds: Peninsula Mornings Worth an Early Start](<https://peninsulainsider.com.au/journal/breakfast-before-the-crowds/>)
+More reading (1)
 
 - [The Mornington Peninsula in Summer: How to Do It Well](<https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/>)
-
-- [Where to Eat Without a Booking](<https://peninsulainsider.com.au/journal/where-to-eat-without-a-booking/>)
 
 Related picks
 

@@ -87,18 +87,6 @@ slow  garden
 
 [Read notes](<https://peninsulainsider.com.au/eat/somers-general/>) [Book](<https://www.thesomersgeneral.com.au/>)
 
-providore  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
-
-### [Flinders General Store](<https://peninsulainsider.com.au/eat/flinders-general-store/>)
-
-48 Cook St, Flinders VIC 3929
-
-A Cook Street grocery and deli for takeaway coffee, freshly made sandwiches and picnic provisions.
-
-slow  walk
-
-[Read notes](<https://peninsulainsider.com.au/eat/flinders-general-store/>)
-
 ## Frequently asked questions
 
 ### Where is the best brunch on the Mornington Peninsula?
@@ -107,7 +95,7 @@ Commonfolk Coffee (Mornington, 16 Progress Street) is the specialty coffee bench
 
 ### Which brunch spots are dog-friendly?
 
-Commonfolk Coffee (back courtyard), Somers General Store, and Flinders General Store all have confirmed dog-friendly outdoor seating. Check directly with venues as policies can change.
+The options listed here are Commonfolk Coffee’s back courtyard and Somers General Store. Check directly with venues as policies can change.
 
 ### Do I need to book?
 

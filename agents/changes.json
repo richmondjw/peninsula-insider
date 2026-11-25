@@ -1,100 +1,100 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-25T06:57:48.138Z",
+  "generatedAt": "2026-11-25T07:15:00.330Z",
   "baselineAvailable": true,
-  "fromSnapshot": "0d98eb3b65850df85b297b7b16eb20a9af2d0345c4603f549e773dde213d8251",
-  "toSnapshot": "36877562363dc83390a0267e1e60f3d8a16c55690cd42a9868ebf16ed5eb7639",
-  "previousGeneratedAt": "2026-11-25T06:40:09.299Z",
+  "fromSnapshot": "36877562363dc83390a0267e1e60f3d8a16c55690cd42a9868ebf16ed5eb7639",
+  "toSnapshot": "ffd8748fefbaff94634c11e7eecdc96380dcda0c7b6180630ee5d30816b6468a",
+  "previousGeneratedAt": "2026-11-25T06:57:48.138Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
   "count": 11,
   "changes": [
     {
-      "id": "https://peninsulainsider.com.au/explore/places/tuerong/",
+      "id": "https://peninsulainsider.com.au/eat/bakeries/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/tuerong/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/tuerong/index.md",
-      "contentSha256": "40eb11642d1f1baaf53c8c58b0568861a32bfa87c0705f44023e0df206a6eb75",
-      "previousContentSha256": "7cc94f8f260904ca840c17801a2540677e5b13402476ea8eb0596e3a2aa86107"
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/bakeries/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/bakeries/index.md",
+      "contentSha256": "3b048531ac274b7c0c6f556696f42399a32a1ca09b79be834c033c73025f0608",
+      "previousContentSha256": "ddceeed93ccf64fc69d8037da772cb1855efd07caf4f87342b9f20965753b67e"
     },
     {
-      "id": "https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/",
+      "id": "https://peninsulainsider.com.au/eat/brunch/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/index.md",
-      "contentSha256": "137f0324cdd51f88edfb142d0f88ed2cb8451816e692358f090199fec3fe810c",
-      "previousContentSha256": "c33785ca24b99c778607b891d29d3dcaf9c8f2bb2437428932d8fcf47f3f083a"
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/brunch/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/brunch/index.md",
+      "contentSha256": "06dd69c6e44839a38ed7440b9c7f3a4e53a5ccd312c4bbcd00b7e21f6f0d01bf",
+      "previousContentSha256": "b24455eb7cc72c8838c3022df82a345ff9803007d3031f9f529b9d8b412f0a80"
     },
     {
-      "id": "https://peninsulainsider.com.au/map/",
+      "id": "https://peninsulainsider.com.au/eat/cafes/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/map/",
-      "markdownUrl": "https://peninsulainsider.com.au/map/index.md",
-      "contentSha256": "7f1502bbdfd46413fb75fb5c941028a4691b3f1f30a279a39a2cc158d8f1abaf",
-      "previousContentSha256": "99e0c8fdda6b54985eaecd964558a76a31edb47eebffd56eb94cbc23e4192b07"
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/cafes/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/cafes/index.md",
+      "contentSha256": "4618859c0c4b359661b2e470b161326153c1be8635be0f858266eddc21d69c0f",
+      "previousContentSha256": "d694f271e29307dadf21348e1245aaaa859686fa74dffaa1a2e45565e68ba27c"
     },
     {
-      "id": "https://peninsulainsider.com.au/stay/woodman-estate/",
+      "id": "https://peninsulainsider.com.au/eat/family-friendly/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/stay/woodman-estate/",
-      "markdownUrl": "https://peninsulainsider.com.au/stay/woodman-estate/index.md",
-      "contentSha256": "eb095184d30bb3027cfebc5f2489360738702853e79acdc64f22dbc54303a384",
-      "previousContentSha256": "2577617942575e35e9211593a106030789da1b049a3a56c8d741ea740312bf07"
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/family-friendly/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/family-friendly/index.md",
+      "contentSha256": "ce9a503939c8ca3c65aef8fefabcc98b1b5381b0d270d284c8e88991f693e93c",
+      "previousContentSha256": "bef03e7ad6103c02d143e2b783e14161de282a1a4b8cc1df12f005a92b5ba9a3"
     },
     {
-      "id": "https://peninsulainsider.com.au/wine/",
+      "id": "https://peninsulainsider.com.au/eat/flinders-general-store/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/wine/",
-      "markdownUrl": "https://peninsulainsider.com.au/wine/index.md",
-      "contentSha256": "7625587666181f99f38cbee95aec220ed69fc1183004fa92a811fb40adf23282",
-      "previousContentSha256": "4c52ebbad7547d4dbc905a20febbc8db44d563eceba4aaf554614e27effd362f"
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/flinders-general-store/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/flinders-general-store/index.md",
+      "contentSha256": "848046cf4d0d8bd10de4ce739e0c26a20354fbd38c248899a70a22da421a9709",
+      "previousContentSha256": "645d6afae8769558a8726312df3b631c7fc1c69592fc66b754d631832ddbe19a"
     },
     {
-      "id": "https://peninsulainsider.com.au/wine/dexter-wines/",
+      "id": "https://peninsulainsider.com.au/journal/best-brunch-mornington-peninsula/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/wine/dexter-wines/",
-      "markdownUrl": "https://peninsulainsider.com.au/wine/dexter-wines/index.md",
-      "contentSha256": "73ebdde5975977e2c4db07522e50a75f155f9047a2c2f26df9f2f19b602332e5",
-      "previousContentSha256": "2a1d5179b283de5de42ea71ba17a0b30becd36099582457b70fa1bba91e4354f"
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/best-brunch-mornington-peninsula/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/best-brunch-mornington-peninsula/index.md",
+      "contentSha256": "5796396af583c8af598bdb98ea460e0bd254183d38e9f7ca8e05d722a34b31ff",
+      "previousContentSha256": "5b36a1f87ea059617641a7d78c16081b8c16c95825fef99612e1e7571f7b2465"
     },
     {
-      "id": "https://peninsulainsider.com.au/wine/dromana-estate/",
+      "id": "https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/wine/dromana-estate/",
-      "markdownUrl": "https://peninsulainsider.com.au/wine/dromana-estate/index.md",
-      "contentSha256": "3f409ce47c0ebd12ad4535256f5f5435d588b171673a766b8bae2a81e148827f",
-      "previousContentSha256": "fe738b6d40b7836378495ed6f690a1abd91d38b35c690a7e2fbb004193f8a4e7"
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/index.md",
+      "contentSha256": "4c6dcab981564eb647762b868fa8025076e533f12e2995467ebb34cbbc744cb3",
+      "previousContentSha256": "7a32d28a0065c5beafcad740d044fdafd6821738ea28004b1bfc307020b4b58e"
     },
     {
-      "id": "https://peninsulainsider.com.au/wine/moorooduc-estate/",
+      "id": "https://peninsulainsider.com.au/journal/mornington-peninsula-day-trip/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/wine/moorooduc-estate/",
-      "markdownUrl": "https://peninsulainsider.com.au/wine/moorooduc-estate/index.md",
-      "contentSha256": "a845a8c6890e2f453e2de98f2693c2b067d1ce15ad6e6b2d18700b656322aa99",
-      "previousContentSha256": "c72721f8499d029d49dab0907d8f1d20a6606079d363c0dd2247702fe79ef018"
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/mornington-peninsula-day-trip/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/mornington-peninsula-day-trip/index.md",
+      "contentSha256": "216fc6dec2f3713a19ed168617fc453e2081a7e42576e61d01b21ef9e9497b8d",
+      "previousContentSha256": "69fdf81020a377a46dcbadc5d891b8406cc57c666d4f8858473419f881ea5e4e"
     },
     {
-      "id": "https://peninsulainsider.com.au/wine/onannon/",
+      "id": "https://peninsulainsider.com.au/journal/mornington-peninsula-in-autumn/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/wine/onannon/",
-      "markdownUrl": "https://peninsulainsider.com.au/wine/onannon/index.md",
-      "contentSha256": "d9b109c2e498f64a879704feb1bf6f2f6eb91460d129e6215361cd7ca93ad86f",
-      "previousContentSha256": "5b92be1fa2c193638da8899cc44b6374d512e760951c8f4d2ea773716c38095e"
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/mornington-peninsula-in-autumn/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/mornington-peninsula-in-autumn/index.md",
+      "contentSha256": "b23ba5c5f6e79ebf3b5be0b2b3c6f44639380dd9059f451129937969d9e4250b",
+      "previousContentSha256": "c130da73bbeceb10e3836101112e606e741c6ad0226f65859febd900f67f7407"
     },
     {
-      "id": "https://peninsulainsider.com.au/wine/pinot-noir/",
+      "id": "https://peninsulainsider.com.au/journal/mornington-peninsula-with-kids/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/wine/pinot-noir/",
-      "markdownUrl": "https://peninsulainsider.com.au/wine/pinot-noir/index.md",
-      "contentSha256": "d3573dffe4d1b365d837de17d61b32cbb8c9cd00a0627ade9803ae1b7f0e1c27",
-      "previousContentSha256": "bb060a4709ed38dc7e519a5e2e776a652a025313be15ce4c7b7eea6fe51313da"
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/mornington-peninsula-with-kids/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/mornington-peninsula-with-kids/index.md",
+      "contentSha256": "c884fcb45a5f865afa4a2476ba8dc1ef44a8a222f7704ac05717364cb7ee9cc5",
+      "previousContentSha256": "58dbfc765782682361cf599a107ceea5cae94479477aa9fa917efabdccb0f8be"
     },
     {
-      "id": "https://peninsulainsider.com.au/wine/yabby-lake/",
+      "id": "https://peninsulainsider.com.au/journal/where-to-eat-without-a-booking/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/wine/yabby-lake/",
-      "markdownUrl": "https://peninsulainsider.com.au/wine/yabby-lake/index.md",
-      "contentSha256": "cf2d234d2eaf02437a1a204958e55e0485a76971d22eec28381db6d50cb1b9f7",
-      "previousContentSha256": "f211f1a366035eea99f1f38e8982b4674b2915091c5b3cb97b030af0eac79ddd"
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/where-to-eat-without-a-booking/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/where-to-eat-without-a-booking/index.md",
+      "contentSha256": "750de7b3e2fdcc98b9f5b972a94e7a6c64f1ce0a18028a378186160dee6f0325",
+      "previousContentSha256": "8b53b07069c377982b74d0adbe072b78e8afe49c9e1aafbfc7d8f67bda8a694c"
     }
   ]
 }
