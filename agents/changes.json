@@ -1,100 +1,28 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-25T07:15:00.330Z",
+  "generatedAt": "2026-11-25T12:23:41.701Z",
   "baselineAvailable": true,
-  "fromSnapshot": "36877562363dc83390a0267e1e60f3d8a16c55690cd42a9868ebf16ed5eb7639",
-  "toSnapshot": "ffd8748fefbaff94634c11e7eecdc96380dcda0c7b6180630ee5d30816b6468a",
-  "previousGeneratedAt": "2026-11-25T06:57:48.138Z",
+  "fromSnapshot": "ffd8748fefbaff94634c11e7eecdc96380dcda0c7b6180630ee5d30816b6468a",
+  "toSnapshot": "912c1fc8f5adf9e31d78cc75f4f6b054db1bdab43d13734d2d2046a70e9a5836",
+  "previousGeneratedAt": "2026-11-25T07:15:00.330Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 11,
+  "count": 2,
   "changes": [
     {
-      "id": "https://peninsulainsider.com.au/eat/bakeries/",
+      "id": "https://peninsulainsider.com.au/journal/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/eat/bakeries/",
-      "markdownUrl": "https://peninsulainsider.com.au/eat/bakeries/index.md",
-      "contentSha256": "3b048531ac274b7c0c6f556696f42399a32a1ca09b79be834c033c73025f0608",
-      "previousContentSha256": "ddceeed93ccf64fc69d8037da772cb1855efd07caf4f87342b9f20965753b67e"
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
+      "contentSha256": "d125f80380d5b158df86285086962e4bfc347081050a1c678fd79fa261f3e506",
+      "previousContentSha256": "6bfb7e1847547d48656caa1c854d98604ee5b465a7ac490b9ef1c6087d311e16"
     },
     {
-      "id": "https://peninsulainsider.com.au/eat/brunch/",
+      "id": "https://peninsulainsider.com.au/whats-on/improv-comedy-show-at-the-bay-hotel-mornington-2026-11-25/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/eat/brunch/",
-      "markdownUrl": "https://peninsulainsider.com.au/eat/brunch/index.md",
-      "contentSha256": "06dd69c6e44839a38ed7440b9c7f3a4e53a5ccd312c4bbcd00b7e21f6f0d01bf",
-      "previousContentSha256": "b24455eb7cc72c8838c3022df82a345ff9803007d3031f9f529b9d8b412f0a80"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/eat/cafes/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/eat/cafes/",
-      "markdownUrl": "https://peninsulainsider.com.au/eat/cafes/index.md",
-      "contentSha256": "4618859c0c4b359661b2e470b161326153c1be8635be0f858266eddc21d69c0f",
-      "previousContentSha256": "d694f271e29307dadf21348e1245aaaa859686fa74dffaa1a2e45565e68ba27c"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/eat/family-friendly/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/eat/family-friendly/",
-      "markdownUrl": "https://peninsulainsider.com.au/eat/family-friendly/index.md",
-      "contentSha256": "ce9a503939c8ca3c65aef8fefabcc98b1b5381b0d270d284c8e88991f693e93c",
-      "previousContentSha256": "bef03e7ad6103c02d143e2b783e14161de282a1a4b8cc1df12f005a92b5ba9a3"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/eat/flinders-general-store/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/eat/flinders-general-store/",
-      "markdownUrl": "https://peninsulainsider.com.au/eat/flinders-general-store/index.md",
-      "contentSha256": "848046cf4d0d8bd10de4ce739e0c26a20354fbd38c248899a70a22da421a9709",
-      "previousContentSha256": "645d6afae8769558a8726312df3b631c7fc1c69592fc66b754d631832ddbe19a"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/best-brunch-mornington-peninsula/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/best-brunch-mornington-peninsula/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/best-brunch-mornington-peninsula/index.md",
-      "contentSha256": "5796396af583c8af598bdb98ea460e0bd254183d38e9f7ca8e05d722a34b31ff",
-      "previousContentSha256": "5b36a1f87ea059617641a7d78c16081b8c16c95825fef99612e1e7571f7b2465"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/index.md",
-      "contentSha256": "4c6dcab981564eb647762b868fa8025076e533f12e2995467ebb34cbbc744cb3",
-      "previousContentSha256": "7a32d28a0065c5beafcad740d044fdafd6821738ea28004b1bfc307020b4b58e"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/mornington-peninsula-day-trip/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/mornington-peninsula-day-trip/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/mornington-peninsula-day-trip/index.md",
-      "contentSha256": "216fc6dec2f3713a19ed168617fc453e2081a7e42576e61d01b21ef9e9497b8d",
-      "previousContentSha256": "69fdf81020a377a46dcbadc5d891b8406cc57c666d4f8858473419f881ea5e4e"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/mornington-peninsula-in-autumn/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/mornington-peninsula-in-autumn/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/mornington-peninsula-in-autumn/index.md",
-      "contentSha256": "b23ba5c5f6e79ebf3b5be0b2b3c6f44639380dd9059f451129937969d9e4250b",
-      "previousContentSha256": "c130da73bbeceb10e3836101112e606e741c6ad0226f65859febd900f67f7407"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/mornington-peninsula-with-kids/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/mornington-peninsula-with-kids/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/mornington-peninsula-with-kids/index.md",
-      "contentSha256": "c884fcb45a5f865afa4a2476ba8dc1ef44a8a222f7704ac05717364cb7ee9cc5",
-      "previousContentSha256": "58dbfc765782682361cf599a107ceea5cae94479477aa9fa917efabdccb0f8be"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/where-to-eat-without-a-booking/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/where-to-eat-without-a-booking/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/where-to-eat-without-a-booking/index.md",
-      "contentSha256": "750de7b3e2fdcc98b9f5b972a94e7a6c64f1ce0a18028a378186160dee6f0325",
-      "previousContentSha256": "8b53b07069c377982b74d0adbe072b78e8afe49c9e1aafbfc7d8f67bda8a694c"
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/improv-comedy-show-at-the-bay-hotel-mornington-2026-11-25/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/improv-comedy-show-at-the-bay-hotel-mornington-2026-11-25/index.md",
+      "contentSha256": "021f86786bc2ead7b3f55c88d43d1f369058b58ed908a8d3b9df69543c2f7588",
+      "previousContentSha256": "44c5d8f8534598e2e5258612d73ec8ca25236b1b2ebf0801d1bce75dbd2e22b0"
     }
   ]
 }

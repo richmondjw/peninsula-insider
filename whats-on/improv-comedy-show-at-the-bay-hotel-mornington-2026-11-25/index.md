@@ -11,8 +11,6 @@ Event     Arts     25 November 2026     One-off date
 
 Come and finish the year out with our last student showcase of comedy! Before the silly season gets you too busy, relax UPSTAIRS at the Bay Hotel in Mornington for a totally made up improv comedy show.
 
-[Book or check details](<https://www.improvforlife.com.au/>)
-
 Hosted at
 
 Bay Hotel Mornington
@@ -43,7 +41,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.improvforlife.com.au/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Improv+Comedy+Show+at+The+Bay+Hotel+Mornington&dates=20261125T081500Z%2F20261125T094500Z&details=Come+and+finish+the+year+out+with+our+last+student+showcase+of+comedy%21+Before+the+silly+season+gets+you+too+busy%2C+relax+UPSTAIRS+at+the+Bay+Hotel+in+Mornington+for+a+totally+made+up+improv+comedy+show.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fimprov-comedy-show-at-the-bay-hotel-mornington-2026-11-25%2F&location=Bay+Hotel+Mornington%2C+Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+Booking and calendar links are withdrawn; this session has finished.
 
 Keep planning
 

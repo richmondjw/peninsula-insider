@@ -655,16 +655,6 @@ Month
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
-- [Wed, 25 Nov
-
-### Improv Comedy Show at The Bay Hotel Mornington
-
-Mornington
-
-Come and finish the year out with our last student showcase of comedy! Before the silly season gets you too busy, relax UPSTAIRS at the Bay Hotel in Mornington for a totally made up improv comedy show.
-
- Event · Arts](<https://peninsulainsider.com.au/whats-on/improv-comedy-show-at-the-bay-hotel-mornington-2026-11-25/>)
-
 - [Thu, 26 Nov
 
 ### Author Talk: Jane Gilmore - Mornington Library
@@ -684,3 +674,13 @@ Dromana
 Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes. Full menu available from 12pm, Ben Smith will be live from 6pm.
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
+
+- [Fri, 27 Nov
+
+### Brown Sugar - Rolling Stones
+
+Mornington
+
+Rolling Stones tribute band Brown Sugar plays the upstairs Bandroom at The Bay Hotel. Standing show from 8.30pm, with pre-show dinner and drinks upstairs from 6pm. Access is by stairs only.
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/brown-sugar-rolling-stones-2026-11-27/>)
