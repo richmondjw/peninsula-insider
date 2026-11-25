@@ -11,7 +11,7 @@ import ProvenanceLine from '../../components/ProvenanceLine.astro';
 const allVenues = (await getCollection('venues')).filter(isListableVenue);
 
 const cafeTypes = ['cafe'];
-const cafeSlugs = ['commonfolk-coffee','many-little','somers-general',  'merricks-general-wine-store','store-ten','stringers-mornington','flinders-general-store',
+const cafeSlugs = ['commonfolk-coffee','many-little','somers-general',  'merricks-general-wine-store','store-ten','stringers-mornington',
   'rocker'];
 
 const venues = cafeSlugs
@@ -61,7 +61,7 @@ const faqSchema = {
     {
       '@type': 'Question',
       name: 'Which cafes on the Mornington Peninsula are dog-friendly?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Commonfolk Coffee (back courtyard), Somers General Store (outdoor seating), and Flinders General Store (outdoor area) are confirmed dog-friendly. Check directly with venues as outdoor seating policies can change seasonally.' },
+      acceptedAnswer: { '@type': 'Answer', text: 'The options listed here are Commonfolk Coffee’s back courtyard and the outdoor seating at Somers General Store. Check directly with venues as outdoor seating policies can change seasonally.' },
     },
     {
       '@type': 'Question',
@@ -95,7 +95,7 @@ export const prerender = true;
 >
   <div class="prose">
     <p>The Peninsula's cafe scene concentrates in Mornington and the hinterland villages. Commonfolk Coffee in Mornington is the benchmark for specialty coffee - a house roaster, an excellent kitchen, and the kind of back courtyard that makes a weekday morning feel like a weekend decision. Below it, a scattered set of village cafes and general stores doing honest work without trying to be anything they are not.</p>
-        <p>The pattern on the Peninsula is the general store cafe: a converted grocery or provisions building now serving coffee, pastries, and a limited food menu. Somers General, Flinders General Store, and Merricks General Wine Store are the strongest examples. Each is worth a stop rather than a destination, unless you are already in the right part of the Peninsula for another reason.</p>
+        <p>The pattern on the Peninsula is the general store cafe: a converted grocery or provisions building now serving coffee, pastries, and a limited food menu. Look to Somers General and Merricks General Wine Store for café stops. Each is worth a stop rather than a destination, unless you are already in the right part of the Peninsula for another reason.</p>
         <ProvenanceLine class="venues__sub" style="font-size:0.8rem;color:var(--soft)" records={venues} type="venues" noun="venue" />
       </div>
   </div>
@@ -124,7 +124,7 @@ export const prerender = true;
         <h3>What is the best cafe on the Mornington Peninsula?</h3>
         <p>Commonfolk Coffee (Mornington, 16 Progress Street) is the benchmark for specialty coffee on the Peninsula. House roaster, serious food menu, dog-friendly back courtyard, open every day except Christmas.</p>
         <h3>Which cafes are dog-friendly?</h3>
-        <p>Commonfolk Coffee (back courtyard), Somers General Store (outdoor seating), and Flinders General Store (outdoor area) are confirmed dog-friendly. Check directly with venues as outdoor seating policies can change.</p>
+        <p>The options listed here are Commonfolk Coffee’s back courtyard and the outdoor seating at Somers General Store. Check directly with venues as outdoor seating policies can change.</p>
         <h3>Where should I go for brunch?</h3>
         <p>Commonfolk Coffee for specialty coffee and a serious brunch menu. Many Little Bar & Dining (Red Hill South) for a more elevated cafe-daytime experience. Merricks General Wine Store for a village brunch in a genuinely beautiful setting.</p>
       </div>
