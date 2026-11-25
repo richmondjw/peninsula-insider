@@ -1,0 +1,40 @@
+---
+/**
+ * /explore/seasons/ - the way in to the four season hubs. Kept out of search
+ * indexes: the season pages themselves are the destinations.
+ */
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+export const prerender = true;
+const seasons = [
+  { slug: 'summer', label: 'Summer', span: 'December to February' },
+  { slug: 'autumn', label: 'Autumn', span: 'March to May' },
+  { slug: 'winter', label: 'Winter', span: 'June to August' },
+  { slug: 'spring', label: 'Spring', span: 'September to November' },
+];
+---
+<BaseLayout
+  title="The Mornington Peninsula by season · Peninsula Insider"
+  description="Choose a season to see what is on, what to read and what to do on the Mornington Peninsula."
+  section="explore"
+  noindex={true}
+>
+  <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Explore', href: '/explore/' }, { label: 'Seasons' }]} />
+  <div class="container seasons-index">
+    <h1>The Mornington Peninsula by season</h1>
+    <ul role="list">
+      {seasons.map((s) => (
+        <li><a href={`/explore/seasons/${s.slug}/`}>{s.label}</a> <span>{s.span}</span></li>
+      ))}
+    </ul>
+  </div>
+</BaseLayout>
+
+<style>
+  .seasons-index { padding: clamp(2rem, 5vw, 4rem) 0; }
+  .seasons-index h1 { margin: 0 0 1.5rem; font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; color: #0b2e4a; }
+  .seasons-index ul { margin: 0; padding: 0; list-style: none; font: 500 1.0625rem/1.4 var(--font-ui); }
+  .seasons-index li { display: flex; align-items: center; gap: 1rem; min-height: 48px; border-top: 1px solid var(--border); }
+  .seasons-index a { color: var(--text); text-decoration: underline; text-underline-offset: 0.2em; }
+  .seasons-index span { color: var(--soft); font-weight: 400; }
+</style>
