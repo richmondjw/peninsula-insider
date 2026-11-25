@@ -53,6 +53,7 @@ TOP_QUERIES = 30
 TOP_GAPS = 30
 TOP_CTR = 20
 REPORT_FILE = gsc.REPORTS_DIR / "gsc-search-analytics.md"
+ACTIONED_FILE = gsc.BASE / "ops" / "strategy" / "actioned.jsonl"
 
 
 def window(today: date) -> tuple[str, str]:
@@ -93,9 +94,14 @@ def query_analytics(service, dimensions: list[str], start: str, end: str,
 def aggregate_pages(page_rows: list[dict]) -> list[dict]:
     """One row per canonical path, most impressions first. Search Console lists
     http/https and slash/no-slash variants of one page as separate rows; left
-    apart they split a page's demand and understate it everywhere downstream."""
+    apart they split a page's demand and understate it everywhere downstream.
+
+    Rows on other hosts are left out, not folded in: the property is the whole
+    domain, and play.peninsulainsider.com.au/ is not this site's home page."""
     merged: dict[str, dict] = {}
     for r in page_rows:
+        if not gsc.is_site_url(r["keys"][0]):
+            continue
         path = gsc.norm_path(r["keys"][0])
         impressions = r.get("impressions", 0)
         m = merged.setdefault(path, {"path": path, "clicks": 0, "impressions": 0, "_weighted": 0.0})
@@ -116,18 +122,54 @@ def aggregate_pages(page_rows: list[dict]) -> list[dict]:
     return pages
 
 
+def other_hosts(page_rows: list[dict]) -> dict[str, dict]:
+    """host -> {pages, impressions} for rows that belong to another site under
+    the same domain property. Reported, never mixed into this site's pages."""
+    out: dict[str, dict] = {}
+    for r in page_rows:
+        url = r["keys"][0]
+        if gsc.is_site_url(url):
+            continue
+        h = out.setdefault(gsc.host_of(url), {"pages": 0, "impressions": 0})
+        h["pages"] += 1
+        h["impressions"] += int(r.get("impressions", 0))
+    return out
+
+
 def landing_pages(page_query_rows: list[dict]) -> dict[str, str]:
-    """query -> the canonical path earning most of its impressions."""
+    """query -> the page earning most of its impressions: a canonical path on
+    this site, or "" when the query mostly lands on another host under the
+    domain property (so it is not this site's query to chase)."""
     best: dict[str, dict[str, int]] = {}
     for r in page_query_rows:
         keys = r.get("keys") or []
         if len(keys) < 2:
             continue
-        path, query = gsc.norm_path(keys[0]), keys[1]
-        per_query = best.setdefault(query, {})
-        per_query[path] = per_query.get(path, 0) + r.get("impressions", 0)
-    return {q: sorted(paths.items(), key=lambda kv: (-kv[1], kv[0]))[0][0]
-            for q, paths in best.items()}
+        page = gsc.norm_path(keys[0]) if gsc.is_site_url(keys[0]) else ""
+        per_query = best.setdefault(keys[1], {})
+        per_query[page] = per_query.get(page, 0) + r.get("impressions", 0)
+    return {q: sorted(pages.items(), key=lambda kv: (-kv[1], kv[0]))[0][0]
+            for q, pages in best.items()}
+
+
+def tracked_queries(ledger: Path | None = None) -> list[str]:
+    """Queries recorded in the strategy attribution ledger, first seen first.
+    Each gets a row in the report whatever its rank, so the learning loop can
+    score a query that climbed to position 2 or fell to 40, not only one that
+    still sits in the top queries or the position 4-20 band."""
+    ledger = ledger or ACTIONED_FILE
+    if not ledger.exists():
+        return []
+    seen, out = set(), []
+    for line in ledger.read_text(encoding="utf-8").splitlines():
+        try:
+            query = str(json.loads(line).get("query") or "").strip()
+        except (json.JSONDecodeError, AttributeError):
+            continue
+        if query and query.lower() not in seen:
+            seen.add(query.lower())
+            out.append(query)
+    return out
 
 
 def property_totals(total_rows: list[dict], pages: list[dict]) -> dict:
@@ -163,10 +205,13 @@ def newest_data_day(date_rows: list[dict], fallback: str) -> str:
     return days[-1] if days else fallback
 
 
-def keyword_gaps(query_rows: list[dict]) -> list[dict]:
+def keyword_gaps(query_rows: list[dict], landing: dict[str, str] | None = None) -> list[dict]:
+    """Near-miss queries. With a landing map, a query that mostly lands on
+    another host under the domain property is left out."""
     gaps = [r for r in query_rows
             if GAP_MIN_POSITION <= r.get("position", 0) <= GAP_MAX_POSITION
-            and r.get("impressions", 0) >= GAP_MIN_IMPRESSIONS]
+            and r.get("impressions", 0) >= GAP_MIN_IMPRESSIONS
+            and (landing is None or landing.get(r["keys"][0], "/") != "")]
     gaps.sort(key=lambda r: (-r.get("impressions", 0), r["keys"][0]))
     return gaps
 
@@ -177,10 +222,11 @@ def ctr_opportunities(pages: list[dict]) -> list[dict]:
 
 def build_report(pages: list[dict], query_rows: list[dict], totals: dict,
                  landing: dict[str, str], start: str, end: str,
-                 data_through: str, generated: str) -> str:
+                 data_through: str, generated: str,
+                 tracked: list[str] | None = None, elsewhere: dict | None = None) -> str:
     """The committed report. Headings and column names are parsed by the
     strategy engine: change them only together with engine/strategy_engine.py."""
-    gaps = keyword_gaps(query_rows)
+    gaps = keyword_gaps(query_rows, landing)
     ctr_opps = ctr_opportunities(pages)
     top_queries = sorted(query_rows, key=lambda r: (-r.get("impressions", 0), r["keys"][0]))[:TOP_QUERIES]
     c = gsc.cell
@@ -205,6 +251,11 @@ def build_report(pages: list[dict], query_rows: list[dict], totals: dict,
         f"| Keyword gaps (pos 4–20) | {len(gaps)} |",
         f"| CTR opportunities | {len(ctr_opps)} |",
         f"| Totals basis | {totals['basis']} |",
+    ]
+    for host, seen in sorted((elsewhere or {}).items()):
+        # Counted in the property totals above; kept out of every page table.
+        lines.append(f"| Other host: {c(host)} | {seen['pages']} pages, {seen['impressions']:,} impressions |")
+    lines += [
         "",
         "## Top Pages by Impressions",
         "",
@@ -258,6 +309,27 @@ def build_report(pages: list[dict], query_rows: list[dict], totals: dict,
         for p in ctr_opps[:TOP_CTR]:
             lines.append(f"| `{c(p['path'])}` | {p['impressions']:,} | {p['ctr']}% | {p['position']} |")
 
+    if tracked:
+        by_query = {r["keys"][0].lower(): r for r in query_rows}
+        lines += [
+            "",
+            "## Tracked Queries",
+            "",
+            "Every query in the strategy ledger, whatever its rank. Zero impressions",
+            "means it was looked for and not shown.",
+            "",
+            "| Query | Impressions | Clicks | CTR | Avg Pos |",
+            "|---|---|---|---|---|",
+        ]
+        for q in tracked:
+            r = by_query.get(q.lower())
+            if r:
+                lines.append(
+                    f"| {c(q)} | {r.get('impressions', 0):,} | {r.get('clicks', 0)} "
+                    f"| {round(r.get('ctr', 0) * 100, 2)}% | {round(r.get('position', 0), 1)} |")
+            else:
+                lines.append(f"| {c(q)} | 0 | 0 | 0% | none |")
+
     lines += [
         "",
         "## All Pages With Impressions",
@@ -309,7 +381,7 @@ def run() -> dict:
     page_rows = query_analytics(service, ["page"], start_str, end_str)
     print(f"  {len(page_rows)} page rows found")
 
-    if not page_rows:
+    if not any(gsc.is_site_url(r["keys"][0]) for r in page_rows):
         # An authorised but empty answer is far more likely a wrong property or
         # account than a site with no impressions. Keep the last good report.
         raise gsc.FeedError(
@@ -336,11 +408,14 @@ def run() -> dict:
     data_through = newest_data_day(date_rows, end_str)
     generated = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
 
-    report = build_report(pages, query_rows, totals, landing_pages(pq_rows),
-                          start_str, end_str, data_through, generated)
+    landing = landing_pages(pq_rows)
+    report = build_report(pages, query_rows, totals, landing,
+                          start_str, end_str, data_through, generated,
+                          tracked_queries(), other_hosts(page_rows))
     gsc.write_report(REPORT_FILE, report)
     print(f"\n  Report: ops/reports/gsc-search-analytics.md (data through {data_through})")
-    return {"pages": len(pages), "queries": len(query_rows), "gaps": len(keyword_gaps(query_rows))}
+    return {"pages": len(pages), "queries": len(query_rows),
+            "gaps": len(keyword_gaps(query_rows, landing))}
 
 
 def main() -> None:

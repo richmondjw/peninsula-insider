@@ -122,11 +122,11 @@ jobs:
         # The engine can publish every morning while its Search Console feed is
         # dead, and from July to November 2026 it did: the failed pull was
         # logged as a skip and the run went green. This step never fails the
-        # publish. When
-        # the loop is degraded or stalled it puts a warning on the run and
-        # keeps ONE issue open (label pi-alert) that names the cause and the
-        # fix. The issue is reused silently, not commented on daily; close it
-        # once ops/strategy/health.json reads ok.
+        # publish. When the loop needs the owner it puts a warning on the run
+        # and keeps ONE issue open (label pi-alert) that names the cause and
+        # the fix. The issue is edited in place, and commented on only when the
+        # cause changes; close it once "alert" is false in
+        # ops/strategy/health.json.
         if: always()
         continue-on-error: true
         env:
@@ -134,8 +134,17 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
           PI_REPO_ROOT: ${{ github.workspace }}
         run: |
-          python engine/strategy_engine.py --health --alert \
-            || echo "Strategy loop is not healthy: see the warning on this run and the open pi-alert issue."
+          set +e
+          python engine/strategy_engine.py --health --alert
+          code=$?
+          # 0 healthy or warning, 2 stalled, 3 degraded. Anything else is the
+          # check itself failing, which must not be read as a health result.
+          case "$code" in
+            0) ;;
+            2|3) echo "Strategy loop is not healthy (exit $code): see the warning on this run and the open pi-alert issue." ;;
+            *) echo "::warning title=Strategy health check failed to run::strategy_engine.py --health exited $code, so the loop's health is unknown for this run. See this step's log." ;;
+          esac
+          exit 0
 
       - name: Upload run log
         uses: actions/upload-artifact@v4

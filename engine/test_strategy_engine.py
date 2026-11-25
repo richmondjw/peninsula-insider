@@ -651,9 +651,26 @@ def _load_script(filename: str):
     return mod
 
 
-analytics = _load_script("gsc-search-analytics.py")
-coverage_monitor = _load_script("gsc-coverage-monitor.py")
-import gsc_client  # noqa: E402  (on sys.path once the scripts are loaded)
+# The fixtures below are written by the feed scripts' own report writers, which
+# is what makes them a contract test. But the feed is optional to the publish:
+# if a script stops importing, the orchestrator logs a failed pull and carries
+# on. So in the publish pre-flight a script that does not import skips the
+# tests that need it, loudly, instead of failing the gate. Anywhere else (a
+# pull request, a laptop) it is an error.
+try:
+    analytics = _load_script("gsc-search-analytics.py")
+    coverage_monitor = _load_script("gsc-coverage-monitor.py")
+    import gsc_client  # noqa: E402  (on sys.path once the scripts are loaded)
+    FEED_SCRIPTS_ERROR = None
+except Exception as _feed_error:  # noqa: BLE001  (SyntaxError and ImportError alike)
+    if os.environ.get("PI_PREFLIGHT") != "1":
+        raise
+    analytics = coverage_monitor = gsc_client = None
+    FEED_SCRIPTS_ERROR = f"{type(_feed_error).__name__}: {_feed_error}"
+    print(f"WARNING: Search Console feed scripts do not import ({FEED_SCRIPTS_ERROR}). "
+          "Tests that need them are skipped in the pre-flight; fix the scripts.", file=sys.stderr)
+needs_feed_scripts = unittest.skipIf(
+    FEED_SCRIPTS_ERROR is not None, f"feed scripts do not import: {FEED_SCRIPTS_ERROR}")
 
 
 def _row(key, impressions, position, clicks=0):
@@ -666,6 +683,9 @@ def _row(key, impressions, position, clicks=0):
 # dog-friendly guide arrives as two URL variants, and /about/ is a low-traffic
 # page that would never make a top-25 table on the real site.
 PAGE_ROWS = [
+    # Another site under the same domain property. Must never be folded into "/".
+    _row("https://play.peninsulainsider.com.au/", 400, 14.0, 2),
+    _row(f"{SITE}/whats-on/autumn-exhibition/", 30, 6.0),
     _row(f"{SITE}/whats-on/old-cup-2026", 216, 7.5, 1),
     _row(f"{SITE}/journal/dog-friendly/", 73, 8.8),
     _row("http://peninsulainsider.com.au/journal/dog-friendly", 59, 18.6),
@@ -678,8 +698,12 @@ QUERY_ROWS = [
     _row("dog friendly guide", 17, 9.6),
     _row("wine | food pairing", 6, 5.0),
     _row("hotels far away", 7, 64.6),
+    _row("where is pi game", 25, 6.0),       # lands on play., not on this site
+    _row("climbed to the top", 4, 2.1),      # tracked: too small and too high for any other table
 ]
 PAGE_QUERY_ROWS = [
+    _row(["https://play.peninsulainsider.com.au/", "where is pi game"], 24, 6.0),
+    _row([f"{SITE}/", "where is pi game"], 1, 9.0),
     _row([f"{SITE}/whats-on/old-cup-2026", "old cup 2026"], 34, 8.1),
     _row([f"{SITE}/journal/dog-friendly/", "dog friendly guide"], 12, 9.0),
     _row(["http://peninsulainsider.com.au/journal/dog-friendly", "dog friendly guide"], 5, 11.0),
@@ -693,7 +717,11 @@ def _search_report(start: str, end: str, through: str | None = None) -> str:
     totals = analytics.property_totals([_row([], 400, 11.4, 10)], pages)
     return analytics.build_report(pages, QUERY_ROWS, totals,
                                   analytics.landing_pages(PAGE_QUERY_ROWS),
-                                  start, end, through or end, f"{end} 20:05 UTC")
+                                  start, end, through or end, f"{end} 20:05 UTC",
+                                  tracked=TRACKED, elsewhere=analytics.other_hosts(PAGE_ROWS))
+
+
+TRACKED = ["climbed to the top", "fell out of sight"]
 
 
 def _coverage_report(day: str, results=None) -> str:
@@ -732,6 +760,12 @@ EVENTS = {
     "cancelled-fair.json": {
         "slug": "cancelled-fair", "title": "Cancelled Fair", "startDate": "2026-12-12",
         "recurrence": "one-off", "freePaid": "Paid", "cancelled": True},
+    # A weekly record with a stated end is a bounded run. This one closed three
+    # days ago and is still "published": the site's expiry job never retires a
+    # weekly record, so only its dates say it is over.
+    "autumn-exhibition.json": {
+        "slug": "autumn-exhibition", "title": "Autumn Exhibition", "startDate": "2026-09-05",
+        "endDate": "2026-11-22", "recurrence": "weekly", "status": "published"},
 }
 
 
@@ -829,6 +863,7 @@ class InputFreshness(unittest.TestCase):
         self.assertEqual(se.assess_freshness(gsc, {}, {}, TODAY)["search"]["state"], "stale")
 
 
+@needs_feed_scripts
 class StalenessGuard(unittest.TestCase):
     """The reported fault, end to end, through build_state and the brief."""
 
@@ -912,6 +947,56 @@ class StalenessGuard(unittest.TestCase):
         self.assertIn("rejected the stored token", state["health"]["cause"])
         self.assertIn("ctr-fix", _kinds(state["commissioning_queue"]))   # still usable
 
+    def test_failed_pull_is_reported_the_day_it_fails(self):
+        """The data on hand is three days old and perfectly usable, but the
+        orchestrator has just watched the pull fail. Waiting until the data
+        ages out would bring the first word eleven days late."""
+        ok = {"credentials": "env-token", "refresh": {"search": "ok", "coverage": "ok"}}
+        rejected = {"credentials": "env-token", "refresh": {"search": "auth-failed", "coverage": "auth-failed"}}
+        blip = {"credentials": "env-token", "refresh": {"search": "api-error", "coverage": "ok"}}
+        with _sandbox(**FRESH):
+            healthy = se.build_state(TODAY, ok)["health"]
+            broken = se.build_state(TODAY, rejected)["health"]
+            transient = se.build_state(TODAY, blip)["health"]
+        self.assertEqual((healthy["status"], healthy["alert"]), ("ok", False))
+        # Will not fix itself: warn and raise it now.
+        self.assertEqual((broken["status"], broken["alert"]), ("warning", True))
+        self.assertIn("did not refresh the search report (auth-failed)", broken["notes"][0])
+        self.assertIn("rejected the stored token", broken["cause"])
+        self.assertEqual(broken["state"], "warning/auth-failed")
+        # A one-morning API error: on the record, not worth an issue.
+        self.assertEqual((transient["status"], transient["alert"]), ("warning", False))
+
+    def test_what_raises_the_alert(self):
+        creds = {"credentials": "env-token"}
+        with _sandbox(search_end="2026-11-16", coverage_day="2026-11-25", sitemap_day="2026-11-24"):
+            aging = se.build_state(TODAY, creds)["health"]            # pulls failing for days
+        with _sandbox(search_end="2026-11-22", coverage_day="2026-04-22", sitemap_day="2026-11-24"):
+            coverage = se.build_state(TODAY, creds)["health"]         # the other Search Console feed
+        with _sandbox(search_end="2026-11-22", coverage_day="2026-11-25", sitemap_day="2026-07-05"):
+            inventory = se.build_state(TODAY, creds)["health"]        # not the owner's to fix
+        with _sandbox(**STALE):
+            stale = se.build_state(TODAY, NO_CREDENTIALS)["health"]
+        self.assertEqual((aging["status"], aging["alert"]), ("warning", True))
+        self.assertEqual((coverage["status"], coverage["alert"]), ("warning", True))
+        self.assertEqual((inventory["status"], inventory["alert"]), ("warning", False))
+        self.assertEqual((stale["status"], stale["alert"], stale["state"]),
+                         ("degraded", True, "degraded/no-credentials"))
+
+    def test_banner_does_not_cry_search_when_search_is_current(self):
+        """The repository sitemap is permanently old. Once the search feed is
+        restored the brief must not go on opening as if it were not."""
+        with _sandbox(search_end="2026-11-22", coverage_day="2026-11-25", sitemap_day="2026-07-05"):
+            state = se.build_state(TODAY, {"credentials": "env-token"})
+            md = se.render_markdown(state)
+        self.assertNotIn("STALE DATA", md)
+        self.assertNotIn("picture of search performance", md)
+        self.assertIn("**Some inputs are out of date.** Search data is current", md)
+        self.assertIn("Content inventory (sitemap.xml) was last updated 2026-07-05", md)
+        self.assertIn("They return once those inputs are current again.", md)
+        self.assertIn("| Total impressions | 400 |", md)             # search figures shown as current
+        self.assertLess(md.index("Some inputs are out of date"), md.index("North star"))
+
     def test_only_the_stale_input_is_withheld(self):
         """Fresh search data must not be held back by an old coverage snapshot."""
         with _sandbox(search_end="2026-11-22", coverage_day="2026-04-22", sitemap_day="2026-11-24"):
@@ -965,6 +1050,7 @@ class StalenessGuard(unittest.TestCase):
             self.assertLessEqual(fresh["search"]["age_days"], se.SEARCH_STALE_AFTER_DAYS)
 
 
+@needs_feed_scripts
 class ExpiredEvents(unittest.TestCase):
     def _reason(self, **record):
         return se.event_block_reason(record, TODAY)
@@ -983,9 +1069,32 @@ class ExpiredEvents(unittest.TestCase):
         # ...but an annual record with an edition inside the coverage window is live.
         self.assertEqual(self._reason(startDate="2025-12-20", recurrence="annual",
                                       nextOccurrence="2026-12-20"), "")
-        # A rolling series never ends by date alone (the August 2026 markets bug).
+        # An open-ended series never ends by date alone (the August 2026 markets
+        # bug): with no end after the start, the dates are just the last occurrence.
         self.assertEqual(self._reason(startDate="2026-05-09", recurrence="monthly"), "")
+        self.assertEqual(self._reason(startDate="2026-10-11", endDate="2026-10-11", recurrence="monthly",
+                                      nextOccurrence="2026-10-11"), "")
         self.assertEqual(self._reason(startDate="2025-01-04", recurrence="weekly", status="published"), "")
+
+    def test_a_series_with_a_stated_end_is_a_bounded_run(self):
+        """The site's schedule logic reads an end date after the start date as
+        the end of a weekly, monthly or ongoing series. So does this."""
+        run = dict(startDate="2026-09-05", endDate="2026-11-22", recurrence="weekly", status="published")
+        self.assertEqual(self._reason(**run), "event ended 2026-11-22")
+        self.assertEqual(se.event_block_reason(run, date(2026, 11, 22)), "")        # last day
+        self.assertEqual(self._reason(**dict(run, recurrence="ongoing")), "event ended 2026-11-22")
+        # The registry rolled it on: the next occurrence is what keeps it live.
+        self.assertEqual(self._reason(startDate="2026-10-25", endDate="2026-11-22", recurrence="monthly",
+                                      nextOccurrence="2026-12-27"), "")
+        self.assertEqual(self._reason(startDate="2026-10-17", endDate="2026-11-21", recurrence="monthly",
+                                      nextOccurrence="2026-11-21"), "event ended 2026-11-21")
+        # Still running: live, and it carries the day it stops.
+        live = dict(startDate="2026-06-20", endDate="2026-12-26", recurrence="weekly",
+                    nextOccurrence="2026-11-28")
+        self.assertEqual(self._reason(**live), "")
+        self.assertEqual(se._event_horizon(live, TODAY), (False, date(2026, 12, 26)))
+        self.assertEqual(se._event_horizon(dict(startDate="2026-05-09", recurrence="monthly"), TODAY),
+                         (False, None))                                              # open-ended
 
     def test_retired_and_cancelled_listings_are_out_whatever_their_dates(self):
         self.assertEqual(self._reason(startDate="2026-12-17", status="archived"), "listing archived")
@@ -1017,11 +1126,23 @@ class ExpiredEvents(unittest.TestCase):
         targets = {o["target"] for o in state["commissioning_queue"]}
         self.assertNotIn("/whats-on/old-cup-2026/", targets)
         dropped = [w for w in state["withheld"] if w["withheld_class"] == "expired-event"]
-        self.assertEqual({w["kind"] for w in dropped}, {"ctr-fix", "striking-distance"})
-        self.assertEqual({w["target"] for w in dropped}, {"/whats-on/old-cup-2026/"})
-        self.assertTrue(all("event ended 2026-04-18" in w["withheld_reason"] for w in dropped))
+        cup = [w for w in dropped if w["target"] == "/whats-on/old-cup-2026/"]
+        self.assertEqual({w["kind"] for w in cup}, {"ctr-fix", "striking-distance"})
+        self.assertTrue(all("event ended 2026-04-18" in w["withheld_reason"] for w in cup))
         # The query is matched to the page that really ranks for it, from the report.
-        self.assertTrue(any(w["query"] == "old cup 2026" for w in dropped))
+        self.assertTrue(any(w["query"] == "old cup 2026" for w in cup))
+
+    def test_ended_weekly_run_is_dropped_though_its_listing_is_still_published(self):
+        """A weekly record with a stated end is a bounded run. The site's expiry
+        job never retires weekly records, so the status still says published
+        three days after the exhibition closed."""
+        with _sandbox(**FRESH):
+            state = se.build_state(TODAY, {"credentials": "env-token"})
+        self.assertNotIn("/whats-on/autumn-exhibition/",
+                         {o["target"] for o in state["commissioning_queue"]})
+        dropped = [w for w in state["withheld"] if w["target"] == "/whats-on/autumn-exhibition/"]
+        self.assertEqual([w["kind"] for w in dropped], ["ctr-fix"])
+        self.assertIn("event ended 2026-11-22", dropped[0]["withheld_reason"])
 
     def test_no_kind_of_opportunity_can_target_an_expired_event_page(self):
         index = {"old-cup-2026": {"title": "Old Cup 2026", "last_day": "2026-04-18",
@@ -1041,23 +1162,55 @@ class ExpiredEvents(unittest.TestCase):
         self.assertIn("event-coverage", {o["kind"] for o in gala})
 
     @repo_data_check
-    def test_real_calendar_has_no_expired_event_in_the_queue(self):
-        """Against the repository's real events, on fresh-as-can-be assumptions:
-        nothing in the queue may point at an event page whose event is over."""
+    def test_real_calendar_against_an_independent_reading_of_the_rule(self):
+        """Every real event page, offered to the screen as every kind of
+        opportunity. What survives is checked against the rule written out
+        again here, from the raw records, without calling the engine's own
+        event functions: so deleting or loosening the engine's rule fails this
+        whenever the calendar holds a record it applies to."""
         events_dir = REPO / "next/src/content/events"
         if not events_dir.exists():
             self.skipTest("no events collection")
         today = date.today()
+
+        def day(value):
+            try:
+                return date.fromisoformat(str(value or "")[:10])
+            except ValueError:
+                return None
+
+        def over(rec) -> bool:
+            start, end, nxt = day(rec.get("startDate")), day(rec.get("endDate")), day(rec.get("nextOccurrence"))
+            stated = [d for d in (start, end) if d]
+            if not stated or max(stated) >= today:
+                return False
+            kind = str(rec.get("recurrence") or "one-off").lower()
+            if kind in ("weekly", "monthly", "ongoing"):
+                bounded = bool(start and end and end > start)
+                return bounded and not (nxt and nxt >= today)
+            if kind in ("annual", "seasonal") and nxt and 0 <= (nxt - today).days <= 90:
+                return False
+            return True
+
+        records = {}
+        for jf in sorted(events_dir.rglob("*.json")):
+            rec = json.loads(jf.read_text(encoding="utf-8"))
+            dead = (rec.get("cancelled") is True or rec.get("skipThis") is True
+                    or str(rec.get("status") or "").lower() in ("archived", "expired") or over(rec))
+            slug = str(rec.get("slug") or jf.stem)
+            records[slug] = records.get(slug, True) and dead      # a live namesake owns the URL
+
         index = se.load_event_index(events_dir, today)
-        opps = se.build_opportunities(
-            se.load_gsc(REPO / "ops/reports/gsc-search-analytics.md"), {"stale": []}, {"gaps": []},
-            se.get_season(today.month), se.load_coverage(REPO / "ops/reports/gsc-coverage-report.md"),
-            se.load_events(events_dir, today))
-        queue, _ = se.screen_opportunities(opps, None, index)   # no staleness gate: events only
+        offered = [se.Opportunity(kind=k, title=slug, target=f"/whats-on/{slug}/")
+                   for slug in records for k in se.ALL_KINDS]
+        queue, withheld = se.screen_opportunities(offered, None, index)
+        survivors = {o.target.split("/")[2] for o in queue}
+        wrongly_kept = sorted(slug for slug in survivors if records[slug])
+        self.assertEqual(wrongly_kept, [], "queued although the event is over or withdrawn")
+        self.assertEqual(len(queue) + len(withheld), len(offered))
+        self.assertTrue(survivors, "every event page was blocked: the rule is too tight")
         for o in queue:
-            event = se.event_for_path(o.target, index)
-            self.assertFalse(event and event["blocked"], f"{o.target}: {event and event['blocked']}")
-            if o.kind == "event-coverage":
+            if o.expires_on:
                 self.assertGreaterEqual(o.expires_on, today.isoformat())
 
 
@@ -1140,6 +1293,7 @@ class QueueReadGuard(unittest.TestCase):
             self.assertIsInstance(result["health"], dict, corrupt)
 
 
+@needs_feed_scripts
 class LearningRemeasure(unittest.TestCase):
     """'Tracking 8 actioned item(s), 0 re-measured' for five months."""
 
@@ -1252,6 +1406,47 @@ class LearningRemeasure(unittest.TestCase):
         self.assertEqual(se.evaluate_actioned([dropped], self._gsc("2026-10-26", "2026-11-22"))
                          ["results"][0]["waiting_on"], "query-data")
 
+    def test_tracked_query_is_scored_wherever_it_ends_up(self):
+        """Without the tracked-queries table a query that reached position 2 was
+        too good for the 4-20 band and too small for the top queries, so the
+        real wins and the worst losses never reached the hit rate."""
+        gsc = self._gsc("2026-10-26", "2026-11-22")
+        action = {"date": "2026-07-06", "kind": "striking-distance", "target": "/journal/x/",
+                  "baseline_level": "query", "baseline": {"impressions": 9, "ctr": None, "avg_position": 14.0}}
+        win = se.evaluate_actioned([dict(action, query="climbed to the top")], gsc)
+        self.assertTrue(win["results"][0]["moved"])
+        self.assertIn("position 14.0→2.1", win["results"][0]["detail"])
+        lost = se.evaluate_actioned([dict(action, query="fell out of sight")], gsc)
+        self.assertEqual(lost["hit_rate_by_kind"]["striking-distance"], {"wins": 0, "measured": 1})
+        self.assertIn("no impressions in the current window (was 9)", lost["results"][0]["detail"])
+
+    def test_baseline_taken_from_stale_data_is_not_compared(self):
+        """Recorded today, a baseline would be April's numbers. Scored later
+        against a current pull it would measure seven months of drift."""
+        gsc = self._gsc("2026-10-26", "2026-11-22")
+        action = {"date": "2026-07-06", "kind": "ctr-fix", "target": "/journal/dog-friendly/", "query": "",
+                  "baseline": {"impressions": 100, "ctr": 0.0, "avg_position": 20.0}}
+        old = se.evaluate_actioned([dict(action, baseline_as_of="2026-04-19")], gsc)
+        self.assertEqual(old["measurable"], 0)
+        self.assertEqual(old["results"][0]["waiting_on"], "baseline")
+        self.assertIn("ended 2026-04-19, 78 days before the action", old["results"][0]["detail"])
+        current = se.evaluate_actioned([dict(action, baseline_as_of="2026-07-03")], gsc)
+        self.assertEqual(current["measurable"], 1)
+        # An indexation fix needs no baseline: it is judged on where the page is now.
+        indexed = se.evaluate_actioned([dict(self.INDEXATION, baseline_as_of="2026-04-19")],
+                                       gsc, self._cov("2026-11-25"))
+        self.assertEqual(indexed["measurable"], 1)
+
+    def test_malformed_ledger_lines_are_ignored_not_fatal(self):
+        """One bad line once crashed --health, which the workflow then read as
+        'degraded'. A line that names no target measures nothing."""
+        ledger = [{"date": "2026-07-06", "kind": "ctr-fix"}, "not a record", None,
+                  {"target": "/about/", "kind": "indexation", "baseline": "oops", "date": "garbage"},
+                  self.INDEXATION]
+        res = se.evaluate_actioned(ledger, self._gsc("2026-10-26", "2026-11-22"), self._cov("2026-11-25"))
+        self.assertEqual(len(res["results"]), 2)
+        self.assertEqual(res["measurable"], 2)
+
     # The eight entries that sat at "not yet re-measured" from 2026-07-06, as
     # they are in ops/strategy/actioned.jsonl. Pinned here, not read from the
     # file, because the ledger grows with every action the loop takes.
@@ -1292,8 +1487,9 @@ class LearningRemeasure(unittest.TestCase):
             actioned = coverage_monitor.actioned_paths(ledger)
         self.assertEqual(actioned, ["/about/"])
         urls = coverage_monitor.inspection_urls([f"{SITE}/eat", f"{SITE}/about"], actioned)
-        # Canonical trailing-slash form, no duplicates: /eat would inspect a redirect.
-        self.assertEqual(urls, [f"{SITE}/eat/", f"{SITE}/about/"])
+        # Canonical trailing-slash form, no duplicates (/eat would inspect a
+        # redirect), and ledger pages first so a time-boxed run always reaches them.
+        self.assertEqual(urls, [f"{SITE}/about/", f"{SITE}/eat/"])
 
     def test_record_action_notes_what_the_baseline_was_measured_against(self):
         with _sandbox(**FRESH):
@@ -1313,6 +1509,7 @@ class LearningRemeasure(unittest.TestCase):
         self.assertEqual(indexed["baseline"]["index_verdict"], "NEUTRAL")
 
 
+@needs_feed_scripts
 class FeedReportContract(unittest.TestCase):
     """What the feed scripts write must be exactly what the engine reads. The
     coverage monitor used to write a layout the engine could not parse, so a
@@ -1327,22 +1524,57 @@ class FeedReportContract(unittest.TestCase):
         self.assertEqual(gsc["summary"]["Total impressions"], "400")      # property totals, not a sum
         self.assertEqual(gsc["summary"]["Total clicks"], "10")
         self.assertEqual(gsc["summary"]["Avg position (imp-weighted)"], "11.4")
-        self.assertEqual(gsc["summary"]["Pages with impressions"], "5")
+        self.assertEqual(gsc["summary"]["Pages with impressions"], "6")
         self.assertTrue(gsc["pages_complete"])
         pages = {p["path"]: p for p in gsc["pages"]}
-        self.assertEqual(len(pages), 5)                                    # two variants merged
+        self.assertEqual(len(pages), 6)                                    # two variants merged
         self.assertEqual(pages["/journal/dog-friendly/"]["impressions"], 132)
         self.assertEqual(pages["/journal/dog-friendly/"]["avg_position"], 13.2)
         self.assertEqual(pages["/about/"]["impressions"], 3)
         self.assertEqual(gsc["top_pages"][0]["path"], "/whats-on/old-cup-2026/")
         self.assertEqual({r["path"] for r in gsc["ctr_opportunities"]},
-                         {"/whats-on/old-cup-2026/", "/journal/dog-friendly/", "/whats-on/summer-gala/"})
+                         {"/whats-on/old-cup-2026/", "/journal/dog-friendly/", "/whats-on/summer-gala/",
+                          "/whats-on/autumn-exhibition/"})
         gaps = {g["query"]: g for g in gsc["striking_distance"]}
         self.assertEqual(set(gaps), {"old cup 2026", "dog friendly guide", "wine | food pairing"})
         self.assertEqual(gaps["old cup 2026"]["page"], "/whats-on/old-cup-2026/")
         self.assertEqual(gaps["dog friendly guide"]["page"], "/journal/dog-friendly/")
         self.assertEqual(gaps["wine | food pairing"]["page"], "/eat/")    # pipe survives the table
-        self.assertEqual(len(gsc["top_queries"]), 4)
+        self.assertEqual(len(gsc["top_queries"]), 6)
+
+    def test_another_host_under_the_domain_property_is_not_this_site(self):
+        """play.peninsulainsider.com.au is a different site. Folded in by path,
+        its home page would become ours: 400 extra impressions on "/"."""
+        pages = {p["path"]: p for p in analytics.aggregate_pages(PAGE_ROWS)}
+        self.assertEqual(pages["/"]["impressions"], 15)
+        self.assertEqual(pages["/"]["position"], 2.1)
+        self.assertEqual(analytics.other_hosts(PAGE_ROWS),
+                         {"play.peninsulainsider.com.au": {"pages": 1, "impressions": 400}})
+        landing = analytics.landing_pages(PAGE_QUERY_ROWS)
+        self.assertEqual(landing["where is pi game"], "")             # mostly lands off-site
+        self.assertNotIn("where is pi game",
+                         {r["keys"][0] for r in analytics.keyword_gaps(QUERY_ROWS, landing)})
+        with tempfile.TemporaryDirectory() as d:
+            gsc = se.load_gsc(_write(Path(d), "gsc.md", _search_report("2026-10-26", "2026-11-22")))
+        self.assertNotIn("where is pi game", {g["query"] for g in gsc["striking_distance"]})
+        self.assertEqual(gsc["summary"]["Other host: play.peninsulainsider.com.au"],
+                         "1 pages, 400 impressions")
+        self.assertTrue(gsc_client.is_site_url("http://www.peninsulainsider.com.au/eat"))
+        self.assertTrue(gsc_client.is_site_url("/eat/"))
+        self.assertFalse(gsc_client.is_site_url("https://play.peninsulainsider.com.au/eat/"))
+
+    def test_tracked_queries_are_reported_whatever_their_rank(self):
+        with tempfile.TemporaryDirectory() as d:
+            ledger = _write(Path(d), "actioned.jsonl",
+                            json.dumps({"target": "/a/", "query": "Climbed To The Top"}) + "\n"
+                            + json.dumps({"target": "/b/", "query": ""}) + "\nnot json\n"
+                            + json.dumps({"target": "/c/", "query": "climbed to the top"}) + "\n")
+            self.assertEqual(analytics.tracked_queries(ledger), ["Climbed To The Top"])
+            gsc = se.load_gsc(_write(Path(d), "gsc.md", _search_report("2026-10-26", "2026-11-22")))
+        tracked = {q["query"]: q for q in gsc["tracked_queries"]}
+        self.assertEqual(tracked["climbed to the top"]["avg_position"], 2.1)
+        self.assertEqual(tracked["fell out of sight"]["impressions"], 0)
+        self.assertNotIn("climbed to the top", {g["query"] for g in gsc["striking_distance"]})
 
     def test_coverage_report_round_trip(self):
         with tempfile.TemporaryDirectory() as d:
@@ -1441,6 +1673,7 @@ def _analytics_answers(body):
     }[dims]}
 
 
+@needs_feed_scripts
 class FeedFailureHandling(unittest.TestCase):
     """A failed pull must fail loudly and leave the last good report alone. It
     used to print 'API error', carry on, and write an empty report."""
@@ -1469,7 +1702,7 @@ class FeedFailureHandling(unittest.TestCase):
                            "gsc-search-analytics.md") as report:
             summary = analytics.run()
             gsc = se.load_gsc(report)
-        self.assertEqual(summary["pages"], 5)
+        self.assertEqual(summary["pages"], 6)                      # play. is not one of ours
         self.assertEqual(gsc["summary"]["Total impressions"], "400")
         self.assertEqual(gsc["data_through"], "2026-11-21")       # newest day that has data
         self.assertTrue(gsc["pages_complete"])
@@ -1499,6 +1732,113 @@ class FeedFailureHandling(unittest.TestCase):
                 analytics.run()
             self.assertEqual(report.read_text(), "LAST GOOD REPORT\n")
         self.assertEqual(caught.exception.reason, "no-data")
+
+    def test_rows_only_from_another_host_are_not_data_for_this_site(self):
+        def only_play(body):
+            dims = tuple(body["dimensions"])
+            rows = {(): [_row([], 400, 14.0, 2)], ("date",): [_row("2026-11-21", 400, 14.0)],
+                    ("page",): [_row("https://play.peninsulainsider.com.au/", 400, 14.0, 2)]}
+            return {"rows": rows.get(dims, [])}
+        with self._outputs(_FakeSearchConsole(only_play), analytics, "gsc-search-analytics.md") as report:
+            with self.assertRaises(gsc_client.FeedError) as caught:
+                analytics.run()
+            self.assertEqual(report.read_text(), "LAST GOOD REPORT\n")
+        self.assertEqual(caught.exception.reason, "no-data")
+
+    def test_coverage_time_budget_yields_a_shorter_report_not_none(self):
+        """The inspection runs before the publish and the API's speed is not
+        ours. Past the budget it stops and writes what it has."""
+        def inspect(body):
+            return {"inspectionResult": {"indexStatusResult": {
+                "verdict": "PASS", "coverageState": "Submitted and indexed"}}}
+        service = _FakeSearchConsole(inspect_fn=inspect)
+        clock = iter(range(0, 10_000, 100))                         # every call is 100 s later
+        with self._outputs(service, coverage_monitor, "gsc-coverage-report.md") as report, \
+                mock.patch.object(coverage_monitor, "actioned_paths", return_value=["/about/"]), \
+                mock.patch.object(coverage_monitor.time, "monotonic", side_effect=lambda: next(clock)):
+            summary = coverage_monitor.run(verbose=False)
+            text = report.read_text()
+            cov = se.load_coverage(report)
+        self.assertLess(summary["total"], 9)                         # 8 tracked + 1 ledger page planned
+        self.assertGreaterEqual(summary["total"], 1)
+        self.assertIn("/about/", cov["by_path"])                     # the ledger page went first
+        self.assertIn("Stopped at the time budget", text)
+        self.assertEqual(cov["inspected"], summary["total"])
+
+    def test_token_problems_are_named_for_what_they_are(self):
+        """get_credentials against a stand-in for the Google libraries: the
+        branches that matter cannot be reached with real ones in a test."""
+        class Rejected(Exception):
+            pass
+
+        class Creds:
+            valid, refresh_token = False, "r"
+
+            def __init__(self, good=False):
+                self.good = good
+
+            def refresh(self, request):
+                if not self.good:
+                    raise Rejected("invalid_grant")
+                self.valid = True
+
+            def to_json(self):
+                return '{"minted": true}'
+
+        minted = []
+
+        class Flow:
+            @staticmethod
+            def from_client_secrets_file(path, scopes):
+                return Flow()
+
+            def run_local_server(self, port=0):
+                minted.append(1)
+                c = Creds(good=True)
+                c.valid = True
+                return c
+
+        def fake_google(parse):
+            return mock.Mock(RefreshError=Rejected, TransportError=OSError, Request=lambda: None,
+                             Credentials=mock.Mock(from_authorized_user_info=parse,
+                                                   from_authorized_user_file=lambda p, s: Creds()),
+                             InstalledAppFlow=Flow)
+
+        def attempt(env, *, token_on_disk=False, interactive=False, parse=lambda info, scopes: Creds()):
+            with tempfile.TemporaryDirectory() as d:
+                token, secret = Path(d) / "token.json", Path(d) / "secret.json"
+                secret.write_text("{}")
+                if token_on_disk:
+                    token.write_text("{}")
+                with mock.patch.dict("os.environ", env, clear=True), contextlib.redirect_stdout(None), \
+                        mock.patch.object(gsc_client, "_google", return_value=fake_google(parse)), \
+                        mock.patch.object(gsc_client, "TOKEN_FILE", token), \
+                        mock.patch.object(gsc_client, "CLIENT_FILE", secret), \
+                        mock.patch.object(gsc_client, "_interactive", return_value=interactive):
+                    try:
+                        gsc_client.get_credentials()
+                        return "ok", token.read_text() if token.exists() else None
+                    except gsc_client.FeedError as e:
+                        return e.reason, str(e)
+
+        def not_an_object(info, scopes):
+            return info["refresh_token"]              # what the real parser does to a string
+
+        # A double-encoded secret is valid JSON but not an object.
+        self.assertEqual(attempt({"GSC_TOKEN_JSON": '"{}"'}, parse=not_an_object)[0], "auth-failed")
+        # CI token rejected by Google: say which secret to replace. Never written to disk.
+        reason, message = attempt({"GSC_TOKEN_JSON": "{}"})
+        self.assertEqual(reason, "auth-failed")
+        self.assertIn("replace the GSC_TOKEN_JSON secret", message)
+        # A dead token cached on disk, nobody at the keyboard: re-running alone never helps.
+        reason, message = attempt({}, token_on_disk=True)
+        self.assertEqual(reason, "auth-failed")
+        self.assertIn("Delete", message)
+        # The same, with a person at the terminal: go straight back to the consent.
+        self.assertEqual(attempt({}, token_on_disk=True, interactive=True), ("ok", '{"minted": true}'))
+        self.assertEqual(len(minted), 1)
+        # A client secret but no token, in CI: stop, do not wait on a browser.
+        self.assertEqual(attempt({})[0], "no-credentials")
 
     def test_check_mode_writes_nothing(self):
         with self._outputs(_FakeSearchConsole(_analytics_answers), analytics,
@@ -1566,6 +1906,7 @@ class FeedFailureHandling(unittest.TestCase):
         self.assertEqual(se.feed_cause({"credentials": "env-token", "refresh": {"search": "ok"}}), "")
 
 
+@needs_feed_scripts
 class HealthGate(unittest.TestCase):
     def _run(self, argv):
         with mock.patch.object(sys, "argv", ["strategy_engine.py", *argv]), \
@@ -1575,7 +1916,8 @@ class HealthGate(unittest.TestCase):
 
     def test_exit_code_tells_a_monitor_the_loop_is_not_healthy(self):
         with _sandbox(**STALE):
-            self.assertEqual(self._run(["--health", "--date", "2026-11-25"]), 1)     # degraded
+            # Not 1: that is what an uncaught exception exits with.
+            self.assertEqual(self._run(["--health", "--date", "2026-11-25"]), 3)     # degraded
         with _sandbox(**FRESH):
             self.assertEqual(self._run(["--health", "--date", "2026-11-25"]), 0)
             (se.SNAPSHOT_DIR / "2026-11-20.json").write_text("{}")
@@ -1597,6 +1939,46 @@ class HealthGate(unittest.TestCase):
         emit.assert_called_once()
         self.assertEqual(emit.call_args.kwargs["dedup_key"], "strategy-loop-health")
         self.assertTrue(emit.call_args.kwargs["quiet_reuse"])
+
+    def test_alert_is_raised_at_warning_when_the_feed_is_broken(self):
+        import alert
+        rejected = json.dumps({"search": "auth-failed", "coverage": "auth-failed"})
+        with _sandbox(**FRESH), mock.patch.object(alert, "emit_alert") as emit, \
+                mock.patch.dict("os.environ", {"PI_GSC_REFRESH": rejected, "GSC_TOKEN_JSON": "{}"}):
+            code = self._run(["--health", "--alert", "--date", "2026-11-25"])
+            state = se.build_state(TODAY, se.detect_feed())
+        self.assertEqual(code, 0)                                    # warning does not fail a gate
+        emit.assert_called_once()
+        self.assertEqual(emit.call_args.kwargs["state"], "warning/auth-failed")
+        _, body = se.health_alert(state)
+        self.assertIn("not the client secret file", body)            # the fix for THIS cause
+        self.assertNotIn("has no Search Console credentials", body)
+
+    def test_issue_is_rewritten_once_when_the_cause_changes(self):
+        """Opened as 'no credentials'. The owner sets the secret, wrongly. The
+        issue must stop describing the first problem and say so, once."""
+        import alert
+        issue = {"number": 7, "html_url": "https://example.test/7",
+                 "body": "<!-- pi-alert:k -->\n<!-- pi-alert-state:degraded/no-credentials -->\n\nold"}
+        calls = []
+
+        def fake(method, url, token, payload=None):
+            calls.append((method, url.rsplit("/", 1)[-1], payload))
+            if method == "PATCH":
+                issue["body"] = payload["body"]
+            return [issue] if method == "GET" else {"html_url": issue["html_url"]}
+        env = {"GITHUB_TOKEN": "t", "GITHUB_REPOSITORY": "o/r"}
+        with mock.patch.dict("os.environ", env), mock.patch.object(alert, "_gh_request", side_effect=fake):
+            same = dict(quiet_reuse=True, state="degraded/no-credentials")
+            alert.open_or_reuse_issue("t1", "b1", "k", **same)
+            self.assertEqual([m for m, _, _ in calls], ["GET"])                    # nothing to say
+            alert.open_or_reuse_issue("t2", "b2", "k", quiet_reuse=True, state="degraded/auth-failed")
+            self.assertEqual([m for m, _, _ in calls], ["GET", "GET", "PATCH", "POST"])
+            self.assertEqual(calls[2][2]["title"], "t2")
+            self.assertIn("pi-alert-state:degraded/auth-failed", calls[2][2]["body"])
+            self.assertIn("cause has changed", calls[3][2]["body"])
+            alert.open_or_reuse_issue("t2", "b2", "k", quiet_reuse=True, state="degraded/auth-failed")
+            self.assertEqual(len(calls), 5)                                        # quiet again
 
     def test_no_alert_when_healthy(self):
         import alert
@@ -1620,6 +2002,7 @@ class HealthGate(unittest.TestCase):
             self.assertEqual([m for m, _ in calls], ["GET", "GET", "POST"])  # default still comments
 
 
+@needs_feed_scripts
 class StrategyHouseStyle(unittest.TestCase):
     """No em-dashes on any surface, including the ones this engine writes."""
 

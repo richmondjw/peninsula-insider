@@ -61,43 +61,58 @@ def _gh_request(method: str, url: str, token: str, payload: dict | None = None) 
 
 
 def open_or_reuse_issue(title: str, body: str, dedup_key: str,
-                        quiet_reuse: bool = False) -> str | None:
+                        quiet_reuse: bool = False, state: str | None = None) -> str | None:
     """Open a GitHub issue (or reuse an existing open one carrying the same dedup
     marker). Returns the issue URL, or None if not in CI / on any failure.
 
-    quiet_reuse: when an open issue already carries the marker, leave it as it
-    is instead of adding a "Recurred" comment. For a standing condition checked
-    every day (a feed that stays down), one open issue is the signal; a comment
-    a day is noise. Closing the issue while the condition persists reopens a
-    fresh one on the next run."""
+    quiet_reuse: when an open issue already carries the marker, do not add a
+    "Recurred" comment. For a standing condition checked every day (a feed that
+    stays down), one open issue is the signal; a comment a day is noise.
+    Closing the issue while the condition persists opens a fresh one next run.
+
+    state: a short code for what the condition currently is. With quiet_reuse,
+    an open issue whose recorded state differs is rewritten to the new title and
+    body and gets ONE comment saying so. That is the case where the owner fixed
+    one cause and ran into the next: the issue must not go on describing the
+    first one, and they need to hear that their fix did not finish the job."""
     token = os.environ.get("GITHUB_TOKEN")
     repo = os.environ.get("GITHUB_REPOSITORY")
     if not token or not repo:
         return None
     marker = f"<!-- pi-alert:{dedup_key} -->"
-    full_body = f"{marker}\n\n{body}\n\n_Emitted by the Peninsula Insider content engine at {_now()}._"
+    state_marker = f"<!-- pi-alert-state:{state} -->" if state else ""
+    full_body = (f"{marker}\n{state_marker}\n\n{body}\n\n"
+                 f"_Emitted by the Peninsula Insider content engine at {_now()}._")
     try:
         # Reuse an open alert issue with the same marker to avoid a pile-up.
         existing = _gh_request(
             "GET", f"https://api.github.com/repos/{repo}/issues?state=open&labels={ISSUE_LABEL}&per_page=50", token)
         if isinstance(existing, list):
             for issue in existing:
-                if marker in (issue.get("body") or ""):
+                current = issue.get("body") or ""
+                if marker in current:
                     num = issue["number"]
                     if not quiet_reuse:
                         _gh_request("POST", f"https://api.github.com/repos/{repo}/issues/{num}/comments",
                                     token, {"body": f"Recurred at {_now()}.\n\n{body}"})
+                    elif state_marker and state_marker not in current:
+                        _gh_request("PATCH", f"https://api.github.com/repos/{repo}/issues/{num}",
+                                    token, {"title": title, "body": full_body})
+                        _gh_request("POST", f"https://api.github.com/repos/{repo}/issues/{num}/comments",
+                                    token, {"body": "The cause has changed, so the description above "
+                                                    f"was rewritten. It now reads: **{title}**"})
                     return issue.get("html_url")
         created = _gh_request("POST", f"https://api.github.com/repos/{repo}/issues", token,
                               {"title": title, "body": full_body, "labels": [ISSUE_LABEL]})
         return created.get("html_url") if isinstance(created, dict) else None
     except (urllib.error.URLError, urllib.error.HTTPError, KeyError, ValueError, OSError) as e:
-        print(f"  alert: GitHub issue failed ({e}) — alert file still written")
+        print(f"  alert: GitHub issue failed ({e}) - alert file still written")
         return None
 
 
 def emit_alert(title: str, body: str, severity: str = "error",
-               dedup_key: str | None = None, quiet_reuse: bool = False) -> dict:
+               dedup_key: str | None = None, quiet_reuse: bool = False,
+               state: str | None = None) -> dict:
     """Record an alert (file always; GitHub issue in CI). Never raises."""
     dedup_key = dedup_key or _slug(title)
     result = {"title": title, "severity": severity, "file": None, "issue": None}
@@ -105,7 +120,7 @@ def emit_alert(title: str, body: str, severity: str = "error",
         result["file"] = str(write_alert_file(title, body, severity, dedup_key))
     except OSError as e:
         print(f"  alert: could not write alert file ({e})")
-    result["issue"] = open_or_reuse_issue(title, body, dedup_key, quiet_reuse)
+    result["issue"] = open_or_reuse_issue(title, body, dedup_key, quiet_reuse, state)
     where = result["issue"] or result["file"] or "(nowhere)"
     print(f"  ALERT [{severity}] {title} -> {where}")
     return result

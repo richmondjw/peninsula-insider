@@ -58,12 +58,12 @@ and commissions only from the events and seasonal calendars.
 strategy loop):** `strategy_engine.py --health` inspects the loop's own cadence
 (days since last snapshot), input health (is GSC performance data flowing, and
 is it current?), and learning health, and **exits non-zero when the loop is
-stalled (2) or degraded (1)**. Every run also writes `ops/strategy/health.json`
+stalled (2) or degraded (3)**. Every run also writes `ops/strategy/health.json`
 and a 🟢/🟡/🟠/🔴 badge into the brief. `daily-content.yml` runs
 `--health --alert` after each daily run: it never fails the publish, and while
-the loop is degraded or stalled it keeps one `pi-alert` issue open with the
-cause and the fix. This is the first strategy-path job with a non-silent alert
-path.
+the loop needs the owner (`alert` in `health.json`) it keeps one `pi-alert`
+issue open with the cause and the fix. This is the first strategy-path job with
+a non-silent alert path.
 
 **Agent-index note:** the *live* `/llms.txt` and `/llms-full.txt` are generated
 in the deploy workflow from the freshly-built `next/dist/sitemap.xml`, so they

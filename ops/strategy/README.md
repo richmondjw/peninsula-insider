@@ -88,6 +88,11 @@ guard fails closed):
 - **Health is not green.** Stale or missing search data is `degraded`; stale
   coverage or inventory is `warning`.
 
+Stale or missing search data gets the full warning block, because search
+performance is what the brief is for. Coverage or inventory alone get a short
+"some inputs are out of date" note, so a brief built on current search data is
+not labelled as if it were not.
+
 The same rules run again when a consumer reads the queue
 (`usable_queue`, used by `orchestrator.py` and `auto_act.py`), against the
 date of reading. A state file that is days old, or was written before the guard
@@ -103,10 +108,17 @@ No opportunity of any kind may target the page of an event that is over. The
 brain indexes every event record, including `events/archive/`, and drops an
 opportunity whose target is `/whats-on/{slug}/` for a record that is:
 
-- **ended**: its last stated day has passed. Weekly, monthly and ongoing
-  records roll forward and never end by date alone. An annual or seasonal
-  record stays live only while its next occurrence is inside the 90-day
-  advance-coverage window.
+- **ended**: nothing the record states is still ahead. The reading of each
+  recurrence follows the site's own schedule logic
+  (`next/src/lib/event-schedule.ts`):
+  - a one-off is over the day after its last stated day
+  - an annual or seasonal record is too, unless its next occurrence falls
+    inside the 90-day advance-coverage window
+  - a weekly, monthly or ongoing record whose end date is after its start date
+    is a bounded run (an exhibition, a season of Saturdays) and is over after
+    that end, unless a next occurrence is still ahead. With no end after the
+    start, the dates are only the last occurrence computed so far: the series
+    is open-ended and never ends by date alone
 - **cancelled** (the same test the site uses, `engine/event_admission.py`).
 - **retired**: status `archived` or `expired`, whatever its dates say. A
   future date on an archived listing usually means the date is unconfirmed.
@@ -116,7 +128,8 @@ event items carry `expires_on`, so one that is acted on late is refused at
 read time.
 
 This is deliberately stricter than `next/scripts/archive-expired-events.py`,
-which keeps an annual listing on the site while any next occurrence exists.
+which keeps an annual listing on the site while any next occurrence exists and
+never retires a weekly, monthly or ongoing record at all.
 
 ## The learning loop (does the strategy actually work?)
 
@@ -146,7 +159,13 @@ measured against evidence gathered *after* the action:
   a low-traffic page can be measured. A page absent from that complete table
   had no impressions.
 - An item with no baseline to compare against is left pending. It is not scored
-  as a miss.
+  as a miss. The same goes for a baseline recorded from data that was already
+  stale at the time (`baseline_as_of` more than 14 days before the action):
+  comparing it with today would measure the drift in between, not the fix.
+- A query-level action is scored on the report's "Tracked Queries" table, which
+  carries every query in the ledger whatever its rank. Without it a query that
+  climbed to position 2, or dropped out of sight, would fall outside the top
+  queries and the position 4 to 20 band and never be scored.
 
 Anything that cannot be measured yet stays pending with the reason shown, and
 pending items never enter the hit rates. As the hit-rate data accumulates the
@@ -239,20 +258,32 @@ A fully-automated loop must notice when it stalls. Every run writes
 
 | Status | Meaning |
 |---|---|
-| 🟢 `ok` | On cadence, inputs current |
-| 🟡 `warning` | Cadence slipping, search data ageing, or coverage/inventory stale |
+| 🟢 `ok` | On cadence, inputs current, today's pulls succeeded |
+| 🟡 `warning` | Cadence slipping, a pull failed today, search data ageing, or coverage/inventory stale |
 | 🟠 `degraded` | Running on time, but search data is stale or missing: the loop cannot see performance or learn |
 | 🔴 `stalled` | Not running: three or more days since the last snapshot |
 
 ```bash
-python3 engine/strategy_engine.py --health           # exit 2 stalled, 1 degraded, 0 otherwise
-python3 engine/strategy_engine.py --health --alert   # also raise or reuse a GitHub issue
+python3 engine/strategy_engine.py --health           # exit 2 stalled, 3 degraded, 0 otherwise
+python3 engine/strategy_engine.py --health --alert   # also keep a GitHub issue open
 ```
 
+Exit 1 is never used: it is what an uncaught exception exits with, and a
+monitor has to tell "degraded" from "the check crashed".
+
+`health.json` also carries `alert`: whether the owner should be told now. It is
+true whenever the loop is degraded or stalled, and already at `warning` when a
+Search Console pull is failing in a way that will not fix itself (no
+credentials, a rejected token), when search data is ageing because pulls have
+failed for days, or when index coverage has gone stale. A one-morning API error
+does not set it, and neither does the stale sitemap inventory, which no
+settings page can fix.
+
 `daily-content.yml` runs `--health --alert` after every daily run. It never
-fails the publish. While the loop is degraded or stalled it puts a warning on
-the run and keeps one issue open, labelled `pi-alert`, with the cause and the
-fix. The issue is reused silently, not commented on each day.
+fails the publish. While `alert` is true it puts a warning on the run and keeps
+one issue open, labelled `pi-alert`, with the cause and the fix. The issue is
+edited in place rather than commented on each day; it gets one comment when the
+cause changes, for instance when the secret is set but holds the wrong file.
 
 ## Roadmap (toward number 1)
 

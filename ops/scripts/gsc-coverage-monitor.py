@@ -44,6 +44,10 @@ REPORT_FILE   = gsc.REPORTS_DIR / "gsc-coverage-report.md"
 ACTIONED_FILE = gsc.BASE / "ops" / "strategy" / "actioned.jsonl"
 DELAY_S       = 0.2   # 300/min at most; the quota is 600/min and 2,000/day
 FAIL_FAST_AFTER = 5   # stop when the opening inspections all fail the same way
+# This runs before the daily publish, and the API's speed is not ours to set.
+# Past the budget it stops and reports what it has: a slow morning yields a
+# shorter report, not a job killed at its timeout with nothing written.
+TIME_BUDGET_S = 240
 
 
 def actioned_paths(ledger: Path | None = None) -> list[str]:
@@ -63,9 +67,11 @@ def actioned_paths(ledger: Path | None = None) -> list[str]:
 
 
 def inspection_urls(keep_improve: list[str], actioned: list[str]) -> list[str]:
-    """Canonical URLs to inspect, de-duplicated, original order kept."""
+    """Canonical URLs to inspect, de-duplicated. Ledger pages go first: they are
+    few, the learning loop is waiting on them, and if the time budget runs out
+    they are the ones that must have been inspected."""
     seen, urls = set(), []
-    for candidate in list(keep_improve) + list(actioned):
+    for candidate in list(actioned) + list(keep_improve):
         url = gsc.canonical_url(candidate)
         if url not in seen:
             seen.add(url)
@@ -111,9 +117,11 @@ def summarise(results: list[dict]) -> dict:
     }
 
 
-def build_report(results: list[dict], baseline: dict, generated: str) -> str:
+def build_report(results: list[dict], baseline: dict, generated: str,
+                 planned: int | None = None) -> str:
     """The committed report. The "Generated" line, the "Indexed (PASS)" line and
-    the "URL Inspection Results" table are parsed by the strategy engine."""
+    the "URL Inspection Results" table are parsed by the strategy engine.
+    `planned` is how many URLs the run set out to inspect, when it stopped short."""
     counts = summarise(results)
     newly_indexed = [r for r in results if r["verdict"] == "PASS"
                      and baseline.get(r["url"], {}).get("verdict", "") not in ("", "PASS")]
@@ -136,6 +144,9 @@ def build_report(results: list[dict], baseline: dict, generated: str) -> str:
     if baseline:
         prev_pass = sum(1 for v in baseline.values() if v.get("verdict") == "PASS")
         lines.append(f"- Indexed at the previous run: {prev_pass}")
+    if planned and planned > counts["total"]:
+        lines.append(f"- Stopped at the time budget: {planned - counts['total']} of {planned} "
+                     "tracked URLs were not inspected this run")
     lines += [
         "",
         "Inspected set: KEEP_IMPROVE pages from the SEO classification plus every page",
@@ -183,7 +194,11 @@ def run(verbose: bool = True) -> dict:
 
     print(f"Inspecting {len(urls)} URLs...")
     results = []
+    started = time.monotonic()
     for i, url in enumerate(urls, 1):
+        if results and time.monotonic() - started > TIME_BUDGET_S:
+            print(f"  Time budget of {TIME_BUDGET_S}s reached after {len(results)} of {len(urls)} URLs")
+            break
         r = inspect_url(service, url)
         results.append(r)
         if r["verdict"] == "ERROR" and len(results) == FAIL_FAST_AFTER \
@@ -215,8 +230,10 @@ def run(verbose: bool = True) -> dict:
         )
 
     generated = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
-    gsc.write_report(REPORT_FILE, build_report(results, baseline, generated))
-    BASELINE_FILE.write_text(json.dumps({r["url"]: r for r in results}, indent=2), encoding="utf-8")
+    gsc.write_report(REPORT_FILE, build_report(results, baseline, generated, planned=len(urls)))
+    # Carry earlier verdicts forward for anything this run did not reach.
+    BASELINE_FILE.write_text(
+        json.dumps({**baseline, **{r["url"]: r for r in results}}, indent=2), encoding="utf-8")
     print("  Report: ops/reports/gsc-coverage-report.md")
 
     newly = sum(1 for r in results if r["verdict"] == "PASS"

@@ -51,6 +51,10 @@ CSV_FILE     = BASE / "ops" / "reports" / "seo-classification.csv"
 SITE_URL    = "sc-domain:peninsulainsider.com.au"
 SITE_BASE   = "https://peninsulainsider.com.au"
 SITEMAP_URL = f"{SITE_BASE}/sitemap.xml"
+# SITE_URL is a domain property: it reports every host under the domain,
+# including play.peninsulainsider.com.au, which is a different site in a
+# different repository. Only these hosts are this site.
+SITE_HOSTS  = {"peninsulainsider.com.au", "www.peninsulainsider.com.au"}
 
 SCOPES = [
     "https://www.googleapis.com/auth/webmasters",
@@ -133,7 +137,7 @@ def _load_env_token(g):
         return None
     try:
         return g.Credentials.from_authorized_user_info(json.loads(raw), SCOPES)
-    except (json.JSONDecodeError, ValueError, KeyError, TypeError) as e:
+    except Exception as e:  # not JSON, not an object, wrong fields: all the same to the owner
         raise FeedError(
             EXIT_AUTH_FAILED,
             f"GSC_TOKEN_JSON is set but is not a usable authorized-user token ({_short(e)}). "
@@ -173,47 +177,72 @@ def get_credentials():
     persist_to_file = creds is None  # only write local token cache for file-based flows
 
     # 2. Local token cache from a prior interactive run.
+    from_file = False
     if creds is None and TOKEN_FILE.exists():
-        creds = g.Credentials.from_authorized_user_file(str(TOKEN_FILE), SCOPES)
+        try:
+            creds = g.Credentials.from_authorized_user_file(str(TOKEN_FILE), SCOPES)
+            from_file = True
+        except Exception as e:
+            raise FeedError(
+                EXIT_AUTH_FAILED,
+                f"{TOKEN_FILE} is not a usable token ({_short(e)}). Delete it and run this "
+                f"again to mint a new one. See {AUTH_DOC}.",
+            ) from e
 
-    if not creds or not creds.valid:
-        if creds and creds.refresh_token:
-            print("Refreshing OAuth token...")
-            try:
-                creds.refresh(g.Request())
-            except g.RefreshError as e:
+    changed = False  # whether there is a new token worth writing back
+    if creds and not creds.valid and not creds.refresh_token:
+        raise FeedError(
+            EXIT_AUTH_FAILED,
+            f"the stored token has no refresh token, so it cannot be renewed. Mint a new one. See {AUTH_DOC}.",
+        )
+    if creds and not creds.valid:
+        print("Refreshing OAuth token...")
+        try:
+            creds.refresh(g.Request())
+            changed = True
+        except g.RefreshError as e:
+            if from_file and _interactive() and _client_secret_path():
+                # A person is at the terminal with the client secret to hand:
+                # the cached token is dead, so mint a new one instead of
+                # telling them to, which re-running would never do.
+                print(f"Stored token rejected ({_short(e)}). Starting the browser consent again...")
+                creds = None
+            else:
+                where = (f"Delete {TOKEN_FILE} and run this again to mint a new one."
+                         if from_file else "Mint a new one and replace the GSC_TOKEN_JSON secret.")
                 raise FeedError(
                     EXIT_AUTH_FAILED,
-                    f"Google rejected the stored token ({_short(e)}). Mint a new one and "
-                    f"replace the secret. See {AUTH_DOC}.",
+                    f"Google rejected the stored token ({_short(e)}). {where} See {AUTH_DOC}.",
                 ) from e
-            except g.TransportError as e:
-                raise FeedError(
-                    EXIT_API_ERROR, f"could not reach Google to refresh the token ({_short(e)})"
-                ) from e
-        else:
-            # 3. First-time auth: needs the client secret + an interactive consent.
-            client_path = _client_secret_path()
-            if not client_path:
-                raise FeedError(
-                    EXIT_NO_CREDENTIALS,
-                    "No GSC credentials. Provide GSC_TOKEN_JSON (headless), or a client "
-                    f"secret at {CLIENT_FILE} / GSC_CLIENT_SECRET_JSON and run an "
-                    f"interactive auth once. See {AUTH_DOC}.",
-                )
-            if not _interactive():
-                raise FeedError(
-                    EXIT_NO_CREDENTIALS,
-                    "A client secret is present but no token, and this is not an interactive "
-                    "terminal, so the one-time browser consent cannot run here. Mint the token "
-                    f"locally and provide it as GSC_TOKEN_JSON. See {AUTH_DOC}.",
-                )
-            flow = g.InstalledAppFlow.from_client_secrets_file(str(client_path), SCOPES)
-            creds = flow.run_local_server(port=0)
-            persist_to_file = True
-        if persist_to_file:
-            TOKEN_FILE.parent.mkdir(parents=True, exist_ok=True)
-            TOKEN_FILE.write_text(creds.to_json())
+        except g.TransportError as e:
+            raise FeedError(
+                EXIT_API_ERROR, f"could not reach Google to refresh the token ({_short(e)})"
+            ) from e
+
+    if not creds or not creds.valid:
+        # 3. First-time auth: needs the client secret + an interactive consent.
+        client_path = _client_secret_path()
+        if not client_path:
+            raise FeedError(
+                EXIT_NO_CREDENTIALS,
+                "No GSC credentials. Provide GSC_TOKEN_JSON (headless), or a client "
+                f"secret at {CLIENT_FILE} / GSC_CLIENT_SECRET_JSON and run an "
+                f"interactive auth once. See {AUTH_DOC}.",
+            )
+        if not _interactive():
+            raise FeedError(
+                EXIT_NO_CREDENTIALS,
+                "A client secret is present but no token, and this is not an interactive "
+                "terminal, so the one-time browser consent cannot run here. Mint the token "
+                f"locally and provide it as GSC_TOKEN_JSON. See {AUTH_DOC}.",
+            )
+        flow = g.InstalledAppFlow.from_client_secrets_file(str(client_path), SCOPES)
+        creds = flow.run_local_server(port=0)
+        persist_to_file = changed = True
+    if persist_to_file and changed:
+        # Local runs only: a token that came from GSC_TOKEN_JSON is never written to disk.
+        TOKEN_FILE.parent.mkdir(parents=True, exist_ok=True)
+        TOKEN_FILE.write_text(creds.to_json())
     return creds
 
 
@@ -311,6 +340,21 @@ def norm_path(url: str) -> str:
     if not path.endswith("/") and not _FILE_RE.search(path.rsplit("/", 1)[-1]):
         path += "/"
     return path
+
+
+def is_site_url(url: str) -> bool:
+    """True for a URL on this site's own hosts, or a bare path. False for any
+    other host under the domain property (see SITE_HOSTS)."""
+    match = _HOST_RE.match((url or "").strip())
+    if not match:
+        return True
+    host = match.group(0).split("://", 1)[1].split("@")[-1].split(":")[0].lower()
+    return host in SITE_HOSTS
+
+
+def host_of(url: str) -> str:
+    match = _HOST_RE.match((url or "").strip())
+    return match.group(0).split("://", 1)[1].split("@")[-1].split(":")[0].lower() if match else ""
 
 
 def canonical_url(url_or_path: str) -> str:

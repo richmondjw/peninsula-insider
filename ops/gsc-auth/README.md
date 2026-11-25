@@ -61,6 +61,11 @@ those numbers means the token works. `--check` writes no report.
 Both `ops/config/` and `ops/tokens/` are gitignored. They never reach the repo.
 From then on, local runs refresh the token automatically.
 
+To mint a fresh token later (the old one expired or was revoked), run the same
+command again from a terminal. With the client secret still in `ops/config/` it
+goes back to the browser consent by itself. If it does not, delete
+`ops/tokens/gsc-token.json` and run it once more.
+
 ## Step 3: hand the token to the daily GitHub Action (headless)
 
 ```bash
@@ -104,11 +109,21 @@ A pull that fails never fails the publish, but it is no longer silent:
 | `missing-deps` | Google client libraries not installed | Restore the `pip install` line in the workflow |
 | `timeout` | The pull ran past its time limit | Re-run; if it repeats, read the run log |
 
-On any failure the previous report is left untouched. The strategy brain then
-measures the age of that report: after 7 days it warns, after 14 it withholds
+On any failure the previous report is left untouched. The strategy brain warns
+the same day, measures the age of that report, and after 14 days withholds
 everything built on it and reports the loop as degraded
-(`ops/strategy/README.md`). While degraded, the daily workflow keeps one issue
-open, labelled `pi-alert`, naming the cause.
+(`ops/strategy/README.md`). For a failure that will not fix itself the daily
+workflow opens one issue, labelled `pi-alert`, naming the cause and the fix, and
+keeps it current until the feed works.
+
+Two things to know about what is pulled:
+
+- The property is the whole domain, so it also reports
+  `play.peninsulainsider.com.au`, a different site. Those rows are counted in
+  the property totals and listed in the report summary, but kept out of every
+  page table and out of the keyword gaps.
+- The index inspection is time-boxed at four minutes, because it runs before
+  the publish. On a slow morning the report covers fewer URLs and says so.
 
 ## How the code resolves credentials
 

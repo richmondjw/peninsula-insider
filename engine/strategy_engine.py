@@ -131,6 +131,10 @@ RECURRING_RECURRENCES = {"weekly", "monthly", "annual", "seasonal", "ongoing"}
 # Loop health, least to most serious. "degraded" is a loop that runs on time
 # but without a usable performance signal: distinct from "stalled" (not running).
 HEALTH_RANK = {"ok": 0, "warning": 1, "degraded": 2, "stalled": 3}
+# --health exit codes. Never 1: an uncaught exception exits 1, and a monitor
+# must be able to tell "the loop is degraded" from "the check itself crashed".
+HEALTH_EXIT_STALLED = 2
+HEALTH_EXIT_DEGRADED = 3
 HEALTH_BADGE = {"ok": "🟢 healthy", "warning": "🟡 warning",
                 "degraded": "🟠 degraded", "stalled": "🔴 stalled"}
 
@@ -313,7 +317,7 @@ def load_gsc(report_path: Path) -> dict:
         "available": False, "period": "", "summary": {},
         "period_start": "", "period_end": "", "data_through": "", "generated": "",
         "top_pages": [], "top_queries": [], "striking_distance": [], "ctr_opportunities": [],
-        "pages": [], "pages_complete": False,
+        "pages": [], "pages_complete": False, "tracked_queries": [],
     }
     if not report_path.exists():
         return data
@@ -382,6 +386,18 @@ def load_gsc(report_path: Path) -> dict:
             "avg_position": _num(row.get("Avg Pos", 0)),
         })
     data["pages_complete"] = bool(data["pages"])
+    # Current metrics for every query in the attribution ledger, whatever its
+    # rank. The top-queries and keyword-gap tables only hold a query while it
+    # is big or sits at position 4-20, so without this a query that reached
+    # position 2, or fell to 40, could never be scored. Zero impressions means
+    # the pull looked for it and found none.
+    for row in parse_markdown_table(md, r"^#+\s*Tracked Queries"):
+        data["tracked_queries"].append({
+            "query": row.get("Query", ""),
+            "impressions": int(_num(row.get("Impressions", 0))),
+            "clicks": int(_num(row.get("Clicks", 0))),
+            "avg_position": _num(row.get("Avg Pos", 0)),
+        })
     return data
 
 
@@ -510,34 +526,63 @@ def _event_last_day(rec: dict) -> date | None:
     return max(days) if days else None
 
 
+def _event_horizon(rec: dict, today: date) -> tuple[bool, date | None]:
+    """(over, expires) for one event record, from its dates alone.
+
+    `over` is True once nothing the record states is still ahead. `expires` is
+    the last day a live record can be acted on, or None for a series with no
+    stated end. The reading of each recurrence follows the site's own schedule
+    logic (next/src/lib/event-schedule.ts, baseRuleFor):
+
+      one-off              over the day after its last stated day
+      annual, seasonal     the same, unless its next occurrence falls inside
+                           the advance-coverage window: then that edition is
+                           the one worth working on
+      weekly, monthly,     a record whose end date is after its start date is a
+      ongoing              bounded run and is over after that end, unless a next
+                           occurrence is still ahead (the registry rolled it
+                           on). With no end after the start, the dates are just
+                           the last occurrence computed so far and the series
+                           is open-ended: it never ends by date alone.
+    """
+    start, end = _day(rec.get("startDate")), _day(rec.get("endDate"))
+    last = _event_last_day(rec)
+    if last is None:
+        return False, None
+    nxt = _day(rec.get("nextOccurrence"))
+    recurrence = str(rec.get("recurrence") or "one-off").lower()
+    if recurrence in ROLLING_RECURRENCES:
+        bounded = start is not None and end is not None and end > start
+        if not bounded:
+            return False, None
+        if last >= today:
+            return False, last
+        return (False, None) if (nxt is not None and nxt >= today) else (True, None)
+    if last >= today:
+        return False, last
+    upcoming = (recurrence in RECURRING_RECURRENCES and nxt is not None
+                and today <= nxt <= today + timedelta(days=EVENT_WINDOW_MAX_DAYS))
+    return (False, nxt) if upcoming else (True, None)
+
+
 def event_block_reason(rec: dict, today: date) -> str:
     """Why an event record must not be commissioned, or "" while it is live.
 
-    An event is over once the last day the record states has passed. Two
-    exceptions, both taken from how the events registry models a series:
-
-      - weekly, monthly and ongoing records roll forward; their dates are the
-        last occurrence computed so far, not the end of the series
-      - an annual or seasonal record whose next occurrence falls inside the
-        advance-coverage window has an edition coming that is worth working on
+    Three ways out, checked in this order: the record is cancelled; nothing it
+    states is still ahead (see _event_horizon); or an editor or the expiry job
+    has retired the listing (status archived or expired), whatever its dates
+    say. A future date on an archived listing usually means it is unconfirmed.
 
     This is deliberately stricter than next/scripts/archive-expired-events.py,
     which keeps an annual listing published while any next occurrence exists,
-    even a pattern-based guess a year out. A listing can stay on the site for
-    a year after the day; commissioning work on it should not.
-
-    A cancelled record, and a listing an editor or the expiry job has retired
-    (status archived or expired), is off the table whatever its dates say."""
+    even a pattern-based guess a year out, and never retires a weekly, monthly
+    or ongoing record at all. A listing can stay on the site long after the
+    day; commissioning work on it should not."""
     if is_cancelled_record(rec):
         return "event cancelled"
-    last = _event_last_day(rec)
-    recurrence = str(rec.get("recurrence") or "one-off").lower()
-    if last is not None and last < today and recurrence not in ROLLING_RECURRENCES:
-        nxt = _day(rec.get("nextOccurrence"))
-        upcoming = (recurrence in RECURRING_RECURRENCES and nxt is not None
-                    and today <= nxt <= today + timedelta(days=EVENT_WINDOW_MAX_DAYS))
-        if not upcoming:
-            return f"event ended {last.isoformat()}"
+    over, _ = _event_horizon(rec, today)
+    if over:
+        return f"event ended {_event_last_day(rec).isoformat()}"
     status = str(rec.get("status") or "").lower()
     if status in RETIRED_EVENT_STATUSES:
         return f"listing {status}"
@@ -552,7 +597,7 @@ def load_event_index(events_dir: Path, today: date) -> dict:
     after there is anything to promote. This index is how the queue recognises
     such a page. `blocked` is the reason it must not be commissioned ("" while
     live); `expires_on` is the last day a live, date-bound event can be acted
-    on ("" for a series that rolls forward)."""
+    on ("" for a series with no stated end)."""
     index: dict = {}
     if not events_dir.exists():
         return index
@@ -568,18 +613,12 @@ def load_event_index(events_dir: Path, today: date) -> dict:
         if slug in index and not index[slug]["blocked"]:
             continue  # a live record owns the URL over an archived namesake
         last = _event_last_day(d)
-        recurrence = str(d.get("recurrence") or "one-off").lower()
-        expires = ""
-        if not blocked and recurrence not in ROLLING_RECURRENCES and last is not None:
-            # Live and date-bound: good until its stated last day, or, when that
-            # has passed, until the next occurrence that is keeping it live.
-            upcoming = last if last >= today else (_day(d.get("nextOccurrence")) or last)
-            expires = upcoming.isoformat()
+        _, expires = _event_horizon(d, today)
         index[slug] = {
             "title": str(d.get("title") or slug),
             "last_day": last.isoformat() if last else "",
             "blocked": blocked,
-            "expires_on": expires,
+            "expires_on": expires.isoformat() if expires and not blocked else "",
         }
     return index
 
@@ -1032,6 +1071,13 @@ def _metric_maps(gsc: dict):
     for q in gsc.get("striking_distance", []):
         by_query.setdefault(q["query"].lower(), {"impressions": q["impressions"],
                                                  "avg_position": q["avg_position"]})
+    for q in gsc.get("tracked_queries", []):
+        # Asked for by name, so authoritative. Zero impressions is an answer too:
+        # there is no position to report, only the fact that it was not shown.
+        seen = q["impressions"] > 0
+        by_query[q["query"].lower()] = {
+            "impressions": q["impressions"], "clicks": q["clicks"],
+            "avg_position": q["avg_position"] if seen else None}
     return by_path, by_query
 
 
@@ -1147,16 +1193,24 @@ def evaluate_actioned(actioned: list[dict], gsc: dict, cov: dict | None = None) 
 
     results, hits, measurable = [], {}, 0
     for a in actioned:
+        if not isinstance(a, dict) or not a.get("target"):
+            continue  # a ledger line with no target names nothing to measure
         kind = a.get("kind", "")
-        path = _norm_path(a["target"])
-        query = (a.get("query") or "").lower()
-        base = a.get("baseline") or {}
+        path = _norm_path(str(a["target"]))
+        query = str(a.get("query") or "").lower()
+        base = a.get("baseline") if isinstance(a.get("baseline"), dict) else {}
         acted = _day(a.get("date"))
         row = {"target": a["target"], "kind": kind, "query": a.get("query", ""),
                "since": a.get("date"), "moved": None, "detail": "not yet re-measured",
                "waiting_on": "evidence"}
         ready, waiting_on, wait_reason = _post_action_window(acted, win_start, win_end)
         outcome, detail = None, ""
+        # A baseline is "the page at the time of action". One recorded from data
+        # that had already gone stale is the page months earlier: comparing it
+        # with today measures the drift in between, not the fix.
+        base_day = _day(a.get("baseline_as_of"))
+        old_baseline = (base_day is not None and acted is not None
+                        and (acted - base_day).days > SEARCH_STALE_AFTER_DAYS)
 
         if kind == "indexation":
             inspected = cov_paths.get(path)
@@ -1180,18 +1234,26 @@ def evaluate_actioned(actioned: list[dict], gsc: dict, cov: dict | None = None) 
                           "set and no impressions in the window)")
         elif not ready:
             row["waiting_on"], detail = waiting_on, f"not yet re-measured: {wait_reason}"
+        elif old_baseline:
+            row["waiting_on"] = "baseline"
+            detail = (f"not measurable: its baseline came from search data that ended "
+                      f"{base_day.isoformat()}, {(acted - base_day).days} days before the action")
         else:
             level = a.get("baseline_level") or ("query" if query and query in by_query else "page")
             cur = by_query.get(query) if level == "query" else by_path.get(path)
-            if cur is None and level == "query":
-                row["waiting_on"] = "query-data"
-                detail = "not yet re-measured: query is not in the current top queries"
-            elif cur is None and pages_complete and (base.get("impressions") or 0) > 0:
+            # Known to have had no impressions: a tracked query the pull looked
+            # for, or a page missing from a complete page table.
+            vanished = (cur is not None and not cur.get("impressions")) or \
+                       (cur is None and level == "page" and pages_complete)
+            if vanished and (base.get("impressions") or 0) > 0:
                 outcome = False
                 detail = f"no impressions in the current window (was {base['impressions']})"
-            elif cur is None:
+            elif cur is None and level == "query":
+                row["waiting_on"] = "query-data"
+                detail = "not yet re-measured: the search report does not carry this query"
+            elif cur is None or vanished:
                 row["waiting_on"] = "page-data"
-                detail = "not yet re-measured: page is not in the current search data"
+                detail = "not yet re-measured: no impressions before or since"
             else:
                 outcome, parts = _compare(base, cur)
                 if outcome is None:
@@ -1289,6 +1351,10 @@ def detect_feed(env: dict | None = None) -> dict:
     return feed
 
 
+# Pull outcomes that stay broken until someone acts. Worth raising the day they
+# appear, while the data on hand is still good.
+PERSISTENT_FAILURES = {"no-credentials", "auth-failed", "missing-deps"}
+
 FEED_CAUSES = {
     "no-credentials": ("the job has no Search Console credentials (the GSC_TOKEN_JSON secret "
                        "is not set). Fix: ops/gsc-auth/README.md."),
@@ -1324,12 +1390,16 @@ def feed_cause(feed: dict | None, source: str = "search") -> str:
 def check_health(today: date, inputs_used: list, learning: dict,
                  freshness: dict | None = None, feed: dict | None = None) -> dict:
     """Assess whether the automated strategy loop is running and fed. Returns
-    {status, notes, cause} where status is ok | warning | degraded | stalled.
+    {status, notes, cause, alert, state} where status is ok | warning | degraded
+    | stalled.
 
     degraded means the loop runs on time but has no usable search data, so it
     cannot see performance or learn. Notes are ordered most serious first: the
     brief prints the first one beside the badge. `cause` says why the Search
-    Console feed is not delivering, when this run can tell."""
+    Console feed is not delivering, when this run can tell. `alert` is whether
+    the owner should be told now: always when degraded or stalled, and already
+    at warning when a Search Console pull is failing in a way that will not fix
+    itself or has been failing for days."""
     flagged: list[tuple[int, str]] = []
 
     def flag(level: str, text: str) -> None:
@@ -1355,27 +1425,43 @@ def check_health(today: date, inputs_used: list, learning: dict,
 
     # Input health: is performance data actually flowing, and is it current?
     search = (freshness or {}).get("search")
+    refresh = (feed or {}).get("refresh") or {}
+    pull, cov_pull = refresh.get("search"), refresh.get("coverage")
     search_usable = True
-    cause = ""   # why the feed is not delivering, kept apart from the facts
+    cause = ""     # why the feed is not delivering, kept apart from the facts
+    alert = False  # whether this is worth raising with the owner now
     if search is None:
         # Caller supplied no freshness model: presence is all we can check.
         search_usable = any(i.startswith("gsc-search") for i in inputs_used)
         if not search_usable:
+            alert = True
             flag("degraded", "No Search Console search data this run: the strategy is running "
                              "without performance signal.")
     elif not search["usable"]:
-        search_usable = False
+        search_usable, alert = False, True
         lead = ("No Search Console search data this run: the strategy is running without "
                 "performance signal." if search["state"] == "missing"
                 else "Stale search data. " + describe_input("search", search))
         cause = feed_cause(feed)
         flag("degraded", lead + " Search-derived priorities are withheld.")
     elif search["state"] == "aging":
+        # Several pulls in a row have failed. Say so before the data is withheld.
+        alert = True
         cause = feed_cause(feed)
         flag("warning",
              f"Search data is {search['age_days']} days old (ends {search['as_of']}). A working "
              f"daily pull trails by about 3 days, so recent pulls are failing. It is withheld "
              f"as stale after {search['stale_after_days']} days.")
+    elif pull not in (None, "ok"):
+        # The data on hand is still good, but today's pull is known to have
+        # failed. A cause that cannot fix itself is raised now, not in a
+        # fortnight when the data finally ages out; a one-off API error is not.
+        alert = pull in PERSISTENT_FAILURES
+        cause = feed_cause(feed)
+        flag("warning",
+             f"Today's Search Console pull did not refresh the search report ({pull}). The "
+             f"report on hand ends {search['as_of']} and is withheld as stale after "
+             f"{search['stale_after_days']} days.")
 
     coverage = (freshness or {}).get("coverage")
     if coverage is None:
@@ -1384,10 +1470,20 @@ def check_health(today: date, inputs_used: list, learning: dict,
     elif coverage["state"] == "missing":
         flag("ok", "No GSC coverage data: indexation opportunities cannot be assessed.")
     elif not coverage["usable"]:
+        alert = True
         cause = cause or feed_cause(feed, "coverage")
         flag("warning", "Stale index coverage. " + describe_input("coverage", coverage)
              + " Indexation items are withheld.")
+    elif cov_pull not in (None, "ok") and pull in (None, "ok"):
+        alert = alert or cov_pull in PERSISTENT_FAILURES
+        cause = cause or feed_cause(feed, "coverage")
+        flag("warning",
+             f"Today's index coverage pull did not refresh ({cov_pull}). The snapshot on hand "
+             f"is from {coverage['as_of']} and is withheld as stale after "
+             f"{coverage['stale_after_days']} days.")
 
+    # The inventory is not a Search Console input and nobody can fix it from a
+    # settings page, so it warns in the brief but never raises the alert.
     inventory = (freshness or {}).get("inventory")
     if inventory is not None and inventory["available"] and not inventory["usable"]:
         flag("warning", "Stale content inventory. " + describe_input("inventory", inventory)
@@ -1409,8 +1505,15 @@ def check_health(today: date, inputs_used: list, learning: dict,
     notes = [text for _, text in sorted(flagged, key=lambda item: -item[0])]
     if not notes:
         notes.append("Loop healthy: running on cadence with current performance data.")
+    alert = alert or status in ("degraded", "stalled")
+    # What the open issue is about, so it can tell "still the same problem" from
+    # "a different problem now" (the owner fixed one thing and hit the next).
+    reason = (pull if pull not in (None, "ok")
+              else f"coverage-{cov_pull}" if cov_pull not in (None, "ok")
+              else "no-credentials" if (feed or {}).get("credentials") == "none" and not search_usable
+              else "unspecified")
     return {"status": status, "checked": today.isoformat(), "notes": notes,
-            "cause": cause, "feed": feed or {}}
+            "cause": cause, "alert": alert, "state": f"{status}/{reason}", "feed": feed or {}}
 
 
 def _days(n: int):
@@ -1490,23 +1593,33 @@ def _known(value, suffix: str = "") -> str:
 
 
 def _stale_banner(state: dict) -> list[str]:
-    """The block that opens the brief when any dated input is past its limit."""
+    """The block that opens the brief when a dated input is past its limit.
+
+    Stale or missing search data gets the full warning: that is the brief's
+    reason for existing. Coverage or inventory alone get a smaller, accurate
+    note, so a brief built on current search data is not labelled as if it were
+    not."""
     fresh = state.get("freshness", {})
     stale = [name for name in ("search", "coverage", "inventory")
              if fresh.get(name, {}).get("available") and not fresh[name]["usable"]]
-    missing_search = fresh.get("search", {}).get("state") == "missing"
-    if not stale and not missing_search:
+    search = fresh.get("search") or {}
+    search_down = bool(search) and not search.get("usable", True)
+    if not stale and not search_down:
         return []
     held = [w for w in state.get("withheld", []) if w.get("withheld_class") == "stale-input"]
-    lines = ["> **STALE DATA. Do not treat this brief as a current picture of search performance.**", ">"]
-    if missing_search:
-        lines.append("> - " + describe_input("search", fresh["search"]))
+    if search_down:
+        lines = ["> **STALE DATA. Do not treat this brief as a current picture of search "
+                 "performance.**", ">"]
+    else:
+        lines = ["> **Some inputs are out of date.** Search data is current; what follows is not.", ">"]
+    if search.get("state") == "missing":
+        lines.append("> - " + describe_input("search", search))
     for name in stale:
         lines.append("> - " + describe_input(name, fresh[name]))
     lines.append(">")
     if held:
-        lines.append(f"> {len(held)} item(s) built on that data are withheld from the queue "
-                     "below. They return when a current pull lands.")
+        lines.append(f"> {len(held)} item(s) built on {'that data' if search_down else 'them'} are "
+                     "withheld from the queue below. They return once those inputs are current again.")
     cause = state.get("health", {}).get("cause")
     if cause:
         lines.append("> " + cause)
@@ -1852,50 +1965,65 @@ def load_commissioning_queue(limit: int | None = 5, today: date | None = None) -
 
 
 def health_alert(state: dict) -> tuple[str, str]:
-    """(title, markdown body) for the issue raised while the loop is unhealthy."""
+    """(title, markdown body) for the issue kept open while the loop needs the
+    owner. Describes the current state; alert.py brings an open issue up to
+    date and comments once when the cause changes."""
     h = state["health"]
     held = [w for w in state.get("withheld", []) if w.get("withheld_class") == "stale-input"]
     title = f"Strategy loop {h['status']}: {h['notes'][0].split('.')[0][:90]}"
     lines = [
-        f"The daily content strategy is **{h['status']}** as of {h['checked']}.",
+        f"The daily content strategy reports **{h['status']}** (checked {h['checked']}).",
         "",
         "**What the loop found**",
         "",
     ]
     lines += [f"- {note}" for note in h["notes"]]
-    lines += [
-        "",
-        "**Effect**",
-        "",
-        f"- {len(held)} search-derived item(s) are withheld from the commissioning queue, so "
-        "nothing is being commissioned from old numbers.",
-        "- The learning loop cannot re-measure actioned pages, so model weights do not update.",
-        "",
-        "**Fix**",
-        "",
-    ]
-    outcome = ((h.get("feed") or {}).get("refresh") or {}).get("search")
-    if outcome == "no-credentials" or (outcome is None and (h.get("feed") or {}).get("credentials") == "none"):
+    lines += ["", "**Effect**", ""]
+    if held:
+        lines.append(f"- {len(held)} item(s) built on stale inputs are withheld from the "
+                     "commissioning queue, so nothing is commissioned from old numbers.")
+    else:
+        lines.append("- Nothing is withheld yet: the data on hand is still inside its age limit.")
+    if state.get("learning", {}).get("awaiting_search_data"):
+        lines.append("- The learning loop cannot re-measure actioned pages, so model weights "
+                     "do not update.")
+    lines += ["", "**Fix**", ""]
+    feed = h.get("feed") or {}
+    outcome = (feed.get("refresh") or {}).get("search")
+    if outcome == "no-credentials" or (outcome is None and feed.get("credentials") == "none"):
         lines += [
             "The job has no Search Console credentials. One-time setup, about ten minutes, "
             "in `ops/gsc-auth/README.md`:",
             "",
             "1. Download the OAuth client JSON (the client secret) from Google Cloud Console.",
-            "2. Run `python3 ops/scripts/gsc-search-analytics.py` locally once and approve the "
-            "browser consent. It writes `ops/tokens/gsc-token.json`.",
+            "2. Run `python3 ops/scripts/gsc-search-analytics.py --check` locally once and "
+            "approve the browser consent. It writes `ops/tokens/gsc-token.json`.",
             "3. Save that file's contents as the repository secret `GSC_TOKEN_JSON`.",
             "4. Run the `Strategy Engine` workflow by hand: its feed check proves the secret works.",
+        ]
+    elif outcome == "auth-failed":
+        lines += [
+            "Google rejected the token in the `GSC_TOKEN_JSON` secret.",
+            "",
+            "- If the secret was set recently, check it holds the **token** file "
+            "(`ops/tokens/gsc-token.json`), not the client secret file.",
+            "- Otherwise the token has expired or been revoked. Delete "
+            "`ops/tokens/gsc-token.json`, run `python3 ops/scripts/gsc-search-analytics.py "
+            "--check` to mint a new one, and replace the secret. A token minted while the "
+            "OAuth consent screen is in \"Testing\" expires after seven days.",
+            "- Then run the `Strategy Engine` workflow by hand to prove it.",
         ]
     else:
         lines += [
             (h.get("cause") or "See the gsc-refresh step in the latest daily run log."),
             "",
-            "Then run the `Strategy Engine` workflow by hand: its feed check proves the credentials work.",
+            "The `Strategy Engine` workflow, run by hand, checks the credentials on their own.",
         ]
     lines += [
         "",
-        "This issue is reused while the loop stays unhealthy. Close it once "
-        "`ops/strategy/health.json` reads `ok`; it reopens by itself if the problem returns.",
+        "This issue stays open, and is edited in place, while the daily run reports the "
+        "problem. A comment is added only when the cause changes. Close it once `alert` is "
+        "`false` in `ops/strategy/health.json`; it reopens by itself if the problem returns.",
     ]
     return house_style(title), house_style("\n".join(lines))
 
@@ -1920,10 +2048,11 @@ def main():
     ap.add_argument("--dry-run", action="store_true", help="Print summary, write nothing")
     ap.add_argument("--health", action="store_true",
                     help="Print loop health and exit non-zero if it is not healthy: "
-                         "2 stalled, 1 degraded (for a monitoring cron)")
+                         "2 stalled, 3 degraded (for a monitoring cron). 1 is never "
+                         "used: that is what a crash exits with.")
     ap.add_argument("--alert", action="store_true",
-                    help="With --health: raise (or silently reuse) a GitHub issue while the "
-                         "loop is degraded or stalled. Needs GITHUB_TOKEN + GITHUB_REPOSITORY.")
+                    help="With --health: keep one GitHub issue open while the loop needs the "
+                         "owner. Needs GITHUB_TOKEN + GITHUB_REPOSITORY.")
     ap.add_argument("--record", metavar="TARGET",
                     help="Record an actioned opportunity (page path or topic) to the "
                          "attribution ledger, capturing its current metrics as baseline")
@@ -1945,18 +2074,18 @@ def main():
             print(f"  - {n}")
         if h.get("cause"):
             print(f"  {h['cause']}")
-        unhealthy = h["status"] in ("degraded", "stalled")
-        if unhealthy and os.environ.get("GITHUB_ACTIONS"):
-            print(f"::warning title=Strategy loop {h['status']}::{h['notes'][0]}")
-        if unhealthy and args.alert:
+        if h["alert"] and os.environ.get("GITHUB_ACTIONS"):
+            print(f"::warning title=Strategy loop {h['status']}::"
+                  + " ".join(x for x in (h["notes"][0], h.get("cause")) if x))
+        if h["alert"] and args.alert:
             title, body = health_alert(state)
             try:
                 import alert
-                alert.emit_alert(title, body, severity="error",
-                                 dedup_key="strategy-loop-health", quiet_reuse=True)
+                alert.emit_alert(title, body, severity="error", dedup_key="strategy-loop-health",
+                                 quiet_reuse=True, state=h["state"])
             except Exception as e:  # alerting must never mask the health result
                 print(f"  alert emit failed: {e}", file=sys.stderr)
-        sys.exit({"stalled": 2, "degraded": 1}.get(h["status"], 0))
+        sys.exit({"stalled": HEALTH_EXIT_STALLED, "degraded": HEALTH_EXIT_DEGRADED}.get(h["status"], 0))
 
     if args.record:
         gsc = load_gsc(GSC_REPORT)
