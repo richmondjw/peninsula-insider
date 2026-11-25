@@ -67,6 +67,9 @@ Required secrets:
 - `SUPABASE_URL`
 - `SUPABASE_SERVICE_ROLE_KEY`
 - `PAT_CONTENT_PUSH` (GitHub PAT with repo write access)
+- `GSC_TOKEN_JSON` (Search Console token for the strategy brain's daily pull.
+  The publish runs without it, but the strategy is then built without search
+  data and reports itself degraded. Setup: `ops/gsc-auth/README.md`)
 - `FIRECRAWL_API_KEY` (optional — for competitive scans)
 - `SEMRUSH_API_KEY` (optional — for SEO signals)
 
