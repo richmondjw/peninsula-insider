@@ -119,7 +119,7 @@ Olivia Mae plays an afternoon set at Jetty Road Brewery in Dromana from 1pm to 4
 
 Dromana · Live Music · Checked 9 Nov 2026
 
-Looking for something sooner? [This weekend](<https://peninsulainsider.com.au/whats-on/this-weekend/>) has our short list, and [What's On](<https://peninsulainsider.com.au/whats-on/>) lets you filter by date and type.
+Looking for something sooner? [This weekend](<https://peninsulainsider.com.au/whats-on/this-weekend/>) has our short list, and [What's On](<https://peninsulainsider.com.au/whats-on/>) lets you filter by date and type. Running an event that should be here? [Tell us about it](<https://peninsulainsider.com.au/submit/?type=event>).
 
 ## The Insider Note
 

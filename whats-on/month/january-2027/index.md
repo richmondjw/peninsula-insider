@@ -169,7 +169,7 @@ Forty years of Wednesdays on Main Street. Not a tourist event, just the way Morn
 
 Mornington · Markets · Recurring weekly · Checked 3 Oct 2026
 
-Looking for something sooner? [This weekend](<https://peninsulainsider.com.au/whats-on/this-weekend/>) has our short list, and [What's On](<https://peninsulainsider.com.au/whats-on/>) lets you filter by date and type.
+Looking for something sooner? [This weekend](<https://peninsulainsider.com.au/whats-on/this-weekend/>) has our short list, and [What's On](<https://peninsulainsider.com.au/whats-on/>) lets you filter by date and type. Running an event that should be here? [Tell us about it](<https://peninsulainsider.com.au/submit/?type=event>).
 
 ## The Insider Note
 

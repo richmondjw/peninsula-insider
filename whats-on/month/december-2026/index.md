@@ -521,7 +521,7 @@ Casa Conti: Midnight in Ibiza is an Ibiza-themed New Year's Eve party on Ocean B
 
 Sorrento · Food & Wine · On during your dates · runs to Fri, 1 Jan 2027 · Checked 9 Nov 2026
 
-Looking for something sooner? [This weekend](<https://peninsulainsider.com.au/whats-on/this-weekend/>) has our short list, and [What's On](<https://peninsulainsider.com.au/whats-on/>) lets you filter by date and type.
+Looking for something sooner? [This weekend](<https://peninsulainsider.com.au/whats-on/this-weekend/>) has our short list, and [What's On](<https://peninsulainsider.com.au/whats-on/>) lets you filter by date and type. Running an event that should be here? [Tell us about it](<https://peninsulainsider.com.au/submit/?type=event>).
 
 ## The Insider Note
 
