@@ -376,3 +376,71 @@ test('homepage first-visit enlarged text keeps consent, footer and carousels wit
     } finally { await reader.close(); }
   }
 });
+
+test('three homepage covers autoplay without moving the planner; manual controls pause and respect reduced motion', async () => {
+  for (const width of [390, 1440]) {
+    const reader = await site.reader();
+    try {
+      const page = reader.page;
+      await page.setViewport({ width, height: 900, isMobile: width === 390, hasTouch: width === 390 });
+      await page.emulateMediaFeatures([{ name: 'prefers-reduced-motion', value: width === 390 ? 'reduce' : 'no-preference' }]);
+      await reader.load('/');
+      await page.waitForSelector('.home-cover__controls:not([hidden])');
+      await page.evaluate(async () => { await document.fonts.ready; await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))); });
+      const layout = () => page.evaluate(() => {
+        const cover = document.querySelector('#peninsula-cover');
+        const rect = el => {
+          const { x,y,width,height } = el.getBoundingClientRect();
+          return [x, y - cover.getBoundingClientRect().y, width, height];
+        };
+        return {
+          frame: cover.dataset.activeCover,
+          heading: rect(cover.querySelector('h1')),
+          cta: rect(cover.querySelector('.home-cover__actions a')),
+          controls: rect(cover.querySelector('.home-cover__controls')),
+          hero: rect(cover),
+          href: cover.querySelector('.home-cover__story').getAttribute('href'),
+          credit: cover.querySelector('figcaption').textContent,
+          opacity: cover.querySelector('.home-cover__layer[data-visible]') ? getComputedStyle(cover.querySelector('.home-cover__layer[data-visible]')).opacity : '1',
+          decoded: [...cover.querySelectorAll('figure img')].every(img => img.complete && img.naturalWidth > 0),
+        };
+      });
+      const initial = await layout();
+      assert.equal(initial.frame, 'coast');
+      const playback = '.home-cover__playback';
+      if (width === 1440) {
+        assert.equal(await page.$eval(playback, el => el.getAttribute('aria-label')), 'Pause cover rotation');
+        await page.waitForFunction(() => document.querySelector('#peninsula-cover').dataset.activeCover === 'ridge', { timeout: 20_000 });
+        const ridge = await layout();
+        assert.equal(ridge.href, '/journal/area-guide-red-hill/');
+        assert.match(ridge.credit, /Montalto.*Two Palms Australia, courtesy of Visit Victoria/i);
+      } else {
+        assert.equal(await page.$eval(playback, el => el.getAttribute('aria-label')), 'Play cover rotation');
+      }
+      await page.evaluate(() => {
+        const cover = document.querySelector('#peninsula-cover');
+        const controls = cover.querySelector('.home-cover__controls');
+        const box = controls.getBoundingClientRect();
+        if (box.top >= innerHeight) window.scrollBy(0, box.bottom - innerHeight + 30);
+      });
+      if (width === 390) {
+        await page.tap('[data-cover-dot="2"]');
+      } else {
+        await page.focus('[data-cover-dot="1"]');
+        await page.keyboard.press('ArrowRight');
+      }
+      await page.waitForFunction(() => document.querySelector('#peninsula-cover').dataset.activeCover === 'bay');
+      const bay = await layout();
+      assert.equal(bay.href, '/explore/places/mornington/');
+      assert.match(bay.credit, /Mornington.*Visit Victoria/i);
+      assert.deepEqual(bay.heading, initial.heading);
+      assert.deepEqual(bay.cta, initial.cta);
+      assert.deepEqual(bay.controls, initial.controls);
+      assert.ok(bay.controls[1] >= bay.hero[1] && bay.controls[1] + bay.controls[3] <= bay.hero[1] + bay.hero[3]);
+      assert.equal(bay.opacity, '1');
+      assert.equal(bay.decoded, true);
+      assert.equal(await page.$eval(playback, el => el.getAttribute('aria-label')), 'Play cover rotation');
+      assert.equal(await page.$eval('[data-cover-dot="2"]', el => el.getAttribute('aria-current')), 'true');
+    } finally { await reader.close(); }
+  }
+});
