@@ -196,11 +196,15 @@ def _now_iso() -> str:
 
 
 # ── Executor ─────────────────────────────────────────────────────────────────
-def load_queue() -> list[dict]:
+def load_queue(today: date | None = None) -> list[dict]:
+    """The queue this executor may act on today. Goes through
+    strategy_engine.usable_queue, so a rewrite is never drafted from search data
+    past its age limit or for the page of an event that has since happened."""
     if not STRATEGY_JSON.exists():
         return []
+    today = today or (datetime.now(AEST).date() if AEST else date.today())
     try:
-        return json.loads(STRATEGY_JSON.read_text()).get("commissioning_queue", [])
+        return se.usable_queue(json.loads(STRATEGY_JSON.read_text()), today)
     except (json.JSONDecodeError, OSError):
         return []
 
@@ -215,7 +219,7 @@ def auto_act(limit: int = MAX_ACTIONS_PER_RUN, dry_run: bool = False,
     done = already_actioned_targets()
     actions, skipped = [], []
 
-    for opp in load_queue():
+    for opp in load_queue(today):
         if len(actions) >= limit:
             break
         kind = opp.get("kind")
@@ -263,7 +267,8 @@ def auto_act(limit: int = MAX_ACTIONS_PER_RUN, dry_run: bool = False,
 
         src.write_text(updated)
         se.record_action(target, kind, opp.get("query", ""),
-                         f"auto: title/meta rewrite (was: {cur_title[:50]})", se.load_gsc(se.GSC_REPORT), today)
+                         f"auto: title/meta rewrite (was: {cur_title[:50]})", se.load_gsc(se.GSC_REPORT), today,
+                         se.load_coverage(se.GSC_COVERAGE))
         actions.append(action)
 
     for t, why in skipped[:10]:

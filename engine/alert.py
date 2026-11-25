@@ -60,9 +60,16 @@ def _gh_request(method: str, url: str, token: str, payload: dict | None = None) 
         return json.loads(resp.read().decode())
 
 
-def open_or_reuse_issue(title: str, body: str, dedup_key: str) -> str | None:
+def open_or_reuse_issue(title: str, body: str, dedup_key: str,
+                        quiet_reuse: bool = False) -> str | None:
     """Open a GitHub issue (or reuse an existing open one carrying the same dedup
-    marker). Returns the issue URL, or None if not in CI / on any failure."""
+    marker). Returns the issue URL, or None if not in CI / on any failure.
+
+    quiet_reuse: when an open issue already carries the marker, leave it as it
+    is instead of adding a "Recurred" comment. For a standing condition checked
+    every day (a feed that stays down), one open issue is the signal; a comment
+    a day is noise. Closing the issue while the condition persists reopens a
+    fresh one on the next run."""
     token = os.environ.get("GITHUB_TOKEN")
     repo = os.environ.get("GITHUB_REPOSITORY")
     if not token or not repo:
@@ -77,8 +84,9 @@ def open_or_reuse_issue(title: str, body: str, dedup_key: str) -> str | None:
             for issue in existing:
                 if marker in (issue.get("body") or ""):
                     num = issue["number"]
-                    _gh_request("POST", f"https://api.github.com/repos/{repo}/issues/{num}/comments",
-                                token, {"body": f"Recurred at {_now()}.\n\n{body}"})
+                    if not quiet_reuse:
+                        _gh_request("POST", f"https://api.github.com/repos/{repo}/issues/{num}/comments",
+                                    token, {"body": f"Recurred at {_now()}.\n\n{body}"})
                     return issue.get("html_url")
         created = _gh_request("POST", f"https://api.github.com/repos/{repo}/issues", token,
                               {"title": title, "body": full_body, "labels": [ISSUE_LABEL]})
@@ -89,7 +97,7 @@ def open_or_reuse_issue(title: str, body: str, dedup_key: str) -> str | None:
 
 
 def emit_alert(title: str, body: str, severity: str = "error",
-               dedup_key: str | None = None) -> dict:
+               dedup_key: str | None = None, quiet_reuse: bool = False) -> dict:
     """Record an alert (file always; GitHub issue in CI). Never raises."""
     dedup_key = dedup_key or _slug(title)
     result = {"title": title, "severity": severity, "file": None, "issue": None}
@@ -97,7 +105,7 @@ def emit_alert(title: str, body: str, severity: str = "error",
         result["file"] = str(write_alert_file(title, body, severity, dedup_key))
     except OSError as e:
         print(f"  alert: could not write alert file ({e})")
-    result["issue"] = open_or_reuse_issue(title, body, dedup_key)
+    result["issue"] = open_or_reuse_issue(title, body, dedup_key, quiet_reuse)
     where = result["issue"] or result["file"] or "(nowhere)"
     print(f"  ALERT [{severity}] {title} -> {where}")
     return result
