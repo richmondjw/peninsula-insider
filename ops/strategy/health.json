@@ -1,7 +1,8 @@
 {
-  "status": "ok",
-  "checked": "2026-11-25",
+  "status": "warning",
+  "checked": "2026-11-26",
   "notes": [
+    "Search data is 221 days old (limit 14). Search-driven work is held out of the queue until a current Search Console report is supplied.",
     "Actions recorded but none re-measured yet \u2014 learning signal not flowing (expected until GSC re-crawls the actioned pages)."
   ]
 }
