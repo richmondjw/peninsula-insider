@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/whats-on/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-11-25
+Modified: 2026-11-26
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -13,11 +13,11 @@ Find the date, place and reason to go, then check with the organiser before you 
 
 ## Reasons to go
 
-- Fri, 27 Nov · 6pm–9pm · Dromana
+- Sat, 28 Nov · 5pm–8pm · Fingal
 
-### [Ben Smith Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
+### [Brad Kennedy Live at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/brad-kennedy-live-at-peppers-moonah-links-resort-2026-11-28/>)
 
-Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes.
+Ease into the weekend with live music in the Spike Bar at Moonah Links.
 
 Live Music   Checked 9 Nov 2026
 
@@ -29,11 +29,11 @@ On the last Saturday of each month from September to April, Hawkes Farm comes al
 
 Markets   Checked 9 Nov 2026
 
-- Sat, 28 Nov · 5pm–8pm · Fingal
+- Fri, 27 Nov · Mornington
 
-### [Brad Kennedy Live at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/brad-kennedy-live-at-peppers-moonah-links-resort-2026-11-28/>)
+### [Brown Sugar - Rolling Stones](<https://peninsulainsider.com.au/whats-on/brown-sugar-rolling-stones-2026-11-27/>)
 
-Ease into the weekend with live music in the Spike Bar at Moonah Links.
+Rolling Stones tribute band Brown Sugar plays the upstairs Bandroom at The Bay Hotel.
 
 Live Music   Checked 9 Nov 2026
 
@@ -49,6 +49,14 @@ Enjoy live music at Peninsula Beer Garden! Join the cool vibes and coastal tunes
 
 Boneo · Live Music · Checked 9 Nov 2026
 
+- 6pm
+
+[Ben Smith Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
+
+Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes. Full menu available from 12pm, Ben Smith will be live from 6pm.
+
+Dromana · Live Music · Checked 9 Nov 2026
+
 - 8pm
 
 [Luke O'Shea & Lyn Bowtell Live at The Pig & Whistle Tavern](<https://peninsulainsider.com.au/whats-on/luke-o-shea-and-lyn-bowtell-live-at-the-pig-and-whistle-tavern-2026-11-27/>)
@@ -56,12 +64,6 @@ Boneo · Live Music · Checked 9 Nov 2026
 Get ready, Main Ridge! Two of the most respected names in Australian country music, Luke O’Shea and Lyn Bowtell, are coming with their highly anticipated ‘Love and Laughter Tour’!
 
 Main Ridge · Live Music · Checked 9 Nov 2026
-
-- [Brown Sugar - Rolling Stones](<https://peninsulainsider.com.au/whats-on/brown-sugar-rolling-stones-2026-11-27/>)
-
-Rolling Stones tribute band Brown Sugar plays the upstairs Bandroom at The Bay Hotel. Standing show from 8.30pm, with pre-show dinner and drinks upstairs from 6pm. Access is by stairs only.
-
-Mornington · Live Music · Checked 9 Nov 2026
 
 ### Saturday 28 November
 

@@ -83,13 +83,15 @@ World-renowned whip artist Nathan “Whippy” Griggs brings his Aussie Tour to 
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/whippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13/>)
 
-Arts  25 Nov
+Arts  5 Dec
 
-### [Improv Comedy Show at The Bay Hotel Mornington](<https://peninsulainsider.com.au/whats-on/improv-comedy-show-at-the-bay-hotel-mornington-2026-11-25/>)
+### [MPRG Summer exhibitions launch](<https://peninsulainsider.com.au/whats-on/mprg-summer-exhibitions-launch-2026/>)
 
-Come and finish the year out with our last student showcase of comedy!
+[Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/improv-comedy-show-at-the-bay-hotel-mornington-2026-11-25/>)
+Join Mornington Peninsula Regional Gallery for the launch of two summer exhibitions on Saturday 5 December.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/mprg-summer-exhibitions-launch-2026/>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 

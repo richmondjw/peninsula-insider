@@ -517,8 +517,6 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [Gareth Sansom at MPRG](<https://peninsulainsider.com.au/whats-on/gareth-sansom-at-mprg-2026-12-05/>)
 
-- [Improv Comedy Show at The Bay Hotel Mornington](<https://peninsulainsider.com.au/whats-on/improv-comedy-show-at-the-bay-hotel-mornington-2026-11-25/>)
-
 - [James Vincent Live at Fenian Wines](<https://peninsulainsider.com.au/whats-on/james-vincent-live-at-fenian-wines-2026-12-12/>)
 
 - [Lawrence Mooney at St Andrews Beach Brewery](<https://peninsulainsider.com.au/whats-on/st-andrews-beach-brewery-lawrence-mooney-2026/>)

@@ -427,12 +427,12 @@ Ease into the weekend with live music in the Spike Bar at Moonah Links. Enjoy a 
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/brad-kennedy-live-at-peppers-moonah-links-resort-2026-11-28/>)
 
-- [Sat, 5 Dec
+- [Fri, 25 Dec
 
-### Coco Michelle Live at Peppers Moonah Links Resort
+### Celebrate Christmas Day at Peppers Moonah Links Resort
 
 Fingal
 
-Moonah Links is proud to have Coco Michelle performing live this Saturday on the Spike Terrace! Playing from 5pm - 8pm, come along and try the new midweek menu, and listen to some chill live music.
+Join us for a relaxed and memorable Christmas Day lunch at Peppers Moonah Links Resort, with our festive buffet feast returning for another year.
 
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/coco-michelle-live-at-peppers-moonah-links-resort-2026-12-05/>)
+ Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/celebrate-christmas-day-at-peppers-moonah-links-resort-2026-12-25/>)

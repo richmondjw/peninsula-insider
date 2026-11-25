@@ -583,7 +583,7 @@ Times are guide estimates, not live conditions. Dollar signs on a spa are a pric
 
 Use [Parks Victoria’s park notices](<https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park>), [VicEmergency warnings](<https://www.emergency.vic.gov.au/>) and [Beachsafe beach and patrol information](<https://www.beachsafe.org.au/>). These links do not confirm that a route or beach is suitable on your day.
 
-Spring on the Peninsula · Sunset 8:22 PM
+Spring on the Peninsula · Sunset 8:23 PM
 
 ## Three more for a spring day
 

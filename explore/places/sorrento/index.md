@@ -433,6 +433,26 @@ Coming up in Sorrento, pulled from the events registry.
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
+- [Fri, 25 Dec
+
+### Christmas Day at Ember
+
+Sorrento
+
+Gather the family and celebrate Christmas Day in Ember, with a 12pm sitting for a relaxed afternoon of festive dining.
+
+ Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/christmas-day-at-ember-2026-12-25/>)
+
+- [Fri, 25 Dec
+
+### Christmas Day Feast at The Conti
+
+Sorrento
+
+The Continental Sorrento hosts Christmas Day lunch in Halcyon Hall, the Grand Ballroom and CeeCee’s. The shared feast includes seafood and charcuterie, followed by Christmas ham, sirloin and barramundi. The organiser lists an 11:30am sitting in Halcyon Hall and the Grand Ballroom, and a 1pm sitting at CeeCee’s; check the venue for current booking details.
+
+ Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/christmas-day-feast-at-the-conti-2026-12-25/>)
+
 - [Mon, 30 Nov
 
 ### "Nancye Wynne Bolton" OLA Golf Day 2026

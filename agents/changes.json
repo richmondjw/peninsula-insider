@@ -1,28 +1,124 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-25T12:23:41.701Z",
+  "generatedAt": "2026-11-25T13:34:43.885Z",
   "baselineAvailable": true,
-  "fromSnapshot": "ffd8748fefbaff94634c11e7eecdc96380dcda0c7b6180630ee5d30816b6468a",
-  "toSnapshot": "912c1fc8f5adf9e31d78cc75f4f6b054db1bdab43d13734d2d2046a70e9a5836",
-  "previousGeneratedAt": "2026-11-25T07:15:00.330Z",
+  "fromSnapshot": "912c1fc8f5adf9e31d78cc75f4f6b054db1bdab43d13734d2d2046a70e9a5836",
+  "toSnapshot": "c202794c0aa9f69080174134f9ced40902023b70f8385665351423638b970573",
+  "previousGeneratedAt": "2026-11-25T12:23:41.701Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 2,
+  "count": 14,
   "changes": [
     {
-      "id": "https://peninsulainsider.com.au/journal/",
+      "id": "https://peninsulainsider.com.au/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
-      "contentSha256": "d125f80380d5b158df86285086962e4bfc347081050a1c678fd79fa261f3e506",
-      "previousContentSha256": "6bfb7e1847547d48656caa1c854d98604ee5b465a7ac490b9ef1c6087d311e16"
+      "canonicalUrl": "https://peninsulainsider.com.au/",
+      "markdownUrl": "https://peninsulainsider.com.au/index.md",
+      "contentSha256": "fa156ff1f5980d04629ec77b2e5b455438e4d36ac39cddd6c97cc098369cfde0",
+      "previousContentSha256": "e63bd9dc8f01838de552dbd333664daf7257f95ae24463169a96b38ccfc419f8"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/index.md",
+      "contentSha256": "2445e0ee9cde8778573b7142d083a4dcdc3397093a8755819bcc6058855f4173",
+      "previousContentSha256": "34ef66a59ce741be31cac685f4a51917d486661f8e2a81c99fd8ee0addb82162"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/fingal/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/fingal/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/fingal/index.md",
+      "contentSha256": "97fd199169d09a542fce0dccd5bc36de6163d73a7fb9ba2c5cc2adf9c6b1dc10",
+      "previousContentSha256": "3143349a6e649b0cec54a8714e3226294227a6e7f2b6c833e82d65bd27ccc658"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/sorrento/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/sorrento/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/sorrento/index.md",
+      "contentSha256": "708ee69f81c4ede2ef3b8e34e09842b312ed568af20485c5a7ca2fbc967cc7ea",
+      "previousContentSha256": "90da15b4f75cec4765edc68bf4b75b4bf539eff5e2709544586560e1e4b48016"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/quick-note/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
+      "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
+      "contentSha256": "057d5267ccd9cf83facd0eb4e810272fb22fa8cad17c1e1c92a185cf33671bbf",
+      "previousContentSha256": "79e0619c42c9571a597fe729599e2461d77cd629083033f6f785532c8287e39a"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/site-index/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/site-index/",
+      "markdownUrl": "https://peninsulainsider.com.au/site-index/index.md",
+      "contentSha256": "f1e850f461d3f0e24d38a682793f9054c0c0ae799c2af153f46ecc03e12e4dc7",
+      "previousContentSha256": "a039009921a1e1baa458836db7da21c63964ff78b4223ac8608f10420666c385"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
+      "contentSha256": "162a179fb5812914a7529206e2400eb67a5d969c53e2123dd6d512d4411e5988",
+      "previousContentSha256": "a6797103932c37196ad5eb56adc35cf5d9469b22fcc92f53d7a1efc1cc9a4ad9"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/index.md",
+      "contentSha256": "0f1d825a19eb7a1f8da3d19039e071e4425e28568c0272260ce71b6a1778cced",
+      "previousContentSha256": "e32de7135a2ec47dee3dff67e8bae5305a8b765ce5e98b2d269c77bf17d98c21"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/mprg-summer-exhibitions-launch-2026/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/mprg-summer-exhibitions-launch-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/mprg-summer-exhibitions-launch-2026/index.md",
+      "contentSha256": "1ac262a3a5ad2972bdfbe748d645d243375e72c41a0d618858e91822c3234caf",
+      "previousContentSha256": "05cbdecf624255bcebf8fa0c46c16f36958204a35722c1387adf768a05bec37b"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/index.md",
+      "contentSha256": "c0feb6ecd44c976a5a538888bd2608c9ca8766c6173440a02fe2d8bd38f7265d",
+      "previousContentSha256": "da60eee294feb85663c588f19b79b37658c1c4f4f04af3ee6dc37c3f11b67405"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/st-andrews-beach-brewery-lawrence-mooney-2026/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/st-andrews-beach-brewery-lawrence-mooney-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/st-andrews-beach-brewery-lawrence-mooney-2026/index.md",
+      "contentSha256": "d4ad7c90cda1b3c60f0e3bd1b1f32b564f31d5a414776b244f0661ae3979b75e",
+      "previousContentSha256": "549216d7a892e8c887c6bb3ab94664df62ce4670e4526fb4746d897b8280b8da"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/sunday-sessions-pottery-workshops-at-peachy-keen-ceramics-2026-12-06/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/sunday-sessions-pottery-workshops-at-peachy-keen-ceramics-2026-12-06/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/sunday-sessions-pottery-workshops-at-peachy-keen-ceramics-2026-12-06/index.md",
+      "contentSha256": "6161183e32258b012cc7de938a716f9e08506a88eb2310cc3155b90c716d76ea",
+      "previousContentSha256": "321790d84af2f972beaa69fd69aadc0560e91b5df23f14f22323018f9f2c705d"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/whippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/whippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/whippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13/index.md",
+      "contentSha256": "cac2bcf6f90e4e475f0880126a88363a65544189c1b70ca4758188a6fe65f0b3",
+      "previousContentSha256": "9a3abad12f5c3f7e4a366c9158072c37aedd6d467098b03270fc3b9c332e1b59"
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/improv-comedy-show-at-the-bay-hotel-mornington-2026-11-25/",
-      "kind": "representation-changed",
+      "kind": "representation-removed",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/improv-comedy-show-at-the-bay-hotel-mornington-2026-11-25/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/improv-comedy-show-at-the-bay-hotel-mornington-2026-11-25/index.md",
-      "contentSha256": "021f86786bc2ead7b3f55c88d43d1f369058b58ed908a8d3b9df69543c2f7588",
-      "previousContentSha256": "44c5d8f8534598e2e5258612d73ec8ca25236b1b2ebf0801d1bce75dbd2e22b0"
+      "markdownUrl": null,
+      "contentSha256": null,
+      "previousContentSha256": "021f86786bc2ead7b3f55c88d43d1f369058b58ed908a8d3b9df69543c2f7588"
     }
   ]
 }

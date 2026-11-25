@@ -77,14 +77,6 @@ Merricks
 
 Swipe or scroll through the picks
 
-- ### [Summer Xmas Seafood Class at Peninsula Gourmet Cooking School](<https://peninsulainsider.com.au/whats-on/summer-xmas-seafood-class-at-peninsula-gourmet-cooking-school-2026-11-28/>)
-
-Delicious, Festive, Exciting!
-
-Sat, 28 Nov   Peninsula Gourmet Cooking School   Food & wine
-
-Event details checked 9 Nov 2026 · [Organiser’s page](<https://peninsulagourmetcookingschool.com.au/classes>)
-
 - ### [Dave Campbell Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/dave-campbell-live-at-peninsula-beer-garden-2026-11-29/>)
 
 Live Music at Peninsula Beer Garden! Join Dave Campbell for your music fix.
@@ -100,6 +92,14 @@ Live music every weekend at Jetty Road Brewery!
 Sun, 29 Nov   Jetty Road Brewery   Live music
 
 Event details checked 9 Nov 2026 · [Organiser’s page](<https://www.jettyroad.com.au/dromana>)
+
+- ### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+
+Sam O’Connell plays Spike Bar this Saturday, 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
+
+Sat, 28 Nov   Peppers Moonah Links   Every Saturday
+
+Event details checked 16 Nov 2026 · [Organiser’s page](<https://www.moonahlinks.com.au/cms/whats-on/>)
 
 This season · Spring
 
