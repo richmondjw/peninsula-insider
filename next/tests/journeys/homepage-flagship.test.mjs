@@ -430,6 +430,9 @@ test('three homepage covers autoplay without moving the planner; manual controls
         await page.keyboard.press('ArrowRight');
       }
       await page.waitForFunction(() => document.querySelector('#peninsula-cover').dataset.activeCover === 'bay');
+      // The crossfade is still finishing on the frame activeCover flips (0.9998 was
+      // read on one deploy run). Measure the cover once the fade has settled.
+      await page.waitForFunction(() => { const layer = document.querySelector('#peninsula-cover .home-cover__layer[data-visible]'); return !layer || getComputedStyle(layer).opacity === '1'; });
       const bay = await layout();
       assert.equal(bay.href, '/explore/places/mornington/');
       assert.match(bay.credit, /Mornington.*Visit Victoria/i);
