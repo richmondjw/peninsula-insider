@@ -9,7 +9,12 @@ import { fileURLToPath } from 'node:url';
 const auditScript = fileURLToPath(new URL('./audit-agent-readiness.mjs', import.meta.url));
 const instant = '2026-08-14T14:10:00Z'; // 15 August in Australia/Sydney.
 
-function writeFixture(root, generated = '2026-08-15', endDate = '2026-08-15') {
+function writeFixture(
+  root,
+  generated = '2026-08-15',
+  endDate = '2026-08-15',
+  { generatedAt, weekendEnd = '2026-08-16T13:59:00.000Z' } = {},
+) {
   const weekendDir = join(root, 'whats-on', 'this-weekend');
   const feedDir = join(root, 'whats-on');
   mkdirSync(weekendDir, { recursive: true });
@@ -17,6 +22,7 @@ function writeFixture(root, generated = '2026-08-15', endDate = '2026-08-15') {
     join(feedDir, 'upcoming.json'),
     JSON.stringify({
       generated,
+      ...(generatedAt ? { generatedAt } : {}),
       count: 1,
       numberOfItems: 1,
       thisWeekend: { count: 1 },
@@ -41,7 +47,7 @@ function writeFixture(root, generated = '2026-08-15', endDate = '2026-08-15') {
   );
   writeFileSync(
     join(weekendDir, 'index.html'),
-    '<html><body><article data-weekend-end="2026-08-16T13:59:00.000Z" data-source-mode="registry-fallback"></article></body></html>',
+    `<html><body><article data-weekend-end="${weekendEnd}" data-source-mode="registry-fallback"></article></body></html>`,
   );
   writeFileSync(
     join(root, 'index.html'),
@@ -53,10 +59,10 @@ function writeFixture(root, generated = '2026-08-15', endDate = '2026-08-15') {
   );
 }
 
-function runAudit(root) {
+function runAudit(root, ...extraArgs) {
   return spawnSync(
     process.execPath,
-    [auditScript, '--site', root, '--instant', instant],
+    [auditScript, '--site', root, '--instant', instant, ...extraArgs],
     { encoding: 'utf8' },
   );
 }
@@ -84,6 +90,83 @@ test('rejects a previous-day feed and expired occurrence', () => {
   } finally {
     rmSync(root, { recursive: true, force: true });
   }
+});
+
+// A build that started at 23:55 on Friday 14 August in Sydney and reached the
+// audit at 00:10 on the 15th. Everything in it is dated for the 14th: the
+// feed, an occurrence that ends that day, and a weekend window closing that
+// night.
+const beforeMidnight = '2026-08-14T13:55:00.000Z';
+const builtBeforeMidnight = {
+  generatedAt: beforeMidnight,
+  weekendEnd: '2026-08-14T13:59:00.000Z',
+};
+
+function withFixture(args, run) {
+  const root = mkdtempSync(join(tmpdir(), 'pi-agent-audit-'));
+  try {
+    writeFixture(root, ...args);
+    return run(root);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+}
+
+test('--build-clock passes a build that crossed Sydney midnight before the audit ran', () => {
+  withFixture(['2026-08-14', '2026-08-14', builtBeforeMidnight], (root) => {
+    const result = runAudit(root, '--build-clock');
+    assert.equal(result.status, 0, result.stderr);
+    assert.match(result.stdout, /passed for 2026-08-14/);
+    assert.match(result.stdout, /generated at 2026-08-14T13:55:00\.000Z/);
+  });
+});
+
+test('without --build-clock the same output still fails on the new day', () => {
+  withFixture(['2026-08-14', '2026-08-14', builtBeforeMidnight], (root) => {
+    const result = runAudit(root);
+    assert.equal(result.status, 1);
+    assert.match(result.stderr, /generated=2026-08-14; expected 2026-08-15/);
+    assert.match(result.stderr, /Expired occurrence/);
+    assert.match(result.stderr, /this-weekend\/ is stale/);
+  });
+});
+
+test('--build-clock still rejects a feed generated on an earlier day and audited much later', () => {
+  // 03:10 on the 14th in Sydney, audited 21 hours later at 00:10 on the 15th.
+  const stale = { generatedAt: '2026-08-13T17:10:00.000Z' };
+  withFixture(['2026-08-14', '2026-08-15', stale], (root) => {
+    const result = runAudit(root, '--build-clock');
+    assert.equal(result.status, 1);
+    assert.match(result.stderr, /generated=2026-08-14; expected 2026-08-15/);
+    assert.match(result.stderr, /build clock not used: generatedAt 2026-08-13T17:10:00\.000Z is 21\.0 h old/);
+  });
+});
+
+test('--build-clock holds the feed date to the day its own generatedAt falls on', () => {
+  // A recent generatedAt does not let the feed claim some other day.
+  withFixture(['2026-08-13', '2026-08-15', { generatedAt: beforeMidnight }], (root) => {
+    const result = runAudit(root, '--build-clock');
+    assert.equal(result.status, 1);
+    assert.match(result.stderr, /generated=2026-08-13; expected 2026-08-14/);
+  });
+});
+
+test('--build-clock ignores a generatedAt that is missing, malformed or ahead of the audit', () => {
+  for (const generatedAt of [undefined, '2026-08-14', '2026-08-14T14:10:01.000Z']) {
+    withFixture(['2026-08-14', '2026-08-14', { ...builtBeforeMidnight, generatedAt }], (root) => {
+      const result = runAudit(root, '--build-clock');
+      assert.equal(result.status, 1, `generatedAt=${generatedAt}`);
+      assert.match(result.stderr, /expected 2026-08-15 \(build clock not used: /);
+    });
+  }
+});
+
+test('an explicit --now is never replaced by the build clock', () => {
+  withFixture(['2026-08-14', '2026-08-14', builtBeforeMidnight], (root) => {
+    const result = runAudit(root, '--build-clock', '--now', '2026-08-15');
+    assert.equal(result.status, 1);
+    assert.match(result.stderr, /generated=2026-08-14; expected 2026-08-15/);
+  });
 });
 
 function writeTypedFixture(root) {
