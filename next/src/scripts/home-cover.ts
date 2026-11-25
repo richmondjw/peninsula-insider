@@ -19,14 +19,15 @@ export function initHomeCover() {
   const icon = toggle.querySelector('path')!;
   const announcement = controls.querySelector<HTMLElement>('.home-cover__announcement')!;
   const plate = cover.querySelector<HTMLElement>('figure')!;
-  const coast = plate.querySelector<HTMLImageElement>('[data-cover-media=coast]')!;
+  // The plate written into the page is the first cover, whichever that is.
+  const base = plate.querySelector<HTMLImageElement>('[data-cover-media]')!;
   const credit = plate.querySelector<HTMLElement>('figcaption')!;
   const story = cover.querySelector<HTMLAnchorElement>('.home-cover__story')!;
   const label = story.querySelector<HTMLElement>('.home-cover__story-label')!;
   const title = story.querySelector('strong')!;
   const description = story.querySelector<HTMLElement>('[data-cover-description]')!;
   const frames: Frame[] = [
-    { key: 'coast', name: 'Coast: Cape Schanck', credit: credit.textContent!, label: label.textContent!,
+    { key: base.dataset.coverMedia!, name: (dots[0]?.getAttribute('aria-label') ?? '').replace(/^Show /, ''), credit: credit.textContent!, label: label.textContent!,
       title: title.textContent!, description: description.textContent!, href: story.getAttribute('href')! },
     ...[...cover.querySelectorAll<HTMLTemplateElement>('template[data-cover-frame]')].map(template => {
       const { coverFrame, name, credit, label, title, description, href } = template.dataset;
@@ -113,8 +114,8 @@ export function initHomeCover() {
       layer = incoming;
       pending = null;
       incoming?.removeAttribute('aria-hidden');
-      if (incoming) coast.setAttribute('aria-hidden', 'true');
-      else coast.removeAttribute('aria-hidden');
+      if (incoming) base.setAttribute('aria-hidden', 'true');
+      else base.removeAttribute('aria-hidden');
       credit.textContent = frame.credit;
       label.textContent = frame.label;
       title.textContent = frame.title;
@@ -179,7 +180,7 @@ export function initHomeCover() {
     stop();
     ++revision;
   };
-  cover.dataset.activeCover = 'coast';
+  cover.dataset.activeCover = frames[0].key;
   controls.hidden = false;
   setPlaying(playing);
 }
