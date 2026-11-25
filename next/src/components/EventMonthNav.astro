@@ -1,0 +1,36 @@
+---
+/**
+ * EventMonthNav - one quiet line of links to the What's On month pages.
+ * Used on the hub and on each month page; the current page is marked, not linked.
+ */
+export interface Props {
+  months: { slug: string; label: string }[];
+  /** Slug of the month being viewed, if any. */
+  active?: string;
+}
+const { months, active } = Astro.props;
+---
+{months.length > 0 && (
+  <nav class="wo-months" aria-label="What's on by month">
+    <span class="wo-months__label">By month:</span>
+    <ul role="list">
+      {months.map((m) => (
+        <li>
+          {m.slug === active
+            ? <span aria-current="page">{m.label}</span>
+            : <a href={`/whats-on/month/${m.slug}/`}>{m.label}</a>}
+        </li>
+      ))}
+    </ul>
+  </nav>
+)}
+
+<style>
+  .wo-months { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 1rem; font: 500 0.9375rem/1.4 var(--font-ui); }
+  .wo-months__label { color: var(--soft); }
+  .wo-months ul { display: flex; flex-wrap: wrap; gap: 0 1.25rem; margin: 0; padding: 0; list-style: none; }
+  .wo-months a, .wo-months span[aria-current] { display: inline-flex; align-items: center; min-height: 44px; }
+  .wo-months a { color: var(--text); text-decoration: underline; text-underline-offset: 0.2em; }
+  .wo-months a:hover { color: var(--accent); }
+  .wo-months span[aria-current] { font-weight: 700; color: #0b2e4a; }
+</style>

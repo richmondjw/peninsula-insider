@@ -237,6 +237,8 @@ const isPaused = data.status === 'paused';
 const isUnverifiedPaused = isPaused && data.sourceStatus === 'unsourced';
 const isOperatorPaused = isPaused && !isUnverifiedPaused;
 const isNonPublicProducer = data.type === 'producer';
+// Same gate as the Directions row in the facts panel.
+const showDirectionsAction = !isPaused && !isNonPublicProducer && !isPublicVisitUnconfirmed;
 const isPolperroDiningLink = isWinery && venueSlug === 'polperro';
 
 // Wine-specific derived signals
@@ -334,7 +336,10 @@ const hoursSchema = hasOpeningHours && !isPaused && isCanonicalSurface && sectio
       </p>
     )}
 
-    {((data.bookingUrl && !isPublicVisitUnconfirmed) || data.phone) && !isClosed && !isPaused && (
+    {/* Action row: book, call, website and directions sit together under the
+        title so a reader on a phone can act without scrolling to the facts
+        panel. Each control keeps the gate it already had further down. */}
+    {((data.bookingUrl && !isPublicVisitUnconfirmed) || data.phone || data.website || showDirectionsAction) && !isClosed && !isPaused && (
       <div class="venue-detail__booking-bar">
         {data.bookingUrl && !isPublicVisitUnconfirmed && (
           <a
@@ -369,7 +374,36 @@ const hoursSchema = hasOpeningHours && !isPaused && isCanonicalSurface && sectio
             {data.phone}
           </a>
         )}
+        {data.website && (
+          <a
+            href={data.website}
+            class="pi-btn pi-btn--ghost pi-btn--lg"
+            data-evt="website_click"
+            data-entity-type="venue"
+            data-entity-slug={venueSlug}
+            data-surface="venue-action-row"
+          >
+            Website
+          </a>
+        )}
+        {showDirectionsAction && (
+          <a
+            href={directionsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="pi-btn pi-btn--ghost pi-btn--lg"
+            data-evt="directions_click"
+            data-entity-type="venue"
+            data-entity-slug={venueSlug}
+            data-surface="venue-action-row"
+          >
+            Directions
+          </a>
+        )}
       </div>
+    )}
+    {verifiedLabel && !isClosed && !isPaused && (
+      <p class="venue-detail__checked"><a href="/about/#how-a-check-works">{verifiedLabel}</a></p>
     )}
 
     {/* Appointment-only planning signal - wine venues only.
@@ -1010,6 +1044,16 @@ const hoursSchema = hasOpeningHours && !isPaused && isCanonicalSurface && sectio
   .venue-detail__pi-line img { flex: none; width: 44px; height: 44px; border-radius: 50%; }
   .venue-detail__pi-line p { margin: 0; }
   .venue-detail__pi-line-text { margin-top: .25rem !important; font-size: 1.0625rem; line-height: 1.5; font-style: italic; }
+
+  /* Checked date under the action row. Quiet, but a real link to the method. */
+  .venue-detail__checked { margin: -1rem 0 2rem; font: 500 0.8125rem/1.4 var(--font-ui); color: var(--soft); }
+  .venue-detail__checked a { display: inline-block; padding: 0.6rem 0; color: inherit; text-decoration: underline; text-underline-offset: 0.2em; }
+  .venue-detail__checked a:hover { color: var(--text); }
+  @media (max-width: 640px) {
+    /* Primary action full width; the rest pair up, and an odd one out fills its row. */
+    .venue-detail :global(.venue-detail__booking-bar .pi-btn) { flex: 1 1 calc(50% - 0.375rem); justify-content: center; min-width: 0; }
+    .venue-detail :global(.venue-detail__booking-bar .pi-btn--solid) { flex-basis: 100%; }
+  }
 
   .venue-detail--text-first :global(.venue-detail__signature) { margin-bottom: 1.75rem; }
   .venue-detail--text-first :global(.venue-detail__booking-bar) { margin-bottom: 1.25rem; }
