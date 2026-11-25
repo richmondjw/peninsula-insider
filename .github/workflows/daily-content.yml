@@ -58,9 +58,11 @@ jobs:
       - name: Install engine dependencies
         run: |
           pip install anthropic requests python-dateutil
-          # Google API libs for the same-day GSC pull. If GSC_TOKEN_JSON isn't
-          # set as a secret, the pull no-ops and the brain uses the last
-          # committed report — these libs are cheap insurance, not a hard dep.
+          # Google API libs for the same-day GSC pull. Without the
+          # GSC_TOKEN_JSON secret the pull fails with a reason, the brain falls
+          # back to the last committed report, and once that report is past its
+          # age limit the strategy withholds everything built on it and reports
+          # itself degraded. The publish itself never depends on the pull.
           pip install google-api-python-client google-auth-oauthlib google-auth-httplib2
 
       - name: Configure git identity
@@ -76,6 +78,10 @@ jobs:
         # every day. Fail loudly here before the engine runs. Fast, no deps.
         env:
           PI_REPO_ROOT: ${{ github.workspace }}
+          # Code checks only. The few checks that read the repository's own
+          # data run on pull requests (strategy-engine.yml): an unexpected
+          # content record must not be able to stop the morning's publish.
+          PI_PREFLIGHT: '1'
         run: |
           python engine/test_strategy_engine.py --quiet
           python engine/test_hero_image.py --quiet
@@ -92,8 +98,10 @@ jobs:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
           # Live GSC pull (headless). Set GSC_TOKEN_JSON to a token minted once
-          # locally (see ops/gsc-auth/README.md). Absent → strategy brain uses
-          # the last committed report, no failure.
+          # locally (see ops/gsc-auth/README.md). Absent, the run still
+          # publishes, but the strategy brain has only the last committed
+          # report: see "Report strategy loop health" below. Check a new or
+          # rotated secret with the Strategy Engine workflow's feed check.
           GSC_TOKEN_JSON: ${{ secrets.GSC_TOKEN_JSON }}
           GSC_CLIENT_SECRET_JSON: ${{ secrets.GSC_CLIENT_SECRET_JSON }}
           PI_REPO_ROOT: ${{ github.workspace }}
@@ -109,6 +117,34 @@ jobs:
           PI_AUTO_ACT: '0'
         run: |
           python engine/orchestrator.py --tempo daily ${{ inputs.dry_run == true && '--dry-run' || '' }} ${{ inputs.force == true && '--force' || '' }}
+
+      - name: Report strategy loop health (non-silent)
+        # The engine can publish every morning while its Search Console feed is
+        # dead, and from July to November 2026 it did: the failed pull was
+        # logged as a skip and the run went green. This step never fails the
+        # publish. When the loop needs the owner it puts a warning on the run
+        # and keeps ONE issue open (label pi-alert) that names the cause and
+        # the fix. The issue is edited in place, and commented on only when the
+        # cause changes; close it once "alert" is false in
+        # ops/strategy/health.json.
+        if: always()
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          PI_REPO_ROOT: ${{ github.workspace }}
+        run: |
+          set +e
+          python engine/strategy_engine.py --health --alert
+          code=$?
+          # 0 healthy or warning, 2 stalled, 3 degraded. Anything else is the
+          # check itself failing, which must not be read as a health result.
+          case "$code" in
+            0) ;;
+            2|3) echo "Strategy loop is not healthy (exit $code): see the warning on this run and the open pi-alert issue." ;;
+            *) echo "::warning title=Strategy health check failed to run::strategy_engine.py --health exited $code, so the loop's health is unknown for this run. See this step's log." ;;
+          esac
+          exit 0
 
       - name: Upload run log
         uses: actions/upload-artifact@v4

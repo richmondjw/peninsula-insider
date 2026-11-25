@@ -45,13 +45,25 @@ its own prior snapshot into `ops/strategy/content-strategy.json` (the ranked
 commissioning queue the orchestrator reads). It diffs day-over-day, so strategy
 improvement is observable. Deterministic and stdlib-only.
 
+**Staleness-guard note (2026-11-25):** every dated input is measured against the
+run date. Search data older than 14 days (coverage 14, sitemap inventory 30) is
+set aside: the brief opens with a stale-data block, opportunities built on that
+input are withheld from the queue, and no opportunity may target the page of an
+event that is over. As of this note the Search Console pull has no credentials
+(`GSC_TOKEN_JSON` unset, see `ops/gsc-auth/README.md`) and the repo-root
+`sitemap.xml` was last rebuilt 2026-07-05, so the loop reports itself degraded
+and commissions only from the events and seasonal calendars.
+
 **Self-monitoring note (addresses the Tier-1 "silent alert paths" gap for the
 strategy loop):** `strategy_engine.py --health` inspects the loop's own cadence
-(days since last snapshot), input health (is GSC performance data flowing?), and
-learning health, and **exits non-zero when the loop is stalled** — so a
-monitoring cron can alert instead of failures being invisible. Every run also
-writes `ops/strategy/health.json` and a 🟢/🟡/🔴 badge into the brief. This is
-the first strategy-path job with a non-silent alert path.
+(days since last snapshot), input health (is GSC performance data flowing, and
+is it current?), and learning health, and **exits non-zero when the loop is
+stalled (2) or degraded (3)**. Every run also writes `ops/strategy/health.json`
+and a 🟢/🟡/🟠/🔴 badge into the brief. `daily-content.yml` runs
+`--health --alert` after each daily run: it never fails the publish, and while
+the loop needs the owner (`alert` in `health.json`) it keeps one `pi-alert`
+issue open with the cause and the fix. This is the first strategy-path job with
+a non-silent alert path.
 
 **Agent-index note:** the *live* `/llms.txt` and `/llms-full.txt` are generated
 in the deploy workflow from the freshly-built `next/dist/sitemap.xml`, so they

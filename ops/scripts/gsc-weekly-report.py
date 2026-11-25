@@ -80,4 +80,4 @@ def run():
 
 
 if __name__ == "__main__":
-    run()
+    gsc.run_cli(run)  # a credential or API failure exits with its reason code

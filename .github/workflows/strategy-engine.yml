@@ -1,0 +1,81 @@
+name: Strategy Engine
+
+# Two jobs. Neither publishes, commits or changes anything.
+#
+# tests       The strategy engine's self-test harness, on any pull request that
+#             touches the engine, the Search Console feed scripts or the daily
+#             workflow. The same harness is the pre-flight gate of the daily
+#             publish, so without this a change that breaks it is discovered at
+#             6am, by the publish failing.
+#
+# feed-check  Manual only. Proves the GSC_TOKEN_JSON secret works: it
+#             authenticates, pulls the Search Console property totals for the
+#             current 28-day window and prints them. Run it after setting or
+#             rotating the secret (ops/gsc-auth/README.md) instead of waiting
+#             for the next morning to find out. It writes no report and makes
+#             no commit; the daily run does that.
+
+on:
+  pull_request:
+    paths:
+      - 'engine/**'
+      - 'ops/scripts/gsc*'
+      - '.github/workflows/strategy-engine.yml'
+      - '.github/workflows/daily-content.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: strategy-engine-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  tests:
+    name: Strategy engine self-test
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # Standard library only, by design: no install step. Unlike the daily
+      # pre-flight this includes the checks that read the repository's own
+      # events and reports.
+      - name: Run the harness
+        env:
+          PI_REPO_ROOT: ${{ github.workspace }}
+        run: |
+          python engine/test_strategy_engine.py --quiet
+          python engine/test_hero_image.py --quiet
+
+  feed-check:
+    name: Search Console feed check
+    if: github.event_name == 'workflow_dispatch'
+    needs: tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install the Google client libraries
+        run: pip install google-api-python-client google-auth-oauthlib google-auth-httplib2
+
+      - name: Authenticate and pull the property totals (writes nothing)
+        env:
+          GSC_TOKEN_JSON: ${{ secrets.GSC_TOKEN_JSON }}
+        run: |
+          set -o pipefail
+          python ops/scripts/gsc-search-analytics.py --check 2>&1 | tee -a "$GITHUB_STEP_SUMMARY"

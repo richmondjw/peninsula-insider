@@ -342,18 +342,33 @@ def run_daily(log: RunLog, state: dict, today: str, now_aest: datetime):
     #    loop: yesterday's results shape today's work, and the strategy is
     #    diffed day-over-day so improvement is observable.
     log.step("gsc-refresh", "START")
-    gsc_ok = run_gsc_refresh()
-    log.step("gsc-refresh", "DONE" if gsc_ok else "SKIP",
-             "fresh GSC pulled" if gsc_ok else "no GSC creds — using last committed report")
+    gsc = run_gsc_refresh()
+    if all(outcome == "ok" for outcome in gsc.values()):
+        log.step("gsc-refresh", "DONE", "fresh search analytics and index coverage pulled")
+    elif gsc.get("search") == "ok":
+        log.step("gsc-refresh", "WARN",
+                 f"search analytics pulled; index coverage NOT refreshed ({gsc.get('coverage')})")
+    else:
+        # Not a SKIP. A pull that fails every day is how the strategy came to
+        # run on seven-month-old search data behind a green status.
+        log.step("gsc-refresh", "WARN",
+                 f"search analytics NOT refreshed ({gsc.get('search')}): the strategy falls "
+                 "back to the last committed report and withholds it if stale")
 
     log.step("strategy-refresh", "START")
-    queue = run_strategy_engine(today)
+    strategy = run_strategy_engine(today, gsc)
+    queue = strategy["queue"]
     if queue:
         top = queue[0]
-        log.step("strategy-refresh", "DONE",
-                 f"top priority: [{top.get('kind')}] {top.get('title','')[:70]}")
+        log.step("strategy-refresh", "DONE" if strategy["ok"] else "WARN",
+                 f"top priority: [{top.get('kind')}] {top.get('title','')[:70]}"
+                 + ("" if strategy["ok"] else " (engine did not write today's state; last good queue, re-screened)"))
     else:
-        log.step("strategy-refresh", "WARN", "No strategy queue produced — using default cadence")
+        log.step("strategy-refresh", "WARN", "No strategy queue produced: using default cadence")
+    health = strategy["health"]
+    if health.get("status") in ("degraded", "stalled"):
+        headline = str((health.get("notes") or [""])[0])[:200]
+        log.step("strategy-health", "WARN", f"{health['status']}: {headline}")
 
     # 0b. Autonomous execution — act on the safest top strategy items (CTR
     #     title/meta rewrites on journal articles) with no human in the loop.
@@ -506,9 +521,13 @@ def run_daily(log: RunLog, state: dict, today: str, now_aest: datetime):
              "llms.txt regenerated from sitemap" if llms_ok else "generator not found — skipping")
 
     log.step("strategy-commit", "START")
+    # The GSC reports are the strategy's inputs. Commit them with it, or the
+    # "last committed report" the brain falls back to never moves past the day
+    # someone last committed one by hand.
     strat_ok = git_commit_and_push(
         f"chore(strategy): daily strategy refresh + agent index {today} [skip-review]",
         ["ops/strategy", "llms.txt", "llms-full.txt"]
+        + [r for r in GSC_REPORTS if (REPO_ROOT / r).exists()]
     )
     log.step("strategy-commit", "DONE" if strat_ok else "WARN",
              "strategy + llms.txt pushed" if strat_ok else "nothing to commit or push failed")
@@ -899,28 +918,57 @@ def set_published(article_path: Path, today: str):
     article_path.write_text(content)
 
 
-def run_gsc_refresh() -> bool:
+# The strategy brain's Search Console feed: (input, script, timeout in seconds).
+# Timeouts are bounded so a hung pull cannot eat the publish job's time limit.
+GSC_REFRESH = (
+    ("search", "gsc-search-analytics.py", 180),
+    ("coverage", "gsc-coverage-monitor.py", 420),
+)
+# Exit codes shared with ops/scripts/gsc_client.py.
+GSC_EXIT_REASONS = {0: "ok", 3: "no-credentials", 4: "auth-failed", 5: "api-error",
+                    6: "no-data", 7: "missing-deps"}
+GSC_REPORTS = ("ops/reports/gsc-search-analytics.md", "ops/reports/gsc-coverage-report.md")
+
+
+def run_gsc_refresh() -> dict:
     """Pull fresh Google Search Console analytics + coverage before the strategy
-    run so performance data is same-day. No-ops gracefully when credentials or
-    google-api deps aren't present — the strategy engine then reads the last
-    committed report. Never stalls the loop."""
-    ok = False
-    for script in ("gsc-search-analytics.py", "gsc-coverage-monitor.py"):
+    run so performance data is same-day.
+
+    Returns {"search": outcome, "coverage": outcome}, each "ok" or the reason it
+    did not refresh (no-credentials, auth-failed, api-error, no-data,
+    missing-deps, timeout, error). Never raises and never stalls the loop: on
+    any failure the scripts leave the last report in place, and the strategy
+    engine is told the outcome so it can say why its data is old."""
+    outcome = {}
+    for key, script, timeout in GSC_REFRESH:
         path = REPO_ROOT / "ops/scripts" / script
         if not path.exists():
+            outcome[key] = "error"
+            print(f"  GSC refresh ({script}) missing")
             continue
         try:
             result = subprocess.run(
                 [sys.executable, str(path)],
-                cwd=str(REPO_ROOT), capture_output=True, text=True, timeout=180
+                cwd=str(REPO_ROOT), capture_output=True, text=True, timeout=timeout
             )
-            if result.returncode == 0:
-                ok = True
-            else:
-                print(f"  GSC refresh ({script}) skipped: {result.stderr.strip()[:160]}")
+        except subprocess.TimeoutExpired:
+            outcome[key] = "timeout"
+            print(f"  GSC refresh ({script}) timed out after {timeout}s")
+            continue
         except Exception as e:
+            outcome[key] = "error"
             print(f"  GSC refresh ({script}) error: {e}")
-    return ok
+            continue
+        outcome[key] = GSC_EXIT_REASONS.get(result.returncode, "error")
+        if result.returncode != 0:
+            tail = (result.stderr.strip().splitlines() or [""])[-1]
+            print(f"  GSC refresh ({script}) failed [{outcome[key]}]: {tail[:300]}")
+        if outcome[key] == "no-credentials":
+            # Nothing to authenticate with: the next script would say the same.
+            for later, _, _ in GSC_REFRESH:
+                outcome.setdefault(later, "no-credentials")
+            break
+    return outcome
 
 
 def run_auto_act(today: str) -> list[dict]:
@@ -953,28 +1001,50 @@ def run_auto_act(today: str) -> list[dict]:
         return []
 
 
-def run_strategy_engine(today: str) -> list[dict]:
-    """Run the Content Strategy Brain and return its ranked commissioning queue.
-    Never raises — a strategy failure must not stall the publish loop."""
+def run_strategy_engine(today: str, gsc_refresh: dict | None = None) -> dict:
+    """Run the Content Strategy Brain.
+
+    Returns {"ok", "queue", "health"}: whether today's state was written, the
+    ranked commissioning queue, and the loop health the engine recorded.
+    Never raises: a strategy failure must not stall the publish loop.
+
+    The queue is always passed through strategy_engine.usable_queue, so if the
+    engine failed and yesterday's state is all there is, items that have since
+    expired or gone stale are dropped rather than handed on as current."""
+    result = {"ok": False, "queue": [], "health": {}}
     strategy = Path(__file__).parent / "strategy_engine.py"
     if not strategy.exists():
-        return []
+        return result
+    env = dict(os.environ)
+    if gsc_refresh is not None:
+        env["PI_GSC_REFRESH"] = json.dumps(gsc_refresh)  # reason codes only
     try:
-        subprocess.run(
+        proc = subprocess.run(
             [sys.executable, str(strategy), "--date", today],
-            cwd=str(REPO_ROOT), capture_output=True, text=True, timeout=90
+            cwd=str(REPO_ROOT), capture_output=True, text=True, timeout=90, env=env
         )
+        if proc.returncode != 0:
+            tail = (proc.stderr.strip().splitlines() or [""])[-1]
+            print(f"  Strategy engine failed (exit {proc.returncode}): {tail[:300]}")
     except Exception as e:
         print(f"  Strategy engine error: {e}")
-    # Read whatever it wrote (or the last good state) so commissioning still has input.
     strategy_json = REPO_ROOT / "ops/strategy/content-strategy.json"
-    if strategy_json.exists():
-        try:
-            state = json.loads(strategy_json.read_text())
-            return state.get("commissioning_queue", [])
-        except (json.JSONDecodeError, OSError):
-            return []
-    return []
+    if not strategy_json.exists():
+        return result
+    try:
+        state = json.loads(strategy_json.read_text())
+        import strategy_engine
+        queue = strategy_engine.usable_queue(state, date.fromisoformat(today))
+        wrote_today = state.get("date") == today
+        health = state.get("health") if wrote_today else None
+    except Exception as e:
+        # Whatever is wrong with the state file or the engine, the publish goes on.
+        print(f"  Strategy state unreadable ({type(e).__name__}: {e}): no queue this run")
+        return result
+    result["queue"] = queue
+    result["ok"] = wrote_today
+    result["health"] = health if isinstance(health, dict) else {}
+    return result
 
 
 def run_llms_refresh() -> bool:
