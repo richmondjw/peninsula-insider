@@ -2,6 +2,7 @@ import { fileURLToPath } from 'node:url';
 import { readdir, readFile, stat, writeFile } from 'node:fs/promises';
 import { execFileSync } from 'node:child_process';
 import { join } from 'node:path';
+import { readBuildInstant } from './build-clock.mjs';
 
 const dist = new URL('../dist/', import.meta.url);
 const contentEvents = new URL('../src/content/events/', import.meta.url);
@@ -162,6 +163,15 @@ function floor(key, value) {
   floors[key] = value;
 }
 
+// A scheduled Event is stale once its endDate is behind the instant the pages
+// were rendered at, not behind whenever this lint happens to run. A weekend
+// dispatch ends at 23:59 on Sunday, so a build that rendered it as scheduled
+// before then and linted it a minute after would fail on an honest page.
+// The build instant is only used while it is recent (scripts/build-clock.mjs);
+// against an older dist this is the wall clock, as before.
+const buildClock = readBuildInstant(fileURLToPath(dist));
+const judgedAt = buildClock.accepted ? buildClock.instant : new Date();
+
 const sitemap = await sitemapEntries();
 const sitemapLastmods = new Set([...sitemap.values()].filter(Boolean));
 if (sitemapLastmods.size < 10) {
@@ -196,7 +206,7 @@ for (const file of await htmlFiles(fileURLToPath(dist))) {
     if (node?.['@type'] === 'ImageObject' && typeof node.url === 'string') imageObjectUrls.add(node.url);
     const types = Array.isArray(node?.['@type']) ? node['@type'] : [node?.['@type']];
     if (types.some((type) => entityTypes.has(type)) && !node?.['@id']) fail('entity-missing-id', `${file}: ${types.join(',')} schema lacks @id`);
-    if (node?.eventStatus === 'https://schema.org/EventScheduled' && node?.endDate && new Date(node.endDate) < new Date()) {
+    if (node?.eventStatus === 'https://schema.org/EventScheduled' && node?.endDate && new Date(node.endDate) < judgedAt) {
       fail('stale-event-scheduled', `${file}: stale scheduled Event endDate ${node.endDate}`);
     }
   }

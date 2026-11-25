@@ -7,10 +7,24 @@ import { validateFeedItemList } from './agent-feed-contract.mjs';
  * Usage:
  *   node scripts/audit-agent-readiness.mjs [--site dist] [--now YYYY-MM-DD]
  *   node scripts/audit-agent-readiness.mjs [--site dist] [--instant ISO-8601]
+ *   node scripts/audit-agent-readiness.mjs [--site dist] --build-clock
+ *
+ * By default the site is judged against the day this audit runs, in
+ * Australia/Sydney. That is the publish-boundary rule: a feed dated yesterday
+ * does not go out today.
+ *
+ * --build-clock is for the step inside `npm run build`, which audits output
+ * the same chain wrote minutes earlier. There the site is judged against the
+ * day it was built for, taken from the feed's generatedAt, so a build that
+ * crosses midnight is not failed for it. The build's instant is only accepted
+ * while this audit's own clock says it is recent (scripts/build-clock.mjs);
+ * otherwise the default rule applies. --now always wins: an explicit date is
+ * never replaced by the feed's.
  */
 
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, relative, resolve } from 'node:path';
+import { acceptBuildInstant } from './build-clock.mjs';
 
 const args = process.argv.slice(2);
 const valueFor = (name, fallback) => {
@@ -36,8 +50,13 @@ if (!Number.isFinite(instant.getTime())) {
   console.error(`Agent-readiness audit: invalid --instant value: ${instantArg}`);
   process.exit(1);
 }
-const nowArg = valueFor('--now', sydneyDate(instant));
-const today = new Date(`${nowArg}T00:00:00Z`);
+const explicitNow = valueFor('--now', null);
+const useBuildClock = args.includes('--build-clock') && !explicitNow;
+// The day the site is judged against. Reassigned once, below, when
+// --build-clock accepts the instant the feed was generated at.
+let nowArg = explicitNow ?? sydneyDate(instant);
+let today = new Date(`${nowArg}T00:00:00Z`);
+let buildClockNote = '';
 const failures = [];
 
 const fail = (message) => failures.push(message);
@@ -55,8 +74,22 @@ if (!existsSync(upcomingPath)) {
   fail('Missing /whats-on/upcoming.json');
 } else {
   const feed = JSON.parse(read(upcomingPath));
+  let buildClockRefusal = '';
+  if (useBuildClock) {
+    const buildClock = acceptBuildInstant(feed.generatedAt, instant);
+    if (buildClock.accepted) {
+      const buildDay = sydneyDate(buildClock.instant);
+      if (buildDay !== nowArg) {
+        buildClockNote = ` Judged against the build's own day: generated at ${feed.generatedAt}, audited at ${instant.toISOString()} (${nowArg} in Sydney).`;
+        nowArg = buildDay;
+        today = new Date(`${nowArg}T00:00:00Z`);
+      }
+    } else {
+      buildClockRefusal = ` (build clock not used: ${buildClock.reason})`;
+    }
+  }
   if (feed.generated !== nowArg) {
-    fail(`/whats-on/upcoming.json generated=${feed.generated}; expected ${nowArg}`);
+    fail(`/whats-on/upcoming.json generated=${feed.generated}; expected ${nowArg}${buildClockRefusal}`);
   }
   if (feed.count !== feed.events?.length) {
     fail(`/whats-on/upcoming.json count=${feed.count}; events=${feed.events?.length ?? 'missing'}`);
@@ -180,4 +213,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log(`Agent-readiness audit passed for ${nowArg} (${htmlFiles.length} HTML pages).`);
+console.log(`Agent-readiness audit passed for ${nowArg} (${htmlFiles.length} HTML pages).${buildClockNote}`);
