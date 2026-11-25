@@ -281,6 +281,8 @@ export const prerender = true;
     if (new URLSearchParams(location.search).get('type') === 'event') {
       const say = (sel: string, text: string) => { const el = document.querySelector(sel); if (el) el.textContent = text; };
       const category = form.querySelector<HTMLSelectElement>('#submit-category');
+      const eventOption = category?.querySelector<HTMLOptionElement>('option[value="event"]');
+      if (eventOption) eventOption.defaultSelected = true;
       if (category) category.value = 'event';
       say('.submit-form__legend', 'The event');
       say('label[for="submit-title"]', 'Event name');
