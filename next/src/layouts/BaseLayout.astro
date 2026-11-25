@@ -565,6 +565,10 @@ const showNewsletterPopup = !isPlanningJourney && !isPlaceGuide && normalizedPat
             var original = slot.public_url;
             var sized = resizedCmsImage(original, el);
             if (el instanceof HTMLImageElement) {
+              // The page may already carry this original as its src (written
+              // at build time). It is downloading or done, so swapping to the
+              // resized copy would fetch the picture twice. Leave it.
+              if (el.getAttribute('src') === original) return;
               // If the resizer refuses (switched off, over quota, odd file),
               // fall back to the original once.
               if (sized !== original) el.onerror = function () { el.onerror = null; el.src = original; };
