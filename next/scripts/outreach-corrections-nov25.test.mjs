@@ -15,6 +15,9 @@ test('Moonah has one date-specific Brad Kennedy listing without a duplicate recu
   assert.equal(sam.startDate, '2026-11-21');
   assert.equal(sam.status, 'archived');
   assert.deepEqual([brad.startDate, brad.startTime, brad.endTime, brad.place, brad.bookingRequired], ['2026-11-28', '17:00', '20:00', 'fingal', 'No']);
+  assert.equal(brad.verification, "verified", "required by the confirmed weekend selector");
+  assert.equal(brad.lastCheckedDate, "2026-11-25");
+  assert.equal(brad.primarySourceUrl, brad.officialEventUrl);
   assert.equal(brad.bookingUrl, undefined);
   assert.match(brad.officialEventUrl, /moonahlinks\.com\.au\/cms\/whats-on/);
 });
