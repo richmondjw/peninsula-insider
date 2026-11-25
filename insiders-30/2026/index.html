@@ -98,7 +98,7 @@
         if (s && s.analytics) loadGtag();
       });
     })();
-  </script><script type="module" src="/_astro/BaseLayout.astro_astro_type_script_index_0_lang.DiGapP4d.js"></script><link rel="stylesheet" href="/_astro/global.CFHxyg29.css">
+  </script><script type="module" src="/_astro/BaseLayout.astro_astro_type_script_index_0_lang.DHqY4quJ.js"></script><link rel="stylesheet" href="/_astro/global.CFHxyg29.css">
 <link rel="stylesheet" href="/_astro/BaseLayout.CGK8nIS9.css">
 <style>.insiders-30[data-astro-cid-26qlwbpf]{padding:clamp(1.5rem,3vw,2.5rem) 0 clamp(2rem,4vw,3rem)}.insiders-30__letter[data-astro-cid-26qlwbpf]{margin:0 0 clamp(1.5rem,3vw,2.25rem);padding:1.25rem 1.4rem;border-left:3px solid var(--accent);background:var(--paper, #fbf7f0);max-width:720px}.insiders-30__letter[data-astro-cid-26qlwbpf] p[data-astro-cid-26qlwbpf].label{margin-bottom:.5rem}.insiders-30__letter-body[data-astro-cid-26qlwbpf]{font-family:var(--font-display);font-style:normal;font-size:1.1rem;line-height:1.55;color:var(--text);margin:0}.insiders-30__list[data-astro-cid-26qlwbpf]{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:clamp(.85rem,1.5vw,1.1rem)}.insiders-30-pick[data-astro-cid-26qlwbpf]{margin:0;padding:0}.insiders-30-pick__link[data-astro-cid-26qlwbpf]{display:grid;grid-template-columns:auto 1fr auto;gap:clamp(.85rem,1.8vw,1.4rem);align-items:center;padding:clamp(1rem,2vw,1.4rem);border:1px solid var(--border);background:var(--bg, #fff);text-decoration:none;color:inherit;transition:border-color .15s ease,transform .15s ease,box-shadow .15s ease}@media(min-width:720px){.insiders-30-pick__link[data-astro-cid-26qlwbpf]{grid-template-columns:auto 120px 1fr auto}}.insiders-30-pick__link[data-astro-cid-26qlwbpf]:hover{border-color:var(--accent);transform:translateY(-1px);box-shadow:0 12px 24px -16px #0e282240}.insiders-30-pick__rank-block[data-astro-cid-26qlwbpf]{display:flex;flex-direction:column;align-items:center;gap:.4rem;min-width:3rem}.insiders-30-pick__rank[data-astro-cid-26qlwbpf]{font-family:var(--font-display);font-size:clamp(1.85rem,4vw,2.6rem);font-weight:500;color:var(--accent);letter-spacing:-.02em;line-height:1}.insiders-30-pick__category[data-astro-cid-26qlwbpf]{font-family:var(--font-ui);font-size:.62rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:.2rem .45rem;border:1px solid var(--border);color:var(--soft);border-radius:999px;white-space:nowrap}.insiders-30-pick__hero[data-astro-cid-26qlwbpf]{display:none}@media(min-width:720px){.insiders-30-pick__hero[data-astro-cid-26qlwbpf]{display:block;width:120px;aspect-ratio:4 / 3;background-size:cover;background-position:center;background-color:var(--paper, #fbf7f0)}}.insiders-30-pick__body[data-astro-cid-26qlwbpf]{min-width:0;display:flex;flex-direction:column;gap:.3rem}.insiders-30-pick__name[data-astro-cid-26qlwbpf]{font-family:var(--font-display);font-size:clamp(1.25rem,2.5vw,1.55rem);font-weight:500;line-height:1.2;letter-spacing:-.01em;margin:0}.insiders-30-pick__meta[data-astro-cid-26qlwbpf]{font-family:var(--font-ui);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--soft);margin:0}.insiders-30-pick__blurb[data-astro-cid-26qlwbpf]{font-family:var(--font-ui);font-size:.95rem;line-height:1.55;margin:0}.insiders-30-pick__arrow[data-astro-cid-26qlwbpf]{font-family:var(--font-ui);font-size:1.15rem;color:var(--soft)}.insiders-30__archive-back[data-astro-cid-26qlwbpf]{margin-top:clamp(2rem,4vw,3rem);padding-top:1.5rem;border-top:1px dashed var(--border);text-align:center}.insiders-30__archive-back[data-astro-cid-26qlwbpf] a[data-astro-cid-26qlwbpf]{color:var(--accent);text-decoration:underline;text-underline-offset:3px;font-family:var(--font-ui);font-size:.92rem}
 </style>
@@ -593,6 +593,29 @@ const __IMAGE_QUARANTINE = [{"key":"venue/doot-doot-doot","fieldPath":"heroImage
 
     (function () {
       if (!__SB_URL || !__SB_ANON) return;
+      // Published CMS uploads are full-size originals (about 600 KB each on
+      // average, up to 1.5 MB). The storage service can serve a resized WebP
+      // copy, so ask for one no wider than the element needs. The resizer is a
+      // metered feature of the storage plan; the owner approved its use on
+      // 25 November 2026. resize=contain matters: without it the service keeps
+      // the original height and crops the sides. Anything that is not one of
+      // our own storage objects, and any vector or animation, is left alone.
+      var RENDER_WIDTHS = [480, 800, 1280, 1920];
+      function resizedCmsImage(url, el) {
+        var marker = '/storage/v1/object/public/';
+        var at = url.indexOf(marker);
+        if (url.indexOf(__SB_URL) !== 0 || at < 0 || /\.(svg|gif)(\?|$)/i.test(url)) return url;
+        var need = Math.ceil(((el && el.clientWidth) || 800) * Math.min(window.devicePixelRatio || 1, 2));
+        var width = RENDER_WIDTHS[RENDER_WIDTHS.length - 1];
+        for (var i = 0; i < RENDER_WIDTHS.length; i++) {
+          if (RENDER_WIDTHS[i] >= need) { width = RENDER_WIDTHS[i]; break; }
+        }
+        return url.slice(0, at) + '/storage/v1/render/image/public/' + url.slice(at + marker.length).split('?')[0] +
+          '?width=' + width + '&quality=75&resize=contain';
+      }
+      // The search page hydrates its own result cards; it uses the same rule.
+      window.__piResizedCmsImage = resizedCmsImage;
+
       function applySlots() {
         // Fully reviewed static image surfaces need no browser-only replacement fetch.
         if (!document.querySelector('[data-pi-edit="image"][data-pi-entity-slug][data-pi-field-path]:not([data-pi-no-hydrate])')) return;
@@ -634,14 +657,35 @@ const __IMAGE_QUARANTINE = [{"key":"venue/doot-doot-doot","fieldPath":"heroImage
             if (el.hasAttribute('data-pi-no-hydrate')) return;
             if (el.hasAttribute('data-pi-requires-image-metadata') &&
                 !(slot.alt_text && slot.alt_text.trim() && slot.credit && slot.credit.trim())) return;
+            var original = slot.public_url;
+            var sized = resizedCmsImage(original, el);
             if (el instanceof HTMLImageElement) {
-              el.src = slot.public_url;
+              // The page may already carry this original as its src (written
+              // at build time). It is downloading or done, so swapping to the
+              // resized copy would fetch the picture twice. Leave it.
+              if (el.getAttribute('src') === original) return;
+              // If the resizer refuses (switched off, over quota, odd file),
+              // fall back to the original once.
+              if (sized !== original) el.onerror = function () { el.onerror = null; el.src = original; };
+              el.src = sized;
             } else {
               // Background-image element (div, a, figure, etc.)
-              el.style.backgroundImage = 'url("' + slot.public_url.replace(/"/g, '\\"') + '")';
-              // A card that was a placeholder at build time now shows a real
-              // image, so its placeholder plate must not paint over it.
-              el.className = el.className.split(/\s+/).filter(function (c) { return !/__hero--placeholder$/.test(c); }).join(' ');
+              var paint = function (src) {
+                el.style.backgroundImage = 'url("' + src.replace(/"/g, '\\"') + '")';
+                // A card that was a placeholder at build time now shows a real
+                // image, so its placeholder plate must not paint over it.
+                el.className = el.className.split(/\s+/).filter(function (c) { return !/__hero--placeholder$/.test(c); }).join(' ');
+              };
+              if (sized === original) {
+                paint(original);
+              } else {
+                // A CSS background cannot fall back by itself, so load the
+                // resized copy first and use the original if that fails.
+                var probe = new Image();
+                probe.onload = function () { paint(sized); };
+                probe.onerror = function () { paint(original); };
+                probe.src = sized;
+              }
             }
           });
         }).catch(function () { /* non-fatal */ });

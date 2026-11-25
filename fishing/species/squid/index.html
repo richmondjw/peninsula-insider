@@ -98,7 +98,7 @@
         if (s && s.analytics) loadGtag();
       });
     })();
-  </script><script type="module" src="/_astro/BaseLayout.astro_astro_type_script_index_0_lang.DiGapP4d.js"></script><link rel="stylesheet" href="/_astro/global.CFHxyg29.css">
+  </script><script type="module" src="/_astro/BaseLayout.astro_astro_type_script_index_0_lang.DHqY4quJ.js"></script><link rel="stylesheet" href="/_astro/global.CFHxyg29.css">
 <link rel="stylesheet" href="/_astro/BaseLayout.CGK8nIS9.css">
 <style>.subpage-hero__stage[data-astro-cid-hwizvnsu]{min-width:0;align-self:center}.subpage-hero__stage[data-astro-cid-hwizvnsu] .pstage{margin-block-end:0}.subpage-hero__credit[data-astro-cid-hwizvnsu]{grid-column:-2 / -1;margin:.5rem 0 0;font-family:var(--font-ui);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--soft);text-align:right}.subpage-hero__photos[data-astro-cid-hwizvnsu]{padding-block-start:clamp(1.25rem,2.5vw,2rem)}.subpage-hero__photos[data-astro-cid-hwizvnsu] .pstage{margin-block-end:0}.subpage-hero__stage[data-astro-cid-hwizvnsu] .pstage{--pstage-h: .75}
 </style>
@@ -648,6 +648,29 @@ const __IMAGE_QUARANTINE = [{"key":"venue/doot-doot-doot","fieldPath":"heroImage
 
     (function () {
       if (!__SB_URL || !__SB_ANON) return;
+      // Published CMS uploads are full-size originals (about 600 KB each on
+      // average, up to 1.5 MB). The storage service can serve a resized WebP
+      // copy, so ask for one no wider than the element needs. The resizer is a
+      // metered feature of the storage plan; the owner approved its use on
+      // 25 November 2026. resize=contain matters: without it the service keeps
+      // the original height and crops the sides. Anything that is not one of
+      // our own storage objects, and any vector or animation, is left alone.
+      var RENDER_WIDTHS = [480, 800, 1280, 1920];
+      function resizedCmsImage(url, el) {
+        var marker = '/storage/v1/object/public/';
+        var at = url.indexOf(marker);
+        if (url.indexOf(__SB_URL) !== 0 || at < 0 || /\.(svg|gif)(\?|$)/i.test(url)) return url;
+        var need = Math.ceil(((el && el.clientWidth) || 800) * Math.min(window.devicePixelRatio || 1, 2));
+        var width = RENDER_WIDTHS[RENDER_WIDTHS.length - 1];
+        for (var i = 0; i < RENDER_WIDTHS.length; i++) {
+          if (RENDER_WIDTHS[i] >= need) { width = RENDER_WIDTHS[i]; break; }
+        }
+        return url.slice(0, at) + '/storage/v1/render/image/public/' + url.slice(at + marker.length).split('?')[0] +
+          '?width=' + width + '&quality=75&resize=contain';
+      }
+      // The search page hydrates its own result cards; it uses the same rule.
+      window.__piResizedCmsImage = resizedCmsImage;
+
       function applySlots() {
         // Fully reviewed static image surfaces need no browser-only replacement fetch.
         if (!document.querySelector('[data-pi-edit="image"][data-pi-entity-slug][data-pi-field-path]:not([data-pi-no-hydrate])')) return;
@@ -689,14 +712,35 @@ const __IMAGE_QUARANTINE = [{"key":"venue/doot-doot-doot","fieldPath":"heroImage
             if (el.hasAttribute('data-pi-no-hydrate')) return;
             if (el.hasAttribute('data-pi-requires-image-metadata') &&
                 !(slot.alt_text && slot.alt_text.trim() && slot.credit && slot.credit.trim())) return;
+            var original = slot.public_url;
+            var sized = resizedCmsImage(original, el);
             if (el instanceof HTMLImageElement) {
-              el.src = slot.public_url;
+              // The page may already carry this original as its src (written
+              // at build time). It is downloading or done, so swapping to the
+              // resized copy would fetch the picture twice. Leave it.
+              if (el.getAttribute('src') === original) return;
+              // If the resizer refuses (switched off, over quota, odd file),
+              // fall back to the original once.
+              if (sized !== original) el.onerror = function () { el.onerror = null; el.src = original; };
+              el.src = sized;
             } else {
               // Background-image element (div, a, figure, etc.)
-              el.style.backgroundImage = 'url("' + slot.public_url.replace(/"/g, '\\"') + '")';
-              // A card that was a placeholder at build time now shows a real
-              // image, so its placeholder plate must not paint over it.
-              el.className = el.className.split(/\s+/).filter(function (c) { return !/__hero--placeholder$/.test(c); }).join(' ');
+              var paint = function (src) {
+                el.style.backgroundImage = 'url("' + src.replace(/"/g, '\\"') + '")';
+                // A card that was a placeholder at build time now shows a real
+                // image, so its placeholder plate must not paint over it.
+                el.className = el.className.split(/\s+/).filter(function (c) { return !/__hero--placeholder$/.test(c); }).join(' ');
+              };
+              if (sized === original) {
+                paint(original);
+              } else {
+                // A CSS background cannot fall back by itself, so load the
+                // resized copy first and use the original if that fails.
+                var probe = new Image();
+                probe.onload = function () { paint(sized); };
+                probe.onerror = function () { paint(original); };
+                probe.src = sized;
+              }
             }
           });
         }).catch(function () { /* non-fatal */ });
