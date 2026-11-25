@@ -1180,39 +1180,32 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   object-fit: cover;
 }
 
-/* Placeholder state - venue has no dedicated photo yet.
-   editableImage attrs are already on this element so right-click
-   opens the CMS image-replace panel directly. */
+/* A card with no accepted photograph is an editorial plate on every page,
+   never a public CMS prompt. The request for a photograph is editor chrome:
+   it lives in inline-edit.css and paints only in edit mode, and
+   assert-reader-boundary.mjs fails the build if it reaches a reader sheet. */
 .venue-card__hero--placeholder {
-  background-color: var(--bg-alt);
-  background-image: none;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
   gap: 0.6rem;
+  background: linear-gradient(145deg, #edf3f0, #dceae5);
 }
 .venue-card__hero--placeholder::before {
-  content: '';
-  display: block;
-  width: 36px;
-  height: 36px;
-  opacity: 0.28;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230A7B80' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z'/%3E%3Ccircle cx='12' cy='13' r='4'/%3E%3C/svg%3E") center/contain no-repeat;
+  content: 'PI';
+  color: #0b2e4a;
+  font: 600 2.5rem/1 var(--font-display);
 }
 .venue-card__hero--placeholder::after {
-  content: 'Add photo';
+  content: 'Peninsula Insider';
+  color: #315c60;
   font-family: var(--font-ui);
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--soft);
 }
-/* A missing Stay photograph is an editorial plate, never a public CMS prompt. */
-body[data-page="stay"] .venue-card__hero--placeholder { background: linear-gradient(145deg, #edf3f0, #dceae5); }
-body[data-page="stay"] .venue-card__hero--placeholder::before { content: 'PI'; width: auto; height: auto; background: none; opacity: 1; color: #0b2e4a; font: 600 2.5rem/1 var(--font-display); }
-body[data-page="stay"] .venue-card__hero--placeholder::after { content: 'Peninsula Insider'; color: #315c60; font-size: .75rem; letter-spacing: .08em; }
 
 .venue-card > .venue-card__top,
 .venue-card > .venue-card__name,
@@ -5017,6 +5010,8 @@ p.has-drop-cap::first-letter {
 .event-card {
   gap: 0.85rem;
 }
+/* No placeholder state: an event without an accepted image renders no hero
+   at all (EventCard), so there is never an empty slot to prompt for. */
 .event-card__hero {
   display: block;
   position: relative;
@@ -5053,40 +5048,6 @@ p.has-drop-cap::first-letter {
   }
 }
 
-/* Placeholder state - event has no hero image yet. editableImage attrs
-   are already on this element so right-click opens the CMS image-replace
-   panel directly. Mirrors .venue-card__hero--placeholder for consistency. */
-.event-card__hero--placeholder {
-  background-color: var(--bg-alt);
-  background-image: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 0.6rem;
-}
-.event-card__hero--placeholder::before {
-  content: '';
-  display: block;
-  width: 36px;
-  height: 36px;
-  opacity: 0.28;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230A7B80' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z'/%3E%3Ccircle cx='12' cy='13' r='4'/%3E%3C/svg%3E") center/contain no-repeat;
-}
-.event-card__hero--placeholder::after {
-  content: 'Add photo';
-  font-family: var(--font-ui);
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--soft);
-}
-/* Disable the scale-on-hover transform for placeholder cards - the icon
-   is centred and would translate awkwardly. */
-.event-card:hover .event-card__hero--placeholder {
-  transform: none;
-}
 .event-card__top,
 .event-card__name,
 .event-card__place,

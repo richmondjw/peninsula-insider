@@ -219,6 +219,16 @@ body[data-pi-edit-mode="on"] [data-pi-edit][data-pi-editing="1"] {
 
 body[data-pi-edit-mode="on"] [data-pi-edit][data-pi-editing="1"]::before { opacity: 1; }
 
+/* Empty photo slot. Readers see the editorial plate from global.css; only an
+   editor in edit mode is asked for a photograph. Stay pages keep the plate in
+   edit mode too, as before: their cards do not take CMS uploads. Edit mode
+   puts its hover label on ::before, so the camera icon rides on ::after. */
+body[data-pi-edit-mode="on"]:not([data-page="stay"]) .venue-card__hero--placeholder::after {
+  content: 'Add photo';
+  padding-top: 2.75rem;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230A7B80' stroke-opacity='.45' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z'/%3E%3Ccircle cx='12' cy='13' r='4'/%3E%3C/svg%3E") center top / 36px no-repeat;
+}
+
 /* Image upload overlay */
 body[data-pi-edit-mode="on"] [data-pi-edit="image"][data-pi-uploading="1"] {
   opacity: 0.55;

@@ -1427,7 +1427,13 @@ async function replaceImage(el: HTMLElement, desc: ImageDescriptor, file: File) 
  * runs for authenticated admins so editors see their replacements without
  * waiting for a rebuild.
  *
- * Anon visitors never call this - they see SSR-rendered output verbatim.
+ * Anon visitors never call this. Their counterpart is the "Image slot
+ * hydration" script in layouts/BaseLayout.astro, which covers Pass 1 only.
+ * Keep the two in step: both honour `data-pi-no-hydrate` and
+ * `data-pi-requires-image-metadata`, and both clear a `--placeholder` plate
+ * when they paint a photo. When only this pass cleared it, readers saw the
+ * placeholder's wording on top of the photo (tests/journeys/
+ * photo-prompt.test.mjs holds both passes to it).
  * Components that own editable images are responsible for resolving
  * overrides server-side via `loadOverrides()` and baking the published
  * `public_url` into the markup at render time. That guarantees the first
