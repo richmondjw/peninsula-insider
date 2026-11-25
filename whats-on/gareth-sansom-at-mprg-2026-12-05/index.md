@@ -9,7 +9,7 @@ Event     Exhibitions     5 December – 21 February 2027     One-off date
 
 # Gareth Sansom at MPRG
 
-Gareth Sansom is a pioneering and highly influential figure in Australian contemporary art, a restless innovator whose career spans more than six decades since his first exhibition at 19 years old in 1959. Renowned for his audacious fusion of abstraction and figuration, Sansom has continually defied categorisation, ...
+An exhibition of work by Gareth Sansom at the Mornington Peninsula Regional Gallery. Sansom first exhibited in 1959 and is known for mixing abstraction and figuration.
 
 [Book or check details](<https://mprg.mornpen.vic.gov.au/Home>)
 
@@ -39,7 +39,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://mprg.mornpen.vic.gov.au/Home>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Gareth+Sansom+at+MPRG&dates=20261205%2F20270222&details=Gareth+Sansom+is+a+pioneering+and+highly+influential+figure+in+Australian+contemporary+art%2C+a+restless+innovator+whose+career+spans+more+than+six+decades+since+his+first+exhibition+at+19+years+old+in+1959.+Renowned+for+his+audacious+fusion+of+abstraction+and+figuration%2C+Sansom+has+continually+defied+categorisation%2C+...%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fgareth-sansom-at-mprg-2026-12-05%2F&location=MPRG%2C+Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://mprg.mornpen.vic.gov.au/Home>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Gareth+Sansom+at+MPRG&dates=20261205%2F20270222&details=An+exhibition+of+work+by+Gareth+Sansom+at+the+Mornington+Peninsula+Regional+Gallery.+Sansom+first+exhibited+in+1959+and+is+known+for+mixing+abstraction+and+figuration.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fgareth-sansom-at-mprg-2026-12-05%2F&location=MPRG%2C+Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 
@@ -59,7 +59,7 @@ Exhibitions  10 Dec
 
 ### [The Creators Network: End of Year Catch-up for Creatives](<https://peninsulainsider.com.au/whats-on/the-creators-network-end-of-year-catch-up-for-creatives/>)
 
-Come along to meet other MP creatives, join a curator tour of the new Gareth Samson exhibition and hear from a talented…
+An end-of-year gathering for Mornington Peninsula creatives at the regional gallery, with a curator's tour of the Gareth Sansom exhibition and a…
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/the-creators-network-end-of-year-catch-up-for-creatives/>)
 

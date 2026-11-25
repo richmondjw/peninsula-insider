@@ -9,7 +9,7 @@ Event     Festivals     1 January 2027     One-off date
 
 # New Year's Day at Mornington Racecourse
 
-Mornington New Year's Day Ring in the New Year in style with us, trackside at Mornington Racecourse. Set up your lawn chairs on the rolling green hills with family or friends and bring the kids along for the first Clip Clop Club race day of the year.
+New Year's Day racing at Mornington Racecourse, with lawn space for picnic chairs and the first Clip Clop Club race day of the year for children.
 
 [Book or check details](<https://mrc.racing.com/calendar>)
 
@@ -43,7 +43,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://mrc.racing.com/calendar>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=New+Year%27s+Day+at+Mornington+Racecourse&dates=20270101T010000Z%2F20270101T060000Z&details=Mornington+New+Year%27s+Day+Ring+in+the+New+Year+in+style+with+us%2C+trackside+at+Mornington+Racecourse.+Set+up+your+lawn+chairs+on+the+rolling+green+hills+with+family+or+friends+and+bring+the+kids+along+for+the+first+Clip+Clop+Club+race+day+of+the+year.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fnew-year-s-day-at-mornington-racecourse-2027-01-01%2F&location=Mornington+Racecourse%2C+Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://mrc.racing.com/calendar>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=New+Year%27s+Day+at+Mornington+Racecourse&dates=20270101T010000Z%2F20270101T060000Z&details=New+Year%27s+Day+racing+at+Mornington+Racecourse%2C+with+lawn+space+for+picnic+chairs+and+the+first+Clip+Clop+Club+race+day+of+the+year+for+children.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fnew-year-s-day-at-mornington-racecourse-2027-01-01%2F&location=Mornington+Racecourse%2C+Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 
@@ -63,7 +63,7 @@ Festivals  8 Jan
 
 ### [Peninsula Film Festival at Rosebud Cinema](<https://peninsulainsider.com.au/whats-on/peninsula-film-festival-at-rosebud-cinema-2027-01-08/>)
 
-The Peninsula Film Festival is Mornington Peninsula's iconic film festival running across three days in January.
+Opening night of the Peninsula Film Festival at Rosebud Cinema: an Australian independent feature, The Birthday Trip, followed by a Q&A.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-film-festival-at-rosebud-cinema-2027-01-08/>)
 
@@ -71,7 +71,7 @@ Festivals  9 Jan
 
 ### [Peninsula Film Festival under the Big Top](<https://peninsulainsider.com.au/whats-on/peninsula-film-festival-under-the-big-top-2027-01-09/>)
 
-The Peninsula Film Festival is Mornington Peninsula's iconic film festival running across three days in January.
+The short film night of the Peninsula Film Festival, screened inside a circus big top on the Village Green in Rosebud.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-film-festival-under-the-big-top-2027-01-09/>)
 

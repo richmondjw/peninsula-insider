@@ -15,7 +15,7 @@ Writers & Ideas  26 Nov
 
 ### [Author Talk: Jane Gilmore - Mornington Library](<https://peninsulainsider.com.au/whats-on/author-talk-jane-gilmore-mornington-library/>)
 
-Hear journalist and author Jane Gilmore discuss her new book, helping adults talk to kids about consent, relationships and online life.
+Journalist and author Jane Gilmore talks about her new book on helping adults talk to children about consent, relationships and online life,…
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/author-talk-jane-gilmore-mornington-library/>)
 
@@ -23,7 +23,7 @@ Live Music  27 Nov
 
 ### [Ben Smith Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
 
-Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes.
+Ben Smith plays Jetty Road Brewery in Dromana from 6pm, part of the brewery's weekend live music.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
 
@@ -57,7 +57,7 @@ Live Music  5 Dec
 
 ### [Countdown Classics 70's & 80's Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/countdown-classics-70-s-and-80-s-live-at-peninsula-beer-garden-2026-12-05/>)
 
-Countdown Classics, The Ultimate 70’s and 80’s Live Music Experience Get ready for an unforgettable night where you travel back to the…
+Countdown Classics play 1970s and 1980s hits at Peninsula Beer Garden in Boneo, from disco and funk to rock anthems.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/countdown-classics-70-s-and-80-s-live-at-peninsula-beer-garden-2026-12-05/>)
 
@@ -65,7 +65,7 @@ Exhibitions  10 Dec
 
 ### [The Creators Network: End of Year Catch-up for Creatives](<https://peninsulainsider.com.au/whats-on/the-creators-network-end-of-year-catch-up-for-creatives/>)
 
-Come along to meet other MP creatives, join a curator tour of the new Gareth Samson exhibition and hear from a talented…
+An end-of-year gathering for Mornington Peninsula creatives at the regional gallery, with a curator's tour of the Gareth Sansom exhibition and a…
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/the-creators-network-end-of-year-catch-up-for-creatives/>)
 
@@ -97,7 +97,7 @@ Festivals  8 Jan
 
 ### [Peninsula Film Festival at Rosebud Cinema](<https://peninsulainsider.com.au/whats-on/peninsula-film-festival-at-rosebud-cinema-2027-01-08/>)
 
-The Peninsula Film Festival is Mornington Peninsula's iconic film festival running across three days in January.
+Opening night of the Peninsula Film Festival at Rosebud Cinema: an Australian independent feature, The Birthday Trip, followed by a Q&A.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-film-festival-at-rosebud-cinema-2027-01-08/>)
 
@@ -105,7 +105,7 @@ Festivals  9 Jan
 
 ### [Peninsula Film Festival under the Big Top](<https://peninsulainsider.com.au/whats-on/peninsula-film-festival-under-the-big-top-2027-01-09/>)
 
-The Peninsula Film Festival is Mornington Peninsula's iconic film festival running across three days in January.
+The short film night of the Peninsula Film Festival, screened inside a circus big top on the Village Green in Rosebud.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-film-festival-under-the-big-top-2027-01-09/>)
 

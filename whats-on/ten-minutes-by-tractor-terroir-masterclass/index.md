@@ -103,7 +103,7 @@ Food & Wine  25 Dec
 
 ### [Celebrate Christmas Day at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/celebrate-christmas-day-at-peppers-moonah-links-resort-2026-12-25/>)
 
-Join us for a relaxed and memorable Christmas Day lunch at Peppers Moonah Links Resort, with our festive buffet feast returning for…
+Christmas Day lunch at Peppers Moonah Links Resort in Fingal, served as a festive buffet.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/celebrate-christmas-day-at-peppers-moonah-links-resort-2026-12-25/>)
 

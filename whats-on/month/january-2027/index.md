@@ -17,7 +17,7 @@ Events across the Mornington Peninsula in January, day by day, from Fri 1 – We
 
 [New Year's Day at Mornington Racecourse](<https://peninsulainsider.com.au/whats-on/new-year-s-day-at-mornington-racecourse-2027-01-01/>)
 
-Mornington New Year's Day Ring in the New Year in style with us, trackside at Mornington Racecourse.
+New Year's Day racing at Mornington Racecourse, with lawn space for picnic chairs and the first Clip Clop Club race day of the year for children.
 
 Mornington · Festivals · Checked 9 Nov 2026
 
@@ -39,19 +39,19 @@ Sorrento · Food & Wine · On during your dates · runs to Fri, 1 Jan · Checked
 
 - [Gareth Sansom at MPRG](<https://peninsulainsider.com.au/whats-on/gareth-sansom-at-mprg-2026-12-05/>)
 
-Gareth Sansom is a pioneering and highly influential figure in Australian contemporary art, a restless innovator whose career spans more than six decades since his first exhibition at 19 years old in 1959.
+An exhibition of work by Gareth Sansom at the Mornington Peninsula Regional Gallery. Sansom first exhibited in 1959 and is known for mixing abstraction and figuration.
 
 Mornington · Exhibitions · On during your dates · runs to Sun, 21 Feb · Checked 9 Nov 2026
 
 - [NYE at Barlow](<https://peninsulainsider.com.au/whats-on/nye-at-barlow-2026-12-31/>)
 
-MEET US ON THE DANCE FLOOR THIS NEW YEAR’S EVE Gather your crew for great drinks, dancing and celebrations from 9pm until late.
+New Year's Eve at Barlow in Sorrento: drinks and dancing from 9pm until late, through the midnight countdown.
 
 Sorrento · Live Music · On during your dates · runs to Fri, 1 Jan · Checked 9 Nov 2026
 
 - [NYE Casa Conti](<https://peninsulainsider.com.au/whats-on/nye-casa-conti-2026-12-31/>)
 
-Casa Conti: Midnight in Ibiza This New Year’s Eve, we’re bringing the magic of Ibiza to Sorrento. Step into Casa Conti: Midnight in Ibiza, where Mediterranean glamour meets the energy of Europe’s most iconic party destination. Starts 8pm.
+Casa Conti: Midnight in Ibiza is an Ibiza-themed New Year's Eve party on Ocean Beach Road in Sorrento, from 8pm.
 
 Sorrento · Food & Wine · On during your dates · runs to Fri, 1 Jan · Checked 9 Nov 2026
 
@@ -81,9 +81,9 @@ Red Hill · Festivals · Checked 9 Nov 2026
 
 [Peninsula Film Festival at Rosebud Cinema](<https://peninsulainsider.com.au/whats-on/peninsula-film-festival-at-rosebud-cinema-2027-01-08/>)
 
-The Peninsula Film Festival is Mornington Peninsula's iconic film festival running across three days in January.
+Opening night of the Peninsula Film Festival at Rosebud Cinema: an Australian independent feature, The Birthday Trip, followed by a Q&A. The festival runs across three days in Rosebud.
 
-Rosebud · Festivals · Checked 9 Nov 2026
+Rosebud · Festivals · Checked 25 Nov 2026
 
 ## Saturday 9 January
 
@@ -95,23 +95,23 @@ Indoor and outdoor community market at Crib Point Community House on the second 
 
 Crib Point · Markets · Recurring monthly · Checked 3 Oct 2026
 
-- 7pm
+- 6pm
 
 [Peninsula Film Festival under the Big Top](<https://peninsulainsider.com.au/whats-on/peninsula-film-festival-under-the-big-top-2027-01-09/>)
 
-The Peninsula Film Festival is Mornington Peninsula's iconic film festival running across three days in January.
+The short film night of the Peninsula Film Festival, screened inside a circus big top on the Village Green in Rosebud. Seating is provided and unallocated, so groups should arrive together.
 
-Rosebud · Festivals · Checked 9 Nov 2026
+Rosebud · Festivals · Checked 25 Nov 2026
 
 ## Sunday 10 January
 
-- 1pm
+- 1.30pm
 
 [Peninsula Film Festival: Talks & Workshop at Rosebud Cinema](<https://peninsulainsider.com.au/whats-on/peninsula-film-festival-talks-and-workshop-at-rosebud-cinema-2027-01-10/>)
 
-The Peninsula Film Festival is Mornington Peninsula's iconic film festival running across three days in January.
+The closing afternoon of the Peninsula Film Festival at Rosebud Cinema: industry speakers on how they work, with time to meet other filmmakers afterwards.
 
-Rosebud · Festivals · Checked 9 Nov 2026
+Rosebud · Festivals · Checked 25 Nov 2026
 
 ## Wednesday 13 January
 

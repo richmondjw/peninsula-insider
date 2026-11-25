@@ -9,7 +9,7 @@ Event     Live Music     31 December – 1 January 2027     One-off date
 
 # NYE at Barlow
 
-MEET US ON THE DANCE FLOOR THIS NEW YEAR’S EVE Gather your crew for great drinks, dancing and celebrations from 9pm until late. Whether you’re heading in after dinner or making Barlow your destination for the night, join us for the countdown and keep the celebrations going into 2027. Starts 9pm.
+New Year's Eve at Barlow in Sorrento: drinks and dancing from 9pm until late, through the midnight countdown.
 
 [Book or check details](<https://events.humanitix.com/new-years-eve-at-barlow>)
 
@@ -39,7 +39,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://events.humanitix.com/new-years-eve-at-barlow>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=NYE+at+Barlow&dates=20261231%2F20270102&details=MEET+US+ON+THE+DANCE+FLOOR+THIS+NEW+YEAR%E2%80%99S+EVE+Gather+your+crew+for+great+drinks%2C+dancing+and+celebrations+from+9pm+until+late.+Whether+you%E2%80%99re+heading+in+after+dinner+or+making+Barlow+your+destination+for+the+night%2C+join+us+for+the+countdown+and+keep+the+celebrations+going+into+2027.+Starts+9pm.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fnye-at-barlow-2026-12-31%2F&location=Barlow%2C+Sorrento%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://events.humanitix.com/new-years-eve-at-barlow>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=NYE+at+Barlow&dates=20261231%2F20270102&details=New+Year%27s+Eve+at+Barlow+in+Sorrento%3A+drinks+and+dancing+from+9pm+until+late%2C+through+the+midnight+countdown.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fnye-at-barlow-2026-12-31%2F&location=Barlow%2C+Sorrento%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 
@@ -61,7 +61,7 @@ Live Music  27 Nov
 
 ### [Ben Smith Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
 
-Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes.
+Ben Smith plays Jetty Road Brewery in Dromana from 6pm, part of the brewery's weekend live music.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
 
@@ -69,7 +69,7 @@ Live Music  28 Nov
 
 ### [Brad Kennedy Live at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/brad-kennedy-live-at-peppers-moonah-links-resort-2026-11-28/>)
 
-Ease into the weekend with live music in the Spike Bar at Moonah Links.
+Brad Kennedy plays the Spike Bar at Peppers Moonah Links Resort in Fingal, from 5pm to 8pm.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/brad-kennedy-live-at-peppers-moonah-links-resort-2026-11-28/>)
 

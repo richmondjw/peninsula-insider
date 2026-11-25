@@ -661,7 +661,7 @@ Month
 
 Mornington
 
-Hear journalist and author Jane Gilmore discuss her new book, helping adults talk to kids about consent, relationships and online life.
+Journalist and author Jane Gilmore talks about her new book on helping adults talk to children about consent, relationships and online life, at Mornington Library.
 
  Event · Writers & Ideas](<https://peninsulainsider.com.au/whats-on/author-talk-jane-gilmore-mornington-library/>)
 
@@ -671,7 +671,7 @@ Hear journalist and author Jane Gilmore discuss her new book, helping adults tal
 
 Dromana
 
-Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes. Full menu available from 12pm, Ben Smith will be live from 6pm.
+Ben Smith plays Jetty Road Brewery in Dromana from 6pm, part of the brewery's weekend live music. The full menu runs from midday.
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
 

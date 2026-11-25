@@ -9,9 +9,9 @@ Event     Markets     19 December 2026     One-off date
 
 # Twilight Mornington Racecourse Market
 
-The market serves as a regular meeting place for both locals and visitors, showcasing the best that the Mornington Peninsula has to offer. This makers market features handmade, home-made, home-grown, or Australian-designed items.
+The December twilight edition of the Mornington Racecourse makers market, run by Craft Markets Australia. Stalls sell handmade, home-grown and Australian-designed goods.
 
-[Book or check details](<https://www.visitmorningtonpeninsula.org/Whats-On/view/18260/twilight-mornington-racecourse-market>)
+[Book or check details](<https://www.craftmarkets.com.au/calendar>)
 
 Hosted at
 
@@ -43,7 +43,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.visitmorningtonpeninsula.org/Whats-On/view/18260/twilight-mornington-racecourse-market>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Twilight+Mornington+Racecourse+Market&dates=20261219T040000Z%2F20261219T090000Z&details=The+market+serves+as+a+regular+meeting+place+for+both+locals+and+visitors%2C+showcasing+the+best+that+the+Mornington+Peninsula+has+to+offer.+This+makers+market+features+handmade%2C+home-made%2C+home-grown%2C+or+Australian-designed+items.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Ftwilight-mornington-racecourse-market-2026-12-19%2F&location=320+Racecourse+Road%2C+Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://www.craftmarkets.com.au/calendar>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Twilight+Mornington+Racecourse+Market&dates=20261219T040000Z%2F20261219T090000Z&details=The+December+twilight+edition+of+the+Mornington+Racecourse+makers+market%2C+run+by+Craft+Markets+Australia.+Stalls+sell+handmade%2C+home-grown+and+Australian-designed+goods.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Ftwilight-mornington-racecourse-market-2026-12-19%2F&location=320+Racecourse+Road%2C+Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 

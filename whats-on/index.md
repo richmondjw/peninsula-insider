@@ -17,7 +17,7 @@ Find the date, place and reason to go, then check with the organiser before you 
 
 ### [Brad Kennedy Live at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/brad-kennedy-live-at-peppers-moonah-links-resort-2026-11-28/>)
 
-Ease into the weekend with live music in the Spike Bar at Moonah Links.
+Brad Kennedy plays the Spike Bar at Peppers Moonah Links Resort in Fingal, from 5pm to 8pm.
 
 Live Music   Checked 9 Nov 2026
 
@@ -25,7 +25,7 @@ Live Music   Checked 9 Nov 2026
 
 ### [Meet The Makers at Hawkes Farm](<https://peninsulainsider.com.au/whats-on/meet-the-makers-at-hawkes-farm-2026-11-28/>)
 
-On the last Saturday of each month from September to April, Hawkes Farm comes alive with its Meet the Makers Market, bringing together a curated collection of talented local artisans, makers and small-batch producers.
+Hawkes Farm in Boneo holds its Meet the Makers market on the last Saturday of each month from September to April, with local artisans, makers and small-batch producers.
 
 Markets   Checked 9 Nov 2026
 
@@ -53,7 +53,7 @@ Boneo · Live Music · Checked 9 Nov 2026
 
 [Ben Smith Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
 
-Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes. Full menu available from 12pm, Ben Smith will be live from 6pm.
+Ben Smith plays Jetty Road Brewery in Dromana from 6pm, part of the brewery's weekend live music. The full menu runs from midday.
 
 Dromana · Live Music · Checked 9 Nov 2026
 

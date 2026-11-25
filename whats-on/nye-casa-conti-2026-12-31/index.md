@@ -9,7 +9,7 @@ Event     Food & Wine     31 December – 1 January 2027     One-off date
 
 # NYE Casa Conti
 
-Casa Conti: Midnight in Ibiza This New Year’s Eve, we’re bringing the magic of Ibiza to Sorrento. Step into Casa Conti: Midnight in Ibiza, where Mediterranean glamour meets the energy of Europe’s most iconic party destination. Starts 8pm.
+Casa Conti: Midnight in Ibiza is an Ibiza-themed New Year's Eve party on Ocean Beach Road in Sorrento, from 8pm.
 
 [Book or check details](<https://events.humanitix.com/new-years-eve-at-the-conti>)
 
@@ -39,7 +39,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://events.humanitix.com/new-years-eve-at-the-conti>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=NYE+Casa+Conti&dates=20261231%2F20270102&details=Casa+Conti%3A+Midnight+in+Ibiza+This+New+Year%E2%80%99s+Eve%2C+we%E2%80%99re+bringing+the+magic+of+Ibiza+to+Sorrento.+Step+into+Casa+Conti%3A+Midnight+in+Ibiza%2C+where+Mediterranean+glamour+meets+the+energy+of+Europe%E2%80%99s+most+iconic+party+destination.+Starts+8pm.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fnye-casa-conti-2026-12-31%2F&location=1-21+Ocean+Beach+Road%2C+Sorrento%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://events.humanitix.com/new-years-eve-at-the-conti>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=NYE+Casa+Conti&dates=20261231%2F20270102&details=Casa+Conti%3A+Midnight+in+Ibiza+is+an+Ibiza-themed+New+Year%27s+Eve+party+on+Ocean+Beach+Road+in+Sorrento%2C+from+8pm.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fnye-casa-conti-2026-12-31%2F&location=1-21+Ocean+Beach+Road%2C+Sorrento%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 

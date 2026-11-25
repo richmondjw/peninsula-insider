@@ -93,7 +93,7 @@ Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
 
 Fingal
 
-Ease into the weekend with live music in the Spike Bar at Moonah Links. Enjoy a rotating line-up of talented local artists from 5pm to 8pm, creating the perfect atmosphere to relax with friends, family or colleagues.
+Brad Kennedy plays the Spike Bar at Peppers Moonah Links Resort in Fingal, from 5pm to 8pm.
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/brad-kennedy-live-at-peppers-moonah-links-resort-2026-11-28/>)
 
@@ -103,7 +103,7 @@ Ease into the weekend with live music in the Spike Bar at Moonah Links. Enjoy a 
 
 Fingal
 
-Join us for a relaxed and memorable Christmas Day lunch at Peppers Moonah Links Resort, with our festive buffet feast returning for another year.
+Christmas Day lunch at Peppers Moonah Links Resort in Fingal, served as a festive buffet.
 
  Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/celebrate-christmas-day-at-peppers-moonah-links-resort-2026-12-25/>)
 

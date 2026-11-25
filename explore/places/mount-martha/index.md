@@ -51,7 +51,7 @@ Coming up in Mount Martha, from our events listings.
 
 Mount Martha
 
-Situated at one of the Mornington Peninsula’s most beloved and iconic locations, the upcoming Briars Craft and Produce Market will no doubt be a lovely family day out.
+The Briars craft and produce market in Mount Martha, from 9am to 3pm.
 
  Event · Markets](<https://peninsulainsider.com.au/whats-on/the-mount-martha-briars-market-2026-12-05/>)
 

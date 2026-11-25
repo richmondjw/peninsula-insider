@@ -9,7 +9,7 @@ Event     Live Music     27 November 2026     One-off date
 
 # Ben Smith Live at Jetty Road Brewery
 
-Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes. Full menu available from 12pm, Ben Smith will be live from 6pm.
+Ben Smith plays Jetty Road Brewery in Dromana from 6pm, part of the brewery's weekend live music. The full menu runs from midday.
 
 [Book or check details](<https://www.jettyroad.com.au/dromana>)
 
@@ -43,7 +43,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.jettyroad.com.au/dromana>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Ben+Smith+Live+at+Jetty+Road+Brewery&dates=20261127T070000Z%2F20261127T100000Z&details=Each+weekend+at+Jetty+Road+Brewery+you+can+enjoy+brews+and+bites%2C+accompanied+by+local+artists+playing+cool+tunes.+Full+menu+available+from+12pm%2C+Ben+Smith+will+be+live+from+6pm.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fben-smith-live-at-jetty-road-brewery-2026-11-27%2F&location=Jetty+Road+Brewery%2C+Dromana%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://www.jettyroad.com.au/dromana>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Ben+Smith+Live+at+Jetty+Road+Brewery&dates=20261127T070000Z%2F20261127T100000Z&details=Ben+Smith+plays+Jetty+Road+Brewery+in+Dromana+from+6pm%2C+part+of+the+brewery%27s+weekend+live+music.+The+full+menu+runs+from+midday.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fben-smith-live-at-jetty-road-brewery-2026-11-27%2F&location=Jetty+Road+Brewery%2C+Dromana%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 
@@ -65,7 +65,7 @@ Live Music  28 Nov
 
 ### [Brad Kennedy Live at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/brad-kennedy-live-at-peppers-moonah-links-resort-2026-11-28/>)
 
-Ease into the weekend with live music in the Spike Bar at Moonah Links.
+Brad Kennedy plays the Spike Bar at Peppers Moonah Links Resort in Fingal, from 5pm to 8pm.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/brad-kennedy-live-at-peppers-moonah-links-resort-2026-11-28/>)
 

@@ -37,7 +37,7 @@ Main Ridge · Live Music · Recurring weekly · Checked 15 Oct 2026
 
 [Mornington Christmas Series at Mornington Racecourse](<https://peninsulainsider.com.au/whats-on/mornington-christmas-series-at-mornington-racecourse-2026-12-04/>)
 
-Mornington Christmas Series, presented by Barmah Park Vineyard This December, swap the office Christmas party for an afternoon at the races with the Mornington Christmas Series, presented by Barmah Park Vineyard.
+An afternoon race meeting at Mornington Racecourse in the Mornington Christmas Series, presented by Barmah Park Vineyard and pitched at work Christmas parties.
 
 Mornington · Food & Wine · Checked 9 Nov 2026
 
@@ -55,7 +55,7 @@ The Chocolateries Mornington Peninsula · Scheduled session · Checked 16 Nov 20
 
 [The Mount Martha Briars Market](<https://peninsulainsider.com.au/whats-on/the-mount-martha-briars-market-2026-12-05/>)
 
-Situated at one of the Mornington Peninsula’s most beloved and iconic locations, the upcoming Briars Craft and Produce Market will no doubt be a lovely family day out.
+The Briars craft and produce market in Mount Martha, from 9am to 3pm.
 
 Mount Martha · Markets · Checked 9 Nov 2026
 
@@ -63,7 +63,7 @@ Mount Martha · Markets · Checked 9 Nov 2026
 
 [Chris Gogerly Live at Fenian Wines](<https://peninsulainsider.com.au/whats-on/chris-gogerly-live-at-fenian-wines-2026-12-05/>)
 
-There will be live music by Chris Gogerly and yummy pizza by Forno Di Casa food truck. Enjoy a weekend for all the family, great wine and delicious food and live music all in the relaxed space of Fenian Wines.
+Chris Gogerly plays an afternoon set at Fenian Wines in Red Hill, with pizza from the Forno Di Casa food truck.
 
 Red Hill · Live Music · Checked 9 Nov 2026
 
@@ -103,13 +103,13 @@ Red Hill South · Food & Wine · Checked 9 Nov 2026
 
 [Countdown Classics 70's & 80's Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/countdown-classics-70-s-and-80-s-live-at-peninsula-beer-garden-2026-12-05/>)
 
-Countdown Classics, The Ultimate 70’s and 80’s Live Music Experience Get ready for an unforgettable night where you travel back to the 70’s and 80’s, a time that defined music, fashion, and fun.
+Countdown Classics play 1970s and 1980s hits at Peninsula Beer Garden in Boneo, from disco and funk to rock anthems. The show starts at 8pm.
 
 Boneo · Live Music · Checked 9 Nov 2026
 
 - [Gareth Sansom at MPRG](<https://peninsulainsider.com.au/whats-on/gareth-sansom-at-mprg-2026-12-05/>)
 
-Gareth Sansom is a pioneering and highly influential figure in Australian contemporary art, a restless innovator whose career spans more than six decades since his first exhibition at 19 years old in 1959.
+An exhibition of work by Gareth Sansom at the Mornington Peninsula Regional Gallery. Sansom first exhibited in 1959 and is known for mixing abstraction and figuration.
 
 Mornington · Exhibitions · On during your dates · runs to Sun, 21 Feb 2027 · Checked 9 Nov 2026
 
@@ -125,7 +125,7 @@ The Chocolateries Mornington Peninsula · Scheduled session · Checked 16 Nov 20
 
 - [Sunday Sessions: Pottery Workshops at Peachy Keen Ceramics](<https://peninsulainsider.com.au/whats-on/sunday-sessions-pottery-workshops-at-peachy-keen-ceramics-2026-12-06/>)
 
-New to clay or returning to it? You're in good hands. Starts 3pm.
+Sunday afternoon pottery workshops at Peachy Keen Ceramics in Mount Eliza, open to beginners and to people returning to clay. Sessions start at 3pm.
 
 Mount Eliza · Arts · Multi-day event · runs to Sun, 20 Dec · Checked 9 Nov 2026
 
@@ -153,7 +153,7 @@ Main Ridge · Live Music · Recurring weekly · Checked 15 Oct 2026
 
 [The Creators Network: End of Year Catch-up for Creatives](<https://peninsulainsider.com.au/whats-on/the-creators-network-end-of-year-catch-up-for-creatives/>)
 
-Come along to meet other MP creatives, join a curator tour of the new Gareth Samson exhibition and hear from a talented local artist.
+An end-of-year gathering for Mornington Peninsula creatives at the regional gallery, with a curator's tour of the Gareth Sansom exhibition and a talk by a local artist.
 
 Mornington · Exhibitions · Checked 9 Nov 2026
 
@@ -179,7 +179,7 @@ The Chocolateries Mornington Peninsula · Scheduled session · Checked 16 Nov 20
 
 [James Vincent Live at Fenian Wines](<https://peninsulainsider.com.au/whats-on/james-vincent-live-at-fenian-wines-2026-12-12/>)
 
-There will be live music by James Vincent and amazing catering by Three Little Chefs. Enjoy a weekend for all the family, great wine, delicious food and live music all in the relaxed space of Fenian Wines.
+James Vincent plays an afternoon set at Fenian Wines in Red Hill, with catering by Three Little Chefs.
 
 Red Hill · Live Music · Checked 9 Nov 2026
 
@@ -205,7 +205,7 @@ The Chocolateries Mornington Peninsula · Scheduled session · Checked 16 Nov 20
 
 [Legends Of Sunbury: Spectrum, Madder Lake & Phil Manning Live at The Pig & Whistle Tavern](<https://peninsulainsider.com.au/whats-on/legends-of-sunbury-spectrum-madder-lake-and-phil-manning-live-at-the-pig-and-whistle-taver-2026-12-1/>)
 
-Featuring the cream of Australian Artists Sunbury was touted as “The Rock Happening of its time”. SUNBURY POP FESTIVAL 72’ to 75’ was often regarded as a major milestone in Australian Music history.
+Spectrum, Madder Lake and Phil Manning share a bill at the Pig & Whistle Tavern in Main Ridge, under the banner of the Sunbury Pop Festival, which ran from 1972 to 1975.
 
 Main Ridge · Live Music · Checked 9 Nov 2026
 
@@ -259,7 +259,7 @@ The Chocolateries Mornington Peninsula · Scheduled session · Checked 16 Nov 20
 
 [Mornington Twilight Christmas Series at Mornington Racecourse](<https://peninsulainsider.com.au/whats-on/mornington-twilight-christmas-series-at-mornington-racecourse-2026-12-16/>)
 
-Mornington Twilight, presented by Barmah Park Make the most of a summer evening at Mornington Twilight, presented by Barmah Park Vineyard, on Wednesday 16 December.
+A twilight race meeting at Mornington Racecourse on Wednesday 16 December, presented by Barmah Park Vineyard.
 
 Mornington · Food & Wine · Checked 9 Nov 2026
 
@@ -295,7 +295,7 @@ The Chocolateries Mornington Peninsula · Scheduled session · Checked 16 Nov 20
 
 [Soul Night Market at Hastings Foreshore](<https://peninsulainsider.com.au/whats-on/soul-night-market-at-hastings-foreshore-2026-12-18/>)
 
-Soul Night Market lights up your Friday nights this summer with a warm, vibrant atmosphere.
+A Friday night market on the Hastings foreshore, with makers' stalls, food, a bar and live soul music, from 5pm to 9pm.
 
 Hastings · Markets · Checked 9 Nov 2026
 
@@ -321,7 +321,7 @@ The Chocolateries Mornington Peninsula · Scheduled session · Checked 16 Nov 20
 
 [Tony J King Live at Fenian Wines](<https://peninsulainsider.com.au/whats-on/tony-j-king-live-at-fenian-wines-2026-12-19/>)
 
-There will be live music by Tony J King Food and catering by Brothl Ramen. Enjoy a weekend for all the family, great wine, delicious food and live music all in the relaxed space of Fenian Wines.
+Tony J King plays an afternoon set at Fenian Wines in Red Hill, with food by Brothl Ramen.
 
 Red Hill · Live Music · Checked 9 Nov 2026
 
@@ -329,9 +329,9 @@ Red Hill · Live Music · Checked 9 Nov 2026
 
 [Twilight Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/twilight-mornington-racecourse-market-2026-12-19/>)
 
-The market serves as a regular meeting place for both locals and visitors, showcasing the best that the Mornington Peninsula has to offer. This makers market features handmade, home-made, home-grown, or Australian-designed items.
+The December twilight edition of the Mornington Racecourse makers market, run by Craft Markets Australia. Stalls sell handmade, home-grown and Australian-designed goods.
 
-Mornington · Markets · Checked 9 Nov 2026
+Mornington · Markets · Checked 25 Nov 2026
 
 - 5pm
 
@@ -419,7 +419,7 @@ The Chocolateries Mornington Peninsula · Scheduled session · Checked 16 Nov 20
 
 [Celebrate Christmas Day at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/celebrate-christmas-day-at-peppers-moonah-links-resort-2026-12-25/>)
 
-Join us for a relaxed and memorable Christmas Day lunch at Peppers Moonah Links Resort, with our festive buffet feast returning for another year.
+Christmas Day lunch at Peppers Moonah Links Resort in Fingal, served as a festive buffet.
 
 Fingal · Food & Wine · Checked 9 Nov 2026
 
@@ -435,7 +435,7 @@ Sorrento · Food & Wine · Checked 9 Nov 2026
 
 [Christmas Day at Ember](<https://peninsulainsider.com.au/whats-on/christmas-day-at-ember-2026-12-25/>)
 
-Gather the family and celebrate Christmas Day in Ember, with a 12pm sitting for a relaxed afternoon of festive dining.
+Christmas Day lunch at Ember in Sorrento, with a midday sitting.
 
 Sorrento · Food & Wine · Checked 9 Nov 2026
 
@@ -463,7 +463,7 @@ Red Hill · Live Music · Checked 9 Nov 2026
 
 [The Mount Martha Briars Twilight Market](<https://peninsulainsider.com.au/whats-on/the-mount-martha-briars-twilight-market-2026-12-27/>)
 
-Situated at one of the Mornington Peninsula’s most beloved and iconic locations, the upcoming Briars Craft and Produce Market will no doubt be a lovely family day out.
+The twilight edition of the Briars craft and produce market in Mount Martha, from 3pm to 8pm.
 
 Mount Martha · Markets · Checked 9 Nov 2026
 
@@ -483,7 +483,7 @@ Mornington · Markets · Recurring weekly · Checked 3 Oct 2026
 
 [New Year's Eve at Orson](<https://peninsulainsider.com.au/whats-on/new-year-s-eve-at-orson-2026-12-31/>)
 
-Join us for New Year’s Eve at Orson, with two special sittings celebrating the best of the season, each beginning with a glass of Sparkling on arrival.
+New Year's Eve dinner at Orson in Rosebud, in two sittings, each starting with a glass of sparkling. The early sitting runs from 5.30pm to 8pm with a five-course menu.
 
 Rosebud · Food & Wine · Checked 9 Nov 2026
 
@@ -511,13 +511,13 @@ Portsea · Live Music · Checked 9 Nov 2026
 
 - [NYE at Barlow](<https://peninsulainsider.com.au/whats-on/nye-at-barlow-2026-12-31/>)
 
-MEET US ON THE DANCE FLOOR THIS NEW YEAR’S EVE Gather your crew for great drinks, dancing and celebrations from 9pm until late.
+New Year's Eve at Barlow in Sorrento: drinks and dancing from 9pm until late, through the midnight countdown.
 
 Sorrento · Live Music · On during your dates · runs to Fri, 1 Jan 2027 · Checked 9 Nov 2026
 
 - [NYE Casa Conti](<https://peninsulainsider.com.au/whats-on/nye-casa-conti-2026-12-31/>)
 
-Casa Conti: Midnight in Ibiza This New Year’s Eve, we’re bringing the magic of Ibiza to Sorrento. Step into Casa Conti: Midnight in Ibiza, where Mediterranean glamour meets the energy of Europe’s most iconic party destination. Starts 8pm.
+Casa Conti: Midnight in Ibiza is an Ibiza-themed New Year's Eve party on Ocean Beach Road in Sorrento, from 8pm.
 
 Sorrento · Food & Wine · On during your dates · runs to Fri, 1 Jan 2027 · Checked 9 Nov 2026
 

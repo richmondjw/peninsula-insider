@@ -801,6 +801,14 @@ The gateway town - more accessible than the hinterland, still genuinely Peninsul
 
 - [What’s on this weekend](<https://peninsulainsider.com.au/whats-on/>)
 
+- [Summer](<https://peninsulainsider.com.au/explore/seasons/summer/>)
+
+- [Autumn](<https://peninsulainsider.com.au/explore/seasons/autumn/>)
+
+- [Winter](<https://peninsulainsider.com.au/explore/seasons/winter/>)
+
+- [Spring](<https://peninsulainsider.com.au/explore/seasons/spring/>)
+
 ## Stories for the day ahead
 
  [All in the Journal](<https://peninsulainsider.com.au/journal/>)

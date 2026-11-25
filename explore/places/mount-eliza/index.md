@@ -55,7 +55,7 @@ Coming up in Mount Eliza, from our events listings.
 
 Mount Eliza
 
-New to clay or returning to it? You're in good hands. Starts 3pm.
+Sunday afternoon pottery workshops at Peachy Keen Ceramics in Mount Eliza, open to beginners and to people returning to clay. Sessions start at 3pm.
 
  Event · Arts](<https://peninsulainsider.com.au/whats-on/sunday-sessions-pottery-workshops-at-peachy-keen-ceramics-2026-12-06/>)
 

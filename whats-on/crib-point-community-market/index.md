@@ -85,7 +85,7 @@ Markets  28 Nov
 
 ### [Meet The Makers at Hawkes Farm](<https://peninsulainsider.com.au/whats-on/meet-the-makers-at-hawkes-farm-2026-11-28/>)
 
-On the last Saturday of each month from September to April, Hawkes Farm comes alive with its Meet the Makers Market, bringing…
+Hawkes Farm in Boneo holds its Meet the Makers market on the last Saturday of each month from September to April, with…
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/meet-the-makers-at-hawkes-farm-2026-11-28/>)
 

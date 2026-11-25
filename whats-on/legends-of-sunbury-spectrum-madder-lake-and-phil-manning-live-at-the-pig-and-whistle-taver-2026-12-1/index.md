@@ -9,7 +9,7 @@ Event     Live Music     13 December 2026     One-off date
 
 # Legends Of Sunbury: Spectrum, Madder Lake & Phil Manning Live at The Pig & Whistle Tavern
 
-Featuring the cream of Australian Artists Sunbury was touted as “The Rock Happening of its time”. SUNBURY POP FESTIVAL 72’ to 75’ was often regarded as a major milestone in Australian Music history.
+Spectrum, Madder Lake and Phil Manning share a bill at the Pig & Whistle Tavern in Main Ridge, under the banner of the Sunbury Pop Festival, which ran from 1972 to 1975.
 
 [Book or check details](<https://www.trybooking.com/DPZIS>)
 
@@ -43,7 +43,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.trybooking.com/DPZIS>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Legends+Of+Sunbury%3A+Spectrum%2C+Madder+Lake+%26+Phil+Manning+Live+at+The+Pig+%26+Whistle+Tavern&dates=20261213T040000Z%2F20261213T063000Z&details=Featuring+the+cream+of+Australian+Artists+Sunbury+was+touted+as+%E2%80%9CThe+Rock+Happening+of+its+time%E2%80%9D.+SUNBURY+POP+FESTIVAL+72%E2%80%99+to+75%E2%80%99+was+often+regarded+as+a+major+milestone+in+Australian+Music+history.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Flegends-of-sunbury-spectrum-madder-lake-and-phil-manning-live-at-the-pig-and-whistle-taver-2026-12-1%2F&location=Pig+%26+Whistle+Tavern%2C+Main+Ridge%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://www.trybooking.com/DPZIS>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Legends+Of+Sunbury%3A+Spectrum%2C+Madder+Lake+%26+Phil+Manning+Live+at+The+Pig+%26+Whistle+Tavern&dates=20261213T040000Z%2F20261213T063000Z&details=Spectrum%2C+Madder+Lake+and+Phil+Manning+share+a+bill+at+the+Pig+%26+Whistle+Tavern+in+Main+Ridge%2C+under+the+banner+of+the+Sunbury+Pop+Festival%2C+which+ran+from+1972+to+1975.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Flegends-of-sunbury-spectrum-madder-lake-and-phil-manning-live-at-the-pig-and-whistle-taver-2026-12-1%2F&location=Pig+%26+Whistle+Tavern%2C+Main+Ridge%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 
@@ -65,7 +65,7 @@ Live Music  27 Nov
 
 ### [Ben Smith Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
 
-Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes.
+Ben Smith plays Jetty Road Brewery in Dromana from 6pm, part of the brewery's weekend live music.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
 
@@ -73,7 +73,7 @@ Live Music  28 Nov
 
 ### [Brad Kennedy Live at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/brad-kennedy-live-at-peppers-moonah-links-resort-2026-11-28/>)
 
-Ease into the weekend with live music in the Spike Bar at Moonah Links.
+Brad Kennedy plays the Spike Bar at Peppers Moonah Links Resort in Fingal, from 5pm to 8pm.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/brad-kennedy-live-at-peppers-moonah-links-resort-2026-11-28/>)
 

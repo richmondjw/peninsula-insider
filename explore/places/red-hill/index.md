@@ -63,7 +63,7 @@ Coming up in Red Hill, from our events listings.
 
 Red Hill
 
-There will be live music by Chris Gogerly and yummy pizza by Forno Di Casa food truck. Enjoy a weekend for all the family, great wine and delicious food and live music all in the relaxed space of Fenian Wines.
+Chris Gogerly plays an afternoon set at Fenian Wines in Red Hill, with pizza from the Forno Di Casa food truck.
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/chris-gogerly-live-at-fenian-wines-2026-12-05/>)
 
@@ -73,7 +73,7 @@ There will be live music by Chris Gogerly and yummy pizza by Forno Di Casa food 
 
 Red Hill
 
-There will be live music by James Vincent and amazing catering by Three Little Chefs. Enjoy a weekend for all the family, great wine, delicious food and live music all in the relaxed space of Fenian Wines.
+James Vincent plays an afternoon set at Fenian Wines in Red Hill, with catering by Three Little Chefs.
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/james-vincent-live-at-fenian-wines-2026-12-12/>)
 
@@ -83,7 +83,7 @@ There will be live music by James Vincent and amazing catering by Three Little C
 
 Red Hill
 
-There will be live music by Tony J King Food and catering by Brothl Ramen. Enjoy a weekend for all the family, great wine, delicious food and live music all in the relaxed space of Fenian Wines.
+Tony J King plays an afternoon set at Fenian Wines in Red Hill, with food by Brothl Ramen.
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/tony-j-king-live-at-fenian-wines-2026-12-19/>)
 

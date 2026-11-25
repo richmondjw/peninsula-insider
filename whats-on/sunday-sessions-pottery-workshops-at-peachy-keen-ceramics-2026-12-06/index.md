@@ -9,7 +9,7 @@ Event     Arts     6 December – 20 December 2026     One-off date
 
 # Sunday Sessions: Pottery Workshops at Peachy Keen Ceramics
 
-New to clay or returning to it? You're in good hands. Starts 3pm.
+Sunday afternoon pottery workshops at Peachy Keen Ceramics in Mount Eliza, open to beginners and to people returning to clay. Sessions start at 3pm.
 
 [Book or check details](<https://www.peachykeenceramics.com.au/product/sunday-sessions/CKY26BU2D3GNTV6EE755ES6U?cp=true&amp;sa=false&amp;sbp=false&amp;q=false&amp;category_id=IZJTR3ECJ7DQTG7CXAFKDQTH>)
 
@@ -39,7 +39,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.peachykeenceramics.com.au/product/sunday-sessions/CKY26BU2D3GNTV6EE755ES6U?cp=true&amp;sa=false&amp;sbp=false&amp;q=false&amp;category_id=IZJTR3ECJ7DQTG7CXAFKDQTH>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Sunday+Sessions%3A+Pottery+Workshops+at+Peachy+Keen+Ceramics&dates=20261206%2F20261221&details=New+to+clay+or+returning+to+it%3F+You%27re+in+good+hands.+Starts+3pm.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fsunday-sessions-pottery-workshops-at-peachy-keen-ceramics-2026-12-06%2F&location=Peachy+Keen+Ceramics%2C+Mount+Eliza%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://www.peachykeenceramics.com.au/product/sunday-sessions/CKY26BU2D3GNTV6EE755ES6U?cp=true&amp;sa=false&amp;sbp=false&amp;q=false&amp;category_id=IZJTR3ECJ7DQTG7CXAFKDQTH>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Sunday+Sessions%3A+Pottery+Workshops+at+Peachy+Keen+Ceramics&dates=20261206%2F20261221&details=Sunday+afternoon+pottery+workshops+at+Peachy+Keen+Ceramics+in+Mount+Eliza%2C+open+to+beginners+and+to+people+returning+to+clay.+Sessions+start+at+3pm.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fsunday-sessions-pottery-workshops-at-peachy-keen-ceramics-2026-12-06%2F&location=Peachy+Keen+Ceramics%2C+Mount+Eliza%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 

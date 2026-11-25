@@ -9,7 +9,7 @@ Event     Live Music     5 December 2026     One-off date
 
 # Countdown Classics 70's & 80's Live at Peninsula Beer Garden
 
-Countdown Classics, The Ultimate 70’s and 80’s Live Music Experience Get ready for an unforgettable night where you travel back to the 70’s and 80’s, a time that defined music, fashion, and fun. Feel the funk, groove the disco, and sing along to the rock anthems that rocked the world.
+Countdown Classics play 1970s and 1980s hits at Peninsula Beer Garden in Boneo, from disco and funk to rock anthems. The show starts at 8pm.
 
 [Book or check details](<https://www.trybooking.com/au/event/1660525>)
 
@@ -43,7 +43,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.trybooking.com/au/event/1660525>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Countdown+Classics+70%27s+%26+80%27s+Live+at+Peninsula+Beer+Garden&dates=20261205T090000Z%2F20261205T113000Z&details=Countdown+Classics%2C+The+Ultimate+70%E2%80%99s+and+80%E2%80%99s+Live+Music+Experience+Get+ready+for+an+unforgettable+night+where+you+travel+back+to+the+70%E2%80%99s+and+80%E2%80%99s%2C+a+time+that+defined+music%2C+fashion%2C+and+fun.+Feel+the+funk%2C+groove+the+disco%2C+and+sing+along+to+the+rock+anthems+that+rocked+the+world.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fcountdown-classics-70-s-and-80-s-live-at-peninsula-beer-garden-2026-12-05%2F&location=Peninsula+Beer+Garden%2C+Boneo%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://www.trybooking.com/au/event/1660525>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Countdown+Classics+70%27s+%26+80%27s+Live+at+Peninsula+Beer+Garden&dates=20261205T090000Z%2F20261205T113000Z&details=Countdown+Classics+play+1970s+and+1980s+hits+at+Peninsula+Beer+Garden+in+Boneo%2C+from+disco+and+funk+to+rock+anthems.+The+show+starts+at+8pm.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fcountdown-classics-70-s-and-80-s-live-at-peninsula-beer-garden-2026-12-05%2F&location=Peninsula+Beer+Garden%2C+Boneo%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 
@@ -65,7 +65,7 @@ Live Music  27 Nov
 
 ### [Ben Smith Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
 
-Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes.
+Ben Smith plays Jetty Road Brewery in Dromana from 6pm, part of the brewery's weekend live music.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
 
@@ -73,7 +73,7 @@ Live Music  28 Nov
 
 ### [Brad Kennedy Live at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/brad-kennedy-live-at-peppers-moonah-links-resort-2026-11-28/>)
 
-Ease into the weekend with live music in the Spike Bar at Moonah Links.
+Brad Kennedy plays the Spike Bar at Peppers Moonah Links Resort in Fingal, from 5pm to 8pm.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/brad-kennedy-live-at-peppers-moonah-links-resort-2026-11-28/>)
 

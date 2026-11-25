@@ -9,7 +9,7 @@ Event     Markets     18 December 2026     One-off date
 
 # Soul Night Market at Hastings Foreshore
 
-Soul Night Market lights up your Friday nights this summer with a warm, vibrant atmosphere. Wander through a curated mix of makers and food stalls, grab a drink from the bar, and settle to watch spectacular sunsets and listen to Live Soul Music.
+A Friday night market on the Hastings foreshore, with makers' stalls, food, a bar and live soul music, from 5pm to 9pm.
 
 [Book or check details](<https://www.soulnightmarket.com.au/>)
 
@@ -43,7 +43,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.soulnightmarket.com.au/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Soul+Night+Market+at+Hastings+Foreshore&dates=20261218T060000Z%2F20261218T100000Z&details=Soul+Night+Market+lights+up+your+Friday+nights+this+summer+with+a+warm%2C+vibrant+atmosphere.+Wander+through+a+curated+mix+of+makers+and+food+stalls%2C+grab+a+drink+from+the+bar%2C+and+settle+to+watch+spectacular+sunsets+and+listen+to+Live+Soul+Music.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fsoul-night-market-at-hastings-foreshore-2026-12-18%2F&location=Hastings+Foreshore%2C+Hastings%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://www.soulnightmarket.com.au/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Soul+Night+Market+at+Hastings+Foreshore&dates=20261218T060000Z%2F20261218T100000Z&details=A+Friday+night+market+on+the+Hastings+foreshore%2C+with+makers%27+stalls%2C+food%2C+a+bar+and+live+soul+music%2C+from+5pm+to+9pm.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fsoul-night-market-at-hastings-foreshore-2026-12-18%2F&location=Hastings+Foreshore%2C+Hastings%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 

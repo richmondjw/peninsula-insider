@@ -51,7 +51,7 @@ Coming up in Hastings, from our events listings.
 
 Hastings
 
-Soul Night Market lights up your Friday nights this summer with a warm, vibrant atmosphere. Wander through a curated mix of makers and food stalls, grab a drink from the bar, and settle to watch spectacular sunsets and listen to Live Soul Music.
+A Friday night market on the Hastings foreshore, with makers' stalls, food, a bar and live soul music, from 5pm to 9pm.
 
  Event · Markets](<https://peninsulainsider.com.au/whats-on/soul-night-market-at-hastings-foreshore-2026-12-18/>)
 

@@ -9,7 +9,7 @@ Event     Live Music     28 November 2026     One-off date
 
 # Brad Kennedy Live at Peppers Moonah Links Resort
 
-Ease into the weekend with live music in the Spike Bar at Moonah Links. Enjoy a rotating line-up of talented local artists from 5pm to 8pm, creating the perfect atmosphere to relax with friends, family or colleagues.
+Brad Kennedy plays the Spike Bar at Peppers Moonah Links Resort in Fingal, from 5pm to 8pm.
 
 [Book or check details](<https://www.moonahlinks.com.au/cms/dining/spike-bar/>)
 
@@ -43,7 +43,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.moonahlinks.com.au/cms/dining/spike-bar/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Brad+Kennedy+Live+at+Peppers+Moonah+Links+Resort&dates=20261128T060000Z%2F20261128T090000Z&details=Ease+into+the+weekend+with+live+music+in+the+Spike+Bar+at+Moonah+Links.+Enjoy+a+rotating+line-up+of+talented+local+artists+from+5pm+to+8pm%2C+creating+the+perfect+atmosphere+to+relax+with+friends%2C+family+or+colleagues.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fbrad-kennedy-live-at-peppers-moonah-links-resort-2026-11-28%2F&location=Peppers+Moonah+Links+Resort%2C+Fingal%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://www.moonahlinks.com.au/cms/dining/spike-bar/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Brad+Kennedy+Live+at+Peppers+Moonah+Links+Resort&dates=20261128T060000Z%2F20261128T090000Z&details=Brad+Kennedy+plays+the+Spike+Bar+at+Peppers+Moonah+Links+Resort+in+Fingal%2C+from+5pm+to+8pm.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fbrad-kennedy-live-at-peppers-moonah-links-resort-2026-11-28%2F&location=Peppers+Moonah+Links+Resort%2C+Fingal%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 
@@ -65,7 +65,7 @@ Live Music  27 Nov
 
 ### [Ben Smith Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
 
-Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes.
+Ben Smith plays Jetty Road Brewery in Dromana from 6pm, part of the brewery's weekend live music.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
 

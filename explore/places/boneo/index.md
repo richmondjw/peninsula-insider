@@ -43,7 +43,7 @@ Coming up in Boneo, from our events listings.
 
 Boneo
 
-Countdown Classics, The Ultimate 70’s and 80’s Live Music Experience Get ready for an unforgettable night where you travel back to the 70’s and 80’s, a time that defined music, fashion, and fun. Feel the funk, groove the disco, and sing along to the rock anthems that rocked the world.
+Countdown Classics play 1970s and 1980s hits at Peninsula Beer Garden in Boneo, from disco and funk to rock anthems. The show starts at 8pm.
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/countdown-classics-70-s-and-80-s-live-at-peninsula-beer-garden-2026-12-05/>)
 

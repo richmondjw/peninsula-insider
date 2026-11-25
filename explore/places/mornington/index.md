@@ -63,7 +63,7 @@ Coming up in Mornington, from our events listings.
 
 Mornington
 
-Hear journalist and author Jane Gilmore discuss her new book, helping adults talk to kids about consent, relationships and online life.
+Journalist and author Jane Gilmore talks about her new book on helping adults talk to children about consent, relationships and online life, at Mornington Library.
 
  Event · Writers & Ideas](<https://peninsulainsider.com.au/whats-on/author-talk-jane-gilmore-mornington-library/>)
 
@@ -83,7 +83,7 @@ Rolling Stones tribute band Brown Sugar plays the upstairs Bandroom at The Bay H
 
 Mornington
 
-Gareth Sansom is a pioneering and highly influential figure in Australian contemporary art, a restless innovator whose career spans more than six decades since his first exhibition at 19 years old in 1959. Renowned for his audacious fusion of abstraction and figuration, Sansom has continually defied categorisation, ...
+An exhibition of work by Gareth Sansom at the Mornington Peninsula Regional Gallery. Sansom first exhibited in 1959 and is known for mixing abstraction and figuration.
 
  Event · Exhibitions](<https://peninsulainsider.com.au/whats-on/gareth-sansom-at-mprg-2026-12-05/>)
 

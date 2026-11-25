@@ -17,7 +17,7 @@ Events across the Mornington Peninsula in November, day by day, from Thu 26 – 
 
 [Author Talk: Jane Gilmore - Mornington Library](<https://peninsulainsider.com.au/whats-on/author-talk-jane-gilmore-mornington-library/>)
 
-Hear journalist and author Jane Gilmore discuss her new book, helping adults talk to kids about consent, relationships and online life.
+Journalist and author Jane Gilmore talks about her new book on helping adults talk to children about consent, relationships and online life, at Mornington Library.
 
 Mornington · Writers & Ideas · Checked 9 Nov 2026
 
@@ -35,7 +35,7 @@ Boneo · Live Music · Checked 9 Nov 2026
 
 [Ben Smith Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
 
-Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes. Full menu available from 12pm, Ben Smith will be live from 6pm.
+Ben Smith plays Jetty Road Brewery in Dromana from 6pm, part of the brewery's weekend live music. The full menu runs from midday.
 
 Dromana · Live Music · Checked 9 Nov 2026
 
@@ -59,7 +59,7 @@ Mornington · Live Music · Checked 9 Nov 2026
 
 [Meet The Makers at Hawkes Farm](<https://peninsulainsider.com.au/whats-on/meet-the-makers-at-hawkes-farm-2026-11-28/>)
 
-On the last Saturday of each month from September to April, Hawkes Farm comes alive with its Meet the Makers Market, bringing together a curated collection of talented local artisans, makers and small-batch producers.
+Hawkes Farm in Boneo holds its Meet the Makers market on the last Saturday of each month from September to April, with local artisans, makers and small-batch producers.
 
 Boneo · Markets · Checked 9 Nov 2026
 
@@ -83,7 +83,7 @@ Fingal · Live Music · Recurring weekly · Checked 16 Nov 2026
 
 [Brad Kennedy Live at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/brad-kennedy-live-at-peppers-moonah-links-resort-2026-11-28/>)
 
-Ease into the weekend with live music in the Spike Bar at Moonah Links. Enjoy a rotating line-up of talented local artists from 5pm to 8pm, creating the perfect atmosphere to relax with friends, family or colleagues.
+Brad Kennedy plays the Spike Bar at Peppers Moonah Links Resort in Fingal, from 5pm to 8pm.
 
 Fingal · Live Music · Checked 9 Nov 2026
 

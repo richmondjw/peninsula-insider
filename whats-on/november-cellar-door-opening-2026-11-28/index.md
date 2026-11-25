@@ -51,7 +51,7 @@ Exhibitions  5 Dec
 
 ### [Gareth Sansom at MPRG](<https://peninsulainsider.com.au/whats-on/gareth-sansom-at-mprg-2026-12-05/>)
 
-Gareth Sansom is a pioneering and highly influential figure in Australian contemporary art, a restless innovator whose career spans more than six…
+An exhibition of work by Gareth Sansom at the Mornington Peninsula Regional Gallery.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/gareth-sansom-at-mprg-2026-12-05/>)
 
@@ -59,7 +59,7 @@ Exhibitions  10 Dec
 
 ### [The Creators Network: End of Year Catch-up for Creatives](<https://peninsulainsider.com.au/whats-on/the-creators-network-end-of-year-catch-up-for-creatives/>)
 
-Come along to meet other MP creatives, join a curator tour of the new Gareth Samson exhibition and hear from a talented…
+An end-of-year gathering for Mornington Peninsula creatives at the regional gallery, with a curator's tour of the Gareth Sansom exhibition and a…
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/the-creators-network-end-of-year-catch-up-for-creatives/>)
 

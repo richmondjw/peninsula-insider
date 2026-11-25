@@ -9,7 +9,7 @@ Event     Writers & Ideas     26 November 2026     One-off date
 
 # Author Talk: Jane Gilmore - Mornington Library
 
-Hear journalist and author Jane Gilmore discuss her new book, helping adults talk to kids about consent, relationships and online life.
+Journalist and author Jane Gilmore talks about her new book on helping adults talk to children about consent, relationships and online life, at Mornington Library.
 
 [Book or check details](<https://www.eventbrite.com.au/e/author-talk-jane-gilmore-mornington-library-tickets-2003901958702>)
 
@@ -43,7 +43,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.eventbrite.com.au/e/author-talk-jane-gilmore-mornington-library-tickets-2003901958702>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Author+Talk%3A+Jane+Gilmore+-+Mornington+Library&dates=20261126T073000Z%2F20261126T083000Z&details=Hear+journalist+and+author+Jane+Gilmore+discuss+her+new+book%2C+helping+adults+talk+to+kids+about+consent%2C+relationships+and+online+life.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fauthor-talk-jane-gilmore-mornington-library%2F&location=Mornington+Library%2C+Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://www.eventbrite.com.au/e/author-talk-jane-gilmore-mornington-library-tickets-2003901958702>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Author+Talk%3A+Jane+Gilmore+-+Mornington+Library&dates=20261126T073000Z%2F20261126T083000Z&details=Journalist+and+author+Jane+Gilmore+talks+about+her+new+book+on+helping+adults+talk+to+children+about+consent%2C+relationships+and+online+life%2C+at+Mornington+Library.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fauthor-talk-jane-gilmore-mornington-library%2F&location=Mornington+Library%2C+Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 

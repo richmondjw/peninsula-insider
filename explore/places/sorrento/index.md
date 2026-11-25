@@ -59,7 +59,7 @@ Coming up in Sorrento, from our events listings.
 
 Sorrento
 
-Gather the family and celebrate Christmas Day in Ember, with a 12pm sitting for a relaxed afternoon of festive dining.
+Christmas Day lunch at Ember in Sorrento, with a midday sitting.
 
  Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/christmas-day-at-ember-2026-12-25/>)
 

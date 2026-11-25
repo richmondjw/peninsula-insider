@@ -55,7 +55,7 @@ Coming up in Main Ridge, from our events listings.
 
 Main Ridge
 
-Featuring the cream of Australian Artists Sunbury was touted as “The Rock Happening of its time”. SUNBURY POP FESTIVAL 72’ to 75’ was often regarded as a major milestone in Australian Music history.
+Spectrum, Madder Lake and Phil Manning share a bill at the Pig & Whistle Tavern in Main Ridge, under the banner of the Sunbury Pop Festival, which ran from 1972 to 1975.
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/legends-of-sunbury-spectrum-madder-lake-and-phil-manning-live-at-the-pig-and-whistle-taver-2026-12-1/>)
 

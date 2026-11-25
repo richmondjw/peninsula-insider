@@ -15,7 +15,7 @@ Events across the Mornington Peninsula in February, day by day, from Mon 1 – W
 
 - [Gareth Sansom at MPRG](<https://peninsulainsider.com.au/whats-on/gareth-sansom-at-mprg-2026-12-05/>)
 
-Gareth Sansom is a pioneering and highly influential figure in Australian contemporary art, a restless innovator whose career spans more than six decades since his first exhibition at 19 years old in 1959.
+An exhibition of work by Gareth Sansom at the Mornington Peninsula Regional Gallery. Sansom first exhibited in 1959 and is known for mixing abstraction and figuration.
 
 Mornington · Exhibitions · On during your dates · runs to Sun, 21 Feb · Checked 9 Nov 2026
 
