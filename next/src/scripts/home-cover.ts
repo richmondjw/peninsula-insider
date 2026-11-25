@@ -166,13 +166,19 @@ export function initHomeCover() {
     }
   }, { passive: true, signal });
   motion.addEventListener('change', () => { if (motion.matches) setPlaying(false); }, { signal });
-  document.addEventListener('visibilitychange', arm, { signal });
+  document.addEventListener('visibilitychange', arm);
   const observer = 'IntersectionObserver' in window ? new IntersectionObserver(([entry]) => {
     visible = entry.isIntersecting;
     arm();
   }, { threshold: 0.15 }) : null;
   observer?.observe(cover);
-  unmount = () => { controller.abort(); observer?.disconnect(); stop(); ++revision; };
+  unmount = () => {
+    document.removeEventListener('visibilitychange', arm);
+    controller.abort();
+    observer?.disconnect();
+    stop();
+    ++revision;
+  };
   cover.dataset.activeCover = 'coast';
   controls.hidden = false;
   setPlaying(playing);
