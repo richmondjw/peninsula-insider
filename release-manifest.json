@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "releaseId": "85d81b7ddd71-45682326370",
-  "sourceSha": "85d81b7ddd71d95f2c066ec77011a3acdb34a74a",
-  "buildRunId": "45682326370",
-  "generatedAt": "2026-11-25T19:26:11.179Z",
+  "releaseId": "5547c02fdfc3-45691602886",
+  "sourceSha": "5547c02fdfc39e2008614c8b3fa158d6ddeddae7",
+  "buildRunId": "45691602886",
+  "generatedAt": "2026-11-25T20:23:08.241Z",
   "trigger": "push",
   "authority": {
     "mode": "github-protected-release",
@@ -13,13 +13,13 @@
   "artifacts": [
     {
       "path": "/feed.xml",
-      "bytes": 23497,
-      "sha256": "833695ab4082f59658fba6be30af81c7014b582ba21c7517e29e083e0911fb37"
+      "bytes": 23425,
+      "sha256": "9f7a1b952ead2630ab98fe302fb0424267c4a7a4275f06632a96a7cd44ba6f24"
     },
     {
       "path": "/index.html",
       "bytes": 220506,
-      "sha256": "8efef1d7bf871eefbd4446e15d805df91db27dc4a9648ce0370239f51c00ba03"
+      "sha256": "2482f408859a295f7d0859b3a11a28615635066dc4d87b0fd6b93127a4c7d813"
     },
     {
       "path": "/llms.txt",
@@ -28,17 +28,17 @@
     },
     {
       "path": "/sitemap.xml",
-      "bytes": 135467,
-      "sha256": "d537a597d55c35b22cae6ee45a77062daabbf8dfd264fdfba885af477cc51fe5"
+      "bytes": 135664,
+      "sha256": "0472335c0c006665be657961e1d39a1a7705df76c2dac00eaf98cbd13101a83a"
     },
     {
       "path": "/whats-on/upcoming.json",
       "bytes": 95240,
-      "sha256": "3b46b896569ea9ec43eeeddd5e280dd1ccf51a8244cc4e0a0515d922428ceed7"
+      "sha256": "3cff67ed9c54f8eee5fbff437a855fcae905f490edc27c5cac35f5764930a876"
     }
   ],
   "verification": {
     "state": "awaiting_external_verification",
-    "expectedDeploymentSha": "85d81b7ddd71d95f2c066ec77011a3acdb34a74a"
+    "expectedDeploymentSha": "5547c02fdfc39e2008614c8b3fa158d6ddeddae7"
   }
 }

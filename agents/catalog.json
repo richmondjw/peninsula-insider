@@ -1,11 +1,11 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-11-25T19:25:59.771Z",
-  "snapshotId": "0241dbf3288be57275c4f2cb77f3775d98e58d1cb0ee9ede357fd5597011e366",
+  "generatedAt": "2026-11-25T20:22:57.419Z",
+  "snapshotId": "69e572e54313ff61d547eff0f798bff5bb0a112b407be07d77588fa0997b3c48",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
-  "count": 694,
+  "count": 695,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/",
@@ -6672,6 +6672,23 @@
       "markdownBytes": 7794
     },
     {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-26/",
+      "title": "Avani Syrah, the Seawinds Garden loop, and pub carols in Main Ridge",
+      "section": "journal",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-26/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-26/index.md",
+      "contentSha256": "50f4feba0c0bccdb40df89aa352376cddf5460e7c8194b208e9627a6a01168fe",
+      "citation": {
+        "title": "Avani Syrah, the Seawinds Garden loop, and pub carols in Main Ridge",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-26/",
+        "publishedAt": "2026-11-26T00:00:00.000Z",
+        "modifiedAt": "2026-11-26T00:00:00.000Z"
+      },
+      "htmlBytes": 171281,
+      "markdownBytes": 7747
+    },
+    {
       "id": "https://peninsulainsider.com.au/journal/local-secrets/",
       "title": "The Peninsula our readers see.",
       "section": "journal",
@@ -7561,7 +7578,7 @@
       "section": "picks",
       "canonicalUrl": "https://peninsulainsider.com.au/picks/",
       "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
-      "contentSha256": "22b1bebacf6cba67168800d616545e5c5807c6628c05da396597bdf517c2c22b",
+      "contentSha256": "74d61078baf399530443756a9d1285b83c6c0cbce4bba22248414b5a811bdd19",
       "citation": {
         "title": "Insider Picks",
         "publisher": "Peninsula Insider",
@@ -7569,8 +7586,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 130509,
-      "markdownBytes": 5733
+      "htmlBytes": 130467,
+      "markdownBytes": 5691
     },
     {
       "id": "https://peninsulainsider.com.au/privacy/",

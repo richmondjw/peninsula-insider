@@ -15,6 +15,8 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 
 ## Recent selections
 
+- [Avani Syrah, the Seawinds Garden loop, and pub carols in Main Ridge](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-26/>) - Avani Wines pours its biodynamic Syrah at Red Hill South, the Seawinds Garden native garden peaks in spring bloom, and The Pig & Whistle opens its Pub Carols season on Thursday 3 December.
+
 - [Moke in Flinders, the ocean cliff loop at West Head, and Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-25/>) - A 20-seat chef's table in Flinders, the West Head cliff loop at peak wildflower season, and live music on the golf grounds at Fingal this Saturday.
 
 - [Jetty Road Brewery's seasonal taps, the Arthurs Seat wildflower loop, and Mornington's Wednesday street market](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-24/>) - Rotating taps at Jetty Road Brewery in Dromana, the Serafino Track wildflower loop on Arthurs Seat, and the Wednesday street market running down Main Street Mornington until 3pm.
@@ -36,8 +38,6 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 - [Crittenden's skin-contact experiments, a clifftop bloom walk, and the Emu Plains market before summer crowds](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-16/>) - Skin-contact amphora wines at Crittenden Estate in Dromana, coastal teatree in flower on the Cape Schanck boardwalk, and Saturday morning at Emu Plains Market in Balnarring.
 
 - [Barragunda Dining, Bushrangers Bay and planning for VineHop](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-15/>) - Book directly with Barragunda, check Parks Victoria's coastal-walk guidance, and plan transport for VineHop on 21 November.
-
-- [Two Bays on tap, waratahs on the Bushrangers Bay track, and the VineHop Festival this Saturday](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-14/>) - A gluten-free pale ale that holds up without the qualifier at Two Bays in Dromana, waratah season on the Bushrangers Bay Walk near Flinders, and what to know before Saturday's Peninsula VineHop Festival.
 
 ## Planning a particular weekend?
 
