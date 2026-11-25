@@ -15,7 +15,7 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 
 ## Recent selections
 
-- [Avani Syrah, the Seawinds Garden loop, and pub carols in Main Ridge](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-26/>) - Avani Wines pours its biodynamic Syrah at Red Hill South, the Seawinds Garden native garden peaks in spring bloom, and The Pig & Whistle opens its Pub Carols season on Thursday 3 December.
+- [Avani Syrah, a Seawinds Garden walk, and pub carols in Main Ridge](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-26/>) - Taste Syrah at Avani in Red Hill South, walk to the bay lookouts at Seawinds Garden, or plan a December dinner and singalong in Main Ridge.
 
 - [Moke in Flinders, the ocean cliff loop at West Head, and Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-25/>) - A 20-seat chef's table in Flinders, the West Head cliff loop at peak wildflower season, and live music on the golf grounds at Fingal this Saturday.
 
