@@ -442,8 +442,21 @@ export const prerender = true;
           const key = `${el.dataset.piEntityType}/${el.dataset.piEntitySlug}/${el.dataset.piFieldPath}`;
           const src = slots.get(key);
           if (!src) return;
-          el.style.backgroundImage = `url("${src.replace(/"/g, '\\"')}")`;
-          el.classList.remove('search-card__hero--placeholder');
+          // Same resized copy the rest of the site asks for (BaseLayout). A
+          // background cannot fall back by itself, so the resized copy is
+          // loaded first and the original used only if that fails.
+          const sized = typeof window.__piResizedCmsImage === 'function' ? window.__piResizedCmsImage(src, el) : src;
+          const paint = (value) => {
+            el.style.backgroundImage = `url("${value.replace(/"/g, '\\"')}")`;
+            el.classList.remove('search-card__hero--placeholder');
+          };
+          if (sized === src) paint(src);
+          else {
+            const probe = new Image();
+            probe.onload = () => paint(sized);
+            probe.onerror = () => paint(src);
+            probe.src = sized;
+          }
         });
       }
 
