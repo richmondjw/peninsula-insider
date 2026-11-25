@@ -48,7 +48,7 @@ Small, certain fixes. Done first because they are cheap and visible.
 | B3 | Bing Webmaster Tools: verify the site and submit the sitemap | Needs owner | Needs owner | Site verified. The agent can add the verification tag once the code is supplied |
 | B4 | Confirm AI crawlers are not blocked at Cloudflare | Needs owner | Needs owner | Security settings checked for bot blocking, result noted here |
 | B5 | Re-run the 40-query sample monthly, including by hand in ChatGPT, Perplexity and Copilot | Shared | Not started | A dated results file is added to this folder each month |
-| B6 | Restart the index monitor | Agent | Next | A current `reports/index-monitor-*.md` exists and the job runs on schedule |
+| B6 | Restart the index monitor | Needs owner | Needs owner | The monitor reads Google's URL inspection service and needs the same Search Console credentials as B2. Its last report is from 23 September 2026 |
 
 ## Workstream C: events we source ourselves (tier 1 move 2, tier 2 move 3)
 
@@ -102,7 +102,7 @@ Each new page must meet the verification rules in `docs/EAT-CATALOGUE-VERIFICATI
 
 | ID | Item | Owner | Status | Done when |
 | --- | --- | --- | --- | --- |
-| H1 | Beaches: every named beach, with parking, dogs, toilets, access and when to go | Shared | Not started | 50 or more beach pages, each fact traced to the managing authority |
+| H1 | Beaches: every named beach, with parking, dogs, toilets, access and when to go | Shared | In progress | Desk research done: `data/beach-inventory-research.md` lists 58 named beaches with managing body, lifesaving patrols, dog rules and toilets, each fact linked to the page it came from and marked Unknown where no source confirmed it. 37 patrol cells, 12 dog cells and 40 toilet cells are Unknown. Pages still need photographs with rights, an editor's note for each beach, and a recheck of every fact against its source and the signs on the ground |
 | H2 | Walks: the 30 best-known, with distance, grade, time and conditions | Shared | Not started | 30 walk pages, each traced to Parks Victoria or the council |
 | H3 | Everyday eating in the six largest towns | Shared | Not started | 35 further venues, each checked against the operator's own pages |
 | H4 | Fifteen further stays | Shared | Not started | 15 further stay records, each checked against the operator |
@@ -140,3 +140,4 @@ Mostly outside the repository.
 | 25 Nov 2026 | A1, B1, C1, C2, D1, E1, E3 done. A6, C4, E2 part done. A2, A7, A8 and F2 moved to the owner with reasons. Full build gate passed, pages checked in a browser at phone and desktop widths |
 | 25 Nov 2026 | A3, C3, C4, D2 done. All event copy now in house voice. Four events repointed from the competitor to the organisers, with two session times corrected from the organiser's page. C5, I7 moved to the owner with prepared lists. I6 dropped with reason |
 | 25 Nov 2026 | First batch merged and live (pull request 872). Second batch in checks (pull request 876). A4 done. A5 moved to the owner as a spending decision, with the test result. Finding: itinerary cards load full-size photographs as backgrounds |
+| 25 Nov 2026 | Beach inventory research added for H1. B6 moved to the owner: it needs the Search Console credentials |
