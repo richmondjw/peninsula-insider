@@ -38,7 +38,7 @@ clusterLinks:
     href: "/journal/things-to-do-mornington-peninsula/"
 faq:
   - question: "Where is Avani Wines and do I need to book?"
-    answer: "Avani Wines is on Shoreham Road, Red Hill South. Bookings are recommended, especially on weekends in spring - check their website to secure a tasting session."
+    answer: "Avani Wines is on 98 Stanleys Road, Red Hill South. Bookings are recommended, especially on weekends in spring - check their website to secure a tasting session."
   - question: "When does the Emu Plains Market run and what time should I arrive?"
     answer: "The Emu Plains Market runs at Emu Plains Reserve, Balnarring, from 9 am to 2 pm. The market runs through to 19 December 2026. Arrive before 11 am for the best produce selection."
 ---
@@ -47,7 +47,7 @@ faq:
 
 Avani is the Peninsula's most committed Syrah grower, and that is still an underrated sentence. In spring, with the vines showing their first green growth against the Red Hill South ridgeline, the cellar door is at its quietest before the summer wave arrives. That is the right time to sit with the Amrit skin-contact white, which spends enough time on skins to give it real texture without the tannin weight that puts off newcomers to the style. Ask for it alongside the Syrah - the contrast is instructive. The biodynamic farming is evident in the fruit without the winery making a sermon of it. The family estate feel is genuine rather than marketed.
 
-Allow ninety minutes minimum. Book ahead - walk-ins are possible mid-week but the structured tasting is worth confirming. Avani Wines, Shoreham Road, Red Hill South.
+Allow ninety minutes minimum. Book ahead - walk-ins are possible mid-week but the structured tasting is worth confirming. Avani Wines, 98 Stanleys Road, Red Hill South.
 
 Pair the Syrah with a cheese board from Red Hill Cheese on the way home.
 
@@ -55,7 +55,11 @@ Pair the Syrah with a cheese board from Red Hill Cheese on the way home.
 
 **WALK - Balnarring Coastal Scrub, Western Port Foreshore**
 
-The section of coastal scrub running along the Western Port foreshore between Balnarring Beach and Merricks Beach is flowering properly right now. Wax lip orchids are appearing along the low scrub margins, and the tea-tree thickets have that sharp spring green that lasts about three weeks before the summer bleach sets in. The track from the Balnarring Beach car park south along the foreshore takes around forty-five minutes one way on flat ground. Early morning gives you the light off Western Port before the wind builds. Dogs on leads are welcome on the foreshore sections.
+The section of coastal scrub running along the Western Port foreshore between Balnarring Beach and Merricks Beach is flowering properly right now. Wax lip orchids are appearing along the low scrub margins, and the tea-tree thickets have that sharp spring green that lasts about three weeks before the summer bleach sets in. The track from the Balnarring Beach car park south along the foreshore takes around forty-five minutes one way on flat ground. Early morning gives you the light off Western Port before the wind builds.
+
+From 1 December to the end of February, pet dogs are not permitted on the designated stretches of Balnarring and Merricks beaches from 10 am to 6 pm. At Balnarring, the restriction covers the beach from opposite Cliff Road to the Somers foreshore boundary. At Merricks, it covers the beach from the Point Leo foreshore boundary to opposite Merricks Beach Road, and from there to Cliff Road. Keep dogs on a lead where permitted and follow signs at the beach access. See the [gazetted rules](https://www.gazette.vic.gov.au/gazette/Gazettes2024/GG2024G050.pdf).
+
+*Correction, 26 November 2026: An earlier version omitted summer restrictions for pet dogs on the Balnarring and Merricks foreshore and gave the wrong street for Avani Wines.*
 
 No booking needed. The Balnarring Beach car park is on Balnarring Beach Road - arrive before 9 am on a weekend to get a park without circling. Allow ninety minutes return at a relaxed pace.
 
@@ -77,6 +81,6 @@ Combine with the Western Port foreshore walk above for a full Balnarring morning
 
 | Pick | Address | Hours | Booking |
 |------|---------|-------|---------|
-| Avani Wines | Shoreham Road, Red Hill South | Check website | Book ahead |
+| Avani Wines | 98 Stanleys Road, Red Hill South | Check website | Book ahead |
 | Balnarring Coastal Scrub | Balnarring Beach Road car park | Dawn to dusk | None required |
 | Emu Plains Market | Emu Plains Reserve, Balnarring | Sat 9 am – 2 pm, until 19 Dec | None required |
