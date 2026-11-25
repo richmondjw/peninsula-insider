@@ -33,9 +33,9 @@ Small, certain fixes. Done first because they are cheap and visible.
 | A1 | Remove the "Add photo" CMS label from public venue and event cards | Agent | Done | Readers see a neutral plate where a card has no photograph. The prompt shows only in edit mode. Checked in a browser on Sorrento, Red Hill, Mornington and a venue page at phone and desktop widths |
 | A2 | Correct the founding date in structured data | Needs owner | Needs owner | The site's structured data says founded 2024. The advertising kit says launched early 2026. Not changed, because the repository cannot show which is true. See decisions below |
 | A3 | Remove layout shift on Search and Ask | Agent | Done | Ask: the chat column is reserved before first paint, so the page no longer jumps sideways when the chat opens. Search: the page holds a full screen while results load, so they no longer push the footer. Tested against the live search page with the fix applied: 0.19 fell to under 0.01 on desktop and 0.13 to under 0.01 on a phone |
-| A4 | Stop the hidden full-size image loading on venue pages | Agent | Next | No image is fetched and shown at zero size on a venue page |
-| A5 | Optimise images supplied through the CMS | Agent | Next | CMS images on cards are served resized, not as full originals |
-| A6 | Bring titles under 60 characters and descriptions under 160 | Agent | In progress | A central rule drops the brand suffix from any title it pushes past 60 characters and trims a long description to its last whole sentence. Plan and event pages also drop their second suffix when over length. Long titles fell from 323 to 142 before the plan and event rule. The rest are mostly journal headlines that each need a hand-written short title |
+| A4 | Stop the hidden full-size image loading on venue pages | Agent | Done | The full-screen photo viewer no longer names its image until a reader opens it. Checked in a browser: the viewer still opens and shows the photograph |
+| A5 | Optimise images supplied through the CMS | Needs owner | Needs owner | CMS images average about 600 KB and reach 1.5 MB in a sample of twelve. The storage service can already serve resized versions (tested: one image fell to 65 KB at 800 pixels wide), but resizing is a metered feature of the storage plan, so switching it on is a spending decision. See decisions below |
+| A6 | Bring titles under 60 characters and descriptions under 160 | Agent | Done where a rule can do it | A central rule drops the brand suffix from any title it pushes past 60 characters and trims a long description to its last whole sentence. Plan, event and tour pages drop their second suffix when over length. Long titles fell from 323 to 142 before the plan, event and tour rules. What remains are journal headlines and six place titles written by hand for search, left as written |
 | A7 | One page per town: merge the six journal area guides into their place hubs | Needs owner | Needs owner | The area guides are full articles, so merging them is an editorial decision. See decisions below |
 | A8 | Make the four trust addresses real redirects or real pages | Needs owner | Needs owner | The site is on static hosting, which cannot send a real redirect. The four rows are now in `ops/cloudflare-redirects.csv`. Importing that list at Cloudflare makes them real |
 
@@ -86,7 +86,7 @@ Small, certain fixes. Done first because they are cheap and visible.
 | F1 | Answer-first opening on the flagship pages | Agent | Done on inspection | Best restaurants, wine country, day trips, hot springs, beaches and walks already open with a direct answer. No change made |
 | F2 | The complete hatted list | Shared | Needs owner | Our hatted page cites the 2025 Good Food Guide. The 2027 edition is out and names Barragunda Dining as Regional Restaurant of the Year. The full 2027 list sits behind the publisher's own site, so the page needs someone with access to check it before it is rewritten |
 | F3 | The complete cellar door list | Shared | Not started | Every cellar door open to the public is listed with booking status. Needs research and verification beyond the current 38 |
-| F4 | Comparison pages with stated criteria | Agent | Not started | Hot springs, Sorrento or Portsea, and three wineries in a day each state their criteria |
+| F4 | Comparison pages with stated criteria | Shared | Not started | The hot springs comparison exists. Sorrento or Portsea, and three wineries in a day, need editorial judgement to write |
 | F5 | Town things-to-do answers | Agent | Done on inspection | Sorrento, Red Hill, Flinders and Portsea already open with a one-sentence factual answer, and each now shows what is on directly beneath it |
 
 ## Workstream G: search on our own site (tier 2 move 6)
@@ -125,6 +125,7 @@ Mostly outside the repository.
 
 | Decision | Why it matters | Default if no answer |
 | --- | --- | --- |
+| Whether to serve CMS images through the storage service's resizer | Cuts card image weight by roughly nine tenths. The resizer is metered by the number of source images | No change |
 | The founding year in structured data: 2024 or 2026 | Search engines and AI systems read it as fact | No change |
 | Whether to show dated, sourced "from" prices for the most-asked attractions | Changes a house rule. Price queries currently go to other sites | No change. The rule stands |
 | Which page survives for the six duplicated towns | Affects existing links and rankings | The place hub survives. The journal area guide redirects to it |
@@ -138,3 +139,4 @@ Mostly outside the repository.
 | 25 Nov 2026 | Teardown, evidence and this plan committed |
 | 25 Nov 2026 | A1, B1, C1, C2, D1, E1, E3 done. A6, C4, E2 part done. A2, A7, A8 and F2 moved to the owner with reasons. Full build gate passed, pages checked in a browser at phone and desktop widths |
 | 25 Nov 2026 | A3, C3, C4, D2 done. All event copy now in house voice. Four events repointed from the competitor to the organisers, with two session times corrected from the organiser's page. C5, I7 moved to the owner with prepared lists. I6 dropped with reason |
+| 25 Nov 2026 | First batch merged and live (pull request 872). Second batch in checks (pull request 876). A4 done. A5 moved to the owner as a spending decision, with the test result. Finding: itinerary cards load full-size photographs as backgrounds |
