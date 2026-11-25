@@ -224,7 +224,7 @@ export const prerender = true;
 ---
 
 <BaseLayout
-  title={`${event.data.title}, ${placeName} · Peninsula Insider`}
+  title={`${event.data.title}, ${placeName}`.length > 60 ? `${event.data.title} · Peninsula Insider` : `${event.data.title}, ${placeName} · Peninsula Insider`}
   description={unconfirmedArchivedSchedule ? (event.data.archivedReason ?? 'This listing is under review. No future event date is confirmed.') : event.data.summary}
   section="whats-on"
   canonical={canonical}

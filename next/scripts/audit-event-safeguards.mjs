@@ -104,6 +104,7 @@ const ASSERTED_METRICS = new Set([
   'unboundedOccurrence',
   'weekdaySummaryConflicts',
   'restrictedAudience',
+  'competitorLinked',
 ]);
 
 const normalise = (value) =>
@@ -384,6 +385,14 @@ async function main() {
     .filter(({ data }) => hostOf(data.sourceUrl) === COMPETITOR_HOST)
     .map(({ file }) => file)
     .sort();
+  // Finding an event on the regional listing site is one thing. Sending our
+  // reader there to book, or naming it as the event's official page, is
+  // another: the organiser's own page is the source, and it has been wrong on
+  // the listing site before (film festival session times, November 2026).
+  const competitorLinked = live
+    .filter(({ data }) => [data.bookingUrl, data.officialEventUrl].some((u) => hostOf(u) === COMPETITOR_HOST))
+    .map(({ file }) => file)
+    .sort();
   const sourceMix = [...sourceHosts.entries()]
     .sort((a, b) => b[1] - a[1])
     .map(([host, count]) => ({ host, count }));
@@ -391,7 +400,7 @@ async function main() {
   // An exclamation mark in a summary is the usual trace of an organiser's
   // promotional line pasted through. Report-only prompt for a rewrite.
   const promotionalSummary = live
-    .filter(({ data }) => /!/.test(String(data.summary ?? '')))
+    .filter(({ data }) => /!|\b(?:join us|we(?:'|’)re|we are|our (?:festive|special|head|team|venue|menu))\b/i.test(String(data.summary ?? '')))
     .map(({ file }) => file)
     .sort();
 
@@ -418,6 +427,7 @@ async function main() {
       weekdaySummaryConflicts: weekdaySummaryConflicts.length,
       restrictedAudience: restrictedAudience.length,
       competitorSourced: competitorSourced.length,
+      competitorLinked: competitorLinked.length,
       promotionalSummary: promotionalSummary.length,
     },
     missingVerificationDate: missingVerification.sort(),
@@ -435,6 +445,7 @@ async function main() {
     weekdaySummaryConflicts,
     restrictedAudience,
     competitorSourced,
+    competitorLinked,
     sourceMix,
     promotionalSummary,
   };
@@ -460,8 +471,16 @@ async function main() {
   console.log(`    one-off weekday conflicts ... ${t.weekdaySummaryConflicts}   [gated]`);
   console.log('  Audience & sourcing');
   console.log(`    closed-group wording ........ ${t.restrictedAudience}   [gated]`);
-  console.log(`    sourced from the competitor . ${t.competitorSourced} of ${t.liveEvents}   [report-only]`);
-  console.log(`    promotional summaries (!) ... ${t.promotionalSummary}   [report-only]`);
+  console.log(`    first found on the competitor  ${t.competitorSourced} of ${t.liveEvents}   [report-only]`);
+  console.log(`    booking/official link there . ${t.competitorLinked}   [gated]`);
+  console.log(`    organiser-voice summaries ... ${t.promotionalSummary}   [report-only]`);
+  // One outside listing site feeding more than a quarter of the calendar is a
+  // dependency worth saying out loud on every build, without blocking a deploy.
+  const SHARE_LIMIT = 0.25;
+  const top = report.sourceMix?.[0];
+  if (top && top.host !== '(none)' && t.liveEvents > 0 && top.count / t.liveEvents > SHARE_LIMIT) {
+    console.log(`    WARNING: ${top.host} is where ${Math.round((top.count / t.liveEvents) * 100)}% of live events were first found (limit ${SHARE_LIMIT * 100}%).`);
+  }
   console.log('');
 
   for (const g of [...duplicateTitles, ...duplicateVenueDates, ...duplicateSaveDates]) {

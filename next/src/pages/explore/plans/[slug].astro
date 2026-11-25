@@ -756,7 +756,7 @@ export const prerender = true;
 </BaseLayout>
 ) : (
 <BaseLayout
-  title={`${data!.title} - Mornington Peninsula Weekend Escape · Peninsula Insider`}
+  title={`${data!.title} - Mornington Peninsula Weekend Escape`.length > 60 ? `${data!.title} · Peninsula Insider` : `${data!.title} - Mornington Peninsula Weekend Escape · Peninsula Insider`}
   description={data!.dek}
   section="explore"
   canonical={canonical}

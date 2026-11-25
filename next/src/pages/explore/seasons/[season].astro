@@ -1,0 +1,158 @@
+---
+/**
+ * /explore/seasons/[season]/ - one hub per season.
+ *
+ * Gathers what the site already holds for a season: the journal pieces written
+ * for it, the What's On month pages inside it, and the things to do whose
+ * records mark the season as a good time. Nothing here is new reporting; the
+ * hub is a way in for "summer on the Mornington Peninsula" style questions.
+ */
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import ArticleCard from '../../../components/ArticleCard.astro';
+import ExperienceCard from '../../../components/ExperienceCard.astro';
+import EventMonthNav from '../../../components/EventMonthNav.astro';
+import NewsletterBlock from '../../../components/NewsletterBlock.astro';
+import { isJournalEditorial } from '../../../lib/journal-curation.mjs';
+import { buildNow, loadLiveEvents, monthLanes } from '../../whats-on/_data';
+
+const SEASONS = {
+  summer: {
+    label: 'Summer', span: 'December to February', months: ['december', 'january', 'february'],
+    lede: 'Summer on the Mornington Peninsula runs from December to February. It is the season for the bay beaches, long evenings and outdoor events, and the busiest time of the year, so book stays and restaurant tables well ahead.',
+  },
+  autumn: {
+    label: 'Autumn', span: 'March to May', months: ['march', 'april', 'may'],
+    lede: 'Autumn on the Mornington Peninsula runs from March to May. The summer crowds thin, it is harvest time in the vineyards, and the weather usually stays settled enough for walks and long lunches.',
+  },
+  winter: {
+    label: 'Winter', span: 'June to August', months: ['june', 'july', 'august'],
+    lede: 'Winter on the Mornington Peninsula runs from June to August. It is the quiet season: hot springs, cellar doors and long lunches indoors, with tables and rooms easier to book than in summer.',
+  },
+  spring: {
+    label: 'Spring', span: 'September to November', months: ['september', 'october', 'november'],
+    lede: 'Spring on the Mornington Peninsula runs from September to November. Gardens and coastal walks come into their own, the weather is changeable, and the school holidays bring the first busy weeks before summer.',
+  },
+} as const;
+type SeasonKey = keyof typeof SEASONS;
+const ORDER: SeasonKey[] = ['summer', 'autumn', 'winter', 'spring'];
+
+export async function getStaticPaths() {
+  return (['summer', 'autumn', 'winter', 'spring'] as const).map((season) => ({ params: { season } }));
+}
+
+const key = Astro.params.season as SeasonKey;
+const season = SEASONS[key];
+const word = new RegExp(`\\b${key}\\b`, 'i');
+
+// Journal pieces written for the season. The daily picks are left out: they
+// date quickly and each already belongs to its own day.
+const reads = (await getCollection('articles', ({ data }) => isJournalEditorial(data)))
+  .filter((a) => a.data.format !== 'insider-edit' && word.test(a.data.title))
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime())
+  .slice(0, 6);
+
+// Things to do whose own record names this season, and not every season.
+const experiences = (await getCollection('experiences'))
+  .filter((e) => {
+    const best: string[] = e.data.seasonBest ?? [];
+    return best.includes(key) && !best.includes('all-year') && best.length < 4 && e.data.sitemapExclude !== true;
+  })
+  .sort((a, b) => a.data.name.localeCompare(b.data.name))
+  .slice(0, 9);
+
+const now = buildNow();
+const months = monthLanes(await loadLiveEvents(now), now)
+  .filter((lane) => !lane.past && season.months.includes(lane.slug.split('-')[0]))
+  .map(({ slug, label }) => ({ slug, label }));
+
+const SITE_URL = 'https://peninsulainsider.com.au';
+const canonical = `${SITE_URL}/explore/seasons/${key}/`;
+const title = `${season.label} on the Mornington Peninsula`;
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Explore', href: '/explore/' },
+  { label: season.label },
+];
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: title,
+  description: season.lede,
+  url: canonical,
+};
+export const prerender = true;
+---
+
+<BaseLayout title={`${title} · Peninsula Insider`} description={season.lede} section="explore" canonical={canonical}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <section class="season-hero">
+    <div class="container">
+      <p class="season-hero__eyebrow">Explore · {season.span}</p>
+      <h1 class="season-hero__heading">{title}</h1>
+      <p class="season-hero__lede">{season.lede}</p>
+      <nav class="season-hero__nav" aria-label="Seasons">
+        <ul role="list">
+          {ORDER.map((s) => (
+            <li>{s === key ? <span aria-current="page">{SEASONS[s].label}</span> : <a href={`/explore/seasons/${s}/`}>{SEASONS[s].label}</a>}</li>
+          ))}
+        </ul>
+      </nav>
+    </div>
+  </section>
+
+  {months.length > 0 && (
+    <section class="season-block">
+      <div class="container">
+        <h2 class="season-block__title">What's on in {season.label.toLowerCase()}</h2>
+        <p class="season-block__intro">Events are listed day by day on a page for each month.</p>
+        <EventMonthNav months={months} />
+      </div>
+    </section>
+  )}
+
+  {reads.length > 0 && (
+    <section class="season-block">
+      <div class="container">
+        <h2 class="season-block__title">Read before you come</h2>
+        <div class="venues__grid">
+          {reads.map((article) => <ArticleCard article={article} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {experiences.length > 0 && (
+    <section class="season-block">
+      <div class="container">
+        <h2 class="season-block__title">Things to do that suit {season.label.toLowerCase()}</h2>
+        <p class="season-block__intro">Walks, beaches and outings whose own notes name {season.label.toLowerCase()} as a good time to go. <a href="/explore/things-to-do/">See everything to do</a>.</p>
+        <div class="venues__grid">
+          {experiences.map((experience) => <ExperienceCard experience={experience} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <NewsletterBlock />
+</BaseLayout>
+
+<style>
+  .season-hero { background: var(--bg-alt); border-bottom: 1px solid var(--border); padding: clamp(2.5rem, 5vw, 4rem) 0 1.5rem; }
+  .season-hero__eyebrow { margin: 0 0 0.6rem; font: 500 0.7rem var(--font-ui); letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+  .season-hero__heading { margin: 0 0 0.75rem; font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; color: #0b2e4a; }
+  .season-hero__lede { max-width: 68ch; margin: 0 0 1.25rem; font: 400 1.0625rem/1.6 var(--font-ui); color: var(--text); }
+  .season-hero__nav ul { display: flex; flex-wrap: wrap; gap: 0 1.25rem; margin: 0; padding: 0; list-style: none; font: 500 0.9375rem/1.4 var(--font-ui); }
+  .season-hero__nav a, .season-hero__nav span { display: inline-flex; align-items: center; min-height: 44px; }
+  .season-hero__nav a { color: var(--text); text-decoration: underline; text-underline-offset: 0.2em; }
+  .season-hero__nav span { font-weight: 700; color: #0b2e4a; }
+  .season-block { padding: clamp(2rem, 4vw, 3rem) 0 0; }
+  .season-block:last-of-type { padding-bottom: clamp(2rem, 4vw, 3rem); }
+  .season-block__title { margin: 0 0 0.5rem; font-family: var(--font-display); font-size: clamp(1.35rem, 2.5vw, 1.75rem); font-weight: 700; letter-spacing: -0.02em; color: #0b2e4a; }
+  .season-block__intro { max-width: 68ch; margin: 0 0 1.25rem; font: 400 0.9375rem/1.6 var(--font-ui); color: var(--soft); }
+  .season-block__intro a { color: var(--text); text-decoration: underline; text-underline-offset: 0.2em; }
+  .season-block .venues__grid { margin-top: 1rem; }
+</style>

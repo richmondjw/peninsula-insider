@@ -32,10 +32,10 @@ Small, certain fixes. Done first because they are cheap and visible.
 | --- | --- | --- | --- | --- |
 | A1 | Remove the "Add photo" CMS label from public venue and event cards | Agent | Done | Readers see a neutral plate where a card has no photograph. The prompt shows only in edit mode. Checked in a browser on Sorrento, Red Hill, Mornington and a venue page at phone and desktop widths |
 | A2 | Correct the founding date in structured data | Needs owner | Needs owner | The site's structured data says founded 2024. The advertising kit says launched early 2026. Not changed, because the repository cannot show which is true. See decisions below |
-| A3 | Remove layout shift on Search and Ask | Agent | Next | Lab layout shift under 0.1 at desktop and phone widths |
+| A3 | Remove layout shift on Search and Ask | Agent | Done | Ask: the chat column is reserved before first paint, so the page no longer jumps sideways when the chat opens. Search: the page holds a full screen while results load, so they no longer push the footer. Tested against the live search page with the fix applied: 0.19 fell to under 0.01 on desktop and 0.13 to under 0.01 on a phone |
 | A4 | Stop the hidden full-size image loading on venue pages | Agent | Next | No image is fetched and shown at zero size on a venue page |
 | A5 | Optimise images supplied through the CMS | Agent | Next | CMS images on cards are served resized, not as full originals |
-| A6 | Bring titles under 60 characters and descriptions under 160 | Agent | In progress | A central rule now drops the brand suffix from any title it pushes past 60 characters and trims a long description to its last whole sentence. Long titles fell from 323 to 142 and long descriptions from 313 to 191 in the local build. The rest are editorial headlines that each need a hand-written short title |
+| A6 | Bring titles under 60 characters and descriptions under 160 | Agent | In progress | A central rule drops the brand suffix from any title it pushes past 60 characters and trims a long description to its last whole sentence. Plan and event pages also drop their second suffix when over length. Long titles fell from 323 to 142 before the plan and event rule. The rest are mostly journal headlines that each need a hand-written short title |
 | A7 | One page per town: merge the six journal area guides into their place hubs | Needs owner | Needs owner | The area guides are full articles, so merging them is an editorial decision. See decisions below |
 | A8 | Make the four trust addresses real redirects or real pages | Needs owner | Needs owner | The site is on static hosting, which cannot send a real redirect. The four rows are now in `ops/cloudflare-redirects.csv`. Importing that list at Cloudflare makes them real |
 
@@ -55,10 +55,10 @@ Small, certain fixes. Done first because they are cheap and visible.
 | ID | Item | Owner | Status | Done when |
 | --- | --- | --- | --- | --- |
 | C1 | Gate out private, members-only and alumni events | Agent | Done | The event safeguard now fails the build on closed-group wording. The one such event, a school alumni golf day, is withdrawn |
-| C2 | Replace organiser marketing lines with our own wording | Agent | Done | 14 summaries rewritten from the facts in each record. The safeguard reports promotional summaries on every build, currently none |
-| C3 | Record each event's primary source as the organiser, not the competitor | Agent | Next | Every upcoming event has an organiser or venue source. The competitor is a secondary source at most |
-| C4 | Source-mix report in the build | Agent | In progress | The build prints how many live events cite the competitor as their source: 42 of 71 today. The warning above 25% is still to add |
-| C5 | Add organiser and venue calendars to the event intake list | Agent | Not started | The intake configuration lists council, gallery, racecourse, ticketing and venue calendars |
+| C2 | Replace organiser marketing lines with our own wording | Agent | Done | 38 event summaries rewritten in house voice from the facts in each record, and their records now say so. The safeguard reports organiser-voice summaries on every build, currently none |
+| C3 | Record each event's primary source as the organiser, not the competitor | Agent | Done | Every live event now names an organiser or venue page as its official and booking link. Four events had been sending readers to the competitor to book. They were checked against the organisers' own pages, which corrected two film festival session times. The build now fails if any event uses the competitor as its booking or official link |
+| C4 | Source-mix report in the build | Agent | Done | The build prints how many live events were first found on the competitor (42 of 71) and warns when one outside site passes 25% |
+| C5 | Add organiser and venue calendars to the event intake list | Needs owner | Needs owner | The 23 organiser sites behind the competitor-found events are listed in `data/organiser-calendars-to-add.md`. Admitting a new host to the automated collector needs review under its own rules, so the list is prepared, not applied |
 | C6 | Simple public event submission form | Agent | Not started | An organiser can submit an event in under two minutes from What's On |
 
 ## Workstream D: pages for time and occasion (tier 1 move 5)
@@ -66,8 +66,8 @@ Small, certain fixes. Done first because they are cheap and visible.
 | ID | Item | Owner | Status | Done when |
 | --- | --- | --- | --- | --- |
 | D1 | Month pages for What's On | Agent | Done | Pages live at `/whats-on/month/<month>-<year>/`, linked from What's On and in the sitemap. A month gets a page only when it holds three or more dated events, so thin far-off months are not published. Today that is November, December, January, February and April. The two months just gone stay as unindexed pages that hand readers on |
-| D2 | Four season hubs | Agent | Not started | One hub per season pulling events, plans, places and journal pieces for that season |
-| D3 | Occasion pages: romantic, first visit, accessible | Agent | Not started | Each page is built from existing verified content and linked from the relevant hubs |
+| D2 | Four season hubs | Agent | Done | `/explore/seasons/summer/`, autumn, winter and spring. Each gathers the journal pieces written for the season, the What's On month pages inside it, and the things to do whose records name that season. Linked from Explore and in the sitemap |
+| D3 | Occasion pages: romantic, first visit, accessible | Shared | Not started | Romantic and first-visit pieces already exist in the journal and at `/eat/date-night/`. An accessible-visit page needs access facts checked with each venue, which cannot be written from the desk |
 
 ## Workstream E: venue and place pages (tier 1 move 7, tier 2 moves 2 and 5, tier 3 moves 3 and 5)
 
@@ -83,11 +83,11 @@ Small, certain fixes. Done first because they are cheap and visible.
 
 | ID | Item | Owner | Status | Done when |
 | --- | --- | --- | --- | --- |
-| F1 | Answer-first opening on the flagship pages | Agent | Not started | Best restaurants, best cellar doors, hatted restaurants, day trips, where to base yourself and the hot springs comparison each open with a two-sentence answer and a checked date |
+| F1 | Answer-first opening on the flagship pages | Agent | Done on inspection | Best restaurants, wine country, day trips, hot springs, beaches and walks already open with a direct answer. No change made |
 | F2 | The complete hatted list | Shared | Needs owner | Our hatted page cites the 2025 Good Food Guide. The 2027 edition is out and names Barragunda Dining as Regional Restaurant of the Year. The full 2027 list sits behind the publisher's own site, so the page needs someone with access to check it before it is rewritten |
 | F3 | The complete cellar door list | Shared | Not started | Every cellar door open to the public is listed with booking status. Needs research and verification beyond the current 38 |
 | F4 | Comparison pages with stated criteria | Agent | Not started | Hot springs, Sorrento or Portsea, and three wineries in a day each state their criteria |
-| F5 | Town things-to-do answers | Agent | Not started | Sorrento, Red Hill, Flinders and Portsea hubs each open with a short ranked answer |
+| F5 | Town things-to-do answers | Agent | Done on inspection | Sorrento, Red Hill, Flinders and Portsea already open with a one-sentence factual answer, and each now shows what is on directly beneath it |
 
 ## Workstream G: search on our own site (tier 2 move 6)
 
@@ -118,8 +118,8 @@ Mostly outside the repository.
 | I3 | Align PRODUCT.md with the public method | Needs owner | Needs owner | PRODUCT.md either matches "a source check is not a visit" or the visits are evidenced |
 | I4 | Venue link-back programme | Needs owner | Needs owner | Each listed venue has been asked to link to its page. The agent can prepare the outreach list and badge |
 | I5 | Press and partnerships outreach | Needs owner | Needs owner | A pitch list and a first round sent |
-| I6 | Promote the corrections log | Agent | Not started | The decisions log has its own address and is linked from venue pages |
-| I7 | Referral reporting for venues | Agent | Not started | Outbound booking and website clicks are counted per venue and can be exported |
+| I6 | Promote the corrections log | Agent | Not doing | A recent simplification deliberately folded corrections and method into About, with a "Decisions on the record" section, and site tests hold that in place. A separate page would reverse it. The checked date on venue pages now links to how a check works |
+| I7 | Referral reporting for venues | Needs owner | Needs owner | Website, directions and booking clicks are already recorded per venue as analytics events, and the new action row is tagged the same way. Producing a per-venue report needs access to the analytics account |
 
 ## Decisions waiting on the owner
 
@@ -137,3 +137,4 @@ Mostly outside the repository.
 | --- | --- |
 | 25 Nov 2026 | Teardown, evidence and this plan committed |
 | 25 Nov 2026 | A1, B1, C1, C2, D1, E1, E3 done. A6, C4, E2 part done. A2, A7, A8 and F2 moved to the owner with reasons. Full build gate passed, pages checked in a browser at phone and desktop widths |
+| 25 Nov 2026 | A3, C3, C4, D2 done. All event copy now in house voice. Four events repointed from the competitor to the organisers, with two session times corrected from the organiser's page. C5, I7 moved to the owner with prepared lists. I6 dropped with reason |
