@@ -3,6 +3,7 @@
 This plan turns the 22 moves in [00-teardown-and-strategy.md](00-teardown-and-strategy.md) into trackable work. It is the single place to see what is done, what is in progress, and what is waiting on a person.
 
 - **Started:** 25 November 2026
+- **Where it stands (25 November 2026):** three batches are merged. Four agent items are still open: C6 (event submission form), E4 (contents bar), E5 ("not for you if") and G2 (distinct search images). Everything else that remains needs an account, a decision, photographs or an editor, and is marked in each table
 - **Branch:** `claude/eager-ramanujan-s96j1z`
 - **How to read status:** `Done` means built, passing the build gate and pushed. `In progress` means being worked now. `Next` means queued and able to be done in the repository. `Needs owner` means it cannot be done from the repository: it needs an account, a decision, a person or a visit. `Not started` means queued behind other work.
 - **Rule for every item:** nothing ships unless `npm run build` in `next/` passes, the house rules hold (no em-dashes, no prices outside verified events, no invented venues) and the change is checked in a real browser at phone and desktop widths where it affects a page.
@@ -34,7 +35,7 @@ Small, certain fixes. Done first because they are cheap and visible.
 | A2 | Correct the founding date in structured data | Needs owner | Needs owner | The site's structured data says founded 2024. The advertising kit says launched early 2026. Not changed, because the repository cannot show which is true. See decisions below |
 | A3 | Remove layout shift on Search and Ask | Agent | Done | Ask: the chat column is reserved before first paint, so the page no longer jumps sideways when the chat opens. Search: the page holds a full screen while results load, so they no longer push the footer. Tested against the live search page with the fix applied: 0.19 fell to under 0.01 on desktop and 0.13 to under 0.01 on a phone |
 | A4 | Stop the hidden full-size image loading on venue pages | Agent | Done | The full-screen photo viewer no longer names its image until a reader opens it. Checked in a browser: the viewer still opens and shows the photograph |
-| A5 | Optimise images supplied through the CMS | Needs owner | Needs owner | CMS images average about 600 KB and reach 1.5 MB in a sample of twelve. The storage service can already serve resized versions (tested: one image fell to 65 KB at 800 pixels wide), but resizing is a metered feature of the storage plan, so switching it on is a spending decision. See decisions below |
+| A5 | Optimise images supplied through the CMS | Needs owner | Needs owner | CMS images average about 600 KB and reach 1.5 MB in a sample of twelve. The storage service can already serve resized versions (tested: one image fell to 65 KB at 800 pixels wide), but resizing is a metered feature of the storage plan, so switching it on is a spending decision. See decisions below. Separately, itinerary and other cards load full-size local photographs as backgrounds, which the build's image resizer does not cover |
 | A6 | Bring titles under 60 characters and descriptions under 160 | Agent | Done where a rule can do it | A central rule drops the brand suffix from any title it pushes past 60 characters and trims a long description to its last whole sentence. Plan, event and tour pages drop their second suffix when over length. Long titles fell from 323 to 142 before the plan, event and tour rules. What remains are journal headlines and six place titles written by hand for search, left as written |
 | A7 | One page per town: merge the six journal area guides into their place hubs | Needs owner | Needs owner | The area guides are full articles, so merging them is an editorial decision. See decisions below |
 | A8 | Make the four trust addresses real redirects or real pages | Needs owner | Needs owner | The site is on static hosting, which cannot send a real redirect. The four rows are now in `ops/cloudflare-redirects.csv`. Importing that list at Cloudflare makes them real |
@@ -93,8 +94,8 @@ Small, certain fixes. Done first because they are cheap and visible.
 
 | ID | Item | Owner | Status | Done when |
 | --- | --- | --- | --- | --- |
-| G1 | Venues before hub pages for venue-like queries | Agent | Not started | "winery lunch" returns named venues in the first five results |
-| G2 | A distinct image for each result | Agent | Not started | No photograph repeats within the first ten results |
+| G1 | Venues before hub pages for venue-like queries | Needs owner | Needs owner | Confirmed on the live site: "winery lunch" returns twelve guide pages and no named venue. Ranking is decided by the search function in the database, not by the page, so the fix is a database change that needs the owner's go-ahead |
+| G2 | A distinct image for each result | Agent | Not started | Confirmed on the live site: five of the first twelve results for "winery lunch" share one photograph, because guide pages without their own search image fall back to the section default. Each guide page needs its own image named for search |
 
 ## Workstream H: coverage (tier 1 moves 4 and 6, tier 2 move 4)
 
@@ -141,3 +142,4 @@ Mostly outside the repository.
 | 25 Nov 2026 | A3, C3, C4, D2 done. All event copy now in house voice. Four events repointed from the competitor to the organisers, with two session times corrected from the organiser's page. C5, I7 moved to the owner with prepared lists. I6 dropped with reason |
 | 25 Nov 2026 | First batch merged and live (pull request 872). Second batch in checks (pull request 876). A4 done. A5 moved to the owner as a spending decision, with the test result. Finding: itinerary cards load full-size photographs as backgrounds |
 | 25 Nov 2026 | Beach inventory research added for H1. B6 moved to the owner: it needs the Search Console credentials |
+| 25 Nov 2026 | Second and third batches merged (pull request 876). Search findings recorded for G1 and G2 from the live site |
