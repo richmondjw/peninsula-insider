@@ -3,7 +3,7 @@
 This plan turns the 22 moves in [00-teardown-and-strategy.md](00-teardown-and-strategy.md) into trackable work. It is the single place to see what is done, what is in progress, and what is waiting on a person.
 
 - **Started:** 25 November 2026
-- **Where it stands (25 November 2026):** three batches are merged. Four agent items are still open: C6 (event submission form), E4 (contents bar), E5 ("not for you if") and G2 (distinct search images). Everything else that remains needs an account, a decision, photographs or an editor, and is marked in each table
+- **Where it stands (25 November 2026):** four batches are merged and the first three are confirmed on the live site. Nothing further can be finished from the repository alone: every remaining item needs an account, a decision, photographs or an editor, and says which in its table
 - **Branch:** `claude/eager-ramanujan-s96j1z`
 - **How to read status:** `Done` means built, passing the build gate and pushed. `In progress` means being worked now. `Next` means queued and able to be done in the repository. `Needs owner` means it cannot be done from the repository: it needs an account, a decision, a person or a visit. `Not started` means queued behind other work.
 - **Rule for every item:** nothing ships unless `npm run build` in `next/` passes, the house rules hold (no em-dashes, no prices outside verified events, no invented venues) and the change is checked in a real browser at phone and desktop widths where it affects a page.
@@ -60,7 +60,7 @@ Small, certain fixes. Done first because they are cheap and visible.
 | C3 | Record each event's primary source as the organiser, not the competitor | Agent | Done | Every live event now names an organiser or venue page as its official and booking link. Four events had been sending readers to the competitor to book. They were checked against the organisers' own pages, which corrected two film festival session times. The build now fails if any event uses the competitor as its booking or official link |
 | C4 | Source-mix report in the build | Agent | Done | The build prints how many live events were first found on the competitor (42 of 71) and warns when one outside site passes 25% |
 | C5 | Add organiser and venue calendars to the event intake list | Needs owner | Needs owner | The 23 organiser sites behind the competitor-found events are listed in `data/organiser-calendars-to-add.md`. Admitting a new host to the automated collector needs review under its own rules, so the list is prepared, not applied |
-| C6 | Simple public event submission form | Agent | Not started | An organiser can submit an event in under two minutes from What's On |
+| C6 | Simple public event submission form | Agent | Done | `/submit/?type=event` presets the Event category and asks for the name, venue, dates, times and the organiser's page. It uses the existing submission form and table. What's On and the month pages link to it |
 
 ## Workstream D: pages for time and occasion (tier 1 move 5)
 
@@ -77,8 +77,8 @@ Small, certain fixes. Done first because they are cheap and visible.
 | E1 | Action row on every venue page: book, call, website, directions | Agent | Done | The four actions sit together under the title. Checked on phone and desktop |
 | E2 | Checked date on every venue page | Agent | In progress | The checked date now shows under the action row and links to how a check works. It appears only where the record holds a real check. 93 open venues have none and are listed in `data/venues-without-recorded-check.md` for editorial |
 | E3 | Place hubs open with what is on and a map | Agent | Done | "What's on in" the town is now the first section after the introduction on every place hub. The map stays lower down, because moving it up would load the mapping library before the reader needs it |
-| E4 | Contents bar that stays in view on long pages | Agent | Not started | Place hubs and venue pages have a sticky section menu on phone and desktop |
-| E5 | "Not for you if" on venue pages | Agent | Not started | Venue pages show the line where the record holds one. Records without one are listed for editorial |
+| E4 | Contents bar that stays in view on long pages | Needs owner | Needs owner | Place hubs already carry an "In this guide" contents list. Making it stay in view is a visible design change on every place page, and it has to sit with the masthead, the docked chat and the cookie banner on a phone, so it is left for a design decision |
+| E5 | "Not for you if" on venue pages | Shared | Needs owner | No venue record holds this line today, and it is an editorial judgement per venue. Place hubs already show who a town does not suit. The venue template can show the line once editors write it |
 
 ## Workstream F: flagship answers (tier 2 moves 1 and 7, tier 3 moves 1 and 2)
 
@@ -95,7 +95,7 @@ Small, certain fixes. Done first because they are cheap and visible.
 | ID | Item | Owner | Status | Done when |
 | --- | --- | --- | --- | --- |
 | G1 | Venues before hub pages for venue-like queries | Needs owner | Needs owner | Confirmed on the live site: "winery lunch" returns twelve guide pages and no named venue. Ranking is decided by the search function in the database, not by the page, so the fix is a database change that needs the owner's go-ahead |
-| G2 | A distinct image for each result | Agent | Not started | Confirmed on the live site: five of the first twelve results for "winery lunch" share one photograph, because guide pages without their own search image fall back to the section default. Each guide page needs its own image named for search |
+| G2 | A distinct image for each result | Shared | Needs owner | Confirmed on the live site: five of the first twelve results for "winery lunch" share one photograph, because guide pages without their own search image fall back to the section default. The hero files named in those pages do not reliably match their subject (the bakeries page names a beach photograph), so each guide page needs an image chosen by an editor |
 
 ## Workstream H: coverage (tier 1 moves 4 and 6, tier 2 move 4)
 
@@ -126,6 +126,7 @@ Mostly outside the repository.
 
 | Decision | Why it matters | Default if no answer |
 | --- | --- | --- |
+| Whether the place hub contents list should stay in view while scrolling | A visible design change on every place page | No change |
 | Whether to serve CMS images through the storage service's resizer | Cuts card image weight by roughly nine tenths. The resizer is metered by the number of source images | No change |
 | The founding year in structured data: 2024 or 2026 | Search engines and AI systems read it as fact | No change |
 | Whether to show dated, sourced "from" prices for the most-asked attractions | Changes a house rule. Price queries currently go to other sites | No change. The rule stands |
@@ -143,3 +144,4 @@ Mostly outside the repository.
 | 25 Nov 2026 | First batch merged and live (pull request 872). Second batch in checks (pull request 876). A4 done. A5 moved to the owner as a spending decision, with the test result. Finding: itinerary cards load full-size photographs as backgrounds |
 | 25 Nov 2026 | Beach inventory research added for H1. B6 moved to the owner: it needs the Search Console credentials |
 | 25 Nov 2026 | Second and third batches merged (pull request 876). Search findings recorded for G1 and G2 from the live site |
+| 25 Nov 2026 | Second and third batches confirmed live: season hubs load, the film festival page links to the organiser, Search layout shift is 0.002 on desktop and 0.003 on a phone, Ask is 0.001. Fourth batch merged (pull request 878): C6 done. G2 moved to an editor |
