@@ -139,7 +139,10 @@ const label = `Photographs of ${subject}`;
         </button>
       </div>
       <figure class="pviewer__figure">
-        <img class="pviewer__image" src={items[0]?.src} alt={items[0]?.alt} loading="lazy" decoding="async" />
+        {/* No src here: render() sets it when the viewer opens. A src in the
+            markup made every page download the full-size photograph for a
+            dialog most readers never open (409 KB on the Montalto page). */}
+        <img class="pviewer__image" alt={items[0]?.alt} decoding="async" />
         <figcaption class="pviewer__caption">
           <span class="pviewer__place" data-pviewer-place>{items[0]?.caption}</span>
           <span class="pviewer__credit" data-pviewer-credit>{items[0]?.credit}</span>

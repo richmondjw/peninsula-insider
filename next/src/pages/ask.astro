@@ -9,6 +9,16 @@ export const prerender = true;
   title="Ask PI"
   description="Ask PI where to eat, stay or walk on the Mornington Peninsula, or what is on. She answers from Peninsula Insider's published guides."
 >
+  {/* The chat docks beside this page on arrival (PiChat.astro). Its column is
+      reserved before first paint, on the same two conditions the chat itself
+      uses, so the page does not jump sideways when the chat script runs. */}
+  <script slot="head" is:inline>
+    try {
+      if (window.matchMedia('(min-width: 80em)').matches && localStorage.getItem('pi-chat-mode') !== 'float') {
+        document.documentElement.classList.add('pi-chat-docked');
+      }
+    } catch (e) { /* storage blocked: the chat script decides */ }
+  </script>
   <main class="ask-page container">
     <header class="ask-page__head">
       <h1>Ask PI</h1>

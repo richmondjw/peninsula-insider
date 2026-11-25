@@ -474,5 +474,22 @@ test('the competitor source share is reported and never gated', async () => {
   };
   const { code, out } = await audit(corpus);
   assert.equal(code, 0, out);
-  assert.match(out, /sourced from the competitor \. 1 of 2/);
+  assert.match(out, /first found on the competitor  1 of 2/);
+});
+
+test('an event that sends readers to the competitor to book fails the gate', async () => {
+  const { code, out } = await audit(
+    { a: { ...BASE, bookingUrl: 'https://www.visitmorningtonpeninsula.org/Whats-On/View/1/a' } },
+    { ceilings: { competitorLinked: 0 } },
+  );
+  assert.equal(code, 1, out);
+  assert.match(out, /competitorLinked: 1 > baseline 0/);
+});
+
+test('an organiser booking link passes even when the event was first found on the competitor', async () => {
+  const { code, out } = await audit(
+    { a: { ...BASE, sourceUrl: 'https://www.visitmorningtonpeninsula.org/Whats-On/View/1/a', bookingUrl: 'https://organiser.example/tickets', officialEventUrl: 'https://organiser.example/' } },
+    { ceilings: { competitorLinked: 0 } },
+  );
+  assert.equal(code, 0, out);
 });

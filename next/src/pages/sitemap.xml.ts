@@ -355,6 +355,10 @@ export const GET: APIRoute = async () => {
 
   // Regions (previously missing)
   entries.push(url('/explore/regions', 0.6, 'monthly', '2026-07-18'));
+  // Season hubs (single shared template, hence one shared date).
+  for (const season of ['summer', 'autumn', 'winter', 'spring']) {
+    entries.push(url(`/explore/seasons/${season}`, 0.6, 'monthly', '2026-11-25'));
+  }
   for (const region of regions.filter(notExcluded)) {
     entries.push(url(`/explore/regions/${region.data.slug}`, 0.6, 'monthly', dateStr(region.data.publishedAt)));
   }
