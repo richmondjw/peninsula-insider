@@ -1,6 +1,6 @@
 ---
 title: "Avani Syrah, a Seawinds Garden walk, and pub carols in Main Ridge"
-dek: Taste Syrah at Avani in Red Hill South, walk to the bay lookouts at Seawinds Garden, or book a seat for Pub Carols in Main Ridge.
+dek: Taste Syrah at Avani in Red Hill South, walk to the bay lookouts at Seawinds Garden, or plan a December dinner and singalong in Main Ridge.
 author: "editorial"
 houseByline: true
 publishedAt: 2026-11-26
@@ -42,7 +42,7 @@ faq:
   - question: "How do I get to Seawinds Garden, and can I bring my dog?"
     answer: "Enter off Purves Road near Arthurs Seat Summit. Pet dogs are not permitted. Parks Victoria's entry requirements apply to assistance dogs."
   - question: "When is Pub Carols at The Pig & Whistle and what does the ticket include?"
-    answer: "Pub Carols runs on 3, 10 and 17 December 2026, from 6 pm to 10 pm AEDT, at 365 Purves Road, Main Ridge. Book through Humanitix. The ticket includes a main and dessert."
+    answer: "Pub Carols runs on 3, 10 and 17 December 2026, from 6 pm to 10 pm AEDT, at 365 Purves Road, Main Ridge. Check availability on Humanitix. The ticket includes a main and dessert."
 ---
 
 **Avani Wines: 98 Stanleys Road, Red Hill South**
@@ -53,13 +53,13 @@ Go for a seated tasting if you want to compare Avani's wines rather than pick a 
 
 **Seawinds Garden: enter via Purves Road, Arthurs Seat**
 
-Make for the Bay and Northern lookouts for views over Port Phillip, or take the garden paths past indigenous and exotic plantings and William Ricketts sculptures. If you want a timed walk, Parks Victoria lists the TC McKeller Walk as a 1 km, 45-minute circuit from the Seawinds information shelter. That's a named trail, not an estimate for a wander around the garden. Leave pets at home: dogs are not permitted, and Parks Victoria's entry requirements apply to assistance dogs.
+Make for the Bay and Northern lookouts for views over Port Phillip, or take the garden paths past indigenous and exotic plantings and William Ricketts sculptures. If you want a timed walk, Parks Victoria lists the TC McKeller Walk as a 1 km, 45-minute circuit from the Seawinds information shelter. That's a named trail, not an estimate for a wander around the garden. Pet dogs are not permitted. Assistance dogs are welcome subject to [Parks Victoria’s entry requirements](https://www.parks.vic.gov.au/get-into-nature/all-abilities-access/assistance-dogs).
 
 ---
 
 **Pub Carols at The Pig & Whistle: 365 Purves Road, Main Ridge**
 
-This is a singalong with dinner, not a drop-in carols session. The organiser says the band teaches each table part of the same song, then brings the room together for the finale. Sessions are 6 pm to 10 pm AEDT on Thursdays 3, 10 and 17 December. Book through Humanitix; the ticket includes a main and dessert.
+This is a singalong with dinner, not a drop-in carols session. The organiser says the band teaches each table part of the same song, then brings the room together for the finale. Sessions are 6 pm to 10 pm AEDT on Thursdays 3, 10 and 17 December. Tickets include a main and dessert. [Check ticket availability on Humanitix](https://events.humanitix.com/pub-carols).
 
 ---
 
@@ -68,7 +68,7 @@ This is a singalong with dinner, not a drop-in carols session. The organiser say
 | | Venue | Address | Practical |
 |---|---|---|---|
 | **EAT** | Avani Wines | 98 Stanleys Road, Red Hill South | Thu–Mon, 10 am–5 pm; bookings recommended |
-| **WALK** | Seawinds Garden | Purves Road, Arthurs Seat | No pet dogs; assistance dog entry requirements apply |
-| **DISCOVERY** | Pub Carols at The Pig & Whistle | 365 Purves Road, Main Ridge | 3, 10 and 17 Dec, 6–10 pm; ticket includes main and dessert |
+| **WALK** | Seawinds Garden | Purves Road, Arthurs Seat | Gates 6 am–9 pm during daylight saving, 6 am–6 pm in winter. No pet dogs; assistance dog entry requirements apply. |
+| **DISCOVERY** | Pub Carols at The Pig & Whistle | 365 Purves Road, Main Ridge | 3, 10 and 17 Dec, 6–10 pm; main and dessert included. [Check tickets](https://events.humanitix.com/pub-carols). |
 
 *Correction, 26 November 2026: An earlier version misstated Avani's address, the dog rules at Seawinds Garden and the ticket arrangements for Pub Carols.*
