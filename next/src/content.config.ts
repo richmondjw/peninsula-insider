@@ -657,6 +657,8 @@ const venues = defineCollection({
      */
     visiting: z
       .object({
+        // Opt out of visit discovery when the producer has no confirmed public visit offering.
+        publicVisitStatus: z.literal('unconfirmed').optional(),
         openingHours: z
           .array(
             z.object({

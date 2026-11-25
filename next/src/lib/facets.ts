@@ -625,8 +625,10 @@ function facetsForVenueLike(data: Record<string, any>, out: Facets) {
   const type = typeof data.type === 'string' ? data.type : null;
   if (type) emit(out, 'cat', EXPERIENCE_TYPE_TO_CAT[type] ?? type);
 
+  const isPublicVisitUnconfirmed = type === 'winery' && data.visiting?.publicVisitStatus === 'unconfirmed';
   const moods: string[] = Array.isArray(data.tags?.mood) ? data.tags.mood : [];
   for (const m of moods) {
+    if (isPublicVisitUnconfirmed && m === 'cellar-door') continue;
     for (const mapped of MOOD_MAP[m] ?? []) emit(out, 'mood', mapped);
     emit(out, 'party', MOOD_TO_PARTY[m]);
   }
@@ -657,7 +659,7 @@ function facetsForVenueLike(data: Record<string, any>, out: Facets) {
 
   // Wine-surface derived moods (wineries only; keyword tables, short
   // editorial fields only, so false positives stay rare).
-  if (type === 'winery') {
+  if (type === 'winery' && !isPublicVisitUnconfirmed) {
     const text = editorialText(data);
     const lunchAttached =
       moods.includes('long-lunch') ||
