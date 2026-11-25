@@ -517,13 +517,13 @@ Winery  [Tuerong](<https://peninsulainsider.com.au/explore/places/tuerong/>)
 
 ### [Onannon](<https://peninsulainsider.com.au/wine/onannon/>)
 
-110 Tuerong Rd, Tuerong VIC 3933
+Robinson Vineyard, Tuerong
 
-Three winemakers, small-batch Pinot Noir and Chardonnay, and cult-favourite status among Australia's best sommeliers.
+Mornington Peninsula Pinot Noir and Chardonnay from winemaker Will Byron, now based at Robinson Vineyard in Tuerong.
 
-cellar door  slow
+slow  solo
 
-[Read notes](<https://peninsulainsider.com.au/wine/onannon/>) [Book](<https://www.onannon.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/wine/onannon/>)
 
 Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 

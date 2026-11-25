@@ -9,41 +9,35 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Onannon
 
-Three winemakers, small-batch Pinot Noir and Chardonnay, and cult-favourite status among Australia's best sommeliers.
+Mornington Peninsula Pinot Noir and Chardonnay from winemaker Will Byron, now based at Robinson Vineyard in Tuerong.
 
-Known for   Byron, Hermann, Middleton Winemakers Sommelier Cult Following Main Ridge Pinot Noir Low-Intervention Winemaking
-
-[Book a tasting](<https://www.onannon.com.au/>)
-
-**By appointment.** This producer doesn't take walk-ins. [Book online](<https://www.onannon.com.au/>) to arrange a visit.
+Known for   Will Byron and Pete Finnegan Robinson Vineyard Mornington Peninsula Pinot Noir and Chardonnay Single-vineyard wines
 
 Onannon · Tuerong
 
 Why we’d go
 
-Onannon is on the lists of the best restaurants in Melbourne and Sydney before it is on any shelf, and the cellar door visit explains why.
+Onannon’s regional and single-vineyard wines let you compare Pinot Noir and Chardonnay from across the Peninsula.
 
-Onannon was formed by three winemakers, Will Byron, Kaspar Hermann, and Sam Middleton, to make tiny batches of restrained, elegant Pinot Noir and Chardonnay. The wines have become quiet cult favourites among the people who drink for a living: you find them on the Attica list before you find them at retail, which is the clearest statement a Peninsula producer can make about where its wines sit.
+Will Byron started Onannon in 2008 with Kaspar Hermann and Sam Middleton. Byron is now joined by co-owner Pete Finnegan. Robinson Vineyard in Tuerong is the producer’s new home, and the wines span regional blends and single-vineyard releases.
 
-The style is deliberate: low-intervention, minimal oak, acid-driven, built for the table rather than the trophy cabinet. The Main Ridge Pinot is the headline. The Foothills Chardonnay is the winemaker's pick. Neither is priced beyond what the wine delivers, which is rarer than it should be in this category.
-
-Cellar door visits are by appointment, this is a small project with working winemakers attached, so check the website before planning. When you can go, go. Buy a couple of bottles. They are made for a winter Sunday.
+Onannon has not confirmed when the new winery will open to visitors or whether tastings are available elsewhere. Check with the producer before planning a visit.
 
 Worth knowing
 
 **Best for**
 
-Cellar door visits · Wine lovers · Couples · Special occasions
+Peninsula Pinot Noir · Peninsula Chardonnay
 
 If you only do one thing
 
-Book the appointment tasting and ask to taste the Main Ridge Pinot against the Foothills Chardonnay, two wines, one hour, and a clear argument for why Onannon belongs on the same list as the Peninsula's best.
+Compare Onannon’s Pinot Noir and Chardonnay from Robinson Vineyard in the producer’s online shop.
 
 Works well with
 
 Yabby Lake Vineyard · Barmah Park Farm Kitchen
 
-Filed under   Cellar Door Slow Solo All Year Couples
+Filed under   Slow Solo All Year Couples
 
 At a glance
 
@@ -53,53 +47,15 @@ Winery
 
 **Location**
 
-110 Tuerong Rd, Tuerong VIC 3933 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Onannon%2C%20110%20Tuerong%20Rd%2C%20Tuerong%20VIC%203933>)
-
-**Awards**
-
-Sommelier Favourite · Halliday 5-Red-Star Winery
+Robinson Vineyard, Tuerong
 
 **Website**
 
 [www.onannon.com.au](<https://www.onannon.com.au/>)
 
-**Directions**
-
-[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.2912%2C145.1154>)
-
-**Live status**
-
-[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Onannon%2C%20110%20Tuerong%20Rd%2C%20Tuerong%20VIC%203933%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
-
-**Booking**
-
-Required
-
- [Book now](<https://www.onannon.com.au/>)
-
-## Visiting
-
-By appointment only - contact the venue directly.
-
-**Booking required.** [Reserve a tasting](<https://www.onannon.com.au/>)
-
 Not sure how to build a day around Onannon?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
-
-## Nearby places
-
-Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
-
-- [Yabby Lake Vineyard](<https://peninsulainsider.com.au/wine/yabby-lake/>) · 0.4 km
-
-- [Moorooduc Estate](<https://peninsulainsider.com.au/wine/moorooduc-estate/>) · 2.5 km
-
-- [Dromana Estate](<https://peninsulainsider.com.au/wine/dromana-estate/>) · 3.3 km
-
-- [Chalet Un at Woodman Estate](<https://peninsulainsider.com.au/stay/woodman-estate/>) · 3.4 km
-
-- [Dexter Wines](<https://peninsulainsider.com.au/wine/dexter-wines/>) · 4.8 km
 
 Related picks
 

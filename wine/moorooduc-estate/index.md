@@ -163,8 +163,6 @@ Everyone sells the Mornington Peninsula as a pinot noir region. They are half ri
 
 Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
 
-- [Onannon](<https://peninsulainsider.com.au/wine/onannon/>) · 2.5 km
-
 - [Yabby Lake Vineyard](<https://peninsulainsider.com.au/wine/yabby-lake/>) · 2.8 km
 
 - [Barmah Park Vineyard](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>) · 4.5 km

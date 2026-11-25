@@ -185,8 +185,6 @@ Everyone sells the Mornington Peninsula as a pinot noir region. They are half ri
 
 Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
 
-- [Onannon](<https://peninsulainsider.com.au/wine/onannon/>) · 0.4 km
-
 - [Moorooduc Estate](<https://peninsulainsider.com.au/wine/moorooduc-estate/>) · 2.8 km
 
 - [Dromana Estate](<https://peninsulainsider.com.au/wine/dromana-estate/>) · 3.0 km

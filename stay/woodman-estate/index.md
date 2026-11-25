@@ -79,8 +79,6 @@ Within 5 km using stored map locations. Approximate straight-line distances, not
 
 - [Dromana Estate](<https://peninsulainsider.com.au/wine/dromana-estate/>) · 3.1 km
 
-- [Onannon](<https://peninsulainsider.com.au/wine/onannon/>) · 3.4 km
-
 Related picks
 
 ## Other stays to compare

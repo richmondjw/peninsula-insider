@@ -9,7 +9,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Explore the Peninsula by location. Events show the next 30 days where the event location has been verified. [See all upcoming listings](<https://peninsulainsider.com.au/whats-on/>).
 
-165 on the map
+164 on the map
 
 - [View : Arthurs Seat](<https://peninsulainsider.com.au/explore/places/arthurs-seat/>)
 
@@ -172,8 +172,6 @@ Explore the Peninsula by location. Events show the next 30 days where the event 
 - [View : Mount Eliza Farmers Market](<https://peninsulainsider.com.au/eat/mount-eliza-farmers-market/>)
 
 - [View : Nazaaray Estate](<https://peninsulainsider.com.au/wine/nazaaray-estate/>)
-
-- [View : Onannon](<https://peninsulainsider.com.au/wine/onannon/>)
 
 - [View : One Spa at RACV Cape Schanck Resort](<https://peninsulainsider.com.au/explore/spas-and-wellness/#one-spa-racv-cape-schanck>)
 

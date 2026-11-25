@@ -103,8 +103,6 @@ Within 5 km using stored map locations. Approximate straight-line distances, not
 
 - [Chalet Un at Woodman Estate](<https://peninsulainsider.com.au/stay/woodman-estate/>) · 3.1 km
 
-- [Onannon](<https://peninsulainsider.com.au/wine/onannon/>) · 3.3 km
-
 Related picks
 
 ## Other wine experiences to compare

@@ -87,8 +87,6 @@ Within 5 km using stored map locations. Approximate straight-line distances, not
 
 - [Yabby Lake Vineyard](<https://peninsulainsider.com.au/wine/yabby-lake/>) · 4.6 km
 
-- [Onannon](<https://peninsulainsider.com.au/wine/onannon/>) · 4.8 km
-
 Related picks
 
 ## Other wine experiences to compare

@@ -261,9 +261,9 @@ Flinders   Check ahead
 
 - ### [Onannon](<https://peninsulainsider.com.au/wine/onannon/>)
 
-Three winemakers, small-batch Pinot Noir and Chardonnay, and cult-favourite status among Australia's best sommeliers.
+Onannon’s regional and single-vineyard wines let you compare Pinot Noir and Chardonnay from across the Peninsula.
 
-Tuerong   By appointment
+Tuerong   Check ahead
 
 - ### [Paradigm Hill](<https://peninsulainsider.com.au/wine/paradigm-hill/>)
 
