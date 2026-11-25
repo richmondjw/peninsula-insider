@@ -123,6 +123,12 @@ ADAPT_MIN_MEASURED = 4      # need this many measured outcomes before adapting a
 ADAPT_SMOOTHING = 0.30      # EMA weight on the new target (0=frozen, 1=jumpy)
 ADAPT_CLAMP = (0.7, 1.3)    # a kind's multiplier can never leave this band
 
+# Search data older than this is history, not signal. Beyond it the engine stops
+# building (and auto-acting on) search-driven work and says so in the health line.
+GSC_MAX_AGE_DAYS = 14
+# Event statuses that must never be commissioned against.
+NON_PUBLIC_EVENT_STATUSES = {"archived", "expired", "past", "draft", "review"}
+
 # Set by build_state() from the persisted adaptive model, read by score_opportunity.
 _KIND_MULT: dict = {}
 
@@ -216,6 +222,24 @@ def _norm_path(url: str) -> str:
     if not u.endswith("/"):
         u += "/"
     return u
+
+
+def gsc_age_days(period: str, today: date) -> int | None:
+    """Days since the search report's period ended. None when no end date is readable."""
+    found = re.findall(r"\d{4}-\d{2}-\d{2}", period or "")
+    if not found:
+        return None
+    try:
+        return (today - date.fromisoformat(found[-1])).days
+    except ValueError:
+        return None
+
+
+def _empty_gsc() -> dict:
+    return {
+        "available": False, "period": "", "summary": {},
+        "top_pages": [], "top_queries": [], "striking_distance": [], "ctr_opportunities": [],
+    }
 
 
 def load_gsc(report_path: Path) -> dict:
@@ -333,7 +357,7 @@ def load_events(events_dir: Path, today: date) -> dict:
     """Upcoming events from the events collection — the timely 'what's on' input.
     Returns events within the advance-coverage window, most-imminent first, with
     days-until and a significance flag (ticketed / one-off draws > recurring markets)."""
-    out = {"available": False, "upcoming": []}
+    out = {"available": False, "upcoming": [], "ended": []}
     if not events_dir.exists():
         return out
     out["available"] = True
@@ -346,8 +370,16 @@ def load_events(events_dir: Path, today: date) -> dict:
             start = date.fromisoformat(str(d.get("startDate", ""))[:10])
         except ValueError:
             continue
+        slug = d.get("slug", jf.stem)
+        try:
+            end = date.fromisoformat(str(d.get("endDate") or "")[:10])
+        except ValueError:
+            end = start
+        withdrawn = str(d.get("status") or "").lower() in NON_PUBLIC_EVENT_STATUSES
+        if withdrawn or max(start, end) < today:
+            out["ended"].append(slug)
         days = (start - today).days
-        if days < 0 or days > EVENT_WINDOW_MAX_DAYS:
+        if withdrawn or days < 0 or days > EVENT_WINDOW_MAX_DAYS:
             continue
         recurrence = (d.get("recurrence") or "one-off").lower()
         paid = "paid" in (d.get("freePaid") or "").lower()
@@ -567,6 +599,15 @@ def build_opportunities(gsc: dict, inv: dict, comp: dict, season: str,
                                 "lastVerified, add one new internal link."),
             suggested_desk=route_desk(path),
         ))
+
+    # An event that has run, or been withdrawn, is never worth commissioning
+    # against, however well its page still shows in old search data.
+    ended = {str(sl).lower() for sl in events.get("ended", [])}
+    if ended:
+        def targets_ended_event(target: str) -> bool:
+            parts = _norm_path(target).strip("/").split("/")
+            return len(parts) == 2 and parts[0] in ("whats-on", "events") and parts[1].lower() in ended
+        opps = [o for o in opps if not targets_ended_event(o.target)]
 
     for opp in opps:
         score_opportunity(opp, gsc)
@@ -834,7 +875,17 @@ def check_health(today: date, inputs_used: list, learning: dict) -> dict:
             notes.append(f"Only {recent} snapshot(s) in the last 7 days — expected ~7.")
 
     # Input health: is performance data actually flowing, or are we flying blind?
-    if not any(i.startswith("gsc-search") for i in inputs_used):
+    stale = next((i for i in inputs_used if i.startswith("gsc-search-analytics:stale-")), None)
+    if stale:
+        age = stale.rsplit("-", 1)[-1].rstrip("d")
+        note = (f"Search data is {age} days old (limit {GSC_MAX_AGE_DAYS}). Search-driven work is "
+                "held out of the queue until a current Search Console report is supplied.")
+        if status == "stalled":
+            notes.append(note)
+        else:
+            status = "warning"
+            notes.insert(0, note)
+    elif not any(i.startswith("gsc-search") for i in inputs_used):
         status = "warning" if status == "ok" else status
         notes.append("No GSC search data this run — strategy is running without performance signal.")
     if not any(i.startswith("gsc-coverage") for i in inputs_used):
@@ -921,6 +972,11 @@ def render_markdown(state: dict) -> str:
     md.append("| Metric | Value |")
     md.append("|---|---|")
     md.append(f"| Search period | {state.get('gsc_period','—')} |")
+    if state.get("gsc_age_days") is not None:
+        age_note = f"{state['gsc_age_days']} days"
+        if state.get("gsc_stale"):
+            age_note += f" (stale: over the {GSC_MAX_AGE_DAYS}-day limit, not used for the queue)"
+        md.append(f"| Search data age | {age_note} |")
     md.append(f"| Total clicks | {m.get('total_clicks','—')} |")
     md.append(f"| Total impressions | {m.get('total_impressions','—')} |")
     md.append(f"| Avg position | {m.get('avg_position','—')} |")
@@ -1013,7 +1069,13 @@ def render_markdown(state: dict) -> str:
 def build_state(today: date) -> dict:
     global _KIND_MULT
     season = get_season(today.month)
-    gsc = load_gsc(GSC_REPORT)
+    gsc_report = load_gsc(GSC_REPORT)
+    gsc_age = gsc_age_days(gsc_report.get("period", ""), today) if gsc_report["available"] else None
+    gsc_stale = gsc_age is not None and gsc_age > GSC_MAX_AGE_DAYS
+    # Stale search data still shows in the scorecard (labelled), but it does not
+    # build, score or re-measure anything: auto_act would otherwise rewrite live
+    # titles on the strength of numbers that are months old.
+    gsc = _empty_gsc() if gsc_stale else gsc_report
     cov = load_coverage(GSC_COVERAGE)
     inv = load_inventory(SITEMAP, today)
     comp = load_competitive(COMPETITIVE_DIR)
@@ -1028,7 +1090,9 @@ def build_state(today: date) -> dict:
     _KIND_MULT = new_weights
 
     inputs_used = []
-    if gsc["available"]:
+    if gsc_stale:
+        inputs_used.append(f"gsc-search-analytics:stale-{gsc_age}d")
+    elif gsc["available"]:
         inputs_used.append("gsc-search-analytics")
     if cov["available"]:
         inputs_used.append("gsc-coverage")
@@ -1042,9 +1106,10 @@ def build_state(today: date) -> dict:
 
     opps = build_opportunities(gsc, inv, comp, season, cov, events)
 
-    total_clicks = int(_num(gsc["summary"].get("Total clicks", 0))) if gsc["available"] else 0
-    total_impr = int(_num(gsc["summary"].get("Total impressions", 0))) if gsc["available"] else 0
-    avg_pos = _num(gsc["summary"].get("Avg position (imp-weighted)", 0)) if gsc["available"] else 0.0
+    shown = gsc_report  # the scorecard reports what the file says, with its age
+    total_clicks = int(_num(shown["summary"].get("Total clicks", 0))) if shown["available"] else 0
+    total_impr = int(_num(shown["summary"].get("Total impressions", 0))) if shown["available"] else 0
+    avg_pos = _num(shown["summary"].get("Avg position (imp-weighted)", 0)) if shown["available"] else 0.0
 
     metrics = {
         "total_clicks": total_clicks,
@@ -1066,7 +1131,9 @@ def build_state(today: date) -> dict:
         "north_star": NORTH_STAR,
         "season": season,
         "inputs_used": inputs_used,
-        "gsc_period": gsc.get("period", ""),
+        "gsc_period": gsc_report.get("period", ""),
+        "gsc_age_days": gsc_age,
+        "gsc_stale": gsc_stale,
         "metrics": metrics,
         "coverage": inv["sections"],
         "day_over_day": diff,

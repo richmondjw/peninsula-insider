@@ -123,7 +123,7 @@ export function completeEventTeaser(text: unknown, maxWords: number): string {
   return chosen.trim();
 }
 
-function timeLabelFor(startTime: unknown): string {
+export function timeLabelFor(startTime: unknown): string {
   if (typeof startTime !== 'string') return '';
   const m = startTime.match(/^(\d{1,2}):(\d{2})/);
   if (!m) return '';
@@ -532,6 +532,53 @@ export function getShelves(events: LiveEvent[], now: Date, exclude: Set<string>)
 }
 
 // ---------------------------------------------------------------------------
+// Month lanes: /whats-on/month/<month>-<year>/
+// ---------------------------------------------------------------------------
+
+export interface MonthLane {
+  /** "december-2026" */
+  slug: string;
+  /** "December 2026" */
+  label: string;
+  win: ScopeWindow;
+  /** The month has finished. Its page stays for a while, unindexed, to hand readers on. */
+  past: boolean;
+}
+
+const MONTH_LANE_MIN_EVENTS = 3;
+
+function monthLane(first: Date, today: Date): MonthLane {
+  const last = new Date(Date.UTC(first.getUTCFullYear(), first.getUTCMonth() + 1, 0));
+  const label = first.toLocaleDateString('en-AU', { month: 'long', year: 'numeric', timeZone: 'UTC' });
+  return {
+    slug: label.toLowerCase().replace(/\s+/g, '-'),
+    label,
+    win: { start: first < today ? today : first, end: last, label },
+    past: last < today,
+  };
+}
+
+/**
+ * Calendar months that earn a page. Upcoming months are listed only when they
+ * hold at least MONTH_LANE_MIN_EVENTS distinct dated events, so a month that is
+ * empty, or carries one far-off recurring market, never becomes a thin page.
+ * The two months just gone are kept as unindexed hand-on pages so a saved or
+ * indexed address does not turn into a dead end on the first of the month.
+ */
+export function monthLanes(events: LiveEvent[], now: Date, horizon = 12): MonthLane[] {
+  const today = startOfDay(now);
+  const dated = events.filter(isDatedCalendarEvent);
+  const month = (offset: number) => new Date(Date.UTC(today.getUTCFullYear(), today.getUTCMonth() + offset, 1));
+  const lanes: MonthLane[] = [monthLane(month(-2), today), monthLane(month(-1), today)];
+  for (let i = 0; i < horizon; i += 1) {
+    const lane = monthLane(month(i), today);
+    const distinct = new Set(groupByDay(dated, lane.win, now).flatMap((g) => g.items.map((it) => it.live.slug)));
+    if (distinct.size >= MONTH_LANE_MIN_EVENTS) lanes.push(lane);
+  }
+  return lanes;
+}
+
+// ---------------------------------------------------------------------------
 // Feed payload (the JSON island behind /whats-on/feed.json)
 // ---------------------------------------------------------------------------
 
@@ -629,4 +676,3 @@ export function feedFor(events: LiveEvent[]): FeedEntry[] {
     return entry;
   });
 }
-
