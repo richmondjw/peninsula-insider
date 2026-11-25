@@ -86,6 +86,7 @@ export const prerender = true;
         </div>
 
         <div class="submit-grid__form-wrap">
+          <p class="submit-form__hint" data-submit-event-note hidden>Submitting an event: give us the dates, the times and the organiser's own page. We check each event against that page before it is listed.</p>
           <form class="submit-form" data-submit-form aria-label="Local-secret submission form">
             <fieldset class="submit-form__group">
               <legend class="submit-form__legend">The spot</legend>
@@ -273,6 +274,27 @@ export const prerender = true;
     // scripts/client-listener-hygiene.test.mjs exists to catch.
     if (form.dataset.piSubmitBound === '1') return;
     form.dataset.piSubmitBound = '1';
+
+    // /submit/?type=event (linked from the footer and What's On) turns the same
+    // form into an event submission: same table, category preset, and prompts
+    // that ask for what an event listing needs.
+    if (new URLSearchParams(location.search).get('type') === 'event') {
+      const say = (sel: string, text: string) => { const el = document.querySelector(sel); if (el) el.textContent = text; };
+      const category = form.querySelector<HTMLSelectElement>('#submit-category');
+      if (category) category.value = 'event';
+      say('.submit-form__legend', 'The event');
+      say('label[for="submit-title"]', 'Event name');
+      say('#submit-title ~ .submit-form__hint', 'The name as the organiser advertises it.');
+      say('label[for="submit-place"]', 'Venue and town');
+      say('label[for="submit-body"]', 'Dates, times and where to book');
+      const title = form.querySelector<HTMLInputElement>('#submit-title');
+      if (title) title.placeholder = 'Twilight market on the foreshore';
+      const place = form.querySelector<HTMLInputElement>('#submit-place');
+      if (place) place.placeholder = 'The hall, winery or reserve, and the town';
+      const body = form.querySelector<HTMLTextAreaElement>('#submit-body');
+      if (body) body.placeholder = 'The date or dates, start and finish times, who runs it, and the web page where people can book or read more.';
+      document.querySelector<HTMLElement>('[data-submit-event-note]')?.removeAttribute('hidden');
+    }
 
     const status = document.querySelector('[data-submit-status]') as HTMLParagraphElement | null;
     const button = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
