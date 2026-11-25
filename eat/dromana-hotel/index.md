@@ -13,7 +13,7 @@ A Dromana foreshore hotel with a restaurant, bistro and indoor and outdoor bars.
 
 Known for   Dromana Foreshore Hotel Restaurant and Bistro Indoor and Outdoor Bars
 
-[Reserve a table](<https://stellasdromanahotel.com.au/contact/>)  +61 3 5987 1922
+[Reserve a table](<https://stellasdromanahotel.com.au/contact/>)  +61 3 5987 1922  [Website](<https://stellasdromanahotel.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=Stella%E2%80%99s%20Hotel%20Dromana%2C%20151%20Point%20Nepean%20Rd%2C%20Dromana%20VIC%203936>)
 
 Why we’d go
 

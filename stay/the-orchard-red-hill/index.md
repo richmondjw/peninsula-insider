@@ -13,7 +13,9 @@ Three rammed-earth apartments on ten acres in Red Hill South, each with a spa ba
 
 Known for   Three self-contained rammed-earth apartments Spa baths and private decks Lake and valley views Host contact on the operator website
 
-[Check availability](<https://www.the-orchard.com.au/>)
+[Check availability](<https://www.the-orchard.com.au/>) [Website](<https://www.the-orchard.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.393%2C145.027>)
+
+[Information last checked 3 Oct 2026](<https://peninsulainsider.com.au/about/#how-a-check-works>)
 
 The Orchard Luxury Accommodation · Red Hill
 

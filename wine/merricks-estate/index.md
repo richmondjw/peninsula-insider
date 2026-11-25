@@ -13,7 +13,7 @@ A small, long-standing Merricks estate making one of the Peninsula's rare seriou
 
 Known for   Serious Peninsula Shiraz Planted 1977 by George Kefford Family-Run Estate Cool-Climate Rhône Style
 
-[Book a tasting](<https://merricksestate.com.au/>)  +61 3 5989 8416
+[Book a tasting](<https://merricksestate.com.au/>)  +61 3 5989 8416  [Website](<https://merricksestate.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3947%2C145.0959>)
 
 Merricks Estate · Merricks
 

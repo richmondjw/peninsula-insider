@@ -13,7 +13,7 @@ Casual vineyard-side dining at Pt. Leo Estate, overlooking the Sculpture Park. C
 
 Known for   Open-Air Sculpture Park Terrace Walk-In Format (No Booking Required) Estate Chardonnay by the Glass Point Leo Estate Integration
 
-[Reserve a table](<https://www.ptleoestate.com.au/terrace>)  +61 3 5989 9011
+[Reserve a table](<https://www.ptleoestate.com.au/terrace>)  +61 3 5989 9011  [Website](<https://www.ptleoestate.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.4019%2C145.0107>)
 
 Why we’d go
 

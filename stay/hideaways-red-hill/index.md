@@ -13,7 +13,9 @@ Woodland Cottage at Hideaways at Red Hill is a two-person guest suite with an in
 
 Known for   Woodland Cottage for two Indoor spa bath Red Hill wine-country base
 
-[Check availability](<https://www.airbnb.com/rooms/12077435>)
+[Check availability](<https://www.airbnb.com/rooms/12077435>) [Website](<https://www.airbnb.com/rooms/12077435>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.386%2C145.081>)
+
+[Information last checked 3 Oct 2026](<https://peninsulainsider.com.au/about/#how-a-check-works>)
 
 Hideaways at Red Hill · Red Hill
 

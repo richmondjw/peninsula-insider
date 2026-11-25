@@ -45,6 +45,24 @@ peak summer without a booking
 
 Insider  Portsea front beach is calmest early, before boat traffic and the Sorrento spillover pick up.
 
+On the calendar in this place
+
+## What's on in Portsea
+
+Coming up in Portsea, from our events listings.
+
+[All events →](<https://peninsulainsider.com.au/whats-on/>)
+
+- [Wed, 23 Dec
+
+### Eve Eve at Portsea Hotel
+
+Portsea
+
+A pre-Christmas night of live music and DJs at the Portsea Hotel, with Sarah Roberts, Minx, Tiff Cornish and Some Sheila playing from 5pm to 11pm. Strictly 18+.
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/eve-eve-2026-12-23/>)
+
 The most private end of the Peninsula - the back beach is one of the best in Victoria.
 
 Peninsula Insider - editor's note
@@ -284,21 +302,3 @@ Browse locations as a list
 - [Portsea Front Beach](<https://peninsulainsider.com.au/explore/portsea-front-beach/>) · beach
 
 - [Portsea Golf Club](<https://peninsulainsider.com.au/explore/portsea-golf-club/>) · golf-course
-
-On the calendar in this place
-
-## Events in Portsea
-
-Coming up in Portsea, pulled from the events registry.
-
-[All events →](<https://peninsulainsider.com.au/whats-on/>)
-
-- [Wed, 23 Dec
-
-### Eve Eve at Portsea Hotel
-
-Portsea
-
-A pre-Christmas night of live music and DJs at the Portsea Hotel, with Sarah Roberts, Minx, Tiff Cornish and Some Sheila playing from 5pm to 11pm. Strictly 18+.
-
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/eve-eve-2026-12-23/>)

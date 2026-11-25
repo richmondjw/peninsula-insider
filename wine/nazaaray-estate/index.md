@@ -13,7 +13,7 @@ A tiny Flinders estate with naturally fermented wines and guesthouses inside rec
 
 Known for   1930s Train Carriage Guesthouses Wild-Yeast Natural Ferments Tiny Flinders Estate One-of-a-Kind Stay
 
-[Book a tasting](<https://nazaaray.com.au/>)  +61 3 5989 0126
+[Book a tasting](<https://nazaaray.com.au/>)  +61 3 5989 0126  [Website](<https://nazaaray.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.4672%2C145.0013>)
 
 Nazaaray Estate · Flinders
 

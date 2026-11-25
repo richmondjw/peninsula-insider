@@ -45,6 +45,24 @@ cold windy winter fronts
 
 Insider  The village is at its best before 10am, when golfers and locals have it mostly to themselves.
 
+On the calendar in this place
+
+## What's on in Flinders
+
+Coming up in Flinders, from our events listings.
+
+[All events →](<https://peninsulainsider.com.au/whats-on/>)
+
+- [Sat, 5 Dec
+
+### Deck the Chocolate Tree
+
+Flinders
+
+Decorate a chocolate Christmas tree to take home in Flinders on 5–6 or 12–24 December. Drop in between 9am and 4pm; participation is subject to availability.
+
+ Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-2026-12-05/>)
+
 The village that the Peninsula keeps to itself.
 
 Peninsula Insider - editor's note
@@ -364,21 +382,3 @@ Browse locations as a list
 - [Nazaaray Estate](<https://peninsulainsider.com.au/wine/nazaaray-estate/>) · winery
 
 - [Flinders Golf Club](<https://peninsulainsider.com.au/explore/flinders-golf-club/>) · golf-course
-
-On the calendar in this place
-
-## Events in Flinders
-
-Coming up in Flinders, pulled from the events registry.
-
-[All events →](<https://peninsulainsider.com.au/whats-on/>)
-
-- [Sat, 5 Dec
-
-### Deck the Chocolate Tree
-
-Flinders
-
-Decorate a chocolate Christmas tree to take home in Flinders on 5–6 or 12–24 December. Drop in between 9am and 4pm; participation is subject to availability.
-
- Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-2026-12-05/>)

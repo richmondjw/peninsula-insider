@@ -13,7 +13,7 @@ A heritage-listed former bank on Mornington's main street, main bar, upstairs ba
 
 Known for   Heritage-Listed Former Bank Building Private Vault Dining Room Live Music Bandroom Gastropub Kitchen
 
-[Reserve a table](<https://thebayhotelmornington.com.au/>)  +61 3 5975 7199
+[Reserve a table](<https://thebayhotelmornington.com.au/>)  +61 3 5975 7199  [Website](<https://thebayhotelmornington.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.2179%2C145.0392>)
 
 Why we’d go
 

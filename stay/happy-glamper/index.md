@@ -13,7 +13,9 @@ A furnished bell tent at Balnarring Foreshore Reserve with the campsite fee incl
 
 Known for   Balnarring Foreshore Reserve location Seasonal furnished bell tent Campsite fee included for Balnarring Deluxe Other mobile campsite setups available
 
-[Check availability](<https://www.happyglamper.com.au/5m-balnarring-deluxe>)
+[Check availability](<https://www.happyglamper.com.au/5m-balnarring-deluxe>) [Website](<https://www.happyglamper.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=Happy%20Glamper%20Balnarring%20Deluxe%2C%20Balnarring%20Foreshore%20Reserve%2C%20Balnarring%20Beach%20VIC>)
+
+[Information last checked 3 Oct 2026](<https://peninsulainsider.com.au/about/#how-a-check-works>)
 
 Happy Glamper Balnarring Deluxe · Balnarring
 

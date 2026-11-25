@@ -29,6 +29,44 @@ farmgate stops, bushwalking
 
 Insider  For an easy planning check: Hawkes Farm is in Boneo; Boneo Discovery Park is in Fingal. The similarly named places do not share an address.
 
+On the calendar in this place
+
+## What's on in Boneo
+
+Coming up in Boneo, from our events listings.
+
+[All events →](<https://peninsulainsider.com.au/whats-on/>)
+
+- [Sat, 5 Dec
+
+### Countdown Classics 70's & 80's Live at Peninsula Beer Garden
+
+Boneo
+
+Countdown Classics, The Ultimate 70’s and 80’s Live Music Experience Get ready for an unforgettable night where you travel back to the 70’s and 80’s, a time that defined music, fashion, and fun. Feel the funk, groove the disco, and sing along to the rock anthems that rocked the world.
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/countdown-classics-70-s-and-80-s-live-at-peninsula-beer-garden-2026-12-05/>)
+
+- [Sun, 29 Nov
+
+### Dave Campbell Live at Peninsula Beer Garden
+
+Boneo
+
+Dave Campbell plays an afternoon set at Peninsula Beer Garden in Boneo, from 1pm to 4pm.
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/dave-campbell-live-at-peninsula-beer-garden-2026-11-29/>)
+
+- [Fri, 27 Nov
+
+### Emmie Li Live at Peninsula Beer Garden
+
+Boneo
+
+Singer-songwriter and pianist Emmie Li plays her own songs and well-known covers at Peninsula Beer Garden in Boneo, from 5pm to 8pm.
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/emmie-li-live-at-peninsula-beer-garden-2026-11-27/>)
+
 A farmgate stop, a bush track and a quieter inland route through the Peninsula.
 
 Peninsula Insider - editor's note
@@ -212,41 +250,3 @@ Browse locations as a list
 - [Boneo](<https://peninsulainsider.com.au/explore/places/boneo/>) · village
 
 - [Eagle Ridge Golf Course](<https://peninsulainsider.com.au/explore/eagle-ridge-golf-course/>) · golf-course
-
-On the calendar in this place
-
-## Events in Boneo
-
-Coming up in Boneo, pulled from the events registry.
-
-[All events →](<https://peninsulainsider.com.au/whats-on/>)
-
-- [Sat, 5 Dec
-
-### Countdown Classics 70's & 80's Live at Peninsula Beer Garden
-
-Boneo
-
-Countdown Classics, The Ultimate 70’s and 80’s Live Music Experience Get ready for an unforgettable night where you travel back to the 70’s and 80’s, a time that defined music, fashion, and fun. Feel the funk, groove the disco, and sing along to the rock anthems that rocked the world.
-
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/countdown-classics-70-s-and-80-s-live-at-peninsula-beer-garden-2026-12-05/>)
-
-- [Sun, 29 Nov
-
-### Dave Campbell Live at Peninsula Beer Garden
-
-Boneo
-
-Live Music at Peninsula Beer Garden! Join Dave Campbell for your music fix.
-
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/dave-campbell-live-at-peninsula-beer-garden-2026-11-29/>)
-
-- [Fri, 27 Nov
-
-### Emmie Li Live at Peninsula Beer Garden
-
-Boneo
-
-Enjoy live music at Peninsula Beer Garden! Join the cool vibes and coastal tunes from Emmie Li, a singer-songwriter and pianist, who is known for a mix of her own songs and well known covers.
-
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/emmie-li-live-at-peninsula-beer-garden-2026-11-27/>)

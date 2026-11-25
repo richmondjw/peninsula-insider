@@ -13,7 +13,7 @@ A serious single-vineyard producer with one of the Peninsula's most dependable r
 
 Known for   'LJM' Pinot Noir Halliday 98-Point Winery Lindsay McCall Single-Vineyard Program One-Hat Restaurant Terrace
 
-[Book a tasting](<https://www.sevenrooms.com/reservations/paringaestatewineryrestaurant>)  +61 3 5989 2669
+[Book a tasting](<https://www.sevenrooms.com/reservations/paringaestatewineryrestaurant>)  +61 3 5989 2669  [Website](<https://paringaestate.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=Paringa%20Estate%2C%2044%20Paringa%20Rd%2C%20Red%20Hill%20South%20VIC%203937>)
 
 - Photo · Robert Blackburn, courtesy of Visit Victoria
 

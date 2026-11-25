@@ -13,7 +13,7 @@ An intimate fine-dining room at Pt. Leo Estate, with seasonal menus and an unhur
 
 Known for   Seasonal Fine Dining Pt. Leo Estate Merricks
 
-[Reserve a table](<https://www.ptleoestate.com.au/dine/laura/>)  +61 3 5989 9011
+[Reserve a table](<https://www.ptleoestate.com.au/dine/laura/>)  +61 3 5989 9011  [Website](<https://www.ptleoestate.com.au/dine/laura/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.4062%2C145.0748>)
 
 Why we’d go
 

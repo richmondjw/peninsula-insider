@@ -13,7 +13,7 @@ Shashi and Rohit Singh's biodynamic family estate, one of the Peninsula's only s
 
 Known for   Biodynamic Syrah Amrit Single-Vineyard Range Skin-Contact Whites Family Estate
 
-+61 435 997 007
++61 435 997 007  [Website](<https://www.avanisyrah.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3728225%2C145.0551953>)
 
 Avani Wines · Red Hill South
 

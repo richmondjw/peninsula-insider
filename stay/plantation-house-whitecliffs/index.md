@@ -13,7 +13,9 @@ A Rye bed and breakfast with five named rooms and suites. Cooked breakfast is in
 
 Known for   Five named rooms and suites Included cooked breakfast 1932 sandstone property Rye foreshore location
 
-[Check availability](<https://www.plantationhouse.com.au/>)
+[Check availability](<https://www.plantationhouse.com.au/>) [Website](<https://www.plantationhouse.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=Plantation%20House%20at%20Whitecliffs%2C%2033%20Maori%20St%2C%20Rye%20VIC%203941>)
+
+[Information last checked 3 Oct 2026](<https://peninsulainsider.com.au/about/#how-a-check-works>)
 
 Plantation House at Whitecliffs · Rye
 

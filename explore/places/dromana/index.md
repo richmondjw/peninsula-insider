@@ -49,6 +49,44 @@ the middle of school-holiday afternoons
 
 Insider  The beach west of the pier is usually quieter than the central foreshore and still close to everything.
 
+On the calendar in this place
+
+## What's on in Dromana
+
+Coming up in Dromana, from our events listings.
+
+[All events →](<https://peninsulainsider.com.au/whats-on/>)
+
+- [Fri, 27 Nov
+
+### Ben Smith Live at Jetty Road Brewery
+
+Dromana
+
+Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes. Full menu available from 12pm, Ben Smith will be live from 6pm.
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
+
+- [Sat, 28 Nov
+
+### DJ Sophie Joy Live at Jetty Road Brewery
+
+Dromana
+
+DJ Sophie Joy plays Jetty Road Brewery in Dromana from 6pm to 9pm, part of the brewery's regular weekend music.
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/dj-sophie-joy-live-at-jetty-road-brewery-2026-11-28/>)
+
+- [Sun, 29 Nov
+
+### Olivia Mae Live at Jetty Road Brewery
+
+Dromana
+
+Olivia Mae plays an afternoon set at Jetty Road Brewery in Dromana from 1pm to 4pm, part of the brewery's regular weekend music.
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/olivia-mae-live-at-jetty-road-brewery-2026-11-29/>)
+
 The gateway town - more accessible than the hinterland, still genuinely Peninsula.
 
 Peninsula Insider - editor's note
@@ -378,41 +416,3 @@ Browse locations as a list
 - [Two Bays Brewing Co](<https://peninsulainsider.com.au/wine/two-bays-brewing/>) · brewery
 
 - [Dromana Beach](<https://peninsulainsider.com.au/explore/dromana-beach/>) · beach
-
-On the calendar in this place
-
-## Events in Dromana
-
-Coming up in Dromana, pulled from the events registry.
-
-[All events →](<https://peninsulainsider.com.au/whats-on/>)
-
-- [Fri, 27 Nov
-
-### Ben Smith Live at Jetty Road Brewery
-
-Dromana
-
-Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes. Full menu available from 12pm, Ben Smith will be live from 6pm.
-
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
-
-- [Sat, 28 Nov
-
-### DJ Sophie Joy Live at Jetty Road Brewery
-
-Dromana
-
-Live music every weekend at Jetty Road Brewery! Kick-back and enjoy a freshly brewed beer and bite while listening to live local music at Jetty Road Brewery.
-
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/dj-sophie-joy-live-at-jetty-road-brewery-2026-11-28/>)
-
-- [Sun, 29 Nov
-
-### Olivia Mae Live at Jetty Road Brewery
-
-Dromana
-
-Live music every weekend at Jetty Road Brewery! Settle in with a cold craft brew, delicious food and the sounds of talented local artists bringing the brewery to life every weekend.
-
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/olivia-mae-live-at-jetty-road-brewery-2026-11-29/>)

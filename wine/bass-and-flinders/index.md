@@ -13,7 +13,7 @@ A Peninsula gin distillery with a gin-school blending session that has quietly b
 
 Known for   Peninsula Gin Distillery Gin School Blending Sessions Angry Ant Botanical Gin Operating Since 2009
 
-[Reserve a table](<https://bassandflindersdistillery.com/>)  +61 3 5987 3893
+[Reserve a table](<https://bassandflindersdistillery.com/>)  +61 3 5987 3893  [Website](<https://bassandflindersdistillery.com/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=Bass%20%26%20Flinders%20Distillery%2C%2040%20Collins%20Rd%2C%20Dromana%20VIC%203936>)
 
 - Photo · Two Palms Australia, courtesy of Visit Victoria
 

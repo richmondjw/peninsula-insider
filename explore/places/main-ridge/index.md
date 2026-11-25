@@ -41,6 +41,44 @@ rainy winter weekdays when venues shut early
 
 Insider  Book lunch first and build the wine stops around it - that is how locals avoid wasting the day in the car.
 
+On the calendar in this place
+
+## What's on in Main Ridge
+
+Coming up in Main Ridge, from our events listings.
+
+[All events →](<https://peninsulainsider.com.au/whats-on/>)
+
+- [Sun, 13 Dec
+
+### Legends Of Sunbury: Spectrum, Madder Lake & Phil Manning Live at The Pig & Whistle Tavern
+
+Main Ridge
+
+Featuring the cream of Australian Artists Sunbury was touted as “The Rock Happening of its time”. SUNBURY POP FESTIVAL 72’ to 75’ was often regarded as a major milestone in Australian Music history.
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/legends-of-sunbury-spectrum-madder-lake-and-phil-manning-live-at-the-pig-and-whistle-taver-2026-12-1/>)
+
+- [Fri, 27 Nov
+
+### Luke O'Shea & Lyn Bowtell Live at The Pig & Whistle Tavern
+
+Main Ridge
+
+Country musicians Luke O'Shea and Lyn Bowtell bring their Love and Laughter Tour to the Pig & Whistle Tavern in Main Ridge, from 8pm to 10pm.
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/luke-o-shea-and-lyn-bowtell-live-at-the-pig-and-whistle-tavern-2026-11-27/>)
+
+- [Thu, 3 Dec
+
+### ✦ Pub Carols at The Pig & Whistle
+
+Main Ridge
+
+A group carols night with a live band and two-course meal at The Pig & Whistle in Main Ridge. The organiser lists Thursday 3, 10 and 17 December, each from 6pm to 10pm.
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/pub-carols-pig-whistle-main-ridge-2026/>)
+
 A high, quiet part of the Peninsula wine country, where the pinot is best and the road narrows.
 
 Peninsula Insider - editor's note
@@ -374,41 +412,3 @@ Browse locations as a list
 - [Greens Bush - Two Bays Section](<https://peninsulainsider.com.au/explore/greens-bush-two-bays-section/>) · walk
 
 - [Sunny Ridge Strawberry Farm](<https://peninsulainsider.com.au/explore/sunny-ridge-strawberry-farm/>) · attraction
-
-On the calendar in this place
-
-## Events in Main Ridge
-
-Coming up in Main Ridge, pulled from the events registry.
-
-[All events →](<https://peninsulainsider.com.au/whats-on/>)
-
-- [Sun, 13 Dec
-
-### Legends Of Sunbury: Spectrum, Madder Lake & Phil Manning Live at The Pig & Whistle Tavern
-
-Main Ridge
-
-Featuring the cream of Australian Artists Sunbury was touted as “The Rock Happening of its time”. SUNBURY POP FESTIVAL 72’ to 75’ was often regarded as a major milestone in Australian Music history.
-
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/legends-of-sunbury-spectrum-madder-lake-and-phil-manning-live-at-the-pig-and-whistle-taver-2026-12-1/>)
-
-- [Fri, 27 Nov
-
-### Luke O'Shea & Lyn Bowtell Live at The Pig & Whistle Tavern
-
-Main Ridge
-
-Get ready, Main Ridge! Two of the most respected names in Australian country music, Luke O’Shea and Lyn Bowtell, are coming with their highly anticipated ‘Love and Laughter Tour’!
-
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/luke-o-shea-and-lyn-bowtell-live-at-the-pig-and-whistle-tavern-2026-11-27/>)
-
-- [Thu, 3 Dec
-
-### ✦ Pub Carols at The Pig & Whistle
-
-Main Ridge
-
-A group carols night with a live band and two-course meal at The Pig & Whistle in Main Ridge. The organiser lists Thursday 3, 10 and 17 December, each from 6pm to 10pm.
-
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/pub-carols-pig-whistle-main-ridge-2026/>)

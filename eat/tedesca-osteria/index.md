@@ -13,7 +13,7 @@ Brigitte Hafner's single-set-menu osteria inside a restored Red Hill farmhouse w
 
 Known for   Brigitte Hafner Wood Oven Kitchen Single Set Menu Red Hill Farmhouse
 
-[Reserve a table](<https://www.tedesca.com.au/>)  +61 3 5931 0701
+[Reserve a table](<https://www.tedesca.com.au/>)  +61 3 5931 0701  [Website](<https://www.tedesca.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3809909%2C144.9936166>)
 
 Why we’d go
 

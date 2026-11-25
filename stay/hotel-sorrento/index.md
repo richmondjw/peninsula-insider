@@ -13,7 +13,9 @@ A Sorrento clifftop hotel with restored limestone rooms, contemporary suites, a 
 
 Known for   Sorrento clifftop location Restored Classic rooms Adults-only guest pool On-site dining and wellness
 
-[Check availability](<https://hotelsorrento.com.au/stay/>)  +61 3 5984 8000
+[Check availability](<https://hotelsorrento.com.au/stay/>)  +61 3 5984 8000  [Website](<https://hotelsorrento.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3369%2C144.7408>)
+
+[Information last checked 1 Oct 2026](<https://peninsulainsider.com.au/about/#how-a-check-works>)
 
 Hotel Sorrento · Sorrento
 

@@ -13,7 +13,7 @@ The Peninsula's Pinot Grigio pioneer, a family-friendly cellar door on Main Ridg
 
 Known for   Planted by Kathleen Quealy and Kevin McCarthy in the late 1980s, the Peninsula's Pinot Grigio pioneers First estate to establish Pinot Grigio as a serious Peninsula variety Most reliably family-friendly cellar door on Main Ridge Italian-inspired food menu with shaded outdoor seating Open daily, one of few cellar doors that doesn't require planning
 
-[Book a tasting](<https://tgallantvineyard.com.au/>)  +61 3 5989 6565
+[Book a tasting](<https://tgallantvineyard.com.au/>)  +61 3 5989 6565  [Website](<https://tgallantvineyard.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3781%2C144.9878>)
 
 T'Gallant · Main Ridge
 

@@ -37,6 +37,24 @@ very windy southerly days
 
 Insider  South Beach is the smarter choice when the main foreshore starts filling up by mid-morning.
 
+On the calendar in this place
+
+## What's on in Mount Martha
+
+Coming up in Mount Martha, from our events listings.
+
+[All events →](<https://peninsulainsider.com.au/whats-on/>)
+
+- [Sat, 5 Dec
+
+### The Mount Martha Briars Market
+
+Mount Martha
+
+Situated at one of the Mornington Peninsula’s most beloved and iconic locations, the upcoming Briars Craft and Produce Market will no doubt be a lovely family day out.
+
+ Event · Markets](<https://peninsulainsider.com.au/whats-on/the-mount-martha-briars-market-2026-12-05/>)
+
 The most liveable part of the Peninsula - where the beach meets the suburb properly.
 
 Peninsula Insider - editor's note
@@ -232,21 +250,3 @@ Browse locations as a list
 - [Mount Martha](<https://peninsulainsider.com.au/explore/places/mount-martha/>) · village
 
 - [Mount Martha Beach](<https://peninsulainsider.com.au/explore/mount-martha-beach/>) · beach
-
-On the calendar in this place
-
-## Events in Mount Martha
-
-Coming up in Mount Martha, pulled from the events registry.
-
-[All events →](<https://peninsulainsider.com.au/whats-on/>)
-
-- [Sat, 5 Dec
-
-### The Mount Martha Briars Market
-
-Mount Martha
-
-Situated at one of the Mornington Peninsula’s most beloved and iconic locations, the upcoming Briars Craft and Produce Market will no doubt be a lovely family day out.
-
- Event · Markets](<https://peninsulainsider.com.au/whats-on/the-mount-martha-briars-market-2026-12-05/>)

@@ -9,7 +9,7 @@ Event     Live Music     29 November 2026     One-off date
 
 # Olivia Mae Live at Jetty Road Brewery
 
-Live music every weekend at Jetty Road Brewery! Settle in with a cold craft brew, delicious food and the sounds of talented local artists bringing the brewery to life every weekend.
+Olivia Mae plays an afternoon set at Jetty Road Brewery in Dromana from 1pm to 4pm, part of the brewery's regular weekend music.
 
 [Book or check details](<https://www.jettyroad.com.au/dromana>)
 
@@ -43,7 +43,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.jettyroad.com.au/dromana>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Olivia+Mae+Live+at+Jetty+Road+Brewery&dates=20261129T020000Z%2F20261129T050000Z&details=Live+music+every+weekend+at+Jetty+Road+Brewery%21+Settle+in+with+a+cold+craft+brew%2C+delicious+food+and+the+sounds+of+talented+local+artists+bringing+the+brewery+to+life+every+weekend.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Folivia-mae-live-at-jetty-road-brewery-2026-11-29%2F&location=Jetty+Road+Brewery%2C+Dromana%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://www.jettyroad.com.au/dromana>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Olivia+Mae+Live+at+Jetty+Road+Brewery&dates=20261129T020000Z%2F20261129T050000Z&details=Olivia+Mae+plays+an+afternoon+set+at+Jetty+Road+Brewery+in+Dromana+from+1pm+to+4pm%2C+part+of+the+brewery%27s+regular+weekend+music.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Folivia-mae-live-at-jetty-road-brewery-2026-11-29%2F&location=Jetty+Road+Brewery%2C+Dromana%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 

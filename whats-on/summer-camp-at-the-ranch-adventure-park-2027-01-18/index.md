@@ -9,7 +9,7 @@ Event     Kids & Family     18 January – 22 January 2027     One-off date
 
 # Summer Camp at The Ranch Adventure Park
 
-THIS ONE'S FOR THE KIDS! Get ready for five action-packed days at Summer Camp, Designed for young adventurers aged 7-14, campers will spend the week exploring, learning new skills and making new friends while experiencing an exciting mix of outdoor adventures. Starts 9.30am.
+Five days of outdoor activities for children aged 7 to 14 at The Ranch Adventure Park in Boneo, 18 to 22 January 2027, starting at 9.30am.
 
 [Book or check details](<https://www.theranchmp.com.au/camps-holiday-programs/holiday-camp/>)
 
@@ -39,7 +39,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.theranchmp.com.au/camps-holiday-programs/holiday-camp/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Summer+Camp+at+The+Ranch+Adventure+Park&dates=20270118%2F20270123&details=THIS+ONE%27S+FOR+THE+KIDS%21+Get+ready+for+five+action-packed+days+at+Summer+Camp%2C+Designed+for+young+adventurers+aged+7-14%2C+campers+will+spend+the+week+exploring%2C+learning+new+skills+and+making+new+friends+while+experiencing+an+exciting+mix+of+outdoor+adventures.+Starts+9.30am.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fsummer-camp-at-the-ranch-adventure-park-2027-01-18%2F&location=Ranch+Adventure+Park%2C+Boneo%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://www.theranchmp.com.au/camps-holiday-programs/holiday-camp/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Summer+Camp+at+The+Ranch+Adventure+Park&dates=20270118%2F20270123&details=Five+days+of+outdoor+activities+for+children+aged+7+to+14+at+The+Ranch+Adventure+Park+in+Boneo%2C+18+to+22+January+2027%2C+starting+at+9.30am.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fsummer-camp-at-the-ranch-adventure-park-2027-01-18%2F&location=Ranch+Adventure+Park%2C+Boneo%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 

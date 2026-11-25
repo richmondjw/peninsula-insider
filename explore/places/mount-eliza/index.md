@@ -41,6 +41,24 @@ weekday school-run mornings
 
 Insider  Park on Mount Eliza Way and walk the cliff-top path down to Canadian Bay - the approach is the best part of the visit.
 
+On the calendar in this place
+
+## What's on in Mount Eliza
+
+Coming up in Mount Eliza, from our events listings.
+
+[All events →](<https://peninsulainsider.com.au/whats-on/>)
+
+- [Sun, 6 Dec
+
+### Sunday Sessions: Pottery Workshops at Peachy Keen Ceramics
+
+Mount Eliza
+
+New to clay or returning to it? You're in good hands. Starts 3pm.
+
+ Event · Arts](<https://peninsulainsider.com.au/whats-on/sunday-sessions-pottery-workshops-at-peachy-keen-ceramics-2026-12-06/>)
+
 The Peninsula's underrated northern village - quietly the best brunch strip and the closest bay beaches to Melbourne.
 
 Peninsula Insider - editor's note
@@ -180,21 +198,3 @@ Browse locations as a list
 - [Mount Eliza](<https://peninsulainsider.com.au/explore/places/mount-eliza/>) · town
 
 - [Mount Eliza Farmers Market](<https://peninsulainsider.com.au/eat/mount-eliza-farmers-market/>) · market
-
-On the calendar in this place
-
-## Events in Mount Eliza
-
-Coming up in Mount Eliza, pulled from the events registry.
-
-[All events →](<https://peninsulainsider.com.au/whats-on/>)
-
-- [Sun, 6 Dec
-
-### Sunday Sessions: Pottery Workshops at Peachy Keen Ceramics
-
-Mount Eliza
-
-New to clay or returning to it? You're in good hands. Starts 3pm.
-
- Event · Arts](<https://peninsulainsider.com.au/whats-on/sunday-sessions-pottery-workshops-at-peachy-keen-ceramics-2026-12-06/>)

@@ -45,7 +45,7 @@ Live Music   Checked 9 Nov 2026
 
 [Emmie Li Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/emmie-li-live-at-peninsula-beer-garden-2026-11-27/>)
 
-Enjoy live music at Peninsula Beer Garden! Join the cool vibes and coastal tunes from Emmie Li, a singer-songwriter and pianist, who is known for a mix of her own songs and well known covers.
+Singer-songwriter and pianist Emmie Li plays her own songs and well-known covers at Peninsula Beer Garden in Boneo, from 5pm to 8pm.
 
 Boneo · Live Music · Checked 9 Nov 2026
 
@@ -61,7 +61,7 @@ Dromana · Live Music · Checked 9 Nov 2026
 
 [Luke O'Shea & Lyn Bowtell Live at The Pig & Whistle Tavern](<https://peninsulainsider.com.au/whats-on/luke-o-shea-and-lyn-bowtell-live-at-the-pig-and-whistle-tavern-2026-11-27/>)
 
-Get ready, Main Ridge! Two of the most respected names in Australian country music, Luke O’Shea and Lyn Bowtell, are coming with their highly anticipated ‘Love and Laughter Tour’!
+Country musicians Luke O'Shea and Lyn Bowtell bring their Love and Laughter Tour to the Pig & Whistle Tavern in Main Ridge, from 8pm to 10pm.
 
 Main Ridge · Live Music · Checked 9 Nov 2026
 
@@ -71,7 +71,7 @@ Main Ridge · Live Music · Checked 9 Nov 2026
 
 [Summer Xmas Seafood Class at Peninsula Gourmet Cooking School](<https://peninsulainsider.com.au/whats-on/summer-xmas-seafood-class-at-peninsula-gourmet-cooking-school-2026-11-28/>)
 
-Delicious, Festive, Exciting! The festive season is the best time to showcase our fabulous seafood and this class introduces you to a myriad of new ideas and flavours, perfect for your holiday table and picnics and gatherings throughout the summer.
+A festive seafood cooking class at Peninsula Gourmet Cooking School in Dromana, from 11am to 2.30pm, with ideas for the holiday table, picnics and summer gatherings.
 
 Dromana · Food & Wine · Checked 9 Nov 2026
 
@@ -87,7 +87,7 @@ Fingal · Live Music · Recurring weekly · Checked 16 Nov 2026
 
 [DJ Sophie Joy Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/dj-sophie-joy-live-at-jetty-road-brewery-2026-11-28/>)
 
-Live music every weekend at Jetty Road Brewery! Kick-back and enjoy a freshly brewed beer and bite while listening to live local music at Jetty Road Brewery.
+DJ Sophie Joy plays Jetty Road Brewery in Dromana from 6pm to 9pm, part of the brewery's regular weekend music.
 
 Dromana · Live Music · Checked 9 Nov 2026
 
@@ -103,7 +103,7 @@ Merricks North · Exhibitions · Checked 9 Nov 2026
 
 [Dave Campbell Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/dave-campbell-live-at-peninsula-beer-garden-2026-11-29/>)
 
-Live Music at Peninsula Beer Garden! Join Dave Campbell for your music fix.
+Dave Campbell plays an afternoon set at Peninsula Beer Garden in Boneo, from 1pm to 4pm.
 
 Boneo · Live Music · Checked 9 Nov 2026
 
@@ -111,7 +111,7 @@ Boneo · Live Music · Checked 9 Nov 2026
 
 [Olivia Mae Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/olivia-mae-live-at-jetty-road-brewery-2026-11-29/>)
 
-Live music every weekend at Jetty Road Brewery! Settle in with a cold craft brew, delicious food and the sounds of talented local artists bringing the brewery to life every weekend.
+Olivia Mae plays an afternoon set at Jetty Road Brewery in Dromana from 1pm to 4pm, part of the brewery's regular weekend music.
 
 Dromana · Live Music · Checked 9 Nov 2026
 

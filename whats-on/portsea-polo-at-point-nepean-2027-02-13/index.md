@@ -9,7 +9,7 @@ Event     Festivals     13 February 2027     One-off date
 
 # Portsea Polo at Point Nepean
 
-It’s Polo, but not as you know it! Part of the global F3Polo® circuit, The Portsea Polo® returns on to the beautiful Mornington Peninsula, Melbourne, at the iconic Point Nepean.
+The Portsea Polo, part of the F3Polo circuit, returns to Point Nepean in Portsea on 13 February 2027, from noon to 7pm.
 
 [Book or check details](<https://portseapolo.flicket.io/>)
 
@@ -43,7 +43,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://portseapolo.flicket.io/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Portsea+Polo+at+Point+Nepean&dates=20270213T010000Z%2F20270213T080000Z&details=It%E2%80%99s+Polo%2C+but+not+as+you+know+it%21+Part+of+the+global+F3Polo%C2%AE+circuit%2C+The+Portsea+Polo%C2%AE+returns+on+to+the+beautiful+Mornington+Peninsula%2C+Melbourne%2C+at+the+iconic+Point+Nepean.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fportsea-polo-at-point-nepean-2027-02-13%2F&location=Point+Nepean%2C+Portsea%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://portseapolo.flicket.io/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Portsea+Polo+at+Point+Nepean&dates=20270213T010000Z%2F20270213T080000Z&details=The+Portsea+Polo%2C+part+of+the+F3Polo+circuit%2C+returns+to+Point+Nepean+in+Portsea+on+13+February+2027%2C+from+noon+to+7pm.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fportsea-polo-at-point-nepean-2027-02-13%2F&location=Point+Nepean%2C+Portsea%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 

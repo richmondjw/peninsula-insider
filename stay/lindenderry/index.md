@@ -13,7 +13,9 @@ A Red Hill hotel set on 34 acres of gardens and vines, with an on-site dining ro
 
 Known for   34-Acre Garden and Vineyard Estate Lancemore Group Property Weekend Cellar Door On-Site Dining Room
 
-[Check availability](<https://lancemore.com.au/hotels/lancemore-lindenderry-red-hill/>)  +61 3 5989 2933
+[Check availability](<https://lancemore.com.au/hotels/lancemore-lindenderry-red-hill/>)  +61 3 5989 2933  [Website](<https://lancemore.com.au/hotels/lancemore-lindenderry-red-hill/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3628%2C145.0482>)
+
+[Information last checked 3 Oct 2026](<https://peninsulainsider.com.au/about/#how-a-check-works>)
 
 - Photo · Peter Foster, courtesy of Visit Victoria
 

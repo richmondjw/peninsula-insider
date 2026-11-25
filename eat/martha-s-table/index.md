@@ -13,7 +13,7 @@ A marina-side restaurant in Safety Beach with a Mediterranean menu and seasonal 
 
 Known for   Marina-Side Restaurant Mediterranean Menu Seasonal Produce
 
-[Reserve a table](<https://www.marthastable.com.au/restaurant>)  +61 3 9617 5377
+[Reserve a table](<https://www.marthastable.com.au/restaurant>)  +61 3 9617 5377  [Website](<https://www.marthastable.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=Martha%27s%20Table%2C%205%20Waterfront%20Place%2C%20Safety%20Beach%20VIC%203936>)
 
 Why we’d go
 

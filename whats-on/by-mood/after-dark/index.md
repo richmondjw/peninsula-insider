@@ -31,7 +31,7 @@ Live Music  27 Nov
 
 ### [Luke O'Shea & Lyn Bowtell Live at The Pig & Whistle Tavern](<https://peninsulainsider.com.au/whats-on/luke-o-shea-and-lyn-bowtell-live-at-the-pig-and-whistle-tavern-2026-11-27/>)
 
-Get ready, Main Ridge!
+Country musicians Luke O'Shea and Lyn Bowtell bring their Love and Laughter Tour to the Pig & Whistle Tavern in Main Ridge,…
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/luke-o-shea-and-lyn-bowtell-live-at-the-pig-and-whistle-tavern-2026-11-27/>)
 
@@ -39,7 +39,7 @@ Live Music  28 Nov
 
 ### [DJ Sophie Joy Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/dj-sophie-joy-live-at-jetty-road-brewery-2026-11-28/>)
 
-Live music every weekend at Jetty Road Brewery!
+DJ Sophie Joy plays Jetty Road Brewery in Dromana from 6pm to 9pm, part of the brewery's regular weekend music.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/dj-sophie-joy-live-at-jetty-road-brewery-2026-11-28/>)
 
@@ -73,7 +73,7 @@ Arts  13 Dec
 
 ### ["Whippy" Griggs Live for a Crackin' Night at The Ranch](<https://peninsulainsider.com.au/whats-on/whippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13/>)
 
-World-renowned whip artist Nathan “Whippy” Griggs brings his Aussie Tour to The Ranch!
+Northern Territory whip artist Nathan "Whippy" Griggs brings his touring show of whip-cracking and humour to The Ranch in Boneo, from 6.30pm…
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/whippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13/>)
 

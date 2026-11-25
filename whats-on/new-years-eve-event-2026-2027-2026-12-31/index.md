@@ -77,7 +77,7 @@ Food & Wine  5 Dec
 
 ### [An Evening at BRASA by Montalto](<https://peninsulainsider.com.au/whats-on/an-evening-at-brasa-by-montalto-2026-12-05/>)
 
-BRASA brings the spirit of South America to the Mornington Peninsula!
+A South American-themed evening built around cooking over fire at BRASA by Montalto in Red Hill South, from 5.30pm to 10pm.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/an-evening-at-brasa-by-montalto-2026-12-05/>)
 

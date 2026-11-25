@@ -13,7 +13,7 @@ Single Vineyard Pinot Noir and a Sunday lunch beneath the olive grove canopy.
 
 Known for   Sculpture Trail Kitchen Garden Olive Grove One-Hat Restaurant Halliday Winery of the Year 2022
 
-[Book a tasting](<https://www.montalto.com.au/restaurant>)  +61 3 5989 8412
+[Book a tasting](<https://www.montalto.com.au/restaurant>)  +61 3 5989 8412  [Website](<https://www.montalto.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3751%2C145.0401>)
 
 - Photo · Two Palms Australia, courtesy of Visit Victoria
 

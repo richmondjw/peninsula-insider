@@ -13,7 +13,7 @@ Estate-grown pinot noir alongside a seasonal degustation rooted in the Ridge vin
 
 Known for   Three Vineyard Estate McCutcheon Pinot Noir Two-Hat Restaurant Wine List of the Year Terroir Degustation
 
-[Book a tasting](<https://www.tenminutesbytractor.com.au/>)  +61 3 5989 6455
+[Book a tasting](<https://www.tenminutesbytractor.com.au/>)  +61 3 5989 6455  [Website](<https://www.tenminutesbytractor.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3619%2C145.0543>)
 
 Ten Minutes by Tractor · Main Ridge
 

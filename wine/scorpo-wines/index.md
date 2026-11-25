@@ -13,7 +13,7 @@ Paul Scorpo's tightly focused family estate, one of the Peninsula's most acclaim
 
 Known for   Paul Scorpo Landscape Architect Founder Benchmark Pinot Gris Bestia Chardonnay Appointment Cellar Door
 
-[Book a tasting](<https://www.scorpowines.com.au/>)  +61 3 5989 7697
+[Book a tasting](<https://www.scorpowines.com.au/>)  +61 3 5989 7697  [Website](<https://www.scorpowines.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3987%2C145.0852>)
 
 Scorpo Wines · Merricks North
 

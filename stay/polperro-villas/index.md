@@ -13,7 +13,9 @@ Four vineyard villas, each sleeping two with a king-size bed, indoor spa and ope
 
 Known for   Four Villas for Two King-Size Beds Indoor Spas Open Fireplaces Vineyard Views
 
-[Check availability](<https://www.polperrowines.com.au/escape/>)  +61 3 5989 2471
+[Check availability](<https://www.polperrowines.com.au/escape/>)  +61 3 5989 2471  [Website](<https://www.polperrowines.com.au/escape/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3866%2C145.0682>)
+
+[Information last checked 3 Oct 2026](<https://peninsulainsider.com.au/about/#how-a-check-works>)
 
 Polperro Villas · Red Hill
 

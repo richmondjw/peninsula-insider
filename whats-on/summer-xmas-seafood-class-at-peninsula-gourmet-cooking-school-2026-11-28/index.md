@@ -9,7 +9,7 @@ Event     Food & Wine     28 November 2026     One-off date
 
 # Summer Xmas Seafood Class at Peninsula Gourmet Cooking School
 
-Delicious, Festive, Exciting! The festive season is the best time to showcase our fabulous seafood and this class introduces you to a myriad of new ideas and flavours, perfect for your holiday table and picnics and gatherings throughout the summer.
+A festive seafood cooking class at Peninsula Gourmet Cooking School in Dromana, from 11am to 2.30pm, with ideas for the holiday table, picnics and summer gatherings.
 
 [Book or check details](<https://peninsulagourmetcookingschool.com.au/classes>)
 
@@ -43,7 +43,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://peninsulagourmetcookingschool.com.au/classes>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Summer+Xmas+Seafood+Class+at+Peninsula+Gourmet+Cooking+School&dates=20261128T000000Z%2F20261128T033000Z&details=Delicious%2C+Festive%2C+Exciting%21+The+festive+season+is+the+best+time+to+showcase+our+fabulous+seafood+and+this+class+introduces+you+to+a+myriad+of+new+ideas+and+flavours%2C+perfect+for+your+holiday+table+and+picnics+and+gatherings+throughout+the+summer.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fsummer-xmas-seafood-class-at-peninsula-gourmet-cooking-school-2026-11-28%2F&location=Peninsula+Gourmet+Cooking+School%2C+Dromana%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://peninsulagourmetcookingschool.com.au/classes>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Summer+Xmas+Seafood+Class+at+Peninsula+Gourmet+Cooking+School&dates=20261128T000000Z%2F20261128T033000Z&details=A+festive+seafood+cooking+class+at+Peninsula+Gourmet+Cooking+School+in+Dromana%2C+from+11am+to+2.30pm%2C+with+ideas+for+the+holiday+table%2C+picnics+and+summer+gatherings.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fsummer-xmas-seafood-class-at-peninsula-gourmet-cooking-school-2026-11-28%2F&location=Peninsula+Gourmet+Cooking+School%2C+Dromana%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 
@@ -77,7 +77,7 @@ Food & Wine  5 Dec
 
 ### [An Evening at BRASA by Montalto](<https://peninsulainsider.com.au/whats-on/an-evening-at-brasa-by-montalto-2026-12-05/>)
 
-BRASA brings the spirit of South America to the Mornington Peninsula!
+A South American-themed evening built around cooking over fire at BRASA by Montalto in Red Hill South, from 5.30pm to 10pm.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/an-evening-at-brasa-by-montalto-2026-12-05/>)
 

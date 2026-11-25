@@ -9,7 +9,7 @@ Event     Live Music     27 November 2026     One-off date
 
 # Luke O'Shea & Lyn Bowtell Live at The Pig & Whistle Tavern
 
-Get ready, Main Ridge! Two of the most respected names in Australian country music, Luke O’Shea and Lyn Bowtell, are coming with their highly anticipated ‘Love and Laughter Tour’!
+Country musicians Luke O'Shea and Lyn Bowtell bring their Love and Laughter Tour to the Pig & Whistle Tavern in Main Ridge, from 8pm to 10pm.
 
 [Book or check details](<https://events.humanitix.com/luke-o-shea-and-lyn-bowtell>)
 
@@ -43,7 +43,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://events.humanitix.com/luke-o-shea-and-lyn-bowtell>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Luke+O%27Shea+%26+Lyn+Bowtell+Live+at+The+Pig+%26+Whistle+Tavern&dates=20261127T090000Z%2F20261127T110000Z&details=Get+ready%2C+Main+Ridge%21+Two+of+the+most+respected+names+in+Australian+country+music%2C+Luke+O%E2%80%99Shea+and+Lyn+Bowtell%2C+are+coming+with+their+highly+anticipated+%E2%80%98Love+and+Laughter+Tour%E2%80%99%21%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fluke-o-shea-and-lyn-bowtell-live-at-the-pig-and-whistle-tavern-2026-11-27%2F&location=Pig+%26+Whistle+Tavern%2C+Main+Ridge%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://events.humanitix.com/luke-o-shea-and-lyn-bowtell>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Luke+O%27Shea+%26+Lyn+Bowtell+Live+at+The+Pig+%26+Whistle+Tavern&dates=20261127T090000Z%2F20261127T110000Z&details=Country+musicians+Luke+O%27Shea+and+Lyn+Bowtell+bring+their+Love+and+Laughter+Tour+to+the+Pig+%26+Whistle+Tavern+in+Main+Ridge%2C+from+8pm+to+10pm.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fluke-o-shea-and-lyn-bowtell-live-at-the-pig-and-whistle-tavern-2026-11-27%2F&location=Pig+%26+Whistle+Tavern%2C+Main+Ridge%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 

@@ -13,7 +13,7 @@ A working goat dairy with farm-made cheeses, seasonal sharing plates and cheese 
 
 Known for   Goat Cheese Billies Cheese Grazing Boards Farm-Made Produce Working Dairy
 
-[Reserve a table](<https://www.mainridgedairy.com.au/>)  +61 3 5989 6622
+[Reserve a table](<https://www.mainridgedairy.com.au/>)  +61 3 5989 6622  [Website](<https://www.mainridgedairy.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3876%2C144.9876>)
 
 Why we’d go
 

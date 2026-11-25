@@ -11,6 +11,8 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 A first-Saturday market on Rye foreshore, listed by Mornington Peninsula Shire.
 
+[Website](<https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Rye-Foreshore-Market-1>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3736%2C144.8231>)
+
 Rye Foreshore Market is listed by Mornington Peninsula Shire for the first Saturday of each month, 8.30am–2pm, on the Rye foreshore opposite the Rye Hotel. Check the Shire event page before travelling for the current date and any changes.
 
 Filed under   Slow Beach Waterfront Quick Bite Summer Spring Autumn Families Couples First Timers

@@ -13,7 +13,9 @@ Eco lodge accommodation at Peninsula Hot Springs in Fingal, a separate option fr
 
 Known for   Eco Lodge Accommodation Peninsula Hot Springs Precinct Geothermal Bathing Stay
 
-[Check availability](<https://www.peninsulahotsprings.com/accommodation/eco-lodges>)  +61 3 5950 8777
+[Check availability](<https://www.peninsulahotsprings.com/accommodation/eco-lodges>)  +61 3 5950 8777  [Website](<https://www.peninsulahotsprings.com/accommodation/eco-lodges>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.40693%2C144.84273>)
+
+[Information last checked 3 Oct 2026](<https://peninsulainsider.com.au/about/#how-a-check-works>)
 
 - Photo · Courtesy of Visit Victoria
 

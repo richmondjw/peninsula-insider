@@ -49,6 +49,44 @@ summer Saturdays after 11am
 
 Insider  Book lunch first, then choose a small number of cellar doors; check any market date and weather notice directly with its organiser.
 
+On the calendar in this place
+
+## What's on in Red Hill
+
+Coming up in Red Hill, from our events listings.
+
+[All events →](<https://peninsulainsider.com.au/whats-on/>)
+
+- [Sat, 5 Dec
+
+### Chris Gogerly Live at Fenian Wines
+
+Red Hill
+
+There will be live music by Chris Gogerly and yummy pizza by Forno Di Casa food truck. Enjoy a weekend for all the family, great wine and delicious food and live music all in the relaxed space of Fenian Wines.
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/chris-gogerly-live-at-fenian-wines-2026-12-05/>)
+
+- [Sat, 12 Dec
+
+### James Vincent Live at Fenian Wines
+
+Red Hill
+
+There will be live music by James Vincent and amazing catering by Three Little Chefs. Enjoy a weekend for all the family, great wine, delicious food and live music all in the relaxed space of Fenian Wines.
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/james-vincent-live-at-fenian-wines-2026-12-12/>)
+
+- [Sat, 19 Dec
+
+### Tony J King Live at Fenian Wines
+
+Red Hill
+
+There will be live music by Tony J King Food and catering by Brothl Ramen. Enjoy a weekend for all the family, great wine, delicious food and live music all in the relaxed space of Fenian Wines.
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/tony-j-king-live-at-fenian-wines-2026-12-19/>)
+
 The most concentrated food and wine precinct on the Peninsula, on the plateau above the bay.
 
 Peninsula Insider - editor's note
@@ -524,41 +562,3 @@ Browse locations as a list
 - [Red Hill Truffles](<https://peninsulainsider.com.au/explore/red-hill-truffles/>) · attraction
 
 - [Summit Circuit Walk - Arthurs Seat](<https://peninsulainsider.com.au/explore/summit-circuit-arthurs-seat/>) · walk
-
-On the calendar in this place
-
-## Events in Red Hill
-
-Coming up in Red Hill, pulled from the events registry.
-
-[All events →](<https://peninsulainsider.com.au/whats-on/>)
-
-- [Sat, 5 Dec
-
-### Chris Gogerly Live at Fenian Wines
-
-Red Hill
-
-There will be live music by Chris Gogerly and yummy pizza by Forno Di Casa food truck. Enjoy a weekend for all the family, great wine and delicious food and live music all in the relaxed space of Fenian Wines.
-
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/chris-gogerly-live-at-fenian-wines-2026-12-05/>)
-
-- [Sat, 12 Dec
-
-### James Vincent Live at Fenian Wines
-
-Red Hill
-
-There will be live music by James Vincent and amazing catering by Three Little Chefs. Enjoy a weekend for all the family, great wine, delicious food and live music all in the relaxed space of Fenian Wines.
-
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/james-vincent-live-at-fenian-wines-2026-12-12/>)
-
-- [Sat, 19 Dec
-
-### Tony J King Live at Fenian Wines
-
-Red Hill
-
-There will be live music by Tony J King Food and catering by Brothl Ramen. Enjoy a weekend for all the family, great wine, delicious food and live music all in the relaxed space of Fenian Wines.
-
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/tony-j-king-live-at-fenian-wines-2026-12-19/>)

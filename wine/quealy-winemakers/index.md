@@ -13,7 +13,7 @@ A foundational Peninsula producer best known for pinot gris, friulano, and a cel
 
 Known for   Kathleen Quealy Pioneer Producer Pinot Gris and Friulano Program Pobblebonk Label Halliday 95-Point Winery
 
-[Book a tasting](<https://quealy.com.au/pages/cellar-door>)  +61 3 5983 2483
+[Book a tasting](<https://quealy.com.au/pages/cellar-door>)  +61 3 5983 2483  [Website](<https://quealy.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3956%2C145.0821>)
 
 Quealy Winemakers · Balnarring
 

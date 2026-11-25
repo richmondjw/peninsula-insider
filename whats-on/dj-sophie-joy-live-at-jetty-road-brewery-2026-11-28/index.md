@@ -9,7 +9,7 @@ Event     Live Music     28 November 2026     One-off date
 
 # DJ Sophie Joy Live at Jetty Road Brewery
 
-Live music every weekend at Jetty Road Brewery! Kick-back and enjoy a freshly brewed beer and bite while listening to live local music at Jetty Road Brewery.
+DJ Sophie Joy plays Jetty Road Brewery in Dromana from 6pm to 9pm, part of the brewery's regular weekend music.
 
 [Book or check details](<https://www.jettyroad.com.au/dromana>)
 
@@ -43,7 +43,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.jettyroad.com.au/dromana>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=DJ+Sophie+Joy+Live+at+Jetty+Road+Brewery&dates=20261128T070000Z%2F20261128T100000Z&details=Live+music+every+weekend+at+Jetty+Road+Brewery%21+Kick-back+and+enjoy+a+freshly+brewed+beer+and+bite+while+listening+to+live+local+music+at+Jetty+Road+Brewery.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fdj-sophie-joy-live-at-jetty-road-brewery-2026-11-28%2F&location=Jetty+Road+Brewery%2C+Dromana%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://www.jettyroad.com.au/dromana>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=DJ+Sophie+Joy+Live+at+Jetty+Road+Brewery&dates=20261128T070000Z%2F20261128T100000Z&details=DJ+Sophie+Joy+plays+Jetty+Road+Brewery+in+Dromana+from+6pm+to+9pm%2C+part+of+the+brewery%27s+regular+weekend+music.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fdj-sophie-joy-live-at-jetty-road-brewery-2026-11-28%2F&location=Jetty+Road+Brewery%2C+Dromana%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 

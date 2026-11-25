@@ -13,7 +13,7 @@ Small-production cool-climate pinot and chardonnay poured in one of the pretties
 
 Known for   Halliday Top 100 Winery Polperro and Even Keel Wines One-Hat Cool-Climate Pinot Red Hill South Ridge Views
 
-[View dining options](<https://www.polperrowines.com.au/dine/>)  +61 3 5989 2471
+[View dining options](<https://www.polperrowines.com.au/dine/>)  +61 3 5989 2471  [Website](<https://www.polperrowines.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3869%2C145.0678>)
 
 Polperro · Red Hill
 

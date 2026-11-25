@@ -13,6 +13,8 @@ A small Flinders bakery using its original wood-fired oven for naturally ferment
 
 Known for   Wood-Fired Sourdough Loaves Beach Buns Little Rebel Coffee Weekend Bakery
 
+[Website](<https://flinderssourdough.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.4734423%2C145.0154403>)
+
 Why we’d go
 
 Wood-fired sourdough, Beach Buns and coffee make the bakery a simple Flinders morning stop.

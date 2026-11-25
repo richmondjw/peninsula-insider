@@ -13,6 +13,8 @@ A small Main Ridge estate with a focused Pinot and Chardonnay range and one of t
 
 Known for   Main Ridge Boutique Estate Focused Chardonnay and Pinot Intimate Tasting Room Consistent House Style
 
+[Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3873%2C144.9922>)
+
 Lightfoot Wines · Main Ridge
 
 Why we’d go

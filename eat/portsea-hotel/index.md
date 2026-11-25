@@ -13,7 +13,7 @@ The front-row pub on Port Phillip, still the cleanest long lunch at the tip of t
 
 Known for   Front-Row Port Phillip Views Portsea Front Beach Location Fish and Chips Peninsula Tip Institution
 
-[Reserve a table](<https://www.portseahotel.com.au/>)  +61 3 5984 2213
+[Reserve a table](<https://www.portseahotel.com.au/>)  +61 3 5984 2213  [Website](<https://www.portseahotel.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3234%2C144.7119>)
 
 Why we’d go
 

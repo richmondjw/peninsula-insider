@@ -85,7 +85,7 @@ Live Music  29 Nov
 
 ### [Dave Campbell Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/dave-campbell-live-at-peninsula-beer-garden-2026-11-29/>)
 
-Live Music at Peninsula Beer Garden!
+Dave Campbell plays an afternoon set at Peninsula Beer Garden in Boneo, from 1pm to 4pm.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/dave-campbell-live-at-peninsula-beer-garden-2026-11-29/>)
 
@@ -93,7 +93,7 @@ Live Music  28 Nov
 
 ### [DJ Sophie Joy Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/dj-sophie-joy-live-at-jetty-road-brewery-2026-11-28/>)
 
-Live music every weekend at Jetty Road Brewery!
+DJ Sophie Joy plays Jetty Road Brewery in Dromana from 6pm to 9pm, part of the brewery's regular weekend music.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/dj-sophie-joy-live-at-jetty-road-brewery-2026-11-28/>)
 
@@ -117,7 +117,7 @@ Live Music  29 Nov
 
 ### [Olivia Mae Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/olivia-mae-live-at-jetty-road-brewery-2026-11-29/>)
 
-Live music every weekend at Jetty Road Brewery!
+Olivia Mae plays an afternoon set at Jetty Road Brewery in Dromana from 1pm to 4pm, part of the brewery's regular weekend…
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/olivia-mae-live-at-jetty-road-brewery-2026-11-29/>)
 

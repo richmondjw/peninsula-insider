@@ -13,7 +13,9 @@ Bell tents and two group lodges on a 36-acre property near Shoreham, with a lake
 
 Known for   Styled Bell Tents Lake and Wetlands Shared Camp Kitchen and Bathrooms Group Lodges Booked Separately
 
-[Check availability](<https://ilukaretreat.com.au/accommodation/glamping/>)
+[Check availability](<https://ilukaretreat.com.au/accommodation/glamping/>) [Website](<https://www.ilukaretreat.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=Iluka%20Retreat%20%26%20Camp%2C%2020%20Shoreham%20Rd%2C%20Shoreham%20VIC%203916>)
+
+[Information last checked 18 Nov 2026](<https://peninsulainsider.com.au/about/#how-a-check-works>)
 
 Editorial illustration
 

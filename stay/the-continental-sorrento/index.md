@@ -13,7 +13,9 @@ A Sorrento hotel with heritage rooms, a guest pool deck and The Continental dini
 
 Known for   Heritage and contemporary rooms CeeCee's breakfast Guest pool deck Sorrento village location
 
-[Check availability](<https://sorrento.intercontinental.com/>)  +61 3 5935 1212
+[Check availability](<https://sorrento.intercontinental.com/>)  +61 3 5935 1212  [Website](<https://sorrento.intercontinental.com/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3396483%2C144.7419518>)
+
+[Information last checked 30 Sept 2026](<https://peninsulainsider.com.au/about/#how-a-check-works>)
 
 InterContinental Sorrento · Sorrento
 

@@ -13,7 +13,9 @@ A private chalet beside the lake on Woodman Estate's 50-acre grounds, with garde
 
 Known for   Chalet Un beside the lake Shared 50-acre estate grounds King bed and light-use kitchenette Separate whole-estate group option
 
-[Check availability](<https://peninsulagroupstays.com.au/properties/chalet-un/>)
+[Check availability](<https://peninsulagroupstays.com.au/properties/chalet-un/>) [Website](<https://peninsulagroupstays.com.au/properties/woodman-estate-2/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.32%2C145.128>)
+
+[Information last checked 3 Oct 2026](<https://peninsulainsider.com.au/about/#how-a-check-works>)
 
 Chalet Un at Woodman Estate · Moorooduc
 

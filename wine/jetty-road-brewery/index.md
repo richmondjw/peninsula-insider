@@ -13,7 +13,7 @@ A Dromana brewery with a beer hall, food menu and core and seasonal beers.
 
 Known for   Polished Industrial Taproom Seasonal Rotating Taps Next to Dromana Drive-In Bayside Brewery Default
 
-[Reserve a table](<https://www.jettyroad.com.au/dromana>)  +61 3 5987 2754
+[Reserve a table](<https://www.jettyroad.com.au/dromana>)  +61 3 5987 2754  [Website](<https://www.jettyroad.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.34%2C144.9693>)
 
 Jetty Road Brewery · Dromana
 

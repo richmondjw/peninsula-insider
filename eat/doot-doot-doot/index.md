@@ -13,7 +13,7 @@ A multi-course dining experience at Jackalope Hotel, with a dramatic room and a 
 
 Known for   Jackalope Hotel dining room Seasonal Signature Dining Experience Merricks North wine-country setting
 
-[Reserve a table](<https://www.sevenrooms.com/reservations/jackalope?venues=rarehare%2Cjackalope>)  +61 3 5931 2500
+[Reserve a table](<https://www.sevenrooms.com/reservations/jackalope?venues=rarehare%2Cjackalope>)  +61 3 5931 2500  [Website](<https://jackalopehotels.com/drink-dine/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.4055%2C145.0182>)
 
 Doot Doot Doot · Merricks North
 

@@ -13,7 +13,7 @@ A Flinders chocolate shop offering handmade chocolates, gifts, tastings and work
 
 Known for   Handmade Chocolates Chocolate Experiences Seasonal Gifts
 
-[Reserve a table](<https://www.mpchoc.com.au/>)  +61 3 5989 0040
+[Reserve a table](<https://www.mpchoc.com.au/>)  +61 3 5989 0040  [Website](<https://www.mpchoc.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=The%20Chocolateries%20Mornington%20Peninsula%2C%2045%20Cook%20St%2C%20Flinders%20VIC%203929>)
 
 Why we’d go
 

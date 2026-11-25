@@ -13,7 +13,9 @@ An art-led vineyard hotel in Merricks North, with Doot Doot Doot dining and room
 
 Known for   Art-led hotel design Doot Doot Doot restaurant Flaggerdoot bar Merricks North vineyard setting
 
-[Check availability](<https://jackalopehotels.com/stay/>)  +61 3 5931 2500
+[Check availability](<https://jackalopehotels.com/stay/>)  +61 3 5931 2500  [Website](<https://jackalopehotels.com/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=Jackalope%20Hotel%2C%20166%20Balnarring%20Rd%2C%20Merricks%20North%20VIC%203926>)
+
+[Information last checked 1 Oct 2026](<https://peninsulainsider.com.au/about/#how-a-check-works>)
 
 - Photo · Peter Foster, courtesy of Visit Victoria
 

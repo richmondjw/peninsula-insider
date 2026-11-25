@@ -79,7 +79,7 @@ Arts  13 Dec
 
 ### ["Whippy" Griggs Live for a Crackin' Night at The Ranch](<https://peninsulainsider.com.au/whats-on/whippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13/>)
 
-World-renowned whip artist Nathan “Whippy” Griggs brings his Aussie Tour to The Ranch!
+Northern Territory whip artist Nathan "Whippy" Griggs brings his touring show of whip-cracking and humour to The Ranch in Boneo, from 6.30pm…
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/whippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13/>)
 

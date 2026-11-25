@@ -13,7 +13,9 @@ Pet-welcoming self-catering cottages near Rye bay beach. All cottages have log f
 
 Known for   Rye bay beach location Pet-welcoming cottages Log fires and fully fenced courtyards in all cottages
 
-[Check availability](<https://www.bluemooncottages.com.au/>)
+[Check availability](<https://www.bluemooncottages.com.au/>) [Website](<https://www.bluemooncottages.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3729%2C144.8384>)
+
+[Information last checked 3 Oct 2026](<https://peninsulainsider.com.au/about/#how-a-check-works>)
 
 Blue Moon Cottages · Rye
 

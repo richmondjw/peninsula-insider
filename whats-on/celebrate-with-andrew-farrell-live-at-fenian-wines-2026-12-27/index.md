@@ -9,7 +9,7 @@ Event     Live Music     27 December 2026     One-off date
 
 # Celebrate with Andrew Farrell Live at Fenian Wines
 
-Let’s wrap up the year in true Fenian style! Join us at Fenian Wines for our traditional end of year celebration on the last Sunday of 2026.
+Fenian Wines holds its end-of-year celebration in Red Hill on the last Sunday of 2026, with Andrew Farrell playing live from noon to 4pm.
 
 [Book or check details](<https://www.fenianwines.com.au/events>)
 
@@ -43,7 +43,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.fenianwines.com.au/events>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Celebrate+with+Andrew+Farrell+Live+at+Fenian+Wines&dates=20261227T010000Z%2F20261227T050000Z&details=Let%E2%80%99s+wrap+up+the+year+in+true+Fenian+style%21+Join+us+at+Fenian+Wines+for+our+traditional+end+of+year+celebration+on+the+last+Sunday+of+2026.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fcelebrate-with-andrew-farrell-live-at-fenian-wines-2026-12-27%2F&location=Fenian+Wines%2C+Red+Hill%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://www.fenianwines.com.au/events>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Celebrate+with+Andrew+Farrell+Live+at+Fenian+Wines&dates=20261227T010000Z%2F20261227T050000Z&details=Fenian+Wines+holds+its+end-of-year+celebration+in+Red+Hill+on+the+last+Sunday+of+2026%2C+with+Andrew+Farrell+playing+live+from+noon+to+4pm.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fcelebrate-with-andrew-farrell-live-at-fenian-wines-2026-12-27%2F&location=Fenian+Wines%2C+Red+Hill%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 

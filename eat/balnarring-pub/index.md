@@ -13,7 +13,9 @@ Balnarring's village pub, in a 1930s heritage home on a two-acre block, with ope
 
 Known for   1930s Heritage Home Open Fires Large Beer Garden Winter Sunday Roast Sunday Live Music
 
-[Reserve a table](<https://www.theheritagebalnarring.com.au/visit>)  +61 3 5983 2597
+[Reserve a table](<https://www.theheritagebalnarring.com.au/visit>)  +61 3 5983 2597  [Website](<https://www.theheritagebalnarring.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3744%2C145.1235>)
+
+[Information last checked 13 Sept 2026](<https://peninsulainsider.com.au/about/#how-a-check-works>)
 
 Why we’d go
 

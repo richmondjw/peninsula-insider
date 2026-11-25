@@ -13,7 +13,9 @@ Quarters is a quiet village stay behind Flinders Hotel, with pub dining and the 
 
 Known for   Flinders Village Location Western Port Foreshore Hotel Pub Dining Southern Peninsula Base
 
-[Check availability](<https://flindershotel.com.au/accommodation/>)
+[Check availability](<https://flindershotel.com.au/accommodation/>) [Website](<https://flindershotel.com.au/accommodation/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=Quarters%20at%20Flinders%20Hotel%2C%2023%20Cook%20St%2C%20Flinders%20VIC%203929>)
+
+[Information last checked 3 Oct 2026](<https://peninsulainsider.com.au/about/#how-a-check-works>)
 
 Quarters at Flinders Hotel · Flinders
 

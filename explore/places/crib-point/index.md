@@ -37,6 +37,24 @@ wet windy southerlies
 
 Insider  The Stony Point line is the only train that runs onto the Peninsula's Western Port side - Crib Point is the quietest stop with the best foreshore access.
 
+On the calendar in this place
+
+## What's on in Crib Point
+
+Coming up in Crib Point, from our events listings.
+
+[All events →](<https://peninsulainsider.com.au/whats-on/>)
+
+- [Sat, 12 Dec
+
+### Crib Point Community Market
+
+Crib Point
+
+Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm. Expect produce, plants, food and a children's treasure hunt.
+
+ Event · Markets](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
+
 The walking village between Hastings and the Stony Point ferry - quiet, mangrove-edged, train-accessible.
 
 Peninsula Insider - editor's note
@@ -154,21 +172,3 @@ Loading map…
 Browse locations as a list
 
 - [Crib Point](<https://peninsulainsider.com.au/explore/places/crib-point/>) · village
-
-On the calendar in this place
-
-## Events in Crib Point
-
-Coming up in Crib Point, pulled from the events registry.
-
-[All events →](<https://peninsulainsider.com.au/whats-on/>)
-
-- [Sat, 12 Dec
-
-### Crib Point Community Market
-
-Crib Point
-
-Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm. Expect produce, plants, food and a children's treasure hunt.
-
- Event · Markets](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)

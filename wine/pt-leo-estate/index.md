@@ -13,7 +13,7 @@ A sculpture park walk followed by a long bay-view lunch in the glass-walled rest
 
 Known for   Sculpture Park Laura Restaurant Bay Views Estate Wines Two-Hat Fine Dining
 
-[Book a tasting](<https://www.ptleoestate.com.au/restaurant>)  +61 3 5989 9011
+[Book a tasting](<https://www.ptleoestate.com.au/restaurant>)  +61 3 5989 9011  [Website](<https://www.ptleoestate.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3994%2C145.0101>)
 
 - Photo · Courtesy of Visit Victoria
 

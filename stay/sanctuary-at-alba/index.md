@@ -13,7 +13,9 @@ Five secluded villas or two premium rooms above Alba’s springs, with daily bat
 
 Known for   On-site Alba stay Villas and premium rooms Daily springs entry Breakfast at Thyme
 
-[Check availability](<https://albathermalsprings.com.au/alba-experiences/the-sanctuary/>)
+[Check availability](<https://albathermalsprings.com.au/alba-experiences/the-sanctuary/>) [Website](<https://albathermalsprings.com.au/alba-experiences/the-sanctuary/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.39219%2C144.84614>)
+
+[Information last checked 3 Oct 2026](<https://peninsulainsider.com.au/about/#how-a-check-works>)
 
 The Sanctuary at Alba · Fingal
 

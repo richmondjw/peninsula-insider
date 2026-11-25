@@ -13,7 +13,7 @@ An enormous foreshore pub a short walk from Rye's front beach, family-friendly, 
 
 Known for   Sprawling Foreshore Location Enormous Beer Garden Family-Friendly Pub Back-Beach Atmosphere
 
-[Reserve a table](<https://ryehotel.com.au/>)  +61 3 5985 2277
+[Reserve a table](<https://ryehotel.com.au/>)  +61 3 5985 2277  [Website](<https://ryehotel.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3727%2C144.8302>)
 
 Why we’d go
 

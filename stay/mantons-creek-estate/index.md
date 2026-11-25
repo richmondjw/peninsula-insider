@@ -13,7 +13,9 @@ Vineyard accommodation at Mantons Creek Estate in Shoreham, with a restaurant an
 
 Known for   Vineyard Accommodation On-Estate Restaurant Shoreham Vineyard Setting
 
-[Check availability](<https://mantonscreekestate.com.au/accommodation>)
+[Check availability](<https://mantonscreekestate.com.au/accommodation>) [Website](<https://mantonscreekestate.com.au/accommodation>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=Mantons%20Creek%20Estate%2C%20240%20Tucks%20Rd%2C%20Shoreham%20VIC%203916>)
+
+[Information last checked 3 Oct 2026](<https://peninsulainsider.com.au/about/#how-a-check-works>)
 
 Mantons Creek Estate · Shoreham
 

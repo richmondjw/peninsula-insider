@@ -13,7 +13,9 @@ Five pet-friendly cottage units near Capel Sound bay beach, from a studio to two
 
 Known for   Studio, one- and two-bedroom layouts Communal EV charging Unit 1 step-free access features Pet-friendly units
 
-[Check availability](<https://mpcottages.com/>)
+[Check availability](<https://mpcottages.com/>) [Website](<https://mpcottages.com/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=Mornington%20Peninsula%20Beach%20Club%20Cottages%2C%20Tootgarook%20VIC%203941>)
+
+[Information last checked 3 Oct 2026](<https://peninsulainsider.com.au/about/#how-a-check-works>)
 
 Mornington Peninsula Beach Club Cottages · Tootgarook
 

@@ -9,7 +9,7 @@ Event     Markets     16 January 2027     One-off date
 
 # Twilight Emu Plains Market
 
-Underneath the ancient glade of a stringybark forest, makers unite to create a craft revolution never before seen on the Mornington Peninsula. For lovers of craft, design, vintage, music and of course food, the EPM is a favourite monthly hang-out for entrepreneurs, creatives and plain old regular cool people!
+The twilight edition of the Emu Plains Market at Emu Plains Reserve in Balnarring, from 3pm to 8pm, with craft, design, vintage, music and food stalls under the stringybarks.
 
 [Book or check details](<https://www.emuplainsmarket.com.au/>)
 
@@ -43,7 +43,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.emuplainsmarket.com.au/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Twilight+Emu+Plains+Market&dates=20270116T040000Z%2F20270116T090000Z&details=Underneath+the+ancient+glade+of+a+stringybark+forest%2C+makers+unite+to+create+a+craft+revolution+never+before+seen+on+the+Mornington+Peninsula.+For+lovers+of+craft%2C+design%2C+vintage%2C+music+and+of+course+food%2C+the+EPM+is+a+favourite+monthly+hang-out+for+entrepreneurs%2C+creatives+and+plain+old+regular+cool+people%21%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Ftwilight-emu-plains-market-2027-01-16%2F&location=Emu+Plains+Reserve%2C+Coolart+Rd%2C+Balnarring%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://www.emuplainsmarket.com.au/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Twilight+Emu+Plains+Market&dates=20270116T040000Z%2F20270116T090000Z&details=The+twilight+edition+of+the+Emu+Plains+Market+at+Emu+Plains+Reserve+in+Balnarring%2C+from+3pm+to+8pm%2C+with+craft%2C+design%2C+vintage%2C+music+and+food+stalls+under+the+stringybarks.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Ftwilight-emu-plains-market-2027-01-16%2F&location=Emu+Plains+Reserve%2C+Coolart+Rd%2C+Balnarring%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 

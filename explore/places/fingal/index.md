@@ -69,6 +69,44 @@ peak summer weekends - reserve a preferred bathing time in advance and check cur
 
 Insider  Peninsula Hot Springs recommends booking ahead, especially for weekends and peak holiday periods. Check its current calendar and prices before travelling; same-day bathing bookings carry a surcharge.
 
+On the calendar in this place
+
+## What's on in Fingal
+
+Coming up in Fingal, from our events listings.
+
+[All events →](<https://peninsulainsider.com.au/whats-on/>)
+
+- [Sat, 28 Nov
+
+### ✦ Acoustic Saturdays at Peppers Moonah Links
+
+Fingal
+
+Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+
+- [Sat, 28 Nov
+
+### Brad Kennedy Live at Peppers Moonah Links Resort
+
+Fingal
+
+Ease into the weekend with live music in the Spike Bar at Moonah Links. Enjoy a rotating line-up of talented local artists from 5pm to 8pm, creating the perfect atmosphere to relax with friends, family or colleagues.
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/brad-kennedy-live-at-peppers-moonah-links-resort-2026-11-28/>)
+
+- [Fri, 25 Dec
+
+### Celebrate Christmas Day at Peppers Moonah Links Resort
+
+Fingal
+
+Join us for a relaxed and memorable Christmas Day lunch at Peppers Moonah Links Resort, with our festive buffet feast returning for another year.
+
+ Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/celebrate-christmas-day-at-peppers-moonah-links-resort-2026-12-25/>)
+
 The Peninsula's thermal heart - where the weekend slows all the way down.
 
 Peninsula Insider - editor's note
@@ -398,41 +436,3 @@ Browse locations as a list
 - [Moonah Links](<https://peninsulainsider.com.au/explore/moonah-links/>) · golf-course
 
 - [St Andrews Beach Golf Course](<https://peninsulainsider.com.au/explore/st-andrews-beach-golf-course/>) · golf-course
-
-On the calendar in this place
-
-## Events in Fingal
-
-Coming up in Fingal, pulled from the events registry.
-
-[All events →](<https://peninsulainsider.com.au/whats-on/>)
-
-- [Sat, 28 Nov
-
-### ✦ Acoustic Saturdays at Peppers Moonah Links
-
-Fingal
-
-Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
-
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
-
-- [Sat, 28 Nov
-
-### Brad Kennedy Live at Peppers Moonah Links Resort
-
-Fingal
-
-Ease into the weekend with live music in the Spike Bar at Moonah Links. Enjoy a rotating line-up of talented local artists from 5pm to 8pm, creating the perfect atmosphere to relax with friends, family or colleagues.
-
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/brad-kennedy-live-at-peppers-moonah-links-resort-2026-11-28/>)
-
-- [Fri, 25 Dec
-
-### Celebrate Christmas Day at Peppers Moonah Links Resort
-
-Fingal
-
-Join us for a relaxed and memorable Christmas Day lunch at Peppers Moonah Links Resort, with our festive buffet feast returning for another year.
-
- Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/celebrate-christmas-day-at-peppers-moonah-links-resort-2026-12-25/>)

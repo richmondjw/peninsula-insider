@@ -13,7 +13,7 @@ The Peninsula's only amphora winery, terracotta-aged Sangiovese, Fiano, and Nebb
 
 Known for   Amphora Wine Ageing Sangiovese and Fiano Varieties Working Cellar Tour Italian-Varietal Focus
 
-[Book a tasting](<https://www.trofeoestate.com.au/visit-us/>)  +61 3 5981 8688
+[Book a tasting](<https://www.trofeoestate.com.au/visit-us/>)  +61 3 5981 8688  [Website](<https://trofeoestate.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3411579%2C145.016174>)
 
 - Photo · Courtesy of Visit Victoria
 

@@ -13,7 +13,7 @@ A Cook Street grocery and deli for takeaway coffee, freshly made sandwiches and 
 
 Known for   Groceries and deli Takeaway coffee Freshly made sandwiches Picnic provisions
 
-+61 3 5989 0207
++61 3 5989 0207  [Website](<https://flindersgeneralstore.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=Flinders%20General%20Store%2C%2048%20Cook%20St%2C%20Flinders%20VIC%203929>)
 
 Why we’d go
 

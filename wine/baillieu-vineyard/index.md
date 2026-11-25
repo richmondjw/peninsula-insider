@@ -13,7 +13,7 @@ A thoughtfully managed Merricks estate making elegant Chardonnay and Pinot Noir 
 
 Known for   Under-Visited Merricks Estate Elegant Chardonnay Intimate Cellar Door Vine Walk Access
 
-[Book a tasting](<https://merricksstore.com.au/>)
+[Book a tasting](<https://merricksstore.com.au/>) [Website](<https://merricksstore.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3634%2C145.0982>)
 
 Baillieu Vineyard · Merricks
 

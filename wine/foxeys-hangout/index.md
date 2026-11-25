@@ -13,7 +13,7 @@ Biodynamic Red Hill estate with an all-day deck, sunny long lunches, and a spark
 
 Known for   Biodynamic Certified Estate Cult Sparkling Wine Chris Strickland Winemaker All-Day Deck
 
-[Book a tasting](<https://foxeys-hangout.com.au/>)  +61 3 5989 2022
+[Book a tasting](<https://foxeys-hangout.com.au/>)  +61 3 5989 2022  [Website](<https://www.foxeys-hangout.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3608%2C145.0437>)
 
 Foxeys Hangout · Red Hill
 

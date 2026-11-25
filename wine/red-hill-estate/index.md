@@ -13,7 +13,7 @@ One of the Peninsula's most photographed cellar-door positions, sweeping Western
 
 Known for   Panoramic Western Port Vineyard Views Traditional-Method Sparkling Program Blanc de Blancs and Rosé French Island Sightline
 
-[Book a tasting](<https://www.redhillestate.com.au/>)  +61 3 5989 2838
+[Book a tasting](<https://www.redhillestate.com.au/>)  +61 3 5989 2838  [Website](<https://www.redhillestate.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=Red%20Hill%20Estate%2C%201208%20Mornington-Flinders%20Road%2C%20Main%20Ridge%20VIC%203928>)
 
 Red Hill Estate · Main Ridge
 

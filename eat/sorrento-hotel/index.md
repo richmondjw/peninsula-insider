@@ -13,7 +13,7 @@ A historic hotel on Hotham Road above Port Phillip Bay, with restaurants and bar
 
 Known for   Hotham Road location Historic hotel since 1872 Restaurants and bars Port Phillip Bay setting
 
-[Reserve a table](<https://hotelsorrento.com.au/>)  +61 3 5984 8000
+[Reserve a table](<https://hotelsorrento.com.au/>)  +61 3 5984 8000  [Website](<https://hotelsorrento.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3405%2C144.7434>)
 
 Why we’d go
 

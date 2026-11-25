@@ -13,7 +13,7 @@ Selma and Jonathan Lowther's 1981 planting, one of the oldest on the Peninsula, 
 
 Known for   Planted 1981 Cellar Door Art Gallery Selma and Jonathan Lowther Western Port Views
 
-[Book a tasting](<https://elanvineyard.com.au/>)  +61 3 5983 1858
+[Book a tasting](<https://elanvineyard.com.au/>)  +61 3 5983 1858  [Website](<https://elanvineyard.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3706%2C145.1246>)
 
 Elan Vineyard & Gallery · Balnarring
 

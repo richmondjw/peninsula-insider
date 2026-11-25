@@ -9,7 +9,7 @@ Event     Food & Wine     5 December 2026     One-off date
 
 # An Evening at BRASA by Montalto
 
-BRASA brings the spirit of South America to the Mornington Peninsula! A celebration of fire, flavour, theatre and the joy of gathering around the table.
+A South American-themed evening built around cooking over fire at BRASA by Montalto in Red Hill South, from 5.30pm to 10pm.
 
 [Book or check details](<https://montalto.com.au/pages/brasa-by-montalto>)
 
@@ -43,7 +43,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://montalto.com.au/pages/brasa-by-montalto>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=An+Evening+at+BRASA+by+Montalto&dates=20261205T063000Z%2F20261205T110000Z&details=BRASA+brings+the+spirit+of+South+America+to+the+Mornington+Peninsula%21+A+celebration+of+fire%2C+flavour%2C+theatre+and+the+joy+of+gathering+around+the+table.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fan-evening-at-brasa-by-montalto-2026-12-05%2F&location=BRASA+by+Montalto%2C+Red+Hill+South%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://montalto.com.au/pages/brasa-by-montalto>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=An+Evening+at+BRASA+by+Montalto&dates=20261205T063000Z%2F20261205T110000Z&details=A+South+American-themed+evening+built+around+cooking+over+fire+at+BRASA+by+Montalto+in+Red+Hill+South%2C+from+5.30pm+to+10pm.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fan-evening-at-brasa-by-montalto-2026-12-05%2F&location=BRASA+by+Montalto%2C+Red+Hill+South%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 

@@ -13,7 +13,7 @@ A Fingal brewery in former horse-training stables, with indoor and outdoor dinin
 
 Known for   Former racehorse training stables converted to a working brewery Acres of lawn to the old exercise track Wood-fired pizzas and rotating Sunday roast Core range: pale ale, lager, red ale, session sour One of the most complete brewery-day-out destinations on the Peninsula
 
-[Reserve a table](<https://www.standrewsbeachbrewery.com.au/>)  +61 3 5988 6854
+[Reserve a table](<https://www.standrewsbeachbrewery.com.au/>)  +61 3 5988 6854  [Website](<https://standrewsbeachbrewery.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.4064%2C144.8672>)
 
 - Photo · Courtesy of Visit Victoria
 

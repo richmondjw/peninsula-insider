@@ -13,7 +13,7 @@ A relaxed wine-led dining option in Ten Minutes by Tractor’s cellar door, with
 
 Known for   Cellar Door Dining Seasonal Shared Dishes Estate Wines
 
-[Reserve a table](<https://www.tenminutesbytractor.com.au/contact>)  +61 3 5989 6455
+[Reserve a table](<https://www.tenminutesbytractor.com.au/contact>)  +61 3 5989 6455  [Website](<https://www.tenminutesbytractor.com.au/contact>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3906%2C144.9882>)
 
 Why we’d go
 

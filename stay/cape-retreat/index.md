@@ -13,7 +13,9 @@ Group bookings only at a Cape Schanck retreat with guest suites, shared living s
 
 Known for   Twelve Guest Suites Shared Group Spaces Cape Schanck Outlook
 
-[Check availability](<https://www.thecaperetreat.com.au/book>)
+[Check availability](<https://www.thecaperetreat.com.au/book>) [Website](<https://www.thecaperetreat.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.506%2C144.908>)
+
+[Information last checked 3 Oct 2026](<https://peninsulainsider.com.au/about/#how-a-check-works>)
 
 The Cape Retreat · Cape Schanck
 

@@ -13,7 +13,7 @@ A brewery in Red Hill South with its own on-site hop yard, a deck and beer garde
 
 Known for   Estate Hop Garden Belgian-Style Ales Peninsula's Oldest Craft Brewery Beer Garden and Changing Lunch Menu
 
-[Reserve a table](<https://redhillbrewery.com.au/>)  +61 3 5989 2959
+[Reserve a table](<https://redhillbrewery.com.au/>)  +61 3 5989 2959  [Website](<https://www.redhillbrewery.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3693%2C145.0439>)
 
 - Photo · Peter Tarasiuk, courtesy of Visit Victoria
 

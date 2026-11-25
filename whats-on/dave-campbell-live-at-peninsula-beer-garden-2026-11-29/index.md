@@ -9,7 +9,7 @@ Event     Live Music     29 November 2026     One-off date
 
 # Dave Campbell Live at Peninsula Beer Garden
 
-Live Music at Peninsula Beer Garden! Join Dave Campbell for your music fix.
+Dave Campbell plays an afternoon set at Peninsula Beer Garden in Boneo, from 1pm to 4pm.
 
 [Book or check details](<https://peninsulabeergarden.com.au/>)
 
@@ -43,7 +43,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://peninsulabeergarden.com.au/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Dave+Campbell+Live+at+Peninsula+Beer+Garden&dates=20261129T020000Z%2F20261129T050000Z&details=Live+Music+at+Peninsula+Beer+Garden%21+Join+Dave+Campbell+for+your+music+fix.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fdave-campbell-live-at-peninsula-beer-garden-2026-11-29%2F&location=Peninsula+Beer+Garden%2C+Boneo%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://peninsulabeergarden.com.au/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Dave+Campbell+Live+at+Peninsula+Beer+Garden&dates=20261129T020000Z%2F20261129T050000Z&details=Dave+Campbell+plays+an+afternoon+set+at+Peninsula+Beer+Garden+in+Boneo%2C+from+1pm+to+4pm.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fdave-campbell-live-at-peninsula-beer-garden-2026-11-29%2F&location=Peninsula+Beer+Garden%2C+Boneo%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 

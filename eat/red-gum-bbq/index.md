@@ -13,7 +13,7 @@ Airy warehouse, picnic tables, and low-and-slow American barbecue, pulled pork, 
 
 Known for   Low-and-Slow American BBQ Red Gum Wood Smoker Peninsula Brewery Taps
 
-[Reserve a table](<https://redgumbbq.com.au/>)  +61 3 5989 3156
+[Reserve a table](<https://redgumbbq.com.au/>)  +61 3 5989 3156  [Website](<https://redgumbbq.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3734864%2C145.0221385>)
 
 - Photo · Two Palms Australia, courtesy of Visit Victoria
 

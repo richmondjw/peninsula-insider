@@ -13,7 +13,7 @@ A long table in Red Hill’s historic coolstore and packing shed.
 
 Known for   Historic Red Hill coolstore The Shed Restaurant Sunday lunch Seasonal Table group menu
 
-[Reserve a table](<https://www.theepicurean.com.au/shed-restaurant-reservations>)  +61 3 5989 4000
+[Reserve a table](<https://www.theepicurean.com.au/shed-restaurant-reservations>)  +61 3 5989 4000  [Website](<https://www.theepicurean.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=The%20Epicurean%2C%20165%20Shoreham%20Road%2C%20Red%20Hill%20South%20VIC%203937>)
 
 - Photo · Peter Foster, courtesy of Visit Victoria
 

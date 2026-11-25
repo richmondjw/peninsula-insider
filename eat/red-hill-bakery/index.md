@@ -13,6 +13,8 @@ Artisan bread, pies and pastries from the bakery's sole current shop in Balnarri
 
 Known for   Wood-Fired Sourdough Balnarring Village Morning Pastries Peninsula Institution
 
+[Website](<https://www.redhillbaker.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.37345%2C145.12609>)
+
 Why we’d go
 
 A reliable early Balnarring stop for bread, pies and pastries.

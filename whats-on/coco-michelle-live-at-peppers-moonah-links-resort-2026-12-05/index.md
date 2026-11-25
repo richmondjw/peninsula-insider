@@ -9,7 +9,7 @@ Event     Live Music     5 December 2026     One-off date
 
 # Coco Michelle Live at Peppers Moonah Links Resort
 
-Moonah Links is proud to have Coco Michelle performing live this Saturday on the Spike Terrace! Playing from 5pm - 8pm, come along and try the new midweek menu, and listen to some chill live music.
+Coco Michelle plays the Spike Terrace at Peppers Moonah Links Resort in Fingal from 5pm to 8pm.
 
 [Book or check details](<https://www.moonahlinks.com.au/cms/resort/whats-on/>)
 
@@ -43,7 +43,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.moonahlinks.com.au/cms/resort/whats-on/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Coco+Michelle+Live+at+Peppers+Moonah+Links+Resort&dates=20261205T060000Z%2F20261205T090000Z&details=Moonah+Links+is+proud+to+have+Coco+Michelle+performing+live+this+Saturday+on+the+Spike+Terrace%21+Playing+from+5pm+-+8pm%2C+come+along+and+try+the+new+midweek+menu%2C+and+listen+to+some+chill+live+music.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fcoco-michelle-live-at-peppers-moonah-links-resort-2026-12-05%2F&location=Peppers+Moonah+Links+Resort%2C+Fingal%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://www.moonahlinks.com.au/cms/resort/whats-on/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Coco+Michelle+Live+at+Peppers+Moonah+Links+Resort&dates=20261205T060000Z%2F20261205T090000Z&details=Coco+Michelle+plays+the+Spike+Terrace+at+Peppers+Moonah+Links+Resort+in+Fingal+from+5pm+to+8pm.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fcoco-michelle-live-at-peppers-moonah-links-resort-2026-12-05%2F&location=Peppers+Moonah+Links+Resort%2C+Fingal%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 

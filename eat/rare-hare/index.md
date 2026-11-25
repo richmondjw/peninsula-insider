@@ -13,7 +13,7 @@ Jackalope's relaxed lunch room, wood fire, vineyard views, and plates built for 
 
 Known for   Jackalope's Relaxed Lunch Room Wood-Fired Grill Menu Willow Creek Estate Wines Pinot Row Terrace
 
-[Reserve a table](<https://www.sevenrooms.com/reservations/rarehare?venues=rarehare%2Cjackalope>)  +61 3 5931 2500
+[Reserve a table](<https://www.sevenrooms.com/reservations/rarehare?venues=rarehare%2Cjackalope>)  +61 3 5931 2500  [Website](<https://rarehare.com.au/about/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=Rare%20Hare%20at%20Willow%20Creek%2C%20166%20Balnarring%20Rd%2C%20Merricks%20North%20VIC%203926>)
 
 - Photo · Courtesy of Visit Victoria
 

@@ -4,7 +4,7 @@
   "name": "What's on - Mornington Peninsula (upcoming)",
   "description": "Machine-readable feed of upcoming Mornington Peninsula events for AI assistants and agents. Forward-dated; regenerated on each build. See https://peninsulainsider.com.au/llms.txt for the full site map.",
   "generated": "2026-11-26",
-  "generatedAt": "2026-11-25T13:18:21.570Z",
+  "generatedAt": "2026-11-25T14:12:14.347Z",
   "schemaVersion": "1.2",
   "timezone": "Australia/Melbourne",
   "dateSemantics": "Local calendar dates, not midnight timestamps. dateMeaning distinguishes event occurrences, experience availability and offer validity. generatedAt is the build time, not a fact check.",
@@ -21,7 +21,7 @@
     "label": "Fri 27 – Sun 29 November",
     "count": 17
   },
-  "numberOfItems": 63,
+  "numberOfItems": 62,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -121,7 +121,7 @@
         "url": "https://peninsulainsider.com.au/whats-on/emmie-li-live-at-peninsula-beer-garden-2026-11-27/",
         "startDate": "2026-11-27",
         "endDate": "2026-11-27",
-        "description": "Enjoy live music at Peninsula Beer Garden! Join the cool vibes and coastal tunes from Emmie Li, a singer-songwriter and pianist, who is known for a mix of her own songs and well known covers.",
+        "description": "Singer-songwriter and pianist Emmie Li plays her own songs and well-known covers at Peninsula Beer Garden in Boneo, from 5pm to 8pm.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
@@ -134,7 +134,7 @@
         "url": "https://peninsulainsider.com.au/whats-on/luke-o-shea-and-lyn-bowtell-live-at-the-pig-and-whistle-tavern-2026-11-27/",
         "startDate": "2026-11-27",
         "endDate": "2026-11-27",
-        "description": "Get ready, Main Ridge! Two of the most respected names in Australian country music, Luke O’Shea and Lyn Bowtell, are coming with their highly anticipated ‘Love and Laughter Tour’!",
+        "description": "Country musicians Luke O'Shea and Lyn Bowtell bring their Love and Laughter Tour to the Pig & Whistle Tavern in Main Ridge, from 8pm to 10pm.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
@@ -173,7 +173,7 @@
         "url": "https://peninsulainsider.com.au/whats-on/dj-sophie-joy-live-at-jetty-road-brewery-2026-11-28/",
         "startDate": "2026-11-28",
         "endDate": "2026-11-28",
-        "description": "Live music every weekend at Jetty Road Brewery! Kick-back and enjoy a freshly brewed beer and bite while listening to live local music at Jetty Road Brewery.",
+        "description": "DJ Sophie Joy plays Jetty Road Brewery in Dromana from 6pm to 9pm, part of the brewery's regular weekend music.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
@@ -212,7 +212,7 @@
         "url": "https://peninsulainsider.com.au/whats-on/summer-xmas-seafood-class-at-peninsula-gourmet-cooking-school-2026-11-28/",
         "startDate": "2026-11-28",
         "endDate": "2026-11-28",
-        "description": "Delicious, Festive, Exciting! The festive season is the best time to showcase our fabulous seafood and this class introduces you to a myriad of new ideas and flavours, perfect for your holiday table and picnics and gatherings throughout the summer.",
+        "description": "A festive seafood cooking class at Peninsula Gourmet Cooking School in Dromana, from 11am to 2.30pm, with ideas for the holiday table, picnics and summer gatherings.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
@@ -225,7 +225,7 @@
         "url": "https://peninsulainsider.com.au/whats-on/dave-campbell-live-at-peninsula-beer-garden-2026-11-29/",
         "startDate": "2026-11-29",
         "endDate": "2026-11-29",
-        "description": "Live Music at Peninsula Beer Garden! Join Dave Campbell for your music fix.",
+        "description": "Dave Campbell plays an afternoon set at Peninsula Beer Garden in Boneo, from 1pm to 4pm.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
@@ -238,26 +238,13 @@
         "url": "https://peninsulainsider.com.au/whats-on/olivia-mae-live-at-jetty-road-brewery-2026-11-29/",
         "startDate": "2026-11-29",
         "endDate": "2026-11-29",
-        "description": "Live music every weekend at Jetty Road Brewery! Settle in with a cold craft brew, delicious food and the sounds of talented local artists bringing the brewery to life every weekend.",
+        "description": "Olivia Mae plays an afternoon set at Jetty Road Brewery in Dromana from 1pm to 4pm, part of the brewery's regular weekend music.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
     {
       "@type": "ListItem",
       "position": 19,
-      "item": {
-        "@type": "Event",
-        "name": "\"Nancye Wynne Bolton\" OLA Golf Day 2026",
-        "url": "https://peninsulainsider.com.au/whats-on/nancye-wynne-bolton-ola-golf-day-2026/",
-        "startDate": "2026-11-30",
-        "endDate": "2026-11-30",
-        "description": "A golf-and-lunch day for Old Lauristonians and the wider Lauriston community at Sorrento Golf Club on Monday 30 November. Choose 18 holes, 9 holes or lunch only; golf places are limited and registration is required for every option.",
-        "eventStatus": "https://schema.org/EventScheduled"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 20,
       "item": {
         "@type": "Event",
         "name": "Mornington Wednesday Market (Main Street Market)",
@@ -270,7 +257,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 21,
+      "position": 20,
       "item": {
         "@type": "Event",
         "name": "Pub Carols at The Pig & Whistle",
@@ -283,7 +270,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 22,
+      "position": 21,
       "item": {
         "@type": "Event",
         "name": "Mornington Christmas Series at Mornington Racecourse",
@@ -296,20 +283,20 @@
     },
     {
       "@type": "ListItem",
-      "position": 23,
+      "position": 22,
       "item": {
         "@type": "Event",
         "name": "An Evening at BRASA by Montalto",
         "url": "https://peninsulainsider.com.au/whats-on/an-evening-at-brasa-by-montalto-2026-12-05/",
         "startDate": "2026-12-05",
         "endDate": "2026-12-05",
-        "description": "BRASA brings the spirit of South America to the Mornington Peninsula! A celebration of fire, flavour, theatre and the joy of gathering around the table.",
+        "description": "A South American-themed evening built around cooking over fire at BRASA by Montalto in Red Hill South, from 5.30pm to 10pm.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
     {
       "@type": "ListItem",
-      "position": 24,
+      "position": 23,
       "item": {
         "@type": "Event",
         "name": "Chris Gogerly Live at Fenian Wines",
@@ -322,20 +309,20 @@
     },
     {
       "@type": "ListItem",
-      "position": 25,
+      "position": 24,
       "item": {
         "@type": "Event",
         "name": "Coco Michelle Live at Peppers Moonah Links Resort",
         "url": "https://peninsulainsider.com.au/whats-on/coco-michelle-live-at-peppers-moonah-links-resort-2026-12-05/",
         "startDate": "2026-12-05",
         "endDate": "2026-12-05",
-        "description": "Moonah Links is proud to have Coco Michelle performing live this Saturday on the Spike Terrace! Playing from 5pm - 8pm, come along and try the new midweek menu, and listen to some chill live music.",
+        "description": "Coco Michelle plays the Spike Terrace at Peppers Moonah Links Resort in Fingal from 5pm to 8pm.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
     {
       "@type": "ListItem",
-      "position": 26,
+      "position": 25,
       "item": {
         "@type": "Event",
         "name": "Countdown Classics 70's & 80's Live at Peninsula Beer Garden",
@@ -348,7 +335,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 27,
+      "position": 26,
       "item": {
         "@type": "Event",
         "name": "Deck the Chocolate Tree",
@@ -361,7 +348,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 28,
+      "position": 27,
       "item": {
         "@type": "Event",
         "name": "Gareth Sansom at MPRG",
@@ -374,7 +361,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 29,
+      "position": 28,
       "item": {
         "@type": "Event",
         "name": "MPRG Summer exhibitions launch",
@@ -387,7 +374,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 30,
+      "position": 29,
       "item": {
         "@type": "Event",
         "name": "The Mount Martha Briars Market",
@@ -400,7 +387,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 31,
+      "position": 30,
       "item": {
         "@type": "Event",
         "name": "Sunday Sessions: Pottery Workshops at Peachy Keen Ceramics",
@@ -413,7 +400,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 32,
+      "position": 31,
       "item": {
         "@type": "Event",
         "name": "The Creators Network: End of Year Catch-up for Creatives",
@@ -426,7 +413,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 33,
+      "position": 32,
       "item": {
         "@type": "Event",
         "name": "Crib Point Community Market",
@@ -439,7 +426,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 34,
+      "position": 33,
       "item": {
         "@type": "Event",
         "name": "James Vincent Live at Fenian Wines",
@@ -452,20 +439,20 @@
     },
     {
       "@type": "ListItem",
-      "position": 35,
+      "position": 34,
       "item": {
         "@type": "Event",
         "name": "\"Whippy\" Griggs Live for a Crackin' Night at The Ranch",
         "url": "https://peninsulainsider.com.au/whats-on/whippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13/",
         "startDate": "2026-12-13",
         "endDate": "2026-12-13",
-        "description": "World-renowned whip artist Nathan “Whippy” Griggs brings his Aussie Tour to The Ranch! Based in the Northern Territory, Nathan combines incredible whip-cracking skills, handcrafted whips and a healthy dose of good ol' Aussie humour.",
+        "description": "Northern Territory whip artist Nathan \"Whippy\" Griggs brings his touring show of whip-cracking and humour to The Ranch in Boneo, from 6.30pm to 7.30pm.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
     {
       "@type": "ListItem",
-      "position": 36,
+      "position": 35,
       "item": {
         "@type": "Event",
         "name": "Legends Of Sunbury: Spectrum, Madder Lake & Phil Manning Live at The Pig & Whistle Tavern",
@@ -478,7 +465,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 37,
+      "position": 36,
       "item": {
         "@type": "Event",
         "name": "Mornington Twilight Christmas Series at Mornington Racecourse",
@@ -491,7 +478,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 38,
+      "position": 37,
       "item": {
         "@type": "Event",
         "name": "Soul Night Market at Hastings Foreshore",
@@ -504,7 +491,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 39,
+      "position": 38,
       "item": {
         "@type": "Event",
         "name": "Emu Plains Market",
@@ -517,7 +504,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 40,
+      "position": 39,
       "item": {
         "@type": "Event",
         "name": "Tony J King Live at Fenian Wines",
@@ -530,7 +517,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 41,
+      "position": 40,
       "item": {
         "@type": "Event",
         "name": "Twilight Mornington Racecourse Market",
@@ -543,7 +530,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 42,
+      "position": 41,
       "item": {
         "@type": "Event",
         "name": "Lawrence Mooney at St Andrews Beach Brewery",
@@ -556,7 +543,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 43,
+      "position": 42,
       "item": {
         "@type": "Event",
         "name": "Eve Eve at Portsea Hotel",
@@ -569,7 +556,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 44,
+      "position": 43,
       "item": {
         "@type": "Event",
         "name": "Celebrate Christmas Day at Peppers Moonah Links Resort",
@@ -582,7 +569,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 45,
+      "position": 44,
       "item": {
         "@type": "Event",
         "name": "Christmas Day at Ember",
@@ -595,7 +582,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 46,
+      "position": 45,
       "item": {
         "@type": "Event",
         "name": "Christmas Day Feast at The Conti",
@@ -608,20 +595,20 @@
     },
     {
       "@type": "ListItem",
-      "position": 47,
+      "position": 46,
       "item": {
         "@type": "Event",
         "name": "Celebrate with Andrew Farrell Live at Fenian Wines",
         "url": "https://peninsulainsider.com.au/whats-on/celebrate-with-andrew-farrell-live-at-fenian-wines-2026-12-27/",
         "startDate": "2026-12-27",
         "endDate": "2026-12-27",
-        "description": "Let’s wrap up the year in true Fenian style! Join us at Fenian Wines for our traditional end of year celebration on the last Sunday of 2026.",
+        "description": "Fenian Wines holds its end-of-year celebration in Red Hill on the last Sunday of 2026, with Andrew Farrell playing live from noon to 4pm.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
     {
       "@type": "ListItem",
-      "position": 48,
+      "position": 47,
       "item": {
         "@type": "Event",
         "name": "The Mount Martha Briars Twilight Market",
@@ -634,7 +621,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 49,
+      "position": 48,
       "item": {
         "@type": "Event",
         "name": "New Year's Eve at Orson",
@@ -647,7 +634,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 50,
+      "position": 49,
       "item": {
         "@type": "Event",
         "name": "New Year’s Eve at Portsea Hotel",
@@ -660,7 +647,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 51,
+      "position": 50,
       "item": {
         "@type": "Event",
         "name": "New Year's Eve at Terry's",
@@ -673,7 +660,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 52,
+      "position": 51,
       "item": {
         "@type": "Event",
         "name": "New Years Eve Event 2026/2027",
@@ -686,7 +673,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 53,
+      "position": 52,
       "item": {
         "@type": "Event",
         "name": "NYE at Barlow",
@@ -699,7 +686,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 54,
+      "position": 53,
       "item": {
         "@type": "Event",
         "name": "NYE Casa Conti",
@@ -712,7 +699,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 55,
+      "position": 54,
       "item": {
         "@type": "Event",
         "name": "New Year's Day at Mornington Racecourse",
@@ -725,7 +712,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 56,
+      "position": 55,
       "item": {
         "@type": "Event",
         "name": "Peninsula Summer Music Festival: Charlotte Miles at Port Phillip Estate",
@@ -738,7 +725,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 57,
+      "position": 56,
       "item": {
         "@type": "Event",
         "name": "Peninsula Film Festival at Rosebud Cinema",
@@ -751,7 +738,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 58,
+      "position": 57,
       "item": {
         "@type": "Event",
         "name": "Peninsula Film Festival under the Big Top",
@@ -764,7 +751,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 59,
+      "position": 58,
       "item": {
         "@type": "Event",
         "name": "Peninsula Film Festival: Talks & Workshop at Rosebud Cinema",
@@ -777,33 +764,33 @@
     },
     {
       "@type": "ListItem",
-      "position": 60,
+      "position": 59,
       "item": {
         "@type": "Event",
         "name": "Twilight Emu Plains Market",
         "url": "https://peninsulainsider.com.au/whats-on/twilight-emu-plains-market-2027-01-16/",
         "startDate": "2027-01-16",
         "endDate": "2027-01-16",
-        "description": "Underneath the ancient glade of a stringybark forest, makers unite to create a craft revolution never before seen on the Mornington Peninsula. For lovers of craft, design, vintage, music and of course food, the EPM is a favourite monthly hang-out for entrepreneurs, creatives and plain old regular cool people!",
+        "description": "The twilight edition of the Emu Plains Market at Emu Plains Reserve in Balnarring, from 3pm to 8pm, with craft, design, vintage, music and food stalls under the stringybarks.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
     {
       "@type": "ListItem",
-      "position": 61,
+      "position": 60,
       "item": {
         "@type": "Event",
         "name": "Summer Camp at The Ranch Adventure Park",
         "url": "https://peninsulainsider.com.au/whats-on/summer-camp-at-the-ranch-adventure-park-2027-01-18/",
         "startDate": "2027-01-18",
         "endDate": "2027-01-22",
-        "description": "THIS ONE'S FOR THE KIDS! Get ready for five action-packed days at Summer Camp, Designed for young adventurers aged 7-14, campers will spend the week exploring, learning new skills and making new friends while experiencing an exciting mix of outdoor adventures. Starts 9.30am.",
+        "description": "Five days of outdoor activities for children aged 7 to 14 at The Ranch Adventure Park in Boneo, 18 to 22 January 2027, starting at 9.30am.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
     {
       "@type": "ListItem",
-      "position": 62,
+      "position": 61,
       "item": {
         "@type": "Event",
         "name": "Torren Foot at Portsea Hotel",
@@ -816,19 +803,19 @@
     },
     {
       "@type": "ListItem",
-      "position": 63,
+      "position": 62,
       "item": {
         "@type": "Event",
         "name": "Portsea Polo at Point Nepean",
         "url": "https://peninsulainsider.com.au/whats-on/portsea-polo-at-point-nepean-2027-02-13/",
         "startDate": "2027-02-13",
         "endDate": "2027-02-13",
-        "description": "It’s Polo, but not as you know it! Part of the global F3Polo® circuit, The Portsea Polo® returns on to the beautiful Mornington Peninsula, Melbourne, at the iconic Point Nepean.",
+        "description": "The Portsea Polo, part of the F3Polo circuit, returns to Point Nepean in Portsea on 13 February 2027, from noon to 7pm.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     }
   ],
-  "count": 63,
+  "count": 62,
   "events": [
     {
       "title": "Author Talk: Jane Gilmore - Mornington Library",
@@ -1021,7 +1008,7 @@
       "category": "live-music",
       "place": null,
       "venue": null,
-      "summary": "Enjoy live music at Peninsula Beer Garden! Join the cool vibes and coastal tunes from Emmie Li, a singer-songwriter and pianist, who is known for a mix of her own songs and well known covers.",
+      "summary": "Singer-songwriter and pianist Emmie Li plays her own songs and well-known covers at Peninsula Beer Garden in Boneo, from 5pm to 8pm.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {
@@ -1045,7 +1032,7 @@
       "category": "live-music",
       "place": null,
       "venue": null,
-      "summary": "Get ready, Main Ridge! Two of the most respected names in Australian country music, Luke O’Shea and Lyn Bowtell, are coming with their highly anticipated ‘Love and Laughter Tour’!",
+      "summary": "Country musicians Luke O'Shea and Lyn Bowtell bring their Love and Laughter Tour to the Pig & Whistle Tavern in Main Ridge, from 8pm to 10pm.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {
@@ -1117,7 +1104,7 @@
       "category": "live-music",
       "place": null,
       "venue": null,
-      "summary": "Live music every weekend at Jetty Road Brewery! Kick-back and enjoy a freshly brewed beer and bite while listening to live local music at Jetty Road Brewery.",
+      "summary": "DJ Sophie Joy plays Jetty Road Brewery in Dromana from 6pm to 9pm, part of the brewery's regular weekend music.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {
@@ -1189,7 +1176,7 @@
       "category": "food-wine",
       "place": null,
       "venue": null,
-      "summary": "Delicious, Festive, Exciting! The festive season is the best time to showcase our fabulous seafood and this class introduces you to a myriad of new ideas and flavours, perfect for your holiday table and picnics and gatherings throughout the summer.",
+      "summary": "A festive seafood cooking class at Peninsula Gourmet Cooking School in Dromana, from 11am to 2.30pm, with ideas for the holiday table, picnics and summer gatherings.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {
@@ -1213,7 +1200,7 @@
       "category": "live-music",
       "place": null,
       "venue": null,
-      "summary": "Live Music at Peninsula Beer Garden! Join Dave Campbell for your music fix.",
+      "summary": "Dave Campbell plays an afternoon set at Peninsula Beer Garden in Boneo, from 1pm to 4pm.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {
@@ -1237,7 +1224,7 @@
       "category": "live-music",
       "place": null,
       "venue": null,
-      "summary": "Live music every weekend at Jetty Road Brewery! Settle in with a cold craft brew, delicious food and the sounds of talented local artists bringing the brewery to life every weekend.",
+      "summary": "Olivia Mae plays an afternoon set at Jetty Road Brewery in Dromana from 1pm to 4pm, part of the brewery's regular weekend music.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {
@@ -1246,25 +1233,6 @@
         }
       ],
       "thisWeekend": true
-    },
-    {
-      "title": "\"Nancye Wynne Bolton\" OLA Golf Day 2026",
-      "contentKind": "event",
-      "dateMeaning": "occurrence",
-      "url": "https://peninsulainsider.com.au/whats-on/nancye-wynne-bolton-ola-golf-day-2026/",
-      "startDate": "2026-11-30",
-      "endDate": "2026-11-30",
-      "id": "https://peninsulainsider.com.au/whats-on/nancye-wynne-bolton-ola-golf-day-2026/",
-      "sourceUrl": "https://events.humanitix.com/olagolf2026",
-      "factCheckedOn": "2026-10-08",
-      "recurrence": "one-off",
-      "category": "racing-sport",
-      "place": null,
-      "venue": null,
-      "summary": "A golf-and-lunch day for Old Lauristonians and the wider Lauriston community at Sorrento Golf Club on Monday 30 November. Choose 18 holes, 9 holes or lunch only; golf places are limited and registration is required for every option.",
-      "eventStatus": "https://schema.org/EventScheduled",
-      "weekendOccurrences": [],
-      "thisWeekend": false
     },
     {
       "title": "Mornington Wednesday Market (Main Street Market)",
@@ -1337,7 +1305,7 @@
       "category": "food-wine",
       "place": null,
       "venue": null,
-      "summary": "BRASA brings the spirit of South America to the Mornington Peninsula! A celebration of fire, flavour, theatre and the joy of gathering around the table.",
+      "summary": "A South American-themed evening built around cooking over fire at BRASA by Montalto in Red Hill South, from 5.30pm to 10pm.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false
@@ -1375,7 +1343,7 @@
       "category": "live-music",
       "place": null,
       "venue": null,
-      "summary": "Moonah Links is proud to have Coco Michelle performing live this Saturday on the Spike Terrace! Playing from 5pm - 8pm, come along and try the new midweek menu, and listen to some chill live music.",
+      "summary": "Coco Michelle plays the Spike Terrace at Peppers Moonah Links Resort in Fingal from 5pm to 8pm.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false
@@ -1568,7 +1536,7 @@
       "category": "arts",
       "place": null,
       "venue": null,
-      "summary": "World-renowned whip artist Nathan “Whippy” Griggs brings his Aussie Tour to The Ranch! Based in the Northern Territory, Nathan combines incredible whip-cracking skills, handcrafted whips and a healthy dose of good ol' Aussie humour.",
+      "summary": "Northern Territory whip artist Nathan \"Whippy\" Griggs brings his touring show of whip-cracking and humour to The Ranch in Boneo, from 6.30pm to 7.30pm.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false
@@ -1796,7 +1764,7 @@
       "category": "live-music",
       "place": null,
       "venue": null,
-      "summary": "Let’s wrap up the year in true Fenian style! Join us at Fenian Wines for our traditional end of year celebration on the last Sunday of 2026.",
+      "summary": "Fenian Wines holds its end-of-year celebration in Red Hill on the last Sunday of 2026, with Andrew Farrell playing live from noon to 4pm.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false
@@ -2043,7 +2011,7 @@
       "category": "market",
       "place": null,
       "venue": null,
-      "summary": "Underneath the ancient glade of a stringybark forest, makers unite to create a craft revolution never before seen on the Mornington Peninsula. For lovers of craft, design, vintage, music and of course food, the EPM is a favourite monthly hang-out for entrepreneurs, creatives and plain old regular cool people!",
+      "summary": "The twilight edition of the Emu Plains Market at Emu Plains Reserve in Balnarring, from 3pm to 8pm, with craft, design, vintage, music and food stalls under the stringybarks.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false
@@ -2062,7 +2030,7 @@
       "category": "family-programs",
       "place": null,
       "venue": null,
-      "summary": "THIS ONE'S FOR THE KIDS! Get ready for five action-packed days at Summer Camp, Designed for young adventurers aged 7-14, campers will spend the week exploring, learning new skills and making new friends while experiencing an exciting mix of outdoor adventures. Starts 9.30am.",
+      "summary": "Five days of outdoor activities for children aged 7 to 14 at The Ranch Adventure Park in Boneo, 18 to 22 January 2027, starting at 9.30am.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false
@@ -2100,7 +2068,7 @@
       "category": "festival",
       "place": null,
       "venue": null,
-      "summary": "It’s Polo, but not as you know it! Part of the global F3Polo® circuit, The Portsea Polo® returns on to the beautiful Mornington Peninsula, Melbourne, at the iconic Point Nepean.",
+      "summary": "The Portsea Polo, part of the F3Polo circuit, returns to Point Nepean in Portsea on 13 February 2027, from noon to 7pm.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false

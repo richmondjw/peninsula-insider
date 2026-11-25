@@ -49,6 +49,44 @@ Main Street on hot summer Saturdays
 
 Insider  The stretch from Schnapper Point to Mothers Beach is the part worth walking; most day-trippers never go far enough.
 
+On the calendar in this place
+
+## What's on in Mornington
+
+Coming up in Mornington, from our events listings.
+
+[All events →](<https://peninsulainsider.com.au/whats-on/>)
+
+- [Thu, 26 Nov
+
+### Author Talk: Jane Gilmore - Mornington Library
+
+Mornington
+
+Hear journalist and author Jane Gilmore discuss her new book, helping adults talk to kids about consent, relationships and online life.
+
+ Event · Writers & Ideas](<https://peninsulainsider.com.au/whats-on/author-talk-jane-gilmore-mornington-library/>)
+
+- [Fri, 27 Nov
+
+### Brown Sugar - Rolling Stones
+
+Mornington
+
+Rolling Stones tribute band Brown Sugar plays the upstairs Bandroom at The Bay Hotel. Standing show from 8.30pm, with pre-show dinner and drinks upstairs from 6pm. Access is by stairs only.
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/brown-sugar-rolling-stones-2026-11-27/>)
+
+- [Sat, 5 Dec
+
+### Gareth Sansom at MPRG
+
+Mornington
+
+Gareth Sansom is a pioneering and highly influential figure in Australian contemporary art, a restless innovator whose career spans more than six decades since his first exhibition at 19 years old in 1959. Renowned for his audacious fusion of abstraction and figuration, Sansom has continually defied categorisation, ...
+
+ Event · Exhibitions](<https://peninsulainsider.com.au/whats-on/gareth-sansom-at-mprg-2026-12-05/>)
+
 The commercial hub - the most town-like part of the Peninsula, still worth knowing.
 
 Peninsula Insider - editor's note
@@ -374,41 +412,3 @@ Browse locations as a list
 - [Mornington Golf Club](<https://peninsulainsider.com.au/explore/mornington-golf-club/>) · golf-course
 
 - [Mornington Peninsula Regional Gallery](<https://peninsulainsider.com.au/explore/mornington-peninsula-gallery/>) · gallery
-
-On the calendar in this place
-
-## Events in Mornington
-
-Coming up in Mornington, pulled from the events registry.
-
-[All events →](<https://peninsulainsider.com.au/whats-on/>)
-
-- [Thu, 26 Nov
-
-### Author Talk: Jane Gilmore - Mornington Library
-
-Mornington
-
-Hear journalist and author Jane Gilmore discuss her new book, helping adults talk to kids about consent, relationships and online life.
-
- Event · Writers & Ideas](<https://peninsulainsider.com.au/whats-on/author-talk-jane-gilmore-mornington-library/>)
-
-- [Fri, 27 Nov
-
-### Brown Sugar - Rolling Stones
-
-Mornington
-
-Rolling Stones tribute band Brown Sugar plays the upstairs Bandroom at The Bay Hotel. Standing show from 8.30pm, with pre-show dinner and drinks upstairs from 6pm. Access is by stairs only.
-
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/brown-sugar-rolling-stones-2026-11-27/>)
-
-- [Sat, 5 Dec
-
-### Gareth Sansom at MPRG
-
-Mornington
-
-Gareth Sansom is a pioneering and highly influential figure in Australian contemporary art, a restless innovator whose career spans more than six decades since his first exhibition at 19 years old in 1959. Renowned for his audacious fusion of abstraction and figuration, Sansom has continually defied categorisation, ...
-
- Event · Exhibitions](<https://peninsulainsider.com.au/whats-on/gareth-sansom-at-mprg-2026-12-05/>)

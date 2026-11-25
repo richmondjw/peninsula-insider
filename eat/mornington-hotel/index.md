@@ -13,7 +13,7 @@ A Mornington pub on Nepean Highway, with a bistro and sports bar.
 
 Known for   Nepean Highway location Bistro Sports bar
 
-[Reserve a table](<https://www.morningtonhotel.com.au/>)  +61 3 8855 2284
+[Reserve a table](<https://www.morningtonhotel.com.au/>)  +61 3 8855 2284  [Website](<https://www.morningtonhotel.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=Mornington%20Hotel%2C%20917%20Nepean%20Highway%2C%20Mornington%20VIC%203931>)
 
 Why we’d go
 

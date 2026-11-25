@@ -13,7 +13,9 @@ Glamping accommodation within Peninsula Hot Springs in Fingal, with garden-view,
 
 Known for   On-Site Glamping Garden and Lake View Options Secluded Pavilion Accommodation
 
-[Check availability](<https://www.peninsulahotsprings.com/accommodation>)  +61 3 5950 8777
+[Check availability](<https://www.peninsulahotsprings.com/accommodation>)  +61 3 5950 8777  [Website](<https://www.peninsulahotsprings.com/accommodation/glamping>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.40693%2C144.84273>)
+
+[Information last checked 3 Oct 2026](<https://peninsulainsider.com.au/about/#how-a-check-works>)
 
 Peninsula Hot Springs Glamping · Fingal
 

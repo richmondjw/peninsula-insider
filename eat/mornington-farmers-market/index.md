@@ -13,6 +13,8 @@ A second-Saturday farmers market in Mornington Park, separate from the Wednesday
 
 Known for   Second Saturday Monthly Mornington Park Setting Peninsula Produce
 
+[Website](<https://mainstreetmornington.com.au/about/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=Mornington%20Farmers%27%20Market%2C%20Mornington%20Park%2C%20Mornington%20VIC%203931>)
+
 - Photo · Robert Blackburn, courtesy of Visit Victoria
 
 - Photo · Courtesy of Visit Victoria

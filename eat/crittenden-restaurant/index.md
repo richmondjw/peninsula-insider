@@ -13,7 +13,7 @@ Lakeside dining under a vine-strung pergola at one of the Peninsula's founding w
 
 Known for   Lakeside Pergola Dining Room Crittenden Los Hermanos Wine Range Head Chef Brunno Melo One of the Peninsula's Founding Wineries
 
-[Reserve a table](<https://www.crittendenwines.com.au/pages/restaurant>)  +61 3 5987 3800
+[Reserve a table](<https://www.crittendenwines.com.au/pages/restaurant>)  +61 3 5987 3800  [Website](<https://www.crittendenwines.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3431%2C144.9995>)
 
 Why we’d go
 

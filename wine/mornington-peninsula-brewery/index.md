@@ -13,7 +13,7 @@ The brewery and distillery at 72 Watt Road, with beer and spirit paddles and woo
 
 Known for   Tar Barrel Beer and Spirits Wood-Fired Pizza 72 Watt Road Brewery
 
-[Reserve a table](<https://tarbarrel.com.au/>)  +61 477 378 294
+[Reserve a table](<https://tarbarrel.com.au/>)  +61 477 378 294  [Website](<https://tarbarrel.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.2296%2C145.0426>)
 
 Tar Barrel Brewery & Distillery · Mornington
 

@@ -13,7 +13,7 @@ Australia's first dedicated gluten-free brewery, unexpectedly good beer, a small
 
 Known for   Australia's first dedicated gluten-free brewery Pale ale, lager, and session IPA that hold up entirely on their own merits Small, unfussy taproom in Dromana, not a performance space Food: pizzas, burgers, charcuterie A destination worth knowing for coeliacs and non-coeliacs alike
 
-[Reserve a table](<https://www.twobays.beer/>)  +61 3 5981 4205
+[Reserve a table](<https://www.twobays.beer/>)  +61 3 5981 4205  [Website](<https://www.twobays.beer/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3388%2C144.9684>)
 
 Two Bays Brewing Co · Dromana
 

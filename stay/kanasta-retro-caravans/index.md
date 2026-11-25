@@ -13,7 +13,9 @@ Vintage and retro caravans near Rye bay beach, with shared bathrooms and heating
 
 Known for   Vintage and Retro Caravans Shared Bathroom Block Heating and Cooling in Every Van Rye Beach Nearby
 
-[Check availability](<https://kanastacaravanpark.com.au/retro-caravans/>)
+[Check availability](<https://kanastacaravanpark.com.au/retro-caravans/>) [Website](<https://kanastacaravanpark.com.au/retro-caravans/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3738%2C144.82>)
+
+[Information last checked 3 Oct 2026](<https://peninsulainsider.com.au/about/#how-a-check-works>)
 
 Mornington Peninsula Retro Caravans · Rye
 

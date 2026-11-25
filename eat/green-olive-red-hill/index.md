@@ -13,7 +13,7 @@ A working olive grove and produce kitchen on the Red Hill ridge, grazing boards,
 
 Known for   Working Olive Grove Estate Olive Oils Wood Oven Cooking Mediterranean Smallholding Setting
 
-[Reserve a table](<https://greenolive.com.au/dine>)  +61 409 997 400
+[Reserve a table](<https://greenolive.com.au/dine>)  +61 409 997 400  [Website](<https://greenolive.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=Green%20Olive%20at%20Red%20Hill%2C%201180%20Mornington-Flinders%20Rd%2C%20Main%20Ridge%20VIC%203928>)
 
 - Photo · Two Palms Australia, courtesy of Visit Victoria
 

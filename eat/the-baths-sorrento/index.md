@@ -13,7 +13,7 @@ Sorrento's most enduring waterfront dining room, perched on the sand with Port P
 
 Known for   Heritage Bathing Pavilion Site Direct Foreshore Location Raw Bar and Local Oysters Port Phillip Bay Views
 
-[Reserve a table](<https://thebaths.com.au/>)  +61 3 5984 1500
+[Reserve a table](<https://thebaths.com.au/>)  +61 3 5984 1500  [Website](<https://thebaths.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3352%2C144.7438>)
 
 Why we’d go
 

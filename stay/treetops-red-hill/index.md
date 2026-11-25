@@ -13,7 +13,9 @@ Two self-contained Red Hill cottages, Peppercorn and Winemakers, on an artisan v
 
 Known for   Two vineyard cottages Peppercorn local breakfast provisions Winemakers vineyard position
 
-[Check availability](<https://treetopsatredhill.com.au/>)
+[Check availability](<https://treetopsatredhill.com.au/>) [Website](<https://treetopsatredhill.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=Treetops%20at%20Red%20Hill%2C%2080%20McIlroys%20Rd%2C%20Red%20Hill%20VIC%203937>)
+
+[Information last checked 3 Oct 2026](<https://peninsulainsider.com.au/about/#how-a-check-works>)
 
 Treetops at Red Hill · Red Hill
 

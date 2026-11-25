@@ -13,7 +13,7 @@ A Southern French bistro on Sorrento's Ocean Beach Road, open for lunch and dinn
 
 Known for   Southern French Cooking French Bistro Format Prix Fixe Lunch Ocean Beach Road Location
 
-[Reserve a table](<https://www.bistroelba.com.au/>)  +61 3 5984 4995
+[Reserve a table](<https://www.bistroelba.com.au/>)  +61 3 5984 4995  [Website](<https://www.bistroelba.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3412%2C144.7428>)
 
 Why we’d go
 

@@ -13,7 +13,7 @@ Chef Simone Watts's farm dining room on a 1000-acre regenerative estate at Cape 
 
 Known for   Estate-Led Set Menu Simone Watts Kitchen Market Garden Setting 1000-Acre Cape Schanck Estate
 
-[Reserve a table](<https://www.barragunda.com.au/dining/>)  +61 3 8644 4050
+[Reserve a table](<https://www.barragunda.com.au/dining/>)  +61 3 8644 4050  [Website](<https://www.barragunda.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.46803496820978%2C144.89851034298496>)
 
 Why we’d go
 

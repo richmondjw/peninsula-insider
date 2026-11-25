@@ -13,7 +13,7 @@ The old Merricks general store reborn as a cellar door, bakery, and produce-forw
 
 Known for   Village Bistro Elgee Park and Baillieu Wines Breakfast and Lunch Peninsula Produce Retail
 
-[Reserve a table](<https://merricksstore.com.au/reservations/>)  +61 3 5989 8088
+[Reserve a table](<https://merricksstore.com.au/reservations/>)  +61 3 5989 8088  [Website](<https://merricksstore.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.4022%2C145.1157>)
 
 - Photo · Peter Foster, courtesy of Visit Victoria
 

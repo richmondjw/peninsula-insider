@@ -41,6 +41,24 @@ wet midwinter weekday
 
 Insider  Check each cellar door and restaurant directly before travelling; neighbouring Red Hill and Balnarring are separate stops.
 
+On the calendar in this place
+
+## What's on in Red Hill South
+
+Coming up in Red Hill South, from our events listings.
+
+[All events →](<https://peninsulainsider.com.au/whats-on/>)
+
+- [Sat, 5 Dec
+
+### An Evening at BRASA by Montalto
+
+Red Hill South
+
+A South American-themed evening built around cooking over fire at BRASA by Montalto in Red Hill South, from 5.30pm to 10pm.
+
+ Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/an-evening-at-brasa-by-montalto-2026-12-05/>)
+
 A rural Red Hill South base for a measured cellar-door and lunch day.
 
 Peninsula Insider - editor's note
@@ -328,21 +346,3 @@ Browse locations as a list
 - [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>) · winery
 
 - [Red Hill Brewery](<https://peninsulainsider.com.au/wine/red-hill-brewery/>) · brewery
-
-On the calendar in this place
-
-## Events in Red Hill South
-
-Coming up in Red Hill South, pulled from the events registry.
-
-[All events →](<https://peninsulainsider.com.au/whats-on/>)
-
-- [Sat, 5 Dec
-
-### An Evening at BRASA by Montalto
-
-Red Hill South
-
-BRASA brings the spirit of South America to the Mornington Peninsula! A celebration of fire, flavour, theatre and the joy of gathering around the table.
-
- Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/an-evening-at-brasa-by-montalto-2026-12-05/>)

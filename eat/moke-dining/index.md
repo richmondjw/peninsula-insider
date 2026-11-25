@@ -13,7 +13,7 @@ Family-run fine dining on Cook Street, a weekly-changing set menu built on Penin
 
 Known for   Bocuse d'Or Chef Michael Cole Weekly-Changing Set Menu 20-Seat Cook Street Room Set Five-Course Format
 
-[Reserve a table](<https://mokedining.com.au/>)  +61 458 418 524
+[Reserve a table](<https://mokedining.com.au/>)  +61 458 418 524  [Website](<https://mokedining.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.4724%2C145.0231>)
 
 Why we’d go
 

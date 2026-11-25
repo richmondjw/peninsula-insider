@@ -13,7 +13,9 @@ Two adjoining self-contained farm cottages, The Mavis for two and The June for f
 
 Known for   Two adjoining farm cottages Open fireplaces Outdoor baths No pets
 
-[Check availability](<https://www.birchcreek.com.au/book>)
+[Check availability](<https://www.birchcreek.com.au/book>) [Website](<https://www.birchcreek.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=Birch%20Creek%2C%20Dromana%20VIC>)
+
+[Information last checked 3 Oct 2026](<https://peninsulainsider.com.au/about/#how-a-check-works>)
 
 Birch Creek · Dromana
 

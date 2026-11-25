@@ -13,7 +13,7 @@ One of the Peninsula's founding names, cool-climate Chardonnay and Pinot Noir al
 
 Known for   Peninsula Founding Estate Italian-Leaning Bottlings Quieter Hinterland Position Accessible Pricing
 
-[Book a tasting](<https://www.dromanaestate.com.au/>)  +61 3 5974 4400
+[Book a tasting](<https://www.dromanaestate.com.au/>)  +61 3 5974 4400  [Website](<https://www.dromanaestate.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3147%2C145.0929>)
 
 Dromana Estate · Tuerong
 

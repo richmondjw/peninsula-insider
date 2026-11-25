@@ -13,7 +13,7 @@ Foxeys' second, quieter Main Ridge site, Italian-feeling long lunches, valley vi
 
 Known for   Foxeys' Quieter Sibling Site Italian-Style Long Lunches Main Ridge Valley Views Pinot Gris Specialist
 
-[Book a tasting](<https://foxeys-hangout.com.au/Morning-Sun/About-Morning-Sun>)  +61 3 5989 6571
+[Book a tasting](<https://foxeys-hangout.com.au/Morning-Sun/About-Morning-Sun>)  +61 3 5989 6571  [Website](<https://foxeys-hangout.com.au/Morning-Sun/About-Morning-Sun>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3919%2C144.9898>)
 
 Morning Sun Vineyard · Main Ridge
 

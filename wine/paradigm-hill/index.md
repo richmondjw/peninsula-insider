@@ -13,7 +13,7 @@ George Mihaly's fastidiously farmed single-site Pinot Noir estate, appointment-o
 
 Known for   George and Ruth Mihaly Estate L'ami Sage Pinot Noir Appointment-Only Tastings Single-Site Biodynamic Farming
 
-[Book a tasting](<https://www.paradigmhill.com.au/>)  +61 3 5931 0000
+[Book a tasting](<https://www.paradigmhill.com.au/>)  +61 3 5931 0000  [Website](<https://www.paradigmhill.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3822%2C144.9792>)
 
 **By appointment.** This producer doesn't take walk-ins. Call +61 3 5931 0000 to arrange a visit.
 

@@ -13,7 +13,7 @@ A wine bar and small-plate restaurant in Sorrento, cured kingfish, raw bar selec
 
 Known for   Natural and minimal-intervention wine list as the lead focus Raw bar, cured kingfish, and grilled octopus as signature dishes Narrow, atmospheric room, one of Sorrento's most considered small spaces Wine-bar format built around small plates rather than a full menu Best suited to late lunch or early dinner
 
-[Reserve a table](<https://stringerssorrento.com.au/>)
+[Reserve a table](<https://stringerssorrento.com.au/>) [Website](<https://stringerssorrento.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3408%2C144.7427>)
 
 Why we’d go
 

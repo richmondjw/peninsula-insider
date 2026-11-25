@@ -13,7 +13,7 @@ The Peninsula's pioneering estate, four decades of Crittenden family winemaking,
 
 Known for   Founded 1982 by Garry Crittenden Los Hermanos Italian-Spanish Range Lakeside Wine Centre Second-Generation Winemaker Rollo
 
-[Book a tasting](<https://www.crittendenwines.com.au/>)  +61 3 5981 8322
+[Book a tasting](<https://www.crittendenwines.com.au/>)  +61 3 5981 8322  [Website](<https://www.crittendenwines.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3413%2C144.99>)
 
 - Photo · Courtesy of Visit Victoria
 

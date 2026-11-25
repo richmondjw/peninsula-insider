@@ -9,7 +9,7 @@ Event     Arts     13 December 2026     One-off date
 
 # "Whippy" Griggs Live for a Crackin' Night at The Ranch
 
-World-renowned whip artist Nathan “Whippy” Griggs brings his Aussie Tour to The Ranch! Based in the Northern Territory, Nathan combines incredible whip-cracking skills, handcrafted whips and a healthy dose of good ol' Aussie humour.
+Northern Territory whip artist Nathan "Whippy" Griggs brings his touring show of whip-cracking and humour to The Ranch in Boneo, from 6.30pm to 7.30pm.
 
 [Book or check details](<https://www.theranchmp.com.au/whats-on/>)
 
@@ -43,7 +43,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.theranchmp.com.au/whats-on/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=%22Whippy%22+Griggs+Live+for+a+Crackin%27+Night+at+The+Ranch&dates=20261213T073000Z%2F20261213T083000Z&details=World-renowned+whip+artist+Nathan+%E2%80%9CWhippy%E2%80%9D+Griggs+brings+his+Aussie+Tour+to+The+Ranch%21+Based+in+the+Northern+Territory%2C+Nathan+combines+incredible+whip-cracking+skills%2C+handcrafted+whips+and+a+healthy+dose+of+good+ol%27+Aussie+humour.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fwhippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13%2F&location=Ranch%2C+Boneo%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://www.theranchmp.com.au/whats-on/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=%22Whippy%22+Griggs+Live+for+a+Crackin%27+Night+at+The+Ranch&dates=20261213T073000Z%2F20261213T083000Z&details=Northern+Territory+whip+artist+Nathan+%22Whippy%22+Griggs+brings+his+touring+show+of+whip-cracking+and+humour+to+The+Ranch+in+Boneo%2C+from+6.30pm+to+7.30pm.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fwhippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13%2F&location=Ranch%2C+Boneo%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 

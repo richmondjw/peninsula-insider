@@ -13,7 +13,7 @@ A tiny, perfectly curated general store and café in sleepy Somers, sourdough, p
 
 Known for   Curated General Store Format Peninsula Wine Shelf Weekend Brunch Menu Sleepy Somers Village
 
-[Reserve a table](<https://www.thesomersgeneral.com.au/>)  +61 416 484 855
+[Reserve a table](<https://www.thesomersgeneral.com.au/>)  +61 416 484 855  [Website](<https://www.thesomersgeneral.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3941254%2C145.1628072>)
 
 Why we’d go
 

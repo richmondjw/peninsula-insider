@@ -13,7 +13,7 @@ Organic and biodynamic estate pouring its own Pinot alongside imported Chablis a
 
 Known for   Old-World vs New-World Comparative Tasting Certified Organic and Biodynamic Estate Imported Chablis and Burgundy Program Pinot Gris as Signature Variety
 
-[Book a tasting](<https://www.prancinghorseestate.com/>)  +61 3 5989 2602
+[Book a tasting](<https://www.prancinghorseestate.com/>)  +61 3 5989 2602  [Website](<https://www.prancinghorseestate.com/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3667%2C145.0456>)
 
 Prancing Horse Estate · Red Hill
 

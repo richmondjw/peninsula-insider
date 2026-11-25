@@ -11,7 +11,9 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Five adults-only villas overlooking the vines: two with mineral plunge pools, three with outdoor baths.
 
-[Check availability](<https://book-directonline.com/cassis-redhill/properties/cassisredhilldirect>)  +61 3 5927 5027
+[Check availability](<https://book-directonline.com/cassis-redhill/properties/cassisredhilldirect>)  +61 3 5927 5027  [Website](<https://www.cassisredhill.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.375%2C145.032>)
+
+[Information last checked 3 Oct 2026](<https://peninsulainsider.com.au/about/#how-a-check-works>)
 
 Cassis Red Hill · Red Hill
 

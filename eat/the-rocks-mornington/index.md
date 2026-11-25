@@ -13,7 +13,7 @@ A seaside restaurant and cocktail bar on Schnapper Point Drive in Mornington.
 
 Known for   Mornington Pier End Location Near-360° Bay Views Seafood-First Menu Sunset Window Tables
 
-[Reserve a table](<https://therocksmornington.com.au/>)  +61 3 5973 5599
+[Reserve a table](<https://therocksmornington.com.au/>)  +61 3 5973 5599  [Website](<https://therocksmornington.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.2166%2C145.0361>)
 
 Why we’d go
 

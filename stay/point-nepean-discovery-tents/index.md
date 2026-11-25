@@ -13,7 +13,9 @@ Pre-pitched canvas tents in the historic Point Nepean Quarantine Station precinc
 
 Known for   Inside Point Nepean National Park Historic Quarantine Station Setting Pre-Pitched Canvas Tents September to April Season
 
-[Check availability](<https://www.parks.vic.gov.au/places-to-see/parks/point-nepean-national-park/where-to-stay/point-nepean-discovery-tents>)
+[Check availability](<https://www.parks.vic.gov.au/places-to-see/parks/point-nepean-national-park/where-to-stay/point-nepean-discovery-tents>) [Website](<https://www.parks.vic.gov.au/places-to-see/parks/point-nepean-national-park/where-to-stay/point-nepean-discovery-tents>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3127%2C144.6934>)
+
+[Information last checked 3 Oct 2026](<https://peninsulainsider.com.au/about/#how-a-check-works>)
 
 Point Nepean Discovery Tents · Portsea
 

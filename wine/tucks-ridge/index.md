@@ -13,7 +13,7 @@ A founding Red Hill estate, mid-1980s, renewed focus on single-vineyard Pinot No
 
 Known for   Planted mid-1980s, one of the founding estates of the Red Hill cellar-door corridor Turramurra Pinot Noir as the signature wine Deck view to Western Port, one of the quieter great views on the ridge Repositioned under a refreshed team with renewed focus on single-vineyard wines Small-format food pairings available on weekends
 
-+61 3 5989 8660
++61 3 5989 8660  [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3844%2C145.0254>)
 
 Tuck's Ridge · Red Hill
 

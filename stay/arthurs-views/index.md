@@ -13,7 +13,9 @@ Five couples-only suites on Arthurs Seat with bay views. Breakfast provisions ar
 
 Known for   Five couples-only suites Arthurs Seat bay views Optional breakfast provisions Suite-specific spa facilities
 
-[Check availability](<https://arthursviews.com.au/>)
+[Check availability](<https://arthursviews.com.au/>) [Website](<https://arthursviews.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.352762%2C144.954247>)
+
+[Information last checked 3 Oct 2026](<https://peninsulainsider.com.au/about/#how-a-check-works>)
 
 Arthurs Views · Arthurs Seat
 
