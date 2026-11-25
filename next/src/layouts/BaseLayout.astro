@@ -103,6 +103,21 @@ const {
   searchExclude = false,
 } = Astro.props;
 
+// Search results cut a title near 60 characters and a description near 160.
+// The brand suffix is the first thing to give way (Google shows the site name
+// beside the result anyway), and a long description is cut back to its last
+// whole sentence. A description with no sentence break inside the limit is
+// left as written: a mid-sentence cut is no better than the engine's own.
+const BRAND_SUFFIX = ' · Peninsula Insider';
+const metaTitle = title.length > 60 && title.endsWith(BRAND_SUFFIX) ? title.slice(0, -BRAND_SUFFIX.length) : title;
+const metaDescription = (() => {
+  if (description.length <= 160) return description;
+  const head = description.slice(0, 160);
+  const stops = [...head.matchAll(/[.!?](?=\s|$)/g)];
+  const end = stops.length ? (stops[stops.length - 1].index ?? 0) + 1 : 0;
+  return end >= 70 ? head.slice(0, end) : description;
+})();
+
 // Map the editorial section to a search-chip label. Reader-facing strings - // these populate the "kind" filter chips on /search.
 const SECTION_TO_SEARCH_KIND: Record<string, string> = {
   home: 'Home',
@@ -163,9 +178,9 @@ const showNewsletterPopup = !isPlanningJourney && !isPlaceGuide && normalizedPat
        Google Fonts request). Preload the two hero-critical faces. -->
   <link rel="preload" href="/fonts/sora-600.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/figtree-400.woff2" as="font" type="font/woff2" crossorigin />
-  <title>{title}</title>
+  <title>{metaTitle}</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta name="description" content={description} />
+  <meta name="description" content={metaDescription} />
   <link rel="canonical" href={canonicalUrl} />
   {!noindex && <link rel="describedby" href="/llms.txt" type="text/plain" title="Peninsula Insider agent guide" />}
   {!noindex && Astro.url.pathname === "/" && agentDirectories.map((directory) => <><link rel="index" type="application/json" href={directory.href} title={`${directory.title} name directory: text page links`} /><link rel="index" type="application/json" href={directory.htmlHref} title={`${directory.title} name directory: HTML page links`} /></>)}
@@ -173,8 +188,8 @@ const showNewsletterPopup = !isPlanningJourney && !isPlaceGuide && normalizedPat
   <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large'} />
 
   <!-- Open Graph -->
-  <meta property="og:title" content={title} />
-  <meta property="og:description" content={description} />
+  <meta property="og:title" content={metaTitle} />
+  <meta property="og:description" content={metaDescription} />
   {!suppressImageMeta && <meta property="og:image" content={ogImageAbsolute} />}
   <meta property="og:url" content={canonicalUrl} />
   <meta property="og:type" content={ogType} />
@@ -185,8 +200,8 @@ const showNewsletterPopup = !isPlanningJourney && !isPlaceGuide && normalizedPat
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content={suppressImageMeta ? "summary" : "summary_large_image"} />
-  <meta name="twitter:title" content={title} />
-  <meta name="twitter:description" content={description} />
+  <meta name="twitter:title" content={metaTitle} />
+  <meta name="twitter:description" content={metaDescription} />
   {!suppressImageMeta && <meta name="twitter:image" content={ogImageAbsolute} />}
 
   <script type="application/ld+json" set:html={JSON.stringify({
@@ -529,6 +544,9 @@ const showNewsletterPopup = !isPlanningJourney && !isPlaceGuide && normalizedPat
             } else {
               // Background-image element (div, a, figure, etc.)
               el.style.backgroundImage = 'url("' + slot.public_url.replace(/"/g, '\\"') + '")';
+              // A card that was a placeholder at build time now shows a real
+              // image, so its placeholder plate must not paint over it.
+              el.className = el.className.split(/\s+/).filter(function (c) { return !/__hero--placeholder$/.test(c); }).join(' ');
             }
           });
         }).catch(function () { /* non-fatal */ });

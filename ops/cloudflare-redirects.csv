@@ -83,3 +83,9 @@ source_url,target_url,status,notes
 # /eat/barmah-park-vineyard/ has a hand-coded self-canonical /eat/ page (winery kitchen kept
 # by editorial judgment) and is deliberately NOT redirected - resolve per par 3.3 "no
 # exceptions" review before cutover if it should move too.
+# Trust addresses (added 2026-11-25). All four are script-and-canonical stubs on static
+# hosting; these rows make them one-hop 301s once imported at the edge.
+/editorial-approach/,/about/,301,trust address folded into About
+/methodology/,/about/,301,trust address folded into About
+/ethics/,/about/,301,trust address folded into About
+/our-approach/,/about/,301,trust address folded into About

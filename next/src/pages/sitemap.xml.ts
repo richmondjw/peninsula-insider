@@ -1,7 +1,7 @@
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 import { routeSlug, isStayVenue, isListableVenue } from '../lib/editorial';
-import { buildNow, loadLiveEvents } from './whats-on/_data';
+import { buildNow, isDatedCalendarEvent, loadLiveEvents, monthLanes, occursInWindow } from './whats-on/_data';
 
 // SEOMIG rebuild 2026-07-11 (seo-migration-plan.md §4.1).
 // Inclusion contract - a URL enters the sitemap iff ALL of:
@@ -480,6 +480,20 @@ export const GET: APIRoute = async () => {
   const liveEvents = await loadLiveEvents(today, { includeCancelled: true });
   for (const live of liveEvents) {
     entries.push(url(live.href, 0.6, 'weekly', dateStr(live.event.data.publishedAt)));
+  }
+
+  // What's On month pages: only months that currently hold a dated event.
+  // Finished months are unindexed hand-on pages and stay out of the sitemap.
+  // lastmod is the newest publish date among the month's events; the fallback
+  // is the day the month template shipped, never a build timestamp.
+  const datedEvents = (await loadLiveEvents(today)).filter(isDatedCalendarEvent);
+  for (const lane of monthLanes(datedEvents, today).filter((l) => !l.past)) {
+    const published = datedEvents
+      .filter((live) => occursInWindow(live.rule, lane.win))
+      .map((live) => dateStr(live.event.data.publishedAt))
+      .filter((d): d is string => Boolean(d))
+      .sort();
+    entries.push(url(`/whats-on/month/${lane.slug}`, 0.6, 'weekly', published.pop() ?? '2026-11-25'));
   }
 
   // NOTE: /events/* signature pages, /walks/*, /itinerary/, /plan/,

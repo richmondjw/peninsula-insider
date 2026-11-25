@@ -39,8 +39,10 @@ import {
   addDays,
   occursInWindow,
   checkedLabel,
+  monthLanes,
   type OccurrenceState,
 } from './_data';
+import EventMonthNav from '../../components/EventMonthNav.astro';
 import { eventCategoryLabel } from '../../lib/editorial';
 
 export const prerender = true;
@@ -48,6 +50,7 @@ export const prerender = true;
 const now = buildNow();
 const events = await loadLiveEvents(now);
 const calendarEvents = events.filter(isDatedCalendarEvent);
+const monthNav = monthLanes(events, now).filter((lane) => !lane.past);
 const flexibleExperiences = events.filter((live) => eventContentKind(live.event.data) === 'experience').slice(0, 4);
 
 const weekend = weekendWindow(now);
@@ -355,6 +358,7 @@ const hubImage = categoryHero('whats-on');
             ))}
           </ul>
         </nav>
+        <EventMonthNav months={monthNav} />
         <noscript>
           <span class="wo-more__noscript">
             Longer horizons load with JavaScript on; the weekend above is the complete current edit.

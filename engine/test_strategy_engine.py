@@ -292,6 +292,8 @@ class EventCoverage(unittest.TestCase):
                 "recurrence": "one-off", "freePaid": "Paid"}))
             ev = se.load_events(dd, date(2026, 7, 6))
         slugs = {e["slug"]: e for e in ev["upcoming"]}
+        self.assertIn("past", ev["ended"])     # ended events are remembered, to filter targets
+        self.assertNotIn("gala", ev["ended"])
         self.assertIn("gala", slugs)          # upcoming, in window
         self.assertIn("mkt", slugs)            # upcoming market (kept, but not "major")
         self.assertNotIn("past", slugs)        # past — excluded
@@ -312,6 +314,19 @@ class EventCoverage(unittest.TestCase):
         ev_opps = [o for o in opps if o.kind == "event-coverage"]
         self.assertEqual(len(ev_opps), 1)
         self.assertIn("Gala", ev_opps[0].title)
+
+    def test_ended_event_pages_are_not_commissioned(self):
+        gsc = {"available": True, "summary": {}, "top_queries": [], "striking_distance": [],
+               "top_pages": [], "ctr_opportunities": [
+                   {"path": "/whats-on/old-cup-2026/", "impressions": 216, "ctr": 0.46, "avg_position": 8.0, "clicks": 1},
+                   {"path": "/journal/still-live/", "impressions": 73, "ctr": 0.0, "avg_position": 9.0, "clicks": 0}]}
+        before = se.build_opportunities(gsc, {"stale": []}, {"gaps": []}, "spring",
+                                        {"not_indexed": []}, {"upcoming": [], "ended": []})
+        after = se.build_opportunities(gsc, {"stale": []}, {"gaps": []}, "spring",
+                                       {"not_indexed": []}, {"upcoming": [], "ended": ["old-cup-2026"]})
+        self.assertEqual(len(before) - len(after),
+                         sum(1 for o in before if "old-cup-2026" in o.target))
+        self.assertFalse(any("old-cup-2026" in o.target for o in after))
 
 
 class Health(unittest.TestCase):
@@ -338,6 +353,17 @@ class Health(unittest.TestCase):
             [f"2026-07-{d:02d}" for d in range(1, 8)])  # 7 consecutive days
         h = se.check_health(date(2026, 7, 7), ["gsc-search-analytics", "gsc-coverage"], {})
         self.assertEqual(h["status"], "ok")
+
+    def test_warning_when_search_data_is_stale(self):
+        se.SNAPSHOT_DIR = self._with_snaps([f"2026-07-{d:02d}" for d in range(1, 8)])
+        h = se.check_health(date(2026, 7, 7), ["gsc-search-analytics:stale-220d", "gsc-coverage"], {})
+        self.assertEqual(h["status"], "warning")
+        self.assertIn("220 days old", h["notes"][0])
+
+    def test_search_data_age(self):
+        self.assertEqual(se.gsc_age_days("2026-03-23 \u2192 2026-04-19", date(2026, 11, 25)), 220)
+        self.assertEqual(se.gsc_age_days("2026-11-11 \u2192 2026-11-24", date(2026, 11, 25)), 1)
+        self.assertIsNone(se.gsc_age_days("", date(2026, 11, 25)))
 
     def test_warning_without_performance_data(self):
         se.SNAPSHOT_DIR = self._with_snaps([f"2026-07-{d:02d}" for d in range(1, 8)])

@@ -30,20 +30,20 @@ Small, certain fixes. Done first because they are cheap and visible.
 
 | ID | Item | Owner | Status | Done when |
 | --- | --- | --- | --- | --- |
-| A1 | Remove the "Add photo" CMS label from public venue and event cards | Agent | Next | No logged-out page shows the label or camera icon, checked on Sorrento, Red Hill, Mornington and a sample of other place hubs |
-| A2 | Correct the founding date in structured data | Agent | Next | Organisation data matches the launch year used elsewhere |
+| A1 | Remove the "Add photo" CMS label from public venue and event cards | Agent | Done | Readers see a neutral plate where a card has no photograph. The prompt shows only in edit mode. Checked in a browser on Sorrento, Red Hill, Mornington and a venue page at phone and desktop widths |
+| A2 | Correct the founding date in structured data | Needs owner | Needs owner | The site's structured data says founded 2024. The advertising kit says launched early 2026. Not changed, because the repository cannot show which is true. See decisions below |
 | A3 | Remove layout shift on Search and Ask | Agent | Next | Lab layout shift under 0.1 at desktop and phone widths |
 | A4 | Stop the hidden full-size image loading on venue pages | Agent | Next | No image is fetched and shown at zero size on a venue page |
 | A5 | Optimise images supplied through the CMS | Agent | Next | CMS images on cards are served resized, not as full originals |
-| A6 | Bring titles under 60 characters and descriptions under 160 | Agent | Next | Under 40 titles and under 40 descriptions over length across the sitemap |
-| A7 | One page per town: merge the six journal area guides into their place hubs | Agent | Next | Each of the six towns has one indexable page, the other redirects and is out of the sitemap |
-| A8 | Make the four trust addresses real redirects or real pages | Agent | Next | `/editorial-approach/`, `/methodology/`, `/ethics/`, `/our-approach/` are not script-only stubs |
+| A6 | Bring titles under 60 characters and descriptions under 160 | Agent | In progress | A central rule now drops the brand suffix from any title it pushes past 60 characters and trims a long description to its last whole sentence. Long titles fell from 323 to 142 and long descriptions from 313 to 191 in the local build. The rest are editorial headlines that each need a hand-written short title |
+| A7 | One page per town: merge the six journal area guides into their place hubs | Needs owner | Needs owner | The area guides are full articles, so merging them is an editorial decision. See decisions below |
+| A8 | Make the four trust addresses real redirects or real pages | Needs owner | Needs owner | The site is on static hosting, which cannot send a real redirect. The four rows are now in `ops/cloudflare-redirects.csv`. Importing that list at Cloudflare makes them real |
 
 ## Workstream B: measurement and indexing (tier 1 move 1)
 
 | ID | Item | Owner | Status | Done when |
 | --- | --- | --- | --- | --- |
-| B1 | Staleness guard on the daily strategy file | Agent | Next | The strategy file warns and degrades health when search data is older than 14 days, and no expired event appears in the queue |
+| B1 | Staleness guard on the daily strategy file | Agent | Done | Search data older than 14 days is labelled with its age, drops the loop to warning, and is held out of the work queue so nothing is rewritten automatically on old numbers. Events that have run or been withdrawn can no longer be queued |
 | B2 | Restore a live Search Console feed to the strategy job | Needs owner | Needs owner | Credentials added as repository secrets per `ops/gsc-auth/README.md`. The agent can wire the job once they exist |
 | B3 | Bing Webmaster Tools: verify the site and submit the sitemap | Needs owner | Needs owner | Site verified. The agent can add the verification tag once the code is supplied |
 | B4 | Confirm AI crawlers are not blocked at Cloudflare | Needs owner | Needs owner | Security settings checked for bot blocking, result noted here |
@@ -54,10 +54,10 @@ Small, certain fixes. Done first because they are cheap and visible.
 
 | ID | Item | Owner | Status | Done when |
 | --- | --- | --- | --- | --- |
-| C1 | Gate out private, members-only and alumni events | Agent | Next | The event safeguard fails the build on such an event, and the current ones are removed |
-| C2 | Replace organiser marketing lines with our own wording | Agent | Next | No current event summary repeats the organiser's promotional copy |
+| C1 | Gate out private, members-only and alumni events | Agent | Done | The event safeguard now fails the build on closed-group wording. The one such event, a school alumni golf day, is withdrawn |
+| C2 | Replace organiser marketing lines with our own wording | Agent | Done | 14 summaries rewritten from the facts in each record. The safeguard reports promotional summaries on every build, currently none |
 | C3 | Record each event's primary source as the organiser, not the competitor | Agent | Next | Every upcoming event has an organiser or venue source. The competitor is a secondary source at most |
-| C4 | Source-mix report in the build | Agent | Next | The build prints the share of events by source domain and warns above 25% from any one non-organiser site |
+| C4 | Source-mix report in the build | Agent | In progress | The build prints how many live events cite the competitor as their source: 42 of 71 today. The warning above 25% is still to add |
 | C5 | Add organiser and venue calendars to the event intake list | Agent | Not started | The intake configuration lists council, gallery, racecourse, ticketing and venue calendars |
 | C6 | Simple public event submission form | Agent | Not started | An organiser can submit an event in under two minutes from What's On |
 
@@ -65,7 +65,7 @@ Small, certain fixes. Done first because they are cheap and visible.
 
 | ID | Item | Owner | Status | Done when |
 | --- | --- | --- | --- | --- |
-| D1 | Month pages for What's On, twelve rolling | Agent | Next | `/whats-on/<month>-<year>/` pages exist, list that month's events, and are in the sitemap |
+| D1 | Month pages for What's On | Agent | Done | Pages live at `/whats-on/month/<month>-<year>/`, linked from What's On and in the sitemap. A month gets a page only when it holds three or more dated events, so thin far-off months are not published. Today that is November, December, January, February and April. The two months just gone stay as unindexed pages that hand readers on |
 | D2 | Four season hubs | Agent | Not started | One hub per season pulling events, plans, places and journal pieces for that season |
 | D3 | Occasion pages: romantic, first visit, accessible | Agent | Not started | Each page is built from existing verified content and linked from the relevant hubs |
 
@@ -73,9 +73,9 @@ Small, certain fixes. Done first because they are cheap and visible.
 
 | ID | Item | Owner | Status | Done when |
 | --- | --- | --- | --- | --- |
-| E1 | Action row on every venue page: book, call, website, directions | Agent | Next | The four actions sit together directly under the title on phone and desktop |
-| E2 | Checked date on every venue page | Agent | Next | Each venue shows when its details were last checked, from the existing review data |
-| E3 | Place hubs open with what is on and a map | Agent | Next | Events and the map appear before the editorial sections on every place hub |
+| E1 | Action row on every venue page: book, call, website, directions | Agent | Done | The four actions sit together under the title. Checked on phone and desktop |
+| E2 | Checked date on every venue page | Agent | In progress | The checked date now shows under the action row and links to how a check works. It appears only where the record holds a real check. 93 open venues have none and are listed in `data/venues-without-recorded-check.md` for editorial |
+| E3 | Place hubs open with what is on and a map | Agent | Done | "What's on in" the town is now the first section after the introduction on every place hub. The map stays lower down, because moving it up would load the mapping library before the reader needs it |
 | E4 | Contents bar that stays in view on long pages | Agent | Not started | Place hubs and venue pages have a sticky section menu on phone and desktop |
 | E5 | "Not for you if" on venue pages | Agent | Not started | Venue pages show the line where the record holds one. Records without one are listed for editorial |
 
@@ -84,7 +84,7 @@ Small, certain fixes. Done first because they are cheap and visible.
 | ID | Item | Owner | Status | Done when |
 | --- | --- | --- | --- | --- |
 | F1 | Answer-first opening on the flagship pages | Agent | Not started | Best restaurants, best cellar doors, hatted restaurants, day trips, where to base yourself and the hot springs comparison each open with a two-sentence answer and a checked date |
-| F2 | The complete hatted list | Agent | Not started | All twelve hatted restaurants listed with the guide year and source, including those absent from the official list |
+| F2 | The complete hatted list | Shared | Needs owner | Our hatted page cites the 2025 Good Food Guide. The 2027 edition is out and names Barragunda Dining as Regional Restaurant of the Year. The full 2027 list sits behind the publisher's own site, so the page needs someone with access to check it before it is rewritten |
 | F3 | The complete cellar door list | Shared | Not started | Every cellar door open to the public is listed with booking status. Needs research and verification beyond the current 38 |
 | F4 | Comparison pages with stated criteria | Agent | Not started | Hot springs, Sorrento or Portsea, and three wineries in a day each state their criteria |
 | F5 | Town things-to-do answers | Agent | Not started | Sorrento, Red Hill, Flinders and Portsea hubs each open with a short ranked answer |
@@ -125,6 +125,7 @@ Mostly outside the repository.
 
 | Decision | Why it matters | Default if no answer |
 | --- | --- | --- |
+| The founding year in structured data: 2024 or 2026 | Search engines and AI systems read it as fact | No change |
 | Whether to show dated, sourced "from" prices for the most-asked attractions | Changes a house rule. Price queries currently go to other sites | No change. The rule stands |
 | Which page survives for the six duplicated towns | Affects existing links and rankings | The place hub survives. The journal area guide redirects to it |
 | Who the named editors are | Needed for author pages | Pages continue to credit the publication |
@@ -135,3 +136,4 @@ Mostly outside the repository.
 | Date | Change |
 | --- | --- |
 | 25 Nov 2026 | Teardown, evidence and this plan committed |
+| 25 Nov 2026 | A1, B1, C1, C2, D1, E1, E3 done. A6, C4, E2 part done. A2, A7, A8 and F2 moved to the owner with reasons. Full build gate passed, pages checked in a browser at phone and desktop widths |
