@@ -289,7 +289,7 @@ On the calendar
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
-- [Wed, 25 Nov
+- [Wed, 2 Dec
 
 ### ✦ Mornington Wednesday Market (Main Street Market)
 

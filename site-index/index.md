@@ -205,8 +205,6 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [The Epicurean](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>)
 
-- [Flinders General Store](<https://peninsulainsider.com.au/eat/flinders-general-store/>)
-
 - [Flinders Sourdough](<https://peninsulainsider.com.au/eat/flinders-sourdough/>)
 
 - [Foxeys Hangout](<https://peninsulainsider.com.au/eat/foxeys-hangout/>)
@@ -248,6 +246,8 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 - [Mornington Main Street Market](<https://peninsulainsider.com.au/eat/mornington-main-street-market/>)
 
 - [Mount Eliza Farmers Market](<https://peninsulainsider.com.au/eat/mount-eliza-farmers-market/>)
+
+- [Mr Vincenzo's](<https://peninsulainsider.com.au/eat/mr-vincenzos/>)
 
 ## Selected Stay pages
 

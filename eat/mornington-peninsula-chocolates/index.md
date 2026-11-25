@@ -119,17 +119,17 @@ Related picks
 
  [Back to Eat & Drink →](<https://peninsulainsider.com.au/eat/>)
 
-Café  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
+providore  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 ### [Flinders General Store](<https://peninsulainsider.com.au/eat/flinders-general-store/>)
 
 48 Cook St, Flinders VIC 3929
 
-The village general store on Flinders' main street, slow-drip coffee, fresh bread, and pick-your-own picnics for the Blowhole walk.
+A Cook Street grocery and deli for takeaway coffee, freshly made sandwiches and picnic provisions.
 
 slow  walk
 
-[Read notes](<https://peninsulainsider.com.au/eat/flinders-general-store/>) [Book](<https://flindersgeneralstore.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/eat/flinders-general-store/>)
 
 Bakery  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 

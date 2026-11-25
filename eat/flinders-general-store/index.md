@@ -5,35 +5,33 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-[Eat & Drink](<https://peninsulainsider.com.au/eat/>)    Café    [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
+[Eat & Drink](<https://peninsulainsider.com.au/eat/>)    Providore    [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 # Flinders General Store
 
-The village general store on Flinders' main street, slow-drip coffee, fresh bread, and pick-your-own picnics for the Blowhole walk.
+A Cook Street grocery and deli for takeaway coffee, freshly made sandwiches and picnic provisions.
 
-Known for   Village General Store Format Daily Baked Loaves Picnic Outfitter Flinders Village Anchor
+Known for   Groceries and deli Takeaway coffee Freshly made sandwiches Picnic provisions
 
-[Reserve a table](<https://flindersgeneralstore.com.au/>)  +61 3 5989 0207
++61 3 5989 0207
 
 Why we’d go
 
-Flinders General Store is the reason Flinders Village still feels like a village, a working general store that earns its place on the main street.
+Pick up lunch to take away and provisions for later in one Cook Street stop.
 
-Flinders General Store is the reason Flinders Village still feels like a village. The building is a proper country general store, timber floors, high shelves, a bell on the door, and it holds the things you actually need for a weekend down here: slow-drip coffee, a daily loaf from the on-site bakery, proper breakfast sandwiches to eat in or take to the Blowhole walk, and a small grocery shelf of Peninsula pantry essentials.
+On Cook Street, Flinders General Store is a grocery stop for the day ahead. Pick up a freshly made sandwich and takeaway coffee, or stock up on fruit, bread and pantry staples.
 
-Use it as your morning coffee stop on a Flinders weekend. Use it as your picnic outfitter before the walk to West Head. Use it as the casual lunch option when you want something lighter than a pub meal. The team runs the place with unfussy warmth and the pastry cabinet, lemon slice, custard tarts, an honest sausage roll, is better than it needs to be.
-
-The proper working heart of the village. If you are based in Flinders for more than a night, you will use it every morning.
+It’s a useful stop before a picnic or when you’re shopping for a weekend in Flinders. The store doesn’t take table bookings. For a larger grocery shop, the store offers click and collect through its website.
 
 Worth knowing
 
 **Best for**
 
-Morning stop · Brunch · Family outings · First-time visitors
+Takeaway coffee · Picnic provisions · Weekend groceries
 
 If you only do one thing
 
-Order the coffee first, pick up a loaf if one is left, and use the pastry cabinet as your picnic fund.
+Pick up a freshly made sandwich to take on your Flinders outing.
 
 Works well with
 
@@ -45,7 +43,7 @@ At a glance
 
 **Type**
 
-Café
+Providore
 
 **Location**
 
@@ -66,8 +64,6 @@ Café
 **Live status**
 
 [Check current hours →](<https://www.google.com/maps/search/?api=1&query=Flinders%20General%20Store%2C%2048%20Cook%20St%2C%20Flinders%20VIC%203929%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
-
- [Book now](<https://flindersgeneralstore.com.au/>)
 
 Not sure how to build a day around Flinders General Store?
 

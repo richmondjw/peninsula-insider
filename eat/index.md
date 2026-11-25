@@ -153,9 +153,9 @@ Red Hill South   Restaurant
 
 - ### [Flinders General Store](<https://peninsulainsider.com.au/eat/flinders-general-store/>)
 
-The village general store on Flinders' main street, slow-drip coffee, fresh bread, and pick-your-own picnics for the Blowhole walk.
+A Cook Street grocery and deli for takeaway coffee, freshly made sandwiches and picnic provisions.
 
-Flinders   Cafe
+Flinders   Providore
 
 - ### [Flinders Sourdough](<https://peninsulainsider.com.au/eat/flinders-sourdough/>)
 

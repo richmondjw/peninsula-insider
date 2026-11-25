@@ -91,17 +91,17 @@ view  wellness
 
 [Read notes](<https://peninsulainsider.com.au/stay/cape-retreat/>) [View stay](<https://www.thecaperetreat.com.au/book>)
 
-Café  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
+providore  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 ### [Flinders General Store](<https://peninsulainsider.com.au/eat/flinders-general-store/>)
 
 48 Cook St, Flinders VIC 3929
 
-The village general store on Flinders' main street, slow-drip coffee, fresh bread, and pick-your-own picnics for the Blowhole walk.
+A Cook Street grocery and deli for takeaway coffee, freshly made sandwiches and picnic provisions.
 
 slow  walk
 
-[Read notes](<https://peninsulainsider.com.au/eat/flinders-general-store/>) [Book](<https://flindersgeneralstore.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/eat/flinders-general-store/>)
 
 Photo: Flinders Hotel frontage, photographed 2010 · Mattinbgn / Wikimedia Commons (CC BY-SA 3.0) [Source](<https://commons.wikimedia.org/wiki/File:Flinders_Hotel_001.JPG>) [Licence](<https://creativecommons.org/licenses/by-sa/3.0/>)
 

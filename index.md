@@ -77,14 +77,6 @@ Merricks
 
 Swipe or scroll through the picks
 
-- ### [November Cellar Door Opening](<https://peninsulainsider.com.au/whats-on/november-cellar-door-opening-2026-11-28/>)
-
-Taste and purchase wines while enjoying a guided tour of Elgee Park’s sculpture collection. Starts 12pm.
-
-Sat, 28 Nov   Elgee Park   Exhibition
-
-Event details checked 9 Nov 2026 · [Organiser’s page](<https://www.elgeeparkwines.com.au/news/november-cellar-door-opening>)
-
 - ### [Summer Xmas Seafood Class at Peninsula Gourmet Cooking School](<https://peninsulainsider.com.au/whats-on/summer-xmas-seafood-class-at-peninsula-gourmet-cooking-school-2026-11-28/>)
 
 Delicious, Festive, Exciting!
@@ -100,6 +92,14 @@ Live Music at Peninsula Beer Garden! Join Dave Campbell for your music fix.
 Sun, 29 Nov   Peninsula Beer Garden   Live music
 
 Event details checked 9 Nov 2026 · [Organiser’s page](<https://peninsulabeergarden.com.au/>)
+
+- ### [Olivia Mae Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/olivia-mae-live-at-jetty-road-brewery-2026-11-29/>)
+
+Live music every weekend at Jetty Road Brewery!
+
+Sun, 29 Nov   Jetty Road Brewery   Live music
+
+Event details checked 9 Nov 2026 · [Organiser’s page](<https://www.jettyroad.com.au/dromana>)
 
 This season · Spring
 
