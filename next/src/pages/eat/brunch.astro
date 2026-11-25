@@ -13,7 +13,7 @@ const allVenues = (await getCollection('venues')).filter(isListableVenue);
 const brunchSlugs = [
   'commonfolk-coffee', 'many-little', 'martha-s-table', 'stringers-mornington',
   'merricks-general-wine-store', 'somers-general',
-  'store-ten', 'flinders-general-store'
+  'store-ten'
 ];
 
 const venues = brunchSlugs
@@ -63,7 +63,7 @@ const faqSchema = {
     {
       '@type': 'Question',
       name: 'Which brunch spots on the Mornington Peninsula are dog-friendly?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Commonfolk Coffee (back courtyard), Somers General Store, and Flinders General Store all have confirmed dog-friendly outdoor seating. Check directly with venues as policies can change seasonally.' },
+      acceptedAnswer: { '@type': 'Answer', text: 'The options listed here are Commonfolk Coffee’s back courtyard and Somers General Store. Check directly with venues as policies can change seasonally.' },
     },
     {
       '@type': 'Question',
@@ -127,7 +127,7 @@ export const prerender = true;
         <h3>Where is the best brunch on the Mornington Peninsula?</h3>
         <p>Commonfolk Coffee (Mornington, 16 Progress Street) is the specialty coffee benchmark. For a more elevated daytime offer, Many Little Bar & Dining (Red Hill South) is the hatted-restaurant alternative. Merricks General Wine Store is the most beautiful setting on the Peninsula for a morning meal.</p>
         <h3>Which brunch spots are dog-friendly?</h3>
-        <p>Commonfolk Coffee (back courtyard), Somers General Store, and Flinders General Store all have confirmed dog-friendly outdoor seating. Check directly with venues as policies can change.</p>
+        <p>The options listed here are Commonfolk Coffee’s back courtyard and Somers General Store. Check directly with venues as policies can change.</p>
         <h3>Do I need to book?</h3>
         <p>Many Little takes bookings and can fill on weekends. Most village cafes on this list are walk-in. Arriving before 9:30am avoids the main weekend queues.</p>
       </div>
