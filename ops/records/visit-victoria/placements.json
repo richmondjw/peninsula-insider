@@ -8,6 +8,24 @@
   {
    "assetKey": "vv-160356",
    "surface": "site",
+   "entity": "pages/home",
+   "field": "cover.ridge",
+   "src": "/images/visit-victoria/vv-160356-montalto.webp",
+   "page": "/",
+   "role": "editorial-home-cover-rotation"
+  },
+  {
+   "assetKey": "vv-163841",
+   "surface": "site",
+   "entity": "pages/home",
+   "field": "cover.bay",
+   "src": "/images/visit-victoria/vv-163841-bathing-boxes-at-mornington.webp",
+   "page": "/",
+   "role": "editorial-home-cover-rotation"
+  },
+  {
+   "assetKey": "vv-160356",
+   "surface": "site",
    "entity": "pages/wine",
    "field": "hero.image",
    "src": "/images/visit-victoria/vv-160356-montalto.webp",
