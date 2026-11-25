@@ -386,12 +386,12 @@ test('three homepage covers autoplay without moving the planner; manual controls
       await page.emulateMediaFeatures([{ name: 'prefers-reduced-motion', value: width === 390 ? 'reduce' : 'no-preference' }]);
       await reader.load('/');
       await page.waitForSelector('.home-cover__controls:not([hidden])');
-      await page.evaluate(() => document.fonts.ready);
+      await page.evaluate(async () => { await document.fonts.ready; await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))); });
       const layout = () => page.evaluate(() => {
         const cover = document.querySelector('#peninsula-cover');
         const rect = el => {
           const { x,y,width,height } = el.getBoundingClientRect();
-          return [x,y,width,height];
+          return [x, y - cover.getBoundingClientRect().y, width, height];
         };
         return {
           frame: cover.dataset.activeCover,
@@ -417,7 +417,6 @@ test('three homepage covers autoplay without moving the planner; manual controls
       } else {
         assert.equal(await page.$eval(playback, el => el.getAttribute('aria-label')), 'Play cover rotation');
       }
-      const openingY = await page.evaluate(() => scrollY);
       await page.evaluate(() => {
         const cover = document.querySelector('#peninsula-cover');
         const controls = cover.querySelector('.home-cover__controls');
@@ -431,7 +430,6 @@ test('three homepage covers autoplay without moving the planner; manual controls
         await page.keyboard.press('ArrowRight');
       }
       await page.waitForFunction(() => document.querySelector('#peninsula-cover').dataset.activeCover === 'bay');
-      await page.evaluate(y => scrollTo({top:y,behavior:'instant'}), openingY);
       const bay = await layout();
       assert.equal(bay.href, '/explore/places/mornington/');
       assert.match(bay.credit, /Mornington.*Visit Victoria/i);
