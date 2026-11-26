@@ -1,6 +1,6 @@
 ---
 title: "Avani's Syrah, Western Port Wildflowers, and the Emu Plains Market in Full Spring"
-dek: Avani Wines pours the skin-contact white that earns a detour, the coastal scrub above Balnarring is carpeted in wax lip orchids, and the Emu Plains Market at Balnarring Reserve runs until mid-December.
+dek: Avani Wines pours the skin-contact white that earns a detour, the coastal scrub above Balnarring is carpeted in wax lip orchids, and Emu Plains Market returns to Emu Plains Reserve on 19 December.
 author: "editorial"
 houseByline: true
 publishedAt: 2026-11-01
@@ -40,7 +40,7 @@ faq:
   - question: "Where is Avani Wines and do I need to book?"
     answer: "Avani Wines is on Shoreham Road, Red Hill South. Bookings are recommended, especially on weekends in spring - check their website to secure a tasting session."
   - question: "When does the Emu Plains Market run and what time should I arrive?"
-    answer: "The Emu Plains Market runs at Emu Plains Reserve, Balnarring, from 9 am to 2 pm. The market runs through to 19 December 2026. Arrive before 11 am for the best produce selection."
+    answer: "The organiser lists the Christmas market at Emu Plains Reserve, Balnarring, on Saturday 19 December 2026, 9 am to 2 pm. It is not a weekly market."
 ---
 
 **WINE - Avani Wines, Red Hill South**
@@ -55,7 +55,7 @@ Pair the Syrah with a cheese board from Red Hill Cheese on the way home.
 
 **WALK - Balnarring Coastal Scrub, Western Port Foreshore**
 
-The section of coastal scrub running along the Western Port foreshore between Balnarring Beach and Merricks Beach is flowering properly right now. Wax lip orchids are appearing along the low scrub margins, and the tea-tree thickets have that sharp spring green that lasts about three weeks before the summer bleach sets in. The track from the Balnarring Beach car park south along the foreshore takes around forty-five minutes one way on flat ground. Early morning gives you the light off Western Port before the wind builds. Dogs on leads are welcome on the foreshore sections.
+The section of coastal scrub running along the Western Port foreshore between Balnarring Beach and Merricks Beach is flowering properly right now. Wax lip orchids are appearing along the low scrub margins, and the tea-tree thickets have that sharp spring green that lasts about three weeks before the summer bleach sets in. The track from the Balnarring Beach car park south along the foreshore takes around forty-five minutes one way on flat ground. Early morning gives you the light off Western Port before the wind builds. If you’re bringing a dog, check the signs at the beach access. On the Balnarring Beach stretch from opposite Cliff Road to the Somers foreshore boundary, [the gazetted rule](https://www.gazette.vic.gov.au/gazette/Gazettes2024/GG2024G050.pdf) excludes pet dogs from 10 am to 6 pm between 1 December and the end of February. Keep dogs on a lead where permitted; don’t assume the same hours apply at Merricks Beach.
 
 No booking needed. The Balnarring Beach car park is on Balnarring Beach Road - arrive before 9 am on a weekend to get a park without circling. Allow ninety minutes return at a relaxed pace.
 
@@ -63,11 +63,13 @@ Combine with a coffee at Balnarring Bakehouse before or after.
 
 ---
 
+*Correction, 26 November 2026: An earlier version omitted the summer dog restriction on part of Balnarring Beach and incorrectly described Emu Plains Market as weekly.*
+
 **DISCOVERY - Emu Plains Market, Balnarring**
 
-The Emu Plains Market runs at Emu Plains Reserve every Saturday through to 19 December, and the spring edition is the one that actually delivers on the local-produce promise. Stone fruit is not here yet, but the brassica growers are winding up their last cool-season crops alongside the early spring arrivals - new-season garlic, broad beans at the end of their run, the first strawberries from the Balnarring growers. The stall count in November is typically higher than mid-summer, when the heat thins the vegetable growers out. The market runs 9 am to 2 pm, and the prepared food stalls toward the eastern end of the reserve are worth the walk past the produce.
+The [Emu Plains Christmas Market](https://www.emuplainsmarket.com.au/markets/december) is on Saturday 19 December, 9 am to 2 pm, at Emu Plains Reserve. The organiser lists makers, food stalls and live music under the stringybarks. It’s a single December date, not a weekly market.
 
-No booking. Emu Plains Reserve, Balnarring. Saturday mornings, done by 2 pm. Allow an hour.
+No booking. Emu Plains Reserve, Coolart Road, Balnarring. Allow an hour; leave the dog at home for the market.
 
 Combine with the Western Port foreshore walk above for a full Balnarring morning.
 
@@ -79,4 +81,4 @@ Combine with the Western Port foreshore walk above for a full Balnarring morning
 |------|---------|-------|---------|
 | Avani Wines | Shoreham Road, Red Hill South | Check website | Book ahead |
 | Balnarring Coastal Scrub | Balnarring Beach Road car park | Dawn to dusk | None required |
-| Emu Plains Market | Emu Plains Reserve, Balnarring | Sat 9 am – 2 pm, until 19 Dec | None required |
+| Emu Plains Market | Emu Plains Reserve, Balnarring | Sat 19 Dec, 9 am to 2 pm | None required |
