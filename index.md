@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Cape Schanck, Mornington Peninsula. Photo: Peter Tarasiuk, courtesy of Visit Victoria.
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula. Photo: Two Palms Australia, courtesy of Visit Victoria.
 
 The independent guide to the Mornington Peninsula
 
@@ -17,7 +17,7 @@ An independent local guide to where to eat, stay and explore, and how to put the
 
 Places chosen by our editors. Never paid for. [How we choose](<https://peninsulainsider.com.au/about/#how-we-choose>)
 
- [Start with the coast  **Flinders & the Cape**  Coastal walks and one excellent meal.](<https://peninsulainsider.com.au/explore/plans/flinders-and-cape-reset/>)
+ [Start in wine country  **Red Hill & the ridge**  Cellar doors and a long lunch.](<https://peninsulainsider.com.au/explore/plans/how-to-build-a-red-hill-saturday/>)
 
 ## Plan your day
 
