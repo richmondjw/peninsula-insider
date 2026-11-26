@@ -291,6 +291,8 @@ const hoursSchema = hasOpeningHours && !isPaused && isCanonicalSurface && sectio
 <Breadcrumbs items={breadcrumbItems} />
 
 <section class:list={["venue-detail", { "venue-detail--text-first": section === "eat" && !photoSet.stage && !eatHeroApproved }]} data-venue-view={venueSlug} data-venue-type={data.type}>
+  {/* Lets site search tell a venue page from a guide page in full-text results. */}
+  <span data-pagefind-meta="entity:venue"></span>
   <div class="container">
     <div class="venue-detail__meta">
       <a href={sectionHref} class="venue-detail__type">{sectionLabel}</a>
