@@ -11,6 +11,8 @@ What's On
 
 Events across the Mornington Peninsula in February, day by day, from Mon 1 – Wed 24 February. Each listing links to its own page with times, the place and where to book. Dates can change, so check the organiser before you travel.
 
+[Submit an event](<https://peninsulainsider.com.au/submit/?type=event>)
+
 ## Monday 1 February
 
 - [Gareth Sansom at MPRG](<https://peninsulainsider.com.au/whats-on/gareth-sansom-at-mprg-2026-12-05/>)
@@ -77,7 +79,7 @@ Forty years of Wednesdays on Main Street. Not a tourist event, just the way Morn
 
 Mornington · Markets · Recurring weekly · Checked 3 Oct 2026
 
-Looking for something sooner? [This weekend](<https://peninsulainsider.com.au/whats-on/this-weekend/>) has our short list, and [What's On](<https://peninsulainsider.com.au/whats-on/>) lets you filter by date and type. Running an event that should be here? [Tell us about it](<https://peninsulainsider.com.au/submit/?type=event>).
+Looking for something sooner? [This weekend](<https://peninsulainsider.com.au/whats-on/this-weekend/>) has our short list, and [What's On](<https://peninsulainsider.com.au/whats-on/>) lets you filter by date and type.
 
 ## The Insider Note
 

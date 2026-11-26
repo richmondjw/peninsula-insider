@@ -87,6 +87,10 @@ An exhibition of work by Gareth Sansom at the Mornington Peninsula Regional Gall
 
  Event · Exhibitions](<https://peninsulainsider.com.au/whats-on/gareth-sansom-at-mprg-2026-12-05/>)
 
+Running an event in Mornington?
+
+ [Submit an event](<https://peninsulainsider.com.au/submit/?type=event>)
+
 The commercial hub - the most town-like part of the Peninsula, still worth knowing.
 
 Peninsula Insider - editor's note

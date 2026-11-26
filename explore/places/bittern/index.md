@@ -37,6 +37,10 @@ midsummer afternoons
 
 Insider  Time the visit to low tide - the mudflats double in size and the wading birds gather at the channel edges.
 
+Running an event in Bittern?
+
+ [Submit an event](<https://peninsulainsider.com.au/submit/?type=event>)
+
 A working Western Port village hiding one of Victoria's best wading-bird wetlands at its edge.
 
 Peninsula Insider - editor's note

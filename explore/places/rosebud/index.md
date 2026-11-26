@@ -37,6 +37,10 @@ strip traffic on long weekends
 
 Insider  The quieter southern end of Rosebud is much better than the strip - most visitors don't get that far.
 
+Running an event in Rosebud?
+
+ [Submit an event](<https://peninsulainsider.com.au/submit/?type=event>)
+
 ## Things to do in Rosebud, by time and weather
 
 Choose one anchor for the day. These time allowances are planning suggestions; they are not operator session lengths.

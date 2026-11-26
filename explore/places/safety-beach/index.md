@@ -41,6 +41,10 @@ windless holiday afternoons when the foreshore is packed
 
 Insider  The water stays shallower for longer here than almost anywhere else on the bay side, which is exactly why local families keep coming back.
 
+Running an event in Safety Beach?
+
+ [Submit an event](<https://peninsulainsider.com.au/submit/?type=event>)
+
 The calmest broad bay foreshore on the Peninsula, with the ridge rising straight behind it.
 
 Peninsula Insider - editor's note

@@ -41,6 +41,10 @@ midsummer mid-afternoons
 
 Insider  Time a visit around the Tyabb Air Show in early March - the warbirds in flight are the headline, but the Packing House the day before is open and well-stocked.
 
+Running an event in Tyabb?
+
+ [Submit an event](<https://peninsulainsider.com.au/submit/?type=event>)
+
 The Peninsula's antiques district and grass-strip airshow town - reasons to take the back road.
 
 Peninsula Insider - editor's note

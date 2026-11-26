@@ -37,6 +37,10 @@ mid-summer afternoons with no reservations
 
 Insider  This is the pocket where Melbourne sommeliers buy wine, which tells you more than any brochure will.
 
+Running an event in Tuerong?
+
+ [Submit an event](<https://peninsulainsider.com.au/submit/?type=event>)
+
 The wine-country back door, where some of the Peninsula's best bottles come from roads most visitors never take.
 
 Peninsula Insider - editor's note

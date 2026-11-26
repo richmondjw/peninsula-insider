@@ -55,6 +55,10 @@ A Friday night market on the Hastings foreshore, with makers' stalls, food, a ba
 
  Event · Markets](<https://peninsulainsider.com.au/whats-on/soul-night-market-at-hastings-foreshore-2026-12-18/>)
 
+Running an event in Hastings?
+
+ [Submit an event](<https://peninsulainsider.com.au/submit/?type=event>)
+
 A working Western Port town with a pier and wide foreshore outlook.
 
 Peninsula Insider - editor's note

@@ -11,6 +11,8 @@ Fri 27 – Sun 29 November  · Mornington Peninsula
 
 Find the date, place and reason to go, then check with the organiser before you head out.
 
+ [Submit an event](<https://peninsulainsider.com.au/submit/?type=event>)
+
 ## Reasons to go
 
 - Sat, 28 Nov · 5pm–8pm · Fingal
@@ -114,8 +116,6 @@ Boneo · Live Music · Checked 9 Nov 2026
 Olivia Mae plays an afternoon set at Jetty Road Brewery in Dromana from 1pm to 4pm, part of the brewery's regular weekend music.
 
 Dromana · Live Music · Checked 9 Nov 2026
-
-Running an event on the Peninsula? [Tell us about it](<https://peninsulainsider.com.au/submit/?type=event>).
 
 ## Book ahead
 

@@ -37,6 +37,10 @@ summer school-holiday weekends
 
 Insider  The Estate is open from 11 - arrive before opening to park easily and to have the first hour of the sculpture park almost to yourself.
 
+Running an event in Point Leo?
+
+ [Submit an event](<https://peninsulainsider.com.au/submit/?type=event>)
+
 Sixteen and a half acres of contemporary sculpture rolling toward Western Port - and one of the Peninsula's quietest surf breaks out front.
 
 Peninsula Insider - editor's note

@@ -37,6 +37,10 @@ windy winter king tides
 
 Insider  Check tides before booking - at low tide the water is a long walk away; at high tide it's at the dunes. Both have their pleasures, but only one suits children.
 
+Running an event in Merricks Beach?
+
+ [Submit an event](<https://peninsulainsider.com.au/submit/?type=event>)
+
 A 1950s holiday-house hamlet with a tide-flat beach and no commercial centre - the Peninsula's quietest piece of coast.
 
 Peninsula Insider - editor's note

@@ -63,6 +63,10 @@ Decorate a chocolate Christmas tree to take home in Flinders on 5–6 or 12–24
 
  Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-2026-12-05/>)
 
+Running an event in Flinders?
+
+ [Submit an event](<https://peninsulainsider.com.au/submit/?type=event>)
+
 The village that the Peninsula keeps to itself.
 
 Peninsula Insider - editor's note

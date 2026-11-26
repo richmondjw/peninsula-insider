@@ -37,6 +37,10 @@ wet winter mid-week
 
 Insider  The sandy access path drops steeply from the car park, and the coast is exposed. Choose a suitable weather window and keep the visit to shore walking and views.
 
+Running an event in St Andrews Beach?
+
+ [Submit an event](<https://peninsulainsider.com.au/submit/?type=event>)
+
 A wild Bass Strait beach, dunes and rock pools, with a quiet settlement behind the shore.
 
 Peninsula Insider - editor's note

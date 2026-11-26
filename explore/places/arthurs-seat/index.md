@@ -31,6 +31,10 @@ At a glance
 
 about 1 hour 15 minutes
 
+Running an event in Arthurs Seat?
+
+ [Submit an event](<https://peninsulainsider.com.au/submit/?type=event>)
+
 Arthurs Seat in brief
 
 ## Arthurs Seat at a glance

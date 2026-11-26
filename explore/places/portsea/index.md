@@ -63,6 +63,10 @@ A pre-Christmas night of live music and DJs at the Portsea Hotel, with Sarah Rob
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/eve-eve-2026-12-23/>)
 
+Running an event in Portsea?
+
+ [Submit an event](<https://peninsulainsider.com.au/submit/?type=event>)
+
 The most private end of the Peninsula - the back beach is one of the best in Victoria.
 
 Peninsula Insider - editor's note

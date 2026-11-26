@@ -49,6 +49,10 @@ hot windy summer afternoons
 
 Insider  If you arrive after 4pm outside summer, the light is better and most of the buses are gone.
 
+Running an event in Cape Schanck?
+
+ [Submit an event](<https://peninsulainsider.com.au/submit/?type=event>)
+
 The boardwalk at the tip of the headland, where the Southern Ocean comes in.
 
 Peninsula Insider - editor's note

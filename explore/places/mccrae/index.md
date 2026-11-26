@@ -41,6 +41,10 @@ windy southerly winter days
 
 Insider  Park at the homestead and walk the residential streets down to the lighthouse - the most pleasant approach, and you avoid the foreshore car-park scramble.
 
+Running an event in McCrae?
+
+ [Submit an event](<https://peninsulainsider.com.au/submit/?type=event>)
+
 Bayside swimming, a lighthouse, and the Peninsula's oldest homestead - the bay's quiet middle.
 
 Peninsula Insider - editor's note

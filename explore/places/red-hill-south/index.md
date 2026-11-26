@@ -59,6 +59,10 @@ A South American-themed evening built around cooking over fire at BRASA by Monta
 
  Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/an-evening-at-brasa-by-montalto-2026-12-05/>)
 
+Running an event in Red Hill South?
+
+ [Submit an event](<https://peninsulainsider.com.au/submit/?type=event>)
+
 A rural Red Hill South base for a measured cellar-door and lunch day.
 
 Peninsula Insider - editor's note

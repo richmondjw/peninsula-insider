@@ -41,6 +41,10 @@ stormy winter surf
 
 Insider  Shoreham Beach is unpatrolled. Check tides and conditions before entering the water and supervise children closely.
 
+Running an event in Shoreham?
+
+ [Submit an event](<https://peninsulainsider.com.au/submit/?type=event>)
+
 A tiny coastal settlement where bush, vineyard and beach sit almost on top of each other.
 
 Peninsula Insider - editor's note

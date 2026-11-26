@@ -41,6 +41,10 @@ summer highway traffic peaks
 
 Insider  Moorooduc is strongest as a first stop of the day, before you drift south into the busier parts of the Peninsula.
 
+Running an event in Moorooduc?
+
+ [Submit an event](<https://peninsulainsider.com.au/submit/?type=event>)
+
 The overlooked northern wine pocket where serious producers work without the Red Hill fuss.
 
 Peninsula Insider - editor's note

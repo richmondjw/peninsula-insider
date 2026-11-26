@@ -37,6 +37,10 @@ birdwatchers, families using the bay beach
 
 Insider  The reserve's main access is via Truemans Road Recreation Reserve; dogs are prohibited in the wetland reserve.
 
+Running an event in Tootgarook?
+
+ [Submit an event](<https://peninsulainsider.com.au/submit/?type=event>)
+
 A quiet bayside village with a shallow beach and public access to part of the Tootgarook Wetland.
 
 Peninsula Insider - editor's note

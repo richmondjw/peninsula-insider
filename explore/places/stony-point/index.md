@@ -41,6 +41,10 @@ winter southerlies that cancel ferries
 
 Insider  Check the ferry timetable carefully - sailings are limited and tide-dependent, and missing the last boat back is a long taxi from Cowes.
 
+Running an event in Stony Point?
+
+ [Submit an event](<https://peninsulainsider.com.au/submit/?type=event>)
+
 The only point in Victoria where you step off a train and onto a ferry across Western Port.
 
 Peninsula Insider - editor's note

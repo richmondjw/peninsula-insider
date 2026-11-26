@@ -59,6 +59,10 @@ Sunday afternoon pottery workshops at Peachy Keen Ceramics in Mount Eliza, open 
 
  Event · Arts](<https://peninsulainsider.com.au/whats-on/sunday-sessions-pottery-workshops-at-peachy-keen-ceramics-2026-12-06/>)
 
+Running an event in Mount Eliza?
+
+ [Submit an event](<https://peninsulainsider.com.au/submit/?type=event>)
+
 The Peninsula's underrated northern village - quietly the best brunch strip and the closest bay beaches to Melbourne.
 
 Peninsula Insider - editor's note

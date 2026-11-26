@@ -59,6 +59,10 @@ Taste and purchase wines while enjoying a guided tour of Elgee Park’s sculptur
 
  Event · Exhibitions](<https://peninsulainsider.com.au/whats-on/november-cellar-door-opening-2026-11-28/>)
 
+Running an event in Merricks North?
+
+ [Submit an event](<https://peninsulainsider.com.au/submit/?type=event>)
+
 The older, quieter half of the Peninsula's wine country - pioneer vineyards on quiet country lanes.
 
 Peninsula Insider - editor's note

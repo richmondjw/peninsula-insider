@@ -37,6 +37,10 @@ peak January afternoons
 
 Insider  The front beach around Camerons Bight stays calmer and less chaotic than Sorrento even in high summer.
 
+Running an event in Blairgowrie?
+
+ [Submit an event](<https://peninsulainsider.com.au/submit/?type=event>)
+
 The gap between Rye and Sorrento - less talked about, underrated for a Peninsula base.
 
 Peninsula Insider - editor's note

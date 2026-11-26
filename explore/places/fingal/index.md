@@ -107,6 +107,10 @@ Christmas Day lunch at Peppers Moonah Links Resort in Fingal, served as a festiv
 
  Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/celebrate-christmas-day-at-peppers-moonah-links-resort-2026-12-25/>)
 
+Running an event in Fingal?
+
+ [Submit an event](<https://peninsulainsider.com.au/submit/?type=event>)
+
 The Peninsula's thermal heart - where the weekend slows all the way down.
 
 Peninsula Insider - editor's note

@@ -39,6 +39,10 @@ windy winter king tides
 
 Insider  Coolart's homestead and wetland walk is one of the Peninsula's most underrated free experiences - go in winter for the migratory wading birds.
 
+Running an event in Somers?
+
+ [Submit an event](<https://peninsulainsider.com.au/submit/?type=event>)
+
 A sheltered Western Port beach and a wetland reserve at the village edge - the quiet Peninsula at full strength.
 
 Peninsula Insider - editor's note

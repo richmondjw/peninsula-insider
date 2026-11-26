@@ -67,6 +67,10 @@ Singer-songwriter and pianist Emmie Li plays her own songs and well-known covers
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/emmie-li-live-at-peninsula-beer-garden-2026-11-27/>)
 
+Running an event in Boneo?
+
+ [Submit an event](<https://peninsulainsider.com.au/submit/?type=event>)
+
 A farmgate stop, a bush track and a quieter inland route through the Peninsula.
 
 Peninsula Insider - editor's note

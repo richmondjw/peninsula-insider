@@ -49,6 +49,10 @@ school-holiday lunch rush
 
 Insider  If you want the best version of Merricks, anchor the day around the General Store before noon.
 
+Running an event in Merricks?
+
+ [Submit an event](<https://peninsulainsider.com.au/submit/?type=event>)
+
 A quiet corridor between the ridge and the bay, with the best wine shop on the Peninsula.
 
 Peninsula Insider - editor's note

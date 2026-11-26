@@ -45,6 +45,10 @@ January weekends
 
 Insider  If you want Rye at its best, use it as a base and leave the beach-hopping to the edges of the day.
 
+Running an event in Rye?
+
+ [Submit an event](<https://peninsulainsider.com.au/submit/?type=event>)
+
 A practical two-coast base: calm bay water in town, an exposed ocean beach nearby and Fingal hot springs a drive inland.
 
 Peninsula Insider - editor's note

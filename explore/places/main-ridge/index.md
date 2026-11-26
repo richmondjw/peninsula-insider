@@ -79,6 +79,10 @@ A group carols night with a live band and two-course meal at The Pig & Whistle i
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/pub-carols-pig-whistle-main-ridge-2026/>)
 
+Running an event in Main Ridge?
+
+ [Submit an event](<https://peninsulainsider.com.au/submit/?type=event>)
+
 A high, quiet part of the Peninsula wine country, where the pinot is best and the road narrows.
 
 Peninsula Insider - editor's note

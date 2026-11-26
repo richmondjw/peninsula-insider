@@ -73,6 +73,10 @@ The Continental Sorrento hosts Christmas Day lunch in Halcyon Hall, the Grand Ba
 
  Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/christmas-day-feast-at-the-conti-2026-12-25/>)
 
+Running an event in Sorrento?
+
+ [Submit an event](<https://peninsulainsider.com.au/submit/?type=event>)
+
 Ocean baths carved from limestone at the tip of the Peninsula.
 
 Peninsula Insider - editor's note

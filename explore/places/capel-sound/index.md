@@ -45,6 +45,10 @@ summer holiday peak if you want an uncrowded beach
 
 Insider  Foreshore camping is seasonal. Check the operator's current booking instructions and cancellation waitlist before travelling.
 
+Running an event in Capel Sound?
+
+ [Submit an event](<https://peninsulainsider.com.au/submit/?type=event>)
+
 A broad bay foreshore where camping and a flat coast walk set the pace.
 
 Peninsula Insider - editor's note

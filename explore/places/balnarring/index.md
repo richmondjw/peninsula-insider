@@ -59,6 +59,10 @@ Seasonal makers market at Emu Plains Reserve, Balnarring, with craft, design, vi
 
  Event · Markets](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
 
+Running an event in Balnarring?
+
+ [Submit an event](<https://peninsulainsider.com.au/submit/?type=event>)
+
 The village the rest of the Peninsula forgets, on the quiet Western Port side.
 
 Peninsula Insider - editor's note

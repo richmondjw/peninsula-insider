@@ -87,6 +87,10 @@ Tony J King plays an afternoon set at Fenian Wines in Red Hill, with food by Bro
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/tony-j-king-live-at-fenian-wines-2026-12-19/>)
 
+Running an event in Red Hill?
+
+ [Submit an event](<https://peninsulainsider.com.au/submit/?type=event>)
+
 The most concentrated food and wine precinct on the Peninsula, on the plateau above the bay.
 
 Peninsula Insider - editor's note

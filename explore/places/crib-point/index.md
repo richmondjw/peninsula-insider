@@ -55,6 +55,10 @@ Indoor and outdoor community market at Crib Point Community House on the second 
 
  Event · Markets](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
 
+Running an event in Crib Point?
+
+ [Submit an event](<https://peninsulainsider.com.au/submit/?type=event>)
+
 The walking village between Hastings and the Stony Point ferry - quiet, mangrove-edged, train-accessible.
 
 Peninsula Insider - editor's note

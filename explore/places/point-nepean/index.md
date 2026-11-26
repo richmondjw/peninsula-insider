@@ -45,6 +45,10 @@ blazing summer midday
 
 Insider  Most people turn back too early; the final stretch to Fort Nepean is the part that actually earns the trip.
 
+Running an event in Point Nepean?
+
+ [Submit an event](<https://peninsulainsider.com.au/submit/?type=event>)
+
 The end of the Peninsula, where military ruins and ocean light do the same job of making Melbourne feel very far away.
 
 Peninsula Insider - editor's note
