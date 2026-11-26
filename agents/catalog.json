@@ -1,11 +1,11 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-11-26T19:26:16.691Z",
-  "snapshotId": "7ca9a96533936bd9aa268b81277f7eb5b17aab1a17789eb7e5857603ac6c172f",
+  "generatedAt": "2026-11-26T20:20:23.632Z",
+  "snapshotId": "3e5e38d8d6b97aa76f9575b02a9b0df9b6c422ca6f3986e77665cdcafe37a1a8",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
-  "count": 694,
+  "count": 695,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/",
@@ -6689,6 +6689,23 @@
       "markdownBytes": 6518
     },
     {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-27/",
+      "title": "Balnarring Bakehouse, the Flinders coastal clifftop, and Pub Carols in Main Ridge",
+      "section": "journal",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-27/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-27/index.md",
+      "contentSha256": "9da0548bd3edae9379419d7c461c3f0fae86f9cb027017afa8bdc41393b9b1ff",
+      "citation": {
+        "title": "Balnarring Bakehouse, the Flinders coastal clifftop, and Pub Carols in Main Ridge",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-27/",
+        "publishedAt": "2026-11-27T00:00:00.000Z",
+        "modifiedAt": "2026-11-27T00:00:00.000Z"
+      },
+      "htmlBytes": 177712,
+      "markdownBytes": 7751
+    },
+    {
       "id": "https://peninsulainsider.com.au/journal/local-secrets/",
       "title": "The Peninsula our readers see.",
       "section": "journal",
@@ -7578,7 +7595,7 @@
       "section": "picks",
       "canonicalUrl": "https://peninsulainsider.com.au/picks/",
       "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
-      "contentSha256": "52eab693bbfac5a0824ef4f0d438180dc4d37a1a9d955dad90d9c7a08329227d",
+      "contentSha256": "42ed65447476e796e9caa5d1f79f6b3ec44d753e5c30ce817e8e4ab3859ae9c2",
       "citation": {
         "title": "Insider Picks",
         "publisher": "Peninsula Insider",
@@ -7586,8 +7603,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 133710,
-      "markdownBytes": 5640
+      "htmlBytes": 133783,
+      "markdownBytes": 5709
     },
     {
       "id": "https://peninsulainsider.com.au/privacy/",

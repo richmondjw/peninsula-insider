@@ -15,6 +15,8 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 
 ## Recent selections
 
+- [Balnarring Bakehouse, the Flinders coastal clifftop, and Pub Carols in Main Ridge](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-27/>) - A warm pie from Balnarring's village bakery, the West Head to Flinders cliff walk in full spring bloom, and singalong carols kicking off at The Pig & Whistle on Thursday.
+
 - [Avani Syrah, a Seawinds Garden walk, and pub carols in Main Ridge](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-26/>) - Taste Syrah at Avani in Red Hill South, walk to the bay lookouts at Seawinds Garden, or plan a December dinner and singalong in Main Ridge.
 
 - [Moke in Flinders, the ocean cliff loop at West Head, and Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-25/>) - A 20-seat chef's table in Flinders, the West Head cliff loop at peak wildflower season, and live music on the golf grounds at Fingal this Saturday.
@@ -36,8 +38,6 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 - [Flinders Sourdough, the Arthurs Seat ridge, and NWOP closing Sunday](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-17/>) - A Beach Bun from Flinders Sourdough's wood-fired oven, the Serafino Track on Arthurs Seat in full spring flower, and the National Works on Paper wrapping up at Mornington Peninsula Regional Gallery this Sunday.
 
 - [Crittenden's skin-contact experiments, a clifftop bloom walk, and the Emu Plains market before summer crowds](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-16/>) - Skin-contact amphora wines at Crittenden Estate in Dromana, coastal teatree in flower on the Cape Schanck boardwalk, and Saturday morning at Emu Plains Market in Balnarring.
-
-- [Barragunda Dining, Bushrangers Bay and planning for VineHop](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-15/>) - Book directly with Barragunda, check Parks Victoria's coastal-walk guidance, and plan transport for VineHop on 21 November.
 
 ## Planning a particular weekend?
 
