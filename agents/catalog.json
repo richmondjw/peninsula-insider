@@ -1,11 +1,11 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-11-26T06:38:57.638Z",
-  "snapshotId": "3489f36e6fd6adcf31ba00903222a42abf12f72f40505642e6ce145854a7d84a",
+  "generatedAt": "2026-11-26T13:30:33.852Z",
+  "snapshotId": "e79686d178d2eeac19e24eb773cd9568e7a537f3ef67efe1a0ee5e06501791a8",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
-  "count": 695,
+  "count": 694,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/",
@@ -13,7 +13,7 @@
       "section": "home",
       "canonicalUrl": "https://peninsulainsider.com.au/",
       "markdownUrl": "https://peninsulainsider.com.au/index.md",
-      "contentSha256": "71ae6516f14add04a09ec55a2fde5acbc74e2fc34e32ae057c8e125578d0001e",
+      "contentSha256": "1b308edf76e396c120e3c3efe36277d823a9847ee3ae8402c7ac0ed4b13eef47",
       "citation": {
         "title": "Make a day of the Peninsula.",
         "publisher": "Peninsula Insider",
@@ -21,8 +21,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 223679,
-      "markdownBytes": 7649
+      "htmlBytes": 224144,
+      "markdownBytes": 7660
     },
     {
       "id": "https://peninsulainsider.com.au/about/",
@@ -1577,7 +1577,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/index.md",
-      "contentSha256": "f85446480cae02e66631ed0449e55df4e9197fe79206ef397bdc107d36bce5c5",
+      "contentSha256": "4da43012359bc2fddc61a4c8bf903144ae19b507dac668bdfca8f8efa52e81a3",
       "citation": {
         "title": "Walks, beaches and hot springs",
         "publisher": "Peninsula Insider",
@@ -2410,7 +2410,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/mornington/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/mornington/index.md",
-      "contentSha256": "464b8020e60a4dd08aac78857b832f883766d5a677bddc0e6b4114a6d437fcac",
+      "contentSha256": "33a7af5fe715a536a84aa472915f27b8bfab4553ec426b8e585933f82ab840de",
       "citation": {
         "title": "Mornington",
         "publisher": "Peninsula Insider",
@@ -2418,8 +2418,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 270583,
-      "markdownBytes": 19542
+      "htmlBytes": 270537,
+      "markdownBytes": 19559
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/mount-eliza/",
@@ -4518,7 +4518,7 @@
       "section": "journal",
       "canonicalUrl": "https://peninsulainsider.com.au/journal/",
       "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
-      "contentSha256": "2c9fe41e842366ab701a895df0539c65a15383b9b54873287a3320af224a6ea4",
+      "contentSha256": "38446d734096f720169c64e77b3ca7da53df9e2b480be4fc2892bf3374d03f22",
       "citation": {
         "title": "Devilbend Farm Beer Co: a brewery on a working farm",
         "publisher": "Peninsula Insider",
@@ -4526,8 +4526,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 244323,
-      "markdownBytes": 19495
+      "htmlBytes": 244064,
+      "markdownBytes": 19452
     },
     {
       "id": "https://peninsulainsider.com.au/journal/a-flinders-weekend/",
@@ -7612,7 +7612,7 @@
       "section": "quick-note",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "057d5267ccd9cf83facd0eb4e810272fb22fa8cad17c1e1c92a185cf33671bbf",
+      "contentSha256": "2e3e47b45baacaa0cd3618c8c0e1834d0c02831038ccebd12a44f8a80c837ce1",
       "citation": {
         "title": "Quick Note",
         "publisher": "Peninsula Insider",
@@ -7620,8 +7620,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 127746,
-      "markdownBytes": 1197
+      "htmlBytes": 127738,
+      "markdownBytes": 1195
     },
     {
       "id": "https://peninsulainsider.com.au/site-index/",
@@ -7629,7 +7629,7 @@
       "section": "site-index",
       "canonicalUrl": "https://peninsulainsider.com.au/site-index/",
       "markdownUrl": "https://peninsulainsider.com.au/site-index/index.md",
-      "contentSha256": "83f6daa07ae9e1e4b9a6c22769f0deddf175a02ce5b78e31ef5a4eaa1aefd874",
+      "contentSha256": "88fd4d708e507f9daaee3d0cdacafbd9449f6cef80b415d6156e5d2c98181e9c",
       "citation": {
         "title": "Site Index",
         "publisher": "Peninsula Insider",
@@ -7637,8 +7637,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 150983,
-      "markdownBytes": 33714
+      "htmlBytes": 150859,
+      "markdownBytes": 33573
     },
     {
       "id": "https://peninsulainsider.com.au/stay/",
@@ -9363,15 +9363,15 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "a809e1eadd497dd591bc0dae4766c6eb39ee53129506addb42866c2d809ff622",
+      "contentSha256": "4fe3d133eb3b70ff3e8647e173c6df16173a2773d343afd37391dc683ac6598d",
       "citation": {
         "title": "What's on this weekend",
         "publisher": "Peninsula Insider",
         "url": "https://peninsulainsider.com.au/whats-on/",
         "publishedAt": null,
-        "modifiedAt": "2026-11-26"
+        "modifiedAt": "2026-11-27"
       },
-      "htmlBytes": 185273,
+      "htmlBytes": 185161,
       "markdownBytes": 5755
     },
     {
@@ -9407,23 +9407,6 @@
       },
       "htmlBytes": 153453,
       "markdownBytes": 3662
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/author-talk-jane-gilmore-mornington-library/",
-      "title": "Author Talk: Jane Gilmore - Mornington Library",
-      "section": "whats-on",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/author-talk-jane-gilmore-mornington-library/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/author-talk-jane-gilmore-mornington-library/index.md",
-      "contentSha256": "ef78a399f52f3935cff9596b27aad82f371110f80faa8720ed05979f4de16640",
-      "citation": {
-        "title": "Author Talk: Jane Gilmore - Mornington Library",
-        "publisher": "Peninsula Insider",
-        "url": "https://peninsulainsider.com.au/whats-on/author-talk-jane-gilmore-mornington-library/",
-        "publishedAt": null,
-        "modifiedAt": null
-      },
-      "htmlBytes": 153537,
-      "markdownBytes": 3723
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
@@ -9499,7 +9482,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/index.md",
-      "contentSha256": "be3e60b74c005f6c3f3258cf659d9d6fa02f45776fa9e42b8d8ee9ac11bb0cbf",
+      "contentSha256": "8a406b1bdde58ad48a49faeaa450ee55866685132ed5e5efe5880e51f24b3ad8",
       "citation": {
         "title": "Things that start after the sun goes down",
         "publisher": "Peninsula Insider",
@@ -9507,8 +9490,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 176706,
-      "markdownBytes": 5942
+      "htmlBytes": 173491,
+      "markdownBytes": 5523
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/",
@@ -9975,7 +9958,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/month/november-2026/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/month/november-2026/index.md",
-      "contentSha256": "1ec5d8b27eaa5d9e3680f488edd4ffe70a4cfa6c7610876aae81ee63253f8dd8",
+      "contentSha256": "558dcb2b49762bd777c1ad3ceaf3d833ed68aba8f1e61092e66d7fdc7eeb84c4",
       "citation": {
         "title": "What's on in November 2026",
         "publisher": "Peninsula Insider",
@@ -9983,8 +9966,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 166013,
-      "markdownBytes": 5613
+      "htmlBytes": 163661,
+      "markdownBytes": 5221
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/mornington-christmas-series-at-mornington-racecourse-2026-12-04/",

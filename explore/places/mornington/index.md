@@ -57,16 +57,6 @@ Coming up in Mornington, from our events listings.
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
-- [Thu, 26 Nov
-
-### Author Talk: Jane Gilmore - Mornington Library
-
-Mornington
-
-Journalist and author Jane Gilmore talks about her new book on helping adults talk to children about consent, relationships and online life, at Mornington Library.
-
- Event · Writers & Ideas](<https://peninsulainsider.com.au/whats-on/author-talk-jane-gilmore-mornington-library/>)
-
 - [Fri, 27 Nov
 
 ### Brown Sugar - Rolling Stones
@@ -86,6 +76,16 @@ Mornington
 An exhibition of work by Gareth Sansom at the Mornington Peninsula Regional Gallery. Sansom first exhibited in 1959 and is known for mixing abstraction and figuration.
 
  Event · Exhibitions](<https://peninsulainsider.com.au/whats-on/gareth-sansom-at-mprg-2026-12-05/>)
+
+- [Fri, 4 Dec
+
+### Mornington Christmas Series at Mornington Racecourse
+
+Mornington
+
+An afternoon race meeting at Mornington Racecourse in the Mornington Christmas Series, presented by Barmah Park Vineyard and pitched at work Christmas parties.
+
+ Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/mornington-christmas-series-at-mornington-racecourse-2026-12-04/>)
 
 Running an event in Mornington?
 

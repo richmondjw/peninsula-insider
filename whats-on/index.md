@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/whats-on/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-11-26
+Modified: 2026-11-27
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -15,11 +15,11 @@ Find the date, place and reason to go, then check with the organiser before you 
 
 ## Reasons to go
 
-- Sat, 28 Nov · 5pm–8pm · Fingal
+- Fri, 27 Nov · Mornington
 
-### [Brad Kennedy Live at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/brad-kennedy-live-at-peppers-moonah-links-resort-2026-11-28/>)
+### [Brown Sugar - Rolling Stones](<https://peninsulainsider.com.au/whats-on/brown-sugar-rolling-stones-2026-11-27/>)
 
-Brad Kennedy plays the Spike Bar at Peppers Moonah Links Resort in Fingal, from 5pm to 8pm.
+Rolling Stones tribute band Brown Sugar plays the upstairs Bandroom at The Bay Hotel.
 
 Live Music   Checked 9 Nov 2026
 
@@ -31,11 +31,11 @@ Hawkes Farm in Boneo holds its Meet the Makers market on the last Saturday of ea
 
 Markets   Checked 9 Nov 2026
 
-- Fri, 27 Nov · Mornington
+- Sun, 29 Nov · 1pm–4pm · Boneo
 
-### [Brown Sugar - Rolling Stones](<https://peninsulainsider.com.au/whats-on/brown-sugar-rolling-stones-2026-11-27/>)
+### [Dave Campbell Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/dave-campbell-live-at-peninsula-beer-garden-2026-11-29/>)
 
-Rolling Stones tribute band Brown Sugar plays the upstairs Bandroom at The Bay Hotel.
+Dave Campbell plays an afternoon set at Peninsula Beer Garden in Boneo, from 1pm to 4pm.
 
 Live Music   Checked 9 Nov 2026
 
@@ -85,6 +85,14 @@ Sam O’Connell plays Spike Bar this Saturday, 5pm to 8pm. Make it an evening st
 
 Fingal · Live Music · Recurring weekly · Checked 16 Nov 2026
 
+- 5pm
+
+[Brad Kennedy Live at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/brad-kennedy-live-at-peppers-moonah-links-resort-2026-11-28/>)
+
+Brad Kennedy plays the Spike Bar at Peppers Moonah Links Resort in Fingal, from 5pm to 8pm.
+
+Fingal · Live Music · Checked 9 Nov 2026
+
 - 6pm
 
 [DJ Sophie Joy Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/dj-sophie-joy-live-at-jetty-road-brewery-2026-11-28/>)
@@ -100,14 +108,6 @@ Taste and purchase wines while enjoying a guided tour of Elgee Park’s sculptur
 Merricks North · Exhibitions · Checked 9 Nov 2026
 
 ### Sunday 29 November
-
-- 1pm
-
-[Dave Campbell Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/dave-campbell-live-at-peninsula-beer-garden-2026-11-29/>)
-
-Dave Campbell plays an afternoon set at Peninsula Beer Garden in Boneo, from 1pm to 4pm.
-
-Boneo · Live Music · Checked 9 Nov 2026
 
 - 1pm
 

@@ -481,8 +481,6 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [An Evening at BRASA by Montalto](<https://peninsulainsider.com.au/whats-on/an-evening-at-brasa-by-montalto-2026-12-05/>)
 
-- [Author Talk: Jane Gilmore - Mornington Library](<https://peninsulainsider.com.au/whats-on/author-talk-jane-gilmore-mornington-library/>)
-
 - [Ben Smith Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
 
 - [Brad Kennedy Live at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/brad-kennedy-live-at-peppers-moonah-links-resort-2026-11-28/>)

@@ -9,19 +9,9 @@ What's On
 
 # What's on in November 2026
 
-Events across the Mornington Peninsula in November, day by day, from Thu 26 – Sun 29 November. Each listing links to its own page with times, the place and where to book. Dates can change, so check the organiser before you travel.
+Events across the Mornington Peninsula in November, day by day, from Fri 27 – Sun 29 November. Each listing links to its own page with times, the place and where to book. Dates can change, so check the organiser before you travel.
 
 [Submit an event](<https://peninsulainsider.com.au/submit/?type=event>)
-
-## Thursday 26 November
-
-- 6.30pm
-
-[Author Talk: Jane Gilmore - Mornington Library](<https://peninsulainsider.com.au/whats-on/author-talk-jane-gilmore-mornington-library/>)
-
-Journalist and author Jane Gilmore talks about her new book on helping adults talk to children about consent, relationships and online life, at Mornington Library.
-
-Mornington · Writers & Ideas · Checked 9 Nov 2026
 
 ## Friday 27 November
 

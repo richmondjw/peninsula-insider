@@ -655,16 +655,6 @@ Month
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
-- [Thu, 26 Nov
-
-### Author Talk: Jane Gilmore - Mornington Library
-
-Mornington
-
-Journalist and author Jane Gilmore talks about her new book on helping adults talk to children about consent, relationships and online life, at Mornington Library.
-
- Event · Writers & Ideas](<https://peninsulainsider.com.au/whats-on/author-talk-jane-gilmore-mornington-library/>)
-
 - [Fri, 27 Nov
 
 ### Ben Smith Live at Jetty Road Brewery
@@ -684,3 +674,13 @@ Mornington
 Rolling Stones tribute band Brown Sugar plays the upstairs Bandroom at The Bay Hotel. Standing show from 8.30pm, with pre-show dinner and drinks upstairs from 6pm. Access is by stairs only.
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/brown-sugar-rolling-stones-2026-11-27/>)
+
+- [Fri, 27 Nov
+
+### Emmie Li Live at Peninsula Beer Garden
+
+Boneo
+
+Singer-songwriter and pianist Emmie Li plays her own songs and well-known covers at Peninsula Beer Garden in Boneo, from 5pm to 8pm.
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/emmie-li-live-at-peninsula-beer-garden-2026-11-27/>)

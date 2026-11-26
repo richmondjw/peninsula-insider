@@ -77,14 +77,6 @@ Merricks
 
 Swipe or scroll through the picks
 
-- ### [Olivia Mae Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/olivia-mae-live-at-jetty-road-brewery-2026-11-29/>)
-
-Olivia Mae plays an afternoon set at Jetty Road Brewery in Dromana from 1pm to 4pm, part of the brewery's regular weekend music.
-
-Sun, 29 Nov   Jetty Road Brewery   Live music
-
-Event details checked 9 Nov 2026 · [Organiser’s page](<https://www.jettyroad.com.au/dromana>)
-
 - ### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
 Sam O’Connell plays Spike Bar this Saturday, 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
@@ -100,6 +92,14 @@ Brad Kennedy plays the Spike Bar at Peppers Moonah Links Resort in Fingal, from 
 Sat, 28 Nov   Peppers Moonah Links Resort   Live music
 
 Event details checked 9 Nov 2026 · [Organiser’s page](<https://www.moonahlinks.com.au/cms/dining/spike-bar/>)
+
+- ### [Meet The Makers at Hawkes Farm](<https://peninsulainsider.com.au/whats-on/meet-the-makers-at-hawkes-farm-2026-11-28/>)
+
+Hawkes Farm in Boneo holds its Meet the Makers market on the last Saturday of each month from September to April, with local artisans,.
+
+Sat, 28 Nov   Hawkes Farm   Market
+
+Event details checked 9 Nov 2026 · [Organiser’s page](<https://store.hawkesfarm.com.au/blogs/news/meet-the-makers-market>)
 
 This season · Spring
 

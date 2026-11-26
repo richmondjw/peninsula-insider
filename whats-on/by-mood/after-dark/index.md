@@ -11,14 +11,6 @@ Evening on the Peninsula
 
 Concerts, twilight cellar doors, evening bathing sessions, dinners that count as events. The Peninsula is sometimes accused of closing at five; this is the counter-argument.
 
-Writers & Ideas  26 Nov
-
-### [Author Talk: Jane Gilmore - Mornington Library](<https://peninsulainsider.com.au/whats-on/author-talk-jane-gilmore-mornington-library/>)
-
-Journalist and author Jane Gilmore talks about her new book on helping adults talk to children about consent, relationships and online life,…
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/author-talk-jane-gilmore-mornington-library/>)
-
 Live Music  27 Nov
 
 ### [Ben Smith Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
