@@ -71,8 +71,14 @@ const site = await Site.open();
 test.after(() => site.close());
 
 const UPLOAD = `${site.origin}/favicon.svg`;
-const upload = (slug, details = false) => ({
-  entity_type: 'venue', entity_slug: slug, field_path: 'heroImage', public_url: UPLOAD,
+// Real uploads live in the project's storage, and the reader's pass loads a
+// resized copy of those before it paints, so that path is asynchronous. The
+// harness answers every storage request with JSON, which is no image: the pass
+// falls back to the original and must still take the plate off.
+const storage = fs.readFileSync(path.join(DIST, 'index.html'), 'utf8').match(/https:\/\/[a-z0-9-]+\.supabase\.co/)?.[0];
+const stored = (slug) => (storage ? `${storage}/storage/v1/object/public/cms-assets/venue/${slug}/heroImage-1.jpg` : UPLOAD);
+const upload = (slug, details = false, src = UPLOAD) => ({
+  entity_type: 'venue', entity_slug: slug, field_path: 'heroImage', public_url: src,
   alt_text: details ? 'A described photograph' : null, credit: details ? 'A named photographer' : null,
 });
 // Rows are applied in order, so the last one being painted means the whole
@@ -142,7 +148,7 @@ const PHOTO = { plate: false, photo: true, mark: 'none', label: 'none', visible:
 
 for (const viewport of [{ width: 390, height: 844 }, { width: 1440, height: 900 }]) {
   test(`a logged-out reader never sees the photo prompt at ${viewport.width}px`, { skip }, async () => {
-    const rows = [upload(uncredited), upload(credited, true), ...(stay ? [upload(staySlug, true)] : [])];
+    const rows = [upload(uncredited, false, stored(uncredited)), upload(credited, true), ...(stay ? [upload(staySlug, true)] : [])];
     const reader = await site.reader({ supabase: [readerQuery(rows)] });
     try {
       await reader.page.setViewport(viewport);
@@ -152,6 +158,7 @@ for (const viewport of [{ width: 390, height: 844 }, { width: 1440, height: 900 
         if (arrive === 'navigate') await reader.load('/about/');
         await reader[arrive](hub.route);
         await reader.waitFor(passRan, `slot hydration did not run after ${arrive}`);
+        await reader.waitFor(painted, `the stored upload did not reach its card after ${arrive}`, uncredited);
         assert.deepEqual(await reader.page.evaluate(promptsOnPage), [], `${hub.route} after ${arrive}`);
         // The reported case: an upload in a slot the build drew empty. The
         // photo shows and nothing is drawn over it.
