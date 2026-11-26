@@ -495,6 +495,11 @@ const showNewsletterPopup = !isPlanningJourney && !isPlaceGuide && normalizedPat
        so right-click image edits on any page (events, places, venues, home) are
        visible immediately on next load without waiting for a rebuild.
        Non-fatal: if Supabase is unreachable the static images remain. -->
+  {/* This is the reader's counterpart to applyOverridesOnLoad in
+      lib/inline-edit/client.ts, which runs for signed-in editors only. Keep
+      the two in step: both honour data-pi-no-hydrate and
+      data-pi-requires-image-metadata, and both clear a slot's placeholder
+      plate when they paint a photo into it. */}
   <script is:inline define:vars={{ __SB_URL: import.meta.env.PUBLIC_SUPABASE_URL || 'https://tjjhpvslpysfklwpqmgz.supabase.co', __SB_ANON: import.meta.env.PUBLIC_SUPABASE_ANON_KEY || 'sb_publishable_JlZuo95QvNZi2ZNrFyK-Cw_2y0U7HLp', __IMAGE_QUARANTINE: imageQuarantine.quarantined.map(({ key, fieldPath, storagePath }) => ({ key, fieldPath, storagePath })) }}>
     (function () {
       if (!__SB_URL || !__SB_ANON) return;
