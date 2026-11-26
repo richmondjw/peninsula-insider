@@ -362,7 +362,7 @@ export const prerender = true;
           if (href.startsWith('/wine/')) return { key: 'wine', label: 'Wine' };
           return { key: 'eat', label: 'Eat & Drink' };
         }
-        return { key: 'other', label: kind };
+        return { key: 'other', label: 'Guides & lists' };
       }
 
       function pathFromUrl(value) {
@@ -493,6 +493,10 @@ export const prerender = true;
         if (exactPlace) return exactPlace;
         const exactTitle = data.find((item) => normalizeText(item.meta?.title) === q);
         if (exactTitle) return exactTitle;
+        // A name search ("tedesca") should lead with the thing named, not with
+        // whichever town happens to mention it.
+        const named = q.length >= 3 && data.find((item) => normalizeText(item.meta?.title).includes(q));
+        if (named) return named;
         const priority = ['place', 'region', 'article', 'itinerary', 'experience', 'event', 'venue'];
         return data.slice().sort((a, b) => {
           const ai = priority.indexOf(a.entity_type || '');
@@ -615,7 +619,7 @@ export const prerender = true;
       async function showPage(page) {
         if (page < 1) page = 1;
         currentPage = page;
-        const shouldGroup = page === 1 && currentKind === 'all' && currentResults.some((r) => r._rpc);
+        const shouldGroup = page === 1 && currentKind === 'all' && currentResults.some((r) => r._rpc || r._grouped);
         if (shouldGroup) {
           const cached = currentDataPage.get('grouped');
           const data = cached || await Promise.all(currentResults.map((r) => r.data()));
@@ -682,13 +686,19 @@ export const prerender = true;
       function rpcHitToHandle(hit, query) {
         const q = (query || '').toLowerCase();
         const dek = hit.dek || '';
-        let excerpt = escapeHtml(clipExcerpt(dek, 260));
+        // clipExcerpt lives in the bundled module below, which hands it over on
+        // PISearchRpc. This inline script once called it as a bare name, which
+        // threw on every database hit and silently sent every search to the
+        // full-text fallback with its flat, ungrouped list.
+        const clip = window.PISearchRpc?.clipExcerpt || ((text, max) => String(text).slice(0, max));
+        let excerpt = escapeHtml(clip(dek, 260));
         if (q && excerpt.toLowerCase().includes(q)) {
           const i = excerpt.toLowerCase().indexOf(q);
           excerpt = excerpt.slice(0, i) + '<mark>' + excerpt.slice(i, i + q.length) + '</mark>' + excerpt.slice(i + q.length);
         }
         const data = {
-          url:     hit.href,
+          // The index still holds some retired /places/ addresses.
+          url:     String(hit.href || '').replace(/^\/places\//, '/explore/places/'),
           entity_type: hit.entity_type,
           entity_slug: hit.entity_slug,
           meta:    {
@@ -698,7 +708,7 @@ export const prerender = true;
           },
           excerpt,
         };
-        return { data: async () => data, _rpc: true, _url: hit.href };
+        return { data: async () => data, _rpc: true, _url: data.url };
       }
 
       function bestBetToHandle(intent) {
@@ -715,6 +725,33 @@ export const prerender = true;
           _bestBet: true,
         };
         return { data: async () => data, _rpc: true, _bestBet: true, _url: intent.href };
+      }
+
+      // Full-text hits (Pagefind reads every word of every page) shaped so they
+      // can sit in the same grouped layout as the database hits. The page type
+      // comes from a label the page carries, or from its address.
+      function fullTextType(data) {
+        const tagged = data.meta?.entity;
+        if (tagged) return tagged;
+        const path = (data.url || '').split(/[?#]/)[0];
+        if (/^\/explore\/places\/[^/]+\/$/.test(path)) return 'place';
+        if (/^\/whats-on\/[^/]+\/$/.test(path) && !/^\/whats-on\/(this-weekend|by-mood|month)\//.test(path)) return 'event';
+        if (/^\/explore\/plans\/[^/]+\/$/.test(path)) return 'itinerary';
+        if (/^\/journal\/[^/]+\/$/.test(path)) return 'article';
+        return '';
+      }
+      const pathKey = (url) => (url || '').split(/[?#]/)[0].replace(/\/?$/, '/');
+      const FULL_TEXT_LIMIT = 48;
+      async function fullTextHandles(q, kind) {
+        const pf = await loadPagefind();
+        const filters = kind === 'all' ? undefined : { kind };
+        const result = await pf.search(q, filters ? { filters } : undefined);
+        const loaded = await Promise.all(result.results.slice(0, FULL_TEXT_LIMIT).map((r) => r.data()));
+        const shaped = loaded.map((data) => {
+          const item = { ...data, entity_type: fullTextType(data) };
+          return { data: async () => item, _grouped: true, _url: item.url };
+        });
+        return { shaped };
       }
 
       function withBestBet(handles, query) {
@@ -788,9 +825,16 @@ export const prerender = true;
         renderLoading();
         const myToken = ++searchToken;
 
-        // ── Path 1: pi.search RPC (Phase D wave 1) ──────────────────────
-        const rpc = await waitForSearchRpc();
-        if (rpc && rpc.available) {
+        // Both sources answer every text query. The database index knows what
+        // each record is (venue, place, event) but holds only titles and short
+        // fields; the full-text index reads every word on every page. Until
+        // November 2026 the full-text index was consulted only when the
+        // database returned nothing, so a match in a page's body was invisible
+        // whenever any title matched. Database hits lead; full-text hits the
+        // database did not return follow, in the same grouped layout.
+        const rpcHits = (async () => {
+          const rpc = await waitForSearchRpc();
+          if (!rpc || !rpc.available) return [];
           try {
             const preds = kindToRpcPredicates(currentKind);
             const hits = await rpc.search({
@@ -799,49 +843,53 @@ export const prerender = true;
               entityTypes: preds.entityTypes,
               limit: 96,
             });
-            if (myToken !== searchToken) return;
-            if (Array.isArray(hits) && hits.length > 0) {
-              currentResults = withBestBet(hits.map((h) => rpcHitToHandle(h, q)), q);
-              await showPage(1);
-              logSearchOutcome(currentResults.length, currentKind);
-              emitSearchSubmitted(q, currentResults.length, 'rpc');
-              updateUrl(q);
-              return;
-            }
-            // Empty hits → fall through to Pagefind so we don't 0-result
-            // when the RPC simply has no embedding for a niche query.
+            return Array.isArray(hits) ? hits.map((h) => rpcHitToHandle(h, q)) : [];
           } catch (err) {
-            console.warn('[search] RPC failed, falling back to Pagefind:', err);
+            console.warn('[search] database search failed, using full text only:', err);
+            return [];
           }
-        }
+        })();
+        const textHits = (async () => {
+          if (!q) return { shaped: [], failed: false };
+          try {
+            return { ...(await fullTextHandles(q, currentKind)), failed: false };
+          } catch (err) {
+            console.warn('[search] full-text search failed:', err);
+            return { shaped: [], failed: true };
+          }
+        })();
+        const [fromDatabase, fromText] = await Promise.all([rpcHits, textHits]);
+        if (myToken !== searchToken) return;
 
-        // ── Path 2: Pagefind (legacy path, retained as fallback) ───────
-        if (!q) {
+        if (!q && fromDatabase.length === 0) {
           currentResults = [];
           renderIdle();
           updateUrl(q);
           return;
         }
-        try {
-          const pf = await loadPagefind();
-          const filters = currentKind === 'all' ? undefined : { kind: currentKind };
-          const result = await pf.search(q, filters ? { filters } : undefined);
-          if (myToken !== searchToken) return;
-          currentResults = result.results;
-          currentResults = withBestBet(currentResults, q);
-          if (currentResults.length === 0) {
-            renderEmpty(q);
-          } else {
-            await showPage(1);
-          }
-          logSearchOutcome(currentResults.length, currentKind);
-          emitSearchSubmitted(q, currentResults.length, 'pagefind');
-        } catch (err) {
-          console.warn('[search] error', err);
+        const seen = new Set(fromDatabase.map((h) => pathKey(h._url)));
+        const extra = fromText.shaped.filter((h) => !seen.has(pathKey(h._url)));
+        const unique = new Set();
+        const merged = [...fromDatabase, ...extra].filter((h) => {
+          const key = pathKey(h._url);
+          if (unique.has(key)) return false;
+          unique.add(key);
+          return true;
+        });
+        const engine = fromDatabase.length && extra.length ? 'merged' : fromDatabase.length ? 'rpc' : 'pagefind';
+
+        if (merged.length === 0 && fromText.failed && fromDatabase.length === 0) {
           emitSearchFailed(q, 'pagefind', 'search-error');
           if (list) list.innerHTML = '<div class="search-page-v2__loading"><p>Search isn\'t available right now. Try again in a moment.</p></div>';
           if (fallback) fallback.hidden = true;
+          updateUrl(q);
+          return;
         }
+        currentResults = withBestBet(merged, q);
+        if (currentResults.length === 0) renderEmpty(q);
+        else await showPage(1);
+        logSearchOutcome(currentResults.length, currentKind);
+        emitSearchSubmitted(q, currentResults.length, engine);
         updateUrl(q);
       }
 
@@ -991,6 +1039,7 @@ export const prerender = true;
       get available() { return isAvailable(); },
       search,
       typeahead,
+      clipExcerpt,
     };
   </script>
 </BaseLayout>
