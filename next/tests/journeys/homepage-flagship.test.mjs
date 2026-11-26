@@ -234,7 +234,7 @@ test('cinematic cover keeps discovery links accessible and does not enable conci
  concierge:document.querySelectorAll('[data-ask-pi-trigger]').length,
  picture:document.querySelector('.home-cover__media').naturalWidth
  }));
- assert.equal(result.links.length,4);assert.ok(result.links.every(l=>l.width>=44&&l.height>=44));assert.match(result.caption,/Peter Tarasiuk/);assert.ok(result.picture>0);
+ assert.equal(result.links.length,4);assert.ok(result.links.every(l=>l.width>=44&&l.height>=44));assert.match(result.caption,/Two Palms Australia/);assert.ok(result.picture>0);
  await reader.page.focus('.home-cover-paths a');assert.equal(await reader.page.$eval('.home-cover-paths a',e=>document.activeElement===e),true);
  }}finally{await reader.close();}
 });
@@ -406,14 +406,16 @@ test('three homepage covers autoplay without moving the planner; manual controls
         };
       });
       const initial = await layout();
-      assert.equal(initial.frame, 'coast');
+      assert.equal(initial.frame, 'ridge');
       const playback = '.home-cover__playback';
       if (width === 1440) {
         assert.equal(await page.$eval(playback, el => el.getAttribute('aria-label')), 'Pause cover rotation');
-        await page.waitForFunction(() => document.querySelector('#peninsula-cover').dataset.activeCover === 'ridge', { timeout: 20_000 });
-        const ridge = await layout();
-        assert.equal(ridge.href, '/journal/area-guide-red-hill/');
-        assert.match(ridge.credit, /Montalto.*Two Palms Australia, courtesy of Visit Victoria/i);
+        assert.equal(initial.href, '/explore/plans/how-to-build-a-red-hill-saturday/');
+        assert.match(initial.credit, /Montalto.*Two Palms Australia, courtesy of Visit Victoria/i);
+        await page.waitForFunction(() => document.querySelector('#peninsula-cover').dataset.activeCover === 'coast', { timeout: 20_000 });
+        const coast = await layout();
+        assert.equal(coast.href, '/explore/plans/flinders-and-cape-reset/');
+        assert.match(coast.credit, /Cape Schanck.*Peter Tarasiuk, courtesy of Visit Victoria/i);
       } else {
         assert.equal(await page.$eval(playback, el => el.getAttribute('aria-label')), 'Play cover rotation');
       }
