@@ -77,14 +77,6 @@ Merricks
 
 Swipe or scroll through the picks
 
-- ### [Dave Campbell Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/dave-campbell-live-at-peninsula-beer-garden-2026-11-29/>)
-
-Dave Campbell plays an afternoon set at Peninsula Beer Garden in Boneo, from 1pm to 4pm.
-
-Sun, 29 Nov   Peninsula Beer Garden   Live music
-
-Event details checked 9 Nov 2026 · [Organiser’s page](<https://peninsulabeergarden.com.au/>)
-
 - ### [Olivia Mae Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/olivia-mae-live-at-jetty-road-brewery-2026-11-29/>)
 
 Olivia Mae plays an afternoon set at Jetty Road Brewery in Dromana from 1pm to 4pm, part of the brewery's regular weekend music.
@@ -100,6 +92,14 @@ Sam O’Connell plays Spike Bar this Saturday, 5pm to 8pm. Make it an evening st
 Sat, 28 Nov   Peppers Moonah Links   Every Saturday
 
 Event details checked 16 Nov 2026 · [Organiser’s page](<https://www.moonahlinks.com.au/cms/whats-on/>)
+
+- ### [Brad Kennedy Live at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/brad-kennedy-live-at-peppers-moonah-links-resort-2026-11-28/>)
+
+Brad Kennedy plays the Spike Bar at Peppers Moonah Links Resort in Fingal, from 5pm to 8pm.
+
+Sat, 28 Nov   Peppers Moonah Links Resort   Live music
+
+Event details checked 9 Nov 2026 · [Organiser’s page](<https://www.moonahlinks.com.au/cms/dining/spike-bar/>)
 
 This season · Spring
 
