@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-11-22T18:30:19.487Z",
+  "updatedAt": "2026-11-25T14:20:31.630Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -3329,6 +3329,14 @@
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {
+      "url": "https://www.craftmarkets.com.au/calendar",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Craft Markets Australia",
+      "probedOn": "2026-11-25",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.craftmarkets.com.au/mornington",
       "verdict": "ok",
       "httpCode": "200",
@@ -3672,6 +3680,14 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Enchanting Kirtan: Sacred Music &amp; Meditation Experience - Mornington Tickets, Friday 30 October • Starts at 7 PM | Eventbrite"
+    },
+    {
+      "url": "https://www.eventbrite.com/e/nye-party-at-terrys-tickets-2002908070957",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "NYE PARTY AT TERRY&#x27;S Tickets, Thursday, December 31 • Starts at 7:30 PM | Eventbrite",
+      "probedOn": "2026-11-24",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.facebook.com/flinderstruffles/",
@@ -5098,6 +5114,14 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Home"
+    },
+    {
+      "url": "https://www.peninsulafilmfestival.com.au/buy-tickets.html",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "BUY TICKETS",
+      "probedOn": "2026-11-25",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.peninsulafresh.com/",

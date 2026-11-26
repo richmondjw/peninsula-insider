@@ -181,11 +181,13 @@ export function exploreCue(slug, data) {
   return undefined;
 }
 
-/** A beach has no finish line: say roughly how long people stay, not "1¼ hr". */
+/** A beach has no finish line: say roughly how long people stay, not "1¼ hr".
+ * Same grammar as timeLabel ("1 hr", "Half a day") so a list of cards reads as
+ * one set of facts (2026-11-27 critique: five duration styles on one page). */
 export function beachTimeLabel(minutes) {
   if (typeof minutes !== 'number' || minutes <= 0) return undefined;
-  if (minutes <= 60) return 'About an hour';
-  if (minutes <= 150) return 'An hour or two';
+  if (minutes <= 60) return 'About 1 hr';
+  if (minutes <= 150) return '1 to 2 hr';
   return 'Half a day';
 }
 

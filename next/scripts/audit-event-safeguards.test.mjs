@@ -449,3 +449,47 @@ test('the gate fails closed when the baseline is missing', async () => {
     await rm(dir, { recursive: true, force: true });
   }
 });
+
+test('an event written for a closed group fails the gate', async () => {
+  const { code, out } = await audit(
+    { a: { ...BASE, summary: 'A golf day for alumni and the wider school community.' } },
+    { ceilings: { restrictedAudience: 0 } },
+  );
+  assert.equal(code, 1, out);
+  assert.match(out, /restrictedAudience: 1 > baseline 0/);
+});
+
+test('a venue membership offer is not mistaken for a closed event', async () => {
+  const { code, out } = await audit(
+    { a: { ...BASE, summary: 'Open to all. Members and guests receive a discount at the bar.' } },
+    { ceilings: { restrictedAudience: 0 } },
+  );
+  assert.equal(code, 0, out);
+});
+
+test('the competitor source share is reported and never gated', async () => {
+  const corpus = {
+    a: { ...BASE, slug: 'a', title: 'A', sourceUrl: 'https://www.visitmorningtonpeninsula.org/Whats-On/View/1/a' },
+    b: { ...BASE, slug: 'b', title: 'B', venueName: 'Other Hall', sourceUrl: 'https://example.org/b' },
+  };
+  const { code, out } = await audit(corpus);
+  assert.equal(code, 0, out);
+  assert.match(out, /first found on the competitor  1 of 2/);
+});
+
+test('an event that sends readers to the competitor to book fails the gate', async () => {
+  const { code, out } = await audit(
+    { a: { ...BASE, bookingUrl: 'https://www.visitmorningtonpeninsula.org/Whats-On/View/1/a' } },
+    { ceilings: { competitorLinked: 0 } },
+  );
+  assert.equal(code, 1, out);
+  assert.match(out, /competitorLinked: 1 > baseline 0/);
+});
+
+test('an organiser booking link passes even when the event was first found on the competitor', async () => {
+  const { code, out } = await audit(
+    { a: { ...BASE, sourceUrl: 'https://www.visitmorningtonpeninsula.org/Whats-On/View/1/a', bookingUrl: 'https://organiser.example/tickets', officialEventUrl: 'https://organiser.example/' } },
+    { ceilings: { competitorLinked: 0 } },
+  );
+  assert.equal(code, 0, out);
+});

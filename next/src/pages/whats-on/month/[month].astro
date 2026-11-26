@@ -1,0 +1,177 @@
+---
+/**
+ * /whats-on/month/[month]/ - one page per calendar month, e.g. december-2026.
+ *
+ * Answers "what's on in <month>" with the same dated, status-checked event set
+ * as the hub, grouped by day. A month only gets a page while it holds a dated
+ * event; the two months just gone stay as unindexed hand-on pages (see
+ * monthLanes in ../_data.ts).
+ */
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import EventMonthNav from '../../../components/EventMonthNav.astro';
+import NewsletterBlock from '../../../components/NewsletterBlock.astro';
+import WhatsOnRow from '../../../components/v5/whatson/WhatsOnRow.astro';
+import { buildNow, checkedLabel, groupByDay, isDatedCalendarEvent, loadLiveEvents, monthLanes, rangeLabel, timeLabelFor } from '../_data';
+
+// Everything is resolved once here and handed to each page as props; doing it
+// in the page body repeated the whole event load for every month.
+export async function getStaticPaths() {
+  const now = buildNow();
+  const live = await loadLiveEvents(now);
+  const lanes = monthLanes(live, now);
+  const upcoming = lanes.filter((l) => !l.past).map(({ slug, label }) => ({ slug, label }));
+  const dated = live.filter(isDatedCalendarEvent);
+  return lanes.map((lane) => ({
+    params: { month: lane.slug },
+    props: { lane, upcoming, groups: lane.past ? [] : groupByDay(dated, lane.win, now) },
+  }));
+}
+
+const { lane, upcoming, groups } = Astro.props;
+
+const startMinutes = (value: unknown) => {
+  const m = typeof value === 'string' ? /^(\d{1,2}):(\d{2})/.exec(value) : null;
+  return m && Number(m[1]) < 24 ? Number(m[1]) * 60 + Number(m[2]) : 24 * 60;
+};
+const days = groups
+      .filter((g) => g.items.length > 0)
+      .map((g) => ({
+        ...g,
+        // A day reads as a schedule: rows run by the event's own start time.
+        items: g.items
+          .map((it) => ({ it, start: startMinutes(it.live.event.data.startTime) }))
+          .sort((a, b) => a.start - b.start)
+          .map(({ it }) => it),
+      }));
+
+// The time leads the row, so it leaves the meta line: what remains is place and category.
+const CLOCK = new RegExp('^[0-9]{1,2}:[0-9]{2}$');
+const rowMeta = (meta: string[], startTime: unknown) =>
+  meta.filter((part) => part !== timeLabelFor(startTime) && !CLOCK.test(part));
+
+const SITE_URL = 'https://peninsulainsider.com.au';
+const canonical = `${SITE_URL}/whats-on/month/${lane.slug}/`;
+const monthName = lane.label.split(' ')[0];
+const firstDay = days[0];
+const lastDay = days[days.length - 1];
+const span = firstDay && lastDay
+  ? rangeLabel(new Date(`${firstDay.iso}T00:00:00Z`), new Date(`${lastDay.iso}T00:00:00Z`))
+  : '';
+const description = lane.past
+  ? `${lane.label} has finished. See what is on across the Mornington Peninsula now.`
+  : `What's on across the Mornington Peninsula in ${lane.label}: markets, live music, food and wine, and family days, listed day by day and checked against each organiser.`;
+
+const seen = new Set<string>();
+const listed = days.flatMap((g) => g.items).filter((it) => (seen.has(it.live.slug) ? false : (seen.add(it.live.slug), true)));
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: `What's on in ${lane.label} on the Mornington Peninsula`,
+  description,
+  itemListElement: listed.map((it, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    url: `${SITE_URL}${it.live.href}`,
+    name: it.live.title,
+  })),
+};
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: "What's On", href: '/whats-on/' },
+  { label: lane.label },
+];
+export const prerender = true;
+---
+
+<BaseLayout
+  title={`What's On in ${lane.label} | Mornington Peninsula`}
+  description={description}
+  section="whats-on"
+  canonical={canonical}
+  noindex={lane.past}
+>
+  {!lane.past && <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />}
+
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <section class="wo-month-hero">
+    <div class="container">
+      <p class="wo-month-hero__eyebrow">What's On</p>
+      <h1 class="wo-month-hero__heading">What's on in {lane.label}</h1>
+      {lane.past ? (
+        <p class="wo-month-hero__lede">{monthName} has finished. Pick a month below, or see <a href="/whats-on/">what's on this weekend</a>.</p>
+      ) : (
+        <p class="wo-month-hero__lede">
+          Events across the Mornington Peninsula in {monthName}, day by day{span && <>, from {span}</>}.
+          Each listing links to its own page with times, the place and where to book.
+          Dates can change, so check the organiser before you travel.
+        </p>
+      )}
+      <EventMonthNav months={upcoming} active={lane.slug} />
+      <p class="wo-month-hero__submit"><a class="pi-btn pi-btn--ghost" href="/submit/?type=event">Submit an event</a></p>
+    </div>
+  </section>
+
+  {days.length > 0 && (
+    <section class="wo-days wo-month-days" aria-label={`Events in ${lane.label}`}>
+      <div class="container">
+        {days.map((g) => (
+          <section class="wo-day">
+            <h2 class="wo-day__h">{g.heading}</h2>
+            <ul class="wo-day__list" role="list">
+              {g.items.map((it) => (
+                <WhatsOnRow
+                  title={it.live.title}
+                  href={it.live.href}
+                  slug={it.live.slug}
+                  time={timeLabelFor(it.live.event.data.startTime)}
+                  oneLiner={it.live.oneLiner}
+                  meta={rowMeta(it.live.meta, it.live.event.data.startTime)}
+                  spanLabel={it.spanLabel === 'One-day event' ? '' : it.spanLabel}
+                  statusLabel={it.statusLabel}
+                  checkedLabel={checkedLabel(it.live.event.data)}
+                  phase={it.phase}
+                  bookable={it.bookable}
+                  surface="whatson-month"
+                />
+              ))}
+            </ul>
+          </section>
+        ))}
+        <p class="wo-month-days__more">
+          Looking for something sooner? <a href="/whats-on/this-weekend/">This weekend</a> has our short list, and <a href="/whats-on/">What's On</a> lets you filter by date and type.
+        </p>
+      </div>
+    </section>
+  )}
+
+  <NewsletterBlock
+    body="Thoughtful recommendations, seasonal discoveries, and what’s happening across the Mornington Peninsula."
+    sub="The Peninsula worth knowing. An occasional email. What's on, where we'd go and what's worth knowing next."
+  />
+</BaseLayout>
+
+<style>
+  .wo-month-hero { background: var(--bg-alt); border-bottom: 1px solid var(--border); padding: clamp(2.5rem, 5vw, 4rem) 0 1.5rem; }
+  .wo-month-hero__eyebrow { margin: 0 0 0.6rem; font: 500 0.7rem var(--font-ui); letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+  .wo-month-hero__heading { margin: 0 0 0.75rem; font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; color: #0b2e4a; }
+  .wo-month-hero__lede { max-width: 70ch; margin: 0 0 1.25rem; font: 400 1rem/1.6 var(--font-ui); color: var(--soft); }
+  .wo-month-hero__lede a, .wo-month-days__more a { color: var(--text); text-decoration: underline; text-underline-offset: 0.2em; }
+  .wo-month-hero__submit { margin: 1rem 0 0; }
+  .wo-month-days { padding: var(--space-6) 0 var(--space-7); }
+  .wo-month-days__more { max-width: 46rem; margin: var(--space-7) 0 0; font: 400 0.9375rem/1.6 var(--font-ui); color: var(--soft); }
+</style>
+
+<style is:global>
+  /* Same day-group rules the hub ships; repeated here because the hub's copy is
+     bundled with the hub page only. */
+  .wo-month-days .wo-day { margin-top: var(--space-6); }
+  .wo-month-days .wo-day__h { margin: 0 0 var(--space-2); color: #0b2e4a; font-family: var(--font-display); font-size: var(--fs-500); font-weight: 700; letter-spacing: -.02em; line-height: 1.25; }
+  .wo-month-days .wo-day__list { list-style: none; margin: 0; padding: 0; max-width: 46rem; }
+  @media (min-width: 1024px) {
+    .wo-month-days .wo-day { display: grid; grid-template-columns: 16rem minmax(0, 1fr); column-gap: var(--space-8); align-items: start; }
+    .wo-month-days .wo-day__h { position: sticky; top: 5rem; margin: 0; padding-top: var(--space-3); }
+    .wo-month-days .wo-day__list { grid-column: 2; }
+  }
+</style>

@@ -1192,7 +1192,17 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   flex-direction: column;
   gap: 0.6rem;
 }
-.venue-card__hero--placeholder::before {
+/* Readers see an editorial plate. The camera prompt is an editor affordance
+   and only appears while edit mode is on. Shared by venue and event cards. */
+:is(.venue-card__hero--placeholder, .event-card__hero--placeholder)::before { content: 'PI'; color: #0b2e4a; font: 600 2.5rem/1 var(--font-display); }
+:is(.venue-card__hero--placeholder, .event-card__hero--placeholder)::after {
+  content: 'Peninsula Insider';
+  font: 600 0.65rem var(--font-ui);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--soft);
+}
+body[data-pi-edit-mode="on"] :is(.venue-card__hero--placeholder, .event-card__hero--placeholder)::before {
   content: '';
   display: block;
   width: 36px;
@@ -1200,15 +1210,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   opacity: 0.28;
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230A7B80' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z'/%3E%3Ccircle cx='12' cy='13' r='4'/%3E%3C/svg%3E") center/contain no-repeat;
 }
-.venue-card__hero--placeholder::after {
-  content: 'Add photo';
-  font-family: var(--font-ui);
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--soft);
-}
+body[data-pi-edit-mode="on"] :is(.venue-card__hero--placeholder, .event-card__hero--placeholder)::after { content: 'Add photo'; }
 /* A missing Stay photograph is an editorial plate, never a public CMS prompt. */
 body[data-page="stay"] .venue-card__hero--placeholder { background: linear-gradient(145deg, #edf3f0, #dceae5); }
 body[data-page="stay"] .venue-card__hero--placeholder::before { content: 'PI'; width: auto; height: auto; background: none; opacity: 1; color: #0b2e4a; font: 600 2.5rem/1 var(--font-display); }
@@ -5064,23 +5066,6 @@ p.has-drop-cap::first-letter {
   justify-content: center;
   flex-direction: column;
   gap: 0.6rem;
-}
-.event-card__hero--placeholder::before {
-  content: '';
-  display: block;
-  width: 36px;
-  height: 36px;
-  opacity: 0.28;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230A7B80' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z'/%3E%3Ccircle cx='12' cy='13' r='4'/%3E%3C/svg%3E") center/contain no-repeat;
-}
-.event-card__hero--placeholder::after {
-  content: 'Add photo';
-  font-family: var(--font-ui);
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--soft);
 }
 /* Disable the scale-on-hover transform for placeholder cards - the icon
    is centred and would translate awkwardly. */

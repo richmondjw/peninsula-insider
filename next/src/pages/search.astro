@@ -14,6 +14,7 @@
  * Pagefind's index is built by `npm run build:search` and lives at
  * `/pagefind/`. The page is fully static; all search runs in the browser.
  */
+import { ASK_GUIDE_ON } from '../lib/features';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import '../styles/search-results.css';
@@ -105,6 +106,11 @@ export const prerender = true;
           <p class="search-page-v2__results-meta" id="searchResultsMeta" aria-live="polite">Start typing to search.</p>
         </div>
 
+        {ASK_GUIDE_ON && <a class="search-page-v2__ask" id="searchAsk" href="/ask/" hidden>
+          <span class="search-page-v2__ask-label">Ask PI</span>
+          <span class="search-page-v2__ask-q" data-ask-q></span>
+          <span aria-hidden="true">→</span>
+        </a>}
         <div class="search-page-v2__results" id="searchResultsList" aria-live="polite"></div>
 
         <nav class="search-page-v2__pagination" id="searchPagination" aria-label="Result pages" hidden></nav>
@@ -362,7 +368,7 @@ export const prerender = true;
           if (href.startsWith('/wine/')) return { key: 'wine', label: 'Wine' };
           return { key: 'eat', label: 'Eat & Drink' };
         }
-        return { key: 'other', label: kind };
+        return { key: 'other', label: 'Guides & lists' };
       }
 
       function pathFromUrl(value) {
@@ -442,8 +448,21 @@ export const prerender = true;
           const key = `${el.dataset.piEntityType}/${el.dataset.piEntitySlug}/${el.dataset.piFieldPath}`;
           const src = slots.get(key);
           if (!src) return;
-          el.style.backgroundImage = `url("${src.replace(/"/g, '\\"')}")`;
-          el.classList.remove('search-card__hero--placeholder');
+          // Same resized copy the rest of the site asks for (BaseLayout). A
+          // background cannot fall back by itself, so the resized copy is
+          // loaded first and the original used only if that fails.
+          const sized = typeof window.__piResizedCmsImage === 'function' ? window.__piResizedCmsImage(src, el) : src;
+          const paint = (value) => {
+            el.style.backgroundImage = `url("${value.replace(/"/g, '\\"')}")`;
+            el.classList.remove('search-card__hero--placeholder');
+          };
+          if (sized === src) paint(src);
+          else {
+            const probe = new Image();
+            probe.onload = () => paint(sized);
+            probe.onerror = () => paint(src);
+            probe.src = sized;
+          }
         });
       }
 
@@ -480,6 +499,10 @@ export const prerender = true;
         if (exactPlace) return exactPlace;
         const exactTitle = data.find((item) => normalizeText(item.meta?.title) === q);
         if (exactTitle) return exactTitle;
+        // A name search ("tedesca") should lead with the thing named, not with
+        // whichever town happens to mention it.
+        const named = q.length >= 3 && data.find((item) => normalizeText(item.meta?.title).includes(q));
+        if (named) return named;
         const priority = ['place', 'region', 'article', 'itinerary', 'experience', 'event', 'venue'];
         return data.slice().sort((a, b) => {
           const ai = priority.indexOf(a.entity_type || '');
@@ -602,7 +625,7 @@ export const prerender = true;
       async function showPage(page) {
         if (page < 1) page = 1;
         currentPage = page;
-        const shouldGroup = page === 1 && currentKind === 'all' && currentResults.some((r) => r._rpc);
+        const shouldGroup = page === 1 && currentKind === 'all' && currentResults.some((r) => r._rpc || r._grouped);
         if (shouldGroup) {
           const cached = currentDataPage.get('grouped');
           const data = cached || await Promise.all(currentResults.map((r) => r.data()));
@@ -669,13 +692,19 @@ export const prerender = true;
       function rpcHitToHandle(hit, query) {
         const q = (query || '').toLowerCase();
         const dek = hit.dek || '';
-        let excerpt = escapeHtml(clipExcerpt(dek, 260));
+        // clipExcerpt lives in the bundled module below, which hands it over on
+        // PISearchRpc. This inline script once called it as a bare name, which
+        // threw on every database hit and silently sent every search to the
+        // full-text fallback with its flat, ungrouped list.
+        const clip = window.PISearchRpc?.clipExcerpt || ((text, max) => String(text).slice(0, max));
+        let excerpt = escapeHtml(clip(dek, 260));
         if (q && excerpt.toLowerCase().includes(q)) {
           const i = excerpt.toLowerCase().indexOf(q);
           excerpt = excerpt.slice(0, i) + '<mark>' + excerpt.slice(i, i + q.length) + '</mark>' + excerpt.slice(i + q.length);
         }
         const data = {
-          url:     hit.href,
+          // The index still holds some retired /places/ addresses.
+          url:     String(hit.href || '').replace(/^\/places\//, '/explore/places/'),
           entity_type: hit.entity_type,
           entity_slug: hit.entity_slug,
           meta:    {
@@ -685,7 +714,7 @@ export const prerender = true;
           },
           excerpt,
         };
-        return { data: async () => data, _rpc: true, _url: hit.href };
+        return { data: async () => data, _rpc: true, _url: data.url };
       }
 
       function bestBetToHandle(intent) {
@@ -702,6 +731,33 @@ export const prerender = true;
           _bestBet: true,
         };
         return { data: async () => data, _rpc: true, _bestBet: true, _url: intent.href };
+      }
+
+      // Full-text hits (Pagefind reads every word of every page) shaped so they
+      // can sit in the same grouped layout as the database hits. The page type
+      // comes from a label the page carries, or from its address.
+      function fullTextType(data) {
+        const tagged = data.meta?.entity;
+        if (tagged) return tagged;
+        const path = (data.url || '').split(/[?#]/)[0];
+        if (/^\/explore\/places\/[^/]+\/$/.test(path)) return 'place';
+        if (/^\/whats-on\/[^/]+\/$/.test(path) && !/^\/whats-on\/(this-weekend|by-mood|month)\//.test(path)) return 'event';
+        if (/^\/explore\/plans\/[^/]+\/$/.test(path)) return 'itinerary';
+        if (/^\/journal\/[^/]+\/$/.test(path)) return 'article';
+        return '';
+      }
+      const pathKey = (url) => (url || '').split(/[?#]/)[0].replace(/\/?$/, '/');
+      const FULL_TEXT_LIMIT = 48;
+      async function fullTextHandles(q, kind) {
+        const pf = await loadPagefind();
+        const filters = kind === 'all' ? undefined : { kind };
+        const result = await pf.search(q, filters ? { filters } : undefined);
+        const loaded = await Promise.all(result.results.slice(0, FULL_TEXT_LIMIT).map((r) => r.data()));
+        const shaped = loaded.map((data) => {
+          const item = { ...data, entity_type: fullTextType(data) };
+          return { data: async () => item, _grouped: true, _url: item.url };
+        });
+        return { shaped };
       }
 
       function withBestBet(handles, query) {
@@ -760,9 +816,23 @@ export const prerender = true;
         }, { component: 'SearchPage' });
       }
 
+      // A question is better put to Ask PI, who answers from the published
+      // guides. The row offers that for any query of three letters or more; the
+      // link opens the chat where it is on the page.
+      function updateAsk(q) {
+        const ask = document.getElementById('searchAsk');
+        if (!ask) return;
+        if (q.length < 3) { ask.hidden = true; return; }
+        ask.hidden = false;
+        ask.href = '/ask/?q=' + encodeURIComponent(q);
+        const label = ask.querySelector('[data-ask-q]');
+        if (label) label.textContent = '\u201C' + q + '\u201D';
+      }
+
       async function runSearch() {
         const q = (input?.value || '').trim();
         currentQuery = q;
+        updateAsk(q);
         currentDataPage = new Map();
 
         if (!q && currentKind === 'all') {
@@ -775,9 +845,16 @@ export const prerender = true;
         renderLoading();
         const myToken = ++searchToken;
 
-        // ── Path 1: pi.search RPC (Phase D wave 1) ──────────────────────
-        const rpc = await waitForSearchRpc();
-        if (rpc && rpc.available) {
+        // Both sources answer every text query. The database index knows what
+        // each record is (venue, place, event) but holds only titles and short
+        // fields; the full-text index reads every word on every page. Until
+        // November 2026 the full-text index was consulted only when the
+        // database returned nothing, so a match in a page's body was invisible
+        // whenever any title matched. Database hits lead; full-text hits the
+        // database did not return follow, in the same grouped layout.
+        const rpcHits = (async () => {
+          const rpc = await waitForSearchRpc();
+          if (!rpc || !rpc.available) return [];
           try {
             const preds = kindToRpcPredicates(currentKind);
             const hits = await rpc.search({
@@ -786,49 +863,53 @@ export const prerender = true;
               entityTypes: preds.entityTypes,
               limit: 96,
             });
-            if (myToken !== searchToken) return;
-            if (Array.isArray(hits) && hits.length > 0) {
-              currentResults = withBestBet(hits.map((h) => rpcHitToHandle(h, q)), q);
-              await showPage(1);
-              logSearchOutcome(currentResults.length, currentKind);
-              emitSearchSubmitted(q, currentResults.length, 'rpc');
-              updateUrl(q);
-              return;
-            }
-            // Empty hits → fall through to Pagefind so we don't 0-result
-            // when the RPC simply has no embedding for a niche query.
+            return Array.isArray(hits) ? hits.map((h) => rpcHitToHandle(h, q)) : [];
           } catch (err) {
-            console.warn('[search] RPC failed, falling back to Pagefind:', err);
+            console.warn('[search] database search failed, using full text only:', err);
+            return [];
           }
-        }
+        })();
+        const textHits = (async () => {
+          if (!q) return { shaped: [], failed: false };
+          try {
+            return { ...(await fullTextHandles(q, currentKind)), failed: false };
+          } catch (err) {
+            console.warn('[search] full-text search failed:', err);
+            return { shaped: [], failed: true };
+          }
+        })();
+        const [fromDatabase, fromText] = await Promise.all([rpcHits, textHits]);
+        if (myToken !== searchToken) return;
 
-        // ── Path 2: Pagefind (legacy path, retained as fallback) ───────
-        if (!q) {
+        if (!q && fromDatabase.length === 0) {
           currentResults = [];
           renderIdle();
           updateUrl(q);
           return;
         }
-        try {
-          const pf = await loadPagefind();
-          const filters = currentKind === 'all' ? undefined : { kind: currentKind };
-          const result = await pf.search(q, filters ? { filters } : undefined);
-          if (myToken !== searchToken) return;
-          currentResults = result.results;
-          currentResults = withBestBet(currentResults, q);
-          if (currentResults.length === 0) {
-            renderEmpty(q);
-          } else {
-            await showPage(1);
-          }
-          logSearchOutcome(currentResults.length, currentKind);
-          emitSearchSubmitted(q, currentResults.length, 'pagefind');
-        } catch (err) {
-          console.warn('[search] error', err);
+        const seen = new Set(fromDatabase.map((h) => pathKey(h._url)));
+        const extra = fromText.shaped.filter((h) => !seen.has(pathKey(h._url)));
+        const unique = new Set();
+        const merged = [...fromDatabase, ...extra].filter((h) => {
+          const key = pathKey(h._url);
+          if (unique.has(key)) return false;
+          unique.add(key);
+          return true;
+        });
+        const engine = fromDatabase.length && extra.length ? 'merged' : fromDatabase.length ? 'rpc' : 'pagefind';
+
+        if (merged.length === 0 && fromText.failed && fromDatabase.length === 0) {
           emitSearchFailed(q, 'pagefind', 'search-error');
           if (list) list.innerHTML = '<div class="search-page-v2__loading"><p>Search isn\'t available right now. Try again in a moment.</p></div>';
           if (fallback) fallback.hidden = true;
+          updateUrl(q);
+          return;
         }
+        currentResults = withBestBet(merged, q);
+        if (currentResults.length === 0) renderEmpty(q);
+        else await showPage(1);
+        logSearchOutcome(currentResults.length, currentKind);
+        emitSearchSubmitted(q, currentResults.length, engine);
         updateUrl(q);
       }
 
@@ -978,6 +1059,20 @@ export const prerender = true;
       get available() { return isAvailable(); },
       search,
       typeahead,
+      clipExcerpt,
     };
   </script>
 </BaseLayout>
+
+<style is:global>
+  /* Results arrive from the search service a second or two after first paint.
+     The page holds a full screen from the start, so they fill reserved space
+     and do not push a visible footer out of view (measured as layout shift of
+     0.19 on desktop and 0.13 on a phone before this rule, under 0.01 after). */
+  .search-page-v2 { min-height: 100vh; }
+  .search-page-v2__ask { display: flex; align-items: center; gap: 0.75rem; min-height: 48px; margin: 0 0 1.25rem; padding: 0.5rem 1rem; border: 1px solid var(--border-strong); border-radius: var(--radius-m); font: 500 0.9375rem/1.4 var(--font-ui); color: var(--text); text-decoration: none; }
+  .search-page-v2__ask[hidden] { display: none; }
+  .search-page-v2__ask:hover { border-color: var(--accent); }
+  .search-page-v2__ask-label { flex: none; font-weight: 700; color: var(--accent); }
+  .search-page-v2__ask-q { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--soft); }
+</style>

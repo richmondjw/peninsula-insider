@@ -103,6 +103,8 @@ const ASSERTED_METRICS = new Set([
   'freeTextVerificationStatus',
   'unboundedOccurrence',
   'weekdaySummaryConflicts',
+  'restrictedAudience',
+  'competitorLinked',
 ]);
 
 const normalise = (value) =>
@@ -359,6 +361,49 @@ async function main() {
     }
   }
 
+  // An event written for a closed group is not a visitor recommendation.
+  // The patterns are deliberately narrow: they name the audience limit itself,
+  // not a venue membership offer. Author-introducible and clock-independent.
+  const restrictedAudiencePattern = /\b(?:alumni|alumnae|old\s+[a-z]+ians|members[- ]only|invitation[- ]only|by invitation|staff only|residents only)\b/i;
+  const restrictedAudience = live
+    .filter(({ data }) => restrictedAudiencePattern.test(`${data.title ?? ''} ${data.summary ?? ''}`))
+    .map(({ file }) => file)
+    .sort();
+
+  // Where the corpus comes from. Report-only: the ratio moves when feeds are
+  // rebalanced, which is the intended fix, so a deploy gate is the wrong tool.
+  const hostOf = (value) => {
+    try { return new URL(String(value)).hostname.replace(/^www\./, ''); } catch { return ''; }
+  };
+  const COMPETITOR_HOST = 'visitmorningtonpeninsula.org';
+  const sourceHosts = new Map();
+  for (const { data } of live) {
+    const host = hostOf(data.sourceUrl) || '(none)';
+    sourceHosts.set(host, (sourceHosts.get(host) ?? 0) + 1);
+  }
+  const competitorSourced = live
+    .filter(({ data }) => hostOf(data.sourceUrl) === COMPETITOR_HOST)
+    .map(({ file }) => file)
+    .sort();
+  // Finding an event on the regional listing site is one thing. Sending our
+  // reader there to book, or naming it as the event's official page, is
+  // another: the organiser's own page is the source, and it has been wrong on
+  // the listing site before (film festival session times, November 2026).
+  const competitorLinked = live
+    .filter(({ data }) => [data.bookingUrl, data.officialEventUrl].some((u) => hostOf(u) === COMPETITOR_HOST))
+    .map(({ file }) => file)
+    .sort();
+  const sourceMix = [...sourceHosts.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .map(([host, count]) => ({ host, count }));
+
+  // An exclamation mark in a summary is the usual trace of an organiser's
+  // promotional line pasted through. Report-only prompt for a rewrite.
+  const promotionalSummary = live
+    .filter(({ data }) => /!|\b(?:join us|we(?:'|’)re|we are|our (?:festive|special|head|team|venue|menu))\b/i.test(String(data.summary ?? '')))
+    .map(({ file }) => file)
+    .sort();
+
   const report = {
     generatedAt: new Date().toISOString(),
     asOf: today.toISOString().slice(0, 10),
@@ -380,6 +425,10 @@ async function main() {
       freeTextVerificationStatus: freeTextVerificationStatus.length,
       unboundedOccurrence: unboundedOccurrence.length,
       weekdaySummaryConflicts: weekdaySummaryConflicts.length,
+      restrictedAudience: restrictedAudience.length,
+      competitorSourced: competitorSourced.length,
+      competitorLinked: competitorLinked.length,
+      promotionalSummary: promotionalSummary.length,
     },
     missingVerificationDate: missingVerification.sort(),
     staleVerificationDate: staleVerification,
@@ -394,6 +443,11 @@ async function main() {
     freeTextVerificationStatus,
     unboundedOccurrence,
     weekdaySummaryConflicts,
+    restrictedAudience,
+    competitorSourced,
+    competitorLinked,
+    sourceMix,
+    promotionalSummary,
   };
 
   const t = report.totals;
@@ -415,6 +469,18 @@ async function main() {
   console.log(`    free-text verificationStatus  ${t.freeTextVerificationStatus}   [gated, ratchet down]`);
   console.log(`    start time, no end time ..... ${t.unboundedOccurrence}   [gated, ratchet down]`);
   console.log(`    one-off weekday conflicts ... ${t.weekdaySummaryConflicts}   [gated]`);
+  console.log('  Audience & sourcing');
+  console.log(`    closed-group wording ........ ${t.restrictedAudience}   [gated]`);
+  console.log(`    first found on the competitor  ${t.competitorSourced} of ${t.liveEvents}   [report-only]`);
+  console.log(`    booking/official link there . ${t.competitorLinked}   [gated]`);
+  console.log(`    organiser-voice summaries ... ${t.promotionalSummary}   [report-only]`);
+  // One outside listing site feeding more than a quarter of the calendar is a
+  // dependency worth saying out loud on every build, without blocking a deploy.
+  const SHARE_LIMIT = 0.25;
+  const top = report.sourceMix?.[0];
+  if (top && top.host !== '(none)' && t.liveEvents > 0 && top.count / t.liveEvents > SHARE_LIMIT) {
+    console.log(`    WARNING: ${top.host} is where ${Math.round((top.count / t.liveEvents) * 100)}% of live events were first found (limit ${SHARE_LIMIT * 100}%).`);
+  }
   console.log('');
 
   for (const g of [...duplicateTitles, ...duplicateVenueDates, ...duplicateSaveDates]) {

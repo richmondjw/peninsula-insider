@@ -96,7 +96,7 @@ const COLLECTIONS = [
   // hrefPrefix=null on venues → derived per-row via venueHrefPrefix(entry.type)
   { folder: 'venues',         entityType: 'venue',         hrefPrefix: null,         titleField: 'name'  },
   { folder: 'experiences',    entityType: 'experience',    hrefPrefix: '/explore/',  titleField: 'name'  },
-  { folder: 'places',         entityType: 'place',         hrefPrefix: '/places/',   titleField: 'name'  },
+  { folder: 'places',         entityType: 'place',         hrefPrefix: '/explore/places/', titleField: 'name'  },
   { folder: 'regions',        entityType: 'region',        hrefPrefix: '/explore/regions/', titleField: 'name' },
   { folder: 'articles',       entityType: 'article',       hrefPrefix: '/journal/',  titleField: 'title' },
   { folder: 'events',         entityType: 'event',         hrefPrefix: '/whats-on/', titleField: 'title' },
@@ -105,16 +105,24 @@ const COLLECTIONS = [
   { folder: 'tour-packages',  entityType: 'tour-package',  hrefPrefix: '/tour-packages/', titleField: 'name' },
   { folder: 'quick-notes',    entityType: 'quick-note',    hrefPrefix: '/quick-note/', titleField: 'headline' },
   { folder: 'local-secrets',  entityType: 'local-secret',  hrefPrefix: '/journal/local-secrets/', titleField: 'title' },
+  // Fishing pages were never indexed, so a search for a fish found nothing here.
+  { folder: 'species',           entityType: 'species',          hrefPrefix: '/fishing/species/',   titleField: 'commonName' },
+  { folder: 'fishing-locations', entityType: 'fishing-location', hrefPrefix: '/fishing/locations/', titleField: 'name' },
 ];
 
 // Body fields per collection — the text concatenated into entity_index.body
 // for the tsvector. Always include the editorial fields; skip pure structured
 // data (slugs, dates).
 const BODY_FIELDS = {
-  venues:        ['signature', 'editorNote', 'dogFriendlyNotes', 'hoursNote'],
+  // cuisine and dishes are the fields that let "sashimi" or "wood-fired pizza"
+  // find a venue; they are empty until an editor fills them.
+  venues:        ['signature', 'editorNote', 'whyWeGo', 'ifOnlyOneThing', 'editorVerdict', 'knownFor', 'bestFor', 'cuisine', 'dishes', 'pairWith', 'dogFriendlyNotes', 'hoursNote'],
   experiences:   ['editorNote'],
   places:        ['intro', 'factualLede', 'signature', 'insiderNote', 'bestDay'],
-  articles:      ['dek'],
+  // __text is the article's own prose, read from the Markdown body.
+  articles:      ['dek', '__text'],
+  species:       ['scientificName', 'aliases', '__text'],
+  'fishing-locations': ['__text'],
   events:        ['summary', 'description', 'editorVerdict', 'whyWeCare', 'pairingProse'],
   itineraries:   ['dek', 'editorNote', 'editorialFrame', 'skipThese'],
   tours:         ['intro', 'whatHappens', 'whoSuits', 'whoDoesnt', 'bookingIntelligence'],
@@ -143,7 +151,26 @@ async function readEntry(filePath) {
   if (ext === '.json') {
     try { return JSON.parse(raw); } catch { return null; }
   }
-  return parseFrontmatter(raw);
+  const entry = parseFrontmatter(raw);
+  if (entry) entry.__text = proseOf(raw);
+  return entry;
+}
+
+// The prose of a Markdown or MDX file, without frontmatter, imports, tags or
+// link targets. Capped so one long article cannot swamp the index row.
+function proseOf(raw) {
+  const end = raw.indexOf('\n---', 3);
+  const body = end < 0 ? '' : raw.slice(end + 4);
+  return body
+    .replace(/^\s*(import|export)\s.*$/gm, ' ')
+    .replace(/```[\s\S]*?```/g, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, ' ')
+    .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+    .replace(/[#>*_`|]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .slice(0, 8000);
 }
 
 async function* walkFolder(folder) {
@@ -204,10 +231,18 @@ function buildIndexRow({ entry, entityType, folder, hrefPrefix, titleField, face
     if (!ROUTABLE_VENUE_TYPES.includes(entry.type)) return null;
     if (!isListableVenue(entry)) return null;
   }
+  // An event that has run is not a search result. Recurring series keep their
+  // original start date, so only one-off events are dropped on date.
+  if (entityType === 'event' && (entry.recurrence ?? 'one-off') === 'one-off') {
+    const last = new Date(entry.endDate || entry.startDate || 0).getTime();
+    if (Number.isFinite(last) && last > 0 && last < Date.now() - 2 * 86400000) return null;
+  }
   const title = entry[titleField] || entry.title || entry.name || slug;
   const dek = entry.dek || entry.summary || entry.editorNote || null;
   const bodyParts = (BODY_FIELDS[folder] || [])
     .map((f) => entry[f])
+    // Lists of short strings (knownFor, bestFor, dishes) are searchable too.
+    .map((v) => (Array.isArray(v) ? v.filter((x) => typeof x === 'string').join(', ') : v))
     .filter((v) => typeof v === 'string' && v.length > 0);
   const body = bodyParts.join('\n\n') || null;
   const zone = entry.zone || null;

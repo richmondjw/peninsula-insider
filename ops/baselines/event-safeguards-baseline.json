@@ -12,7 +12,9 @@
     "occurrenceQueueEntries",
     "freeTextVerificationStatus",
     "unboundedOccurrence",
-    "weekdaySummaryConflicts"
+    "weekdaySummaryConflicts",
+    "restrictedAudience",
+    "competitorLinked"
   ],
   "ceilings": {
     "liveEvents": 51,
@@ -29,6 +31,8 @@
     "occurrenceQueueEntries": 0,
     "freeTextVerificationStatus": 12,
     "unboundedOccurrence": 2,
-    "weekdaySummaryConflicts": 0
+    "weekdaySummaryConflicts": 0,
+    "restrictedAudience": 0,
+    "competitorLinked": 0
   }
 }

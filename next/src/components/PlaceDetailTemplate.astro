@@ -353,6 +353,9 @@ const factual = place.data.factualLede ?? '';
 <!-- ═══════════════════════════════════════════════════════════════════════
      3. SIGNATURE PULL-QUOTE
      ═══════════════════════════════════════════════════════════════════════ -->
+<!-- Time-sensitive first: what is on here sits directly under the lede,
+     ahead of the editorial sections. Renders nothing when no event qualifies. -->
+<slot name="whats-on" />
 <slot name="trip-choices" />
 {place.data.signature && (
   <section class="pdv2-quote">

@@ -349,6 +349,20 @@ export const prerender = true;
     articles={articles}
     relatedPlaces={relatedPlaces}
   >
+    <EventStrip
+      slot="whats-on"
+      events={eventsForPlace}
+      eyebrow="On the calendar in this place"
+      heading={`What's on in ${place.data.name}`}
+      intro={`Coming up in ${place.data.name}, from our events listings.`}
+      moreHref="/whats-on/"
+      moreLabel="All events"
+      variant="alt"
+    />
+    <div slot="whats-on" class="container place-submit">
+      <p>Running an event in {place.data.name}?</p>
+      <a class="pi-btn pi-btn--ghost" href="/submit/?type=event">Submit an event</a>
+    </div>
     {placeSlug === 'rosebud' && <GuideChoices slot="trip-choices" id="rosebud-choices" title="Things to do in Rosebud, by time and weather" intro="Choose one anchor for the day. These time allowances are planning suggestions; they are not operator session lengths." choices={[
       { title: 'Playground, picnic and pier', href: '#perfect-day', label: 'Allow 1 to 2 hours outdoors', body: 'Start beside Jetty Road at the foreshore playground, then make a pier walk or picnic the outing. Parks Victoria describes an all-abilities playground beside the pier.', note: 'Keep dogs on a lead at the pier. Jumping and diving from the pier are prohibited. Check current conditions before visiting.', source: { href: 'https://www.parks.vic.gov.au/places-to-see/sites/rosebud-pier', label: 'Check Rosebud Pier conditions and access' } },
       { title: 'A golf day in Rosebud', href: '/explore/rosebud-country-club/', label: 'Set aside half a day', body: 'Use the Rosebud Country Club guide to compare its North and South courses and find the public tee-time booking page.', note: 'Golf is a separate activity from a foreshore walk. Check available tee times and allow time for your round.' },
@@ -368,13 +382,10 @@ export const prerender = true;
     events={eventsForMap}
   />
 
-  <EventStrip
-    events={eventsForPlace}
-    eyebrow="On the calendar in this place"
-    heading={`Events in ${place.data.name}`}
-    intro={`Coming up in ${place.data.name}, pulled from the events registry.`}
-    moreHref="/whats-on/"
-    moreLabel="All events"
-    variant="alt"
-  />
 </BaseLayout>
+
+<style>
+  /* Organisers reach the event form from the town their event is in. */
+  .place-submit { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.25rem; padding-top: 1.25rem; padding-bottom: 1.25rem; }
+  .place-submit p { margin: 0; font: 500 0.9375rem/1.4 var(--font-ui); color: var(--soft); }
+</style>

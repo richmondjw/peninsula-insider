@@ -103,6 +103,21 @@ const {
   searchExclude = false,
 } = Astro.props;
 
+// Search results cut a title near 60 characters and a description near 160.
+// The brand suffix is the first thing to give way (Google shows the site name
+// beside the result anyway), and a long description is cut back to its last
+// whole sentence. A description with no sentence break inside the limit is
+// left as written: a mid-sentence cut is no better than the engine's own.
+const BRAND_SUFFIX = ' · Peninsula Insider';
+const metaTitle = title.length > 60 && title.endsWith(BRAND_SUFFIX) ? title.slice(0, -BRAND_SUFFIX.length) : title;
+const metaDescription = (() => {
+  if (description.length <= 160) return description;
+  const head = description.slice(0, 160);
+  const stops = [...head.matchAll(/[.!?](?=\s|$)/g)];
+  const end = stops.length ? (stops[stops.length - 1].index ?? 0) + 1 : 0;
+  return end >= 70 ? head.slice(0, end) : description;
+})();
+
 // Map the editorial section to a search-chip label. Reader-facing strings - // these populate the "kind" filter chips on /search.
 const SECTION_TO_SEARCH_KIND: Record<string, string> = {
   home: 'Home',
@@ -163,9 +178,9 @@ const showNewsletterPopup = !isPlanningJourney && !isPlaceGuide && normalizedPat
        Google Fonts request). Preload the two hero-critical faces. -->
   <link rel="preload" href="/fonts/sora-600.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/figtree-400.woff2" as="font" type="font/woff2" crossorigin />
-  <title>{title}</title>
+  <title>{metaTitle}</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta name="description" content={description} />
+  <meta name="description" content={metaDescription} />
   <link rel="canonical" href={canonicalUrl} />
   {!noindex && <link rel="describedby" href="/llms.txt" type="text/plain" title="Peninsula Insider agent guide" />}
   {!noindex && Astro.url.pathname === "/" && agentDirectories.map((directory) => <><link rel="index" type="application/json" href={directory.href} title={`${directory.title} name directory: text page links`} /><link rel="index" type="application/json" href={directory.htmlHref} title={`${directory.title} name directory: HTML page links`} /></>)}
@@ -173,8 +188,8 @@ const showNewsletterPopup = !isPlanningJourney && !isPlaceGuide && normalizedPat
   <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large'} />
 
   <!-- Open Graph -->
-  <meta property="og:title" content={title} />
-  <meta property="og:description" content={description} />
+  <meta property="og:title" content={metaTitle} />
+  <meta property="og:description" content={metaDescription} />
   {!suppressImageMeta && <meta property="og:image" content={ogImageAbsolute} />}
   <meta property="og:url" content={canonicalUrl} />
   <meta property="og:type" content={ogType} />
@@ -185,8 +200,8 @@ const showNewsletterPopup = !isPlanningJourney && !isPlaceGuide && normalizedPat
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content={suppressImageMeta ? "summary" : "summary_large_image"} />
-  <meta name="twitter:title" content={title} />
-  <meta name="twitter:description" content={description} />
+  <meta name="twitter:title" content={metaTitle} />
+  <meta name="twitter:description" content={metaDescription} />
   {!suppressImageMeta && <meta name="twitter:image" content={ogImageAbsolute} />}
 
   <script type="application/ld+json" set:html={JSON.stringify({
@@ -483,6 +498,29 @@ const showNewsletterPopup = !isPlanningJourney && !isPlaceGuide && normalizedPat
   <script is:inline define:vars={{ __SB_URL: import.meta.env.PUBLIC_SUPABASE_URL || 'https://tjjhpvslpysfklwpqmgz.supabase.co', __SB_ANON: import.meta.env.PUBLIC_SUPABASE_ANON_KEY || 'sb_publishable_JlZuo95QvNZi2ZNrFyK-Cw_2y0U7HLp', __IMAGE_QUARANTINE: imageQuarantine.quarantined.map(({ key, fieldPath, storagePath }) => ({ key, fieldPath, storagePath })) }}>
     (function () {
       if (!__SB_URL || !__SB_ANON) return;
+      // Published CMS uploads are full-size originals (about 600 KB each on
+      // average, up to 1.5 MB). The storage service can serve a resized WebP
+      // copy, so ask for one no wider than the element needs. The resizer is a
+      // metered feature of the storage plan; the owner approved its use on
+      // 25 November 2026. resize=contain matters: without it the service keeps
+      // the original height and crops the sides. Anything that is not one of
+      // our own storage objects, and any vector or animation, is left alone.
+      var RENDER_WIDTHS = [480, 800, 1280, 1920];
+      function resizedCmsImage(url, el) {
+        var marker = '/storage/v1/object/public/';
+        var at = url.indexOf(marker);
+        if (url.indexOf(__SB_URL) !== 0 || at < 0 || /\.(svg|gif)(\?|$)/i.test(url)) return url;
+        var need = Math.ceil(((el && el.clientWidth) || 800) * Math.min(window.devicePixelRatio || 1, 2));
+        var width = RENDER_WIDTHS[RENDER_WIDTHS.length - 1];
+        for (var i = 0; i < RENDER_WIDTHS.length; i++) {
+          if (RENDER_WIDTHS[i] >= need) { width = RENDER_WIDTHS[i]; break; }
+        }
+        return url.slice(0, at) + '/storage/v1/render/image/public/' + url.slice(at + marker.length).split('?')[0] +
+          '?width=' + width + '&quality=75&resize=contain';
+      }
+      // The search page hydrates its own result cards; it uses the same rule.
+      window.__piResizedCmsImage = resizedCmsImage;
+
       function applySlots() {
         // Fully reviewed static image surfaces need no browser-only replacement fetch.
         if (!document.querySelector('[data-pi-edit="image"][data-pi-entity-slug][data-pi-field-path]:not([data-pi-no-hydrate])')) return;
@@ -524,11 +562,35 @@ const showNewsletterPopup = !isPlanningJourney && !isPlaceGuide && normalizedPat
             if (el.hasAttribute('data-pi-no-hydrate')) return;
             if (el.hasAttribute('data-pi-requires-image-metadata') &&
                 !(slot.alt_text && slot.alt_text.trim() && slot.credit && slot.credit.trim())) return;
+            var original = slot.public_url;
+            var sized = resizedCmsImage(original, el);
             if (el instanceof HTMLImageElement) {
-              el.src = slot.public_url;
+              // The page may already carry this original as its src (written
+              // at build time). It is downloading or done, so swapping to the
+              // resized copy would fetch the picture twice. Leave it.
+              if (el.getAttribute('src') === original) return;
+              // If the resizer refuses (switched off, over quota, odd file),
+              // fall back to the original once.
+              if (sized !== original) el.onerror = function () { el.onerror = null; el.src = original; };
+              el.src = sized;
             } else {
               // Background-image element (div, a, figure, etc.)
-              el.style.backgroundImage = 'url("' + slot.public_url.replace(/"/g, '\\"') + '")';
+              var paint = function (src) {
+                el.style.backgroundImage = 'url("' + src.replace(/"/g, '\\"') + '")';
+                // A card that was a placeholder at build time now shows a real
+                // image, so its placeholder plate must not paint over it.
+                el.className = el.className.split(/\s+/).filter(function (c) { return !/__hero--placeholder$/.test(c); }).join(' ');
+              };
+              if (sized === original) {
+                paint(original);
+              } else {
+                // A CSS background cannot fall back by itself, so load the
+                // resized copy first and use the original if that fails.
+                var probe = new Image();
+                probe.onload = function () { paint(sized); };
+                probe.onerror = function () { paint(original); };
+                probe.src = sized;
+              }
             }
           });
         }).catch(function () { /* non-fatal */ });
@@ -837,6 +899,16 @@ const showNewsletterPopup = !isPlanningJourney && !isPlaceGuide && normalizedPat
         requestAnimationFrame(raf);
       }
       requestAnimationFrame(raf);
+
+      // Lenis is created once and outlives every page swap. If a reader clicks
+      // through while the wheel is still easing, Lenis kept easing towards the
+      // old page's position and carried the new page partway down (measured:
+      // a place page opened 4,800 px down after a click from Explore). After
+      // each swap, drop the pending motion and take the position the router
+      // has just set, which also keeps back and forward restores intact.
+      const settle = () => lenis.scrollTo(window.scrollY, { immediate: true, force: true });
+      document.addEventListener('astro:after-swap', () => { settle(); requestAnimationFrame(settle); });
+      document.addEventListener('astro:page-load', settle);
 
       // Stop Lenis from fighting native scroll inside overlays/drawers.
       document.addEventListener('pi:lenis-stop', () => lenis.stop());

@@ -2,31 +2,33 @@
 
 **North star:** Become the number-1 destination — for people and AI agents — for what's on, and where to stay, eat, drink and explore on the Mornington Peninsula.
 
-**Loop health:** 🟢 healthy — Actions recorded but none re-measured yet — learning signal not flowing (expected until GSC re-crawls the actioned pages).
+**Loop health:** 🟡 warning — Search data is 221 days old (limit 14). Search-driven work is held out of the queue until a current Search Console report is supplied.
 
-**Generated:** 2026-11-24 07:04 AEDT  
+**Generated:** 2026-11-26 07:04 AEDT  
 **Season:** Spring  
-**Inputs used:** gsc-search-analytics, gsc-coverage, sitemap-inventory, events-calendar:61-upcoming, seasonal-calendar:spring  
+**Inputs used:** gsc-search-analytics:stale-221d, gsc-coverage, sitemap-inventory, events-calendar:55-upcoming, seasonal-calendar:spring  
 
 ## Where we stand
 
 | Metric | Value |
 |---|---|
 | Search period | 2026-03-23 → 2026-04-19 |
+| Search data age | 221 days (stale: over the 14-day limit, not used for the queue) |
 | Total clicks | 14 |
 | Total impressions | 630 |
 | Avg position | 15.2 |
 | Pages indexed by Google | 0 |
 | Pages known-not-indexed | 26 |
 | Pages in sitemap | 408 |
-| Open opportunities | 102 |
+| Open opportunities | 85 |
 
 ## Day-over-day (is the strategy improving?)
 
-_Compared with 2026-11-23._
+_Compared with 2026-11-25._
 
 - Average position held by 0.00.
 - Clicks flat 0 vs last snapshot.
+- New into top-5 priorities: /whats-on/james-vincent-live-at-fenian-wines-2026-12-12/, /whats-on/legends-of-sunbury-spectrum-madder-lake-and-phil-manning-live-at-the-pig-and-whistle-taver-2026-12-1/, /whats-on/mornington-twilight-christmas-series-at-mornington-racecourse-2026-12-16/, /whats-on/tony-j-king-live-at-fenian-wines-2
 
 ## Did our fixes work? (learning loop)
 
@@ -56,66 +58,64 @@ The scoring model nudges its per-fix-type weights toward what demonstrably works
 
 Ranked by the strategy model (performance + season + coverage + effort). The orchestrator commissions from the top down.
 
-### 1. [CTR · score 4.689] Rewrite title & meta description for /whats-on/mornington-cup-2026/
+### 1. [EVENT · score 2.992] Preview: James Vincent Live at Fenian Wines (16d out)
 - **Desk:** dispatch-desk
-- **Why:** Google surfaces this at avg position 8 on 216 impressions but CTR is 0.46% — a snippet problem, not a ranking problem.
-- **Do:** Rewrite the <title> and meta description to match query intent and add a benefit/number; add a direct-answer first line under the H1.
-
-### 2. [CTR · score 4.023] Rewrite title & meta description for /journal/dog-friendly-mornington-peninsula/
-- **Desk:** field-desk
-- **Why:** Google surfaces this at avg position 9 on 73 impressions but CTR is 0.00% — a snippet problem, not a ranking problem.
-- **Do:** Rewrite the <title> and meta description to match query intent and add a benefit/number; add a direct-answer first line under the H1.
-
-### 3. [CTR · score 4.002] Rewrite title & meta description for /journal/the-chardonnay-case/
-- **Desk:** table-desk
-- **Why:** Google surfaces this at avg position 6 on 29 impressions but CTR is 0.00% — a snippet problem, not a ranking problem.
-- **Do:** Rewrite the <title> and meta description to match query intent and add a benefit/number; add a direct-answer first line under the H1.
-
-### 4. [RANK · score 3.434] Push 'peninsula cup 2026' onto page 1
-- **Desk:** dispatch-desk
-- **Query:** `peninsula cup 2026`
-- **Why:** 'peninsula cup 2026' ranks avg position 8.1 on 34 impressions — small, targeted improvement could reach page 1 and start earning clicks.
-- **Do:** Strengthen the ranking page for this exact query: expand the relevant section, add an FAQ answer, tighten the H1/intro, add internal links from related hub pages.
-
-### 5. [RANK · score 3.139] Push 'mornington cup 2026 date' onto page 1
-- **Desk:** dispatch-desk
-- **Query:** `mornington cup 2026 date`
-- **Why:** 'mornington cup 2026 date' ranks avg position 8.8 on 23 impressions — small, targeted improvement could reach page 1 and start earning clicks.
-- **Do:** Strengthen the ranking page for this exact query: expand the relevant section, add an FAQ answer, tighten the H1/intro, add internal links from related hub pages.
-
-### 6. [EVENT · score 2.992] Preview: The Creators Network: End of Year Catch-up for Creatives (16d out)
-- **Desk:** dispatch-desk
-- **Why:** The Creators Network: End of Year Catch-up for Creatives is 16 days out (2026-12-10, Mornington) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** James Vincent Live at Fenian Wines is 16 days out (2026-12-12, Red Hill) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 7. [EVENT · score 2.992] Preview: James Vincent Live at Fenian Wines (18d out)
+### 2. [EVENT · score 2.992] Preview: Legends Of Sunbury: Spectrum, Madder Lake & Phil Manning Live at The Pig & Whistle Tavern (17d out)
 - **Desk:** dispatch-desk
-- **Why:** James Vincent Live at Fenian Wines is 18 days out (2026-12-12, Red Hill) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Legends Of Sunbury: Spectrum, Madder Lake & Phil Manning Live at The Pig & Whistle Tavern is 17 days out (2026-12-13, Main Ridge) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 8. [EVENT · score 2.992] Preview: Legends Of Sunbury: Spectrum, Madder Lake & Phil Manning Live at The Pig & Whistle Tavern (19d out)
+### 3. [EVENT · score 2.992] Preview: "Whippy" Griggs Live for a Crackin' Night at The Ranch (17d out)
 - **Desk:** dispatch-desk
-- **Why:** Legends Of Sunbury: Spectrum, Madder Lake & Phil Manning Live at The Pig & Whistle Tavern is 19 days out (2026-12-13, Main Ridge) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** "Whippy" Griggs Live for a Crackin' Night at The Ranch is 17 days out (2026-12-13, Boneo) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 9. [EVENT · score 2.992] Preview: "Whippy" Griggs Live for a Crackin' Night at The Ranch (19d out)
+### 4. [EVENT · score 2.992] Preview: Mornington Twilight Christmas Series at Mornington Racecourse (20d out)
 - **Desk:** dispatch-desk
-- **Why:** "Whippy" Griggs Live for a Crackin' Night at The Ranch is 19 days out (2026-12-13, Boneo) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Mornington Twilight Christmas Series at Mornington Racecourse is 20 days out (2026-12-16, Mornington) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 10. [EVENT · score 2.992] Preview: Mornington Twilight Christmas Series at Mornington Racecourse (22d out)
+### 5. [EVENT · score 2.992] Preview: Tony J King Live at Fenian Wines (23d out)
 - **Desk:** dispatch-desk
-- **Why:** Mornington Twilight Christmas Series at Mornington Racecourse is 22 days out (2026-12-16, Mornington) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Tony J King Live at Fenian Wines is 23 days out (2026-12-19, Red Hill) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 11. [EVENT · score 2.992] Preview: Pub Carols - Thursday 17th December (23d out)
+### 6. [EVENT · score 2.992] Preview: Lawrence Mooney at St Andrews Beach Brewery (24d out)
 - **Desk:** dispatch-desk
-- **Why:** Pub Carols - Thursday 17th December is 23 days out (2026-12-17, ) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Lawrence Mooney at St Andrews Beach Brewery is 24 days out (2026-12-20, Fingal) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 12. [EVENT · score 2.992] Preview: Tony J King Live at Fenian Wines (25d out)
+### 7. [EVENT · score 2.992] Preview: Eve Eve at Portsea Hotel (27d out)
 - **Desk:** dispatch-desk
-- **Why:** Tony J King Live at Fenian Wines is 25 days out (2026-12-19, Red Hill) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Eve Eve at Portsea Hotel is 27 days out (2026-12-23, Portsea) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
+
+### 8. [EVENT · score 2.992] Preview: Celebrate Christmas Day at Peppers Moonah Links Resort (29d out)
+- **Desk:** dispatch-desk
+- **Why:** Celebrate Christmas Day at Peppers Moonah Links Resort is 29 days out (2026-12-25, Fingal) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
+
+### 9. [EVENT · score 2.992] Preview: Christmas Day at Ember (29d out)
+- **Desk:** dispatch-desk
+- **Why:** Christmas Day at Ember is 29 days out (2026-12-25, Sorrento) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
+
+### 10. [EVENT · score 2.992] Preview: Christmas Day Feast at The Conti (29d out)
+- **Desk:** dispatch-desk
+- **Why:** Christmas Day Feast at The Conti is 29 days out (2026-12-25, Sorrento) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
+
+### 11. [EVENT · score 2.992] Preview: Celebrate with Andrew Farrell Live at Fenian Wines (31d out)
+- **Desk:** dispatch-desk
+- **Why:** Celebrate with Andrew Farrell Live at Fenian Wines is 31 days out (2026-12-27, Red Hill) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
+
+### 12. [EVENT · score 2.992] Preview: New Year's Eve at Orson (35d out)
+- **Desk:** dispatch-desk
+- **Why:** New Year's Eve at Orson is 35 days out (2026-12-31, Rosebud) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
 ## Coverage snapshot

@@ -134,8 +134,9 @@ async function buildRow(kind: 'experience' | 'venue', entry: any): Promise<Row> 
     ? golfLabel(data)
     : data.type === 'beach'
       ? beachTimeLabel(data.durationMinutes)
-      // An outing with no recorded time says so, rather than showing nothing.
-      : timeLabel(data.durationMinutes) ?? (kind === 'experience' ? 'Time varies' : undefined);
+      // No recorded time means no time fact. "Time varies" read as a
+      // non-answer to "how long?" (2026-11-27 critique).
+      : timeLabel(data.durationMinutes);
   const coords = data.coordinates;
   const hero = await resolveHero(kind, slug, data);
   const placeSlug = String(data.place?.id ?? data.place ?? '');
@@ -162,8 +163,10 @@ async function buildRow(kind: 'experience' | 'venue', entry: any): Promise<Row> 
     directionsUrl: typeof coords?.lat === 'number' && typeof coords?.lng === 'number'
       ? `https://www.google.com/maps/dir/?api=1&destination=${coords.lat},${coords.lng}`
       : undefined,
-    // A price band means something for a spa session; a market has no single price.
-    priceBand: data.type === 'spa' ? data.priceBand : undefined,
+    // No price bands on this page (James, 2026-11-27): "$$$" on a spa card
+    // raised the cost question without answering it. The spa's own page
+    // carries what its record says.
+    priceBand: undefined,
     hero: { src: hero.src, alt: hero.alt },
     illustrative: !hero.override && data.heroImage?.depictionStatus === 'illustrative',
     data,
@@ -185,10 +188,40 @@ const unordered: Row[] = await Promise.all([
   ...exploreVenues.map((v) => buildRow('venue', v)),
 ]);
 const bySlug = new Map(unordered.map((r) => [r.slug, r]));
-const things: Row[] = exploreOrder(unordered).map((item: { slug: string }) => bySlug.get(item.slug)!);
+const ordered: Row[] = exploreOrder(unordered).map((item: { slug: string }) => bySlug.get(item.slug)!);
+const pickSlugs = new Set<string>(EXPLORE_PICKS.filter((slug: string) => bySlug.has(slug)));
+
+// One card per place (James, 2026-11-27). Bushrangers Bay is recorded twice,
+// as a walk and as a beach, with the same photograph and the same two hours;
+// on this page they read as a duplicate. Both records stay (each carries its
+// own safety facts and evidence). The card keeps the walk's reason and facts,
+// files under both kinds and opens the Bushrangers Bay guide page.
+const SAME_PLACE: { walk: string; beach: string; typeLabel: string }[] = [
+  { walk: 'bushrangers-bay-walk', beach: 'bushrangers-bay', typeLabel: 'Walk & beach' },
+];
+function onePerPlace(rows: Row[]): Row[] {
+  let out = rows;
+  for (const pair of SAME_PLACE) {
+    const walk = out.find((r) => r.slug === pair.walk);
+    const beach = out.find((r) => r.slug === pair.beach);
+    if (!walk || !beach) continue;
+    const facets: Facets = { ...beach.facets };
+    for (const [key, values] of Object.entries(walk.facets)) {
+      facets[key] = [...new Set([...(facets[key] ?? []), ...values])];
+    }
+    const merged: Row = { ...beach, facets, typeLabel: pair.typeLabel, verdict: walk.verdict, meta: walk.meta };
+    if (pickSlugs.has(walk.slug)) pickSlugs.add(beach.slug);
+    const first = Math.min(out.indexOf(walk), out.indexOf(beach));
+    out = out.filter((r) => r !== walk && r !== beach);
+    out.splice(first, 0, merged);
+  }
+  return out;
+}
+const things: Row[] = onePerPlace(ordered);
 const total = things.length;
 const exploreChecked = checkedSpan(things.map((r) => r.data));
-const PICK_COUNT = EXPLORE_PICKS.filter((slug: string) => bySlug.has(slug)).length;
+// Our first picks lead the list (exploreOrder), so they are its first rows.
+const PICK_COUNT = things.filter((r) => pickSlugs.has(r.slug)).length;
 const NUMBER_WORDS = ['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve'];
 
 // ── The finder: kinds of outing, as photographs ──────────────────────────────
@@ -247,6 +280,7 @@ const seasonal = things
 // The finder answers "what do I feel like doing?". This answers "I am going to
 // Sorrento": a way from Explore into the town guides, which the finder's
 // results never link to.
+const pickImages = new Set(things.map((r) => r.hero.src));
 const TOWN_RAIL_COUNT = 8;
 // The rail is photographs, so a town is shown there only with a real
 // photograph of the town itself: no placeholder, no illustrative stand-in.
@@ -269,9 +303,14 @@ const townRail = (await Promise.all(
         image: { src: hero.src, alt: hero.alt, credit: hero.override ? hero.override.credit : own?.credit },
       };
     }),
-)).filter((t) => t.pictured).slice(0, TOWN_RAIL_COUNT);
+))
+  // A town is not pictured with a photograph a thing to do on this page
+  // already uses (the Mornington bathing boxes appeared twice).
+  .filter((t) => t.pictured && !pickImages.has(t.image.src))
+  .slice(0, TOWN_RAIL_COUNT);
 
 // Every town, under the same five parts of the Peninsula the finder uses.
+// Feeds the "Town guides" line in the results when a part is chosen.
 const townAreas = FACET_OPTIONS.place
   .filter((o) => regionValues.has(o.value))
   .map((o) => ({
@@ -295,16 +334,6 @@ const guideLinks = [
   { href: '/explore/family-friendly/', label: 'With kids', line: 'Days that work for small legs and short tempers.' },
   { href: '/explore/golf/', label: 'The golf guide', line: 'Public, resort and private courses side by side.' },
 ];
-// Every link the previous hub carried stays reachable from here (link graph).
-// The towns have their own section above.
-const planLinks = [
-  { href: '/explore/day-trips/', label: 'Day trips' },
-  { href: '/explore/weekend-trips/', label: 'Weekend trips' },
-  { href: '/explore/getting-here/', label: 'Getting here' },
-  { href: '/explore/getting-around/', label: 'Getting around' },
-  { href: '/whats-on/', label: 'What’s on this weekend' },
-];
-
 // ── From the Journal (<=3) ───────────────────────────────────────────────────
 const articlesAll = await getCollection('articles', ({ data }) => data.status === 'published');
 const journalSlugs = [
@@ -370,9 +399,8 @@ export const prerender = true;
   <noscript><style>{`.x-results[data-collapsed] .x-result[data-beyond] { display: list-item !important; } .x-results__more { display: none; }`}</style></noscript>
 
   <HubEntry
-    kicker="Things to do"
     title="Walks, beaches and hot springs"
-    dek="Pick an outing and the time you have. Every place comes with the reason we rate it."
+    dek="An hour or so from Melbourne. Pick an outing and the time you have; every place comes with the reason we rate it."
     primary={{ label: `Find something to do`, href: '#directory', arrow: 'down' }}
     secondary={{ label: 'See them on the map', href: '/map/' }}
     trust={exploreChecked ? `${exploreChecked[0].toUpperCase()}${exploreChecked.slice(1)}. Chosen by our editors, never paid for.` : 'Chosen by our editors, never paid for.'}
@@ -401,6 +429,7 @@ export const prerender = true;
                 type="button"
                 class="x-tile"
                 data-cat-tile
+                data-tile={tile.id}
                 data-values={tile.cats.join(',')}
                 data-evt="filter_apply"
                 aria-pressed="false"
@@ -469,6 +498,7 @@ export const prerender = true;
           <span data-untimed-text></span>{' '}
           <button type="button" data-remove-key="time" data-remove-value="*">Show them too</button>
         </p>
+        <h3 class="x-results__title x-results__title--filtered" id="results-heading" data-filtered-title tabindex="-1" hidden></h3>
         <p class="x-results__towns" data-town-guides hidden>
           <span class="x-results__towns-label">Town guides</span>
           <span class="x-results__towns-list">
@@ -479,7 +509,7 @@ export const prerender = true;
         </p>
         <div class="x-results__head" data-results-head>
           <h3 class="x-results__title">{NUMBER_WORDS[PICK_COUNT] ?? PICK_COUNT} to start with</h3>
-          <p class="x-results__sub">Our editors’ first picks from all {total} things to do, across walks, beaches, springs, art and the bay.{' '}<a href="/map/">See them on the map<span class="x-arrow" aria-hidden="true">→</span></a></p>
+          <p class="x-results__sub">“+ Trip” adds a place to your day; the bookmark saves it for later.{' '}<a href="/map/">See them on the map<span class="x-arrow" aria-hidden="true">→</span></a></p>
           <p class="x-results__swipe">Swipe across for all {PICK_COUNT}.</p>
         </div>
         <ul class="x-results__grid" aria-label="Things to do">
@@ -521,6 +551,12 @@ export const prerender = true;
         <div data-filter-empty hidden>
           <EmptyState variant="filter-zero" surface="explore" />
         </div>
+        <!-- After a choice in the finder, the matches are often a screen or more
+             below it. This says how many there are and takes the reader there;
+             it hides once the results are in view. -->
+        <button type="button" class="x-jump" data-results-jump hidden>
+          <span data-results-jump-text></span><span class="x-arrow" aria-hidden="true">↓</span>
+        </button>
         {total > PICK_COUNT && (
           <p class="x-results__more">
             <button type="button" class="x-results__all" data-show-all>See all {total} things to do <span aria-hidden="true">↓</span></button>
@@ -528,7 +564,7 @@ export const prerender = true;
         )}
         <details class="x-advice">
           <summary>Before you go: times, access and conditions</summary>
-          <p>Times are guide estimates, not live conditions. Dollar signs on a spa are a price band from $ to $$$$, not a quoted price. Walking effort is shown where recorded; it is not an accessibility assessment. Check terrain, step-free access, toilets, shade and dog rules for your chosen stop.</p>
+          <p>Times are guide estimates, not live conditions. Walking effort is shown where recorded; it is not an accessibility assessment. Check terrain, step-free access, toilets, shade and dog rules for your chosen stop.</p>
           <p>Use <a href="https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park">Parks Victoria’s park notices</a>, <a href="https://www.emergency.vic.gov.au/">VicEmergency warnings</a> and <a href="https://www.beachsafe.org.au/">Beachsafe beach and patrol information</a>. These links do not confirm that a route or beach is suitable on your day.</p>
         </details>
       </div>
@@ -604,21 +640,6 @@ export const prerender = true;
             />
           ))}
         </ul>
-        <div class="x-towns__index">
-          <h3 class="x-towns__index-heading" id="towns-index-heading">Every town, by area</h3>
-          <dl class="x-towns__areas">
-            {townAreas.map((area) => (
-              <div class="x-towns__area">
-                <dt><a href={area.href}>{area.label}</a></dt>
-                <dd>
-                  <ul role="list" aria-label={`Towns in ${area.label}`}>
-                    {area.towns.map((town) => <li><a href={town.href}>{town.name}</a></li>)}
-                  </ul>
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </div>
       </div>
     </section>
   )}
@@ -627,7 +648,7 @@ export const prerender = true;
     <div class="container x-plan__grid">
       <div class="x-plan__lead">
         <h2 class="x-plan__heading" id="plan-heading">Turn it into a day</h2>
-        <p class="x-plan__dek">“+ Trip” on any card adds it to My trip. The bookmark keeps a place for later. Or start from a day we have already planned, with the right lunch and the right bed.</p>
+        <p class="x-plan__dek">Gather your “+ Trip” places in My trip, or start from a day we have already planned, with the right lunch and the right bed.</p>
         <p class="x-plan__actions">
           <a class="x-plan__primary" href="/my-trip/">Open My trip<span class="x-arrow" aria-hidden="true">→</span></a>
           <a class="x-plan__secondary" href="/explore/plans/">Browse our plans</a>
@@ -642,12 +663,6 @@ export const prerender = true;
             {guideLinks.map((g) => (
               <li><a href={g.href}><span class="x-plan__guide-name">{g.label}</span><span class="x-plan__guide-line">{g.line}</span></a></li>
             ))}
-          </ul>
-        </div>
-        <div>
-          <h3 class="x-plan__label">Getting your bearings</h3>
-          <ul class="x-plan__links" role="list">
-            {planLinks.map((link) => <li><a href={link.href}>{link.label}</a></li>)}
           </ul>
         </div>
       </div>
@@ -809,6 +824,32 @@ export const prerender = true;
   .x-results__all:hover { background: var(--accent); color: var(--white); }
   .x-results__all:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
+  /* Filtered: the matches carry their own heading ("9 walks"). */
+  .x-results__title--filtered { margin: 0 0 var(--space-4); scroll-margin-top: calc(var(--masthead-h, 4rem) + 8.5rem); }
+  .x-results__title--filtered[hidden] { display: none; }
+  .x-results__title--filtered:focus { outline: none; }
+
+  /* Live counts: each answer says how many places it would leave, and an
+     answer that would leave none is dimmed and inert (critique 2026-11-27:
+     Walks + an hour or less + Flinders gave an empty page). */
+  /* :global, because the "Good for" chips are rendered by FilterBar. */
+  .x-find :global([data-n])::after { content: attr(data-n); margin-left: .45em; color: var(--soft); font-weight: 500; font-variant-numeric: tabular-nums; }
+  .x-find :global([aria-pressed='true'][data-n])::after { color: inherit; opacity: .8; }
+  .x-find :global([data-none]) { opacity: .45; cursor: not-allowed; }
+  .x-find .x-tile[data-none] img { filter: grayscale(1); }
+  .x-find :global([data-none]:hover) { border-color: var(--border-control); color: var(--text); }
+
+  /* "See 9 things to do": fixed to the foot of the screen while the matches
+     are out of view. The one filled control in view at that moment. */
+  .x-jump { position: fixed; z-index: 40; left: 50%; bottom: calc(var(--space-4) + env(safe-area-inset-bottom, 0px)); display: inline-flex; align-items: center; min-height: 48px; padding: 0 var(--space-5); border: 0; border-radius: var(--radius-pill); background: var(--accent); color: var(--white); box-shadow: 0 6px 18px -8px rgba(12, 28, 40, 0.45); cursor: pointer; font: 600 var(--fs-400)/1 var(--font-ui); white-space: nowrap; transform: translateX(-50%); }
+  .x-jump[hidden] { display: none; }
+  .x-jump:hover { background: var(--text); }
+  .x-jump:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  @media (prefers-reduced-motion: no-preference) {
+    .x-jump { animation: x-jump-in 240ms var(--ease-enter, ease-out) both; }
+    @keyframes x-jump-in { from { opacity: 0; transform: translate(-50%, 12px); } to { opacity: 1; transform: translateX(-50%); } }
+  }
+
   /* While a filter is on, the count and a way back to the filters stay in reach. */
   .x-results__bar { position: sticky; top: var(--masthead-h, 0px); z-index: 30; display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); margin: calc(-1 * var(--space-5)) 0 var(--space-5); padding: var(--space-2) 0; background: var(--bg); border-bottom: 1px solid var(--border); font: 500 var(--fs-300)/1.3 var(--font-ui); color: var(--text); }
   .x-results__bar[hidden] { display: none; }
@@ -854,19 +895,6 @@ export const prerender = true;
   .x-towns__rail :global(.pi-card__eyebrow) { color: var(--accent); letter-spacing: .06em; }
   .x-towns__rail :global(.pi-card.pi-card .pi-card__title) { font-size: var(--fs-500); line-height: 1.25; }
   .x-towns__rail :global(.pi-card__dek) { display: block; overflow: visible; -webkit-line-clamp: unset; line-clamp: unset; }
-  /* Every town as a plain link, under the finder's five parts of the Peninsula. */
-  .x-towns__index { margin-top: var(--space-7); padding-top: var(--space-5); border-top: 1px solid var(--border); }
-  .x-towns__index-heading { margin: 0 0 var(--space-3); color: var(--text); font: 600 var(--fs-600)/1.2 var(--font-display); letter-spacing: -0.02em; }
-  .x-towns__areas { margin: 0; }
-  .x-towns__area { display: grid; grid-template-columns: 14rem minmax(0, 1fr); align-items: baseline; gap: 0 var(--space-4); border-top: 1px solid var(--border); }
-  .x-towns__area:first-child { border-top: 0; }
-  .x-towns__area dt, .x-towns__area dd { margin: 0; }
-  .x-towns__area ul { display: flex; flex-wrap: wrap; gap: 0 var(--space-5); list-style: none; margin: 0; padding: 0; }
-  .x-towns__area a { display: inline-flex; align-items: center; min-height: 44px; text-decoration: none; }
-  .x-towns__area dt a { color: var(--text); font: 600 var(--fs-300)/1.3 var(--font-ui); }
-  .x-towns__area dd a { color: var(--accent); font: 500 var(--fs-400)/1.3 var(--font-ui); }
-  .x-towns__area a:hover { text-decoration: underline; text-underline-offset: .2em; }
-  .x-towns a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
   /* ── Turn it into a day ─────────────────────────────────────────────────── */
   .x-plan__grid { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.5fr); gap: var(--space-6) var(--space-8); align-items: start; }
@@ -876,15 +904,14 @@ export const prerender = true;
   .x-plan__primary { padding: 0 var(--space-5); border-radius: var(--radius-s); background: var(--accent); color: var(--white) !important; font-size: var(--fs-400) !important; text-decoration: none !important; }
   .x-plan__primary:hover { background: var(--text); }
   .x-plan__secondary { color: var(--accent); text-underline-offset: .2em; }
-  .x-plan__lists { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: var(--space-6) var(--space-7); }
+  .x-plan__lists { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-6); }
   .x-plan__label { margin: 0 0 var(--space-2); color: var(--soft); font: 600 var(--fs-200)/1.3 var(--font-ui); letter-spacing: .02em; }
-  .x-plan__guides, .x-plan__links { list-style: none; margin: 0; padding: 0; }
-  .x-plan__guides li, .x-plan__links li { border-top: 1px solid var(--border); }
+  .x-plan__guides { list-style: none; margin: 0; padding: 0; }
+  .x-plan__guides li { border-top: 1px solid var(--border); }
   .x-plan__guides a { display: flex; flex-direction: column; gap: 2px; padding: var(--space-3) 0; color: var(--text); text-decoration: none; }
   .x-plan__guide-name { font: 600 var(--fs-400)/1.3 var(--font-ui); }
   .x-plan__guide-line { color: var(--soft); font-size: var(--fs-300); line-height: 1.45; }
-  .x-plan__guides a:hover .x-plan__guide-name, .x-plan__links a:hover { color: var(--accent); }
-  .x-plan__links a { display: flex; align-items: center; min-height: 48px; color: var(--text); font: 500 var(--fs-400)/1.3 var(--font-ui); text-decoration: none; }
+  .x-plan__guides a:hover .x-plan__guide-name { color: var(--accent); }
   .x-plan a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
   /* ── Journal and FAQ ────────────────────────────────────────────────────── */
@@ -926,12 +953,10 @@ export const prerender = true;
     .x-tile[aria-pressed='true'] .x-tile__frame::before { top: 4px; right: 4px; width: 1.25rem; height: 1.25rem; background-size: .8rem; }
     .x-find__row, .x-find :global(.v5-filterbar__row--labelled) { grid-template-columns: minmax(0, 1fr); gap: var(--space-1); }
     .x-find__row, .x-find__row + .x-find__row { margin-top: var(--space-3); }
-    /* The time and region questions each take one swipeable line; the row
-       fades at the right edge to show there is more. "Good for" wraps so
-       "More filters" is never off screen. */
-    .x-find__row .x-find__chips { flex-wrap: nowrap; overflow-x: auto; margin-inline: -1rem; padding-inline: 1rem 2.5rem; scrollbar-width: none; -webkit-overflow-scrolling: touch; -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 3rem), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 3rem), transparent); }
-    .x-find__row .x-find__chips::-webkit-scrollbar { display: none; }
-    .x-find__row .x-chip { flex: 0 0 auto; }
+    /* Every answer in view: the time and region rows wrap like "Good for".
+       As one swipeable line they cut "Half a day" and hid two of the four
+       parts of the Peninsula off screen (2026-11-27 critique). */
+    .x-find__chips { gap: var(--space-2); }
     /* Inside the thumbnail's corner (the row has its own top padding). */
     .x-results .x-result[data-pick]::before { top: calc(var(--space-4) + 6px); left: 6px; font-size: 0.6875rem; }
     .x-results .x-result[data-pick]:first-child::before { top: 6px; }
@@ -956,9 +981,10 @@ export const prerender = true;
 
     /* Our first picks, before any filter: one swipeable line of full photographs,
        so the page stays short and each place is seen at size. */
-    .x-results[data-collapsed] .x-results__grid { display: flex; gap: var(--space-4); overflow-x: auto; margin-inline: -1rem; padding: 2px 1rem var(--space-3); scroll-snap-type: x mandatory; scroll-padding-inline: 1rem; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+    /* The wider gap keeps the next card's "+ Trip" clear of this card's Directions. */
+    .x-results[data-collapsed] .x-results__grid { display: flex; gap: var(--space-6); overflow-x: auto; margin-inline: -1rem; padding: 2px 1rem var(--space-3); scroll-snap-type: x mandatory; scroll-padding-inline: 1rem; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
     .x-results[data-collapsed] .x-results__grid::-webkit-scrollbar { display: none; }
-    .x-results[data-collapsed] .x-result { flex: 0 0 84%; padding: 0; border: 0; scroll-snap-align: start; }
+    .x-results[data-collapsed] .x-result { flex: 0 0 82%; padding: 0; border: 0; scroll-snap-align: start; }
     .x-results[data-collapsed] .x-result :global(.pi-card) { display: flex; flex-direction: column; }
     .x-results[data-collapsed] .x-result :global(.pi-card__media) { aspect-ratio: 3 / 2; border-radius: var(--radius-m); }
     .x-results[data-collapsed] .x-result :global(.pi-card__body) { padding-top: var(--space-3); }
@@ -983,9 +1009,6 @@ export const prerender = true;
     .x-towns__rail { display: flex; gap: var(--space-4); overflow-x: auto; margin-inline: calc(-1 * var(--gutter, 1rem)); padding: 2px var(--gutter, 1rem) var(--space-2); scroll-snap-type: x proximity; scroll-padding-inline: var(--gutter, 1rem); scrollbar-width: none; align-items: flex-start; }
     .x-towns__rail::-webkit-scrollbar { display: none; }
     .x-towns__rail > :global(li) { flex: 0 0 min(70vw, 17rem); scroll-snap-align: start; }
-    .x-towns__index { margin-top: var(--space-6); }
-    .x-towns__area { grid-template-columns: minmax(0, 1fr); padding-bottom: var(--space-2); }
-    .x-plan__lists { grid-template-columns: minmax(0, 1fr); }
     .x-plan__primary { flex: 1 0 100%; justify-content: center; }
   }
 
@@ -1002,6 +1025,81 @@ export const prerender = true;
 
   function sameSet(a: string[], b: string[]) {
     return a.length === b.length && a.every((v) => b.indexOf(v) !== -1);
+  }
+
+  // What a filtered list is called, by photo tile ("9 walks", "1 market").
+  const TILE_NOUNS: Record<string, [string, string]> = {
+    walks: ['walk', 'walks'],
+    beaches: ['beach', 'beaches'],
+    springs: ['hot spring or spa', 'hot springs and spas'],
+    lookouts: ['lookout or park', 'lookouts and parks'],
+    art: ['place for art, gardens or farms', 'places for art, gardens and farms'],
+    tours: ['tour or ride', 'tours and rides'],
+    markets: ['market', 'markets'],
+    golf: ['golf course', 'golf courses'],
+  };
+
+  // The latest filtered count and its noun, for the "See N" button.
+  let jumpShown = 0;
+  let jumpNoun = NOUN;
+  let jumpActive = false;
+
+  function itemFacets(results: HTMLElement): FilterState[] {
+    return [...results.querySelectorAll<HTMLElement>('.x-result')].map((el) => parseItemFacets(el.dataset.facets));
+  }
+
+  function countFor(all: FilterState[], state: FilterState): number {
+    let n = 0;
+    for (const facets of all) if (itemMatches(facets, state)) n += 1;
+    return n;
+  }
+
+  function setNone(el: HTMLElement, none: boolean) {
+    el.toggleAttribute('data-none', none);
+    if (none) el.setAttribute('aria-disabled', 'true');
+    else el.removeAttribute('aria-disabled');
+  }
+
+  /** Each tile and chip shows how many places choosing it would leave. A
+   *  choice that would leave none is dimmed and does nothing when pressed. */
+  function paintCounts(state: FilterState, all: FilterState[]) {
+    document.querySelectorAll<HTMLElement>('[data-cat-tile]').forEach((tile) => {
+      const values = (tile.dataset.values || '').split(',').filter(Boolean);
+      const pressed = tile.getAttribute('aria-pressed') === 'true';
+      const n = countFor(all, { ...state, cat: values });
+      const count = tile.querySelector<HTMLElement>('.x-tile__count');
+      if (count) {
+        count.textContent = String(n);
+        count.setAttribute('aria-label', `${n} to choose from`);
+      }
+      setNone(tile, !pressed && n === 0);
+    });
+    document.querySelectorAll<HTMLElement>('.x-find [data-filter-chip][data-key][data-value]').forEach((chip) => {
+      const key = chip.dataset.key as keyof FilterState;
+      const value = chip.dataset.value || '';
+      if ((state[key] ?? []).includes(value)) {
+        chip.removeAttribute('data-n');
+        setNone(chip, false);
+        return;
+      }
+      const n = countFor(all, toggleValue(state, key, value));
+      chip.dataset.n = String(n);
+      setNone(chip, n === 0);
+    });
+  }
+
+  /** Show "See N ..." while the matches are below the screen. */
+  function updateJump() {
+    const jump = document.querySelector<HTMLElement>('[data-results-jump]');
+    const results = document.querySelector<HTMLElement>('[data-results]');
+    if (!jump || !results) return;
+    const below = results.getBoundingClientRect().top > window.innerHeight - 96;
+    const show = jumpActive && jumpShown > 0 && below;
+    if (show) {
+      const text = jump.querySelector<HTMLElement>('[data-results-jump-text]');
+      if (text) text.textContent = `See ${jumpShown} ${jumpNoun}`;
+    }
+    jump.toggleAttribute('hidden', !show);
   }
 
   /** Reflect the filter state on the photo tiles and the results block. */
@@ -1021,17 +1119,33 @@ export const prerender = true;
     // whenever the list is long: filtered, or opened in full.
     results.querySelector<HTMLElement>('[data-results-bar]')?.toggleAttribute('hidden', !active && !results.hasAttribute('data-expanded'));
 
+    // Live counts, the filtered heading and the "See N" button share one count.
+    const all = itemFacets(results);
+    paintCounts(state, all);
+    const shown = countFor(all, state);
+    const pressedTile = document.querySelector<HTMLElement>('[data-cat-tile][aria-pressed="true"]');
+    const nouns = TILE_NOUNS[pressedTile?.dataset.tile ?? ''] ?? ['thing to do', NOUN];
+    jumpActive = active;
+    jumpShown = shown;
+    jumpNoun = shown === 1 ? nouns[0] : nouns[1];
+    const title = results.querySelector<HTMLElement>('[data-filtered-title]');
+    if (title) {
+      title.textContent = `${shown} ${jumpNoun}`;
+      title.toggleAttribute('hidden', !active || shown === 0);
+    }
+    updateJump();
+
     // A chosen part of the Peninsula, or a chosen town, offers its town guides.
     const guides = results.querySelector<HTMLElement>('[data-town-guides]');
     if (guides) {
       const chosen = state.place ?? [];
-      let shown = 0;
+      let offered = 0;
       guides.querySelectorAll<HTMLElement>('a[data-town]').forEach((link) => {
         const on = chosen.includes(link.dataset.town || '') || chosen.includes(link.dataset.area || '');
         link.toggleAttribute('hidden', !on);
-        if (on) shown += 1;
+        if (on) offered += 1;
       });
-      guides.toggleAttribute('hidden', shown === 0);
+      guides.toggleAttribute('hidden', offered === 0);
     }
 
     // Name each active filter in the bar, each one removable on its own.
@@ -1090,8 +1204,29 @@ export const prerender = true;
     paint(e.detail?.filters ?? {});
   }) as EventListener);
 
+  // A choice that would leave nothing does nothing. Capture phase, so the
+  // FilterBar's own chip handler never sees the press.
+  document.addEventListener('click', (ev) => {
+    const none = (ev.target as HTMLElement).closest?.('.x-find [data-none]');
+    if (!none) return;
+    ev.preventDefault();
+    ev.stopImmediatePropagation();
+  }, true);
+
+  window.addEventListener('scroll', updateJump, { passive: true });
+  window.addEventListener('resize', updateJump, { passive: true });
+
   document.addEventListener('click', (ev) => {
     const target = ev.target as HTMLElement;
+
+    if (target.closest('[data-results-jump]')) {
+      const title = document.querySelector<HTMLElement>('[data-filtered-title]');
+      if (!title) return;
+      const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      title.scrollIntoView({ block: 'start', behavior: still ? 'auto' : 'smooth' });
+      title.focus({ preventScroll: true });
+      return;
+    }
 
     // A photo tile picks one kind of outing; tapping it again clears the kind.
     const tile = target.closest<HTMLElement>('[data-cat-tile]');

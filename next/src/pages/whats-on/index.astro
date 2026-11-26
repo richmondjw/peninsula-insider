@@ -39,8 +39,10 @@ import {
   addDays,
   occursInWindow,
   checkedLabel,
+  monthLanes,
   type OccurrenceState,
 } from './_data';
+import EventMonthNav from '../../components/EventMonthNav.astro';
 import { eventCategoryLabel } from '../../lib/editorial';
 
 export const prerender = true;
@@ -48,6 +50,7 @@ export const prerender = true;
 const now = buildNow();
 const events = await loadLiveEvents(now);
 const calendarEvents = events.filter(isDatedCalendarEvent);
+const monthNav = monthLanes(events, now).filter((lane) => !lane.past);
 const flexibleExperiences = events.filter((live) => eventContentKind(live.event.data) === 'experience').slice(0, 4);
 
 const weekend = weekendWindow(now);
@@ -259,6 +262,7 @@ const hubImage = categoryHero('whats-on');
         <p class="wo-head__context"><span data-wo-range>{weekend.label}</span> · Mornington Peninsula</p>
         <p class="wo-head__rule">Find the date, place and reason to go, then check with the organiser before you head out.</p>
       </div>
+      <a class="pi-btn pi-btn--ghost wo-head__submit" href="/submit/?type=event">Submit an event</a>
     </div>
   </header>
 
@@ -355,6 +359,7 @@ const hubImage = categoryHero('whats-on');
             ))}
           </ul>
         </nav>
+        <EventMonthNav months={monthNav} />
         <noscript>
           <span class="wo-more__noscript">
             Longer horizons load with JavaScript on; the weekend above is the complete current edit.
@@ -958,6 +963,7 @@ const hubImage = categoryHero('whats-on');
   }
   .wo-days { padding: var(--space-7) 0; scroll-margin-top: 5rem; }
   .wo-more { margin: var(--space-6) 0 0; }
+  .wo-head__submit { align-self: flex-start; margin-top: var(--space-3); }
   .wo-browse { display: flex; flex-wrap: wrap; align-items: center; gap: 0 var(--space-3); font-size: var(--fs-300); }
   .wo-browse__label { color: var(--soft); }
   .wo-browse ul { display: flex; flex-wrap: wrap; gap: 0 var(--space-3); margin: 0; padding: 0; list-style: none; }

@@ -107,6 +107,7 @@ const areaOf = (data: any): string | null =>
 // Walk-in / appointment badge on 100% of winery cards (acceptance 31).
 const badgeFor = (data: any): string | null => {
   if (data.type !== 'winery') return null;
+  if (data.visiting?.publicVisitStatus === 'unconfirmed') return 'Check ahead';
   const required = data.visiting?.bookingRequired;
   if (required === true) return 'By appointment';
   if (required === false) return 'Walk-in welcome';
@@ -153,8 +154,8 @@ function venueItem(v: any) {
 
 // ── The Six: cellar doors worth planning the month around ─────────────────
 const sixSource = [
-  ...venues.filter((v) => v.data.type === 'winery' && v.data.editorPick === true),
-  ...venues.filter((v) => v.data.type === 'winery' && v.data.editorPick !== true),
+  ...venues.filter((v) => v.data.type === 'winery' && v.data.visiting?.publicVisitStatus !== 'unconfirmed' && v.data.editorPick === true),
+  ...venues.filter((v) => v.data.type === 'winery' && v.data.visiting?.publicVisitStatus !== 'unconfirmed' && v.data.editorPick !== true),
 ].slice(0, 6);
 // The check date is said once, at the head of the full list.
 const theSixItems = sixSource.map((v) => ({ ...venueItem(v), freshness: undefined }));

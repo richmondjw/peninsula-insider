@@ -4,11 +4,14 @@ import { editableText, editableImage } from '../../../lib/inline-edit/attrs';
 import { loadOverrides } from '../../../lib/inline-edit/overrides';
 import { getCollection } from 'astro:content';
 import { isListableVenue } from '../../../lib/editorial';
+import vvPageImages from '../../../data/visit-victoria-page-images.json';
+import mornington from '../../../content/places/mornington.json';
 import { checkedSpan } from '../../../lib/checked-span';
 // Trust line: how many places the guide covers and when they were last checked.
 const listed = (await getCollection('venues')).filter(isListableVenue);
 const checked = checkedSpan(listed.map((v) => v.data));
-const original = {
+// Coast plate. Ridge (the Montalto photograph) leads the rotation.
+const coast = {
   src: '/images/visit-victoria/vv-143799-cape-schanck.webp',
   alt: 'Scrubby cliffs at Cape Schanck falling to a rocky shore and sunlit sea, with the lighthouse on the headland above',
   caption: 'Cape Schanck, Mornington Peninsula.',
@@ -17,15 +20,32 @@ const original = {
 const overrides = await loadOverrides('page', 'home');
 const published = overrides.image['cover.image'];
 const replacement = published?.src && published.alt?.trim() && published.credit?.trim() ? published : undefined;
-const photo = replacement ?? original;
+const ridge = vvPageImages.images['wine-hub'];
+const photo = replacement ?? ridge;
 const statement = overrides.text['cover.statement'] ?? 'Make a day of the Peninsula.';
-const credit = photo.credit?.trim().replace(/\.$/, '') ?? '';
-const creditLine = /illustration/i.test(credit) ? credit + '.' : /^Courtesy of /i.test(credit) ? 'Photo courtesy of ' + credit.slice('Courtesy of '.length) + '.' : 'Photo: ' + credit + '.';
+const attribution = (image: { caption: string; credit: string }) => {
+  const credit = image.credit.trim().replace(/\.$/, '');
+  const line = /illustration/i.test(credit) ? credit + '.' : /^Courtesy of /i.test(credit)
+    ? 'Photo courtesy of ' + credit.slice('Courtesy of '.length) + '.' : 'Photo: ' + credit + '.';
+  return cleanCaption(image.caption).replace(/\.$/, '') + '. ' + line;
+};
+const frames = [
+  // The first frame is the plate written into the page; the script layers the
+  // others over it. An editor's replacement cover takes the first frame's place.
+  { key: 'ridge', name: 'Ridge: Montalto', image: photo, label: 'Start in wine country',
+    title: 'Red Hill & the ridge', description: 'Cellar doors and a long lunch.', href: '/explore/plans/how-to-build-a-red-hill-saturday/' },
+  { key: 'coast', name: 'Coast: Cape Schanck', image: coast, label: 'Start with the coast',
+    title: 'Flinders & the Cape', description: 'Coastal walks and one excellent meal.', href: '/explore/plans/flinders-and-cape-reset/' },
+  { key: 'bay', name: 'Bay: Mornington bathing boxes', image: mornington.heroImage, label: 'Start by the bay',
+    title: 'Mornington & the bay', description: 'Bathing boxes and a foreshore walk.', href: '/explore/places/mornington/' },
+];
+const editorialRotation = !replacement;
+const first = frames[0];
 ---
-<section class="home-cover" aria-label="Your Peninsula starts here">
+<section id="peninsula-cover" class="home-cover" aria-label="Your Peninsula starts here" data-cover-rotation={editorialRotation ? "" : undefined}>
   <figure class="home-cover__plate">
-    <img class="home-cover__media" data-pi-avif="true" src={photo.src} data-pi-responsive="100vw" alt={photo.alt} width="1280" height="853" fetchpriority="high" loading="eager" decoding="async" data-pi-no-hydrate="true" data-pi-requires-image-metadata="true" {...editableImage({entityType:'page',entitySlug:'home',fieldPath:'cover.image',label:'Cover image',purpose:'hero'})} />
-    {!isArtwork(photo) && <figcaption>{cleanCaption(photo.caption).replace(/\.$/, '')}. {creditLine}</figcaption>}
+    <img class="home-cover__media" data-cover-media={first.key} data-pi-avif="true" src={photo.src} data-pi-responsive="100vw" alt={photo.alt} width="1280" height="853" fetchpriority="high" loading="eager" decoding="async" data-pi-no-hydrate="true" data-pi-requires-image-metadata="true" {...editableImage({entityType:'page',entitySlug:'home',fieldPath:'cover.image',label:'Cover image',purpose:'hero'})} />
+    {!isArtwork(photo) && <figcaption>{attribution(photo)}</figcaption>}
   </figure>
   <div class="home-cover__content">
     <p class="home-cover__eyebrow">The independent guide to the Mornington Peninsula</p>
@@ -34,12 +54,29 @@ const creditLine = /illustration/i.test(credit) ? credit + '.' : /^Courtesy of /
     <nav class="home-cover__actions" aria-label="Start planning your Peninsula visit"><a href="#home-choose">Find a ready-made day <span aria-hidden="true">&#8595;</span></a></nav>
     <p class="home-cover__trust">Places chosen by our editors{checked ? `, ${checked}` : ''}. Never paid for. <a href="/about/#how-we-choose">How we choose</a></p>
   </div>
-  <a class="home-cover__story" href="/explore/plans/flinders-and-cape-reset/">
-    <span class="home-cover__story-label">Start with the coast</span>
-    <strong>Flinders &amp; the Cape</strong>
-    <span>Coastal walks and one excellent meal.</span>
+  <a class="home-cover__story" href={first.href}>
+    <span class="home-cover__story-label">{first.label}</span>
+    <strong>{first.title}</strong>
+    <span data-cover-description>{first.description}</span>
     <b aria-hidden="true">&#8599;</b>
   </a>
+  {editorialRotation && <>
+    <div class="home-cover__controls" role="group" aria-label="Homepage cover controls" hidden>
+      <div class="home-cover__dots" role="group" aria-label="Choose a cover">
+        {frames.map((frame, index) => <button type="button" data-cover-dot={index} aria-label={'Show ' + frame.name} aria-current={index === 0 ? 'true' : undefined}><span></span></button>)}
+      </div>
+      <button class="home-cover__playback" type="button" aria-controls="peninsula-cover" aria-label="Pause cover rotation" title="Pause cover rotation">
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 4v8m4-8v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+      <span class="home-cover__announcement" aria-live="polite"></span>
+    </div>
+    {frames.slice(1).map(frame => <template data-cover-frame={frame.key} data-credit={attribution(frame.image)}
+      data-name={frame.name} data-label={frame.label} data-title={frame.title} data-description={frame.description} data-href={frame.href}>
+      <div class="home-cover__layer" data-cover-layer={frame.key} aria-hidden="true">
+        <img class="home-cover__media" data-cover-media={frame.key} src={frame.image.src} alt={frame.image.alt} decoding="async" />
+      </div>
+    </template>)}
+  </>}
 </section>
 <nav class="home-cover-paths" aria-label="Find your Peninsula">
   <a href="/eat/">Eat &amp; drink <span aria-hidden="true">&#8599;</span></a>
@@ -47,6 +84,12 @@ const creditLine = /illustration/i.test(credit) ? credit + '.' : /^Courtesy of /
   <a href="/explore/">Get outside <span aria-hidden="true">&#8599;</span></a>
   <a href="/whats-on/this-weekend/">This weekend <span aria-hidden="true">&#8599;</span></a>
 </nav>
+
+<script>
+  import { initHomeCover } from "../../../scripts/home-cover";
+  initHomeCover();
+  document.addEventListener("astro:page-load", initHomeCover);
+</script>
 
 <style>
 .home-cover{padding:0;position:relative;isolation:isolate;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);background:#0b2e4a;color:white;overflow:hidden;min-height:39.5rem}
@@ -71,32 +114,48 @@ const creditLine = /illustration/i.test(credit) ? credit + '.' : /^Courtesy of /
 .home-cover__story{justify-self:stretch;margin:0 1.5rem;max-width:none;padding:1.1875rem 3rem 1.1875rem 1.25rem}.home-cover__story strong{font-size:1.4375rem}.home-cover__story-label{font-size:.625rem}.home-cover__story>span:last-of-type{font-size:.8125rem}.home-cover__plate figcaption{left:0;right:0;bottom:0;max-width:none;font-size:.625rem;padding:.5rem .75rem}
 .home-cover-paths{grid-template-columns:repeat(2,minmax(0,1fr));padding:0 1.25rem}.home-cover-paths a,.home-cover-paths a:first-child,.home-cover-paths a:last-child{font-size:.875rem;padding:1.125rem .625rem;min-height:3.625rem;border-right:1px solid #315268;border-bottom:1px solid #315268}.home-cover-paths a:nth-child(even){border-right:0}.home-cover-paths a:nth-child(n+3){border-bottom:0}
 }
-/* Cover motion (2026-11-13). Shot like a slow drone pass at the Cape: a push-in that drifts
-   toward the lighthouse, sun haze that breathes as thin cloud crosses it, a soft cloud shadow
-   sliding over the cliff, and parallax as the page scrolls. Transform and opacity only, so it
-   stays on the compositor. Reduced-motion readers get the still photograph. */
-/* Clip the moving layers at the plate so they never count as page overflow. */
-.home-cover__plate{overflow:clip}
-@media (prefers-reduced-motion: no-preference){
-.home-cover__media{transform-origin:80% 32%;animation:hc-push 26s cubic-bezier(.45,0,.55,1) .2s infinite alternate both;will-change:transform}
-/* Sun on the figure (painted after the photo, under the scrim); cloud shadow inside the picture. */
-.home-cover__plate:after,.home-cover__plate :global(picture):after{content:"";position:absolute;inset:-10%;pointer-events:none}
-.home-cover__plate:after{z-index:-2;background:radial-gradient(42% 38% at 58% 4%,rgba(255,244,214,.55),rgba(255,236,196,.18) 45%,transparent 70%);mix-blend-mode:screen;animation:hc-sun 9s ease-in-out infinite alternate both}
-.home-cover__plate :global(picture):after{background:radial-gradient(30% 45% at 50% 50%,rgba(6,24,32,.34),transparent 70%);mix-blend-mode:multiply;transform:translate3d(-70%,0,0);animation:hc-cloud 38s linear 3s infinite}
-/* Keep the mobile LCP frame still. The full cinematic pass remains on larger
-   screens, while phones avoid promoting and animating the largest paint. */
-@media(max-width:47.99em){
-.home-cover__media{animation:none;will-change:auto;transform:none}
-.home-cover__plate:after{animation:none;opacity:.72;transform:none}
-.home-cover__plate :global(picture):after{animation:none;opacity:.45;transform:none}
-}
-@keyframes hc-push{from{transform:scale(1.015)}to{transform:scale(1.085) translate3d(-1.6%,.9%,0)}}
-@keyframes hc-sun{from{opacity:.35;transform:translate3d(-2%,0,0)}to{opacity:1;transform:translate3d(2%,1.5%,0)}}
-@keyframes hc-cloud{0%{opacity:0;transform:translate3d(-60%,4%,0)}15%{opacity:1}85%{opacity:1}100%{opacity:0;transform:translate3d(70%,-3%,0)}}
-@supports (animation-timeline:scroll()){
-.home-cover__plate :global(picture){inset:-9% 0 0 0;animation:hc-parallax linear both;animation-timeline:scroll(root);animation-range:0 42rem}
-@keyframes hc-parallax{to{transform:translate3d(0,9%,0)}}
-}
-}
 @media(max-width:22.5em){.home-cover__story strong{font-size:1.25rem}.home-cover__story{padding-right:2.5rem}}
+/* The shared headline and links never move with the plates. Each photograph
+   keeps its own crop and contrast treatment throughout the crossfade. */
+.home-cover[data-cover-rotation]{container-type:inline-size;overflow-anchor:none;--hero-inset:max(2rem,calc((100cqw - 1280px)/2));--shade-left:.89;--shade-mid:.72;--shade-edge:.32;--shade-lower:.45}
+.home-cover[data-cover-rotation]::before,.home-cover__layer::after{background:linear-gradient(90deg,rgb(4 23 35 / var(--shade-left)),rgb(4 23 35 / var(--shade-mid)) clamp(240px,calc((100% - 1280px)/2 + 290px),50%),rgb(4 23 35 / var(--shade-edge)) clamp(365px,calc((100% - 1280px)/2 + 520px),69%),transparent 76%),linear-gradient(0deg,rgb(4 23 35 / var(--shade-lower)),transparent 37%)}
+.home-cover__layer{position:absolute;inset:0;z-index:0;isolation:isolate;opacity:0;pointer-events:none;transition:opacity 950ms ease}
+.home-cover__layer[data-visible]{opacity:1}
+.home-cover__layer::after{content:'';position:absolute;inset:0}
+.home-cover__layer[data-cover-layer=coast]{--shade-left:.88;--shade-mid:.69;--shade-edge:.30;--shade-lower:.43}
+.home-cover__layer[data-cover-layer=bay]{--shade-left:.91;--shade-mid:.75;--shade-edge:.35;--shade-lower:.53}
+.home-cover[data-cover-rotation] .home-cover__media{display:block;max-width:none}
+.home-cover [data-cover-media=coast]{object-position:67% 34%}
+.home-cover[data-cover-rotation] [data-cover-media=ridge]{object-position:57% 58%}
+.home-cover [data-cover-media=bay]{object-position:63% 58%}
+.home-cover[data-cover-rotation] .home-cover__content{padding-inline-start:var(--hero-inset)}
+.home-cover[data-cover-rotation] .home-cover__story{z-index:1;margin-block-end:5rem;margin-inline-end:var(--hero-inset);width:min(21rem,calc(100% - 4rem))}
+.home-cover[data-cover-rotation] figcaption{inset-inline-end:var(--hero-inset);max-width:min(42ch,calc(50% - var(--hero-inset) - 6.5rem))}
+.home-cover[data-cover-rotation] .home-cover__story,.home-cover[data-cover-rotation] .home-cover__plate figcaption,.home-cover__controls{pointer-events:auto}
+.home-cover__controls{position:absolute;z-index:3;left:50%;bottom:.8rem;transform:translateX(-50%);display:flex;align-items:center;width:max-content;padding:0 2px;border-radius:999px;color:#fff;background:rgb(5 25 39 / .66);border:1px solid rgb(255 255 255 / .35);box-shadow:0 2px 10px rgb(0 0 0 / .12);backdrop-filter:blur(6px)}
+.home-cover__controls[hidden]{display:none}
+.home-cover__dots{display:flex}
+.home-cover__controls button{appearance:none;display:grid;place-items:center;width:44px;height:44px;padding:0;border:0;border-radius:50%;background:none;color:inherit;cursor:pointer}
+.home-cover__controls button:hover{background:rgb(255 255 255 / .12)}
+.home-cover__controls button:focus-visible{outline:2px solid #f5c177;outline-offset:-4px}
+.home-cover__dots span{width:7px;height:7px;border:1px solid currentColor;border-radius:50%}
+.home-cover__dots [aria-current=true] span{background:#fff}
+.home-cover__playback{position:relative}
+.home-cover__playback::before{content:'';position:absolute;left:0;height:14px;border-left:1px solid rgb(255 255 255 / .35)}
+.home-cover__playback svg{width:15px;height:15px}
+.home-cover__announcement{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+@media(max-width:47.99em){
+  .home-cover[data-cover-rotation]::before,.home-cover__layer::after{background:linear-gradient(90deg,rgb(4 23 35 / .88),rgb(4 23 35 / .66) 65%,rgb(4 23 35 / .27)),linear-gradient(0deg,rgb(4 23 35 / .50),transparent 55%)}
+  #peninsula-cover[data-cover-rotation]{padding:0 0 3.25rem;gap:.625rem}
+  #peninsula-cover[data-cover-rotation] .home-cover__content{padding:1.75rem 1.5rem 0}
+  .home-cover [data-cover-media=coast]{object-position:89% 40%}
+  .home-cover[data-cover-rotation] [data-cover-media=ridge]{object-position:57% 51%}
+  .home-cover [data-cover-media=bay]{object-position:65% 56%}
+  .home-cover[data-cover-rotation] .home-cover__story{width:auto;margin:0 1.5rem;min-height:7.8rem}
+  .home-cover[data-cover-rotation] figcaption{inset-inline:0;max-width:none}
+  .home-cover__controls{position:relative;left:auto;bottom:auto;transform:none;justify-self:center;margin-top:-.1rem}
+}
+@media(min-width:48em) and (max-width:56em){.home-cover[data-cover-rotation] .home-cover__story{min-height:9.5rem}}
+@media(max-width:22.5em){.home-cover[data-cover-rotation] .home-cover__story{min-height:8.5rem}}
+@media(prefers-reduced-motion:reduce){.home-cover__layer{transition:none}}
 </style>

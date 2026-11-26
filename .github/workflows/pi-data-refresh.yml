@@ -2,6 +2,19 @@ name: PI Data Refresh — Peninsula Insider
 
 on:
   workflow_dispatch:
+  # The search index went unrefreshed from 1 October to 26 November 2026
+  # because this job only ran by hand. It now runs when content changes on
+  # main and once a night, so events that have run drop out and new pages
+  # come in without anyone remembering to press a button.
+  push:
+    branches: [main]
+    paths:
+      - 'next/src/content/**'
+      - 'next/scripts/refresh-entity-index.mjs'
+      - 'next/scripts/embed-entity-index.mjs'
+      - 'next/src/taxonomy/**'
+  schedule:
+    - cron: '17 15 * * *'   # 02:17 Melbourne in summer, 01:17 in winter
 
 concurrency:
   group: pi-data-refresh
@@ -38,7 +51,7 @@ jobs:
           PUBLIC_SUPABASE_URL: ${{ secrets.PUBLIC_SUPABASE_URL }}
 
       - name: Phase B — Refresh entity index
-        run: node next/scripts/refresh-entity-index.mjs --apply
+        run: node next/scripts/refresh-entity-index.mjs --apply --prune
         env:
           SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
           PUBLIC_SUPABASE_URL: ${{ secrets.PUBLIC_SUPABASE_URL }}
