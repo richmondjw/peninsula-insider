@@ -246,6 +246,9 @@ export const SURFACE_FACET_VALUES: Record<string, Partial<Record<FacetKey, strin
     // The hub asks "Which part?" with the regions on the page itself, so its
     // sheet lists towns only instead of mixing the two under one heading.
     place: TOWN_OPTIONS.map((o) => o.value),
+    // "With kids" is a chip on the page itself, so the sheet does not offer
+    // the same filter a second time as "Family" (2026-11-27 critique).
+    party: ['couples', 'group', 'solo', 'dog-friendly'],
   },
 };
 
