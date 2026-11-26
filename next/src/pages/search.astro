@@ -14,6 +14,7 @@
  * Pagefind's index is built by `npm run build:search` and lives at
  * `/pagefind/`. The page is fully static; all search runs in the browser.
  */
+import { ASK_GUIDE_ON } from '../lib/features';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import '../styles/search-results.css';
@@ -105,6 +106,11 @@ export const prerender = true;
           <p class="search-page-v2__results-meta" id="searchResultsMeta" aria-live="polite">Start typing to search.</p>
         </div>
 
+        {ASK_GUIDE_ON && <a class="search-page-v2__ask" id="searchAsk" href="/ask/" hidden>
+          <span class="search-page-v2__ask-label">Ask PI</span>
+          <span class="search-page-v2__ask-q" data-ask-q></span>
+          <span aria-hidden="true">→</span>
+        </a>}
         <div class="search-page-v2__results" id="searchResultsList" aria-live="polite"></div>
 
         <nav class="search-page-v2__pagination" id="searchPagination" aria-label="Result pages" hidden></nav>
@@ -810,9 +816,23 @@ export const prerender = true;
         }, { component: 'SearchPage' });
       }
 
+      // A question is better put to Ask PI, who answers from the published
+      // guides. The row offers that for any query of three letters or more; the
+      // link opens the chat where it is on the page.
+      function updateAsk(q) {
+        const ask = document.getElementById('searchAsk');
+        if (!ask) return;
+        if (q.length < 3) { ask.hidden = true; return; }
+        ask.hidden = false;
+        ask.href = '/ask/?q=' + encodeURIComponent(q);
+        const label = ask.querySelector('[data-ask-q]');
+        if (label) label.textContent = '\u201C' + q + '\u201D';
+      }
+
       async function runSearch() {
         const q = (input?.value || '').trim();
         currentQuery = q;
+        updateAsk(q);
         currentDataPage = new Map();
 
         if (!q && currentKind === 'all') {
@@ -1050,4 +1070,9 @@ export const prerender = true;
      and do not push a visible footer out of view (measured as layout shift of
      0.19 on desktop and 0.13 on a phone before this rule, under 0.01 after). */
   .search-page-v2 { min-height: 100vh; }
+  .search-page-v2__ask { display: flex; align-items: center; gap: 0.75rem; min-height: 48px; margin: 0 0 1.25rem; padding: 0.5rem 1rem; border: 1px solid var(--border-strong); border-radius: var(--radius-m); font: 500 0.9375rem/1.4 var(--font-ui); color: var(--text); text-decoration: none; }
+  .search-page-v2__ask[hidden] { display: none; }
+  .search-page-v2__ask:hover { border-color: var(--accent); }
+  .search-page-v2__ask-label { flex: none; font-weight: 700; color: var(--accent); }
+  .search-page-v2__ask-q { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--soft); }
 </style>

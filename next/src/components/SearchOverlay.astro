@@ -1,6 +1,9 @@
 ---
 import searchOverlayBootUrl from '../scripts/search-overlay-boot.js?url&no-inline';
-import { SHOW_ASK_PI } from '../lib/features';
+import { SHOW_ASK_PI, ASK_GUIDE_ON } from '../lib/features';
+// Either Ask PI (generated answers, off) or Ask PI from the guides (on) can
+// take a question from search.
+const ASK_FROM_SEARCH = SHOW_ASK_PI || ASK_GUIDE_ON;
 /**
  * SearchOverlay - instant search modal
  *
@@ -26,7 +29,7 @@ import { SHOW_ASK_PI } from '../lib/features';
   aria-labelledby="siteSearchOverlayTitle"
   aria-hidden="true"
   data-open="false"
-  data-ask-enabled={SHOW_ASK_PI ? 'true' : 'false'}
+  data-ask-enabled={ASK_FROM_SEARCH ? 'true' : 'false'}
 >
   <div class="site-search-overlay__backdrop" data-close-search aria-hidden="true"></div>
 
@@ -71,7 +74,7 @@ import { SHOW_ASK_PI } from '../lib/features';
         </ul>
       </div>
 
-      {SHOW_ASK_PI && <a class="site-search-overlay__ask" id="siteSearchOverlayAsk" href="/ask/" hidden>
+      {ASK_FROM_SEARCH && <a class="site-search-overlay__ask" id="siteSearchOverlayAsk" href="/ask/" hidden>
         <span class="site-search-overlay__ask-label">Ask PI</span>
         <span class="site-search-overlay__ask-q" data-ask-q></span>
         <span class="site-search-overlay__ask-go" aria-hidden="true">→</span>
