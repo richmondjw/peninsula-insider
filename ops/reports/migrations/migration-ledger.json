@@ -268,6 +268,14 @@
       "reason": "Read-only SQL against project tjjhpvslpysfklwpqmgz on 2026-11-21 returned null for to_regclass('public.pi_chat_turns'). The migration has not been applied to that project as of this probe; no schema change was made.",
       "recordedOn": "2026-11-21",
       "recordedBy": "Codex What's On release prerequisite - live Supabase read-only probe"
+    },
+    {
+      "file": "2026-11-26-pi-search-natural-language.sql",
+      "state": "applied",
+      "appliedOn": "2026-11-26",
+      "reason": "Applied to project tjjhpvslpysfklwpqmgz on 2026-11-26 through the Supabase migration tool, with the owner's approval. Verified the same day: pi.search('tedeska') returned Tedesca Osteria first, and the temporary pi.search_candidate function was dropped.",
+      "recordedOn": "2026-11-26",
+      "recordedBy": "Claude Code session, competitor plan search step 3"
     }
   ]
 }
