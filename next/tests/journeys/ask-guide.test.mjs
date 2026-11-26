@@ -101,9 +101,15 @@ for (const width of [390, 1280, 1440]) {
         return { left: rect.left, right: rect.right, top: rect.top, bottom: rect.bottom, w: innerWidth, h: innerHeight };
       });
       assert.ok(box.left >= 0 && box.right <= box.w + 1 && box.top >= 0 && box.bottom <= box.h + 1, JSON.stringify(box));
-      assert.match(await page.$eval('.pi-chat__fine', el => el.textContent), voiceOn
+      assert.match(await page.$eval('#pi-chat-fine', el => el.textContent), voiceOn
         ? /published guides.*written by AI/s
         : /published guides.*Nothing you ask is sent or stored/s);
+      if (voiceOn) {
+        await page.waitForSelector('#pi-chat-privacy', { visible: true });
+        assert.match(await page.$eval('#pi-chat-privacy', el => el.textContent), /AI providers.*180 days/s);
+        assert.equal(await page.$eval(draft, el => el.getAttribute('aria-describedby')), 'pi-chat-privacy');
+        assert.equal(await page.$eval('#pi-chat-privacy a', el => el.getAttribute('href')), '/privacy/');
+      }
       if (mobile) {
         const modal = await page.$eval('#pi-chat-panel', panel => ({
           role: panel.getAttribute('role'),
@@ -198,7 +204,7 @@ test('a thread saved under an older answer engine is not restored, and the small
     await page.reload({ waitUntil: 'networkidle0' });
     await page.waitForSelector('#pi-chat-log');
     assert.equal(await page.$eval('#pi-chat-log', node => node.textContent), '');
-    assert.match(await page.$eval('.pi-chat__fine', node => node.textContent), voiceOn ? /written by AI from those pages/ : /Nothing you ask is sent or stored/);
+    assert.match(await page.$eval('#pi-chat-fine', node => node.textContent), voiceOn ? /written by AI from those pages/ : /Nothing you ask is sent or stored/);
   } finally {
     await reader.close();
   }
