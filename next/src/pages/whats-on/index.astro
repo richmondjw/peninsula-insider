@@ -262,6 +262,7 @@ const hubImage = categoryHero('whats-on');
         <p class="wo-head__context"><span data-wo-range>{weekend.label}</span> · Mornington Peninsula</p>
         <p class="wo-head__rule">Find the date, place and reason to go, then check with the organiser before you head out.</p>
       </div>
+      <a class="pi-btn pi-btn--ghost wo-head__submit" href="/submit/?type=event">Submit an event</a>
     </div>
   </header>
 
@@ -359,7 +360,6 @@ const hubImage = categoryHero('whats-on');
           </ul>
         </nav>
         <EventMonthNav months={monthNav} />
-        <p class="wo-submit">Running an event on the Peninsula? <a href="/submit/?type=event">Tell us about it</a>.</p>
         <noscript>
           <span class="wo-more__noscript">
             Longer horizons load with JavaScript on; the weekend above is the complete current edit.
@@ -963,8 +963,7 @@ const hubImage = categoryHero('whats-on');
   }
   .wo-days { padding: var(--space-7) 0; scroll-margin-top: 5rem; }
   .wo-more { margin: var(--space-6) 0 0; }
-  .wo-submit { margin: var(--space-3) 0 0; color: var(--soft); font-size: var(--fs-300); }
-  .wo-submit a { display: inline-block; padding: 0.6rem 0; color: var(--text); text-decoration: underline; text-underline-offset: 0.2em; }
+  .wo-head__submit { align-self: flex-start; margin-top: var(--space-3); }
   .wo-browse { display: flex; flex-wrap: wrap; align-items: center; gap: 0 var(--space-3); font-size: var(--fs-300); }
   .wo-browse__label { color: var(--soft); }
   .wo-browse ul { display: flex; flex-wrap: wrap; gap: 0 var(--space-3); margin: 0; padding: 0; list-style: none; }

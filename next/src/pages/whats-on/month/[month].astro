@@ -109,6 +109,7 @@ export const prerender = true;
         </p>
       )}
       <EventMonthNav months={upcoming} active={lane.slug} />
+      <p class="wo-month-hero__submit"><a class="pi-btn pi-btn--ghost" href="/submit/?type=event">Submit an event</a></p>
     </div>
   </section>
 
@@ -140,7 +141,6 @@ export const prerender = true;
         ))}
         <p class="wo-month-days__more">
           Looking for something sooner? <a href="/whats-on/this-weekend/">This weekend</a> has our short list, and <a href="/whats-on/">What's On</a> lets you filter by date and type.
-          Running an event that should be here? <a href="/submit/?type=event">Tell us about it</a>.
         </p>
       </div>
     </section>
@@ -158,6 +158,7 @@ export const prerender = true;
   .wo-month-hero__heading { margin: 0 0 0.75rem; font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; color: #0b2e4a; }
   .wo-month-hero__lede { max-width: 70ch; margin: 0 0 1.25rem; font: 400 1rem/1.6 var(--font-ui); color: var(--soft); }
   .wo-month-hero__lede a, .wo-month-days__more a { color: var(--text); text-decoration: underline; text-underline-offset: 0.2em; }
+  .wo-month-hero__submit { margin: 1rem 0 0; }
   .wo-month-days { padding: var(--space-6) 0 var(--space-7); }
   .wo-month-days__more { max-width: 46rem; margin: var(--space-7) 0 0; font: 400 0.9375rem/1.6 var(--font-ui); color: var(--soft); }
 </style>
