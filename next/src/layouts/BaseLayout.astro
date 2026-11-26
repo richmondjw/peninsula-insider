@@ -900,6 +900,16 @@ const showNewsletterPopup = !isPlanningJourney && !isPlaceGuide && normalizedPat
       }
       requestAnimationFrame(raf);
 
+      // Lenis is created once and outlives every page swap. If a reader clicks
+      // through while the wheel is still easing, Lenis kept easing towards the
+      // old page's position and carried the new page partway down (measured:
+      // a place page opened 4,800 px down after a click from Explore). After
+      // each swap, drop the pending motion and take the position the router
+      // has just set, which also keeps back and forward restores intact.
+      const settle = () => lenis.scrollTo(window.scrollY, { immediate: true, force: true });
+      document.addEventListener('astro:after-swap', () => { settle(); requestAnimationFrame(settle); });
+      document.addEventListener('astro:page-load', settle);
+
       // Stop Lenis from fighting native scroll inside overlays/drawers.
       document.addEventListener('pi:lenis-stop', () => lenis.stop());
       document.addEventListener('pi:lenis-start', () => lenis.start());
