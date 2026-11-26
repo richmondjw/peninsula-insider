@@ -3525,33 +3525,21 @@
       ]
     },
     {
-      "source": "/images/sourced/explore-bushrangers-bay-walk-01.webp",
+      "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/experience/bushrangers-bay/heroImage-1779959080422.jpg",
       "format": "webp",
-      "originalBytes": 85032,
+      "originalBytes": 75826,
       "variants": [
         {
-          "src": "/_media/51de246a2b604e81176d-480.webp",
+          "src": "/_media/0b76cc1a6b29c684a6b8-480.webp",
           "width": 480,
-          "height": 320,
-          "bytes": 13148
+          "height": 281,
+          "bytes": 46850
         },
         {
-          "src": "/_media/51de246a2b604e81176d-800.webp",
-          "width": 800,
-          "height": 534,
-          "bytes": 33142
-        },
-        {
-          "src": "/_media/51de246a2b604e81176d-1280.webp",
-          "width": 1280,
-          "height": 854,
-          "bytes": 60680
-        },
-        {
-          "src": "/_media/51de246a2b604e81176d-1600.webp",
-          "width": 1600,
-          "height": 1067,
-          "bytes": 86858
+          "src": "/_media/0b76cc1a6b29c684a6b8-556.webp",
+          "width": 556,
+          "height": 325,
+          "bytes": 60066
         }
       ]
     },
@@ -3900,25 +3888,6 @@
           "width": 1920,
           "height": 1440,
           "bytes": 359252
-        }
-      ]
-    },
-    {
-      "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/experience/bushrangers-bay/heroImage-1779959080422.jpg",
-      "format": "webp",
-      "originalBytes": 75826,
-      "variants": [
-        {
-          "src": "/_media/0b76cc1a6b29c684a6b8-480.webp",
-          "width": 480,
-          "height": 281,
-          "bytes": 46850
-        },
-        {
-          "src": "/_media/0b76cc1a6b29c684a6b8-556.webp",
-          "width": 556,
-          "height": 325,
-          "bytes": 60066
         }
       ]
     },

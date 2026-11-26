@@ -5,11 +5,9 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Things to do
-
 # Walks, beaches and hot springs
 
-Pick an outing and the time you have. Every place comes with the reason we rate it.
+An hour or so from Melbourne. Pick an outing and the time you have; every place comes with the reason we rate it.
 
 Chosen by our editors, never paid for. [How we choose](<https://peninsulainsider.com.au/about/#how-we-choose>)
 
@@ -25,7 +23,7 @@ Good for
 
 ### Ten to start with
 
-Our editors’ first picks from all 52 things to do, across walks, beaches, springs, art and the bay. [See them on the map](<https://peninsulainsider.com.au/map/>)
+“+ Trip” adds a place to your day; the bookmark saves it for later. [See them on the map](<https://peninsulainsider.com.au/map/>)
 
 Swipe across for all 10.
 
@@ -57,7 +55,7 @@ A boardwalk past the 1859 lighthouse to Pulpit Rock, with Bass Strait on both si
 
 The surf side of Sorrento: more force, more wind and the best dusk light. Walk it in any season; swim only between the flags.
 
-An hour or two
+1 to 2 hr
 
  [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3528,144.7388>)
 
@@ -121,7 +119,7 @@ Forty minutes across the bay to Queenscliff, often with dolphins and seals on th
 
 Western Port’s quiet answer to the bay beaches: paler sand, flatter water, kilometres of it, and mostly locals.
 
-About an hour   Good with kids
+About 1 hr   Good with kids
 
  [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3824,145.1483>)
 
@@ -135,23 +133,13 @@ The best view for the least effort: 1.5 km of Bass Strait clifftop between Ports
 
  [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3312,144.7205>)
 
-- Walk · Cape Schanck
+- Walk & beach · Cape Schanck
 
-### [Bushrangers Bay Walk](<https://peninsulainsider.com.au/explore/bushrangers-bay-walk/>)
+### [Bushrangers Bay](<https://peninsulainsider.com.au/explore/bushrangers-bay/>)
 
 A 5.4 km return through coastal scrub to a wild ocean bay. Steep stairs on the way back, and it is not a swimming beach.
 
 2 hr · Moderate walk
-
- [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.4909,144.8856>)
-
-- Beach · Cape Schanck
-
-### [Bushrangers Bay](<https://peninsulainsider.com.au/explore/bushrangers-bay/>)
-
-Dramatic rock formations and Southern Ocean views at the end of a two-hour return walk. Come to look, not to swim.
-
-An hour or two
 
  [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.4802,144.8789>)
 
@@ -171,8 +159,6 @@ Geothermal, rain, botanical and cold-plunge pools, with a sauna and steam room. 
 
 Basalt cliffs, pounding water and the lighthouse in one compact stop. Stairs lead down to the rock platform if you want more.
 
-Time varies
-
  [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.5041,144.8886>)
 
 - Gallery · Red Hill
@@ -191,7 +177,7 @@ Contemporary Australian sculpture through the vines and gardens, in under an hou
 
 Australia’s oldest symmetrical hedge maze, a lavender labyrinth and a café that puts lavender in everything. Best in spring.
 
-Time varies   Good with kids
+Good with kids
 
 [Book](<https://www.ashcombemaze.com.au/>)
 
@@ -243,7 +229,7 @@ Full day · Moderate walk
 
 A long, gentle arc of shallow bay water with lawn and shade behind it. The easy family beach, without Sorrento’s parking battles.
 
-An hour or two   Good with kids
+1 to 2 hr   Good with kids
 
  [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3341,144.9688>)
 
@@ -270,8 +256,6 @@ The region’s best gallery, strong on Australian modernism and free to enter. T
 ### [Point Nepean Fort Walk](<https://peninsulainsider.com.au/explore/point-nepean-fort-walk/>)
 
 Old quarantine buildings and cliff-edge lookouts, then bunkers and gun emplacements facing the Heads. Check park notices for closed sections.
-
-Time varies
 
  [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3034,144.6527>)
 
@@ -325,7 +309,7 @@ Four kilometres of clifftop heath from Sorrento Ocean Beach to Diamond Bay, a sm
 
 Long, wild and nearly empty outside summer. Come to walk and watch Bass Strait at work; the rips make it no place to swim.
 
-About an hour
+About 1 hr
 
  [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.4583,144.8875>)
 
@@ -344,8 +328,6 @@ A resort spa high on the cliffs at Cape Schanck, with Southern Ocean views and a
 ### [Red Hill Truffles](<https://peninsulainsider.com.au/explore/red-hill-truffles/>)
 
 Follow trained dogs through a working truffle farm. A different truffle comes up in each season, so check the hunt calendar.
-
-Time varies
 
 [Book](<https://redhilltruffles.com/calendar>)
 
@@ -389,7 +371,7 @@ The Peninsula’s best bushwalk: 8.9 km one way past 200-year-old grasstrees, fe
 
 A bay beach with bathing boxes and the village a short walk away. Check conditions before you swim.
 
-About an hour   Good with kids
+About 1 hr   Good with kids
 
  [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.2659,145.0088>)
 
@@ -407,7 +389,7 @@ A small, design-led spa in the Jackalope vineyard: dark, sculptural treatment ro
 
 Pick your own strawberries from November to April, pay by weight, then finish with ice cream made from the farm’s fruit.
 
-Time varies   Good with kids
+Good with kids
 
 [Book](<https://www.sunnyridge.com.au/>)
 
@@ -451,7 +433,7 @@ A 1.8 km loop past Seawinds Gardens and the lookouts, with the bay on one side a
 
 White sand and calm bay water, small enough to feel private, with the Portsea Hotel two minutes up the hill.
 
-An hour or two
+1 to 2 hr
 
  [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3253,144.7061>)
 
@@ -483,7 +465,7 @@ Full day · Moderate walk
 
 A wide, exposed back beach for walking, often close to empty, and near enough to Peninsula Hot Springs to pair with a soak.
 
-About an hour
+About 1 hr
 
  [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.4008,144.8281>)
 
@@ -505,7 +487,7 @@ Robert Trent Jones Jr’s par-70 resort course: tree-lined fairways and elevated
 
 Shallow, sheltered bay water and a flat shoreline that runs for kilometres towards Mount Martha. Still check conditions on the day.
 
-An hour or two   Good with kids
+1 to 2 hr   Good with kids
 
  [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3184,144.9912>)
 
@@ -527,7 +509,7 @@ Thirty-six holes across the North and South courses, with a clubhouse that suits
 
 Rock pools to walk to and look at, best at low tide in calm conditions. Treat it as a viewing stop, not a swim.
 
-About an hour
+About 1 hr
 
  [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3519,144.7421>)
 
@@ -579,7 +561,7 @@ Three championship courses on one Cape Schanck plateau and a fourth at Frankston
 
 Before you go: times, access and conditions
 
-Times are guide estimates, not live conditions. Dollar signs on a spa are a price band from $ to $$$$, not a quoted price. Walking effort is shown where recorded; it is not an accessibility assessment. Check terrain, step-free access, toilets, shade and dog rules for your chosen stop.
+Times are guide estimates, not live conditions. Walking effort is shown where recorded; it is not an accessibility assessment. Check terrain, step-free access, toilets, shade and dog rules for your chosen stop.
 
 Use [Parks Victoria’s park notices](<https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park>), [VicEmergency warnings](<https://www.emergency.vic.gov.au/>) and [Beachsafe beach and patrol information](<https://www.beachsafe.org.au/>). These links do not confirm that a route or beach is suitable on your day.
 
@@ -589,15 +571,15 @@ Spring on the Peninsula · Sunset 8:24 PM
 
 Our editors mark each of these as a good spring outing.
 
-- Walk · Cape Schanck
+- Walk & beach · Cape Schanck
 
-### [Bushrangers Bay Walk](<https://peninsulainsider.com.au/explore/bushrangers-bay-walk/>)
+### [Bushrangers Bay](<https://peninsulainsider.com.au/explore/bushrangers-bay/>)
 
 A 5.4 km return through coastal scrub to a wild ocean bay. Steep stairs on the way back, and it is not a swimming beach.
 
 2 hr · Moderate walk
 
- [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.4909,144.8856>)
+ [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.4802,144.8789>)
 
 - Attraction · Shoreham
 
@@ -605,7 +587,7 @@ A 5.4 km return through coastal scrub to a wild ocean bay. Steep stairs on the w
 
 Australia’s oldest symmetrical hedge maze, a lavender labyrinth and a café that puts lavender in everything. Best in spring.
 
-Time varies   Good with kids
+Good with kids
 
 [Book](<https://www.ashcombemaze.com.au/>)
 
@@ -683,95 +665,9 @@ The Peninsula’s thermal heart - where the weekend slows all the way down.
 
 The gateway town - more accessible than the hinterland, still genuinely Peninsula.
 
-### Every town, by area
-
-**[Mornington & the Bay](<https://peninsulainsider.com.au/explore/regions/mornington-bay-coast/>)**
-
-- [Capel Sound](<https://peninsulainsider.com.au/explore/places/capel-sound/>)
-
-- [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
-
-- [McCrae](<https://peninsulainsider.com.au/explore/places/mccrae/>)
-
-- [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
-
-- [Mount Eliza](<https://peninsulainsider.com.au/explore/places/mount-eliza/>)
-
-- [Mount Martha](<https://peninsulainsider.com.au/explore/places/mount-martha/>)
-
-- [Rosebud](<https://peninsulainsider.com.au/explore/places/rosebud/>)
-
-- [Safety Beach](<https://peninsulainsider.com.au/explore/places/safety-beach/>)
-
-**[Red Hill & Merricks](<https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/>)**
-
-- [Arthurs Seat](<https://peninsulainsider.com.au/explore/places/arthurs-seat/>)
-
-- [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/>)
-
-- [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
-
-- [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
-
-- [Merricks Beach](<https://peninsulainsider.com.au/explore/places/merricks-beach/>)
-
-- [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
-
-- [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
-
-- [Point Leo](<https://peninsulainsider.com.au/explore/places/point-leo/>)
-
-- [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
-
-- [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
-
-- [Tuerong](<https://peninsulainsider.com.au/explore/places/tuerong/>)
-
-**[Sorrento & Portsea](<https://peninsulainsider.com.au/explore/regions/peninsula-tip/>)**
-
-- [Blairgowrie](<https://peninsulainsider.com.au/explore/places/blairgowrie/>)
-
-- [Point Nepean](<https://peninsulainsider.com.au/explore/places/point-nepean/>)
-
-- [Portsea](<https://peninsulainsider.com.au/explore/places/portsea/>)
-
-- [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
-
-- [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
-
-- [Tootgarook](<https://peninsulainsider.com.au/explore/places/tootgarook/>)
-
-**[Flinders & the Ocean Coast](<https://peninsulainsider.com.au/explore/regions/ocean-coast/>)**
-
-- [Boneo](<https://peninsulainsider.com.au/explore/places/boneo/>)
-
-- [Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)
-
-- [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
-
-- [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
-
-- [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
-
-- [St Andrews Beach](<https://peninsulainsider.com.au/explore/places/st-andrews-beach/>)
-
-**[Western Port](<https://peninsulainsider.com.au/explore/regions/western-port/>)**
-
-- [Bittern](<https://peninsulainsider.com.au/explore/places/bittern/>)
-
-- [Crib Point](<https://peninsulainsider.com.au/explore/places/crib-point/>)
-
-- [Hastings](<https://peninsulainsider.com.au/explore/places/hastings/>)
-
-- [Somers](<https://peninsulainsider.com.au/explore/places/somers/>)
-
-- [Stony Point](<https://peninsulainsider.com.au/explore/places/stony-point/>)
-
-- [Tyabb](<https://peninsulainsider.com.au/explore/places/tyabb/>)
-
 ## Turn it into a day
 
-“+ Trip” on any card adds it to My trip. The bookmark keeps a place for later. Or start from a day we have already planned, with the right lunch and the right bed.
+Gather your “+ Trip” places in My trip, or start from a day we have already planned, with the right lunch and the right bed.
 
 [Open My trip](<https://peninsulainsider.com.au/my-trip/>) [Browse our plans](<https://peninsulainsider.com.au/explore/plans/>) [Open the map](<https://peninsulainsider.com.au/map/>) [Saved places](<https://peninsulainsider.com.au/saved/>)
 
@@ -788,26 +684,6 @@ The gateway town - more accessible than the hinterland, still genuinely Peninsul
 - [With kids  Days that work for small legs and short tempers.](<https://peninsulainsider.com.au/explore/family-friendly/>)
 
 - [The golf guide  Public, resort and private courses side by side.](<https://peninsulainsider.com.au/explore/golf/>)
-
-### Getting your bearings
-
-- [Day trips](<https://peninsulainsider.com.au/explore/day-trips/>)
-
-- [Weekend trips](<https://peninsulainsider.com.au/explore/weekend-trips/>)
-
-- [Getting here](<https://peninsulainsider.com.au/explore/getting-here/>)
-
-- [Getting around](<https://peninsulainsider.com.au/explore/getting-around/>)
-
-- [What’s on this weekend](<https://peninsulainsider.com.au/whats-on/>)
-
-- [Summer](<https://peninsulainsider.com.au/explore/seasons/summer/>)
-
-- [Autumn](<https://peninsulainsider.com.au/explore/seasons/autumn/>)
-
-- [Winter](<https://peninsulainsider.com.au/explore/seasons/winter/>)
-
-- [Spring](<https://peninsulainsider.com.au/explore/seasons/spring/>)
 
 ## Stories for the day ahead
 
