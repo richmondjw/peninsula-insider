@@ -74,6 +74,11 @@ const AUTO = /\b(?:you pick|you choose|you decide|surprise me|anywhere|leave it 
 const PLAN = /\b(?:plan|build|create|make|organi[sz]e|sort|put together|map out|give)(?: (?:me|us|out))?(?: (?:a|an|my|our|the))?(?: \w+){0,3}? (?:plan|day|morning|afternoon|itinerary|outing|saturday|sunday|weekend)\b/;
 const MANY_DAYS = /\b(?:weekend|two days|three days|\d nights?|week)\b/;
 const SURPRISE = /^(?:surprise me|dealers choice|you (?:pick|choose|decide))\b/;
+// Whole-turn forms leave both options implicit. An explicit subject should still use normal retrieval.
+const BARE_COMPARISON = [
+  /^(?:which (?:one |of (?:these|those|them) )?(?:is )?(?:better|best)|whats better|compare (?:them|these|those)(?: two)?)$/,
+  /^which(?: one| of (?:the two|these(?: two)?|those(?: two)?|them))? (?:would|do) you (?:pick|choose|prefer|recommend)$/,
+];
 const ELSEWHERE = /^(?:somewhere else|another town|a different town)$/;
 const RAINY = /\b(?:rainy day rescue|rainy day plan|its raining|if it rains|wet day|indoor version|under a roof)\b/;
 const CRITIC = /\b(?:talk me out of (?:it|this)|rate my plan|critique my plan|what do you think of (?:my|this|our) plan|is (?:this|that) too much)\b/;
@@ -741,7 +746,7 @@ export function converse(index, question, state = null, context = {}) {
   };
 
   // Only the options the reader saw on the preceding reply can ground a bare comparison.
-  if (/^(?:which (?:one |of (?:these|those|them) )?(?:is )?(?:better|best)|whats better|compare (?:them|these|those)(?: two)?)$/.test(bare)) {
+  if (BARE_COMPARISON.some(pattern => pattern.test(bare))) {
     const cards = cardsFor(index, context.previousOptions);
     const pair = cards.length === 2;
     const lead = pair ? 'Here are the two guide entries. What matters most to you when choosing between them?'
