@@ -1086,7 +1086,10 @@ const starters = SHOW_ASK_PERSONA
         // Her reply was already on screen as it arrived, so it does not ease in again.
         let streamed = false;
         const thinPlan = result.reply.kind === 'none' && result.reply.mood;
-        if (talkOn && !result.reply.plan && !thinPlan && TALKABLE.has(result.reply.kind)) {
+        // Event answers must keep the calendar matcher’s dated, directly linked results.
+        const calendarReply = result.state?.filter?.kinds?.includes('event')
+          || result.reply.cards.some((card: Card) => card.href.startsWith('/whats-on/'));
+        if (!calendarReply && talkOn && !result.reply.plan && !thinPlan && TALKABLE.has(result.reply.kind)) {
           const waited = new AbortController();
           const timer = window.setTimeout(() => waited.abort(), TALK_WAIT_MS);
           const said = turns.filter((t) => t.role === 'you').slice(0, -1).map((t) => t.text);
@@ -1115,7 +1118,7 @@ const starters = SHOW_ASK_PERSONA
         // run the matcher again on its reading. What it says is PI talking; it
         // never carries a fact about a place.
         let aside: string | null = null;
-        if (!spoken && voiceOn && !result.reply.mood && (result.reply.kind === 'none' || result.reply.kind === 'help')) {
+        if (!calendarReply && !spoken && voiceOn && !result.reply.mood && (result.reply.kind === 'none' || result.reply.kind === 'help')) {
           const desk = await voice<{ say: string | null; rewrite: string | null }>('front-desk', { question: q, history: recent() }, signal);
           if (signal.aborted) { live.remove(); return; }
           if (typeof desk?.rewrite === 'string' && desk.rewrite.trim()) {
@@ -1202,7 +1205,7 @@ const starters = SHOW_ASK_PERSONA
         // past. Plans, critiques and refusals keep her own authored lines.
         let voiced = Boolean(spoken);
         if (spoken && places.length > 1 && personaOn) turn.call = places[0].href;
-        if (!spoken && voiceOn && places.length && ['results', 'named', 'place', 'nightlife', 'with'].includes(reply.kind)) {
+        if (!calendarReply && !spoken && voiceOn && places.length && ['results', 'named', 'place', 'nightlife', 'with'].includes(reply.kind)) {
           const waited = new AbortController();
           const timer = window.setTimeout(() => waited.abort(), NOTE_WAIT_MS);
           const said = await voice<{ say: string | null }>('voice', { question: q, cards: places.map((place) => place.href), history: recent() }, AbortSignal.any([signal, waited.signal]));
