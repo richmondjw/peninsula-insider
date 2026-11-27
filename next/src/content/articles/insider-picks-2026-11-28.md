@@ -1,6 +1,6 @@
 ---
-title: "Vault dining in Mornington, flannel flowers at Cape Schanck, and the spring market in Balnarring"
-dek: Book the old bank vault at The Bay Hotel, walk the Cape Schanck boardwalk while flannel flowers are still out, and catch Emu Plains Market in Balnarring before the summer crowds arrive.
+title: "Vault dining in Mornington, Cape Schanck lookouts, and a December market date"
+dek: Book the old bank vault at The Bay Hotel, keep to the signed boardwalk and lookouts at Cape Schanck, and plan for Emu Plains Market on 19 December. There is no market listed for 28 November.
 author: "editorial"
 houseByline: true
 publishedAt: 2026-11-28
@@ -29,9 +29,9 @@ faq:
   - question: "How do I book the vault dining room at The Bay Hotel Mornington?"
     answer: "Contact The Bay Hotel directly via their website or by phone. The vault is a private dining space, so it books out for group occasions - the earlier you call, the better. The Bay Hotel is on Main Street, Mornington."
   - question: "When does Emu Plains Market run and where exactly is it?"
-    answer: "Emu Plains Market runs Saturdays, 9am–2pm, at Emu Plains Reserve in Balnarring. It runs until 19 December 2026. No bookings needed - just turn up."
-  - question: "What is the Cape Schanck boardwalk like and how long does it take?"
-    answer: "The boardwalk from the Cape Schanck Lighthouse carpark descends to the basalt platform and back. Allow around 45 minutes return at an easy pace. Parks Victoria manages the site; check their website for any seasonal closures or lighthouse tour bookings."
+    answer: "The organiser lists no market on 28 November. The next market is Saturday 19 December 2026, 9 am to 2 pm, at Emu Plains Reserve, Coolart Road, Balnarring. The following twilight market is Saturday 16 January 2027, 3 pm to 8 pm. Check the organiser calendar before travelling."
+  - question: "What should I know before visiting the Cape Schanck boardwalk?"
+    answer: "Keep to the signed boardwalk and lookouts and follow on-site warnings. Parks Victoria warns that large unexpected waves may wash across the rock platform. Do not assume the rocks are safe because they look dry. Check current conditions before visiting."
 ---
 
 ---
@@ -46,21 +46,17 @@ Pair it with a glass at Store Ten beforehand, then walk the foreshore.
 
 ---
 
-**Cape Schanck boardwalk** is at its best on a clear November morning, when the flannel flowers along the cliff edge are still white and the basalt platform below is dry enough to walk without spray. The lighthouse marks the southern tip of the Mornington Peninsula, and the boardwalk from the carpark drops down through coastal scrub to the rock shelves in around twenty minutes.
+**Cape Schanck boardwalk** offers coastal views from the signed boardwalk and lookouts. Follow the signs and on-site warnings.
 
-What spring adds here specifically: flannel flowers on the headland approach, longer daylight for a late-afternoon descent, and the offshore swells that come up hard from the Southern Ocean without the winter fog obscuring the horizon. Bring shoes with grip. The basalt is sharp and uneven.
-
-The lighthouse precinct is managed by Parks Victoria. Tours of the lighthouse itself run on a seasonal schedule - check the Parks Victoria website for times and to book. Allow ninety minutes for the full loop and a proper look at the rock platform. Cape Schanck Road, Cape Schanck.
+Parks Victoria warns that large unexpected waves may wash across the rock platform. Dry-looking rocks are not an assurance of safe access. [Check Parks Victoria's current conditions](https://www.parks.vic.gov.au/places-to-see/sites/cape-schanck-day-visitor-area) before setting out.
 
 Pair the drive back through Flinders with a coffee stop at Flinders General Store.
 
 ---
 
-**Emu Plains Market** at Balnarring is a locals-know fixture that the summer crowd hasn't fully discovered yet - and late November, before the holiday rush hits, is the right time to go. The market runs at Emu Plains Reserve on Saturday mornings from 9am to 2pm, and it has the density of produce stalls that the bigger Peninsula markets often lose as they scale.
+**Emu Plains Market: plan for 19 December, not 28 November.** The organiser's calendar lists the next market for **Saturday 19 December 2026, 9 am to 2 pm**, at Emu Plains Reserve, Coolart Road, Balnarring. It does not list a market on 28 November.
 
-What you find here is seasonal and genuinely local: growers selling directly, small-batch preserves, cut flowers, and the occasional bread or pastry run from someone who bakes only for markets. The standard is high because the regulars are exacting. This is not a craft fair with a few tomatoes at the edge - it is primarily a food and produce market.
-
-No bookings needed. Turn up before 10am for the best selection. Emu Plains Reserve, Balnarring. The market runs until Saturday 19 December 2026 - after that it wraps for the summer break.
+The following date is a twilight market on **Saturday 16 January 2027, 3 pm to 8 pm**. [Check the organiser's calendar](https://www.emuplainsmarket.com.au/) before travelling.
 
 Pair it with a drive through Merricks North for a cellar door visit on the way home.
 
@@ -70,6 +66,8 @@ Pair it with a drive through Merricks North for a cellar door visit on the way h
 
 **The Bay Hotel Mornington** - Main Street, Mornington. Book the vault for group dining via the hotel website. Gastropub kitchen, Peninsula wine list.
 
-**Cape Schanck Boardwalk** - Cape Schanck Road, Cape Schanck. Free entry to the headland walk; lighthouse tours bookable via Parks Victoria. Allow 90 minutes. Flannel flowers at peak in late November.
+**Cape Schanck Boardwalk** - Keep to the signed boardwalk and lookouts. Unexpected waves can wash across the rock platform; [check current conditions](https://www.parks.vic.gov.au/places-to-see/sites/cape-schanck-day-visitor-area).
 
-**Emu Plains Market** - Emu Plains Reserve, Balnarring. Saturdays 9am–2pm, running until 19 December 2026. No booking required.
+**Emu Plains Market** - No market listed for 28 November. Next: 19 December 2026, 9 am to 2 pm; then 16 January 2027, 3 pm to 8 pm. Emu Plains Reserve, Coolart Road, Balnarring. [Check dates](https://www.emuplainsmarket.com.au/).
+
+*Correction: The earlier version implied a market on 28 November and a weekly schedule, and gave unsupported walking times and a dry-rock assurance at Cape Schanck. Those claims have been removed.*
