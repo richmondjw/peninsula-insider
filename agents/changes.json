@@ -1,28 +1,20 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-26T20:20:23.632Z",
+  "generatedAt": "2026-11-27T08:06:43.657Z",
   "baselineAvailable": true,
-  "fromSnapshot": "7ca9a96533936bd9aa268b81277f7eb5b17aab1a17789eb7e5857603ac6c172f",
-  "toSnapshot": "3e5e38d8d6b97aa76f9575b02a9b0df9b6c422ca6f3986e77665cdcafe37a1a8",
-  "previousGeneratedAt": "2026-11-26T19:26:16.691Z",
+  "fromSnapshot": "3e5e38d8d6b97aa76f9575b02a9b0df9b6c422ca6f3986e77665cdcafe37a1a8",
+  "toSnapshot": "8e848309356d45c9bbf1b3b6477e67d2fe88e17c19ac5ac854931f7bbbe6a8ab",
+  "previousGeneratedAt": "2026-11-26T20:20:23.632Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 2,
+  "count": 1,
   "changes": [
     {
-      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-27/",
-      "kind": "representation-added",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-27/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-27/index.md",
-      "contentSha256": "9da0548bd3edae9379419d7c461c3f0fae86f9cb027017afa8bdc41393b9b1ff",
-      "previousContentSha256": null
-    },
-    {
-      "id": "https://peninsulainsider.com.au/picks/",
+      "id": "https://peninsulainsider.com.au/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/picks/",
-      "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
-      "contentSha256": "42ed65447476e796e9caa5d1f79f6b3ec44d753e5c30ce817e8e4ab3859ae9c2",
-      "previousContentSha256": "52eab693bbfac5a0824ef4f0d438180dc4d37a1a9d955dad90d9c7a08329227d"
+      "canonicalUrl": "https://peninsulainsider.com.au/",
+      "markdownUrl": "https://peninsulainsider.com.au/index.md",
+      "contentSha256": "a046d47b2e64e61ca62ad19acaea0703d148e08d149fbc9c9ceeed71d1c6deb0",
+      "previousContentSha256": "1b308edf76e396c120e3c3efe36277d823a9847ee3ae8402c7ac0ed4b13eef47"
     }
   ]
 }

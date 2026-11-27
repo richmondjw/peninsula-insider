@@ -77,14 +77,6 @@ Merricks
 
 Swipe or scroll through the picks
 
-- ### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
-
-Sam O’Connell plays Spike Bar this Saturday, 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
-
-Sat, 28 Nov   Peppers Moonah Links   Every Saturday
-
-Event details checked 16 Nov 2026 · [Organiser’s page](<https://www.moonahlinks.com.au/cms/whats-on/>)
-
 - ### [Brad Kennedy Live at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/brad-kennedy-live-at-peppers-moonah-links-resort-2026-11-28/>)
 
 Brad Kennedy plays the Spike Bar at Peppers Moonah Links Resort in Fingal, from 5pm to 8pm.
@@ -100,6 +92,14 @@ Hawkes Farm in Boneo holds its Meet the Makers market on the last Saturday of ea
 Sat, 28 Nov   Hawkes Farm   Market
 
 Event details checked 9 Nov 2026 · [Organiser’s page](<https://store.hawkesfarm.com.au/blogs/news/meet-the-makers-market>)
+
+- ### [November Cellar Door Opening](<https://peninsulainsider.com.au/whats-on/november-cellar-door-opening-2026-11-28/>)
+
+Taste and purchase wines while enjoying a guided tour of Elgee Park’s sculpture collection. Starts 12pm.
+
+Sat, 28 Nov   Elgee Park   Exhibition
+
+Event details checked 9 Nov 2026 · [Organiser’s page](<https://www.elgeeparkwines.com.au/news/november-cellar-door-opening>)
 
 This season · Spring
 
