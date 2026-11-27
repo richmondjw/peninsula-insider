@@ -15,6 +15,8 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 
 ## Recent selections
 
+- [Vault dining in Mornington, flannel flowers at Cape Schanck, and the spring market in Balnarring](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-28/>) - Book the old bank vault at The Bay Hotel, walk the Cape Schanck boardwalk while flannel flowers are still out, and catch Emu Plains Market in Balnarring before the summer crowds arrive.
+
 - [Balnarring Bakehouse, the Flinders coastal clifftop, and Pub Carols in Main Ridge](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-27/>) - A warm pie from Balnarring's village bakery, the West Head to Flinders cliff walk in full spring bloom, and singalong carols kicking off at The Pig & Whistle on Thursday.
 
 - [Avani Syrah, a Seawinds Garden walk, and pub carols in Main Ridge](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-26/>) - Taste Syrah at Avani in Red Hill South, walk to the bay lookouts at Seawinds Garden, or plan a December dinner and singalong in Main Ridge.
@@ -36,8 +38,6 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 - [Peninsula Insider Picks: 18 November 2026](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-18/>) - The Heritage Balnarring's beer garden in spring flower, the VineHop Festival across six Mount Martha venues on Saturday, and the National Works on Paper closing Sunday at MPRG.
 
 - [Flinders Sourdough, the Arthurs Seat ridge, and NWOP closing Sunday](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-17/>) - A Beach Bun from Flinders Sourdough's wood-fired oven, the Serafino Track on Arthurs Seat in full spring flower, and the National Works on Paper wrapping up at Mornington Peninsula Regional Gallery this Sunday.
-
-- [Crittenden's skin-contact experiments, a clifftop bloom walk, and the Emu Plains market before summer crowds](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-16/>) - Skin-contact amphora wines at Crittenden Estate in Dromana, coastal teatree in flower on the Cape Schanck boardwalk, and Saturday morning at Emu Plains Market in Balnarring.
 
 ## Planning a particular weekend?
 
