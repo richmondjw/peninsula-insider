@@ -997,8 +997,12 @@ const factual = place.data.factualLede ?? '';
     color: rgba(255,255,255,0.7);
   }
   @media (max-width: 600px) {
+    .pdv2-hero:not(.pdv2-hero--editorial) {
+      /* Leave room for the guide below, even in an in-app browser. */
+      min-height: clamp(14rem, 82vw, 20rem);
+      min-height: clamp(14rem, min(82vw, 42svh), 20rem);
+    }
     .pdv2-hero {
-      min-height: 70vh;
       flex-direction: column;
       justify-content: flex-end;
       align-items: stretch;
@@ -1008,6 +1012,7 @@ const factual = place.data.factualLede ?? '';
       padding-inline: max(1.25rem, env(safe-area-inset-left)) max(1.25rem, env(safe-area-inset-right));
       padding-bottom: 0.75rem;
     }
+    .pdv2-hero:not(.pdv2-hero--editorial) .pdv2-hero__inner { padding-top: 2rem; }
     .pdv2-hero__credit {
       position: relative;
       right: auto;
