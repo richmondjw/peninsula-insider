@@ -60,6 +60,8 @@ function roleOf(record) {
 const WHO = [
   ['family', /\b(?:kids?|children|family|toddlers?|bab(?:y|ies)|little ones?|grandkids?)\b/],
   ['couple', /\b(?:two of us|couple|partner|wife|husband|girlfriend|boyfriend|date|anniversary|romantic|honeymoon)\b/],
+  // A headcount can be supplied without saying anything about the relationship.
+  ['pair', /\bfor (?:two|2)(?: (?:people|adults|guests)\b|$| (?=in\b|near\b|around\b|at\b|on\b|this\b|tomorrow\b|today\b))/],
   ['group', /\b(?:group|friends|mates|girls|hens?|bucks?|\d+ of us|(?:three|four|five|six|seven|eight|nine|ten) of us)\b/],
   ['solo', /\b(?:just me|solo|alone|myself|on my own)\b/],
 ];
@@ -737,6 +739,15 @@ export function converse(index, question, state = null, context = {}) {
     const flags = parseQuestion(asked, index, context).flags;
     return [MANY_DAYS.test(bare) ? PLAN_NOTES.oneDay : null, flags.price ? pick(REFUSALS.price, daySeed(bare)) : null].filter(Boolean);
   };
+
+  // Only the options the reader saw on the preceding reply can ground a bare comparison.
+  if (/^(?:which (?:one |of (?:these|those|them) )?(?:is )?(?:better|best)|whats better|compare (?:them|these|those)(?: two)?)$/.test(bare)) {
+    const cards = cardsFor(index, context.previousOptions);
+    const pair = cards.length === 2;
+    const lead = pair ? 'Here are the two guide entries. What matters most to you when choosing between them?'
+      : cards.length === 1 ? `What would you like to compare ${cards[0].title} with?` : 'Which two places or options would you like me to compare?';
+    return finish({ pi, reply: { kind: 'comparison', lead, notes: pair ? [footer(index)] : [], cards: pair ? cards : [], links: [], chips: [] } });
+  }
 
   // The Tie-breaker. While a vote is open a place's name is a vote and "count"
   // ends it. Anything else leaves the vote behind.

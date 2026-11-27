@@ -1072,7 +1072,8 @@ const starters = SHOW_ASK_PERSONA
 
       try {
         const index = await loadAskIndex();
-        const context = { pagePath: location.pathname };
+        const previous = [...turns].reverse().find((turn): turn is PiTurn => turn.role === 'pi');
+        const context = { pagePath: location.pathname, previousOptions: previous?.places?.map((place) => place.href) || [] };
         let result = matchGuides(index, q, engine, context);
         if (!result) throw new Error(READER_ERROR);
 
