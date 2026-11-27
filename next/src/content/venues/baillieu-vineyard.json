@@ -1,15 +1,15 @@
 {
   "slug": "baillieu-vineyard",
-  "name": "Baillieu Vineyard",
+  "name": "Baillieu wines at Merricks Store",
   "type": "winery",
   "place": "merricks",
   "zone": "red-hill",
   "coordinates": {
-    "lat": -38.3634,
-    "lng": 145.0982
+    "lat": -38.4022,
+    "lng": 145.1157
   },
-  "address": "51 Stanleys Rd, Merricks VIC 3916",
-  "website": "https://merricksstore.com.au",
+  "address": "3460 Frankston-Flinders Road, Merricks VIC 3916",
+  "website": "https://merricksstore.com.au/",
   "priceBand": "$$",
   "authority": {
     "awards": [
@@ -17,15 +17,15 @@
     ],
     "hats": 0
   },
-  "signature": "A thoughtfully managed Merricks estate making elegant Chardonnay and Pinot Noir that rewards the drive to find it.",
-  "editorNote": "Baillieu Vineyard is the kind of place the Peninsula wine crowd refers to in lowered voices, not because it is a secret, but because it is genuinely under-visited. Small, thoughtfully managed, and tucked along a quiet back road, Baillieu produces elegant Chardonnay and Pinot Noir from a Merricks site that rarely makes the day-trip itineraries.\n\nThe cellar door is small and the experience rewards people who come with a little curiosity. There is no kitchen, no crowd, no queue. There is the winemaker or a senior team member, a careful flight, and, if the afternoon runs that way, a walk through the vines. The wines reward a second glass; they are the kind of Peninsula bottlings that open up rather than announce themselves.\n\nCheck visiting hours before driving, Baillieu runs a smaller schedule than the headline estates. Worth the effort.",
-  "whyWeGo": "The cellar door the Peninsula wine crowd refers to in lowered voices, not a secret, but genuinely under-visited, and better for it.",
+  "signature": "Merricks General Wine Store is the public cellar door for Baillieu wines. The vineyard itself is not open to visitors.",
+  "editorNote": "Merricks General Wine Store is the public cellar door for Baillieu wines. The vineyard itself is not open to visitors.\n\nThe Store lists cellar door tastings and sales from 10 am to 5 pm daily. The Store offers complimentary tastings for individuals. Groups of up to six need an appointment and usually pay a tasting fee. Bistro reservations are separate.",
+  "whyWeGo": "Taste Baillieu and Elgee Park wines at one stop in Merricks, with the option to book lunch separately.",
   "bestFor": [
     "Cellar door visits",
     "Wine lovers",
     "Couples"
   ],
-  "ifOnlyOneThing": "Book a tasting and stay long enough for a proper glass, these wines open up rather than announce themselves.",
+  "ifOnlyOneThing": "Go to Merricks Store for the tasting, not the vineyard. Contact the Store in advance for a group.",
   "pairWith": [
     "Elgee Park",
     "Merricks General Wine Store"
@@ -54,14 +54,18 @@
   },
   "gallery": [],
   "featuredPartner": false,
-  "lastVerified": "2026-04-09",
+  "lastVerified": "2026-11-27",
   "publishedAt": "2026-04-09",
-  "bookingUrl": "https://merricksstore.com.au",
-  "bookingProvider": "direct",
   "knownFor": [
-    "Under-Visited Merricks Estate",
-    "Elegant Chardonnay",
-    "Intimate Cellar Door",
-    "Vine Walk Access"
-  ]
+    "Baillieu wines",
+    "Public tastings at Merricks Store",
+    "Group tastings by appointment"
+  ],
+  "editorialProvenance": {
+    "method": "researched",
+    "reviewedOn": "2026-11-27",
+    "checkedOn": "2026-11-27",
+    "checkedBy": "desk",
+    "source": "Public cellar door, visiting address and opening hours checked against https://merricksstore.com.au/; tasting arrangements confirmed by the operator on 27 November 2026."
+  }
 }

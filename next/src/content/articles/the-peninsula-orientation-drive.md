@@ -86,7 +86,7 @@ If your drive falls on a Hill & Ridge Community Market date, the Red Hill Recrea
 
 ## Stop 4  -  Merricks General Wine Store (11:45)
 
-Lunch stop. **Merricks General Wine Store** occupies the old village general store at Merricks, and it is among the most atmospheric low-friction lunches on the Peninsula. Not a hatted restaurant. Not a cellar-door degustation. A daylit dining room with paddock views, a short menu that leans on a wood oven, and wine from the Baillieu family estate out the back.
+Lunch stop. **Merricks General Wine Store** occupies the old village general store at Merricks, and it is among the most atmospheric low-friction lunches on the Peninsula. Not a hatted restaurant. Not a cellar-door degustation. A daylit dining room with paddock views, a short menu that leans on a wood oven, and Baillieu wines poured at the Store’s cellar door. The vineyard itself is not open to visitors.
 
 Order a pizza, a salad, a glass of the estate chardonnay. Sit for forty-five minutes. This meal tells you whether the Peninsula's version of country lunch suits you, and the rest of the region's pricier rooms make sense from there.
 
