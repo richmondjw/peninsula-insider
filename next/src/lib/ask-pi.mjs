@@ -60,6 +60,8 @@ function roleOf(record) {
 const WHO = [
   ['family', /\b(?:kids?|children|family|toddlers?|bab(?:y|ies)|little ones?|grandkids?)\b/],
   ['couple', /\b(?:two of us|couple|partner|wife|husband|girlfriend|boyfriend|date|anniversary|romantic|honeymoon)\b/],
+  // A headcount can be supplied without saying anything about the relationship.
+  ['pair', /\bfor (?:two|2)(?: (?:people|adults|guests)\b|$| (?=in\b|near\b|around\b|at\b|on\b|this\b|tomorrow\b|today\b))/],
   ['group', /\b(?:group|friends|mates|girls|hens?|bucks?|\d+ of us|(?:three|four|five|six|seven|eight|nine|ten) of us)\b/],
   ['solo', /\b(?:just me|solo|alone|myself|on my own)\b/],
 ];
@@ -72,6 +74,12 @@ const AUTO = /\b(?:you pick|you choose|you decide|surprise me|anywhere|leave it 
 const PLAN = /\b(?:plan|build|create|make|organi[sz]e|sort|put together|map out|give)(?: (?:me|us|out))?(?: (?:a|an|my|our|the))?(?: \w+){0,3}? (?:plan|day|morning|afternoon|itinerary|outing|saturday|sunday|weekend)\b/;
 const MANY_DAYS = /\b(?:weekend|two days|three days|\d nights?|week)\b/;
 const SURPRISE = /^(?:surprise me|dealers choice|you (?:pick|choose|decide))\b/;
+// Whole-turn forms leave both options implicit. An explicit subject should still use normal retrieval.
+const BARE_COMPARISON = [
+  /^(?:which (?:one |of (?:these|those|them) )?(?:is )?(?:better|best)|whats better)$/,
+  /^(?:(?:can|could|would) you )?compare (?:the two|them|these(?: two)?|those(?: two)?)$/,
+  /^which(?: one| of (?:the two|these(?: two)?|those(?: two)?|them))? (?:would|do) you (?:pick|choose|prefer|recommend)$/,
+];
 const ELSEWHERE = /^(?:somewhere else|another town|a different town)$/;
 const RAINY = /\b(?:rainy day rescue|rainy day plan|its raining|if it rains|wet day|indoor version|under a roof)\b/;
 const CRITIC = /\b(?:talk me out of (?:it|this)|rate my plan|critique my plan|what do you think of (?:my|this|our) plan|is (?:this|that) too much)\b/;
@@ -737,6 +745,15 @@ export function converse(index, question, state = null, context = {}) {
     const flags = parseQuestion(asked, index, context).flags;
     return [MANY_DAYS.test(bare) ? PLAN_NOTES.oneDay : null, flags.price ? pick(REFUSALS.price, daySeed(bare)) : null].filter(Boolean);
   };
+
+  // Only the options the reader saw on the preceding reply can ground a bare comparison.
+  if (BARE_COMPARISON.some(pattern => pattern.test(bare))) {
+    const cards = cardsFor(index, context.previousOptions);
+    const pair = cards.length === 2;
+    const lead = pair ? 'Here are the two guide entries. What matters most to you when choosing between them?'
+      : cards.length === 1 ? `What would you like to compare ${cards[0].title} with?` : 'Which two places or options would you like me to compare?';
+    return finish({ pi, reply: { kind: 'comparison', lead, notes: pair ? [footer(index)] : [], cards: pair ? cards : [], links: [], chips: [] } });
+  }
 
   // The Tie-breaker. While a vote is open a place's name is a vote and "count"
   // ends it. Anything else leaves the vote behind.

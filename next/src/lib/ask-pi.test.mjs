@@ -473,3 +473,29 @@ test('the Tie-breaker: a tie or no votes is her call, and a real question leaves
   // Ordinary questions that mention deciding are not a vote.
   assert.notEqual(converse(index, "we can't decide between a winery lunch and a pub in Flinders for six people", null, { today }).reply.kind, 'vote');
 });
+
+test('a bare comparison asks for the missing options and uses only previously displayed guide pages', () => {
+  const compare = (previousOptions) => converse(index, 'Which is better?', null, { today, previousOptions }).reply;
+  for (const question of ['Which of the two would you pick?', 'Which do you prefer?', 'Can you compare the two?', 'Which one would you choose?']) {
+    assert.equal(converse(index, question, null, { today }).reply.kind, 'comparison');
+  }
+  assert.notEqual(converse(index, 'What do you prefer about Red Hill?', null, { today }).reply.kind, 'comparison');
+  assert.notEqual(converse(index, 'Can you compare the two wineries in Red Hill?', null, { today }).reply.kind, 'comparison');
+  assert.equal(compare([]).kind, 'comparison');
+  assert.equal(compare([]).cards.length, 0);
+  const paths = index.records.slice(0, 3).map(record => record.u);
+  assert.ok(compare([paths[0]]).lead.includes(index.records[0].t));
+  assert.deepEqual(compare(paths.slice(0, 2)).cards.map(item => item.href), paths.slice(0, 2));
+  assert.match(compare(paths.slice(0, 2)).notes.join(' '), /Peninsula Insider/);
+  assert.equal(compare(paths).cards.length, 0);
+  assert.equal(compare(['/unknown/']).cards.length, 0);
+  assert.notEqual(converse(index, 'Which is better for lunch in Flinders?', null, { today }).reply.kind, 'comparison');
+});
+
+test('a plan accepts a two-person headcount without assuming romance or treating a duration as party size', () => {
+  const ask = question => converse(index, question, null, { today });
+  const result = ask('Plan a morning in Red Hill for two');
+  assert.notEqual(result.reply.kind, 'interview');
+  assert.equal(ask('Plan a morning for 2 people in Flinders').state.pi.plan.brief.who, 'pair');
+  assert.equal(ask('Plan a morning in Red Hill for two hours').state.pi.interview.step, 'who');
+});
