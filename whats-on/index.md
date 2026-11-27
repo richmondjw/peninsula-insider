@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/whats-on/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-11-27
+Modified: 2026-11-28
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -15,11 +15,11 @@ Find the date, place and reason to go, then check with the organiser before you 
 
 ## Reasons to go
 
-- Fri, 27 Nov · Mornington
+- Sat, 28 Nov · 5pm–8pm · Fingal
 
-### [Brown Sugar - Rolling Stones](<https://peninsulainsider.com.au/whats-on/brown-sugar-rolling-stones-2026-11-27/>)
+### [Brad Kennedy Live at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/brad-kennedy-live-at-peppers-moonah-links-resort-2026-11-28/>)
 
-Rolling Stones tribute band Brown Sugar plays the upstairs Bandroom at The Bay Hotel.
+Brad Kennedy plays the Spike Bar at Peppers Moonah Links Resort in Fingal, from 5pm to 8pm.
 
 Live Music   Checked 9 Nov 2026
 
@@ -31,41 +31,15 @@ Hawkes Farm in Boneo holds its Meet the Makers market on the last Saturday of ea
 
 Markets   Checked 9 Nov 2026
 
-- Sun, 29 Nov · 1pm–4pm · Boneo
+- Sat, 28 Nov · Merricks North
 
-### [Dave Campbell Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/dave-campbell-live-at-peninsula-beer-garden-2026-11-29/>)
+### [November Cellar Door Opening](<https://peninsulainsider.com.au/whats-on/november-cellar-door-opening-2026-11-28/>)
 
-Dave Campbell plays an afternoon set at Peninsula Beer Garden in Boneo, from 1pm to 4pm.
+Taste and purchase wines while enjoying a guided tour of Elgee Park’s sculpture collection. Starts 12pm.
 
-Live Music   Checked 9 Nov 2026
+Exhibitions   Checked 9 Nov 2026
 
 ## Day by day
-
-### Friday 27 November
-
-- 5pm
-
-[Emmie Li Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/emmie-li-live-at-peninsula-beer-garden-2026-11-27/>)
-
-Singer-songwriter and pianist Emmie Li plays her own songs and well-known covers at Peninsula Beer Garden in Boneo, from 5pm to 8pm.
-
-Boneo · Live Music · Checked 9 Nov 2026
-
-- 6pm
-
-[Ben Smith Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
-
-Ben Smith plays Jetty Road Brewery in Dromana from 6pm, part of the brewery's weekend live music. The full menu runs from midday.
-
-Dromana · Live Music · Checked 9 Nov 2026
-
-- 8pm
-
-[Luke O'Shea & Lyn Bowtell Live at The Pig & Whistle Tavern](<https://peninsulainsider.com.au/whats-on/luke-o-shea-and-lyn-bowtell-live-at-the-pig-and-whistle-tavern-2026-11-27/>)
-
-Country musicians Luke O'Shea and Lyn Bowtell bring their Love and Laughter Tour to the Pig & Whistle Tavern in Main Ridge, from 8pm to 10pm.
-
-Main Ridge · Live Music · Checked 9 Nov 2026
 
 ### Saturday 28 November
 
@@ -85,14 +59,6 @@ Sam O’Connell plays Spike Bar this Saturday, 5pm to 8pm. Make it an evening st
 
 Fingal · Live Music · Recurring weekly · Checked 16 Nov 2026
 
-- 5pm
-
-[Brad Kennedy Live at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/brad-kennedy-live-at-peppers-moonah-links-resort-2026-11-28/>)
-
-Brad Kennedy plays the Spike Bar at Peppers Moonah Links Resort in Fingal, from 5pm to 8pm.
-
-Fingal · Live Music · Checked 9 Nov 2026
-
 - 6pm
 
 [DJ Sophie Joy Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/dj-sophie-joy-live-at-jetty-road-brewery-2026-11-28/>)
@@ -101,13 +67,15 @@ DJ Sophie Joy plays Jetty Road Brewery in Dromana from 6pm to 9pm, part of the b
 
 Dromana · Live Music · Checked 9 Nov 2026
 
-- [November Cellar Door Opening](<https://peninsulainsider.com.au/whats-on/november-cellar-door-opening-2026-11-28/>)
-
-Taste and purchase wines while enjoying a guided tour of Elgee Park’s sculpture collection. Starts 12pm.
-
-Merricks North · Exhibitions · Checked 9 Nov 2026
-
 ### Sunday 29 November
+
+- 1pm
+
+[Dave Campbell Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/dave-campbell-live-at-peninsula-beer-garden-2026-11-29/>)
+
+Dave Campbell plays an afternoon set at Peninsula Beer Garden in Boneo, from 1pm to 4pm.
+
+Boneo · Live Music · Checked 9 Nov 2026
 
 - 1pm
 

@@ -55,6 +55,16 @@ The Briars craft and produce market in Mount Martha, from 9am to 3pm.
 
  Event · Markets](<https://peninsulainsider.com.au/whats-on/the-mount-martha-briars-market-2026-12-05/>)
 
+- [Sun, 27 Dec
+
+### The Mount Martha Briars Twilight Market
+
+Mount Martha
+
+The twilight edition of the Briars craft and produce market in Mount Martha, from 3pm to 8pm.
+
+ Event · Markets](<https://peninsulainsider.com.au/whats-on/the-mount-martha-briars-twilight-market-2026-12-27/>)
+
 Running an event in Mount Martha?
 
  [Submit an event](<https://peninsulainsider.com.au/submit/?type=event>)

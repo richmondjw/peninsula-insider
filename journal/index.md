@@ -655,32 +655,32 @@ Month
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
-- [Fri, 27 Nov
+- [Sat, 28 Nov
 
-### Ben Smith Live at Jetty Road Brewery
+### ✦ Acoustic Saturdays at Peppers Moonah Links
+
+Fingal
+
+Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+
+- [Sat, 28 Nov
+
+### Brad Kennedy Live at Peppers Moonah Links Resort
+
+Fingal
+
+Brad Kennedy plays the Spike Bar at Peppers Moonah Links Resort in Fingal, from 5pm to 8pm.
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/brad-kennedy-live-at-peppers-moonah-links-resort-2026-11-28/>)
+
+- [Sat, 28 Nov
+
+### DJ Sophie Joy Live at Jetty Road Brewery
 
 Dromana
 
-Ben Smith plays Jetty Road Brewery in Dromana from 6pm, part of the brewery's weekend live music. The full menu runs from midday.
+DJ Sophie Joy plays Jetty Road Brewery in Dromana from 6pm to 9pm, part of the brewery's regular weekend music.
 
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
-
-- [Fri, 27 Nov
-
-### Brown Sugar - Rolling Stones
-
-Mornington
-
-Rolling Stones tribute band Brown Sugar plays the upstairs Bandroom at The Bay Hotel. Standing show from 8.30pm, with pre-show dinner and drinks upstairs from 6pm. Access is by stairs only.
-
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/brown-sugar-rolling-stones-2026-11-27/>)
-
-- [Fri, 27 Nov
-
-### Emmie Li Live at Peninsula Beer Garden
-
-Boneo
-
-Singer-songwriter and pianist Emmie Li plays her own songs and well-known covers at Peninsula Beer Garden in Boneo, from 5pm to 8pm.
-
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/emmie-li-live-at-peninsula-beer-garden-2026-11-27/>)
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/dj-sophie-joy-live-at-jetty-road-brewery-2026-11-28/>)

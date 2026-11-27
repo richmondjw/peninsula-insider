@@ -57,6 +57,16 @@ Coming up in Red Hill, from our events listings.
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
+- [Sun, 27 Dec
+
+### Celebrate with Andrew Farrell Live at Fenian Wines
+
+Red Hill
+
+Fenian Wines holds its end-of-year celebration in Red Hill on the last Sunday of 2026, with Andrew Farrell playing live from noon to 4pm.
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/celebrate-with-andrew-farrell-live-at-fenian-wines-2026-12-27/>)
+
 - [Sat, 5 Dec
 
 ### Chris Gogerly Live at Fenian Wines
@@ -76,16 +86,6 @@ Red Hill
 James Vincent plays an afternoon set at Fenian Wines in Red Hill, with catering by Three Little Chefs.
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/james-vincent-live-at-fenian-wines-2026-12-12/>)
-
-- [Sat, 19 Dec
-
-### Tony J King Live at Fenian Wines
-
-Red Hill
-
-Tony J King plays an afternoon set at Fenian Wines in Red Hill, with food by Brothl Ramen.
-
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/tony-j-king-live-at-fenian-wines-2026-12-19/>)
 
 Running an event in Red Hill?
 

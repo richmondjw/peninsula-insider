@@ -9,41 +9,9 @@ What's On
 
 # What's on in November 2026
 
-Events across the Mornington Peninsula in November, day by day, from Fri 27 – Sun 29 November. Each listing links to its own page with times, the place and where to book. Dates can change, so check the organiser before you travel.
+Events across the Mornington Peninsula in November, day by day, from Sat 28 – Sun 29 November. Each listing links to its own page with times, the place and where to book. Dates can change, so check the organiser before you travel.
 
 [Submit an event](<https://peninsulainsider.com.au/submit/?type=event>)
-
-## Friday 27 November
-
-- 5pm
-
-[Emmie Li Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/emmie-li-live-at-peninsula-beer-garden-2026-11-27/>)
-
-Singer-songwriter and pianist Emmie Li plays her own songs and well-known covers at Peninsula Beer Garden in Boneo, from 5pm to 8pm.
-
-Boneo · Live Music · Checked 9 Nov 2026
-
-- 6pm
-
-[Ben Smith Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
-
-Ben Smith plays Jetty Road Brewery in Dromana from 6pm, part of the brewery's weekend live music. The full menu runs from midday.
-
-Dromana · Live Music · Checked 9 Nov 2026
-
-- 8pm
-
-[Luke O'Shea & Lyn Bowtell Live at The Pig & Whistle Tavern](<https://peninsulainsider.com.au/whats-on/luke-o-shea-and-lyn-bowtell-live-at-the-pig-and-whistle-tavern-2026-11-27/>)
-
-Country musicians Luke O'Shea and Lyn Bowtell bring their Love and Laughter Tour to the Pig & Whistle Tavern in Main Ridge, from 8pm to 10pm.
-
-Main Ridge · Live Music · Checked 9 Nov 2026
-
-- [Brown Sugar - Rolling Stones](<https://peninsulainsider.com.au/whats-on/brown-sugar-rolling-stones-2026-11-27/>)
-
-Rolling Stones tribute band Brown Sugar plays the upstairs Bandroom at The Bay Hotel. Standing show from 8.30pm, with pre-show dinner and drinks upstairs from 6pm. Access is by stairs only.
-
-Mornington · Live Music · Checked 9 Nov 2026
 
 ## Saturday 28 November
 

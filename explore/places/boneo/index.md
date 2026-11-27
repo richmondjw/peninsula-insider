@@ -57,15 +57,15 @@ Dave Campbell plays an afternoon set at Peninsula Beer Garden in Boneo, from 1pm
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/dave-campbell-live-at-peninsula-beer-garden-2026-11-29/>)
 
-- [Fri, 27 Nov
+- [Sat, 28 Nov
 
-### Emmie Li Live at Peninsula Beer Garden
+### Meet The Makers at Hawkes Farm
 
 Boneo
 
-Singer-songwriter and pianist Emmie Li plays her own songs and well-known covers at Peninsula Beer Garden in Boneo, from 5pm to 8pm.
+Hawkes Farm in Boneo holds its Meet the Makers market on the last Saturday of each month from September to April, with local artisans, makers and small-batch producers.
 
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/emmie-li-live-at-peninsula-beer-garden-2026-11-27/>)
+ Event · Markets](<https://peninsulainsider.com.au/whats-on/meet-the-makers-at-hawkes-farm-2026-11-28/>)
 
 Running an event in Boneo?
 

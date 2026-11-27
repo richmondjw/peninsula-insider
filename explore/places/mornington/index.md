@@ -57,16 +57,6 @@ Coming up in Mornington, from our events listings.
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
-- [Fri, 27 Nov
-
-### Brown Sugar - Rolling Stones
-
-Mornington
-
-Rolling Stones tribute band Brown Sugar plays the upstairs Bandroom at The Bay Hotel. Standing show from 8.30pm, with pre-show dinner and drinks upstairs from 6pm. Access is by stairs only.
-
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/brown-sugar-rolling-stones-2026-11-27/>)
-
 - [Sat, 5 Dec
 
 ### Gareth Sansom at MPRG
@@ -86,6 +76,16 @@ Mornington
 An afternoon race meeting at Mornington Racecourse in the Mornington Christmas Series, presented by Barmah Park Vineyard and pitched at work Christmas parties.
 
  Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/mornington-christmas-series-at-mornington-racecourse-2026-12-04/>)
+
+- [Wed, 16 Dec
+
+### Mornington Twilight Christmas Series at Mornington Racecourse
+
+Mornington
+
+A twilight race meeting at Mornington Racecourse on Wednesday 16 December, presented by Barmah Park Vineyard.
+
+ Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/mornington-twilight-christmas-series-at-mornington-racecourse-2026-12-16/>)
 
 Running an event in Mornington?
 

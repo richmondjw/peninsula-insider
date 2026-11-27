@@ -75,14 +75,6 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-Live Music  27 Nov
-
-### [Ben Smith Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
-
-Ben Smith plays Jetty Road Brewery in Dromana from 6pm, part of the brewery's weekend live music.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
-
 Live Music  28 Nov
 
 ### [Brad Kennedy Live at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/brad-kennedy-live-at-peppers-moonah-links-resort-2026-11-28/>)
@@ -91,13 +83,21 @@ Brad Kennedy plays the Spike Bar at Peppers Moonah Links Resort in Fingal, from 
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/brad-kennedy-live-at-peppers-moonah-links-resort-2026-11-28/>)
 
-Live Music  27 Nov
+Live Music  27 Dec
 
-### [Brown Sugar - Rolling Stones](<https://peninsulainsider.com.au/whats-on/brown-sugar-rolling-stones-2026-11-27/>)
+### [Celebrate with Andrew Farrell Live at Fenian Wines](<https://peninsulainsider.com.au/whats-on/celebrate-with-andrew-farrell-live-at-fenian-wines-2026-12-27/>)
 
-Rolling Stones tribute band Brown Sugar plays the upstairs Bandroom at The Bay Hotel.
+Fenian Wines holds its end-of-year celebration in Red Hill on the last Sunday of 2026, with Andrew Farrell playing live from noon…
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/brown-sugar-rolling-stones-2026-11-27/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/celebrate-with-andrew-farrell-live-at-fenian-wines-2026-12-27/>)
+
+Live Music  5 Dec
+
+### [Chris Gogerly Live at Fenian Wines](<https://peninsulainsider.com.au/whats-on/chris-gogerly-live-at-fenian-wines-2026-12-05/>)
+
+Chris Gogerly plays an afternoon set at Fenian Wines in Red Hill, with pizza from the Forno Di Casa food truck.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/chris-gogerly-live-at-fenian-wines-2026-12-05/>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 

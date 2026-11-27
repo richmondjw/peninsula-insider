@@ -59,16 +59,6 @@ Spectrum, Madder Lake and Phil Manning share a bill at the Pig & Whistle Tavern 
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/legends-of-sunbury-spectrum-madder-lake-and-phil-manning-live-at-the-pig-and-whistle-taver-2026-12-1/>)
 
-- [Fri, 27 Nov
-
-### Luke O'Shea & Lyn Bowtell Live at The Pig & Whistle Tavern
-
-Main Ridge
-
-Country musicians Luke O'Shea and Lyn Bowtell bring their Love and Laughter Tour to the Pig & Whistle Tavern in Main Ridge, from 8pm to 10pm.
-
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/luke-o-shea-and-lyn-bowtell-live-at-the-pig-and-whistle-tavern-2026-11-27/>)
-
 - [Thu, 3 Dec
 
 ### ✦ Pub Carols at The Pig & Whistle

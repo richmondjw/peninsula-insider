@@ -565,7 +565,7 @@ Times are guide estimates, not live conditions. Walking effort is shown where re
 
 Use [Parks Victoria’s park notices](<https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park>), [VicEmergency warnings](<https://www.emergency.vic.gov.au/>) and [Beachsafe beach and patrol information](<https://www.beachsafe.org.au/>). These links do not confirm that a route or beach is suitable on your day.
 
-Spring on the Peninsula · Sunset 8:24 PM
+Spring on the Peninsula · Sunset 8:25 PM
 
 ## Three more for a spring day
 
