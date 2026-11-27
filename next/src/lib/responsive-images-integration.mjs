@@ -64,10 +64,27 @@ export async function derivatives(bytes, root, format = 'webp', quality = 50) {
   return results;
 }
 
-export async function optimiseHtml(html, resolve) {
+export async function optimiseHtml(html, resolve, onOptionalError = () => {}) {
   const replacements = [];
   for (const node of imageNodes(html)) {
     const attrs = Object.fromEntries(node.attrs.map(a => [a.name, a.value]));
+    const media = attrs['data-pi-responsive-media'];
+    if (media) {
+      // Opt-in art direction: serve the same photo at smaller widths only
+      // in the requested media query, leaving desktop img/srcset unchanged.
+      // Do not nest a picture if the renderer already has art direction.
+      if (node.parentNode?.tagName === 'picture') continue;
+      let variants;
+      try { variants = await resolve(attrs.src); }
+      catch (error) { onOptionalError(error, attrs.src); continue; }
+      if (!variants?.length) continue;
+      const srcset = variants.map(v => `${v.src} ${v.width}w`).join(', ');
+      const range = node.sourceCodeLocation.startTag;
+      const source = '<source data-pi-responsive-source type="image/webp" media="' + escape(media) + '" srcset="' + escape(srcset) + '" sizes="' + escape(attrs['data-pi-responsive']) + '">';
+      const tag = '<picture>' + source + html.slice(range.startOffset, range.endOffset) + '</picture>';
+      replacements.push({ ...range, tag });
+      continue;
+    }
     if (attrs.srcset || attrs['data-pi-image-original-src']) continue;
     const variants = await resolve(attrs.src);
     if (!variants?.length) continue;
@@ -121,7 +138,9 @@ export default function responsiveImages() {
             else if (item.isFile() && item.name.endsWith('.html')) {
               const html = await readFile(file, 'utf8');
               if (!html.includes('data-pi-responsive')) continue;
-              const output = await optimiseHtml(html, resolve);
+              const output = await optimiseHtml(html, resolve, (_error, src) => {
+                logger.warn(`Optional responsive source unavailable; retained original image: ${src.split('?')[0]}`);
+              });
               if (output !== html) { await writeFile(file, output); pages++; }
             }
           }
