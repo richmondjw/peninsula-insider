@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "publishedAt": "2026-11-26T18:39:08.219310+00:00",
-  "runId": "2026-11-27-0537-incremental-3b82c239",
-  "auditRunId": "2026-11-27-0537-incremental-3b82c239",
-  "auditCompletedAt": "2026-11-26T18:39:00.125Z",
+  "publishedAt": "2026-11-27T18:39:21.851388+00:00",
+  "runId": "2026-11-28-0537-incremental-f2bd0b71",
+  "auditRunId": "2026-11-28-0537-incremental-f2bd0b71",
+  "auditCompletedAt": "2026-11-27T18:39:13.979Z",
   "terminal": true,
   "engine": "ok",
   "completedStep": "release",
@@ -21,7 +21,7 @@
   "decisionProbeOk": true,
   "health": {
     "ok": true,
-    "label": "2026-11-27-0537-incremental-3b82c239 age=0.0h release=no_changes",
+    "label": "2026-11-28-0537-incremental-f2bd0b71 age=0.0h release=no_changes",
     "problems": []
   }
 }
