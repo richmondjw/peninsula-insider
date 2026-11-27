@@ -1,28 +1,11 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-27T20:20:04.863Z",
+  "generatedAt": "2026-11-27T22:24:30.100Z",
   "baselineAvailable": true,
-  "fromSnapshot": "39a96c3c274c8bb1035bbdfbbb36b2a7a8b80f4c4914f6ff7768ef1f949d4f28",
+  "fromSnapshot": "688688215bfd1f14681aa762f1a45918eda7e34e4c429653784cae291796152d",
   "toSnapshot": "688688215bfd1f14681aa762f1a45918eda7e34e4c429653784cae291796152d",
-  "previousGeneratedAt": "2026-11-27T19:26:06.910Z",
+  "previousGeneratedAt": "2026-11-27T20:20:04.863Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 2,
-  "changes": [
-    {
-      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-28/",
-      "kind": "representation-added",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-28/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-28/index.md",
-      "contentSha256": "a2412688feb30fd05a425626d9b3793c4f2454103dfe26a93b7ec9b1102a0d10",
-      "previousContentSha256": null
-    },
-    {
-      "id": "https://peninsulainsider.com.au/picks/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/picks/",
-      "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
-      "contentSha256": "c6cdf3b20dbdf067cf1833e5b00ed8634cb98010ff0a935be0fb1eaced8a3a0b",
-      "previousContentSha256": "42ed65447476e796e9caa5d1f79f6b3ec44d753e5c30ce817e8e4ab3859ae9c2"
-    }
-  ]
+  "count": 0,
+  "changes": []
 }
