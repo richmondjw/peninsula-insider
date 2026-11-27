@@ -117,6 +117,12 @@ export interface Props {
   mediaFallbackLabel?: string;
   /** Region eyebrow for the place variant (replaces typeMark when set). */
   eyebrow?: string;
+  /**
+   * The town this entry is in, set after the type mark as a link to that
+   * town's guide ("Walk · Cape Schanck"). It is a second, real link: it sits
+   * above the stretched card link, like Save and the photo credit.
+   */
+  town?: { label: string; href: string };
   /** Article variant: byline (falls back to "Peninsula Insider"). */
   byline?: string;
   /** Article/guide variants: e.g. "7 min read". */
@@ -180,6 +186,7 @@ const {
   mediaFallback = false,
   planningNote,
   eyebrow,
+  town,
   byline,
   readTime,
   dateISO,
@@ -372,7 +379,9 @@ const editAttrs = lockImageEditing ? {} : editableImage({
       </p>
     )}
     {eventDate && !showMedia && <p class="pi-card__eyebrow pi-card__date-line">{eventDate.day} {eventDate.month}</p>}
-    {showEyebrow && markText && <p class="pi-card__eyebrow">{markText}</p>}
+    {showEyebrow && markText && (
+      <p class="pi-card__eyebrow">{markText}{town && <>{' · '}<a class="pi-card__town" href={town.href} data-surface={surface} aria-label={`${town.label} town guide`}>{town.label}</a></>}</p>
+    )}
 
     <h3 class="pi-card__title">
       <a
@@ -546,6 +555,13 @@ const editAttrs = lockImageEditing ? {} : editableImage({
 
   .pi-card__media img { transition: transform var(--dur-slow) var(--ease-enter); }
   .pi-card:hover .pi-card__media img { transform: scale(1.02); }
+
+  /* The town in the eyebrow links to its guide. It sits above the stretched
+     link, with a hit area taller than its small text. */
+  .pi-card__town { position: relative; z-index: 2; color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .25em; }
+  .pi-card__town::after { content: ''; position: absolute; inset: -18px -8px -10px; }
+  .pi-card__town:hover { text-decoration-thickness: 2px; }
+  .pi-card__town:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
 
   /* Credit: one quiet line over the photograph's foot, on its own scrim. */
   .pi-card__image-note { margin: 0; font-size: var(--fs-100); line-height: 1.4; color: var(--soft); }

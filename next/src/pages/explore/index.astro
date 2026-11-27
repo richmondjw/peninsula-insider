@@ -109,6 +109,8 @@ type Row = {
   verdict: string | undefined;
   typeLabel: string;
   town: string;
+  /** The town's guide, when the record's place is one of the town pages. */
+  townHref: string | undefined;
   meta: string[];
   bookingUrl: string | undefined;
   directionsUrl: string | undefined;
@@ -137,6 +139,7 @@ async function buildRow(kind: 'experience' | 'venue', entry: any): Promise<Row> 
       : timeLabel(data.durationMinutes);
   const coords = data.coordinates;
   const hero = await resolveHero(kind, slug, data);
+  const placeSlug = String(data.place?.id ?? data.place ?? '');
   return {
     slug,
     kind,
@@ -147,6 +150,7 @@ async function buildRow(kind: 'experience' | 'venue', entry: any): Promise<Row> 
     verdict: curly(exploreSummary(slug, data)),
     typeLabel: TYPE_LABEL[data.type] ?? titleize(data.type ?? ''),
     town: placeLabel(data.place),
+    townHref: placeBySlug.has(placeSlug) ? `/explore/places/${placeSlug}/` : undefined,
     // Up to three practical facts: how long (and how hard), the booking or
     // entry terms, and who it suits.
     meta: [
@@ -169,6 +173,9 @@ async function buildRow(kind: 'experience' | 'venue', entry: any): Promise<Row> 
   };
 }
 
+// Loaded before the rows: each card links its town to that town's guide.
+const places = await getCollection('places');
+const placeBySlug = new Map(places.map((p) => [routeSlug(p), p]));
 const experiences = await getCollection('experiences');
 // Markets and day spas are Explore subjects whose records live in the venues
 // collection; their detail pages route through venueHref.
@@ -273,9 +280,7 @@ const seasonal = things
 // The finder answers "what do I feel like doing?". This answers "I am going to
 // Sorrento": a way from Explore into the town guides, which the finder's
 // results never link to.
-const places = await getCollection('places');
 const pickImages = new Set(things.map((r) => r.hero.src));
-const placeBySlug = new Map(places.map((p) => [routeSlug(p), p]));
 const TOWN_RAIL_COUNT = 8;
 // The rail is photographs, so a town is shown there only with a real
 // photograph of the town itself: no placeholder, no illustrative stand-in.
@@ -304,6 +309,20 @@ const townRail = (await Promise.all(
   .filter((t) => t.pictured && !pickImages.has(t.image.src))
   .slice(0, TOWN_RAIL_COUNT);
 
+// Every town, under the same five parts of the Peninsula the finder uses.
+// Feeds the "Town guides" line in the results when a part is chosen.
+const townAreas = FACET_OPTIONS.place
+  .filter((o) => regionValues.has(o.value))
+  .map((o) => ({
+    slug: o.value,
+    label: o.label,
+    href: `/explore/regions/${o.value}/`,
+    towns: places
+      .filter((p) => (PLACE_TO_REGION[routeSlug(p)] ?? p.data.regionSlug) === o.value)
+      .map((p) => ({ slug: routeSlug(p), name: curly(p.data.name), href: `/explore/places/${routeSlug(p)}/` }))
+      .sort((a, b) => a.name.localeCompare(b.name)),
+  }))
+  .filter((area) => area.towns.length > 0);
 const townTotal = places.length;
 
 // ── Turn it into a day ───────────────────────────────────────────────────────
@@ -480,6 +499,14 @@ export const prerender = true;
           <button type="button" data-remove-key="time" data-remove-value="*">Show them too</button>
         </p>
         <h3 class="x-results__title x-results__title--filtered" id="results-heading" data-filtered-title tabindex="-1" hidden></h3>
+        <p class="x-results__towns" data-town-guides hidden>
+          <span class="x-results__towns-label">Town guides</span>
+          <span class="x-results__towns-list">
+            {townAreas.flatMap((area) => area.towns.map((town) => (
+              <a href={town.href} data-town={town.slug} data-area={area.slug} hidden>{town.name}</a>
+            )))}
+          </span>
+        </p>
         <div class="x-results__head" data-results-head>
           <h3 class="x-results__title">{NUMBER_WORDS[PICK_COUNT] ?? PICK_COUNT} to start with</h3>
           <p class="x-results__sub">“+ Trip” adds a place to your day; the bookmark saves it for later.{' '}<a href="/map/">See them on the map<span class="x-arrow" aria-hidden="true">→</span></a></p>
@@ -504,7 +531,8 @@ export const prerender = true;
                 entitySlug={r.slug}
                 image={{ src: r.hero.src, alt: r.hero.alt }}
                 imageSizes={i === 0 ? '(max-width: 640px) 100vw, (max-width: 1023px) 100vw, 840px' : '(max-width: 640px) 150px, (max-width: 1023px) 50vw, 400px'}
-                typeMark={`${r.typeLabel} · ${r.town}`}
+                typeMark={r.townHref ? r.typeLabel : `${r.typeLabel} · ${r.town}`}
+                town={r.townHref ? { label: r.town, href: r.townHref } : undefined}
                 verdict={r.verdict}
                 meta={r.meta}
                 priceBand={r.priceBand}
@@ -564,7 +592,8 @@ export const prerender = true;
               entityType={r.kind}
               entitySlug={r.slug}
               image={{ src: r.hero.src, alt: r.hero.alt }}
-              typeMark={`${r.typeLabel} · ${r.town}`}
+              typeMark={r.townHref ? r.typeLabel : `${r.typeLabel} · ${r.town}`}
+              town={r.townHref ? { label: r.town, href: r.townHref } : undefined}
               verdict={r.verdict}
               meta={r.meta}
               trip
@@ -782,6 +811,13 @@ export const prerender = true;
   .x-results__untimed[hidden] { display: none; }
   .x-results__untimed button { min-height: 44px; padding: 0; border: 0; background: none; color: var(--accent); cursor: pointer; font: inherit; font-weight: 600; text-decoration: underline; text-underline-offset: 0.2em; }
   .x-results__untimed button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  /* Choosing a part of the Peninsula (or a town) offers its town guides. */
+  .x-results__towns { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 var(--space-4); margin: calc(-1 * var(--space-3)) 0 var(--space-5); font-size: var(--fs-300); line-height: 1.3; }
+  .x-results__towns[hidden], .x-results__towns a[hidden] { display: none; }
+  .x-results__towns-label { color: var(--text); font-weight: 600; }
+  .x-results__towns-list { display: flex; flex-wrap: wrap; gap: 0 var(--space-4); min-width: 0; }
+  .x-results__towns a { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); font-weight: 500; text-underline-offset: .2em; }
+  .x-results__towns a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   .x-results__more { margin: var(--space-7) 0 0; text-align: center; }
   .x-results:not([data-collapsed]) .x-results__more { display: none; }
   .x-results__all { min-height: 48px; padding: 0 var(--space-5); border: 1px solid var(--accent); border-radius: var(--radius-s); background: transparent; color: var(--accent); cursor: pointer; font: 600 var(--fs-400)/1 var(--font-ui); transition: background var(--dur-fast, 120ms) ease, color var(--dur-fast, 120ms) ease; }
@@ -1098,6 +1134,19 @@ export const prerender = true;
       title.toggleAttribute('hidden', !active || shown === 0);
     }
     updateJump();
+
+    // A chosen part of the Peninsula, or a chosen town, offers its town guides.
+    const guides = results.querySelector<HTMLElement>('[data-town-guides]');
+    if (guides) {
+      const chosen = state.place ?? [];
+      let offered = 0;
+      guides.querySelectorAll<HTMLElement>('a[data-town]').forEach((link) => {
+        const on = chosen.includes(link.dataset.town || '') || chosen.includes(link.dataset.area || '');
+        link.toggleAttribute('hidden', !on);
+        if (on) offered += 1;
+      });
+      guides.toggleAttribute('hidden', offered === 0);
+    }
 
     // Name each active filter in the bar, each one removable on its own.
     const holder = results.querySelector<HTMLElement>('[data-active-filters]');
