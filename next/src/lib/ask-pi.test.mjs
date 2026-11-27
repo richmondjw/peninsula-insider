@@ -476,10 +476,11 @@ test('the Tie-breaker: a tie or no votes is her call, and a real question leaves
 
 test('a bare comparison asks for the missing options and uses only previously displayed guide pages', () => {
   const compare = (previousOptions) => converse(index, 'Which is better?', null, { today, previousOptions }).reply;
-  for (const question of ['Which of the two would you pick?', 'Which do you prefer?', 'Which one would you choose?']) {
+  for (const question of ['Which of the two would you pick?', 'Which do you prefer?', 'Can you compare the two?', 'Which one would you choose?']) {
     assert.equal(converse(index, question, null, { today }).reply.kind, 'comparison');
   }
   assert.notEqual(converse(index, 'What do you prefer about Red Hill?', null, { today }).reply.kind, 'comparison');
+  assert.notEqual(converse(index, 'Can you compare the two wineries in Red Hill?', null, { today }).reply.kind, 'comparison');
   assert.equal(compare([]).kind, 'comparison');
   assert.equal(compare([]).cards.length, 0);
   const paths = index.records.slice(0, 3).map(record => record.u);

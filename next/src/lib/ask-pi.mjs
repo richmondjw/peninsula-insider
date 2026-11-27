@@ -76,7 +76,8 @@ const MANY_DAYS = /\b(?:weekend|two days|three days|\d nights?|week)\b/;
 const SURPRISE = /^(?:surprise me|dealers choice|you (?:pick|choose|decide))\b/;
 // Whole-turn forms leave both options implicit. An explicit subject should still use normal retrieval.
 const BARE_COMPARISON = [
-  /^(?:which (?:one |of (?:these|those|them) )?(?:is )?(?:better|best)|whats better|compare (?:them|these|those)(?: two)?)$/,
+  /^(?:which (?:one |of (?:these|those|them) )?(?:is )?(?:better|best)|whats better)$/,
+  /^(?:(?:can|could|would) you )?compare (?:the two|them|these(?: two)?|those(?: two)?)$/,
   /^which(?: one| of (?:the two|these(?: two)?|those(?: two)?|them))? (?:would|do) you (?:pick|choose|prefer|recommend)$/,
 ];
 const ELSEWHERE = /^(?:somewhere else|another town|a different town)$/;
