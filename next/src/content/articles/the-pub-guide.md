@@ -108,6 +108,10 @@ What it has is a beer garden that faces the bay, counter meals at honest prices,
 
 Best on a Tuesday or Wednesday, late afternoon, when the bay catches the last light and you are the only weekender in the room.
 
+## McDaid’s, Rosebud: dinner or a drink on a music night
+
+If you want dinner and a band in the same room, McDaid’s says a dining booking puts you in the room where the band plays. The pub says drinks-only visitors can walk in without a reservation. Check the [shire’s venue listing](https://artsandculture.mornpen.vic.gov.au/Music/Music-Industry-Groups-and-venues/McDaids-Irish-Pub) for the pub’s contact details and where to find the latest gig times.
+
 ## The pub crawl that works
 
 If you wanted to do a pub day (there are worse ideas) the route that makes geographic sense is:

@@ -240,6 +240,8 @@ This is the band where context matters. Some are scenic, some are useful if you 
 
 This is where the broader landscape matters, but not every course deserves destination billing. These courses can still be useful for locals, casual players, or practical trip planning. They just are not the reason to cross the city.
 
+**The Valley, Safety Beach:** For a round close to the bay, visitors can [book a tee time and pay their green fee online](https://thevalley.golf/golf-book-a-round/). The club also has a separate mini-golf course.
+
 ## How to use this guide
 
 If you are a serious golfer with one round to play, start with **St Andrews Beach**. If you are building a golf weekend, the shortlist is **St Andrews Beach, Moonah Links, and The Dunes**. If you are chasing club prestige, check access before you build the weekend around it.
