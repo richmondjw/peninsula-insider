@@ -1079,6 +1079,19 @@ const starters = SHOW_ASK_PERSONA
         const previous = [...turns].reverse().find((turn): turn is PiTurn => turn.role === 'pi');
         const previousOptions = previous?.kind === 'sources' ? previous.links : previous?.places;
         const context = { pagePath: location.pathname, previousOptions: previousOptions?.map((item) => item.href) || [] };
+        const resumeSwap = /^swap (?:the )?(first|second|third|fourth) stop[.!?]?$/i.exec(q);
+        if (resumeSwap && latestPlan()) {
+          ephemeral.delete(questionTurn);
+          const at = ['first', 'second', 'third', 'fourth'].indexOf(resumeSwap[1].toLowerCase());
+          const before = latestPlan()!.plan!.stops[at];
+          if (before?.swappable) await swap(at);
+          if (signal.aborted) { live.remove(); return; }
+          live.remove();
+          const after = latestPlan()?.plan?.stops[at];
+          say(after && before?.card.href !== after.card.href ? `That stop is now ${after.card.title}. The updated plan is above.`
+            : 'I don’t have another guide-backed option for that stop in this plan.');
+          return;
+        }
         let result = matchGuides(index, q, engine, context);
         if (!result) throw new Error(READER_ERROR);
 
@@ -1089,7 +1102,7 @@ const starters = SHOW_ASK_PERSONA
           const turn: PiTurn = { role: 'pi', text, places: [], next: [], kind: 'discussion' };
           ephemeral.add(turn);
           turns.push(turn);
-          engine = null;
+          // The local planner is suspended while the reader changes subjects.
           save();
           const node = piNode(turn);
           live.replaceWith(node);
