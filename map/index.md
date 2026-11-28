@@ -93,7 +93,7 @@ Explore the Peninsula by location. Events show the next 30 days where the event 
 
 - [View : Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>)
 
-- [View : Baillieu Vineyard](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>)
+- [View : Baillieu wines at Merricks Store](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>)
 
 - [View : Balnarring Bakehouse](<https://peninsulainsider.com.au/eat/balnarring-bakehouse/>)
 

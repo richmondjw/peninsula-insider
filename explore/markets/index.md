@@ -25,7 +25,7 @@ These are the organisers' usual days, not a guarantee of operation. Hill & Ridge
 
 - Weekly   Wednesday   Mornington Main Street Market
 
-- Wk 4   Fourth Sunday   Mount Eliza Farmers Market
+- Wk 4   Usually Sunday   Mount Eliza Farmers Market
 
 Farmers market  Community / town  Foreshore
 
@@ -131,9 +131,9 @@ Farmers market
 
 ### [Mount Eliza Farmers Market](<https://peninsulainsider.com.au/eat/mount-eliza-farmers-market/>)
 
-Fourth Sunday · monthly  ·  9am–1pm
+Usually a Sunday morning  ·  Check organiser
 
-Mount Eliza Farmers Market lists the fourth Sunday of each month, 9am–1pm, at Mount Eliza Village. Check the organiser for the current date and any changes before making the trip.
+The daytime market usually runs on a Sunday morning in Mount Eliza Village. The December twilight market follows a different schedule. Check the organiser’s calendar for the exact date and hours before travelling.
 
 Insider read A northern Peninsula market morning; check the organiser before travelling.
 
@@ -175,7 +175,7 @@ Check before you travel
 
 ## One calendar, different organisers
 
-Rye Foreshore lists a first-Saturday market, Mornington gives you a Wednesday option, and Mount Eliza lists the fourth Sunday. Hill & Ridge cancelled its 3 October edition; follow each organiser's current notice before planning a drive.
+Rye Foreshore lists a first-Saturday market, Mornington gives you a Wednesday option, and Mount Eliza publishes its daytime and twilight dates on the [market calendar](<https://www.mtelizafarmersmarket.com.au/>). Hill & Ridge cancelled its 3 October edition; follow each organiser's current notice before planning a drive.
 
 The original Red Hill Community Market is temporarily closed while its organiser looks for a new location. Hill & Ridge is a separate event whose 3 October edition was cancelled. The former Balnarring Village Green listing is paused because its schedule could not be confirmed. Emu Plains Market is a separate Balnarring market; check its organiser for current dates.
 
@@ -197,7 +197,7 @@ The organiser marks the 3 October 2026 edition cancelled. No replacement date is
 
 When are the other markets?
 
-Mornington Main Street Market lists Wednesdays, Rye Foreshore Market lists the first Saturday of each month, and Mount Eliza Farmers Market lists the fourth Sunday. Confirm the current date with each organiser.
+Mornington Main Street Market lists Wednesdays, Rye Foreshore Market lists the first Saturday of each month, and Mount Eliza Farmers Market usually runs on a Sunday morning, with a separate twilight schedule. Confirm the current date and hours with each organiser.
 
 Is Balnarring Village Green Market running?
 

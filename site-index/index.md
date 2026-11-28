@@ -173,7 +173,7 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [Avani Wines](<https://peninsulainsider.com.au/eat/avani-wines/>)
 
-- [Baillieu Vineyard](<https://peninsulainsider.com.au/eat/baillieu-vineyard/>)
+- [Baillieu wines at Merricks Store](<https://peninsulainsider.com.au/eat/baillieu-vineyard/>)
 
 - [Balnarring Bakehouse](<https://peninsulainsider.com.au/eat/balnarring-bakehouse/>)
 
@@ -295,7 +295,7 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>)
 
-- [Baillieu Vineyard](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>)
+- [Baillieu wines at Merricks Store](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>)
 
 - [Barmah Park Vineyard](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>)
 
@@ -520,6 +520,8 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 - [Mornington Twilight Christmas Series at Mornington Racecourse](<https://peninsulainsider.com.au/whats-on/mornington-twilight-christmas-series-at-mornington-racecourse-2026-12-16/>)
 
 - [MPRG Summer exhibitions launch](<https://peninsulainsider.com.au/whats-on/mprg-summer-exhibitions-launch-2026/>)
+
+- [Mt Eliza Farmers’ Market Twilight Edition](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market-twilight-2026-12-18/>)
 
 - [New Year's Day at Mornington Racecourse](<https://peninsulainsider.com.au/whats-on/new-year-s-day-at-mornington-racecourse-2027-01-01/>)
 

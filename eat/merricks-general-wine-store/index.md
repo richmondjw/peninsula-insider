@@ -47,6 +47,8 @@ Merricks Store is a village bistro, wine store and produce stop. The operator se
 
 Photo · Peter Foster, courtesy of Visit Victoria
 
+Merricks General Wine Store is the public cellar door for Baillieu wines. The vineyard itself is not open to visitors. The Store offers complimentary tastings for individuals. Groups of up to six need an appointment and usually pay a tasting fee.
+
 Choose it for a village meal before exploring the ridge. The menu is seasonal and indicative, so check the current dishes rather than travelling for a promised pizza or Sunday roast. Friday dinner bookings are also offered by the operator; confirm the current service before making plans.
 
 Worth knowing
@@ -111,21 +113,29 @@ Hub Guide   8 min
 
 Merricks is the understated corridor between bay and ridge where the Peninsula's wine country starts to feel private. Come for the general store, the estates, the pub and the rare pleasure of a district that seems to know exactly how little fuss it needs.
 
-Service   9 min
+Insider Edit   4 min
 
-### [The Peninsula Pantry: A Saturday Shopping List for Anyone Cooking in a Rental](<https://peninsulainsider.com.au/journal/the-peninsula-pantry/>)
+### [Elgee Park's Viognier, the Moorooduc Plains wildflower corridor, and the Peninsula's most useful locals' market](<https://peninsulainsider.com.au/journal/insider-picks-2026-09-12/>)
 
-9 April 2026
+12 September 2026
 
-If you've booked a villa with a kitchen, you've booked one of the great food sourcing weekends in Victoria. Here is the shopping circuit - market first, bakery second, wine last - that actually does the region justice.
+Elgee Park's 1972 Viognier vines hit spring form, the Moorooduc Plains grassland walks with spider orchids in flower, and the Balnarring Farmers' Market for what locals actually buy.
 
-Stay Notes   7 min
+Insider Edit   4 min
 
-### [The Vineyard Villa Weekend: The Peninsula's Quietest Luxury](<https://peninsulainsider.com.au/journal/the-vineyard-villa-weekend/>)
+### [Baillieu wines at Merricks Store, Cape Schanck Coastal Track, and Main Street Mornington Festival](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-12/>)
 
-9 April 2026
+12 October 2026
 
-The best Peninsula stay right now is not a design hotel. It is a cottage on a working farm with a fire, a kitchen, and nobody checking on you. Here is the case, and the short list.
+Where to taste Baillieu’s Merricks Chardonnay, the Cape Schanck coastal loop with spring wildflowers on the cliffs, and the Main Street Mornington Festival running free on Sunday.
+
+More reading (3)
+
+- [Baillieu wines at Merricks Store, a Merricks walk, and National Works on Paper](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-06/>)
+
+- [The Peninsula Pantry: A Saturday Shopping List for Anyone Cooking in a Rental](<https://peninsulainsider.com.au/journal/the-peninsula-pantry/>)
+
+- [The Vineyard Villa Weekend: The Peninsula's Quietest Luxury](<https://peninsulainsider.com.au/journal/the-vineyard-villa-weekend/>)
 
 ## Related editorial selections
 
@@ -197,6 +207,8 @@ Two-night escape · Best for couple · Peninsula
 
 Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
 
+- [Baillieu wines at Merricks Store](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>) · under 100 m
+
 - [Stonier Wines](<https://peninsulainsider.com.au/wine/stonier-wines/>) · 1.1 km
 
 - [Merricks Estate](<https://peninsulainsider.com.au/wine/merricks-estate/>) · 1.9 km
@@ -207,8 +219,6 @@ Within 5 km using stored map locations. Approximate straight-line distances, not
 
 - [The Heritage Balnarring](<https://peninsulainsider.com.au/eat/balnarring-pub/>) · 3.2 km
 
-- [Balnarring Bakehouse](<https://peninsulainsider.com.au/eat/balnarring-bakehouse/>) · 3.3 km
-
 Related picks
 
 ## More from Merricks
@@ -217,15 +227,15 @@ Related picks
 
 Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
-### [Baillieu Vineyard](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>)
+### [Baillieu wines at Merricks Store](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>)
 
-51 Stanleys Rd, Merricks VIC 3916
+3460 Frankston-Flinders Road, Merricks VIC 3916
 
-A thoughtfully managed Merricks estate making elegant Chardonnay and Pinot Noir that rewards the drive to find it.
+Merricks General Wine Store is the public cellar door for Baillieu wines. The vineyard itself is not open to visitors.
 
 cellar door  slow
 
-[Read notes](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>) [Book](<https://merricksstore.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>)
 
 Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 

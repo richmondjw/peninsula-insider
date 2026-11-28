@@ -27,7 +27,7 @@ A quiet lake-facing chalet on a large garden estate, with a clear choice between
 
 Chalet Un is one of three separately bookable lakeside chalets at Woodman Estate in Moorooduc. The current manager describes a private chalet with a king bed, a deck overlooking the lake and a kitchenette for simple food preparation. The kitchenette has a microwave, fridge, kettle and coffee machine, but no stove or oven. This booking link is for Chalet Un; check the current listing for its exact layout.
 
-A chalet booking does not give exclusive use of the 50-acre estate. Guests in the Manor or Spa House may share the lake area, gardens, paths and tennis court. Wi-Fi coverage is limited and may vary by provider. The whole estate is a separate group booking option; choose that listing if exclusive use matters.
+You can book Chalet Un on its own or book the whole estate for exclusive use. Once a chalet is booked separately, the estate is no longer available as an exclusive booking for those dates. Other guests can still book the remaining chalets or the Manor and share the grounds. Wi-Fi coverage is limited and may vary by provider.
 
 Worth knowing
 
@@ -37,7 +37,7 @@ Anniversary weekends · Couples · Weekend escapes
 
 If you only do one thing
 
-Check Chalet Un's exact layout and shared-ground arrangements before booking; choose the whole-estate listing for exclusive use.
+Use Check availability for Chalet Un. For exclusive use, the Website link leads to the whole-estate listing.
 
 Works well with
 

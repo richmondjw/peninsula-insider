@@ -79,15 +79,15 @@ cellar door  slow
 
 Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
-### [Baillieu Vineyard](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>)
+### [Baillieu wines at Merricks Store](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>)
 
-51 Stanleys Rd, Merricks VIC 3916
+3460 Frankston-Flinders Road, Merricks VIC 3916
 
-A thoughtfully managed Merricks estate making elegant Chardonnay and Pinot Noir that rewards the drive to find it.
+Merricks General Wine Store is the public cellar door for Baillieu wines. The vineyard itself is not open to visitors.
 
 cellar door  slow
 
-[Read notes](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>) [Book](<https://merricksstore.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>)
 
 Winery  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 

@@ -11,9 +11,9 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 A smaller community farmers market in Mount Eliza village, producers drawn from the Mornington corridor.
 
-[Website](<https://www.mtelizafarmersmarket.com.au/location>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.1869%2C145.0883>)
+[Website](<https://www.mtelizafarmersmarket.com.au/location>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.1837402%2C145.0892463>)
 
-Mount Eliza Farmers Market lists the fourth Sunday of each month, 9am–1pm, at Mount Eliza Village. Check the organiser for the current date and any changes before making the trip.
+The daytime market usually runs on a Sunday morning in Mount Eliza Village. The December twilight market follows a different schedule. Check the organiser’s calendar for the exact date and hours before travelling.
 
 Filed under   Slow Garden Quick Bite Spring Summer Autumn Winter Locals Families Couples
 
@@ -33,7 +33,7 @@ Mount Eliza Village, Mt Eliza VIC 3930 · [Directions](<https://www.google.com/m
 
 **Directions**
 
-[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.1869%2C145.0883>)
+[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.1837402%2C145.0892463>)
 
 **Live status**
 

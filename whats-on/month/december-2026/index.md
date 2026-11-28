@@ -293,6 +293,14 @@ Decorate a chocolate Christmas tree to take home in Flinders on 5–6 or 12–24
 
 The Chocolateries Mornington Peninsula · Scheduled session · Checked 16 Nov 2026
 
+- 3pm
+
+[Mt Eliza Farmers’ Market Twilight Edition](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market-twilight-2026-12-18/>)
+
+An afternoon and evening market for local produce and specialty food, not the usual Sunday morning session.
+
+Mount Eliza · Markets · Checked 28 Nov 2026
+
 - 5pm
 
 [Soul Night Market at Hastings Foreshore](<https://peninsulainsider.com.au/whats-on/soul-night-market-at-hastings-foreshore-2026-12-18/>)

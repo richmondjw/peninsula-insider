@@ -81,6 +81,8 @@ Red Hill South   Walk-in welcome   Kitchen on site
 
 ## Explore wine-country places
 
+Most details checked November 2026.
+
  [View the winery map](<https://peninsulainsider.com.au/map/?cat=winery>)
 
 Sort
@@ -163,9 +165,9 @@ Avani is the Peninsula's quiet Syrah specialist, and that alone is reason enough
 
 Red Hill South   Walk-in welcome
 
-- ### [Baillieu Vineyard](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>)
+- ### [Baillieu wines at Merricks Store](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>)
 
-The cellar door the Peninsula wine crowd refers to in lowered voices, not a secret, but genuinely under-visited, and better for it.
+Taste Baillieu and Elgee Park wines at one stop in Merricks, with the option to book lunch separately.
 
 Merricks   Check ahead
 

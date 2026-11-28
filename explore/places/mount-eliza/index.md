@@ -49,6 +49,16 @@ Coming up in Mount Eliza, from our events listings.
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
+- [Fri, 18 Dec
+
+### ✦ Mt Eliza Farmers’ Market Twilight Edition
+
+Mount Eliza
+
+The Mt Eliza Farmers’ Market moves to Friday afternoon and evening for its December edition, with local growers and specialty food stalls on the Village Green and Mt Eliza Way service road.
+
+ Event · Markets](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market-twilight-2026-12-18/>)
+
 - [Sun, 6 Dec
 
 ### Sunday Sessions: Pottery Workshops at Peachy Keen Ceramics

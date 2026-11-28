@@ -44,7 +44,7 @@ Listed alphabetically. Visiting arrangements vary by producer.
 
 [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
-### [Baillieu Vineyard](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>)
+### [Baillieu wines at Merricks Store](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>)
 
 Baillieu wines have a cellar-door home at Merricks General Wine Store. Follow the store link for tasting and visiting information.
 

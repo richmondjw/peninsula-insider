@@ -7,25 +7,27 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 [Wine Country](<https://peninsulainsider.com.au/wine/>)    Winery    [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
-# Baillieu Vineyard
+# Baillieu wines at Merricks Store
 
-A thoughtfully managed Merricks estate making elegant Chardonnay and Pinot Noir that rewards the drive to find it.
+Merricks General Wine Store is the public cellar door for Baillieu wines. The vineyard itself is not open to visitors.
 
-Known for   Under-Visited Merricks Estate Elegant Chardonnay Intimate Cellar Door Vine Walk Access
+Known for   Baillieu wines Public tastings at Merricks Store Group tastings by appointment
 
-[Book a tasting](<https://merricksstore.com.au/>) [Website](<https://merricksstore.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3634%2C145.0982>)
+[Website](<https://merricksstore.com.au/>) [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.4022%2C145.1157>)
 
-Baillieu Vineyard · Merricks
+[Information last checked 27 Nov 2026](<https://peninsulainsider.com.au/about/#how-a-check-works>)
+
+Merricks vineyard scene
+
+Vine rows in Merricks, not the Merricks Store cellar door. Photo · BrooksieG / Wikimedia Commons, resized and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:Vineyard_Merricks_Grove_Victoria_Australia.jpg>) [Licence](<https://creativecommons.org/licenses/by/4.0/>)
 
 Why we’d go
 
-The cellar door the Peninsula wine crowd refers to in lowered voices, not a secret, but genuinely under-visited, and better for it.
+Taste Baillieu and Elgee Park wines at one stop in Merricks, with the option to book lunch separately.
 
-Baillieu Vineyard is the kind of place the Peninsula wine crowd refers to in lowered voices, not because it is a secret, but because it is genuinely under-visited. Small, thoughtfully managed, and tucked along a quiet back road, Baillieu produces elegant Chardonnay and Pinot Noir from a Merricks site that rarely makes the day-trip itineraries.
+Merricks General Wine Store is the public cellar door for Baillieu wines. The vineyard itself is not open to visitors.
 
-The cellar door is small and the experience rewards people who come with a little curiosity. There is no kitchen, no crowd, no queue. There is the winemaker or a senior team member, a careful flight, and, if the afternoon runs that way, a walk through the vines. The wines reward a second glass; they are the kind of Peninsula bottlings that open up rather than announce themselves.
-
-Check visiting hours before driving, Baillieu runs a smaller schedule than the headline estates. Worth the effort.
+The Store lists cellar door tastings and sales from 10 am to 5 pm daily. The Store offers complimentary tastings for individuals. Groups of up to six need an appointment and usually pay a tasting fee. Bistro reservations are separate.
 
 Worth knowing
 
@@ -35,11 +37,7 @@ Cellar door visits · Wine lovers · Couples
 
 If you only do one thing
 
-Book a tasting and stay long enough for a proper glass, these wines open up rather than announce themselves.
-
-Works well with
-
-Merricks General Wine Store
+Go to Merricks Store for the tasting, not the vineyard. Contact the Store in advance for a group.
 
 Filed under   Cellar Door Slow Solo All Year Couples
 
@@ -51,7 +49,7 @@ Winery
 
 **Location**
 
-51 Stanleys Rd, Merricks VIC 3916 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Baillieu%20Vineyard%2C%2051%20Stanleys%20Rd%2C%20Merricks%20VIC%203916>)
+3460 Frankston-Flinders Road, Merricks VIC 3916 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Baillieu%20wines%20at%20Merricks%20Store%2C%203460%20Frankston-Flinders%20Road%2C%20Merricks%20VIC%203916>)
 
 **Awards**
 
@@ -63,15 +61,13 @@ Halliday 5-Red-Star Winery
 
 **Directions**
 
-[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3634%2C145.0982>)
+[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.4022%2C145.1157>)
 
 **Live status**
 
-[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Baillieu%20Vineyard%2C%2051%20Stanleys%20Rd%2C%20Merricks%20VIC%203916%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
+[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Baillieu%20wines%20at%20Merricks%20Store%2C%203460%20Frankston-Flinders%20Road%2C%20Merricks%20VIC%203916%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
 
- [Book now](<https://merricksstore.com.au/>)
-
-Not sure how to build a day around Baillieu Vineyard?
+Not sure how to build a day around Baillieu wines at Merricks Store?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
@@ -79,17 +75,17 @@ Not sure how to build a day around Baillieu Vineyard?
 
 Within 5 km using stored map locations. Approximate straight-line distances, not walking or driving routes.
 
-- [Elan Vineyard & Gallery](<https://peninsulainsider.com.au/wine/elan-vineyard/>) · 2.4 km
+- [Merricks General Wine Store](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>) · under 100 m
 
-- [The Heritage Balnarring](<https://peninsulainsider.com.au/eat/balnarring-pub/>) · 2.5 km
+- [Stonier Wines](<https://peninsulainsider.com.au/wine/stonier-wines/>) · 1.1 km
 
-- [Hurley Vineyard](<https://peninsulainsider.com.au/wine/hurley-vineyard/>) · 2.6 km
+- [Merricks Estate](<https://peninsulainsider.com.au/wine/merricks-estate/>) · 1.9 km
 
-- [Balnarring Bakehouse](<https://peninsulainsider.com.au/eat/balnarring-bakehouse/>) · 2.6 km
+- [Scorpo Wines](<https://peninsulainsider.com.au/wine/scorpo-wines/>) · 2.7 km
 
-- [The Red Hill Baker](<https://peninsulainsider.com.au/eat/red-hill-bakery/>) · 2.7 km
+- [Quealy Winemakers](<https://peninsulainsider.com.au/wine/quealy-winemakers/>) · 3.0 km
 
-- [Hideaways at Red Hill](<https://peninsulainsider.com.au/stay/hideaways-red-hill/>) · 2.9 km
+- [The Heritage Balnarring](<https://peninsulainsider.com.au/eat/balnarring-pub/>) · 3.2 km
 
 Related picks
 
@@ -146,6 +142,8 @@ Ideas for the rest of your Peninsula day or weekend.
 Keep this for later
 
 [← Part of Merricks - view the destination guide](<https://peninsulainsider.com.au/explore/places/merricks/>)
+
+Information last checked 27 Nov 2026
 
 Is this your business? [Manage this listing](<https://peninsulainsider.com.au/partners/update/?venue=baillieu-vineyard>)
 

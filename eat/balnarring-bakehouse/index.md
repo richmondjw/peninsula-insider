@@ -109,9 +109,9 @@ Within 5 km using stored map locations. Approximate straight-line distances, not
 
 - [Elan Vineyard & Gallery](<https://peninsulainsider.com.au/wine/elan-vineyard/>) · 0.3 km
 
-- [Baillieu Vineyard](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>) · 2.6 km
-
 - [Merricks General Wine Store](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>) · 3.3 km
+
+- [Baillieu wines at Merricks Store](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>) · 3.3 km
 
 - [Merricks Estate](<https://peninsulainsider.com.au/wine/merricks-estate/>) · 3.5 km
 

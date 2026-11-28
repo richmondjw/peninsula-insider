@@ -341,7 +341,7 @@ A village farmers market on the fourth Sunday of each month, 9am to 1pm, with pr
 
 Fourth Sunday
 
- [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.1869,145.0883>)
+ [Directions](<https://www.google.com/maps/dir/?api=1&destination=-38.1837402,145.0892463>)
 
 - Golf · Fingal
 

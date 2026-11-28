@@ -7,9 +7,9 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Insider Edit  12 October 2026  4 min read
 
-# Baillieu Vineyard, Cape Schanck Coastal Track, and Main Street Mornington Festival
+# Baillieu wines at Merricks Store, Cape Schanck Coastal Track, and Main Street Mornington Festival
 
-Baillieu's Merricks Chardonnay at a cellar door most weekenders miss, the Cape Schanck coastal loop with spring wildflowers on the cliffs, and the Main Street Mornington Festival running free on Sunday.
+Where to taste Baillieu’s Merricks Chardonnay, the Cape Schanck coastal loop with spring wildflowers on the cliffs, and the Main Street Mornington Festival running free on Sunday.
 
 Keep this for later
 
@@ -19,13 +19,9 @@ Insider Picks  Spring
 
 Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula   Photo · Two Palms Australia, courtesy of Visit Victoria
 
-**Baillieu Vineyard, Merricks** - the cellar door the Peninsula wine crowd mentions in lowered voices. Not a secret, just genuinely under-visited, and every bit the better for it.
+**Baillieu wines at Merricks Store**
 
-The Chardonnay here earns its place in a conversation that usually starts with Moorooduc and Ocean Eight. It opens quietly, the way a wine should, stone fruit and textured acidity rather than anything that announces itself on entry. Spring is when the vine walk out back comes into its own - new canopy, dappled light through the rows, and nobody else on the property on a weekday morning. The tasting room moves at the winemakers’ pace, not the visitors’. That is exactly what Merricks offers and Red Hill’s busier ridge cannot.
-
-Book a tasting, not just a drop-in. Give yourself ninety minutes minimum. The wines open up in the glass and the conversation is worth having.
-
-Thompsons Lane, Merricks. Bookings essential via the website. Pair with a late lunch at Merricks General Wine Store, five minutes down the road.
+For Baillieu wines, go to [Merricks General Wine Store](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>) at 3460 Frankston-Flinders Road. It is the public cellar door; the vineyard itself is closed to visitors. The Store offers complimentary tastings for individuals. Groups of up to six need an appointment and usually pay a tasting fee. Book a bistro table separately if you are staying for lunch.
 
 **Cape Schanck Coastal Track** - the cliffs are as good right now as they get all year.
 
@@ -47,7 +43,7 @@ Main Street, Mornington. Sunday 18 October, 11am–5pm. Free entry, no booking. 
 
 | Venue / Event | Address | Practical |
 
-**Wine** | Baillieu Vineyard | Thompsons Lane, Merricks | Book a tasting via website; allow 90 min |
+**Wine** | Baillieu wines at Merricks Store | 3460 Frankston-Flinders Road, Merricks | Individuals: complimentary tastings; groups by appointment |
 
 **Walk** | Cape Schanck Coastal Track | Tara Road, Cape Schanck | 7 km return; Parks Vic entry fee; go before 9am weekends |
 
@@ -59,9 +55,9 @@ Questions readers actually ask
 
 ## FAQ
 
-When is Baillieu Vineyard cellar door open?
+Where can I taste Baillieu wines?
 
-Baillieu Vineyard is on Thompsons Lane, Merricks. Hours vary seasonally - check the website before visiting and book a tasting in advance. Allow 90 minutes.
+Taste Baillieu wines at Merricks General Wine Store, 3460 Frankston-Flinders Road, Merricks. The Store lists tastings 10 am to 5 pm daily; group tastings are by appointment. The vineyard is not open to the public.
 
 Where does the Cape Schanck coastal track start?
 
