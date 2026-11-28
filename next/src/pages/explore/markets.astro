@@ -30,18 +30,18 @@ await Promise.all(markets.map(async (market) => {
 const marketMeta = {
   'mornington-main-street-market': { cadence: 'Every Wednesday', hours: 'Check organiser for hours', focus: 'Town market', focusMod: 'mixed', insiderRead: 'Fold a browse into a Mornington town day.' },
   'rye-beachside-market': { cadence: 'First Saturday · monthly', hours: '8.30am–2pm', focus: 'Foreshore market', focusMod: 'craft', insiderRead: 'Pair the foreshore stalls with a Rye beach walk.' },
-  'mount-eliza-farmers-market': { cadence: 'Fourth Sunday · monthly', hours: '9am–1pm', focus: 'Farmers market', focusMod: 'producer', insiderRead: 'A northern Peninsula market morning; check the organiser before travelling.' },
+  'mount-eliza-farmers-market': { cadence: 'Usually a Sunday morning', hours: 'Check organiser', focus: 'Farmers market', focusMod: 'producer', insiderRead: 'A northern Peninsula market morning; check the organiser before travelling.' },
 };
 const focusBadgeClass = (mod) => mod === 'producer' ? 'market-badge--producer' : mod === 'craft' ? 'market-badge--craft' : 'market-badge--mixed';
 const calendarRows = [
   { date: 'Wk 1', day: 'First Saturday', markets: [{ name: 'Rye Foreshore Market', mod: 'market-badge--craft' }] },
   { date: 'Weekly', day: 'Wednesday', markets: [{ name: 'Mornington Main Street Market', mod: 'market-badge--mixed' }] },
-  { date: 'Wk 4', day: 'Fourth Sunday', markets: [{ name: 'Mount Eliza Farmers Market', mod: 'market-badge--producer' }] },
+  { date: 'Wk 4', day: 'Usually Sunday', markets: [{ name: 'Mount Eliza Farmers Market', mod: 'market-badge--producer' }] },
 ];
 const faqItems = [
   { q: 'Is the original Red Hill Community Market open?', a: 'No. Its organiser says it is temporarily closed while looking for a new location. Hill & Ridge is a separate market, but its 3 October 2026 edition was cancelled.' },
   { q: 'When is Hill & Ridge Community Market?', a: 'The organiser marks the 3 October 2026 edition cancelled. No replacement date is confirmed here; check the organiser for any future date.' },
-  { q: 'When are the other markets?', a: 'Mornington Main Street Market lists Wednesdays, Rye Foreshore Market lists the first Saturday of each month, and Mount Eliza Farmers Market lists the fourth Sunday. Confirm the current date with each organiser.' },
+  { q: 'When are the other markets?', a: 'Mornington Main Street Market lists Wednesdays, Rye Foreshore Market lists the first Saturday of each month, and Mount Eliza Farmers Market usually runs on a Sunday morning, with a separate twilight schedule. Confirm the current date and hours with each organiser.' },
   { q: 'Is Balnarring Village Green Market running?', a: 'We could not verify its current schedule from a primary source. Its listing is paused. Emu Plains Market is a different Balnarring event; check its organiser for current dates.' },
 ];
 const collectionSchema = buildCollectionPageSchema({
@@ -196,7 +196,7 @@ export const prerender = true;
   <section class="market-feature" aria-label="Market planning note"><div class="container"><div class="market-feature__inner"><div class="market-feature__body">
     <p class="label label--accent">Check before you travel</p>
     <h2 class="market-feature__heading">One calendar, different organisers</h2>
-    <p class="market-feature__dek">Rye Foreshore lists a first-Saturday market, Mornington gives you a Wednesday option, and Mount Eliza lists the fourth Sunday. Hill &amp; Ridge cancelled its 3 October edition; follow each organiser's current notice before planning a drive.</p>
+    <p class="market-feature__dek">Rye Foreshore lists a first-Saturday market, Mornington gives you a Wednesday option, and Mount Eliza publishes its daytime and twilight dates on the <a href="https://www.mtelizafarmersmarket.com.au/">market calendar</a>. Hill &amp; Ridge cancelled its 3 October edition; follow each organiser's current notice before planning a drive.</p>
     <p class="market-feature__dek">The original Red Hill Community Market is temporarily closed while its organiser looks for a new location. Hill &amp; Ridge is a separate event whose 3 October edition was cancelled. The former Balnarring Village Green listing is paused because its schedule could not be confirmed. Emu Plains Market is a separate Balnarring market; check its organiser for current dates.</p>
   </div><div class="market-feature__aside"><div class="market-feature__fact"><span class="market-feature__fact-num">3</span><span class="market-feature__fact-label">current market guides</span></div><div class="market-feature__fact"><span class="market-feature__fact-num">3 Oct</span><span class="market-feature__fact-label">Hill &amp; Ridge cancelled edition</span></div></div></div></div></section>
 
