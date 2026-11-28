@@ -44,7 +44,7 @@ Spring is when Viognier earns its keep. The 2025 vintage, currently pouring at t
 
 Phone ahead to confirm weekend hours before driving out. The cellar door is at 24 Junction Road, Merricks North. Allow ninety minutes. This is not a quick stop.
 
-Pair this with a walk along the Merricks Beach trail before or after, and consider combining with Baillieu Vineyard a short drive away.
+Pair this with a walk along the Merricks Beach trail before or after, and stop at [Merricks General Wine Store](/eat/merricks-general-wine-store/) if you want to taste Baillieu wines.
 
 ---
 

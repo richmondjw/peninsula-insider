@@ -41,12 +41,13 @@ const editorLead = (venue.data.editorNote ?? '').split(/\n\s*\n/)[0].replace(/\s
 const description = sigDesc.length >= 90 ? sigDesc : (editorLead || sigDesc).slice(0, 158);
 const canonical = `https://peninsulainsider.com.au/wine/${slug}/`;
 const hero = await resolveHero('venue', slug, venue.data, 'heroImage', {
+  ignoreOverride: slug === 'baillieu-vineyard',
   requireOverrideMetadata: ['ocean-eight', 'paringa-estate'].includes(slug),
 });
 const ogImage = hero.src;
 
 const schemas: any[] = [
-  buildWinerySchema(venue.data, slug),
+  buildWinerySchema(slug === 'baillieu-vineyard' ? { ...venue.data, heroImage: undefined } : venue.data, slug),
 ];
 if (venue.data.restaurant) schemas.push(buildRestaurantSchema(venue.data, slug));
 if (venue.data.accommodation) schemas.push(buildAccommodationSchema(venue.data, slug));

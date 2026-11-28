@@ -75,7 +75,9 @@ export async function resolveHero(
   // Published event slots do not carry the rights and depiction record required
   // for public event imagery. Promote approved media into the event record so
   // every surface uses the image, description and attribution reviewed together.
-  const sourceOnly = options.ignoreOverride || entityType === 'event';
+  // The Baillieu record uses a credited Merricks vineyard illustration, not a photo of the public cellar door.
+  const baillieuIllustration = entityType === 'venue' && slug === 'baillieu-vineyard' && ['heroImage', 'hero'].includes(fieldPath);
+  const sourceOnly = options.ignoreOverride || entityType === 'event' || baillieuIllustration;
   const images = sourceOnly ? {} : (await loadOverrides(entityType, slug)).image;
   // Honour the requested key first, then tolerate the other common key so
   // an override saved from any surface for this entity is always applied.

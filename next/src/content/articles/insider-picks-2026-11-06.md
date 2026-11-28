@@ -1,6 +1,6 @@
 ---
-title: "Baillieu Vineyard, the Merricks vine walk, and National Works on Paper closing soon"
-dek: Baillieu Vineyard's Chardonnay opens up with time, the Merricks vine walk is at its best in new-growth spring, and the National Works on Paper show at MPRG closes 22 November.
+title: "Baillieu wines at Merricks Store, a Merricks walk, and National Works on Paper"
+dek: "Where to taste Baillieu’s Chardonnay, a spring walk near Merricks, and the National Works on Paper exhibition at MPRG."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-11-06
@@ -26,19 +26,15 @@ clusterLinks:
   - label: "Things to Do on the Mornington Peninsula"
     href: "/journal/things-to-do-mornington-peninsula/"
 faq:
-  - question: "When is Baillieu Vineyard cellar door open?"
-    answer: "Baillieu Vineyard is on Tuerong Road, Merricks. Check their website for current spring hours and to book a tasting - bookings are recommended on weekends."
+  - question: "Where can I taste Baillieu wines?"
+    answer: "Taste Baillieu wines at Merricks General Wine Store, 3460 Frankston-Flinders Road, Merricks. The Store lists tastings 10 am to 5 pm daily; group tastings are by appointment. The vineyard is not open to the public."
   - question: "When does the National Works on Paper exhibition close at Mornington Peninsula Regional Gallery?"
     answer: "The National Works on Paper 2026 show closes Sunday 22 November 2026. Mornington Peninsula Regional Gallery is at Civic Reserve, Dunns Road, Mornington. Open Thursday to Sunday, 11am–4pm."
-  - question: "Can I walk the vines at Baillieu Vineyard?"
-    answer: "Yes. Baillieu Vineyard has a vine walk through the Merricks estate. Access is linked to the cellar door visit - book ahead and ask the team to point you toward the walk before or after your tasting."
 ---
 
-**WINE - Baillieu Vineyard, Merricks**
+**WINE - Baillieu wines at Merricks Store**
 
-Baillieu's cellar door is the one the Peninsula wine crowd mentions in lowered voices. Not a secret - it has been there for years - but under-visited in a way that works entirely in your favour this weekend. Spring is the right moment to come: the vines are in full new growth, the room is not at summer capacity, and the wines need a bit of time and conversation to show what they are. The Chardonnay in particular does not announce itself; it opens gradually, and the team here will give you the space to let that happen. Book a tasting rather than dropping in, and stay long enough for a proper glass after the flight. The vine walk through the estate is worth doing before you sit down - twenty minutes at most, and the rows look as good as they will all year. Bookings essential on Saturday; check the website for current spring hours.
-
-Pair the afternoon with a detour to Merricks General Wine Store for something to take home.
+For Baillieu wines, go to [Merricks General Wine Store](/eat/merricks-general-wine-store/) at 3460 Frankston-Flinders Road. It is the public cellar door; the vineyard itself is closed to visitors. The Store offers complimentary tastings for individuals. Groups of up to six need an appointment and usually pay a tasting fee. Book a bistro table separately if you are staying for lunch.
 
 ---
 
@@ -62,6 +58,6 @@ Pair the gallery visit with a walk along the Mornington foreshore before or afte
 
 | Pick | Address | Practical |
 |---|---|---|
-| Baillieu Vineyard | Tuerong Road, Merricks | Bookings essential weekends; check website for spring hours |
+| Baillieu wines at Merricks Store | 3460 Frankston-Flinders Road, Merricks | Individuals: complimentary tastings; groups by appointment |
 | Merricks Creek / Coolart Wetlands | Merricks foreshore reserve south to Coolart, Somers | No booking; allow 90 min return; check Coolart opening days |
 | National Works on Paper 2026, MPRG | Civic Reserve, Dunns Road, Mornington | Thu–Sun 11am–4pm; closes 22 November 2026; free entry |
