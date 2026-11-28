@@ -503,7 +503,7 @@ test('a plan accepts a two-person headcount without assuming romance or treating
 test('a source follow-up cites only distinct published guides the preceding reply actually showed', () => {
   const [first, second] = index.records;
   const previousOptions = [second.u, '/unknown/', first.u, second.u];
-  for (const question of ['What source backs that recommendation?', 'What is your source?', 'Can you cite your sources?', 'Where did you get that from?']) {
+  for (const question of ['What backs that recommendation?', 'What source backs that recommendation?', 'What is your source?', 'Can you cite your sources?', 'Where did you get that from?']) {
     const { reply } = converse(index, question, null, { today, previousOptions });
     assert.equal(reply.kind, 'sources');
     assert.deepEqual(reply.links, [{ href: second.u, label: second.t }, { href: first.u, label: first.t }]);

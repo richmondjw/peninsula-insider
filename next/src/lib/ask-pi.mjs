@@ -83,6 +83,7 @@ const BARE_COMPARISON = [
 // Follow-up only. Named questions about sources continue through ordinary retrieval.
 const ASKS_FOR_SOURCES = [
   /^(?:whats|what is|what are|wheres) (?:your |the )?sources?(?: for (?:that|this)(?: recommendation| pick| claim)?)?$/,
+  /^what (?:backs|supports) (?:this|that|your|the) (?:recommendation|pick|claim|advice)$/,
   /^(?:what|which) (?:sources?|guides?|pages?) (?:backs?|supports?) (?:that|this|your|the)(?: recommendation| pick| claim| advice)?$/,
   /^(?:where did you (?:get|find) (?:that|this)(?: from)?|how do you know(?: that)?|(?:can|could) you (?:cite|show|link)(?: me)? (?:your|the) sources?|sources?)$/,
 ];
