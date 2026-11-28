@@ -135,6 +135,7 @@ const starters = SHOW_ASK_PERSONA
 <script>
   import type { TransitionBeforeSwapEvent } from 'astro:transitions/client';
   import { paragraphs, READER_ERROR, sessionId, sse } from '../lib/ask-client';
+  import { isGeneralDiscussion } from '../lib/ask-discussion.mjs';
   import { converse, requestedStopSwap, swapStop, pageOffers, composeRequest, applyCompose, talkPages, cardsFor, hasSubject, declines } from '../lib/ask-pi.mjs';
   import { loadAskIndex } from '../scripts/ask-guide-ui';
 
@@ -165,7 +166,7 @@ const starters = SHOW_ASK_PERSONA
   // things she cannot check keep their own authored paths.
   const TALKABLE = new Set(['results', 'named', 'place', 'none', 'help', 'nightlife', 'with']);
   // Replies that are a step in a conversation, not an answer a reader would open as a page.
-  const NOT_A_PAGE = new Set(['interview', 'plan', 'critique', 'with', 'talk', 'sources']);
+  const NOT_A_PAGE = new Set(['interview', 'plan', 'critique', 'with', 'talk', 'sources', 'discussion']);
   const FEEDBACK: [string, string][] = [['wrong-place', 'Wrong sort of place'], ['missed-point', 'Missed the point'], ['out-of-date', 'Out of date'], ['not-funny', 'Not funny']];
 
   // Version the session namespace whenever the answer engine's privacy boundary
@@ -342,6 +343,7 @@ const starters = SHOW_ASK_PERSONA
       window.setTimeout(() => { delete root.dataset.gesture; }, name === 'catch' ? 1100 : 680);
     }
     const track = (name: string, params: Record<string, unknown>) => { try { (window as any).piTrack?.(name, params, { component: 'pi-chat' }); } catch { /* never breaks the chat */ } };
+    const ephemeral = new WeakSet<Turn>();
     let turns: Turn[] = [];
     try { turns = JSON.parse(store.get(sessionStorage, HISTORY) || '[]'); } catch { turns = []; }
     // What the last answer matched, so "in Flinders" refines it.
@@ -773,7 +775,7 @@ const starters = SHOW_ASK_PERSONA
     }
 
     function save() {
-      store.set(sessionStorage, HISTORY, JSON.stringify(turns.slice(-12)));
+      store.set(sessionStorage, HISTORY, JSON.stringify(turns.filter(turn => !ephemeral.has(turn)).slice(-12)));
       store.set(sessionStorage, ENGINE, JSON.stringify(engine));
     }
 
@@ -787,19 +789,19 @@ const starters = SHOW_ASK_PERSONA
     }
 
     /** The last few exchanges, so her note and the front desk follow the thread. */
-    function recent(count = 3) {
+    function recent(count = 3, discussion = false) {
       const out: { q: string; say?: string }[] = [];
       for (let i = 0; i < turns.length - 1; i += 1) {
         const you = turns[i];
         const pi = turns[i + 1];
-        if (you.role === 'you' && pi?.role === 'pi' && !pi.error) out.push({ q: you.text, say: pi.text });
+        if (you.role === 'you' && pi?.role === 'pi' && !pi.error && ephemeral.has(you) === discussion && ephemeral.has(pi) === discussion) out.push({ q: you.text, say: pi.text });
       }
       return out.slice(-count);
     }
 
     /** One call to PI's voice. Any failure is simply "no voice this time". */
-    async function voice<T>(path: 'voice' | 'front-desk' | 'compose' | 'talk', body: unknown, signal: AbortSignal): Promise<T | null> {
-      const timeout = AbortSignal.timeout(path === 'compose' || path === 'talk' ? 20_000 : 14_000);
+    async function voice<T>(path: 'voice' | 'front-desk' | 'compose' | 'talk' | 'discuss', body: unknown, signal: AbortSignal): Promise<T | null> {
+      const timeout = AbortSignal.timeout(path === 'compose' || path === 'talk' || path === 'discuss' ? 20_000 : 14_000);
       try {
         const res = await fetch(`${api}/concierge/pi/${path}`, {
           method: 'POST',
@@ -1041,17 +1043,19 @@ const starters = SHOW_ASK_PERSONA
       const { signal } = controller;
       input.value = '';
       autoGrow();
-      turns.push({ role: 'you', text: q });
-      save();
+      const questionTurn: Turn = { role: 'you', text: q };
+      // Until routing finishes this question could be a memory-only discussion.
+      ephemeral.add(questionTurn);
+      turns.push(questionTurn);
       render();
       log.lastElementChild?.classList.add('is-new');
       const memo = memoryReply(q);
-      if (memo) { say(memo, ['Plan my day', 'Surprise me']); return; }
+      if (memo) { ephemeral.delete(questionTurn); say(memo, ['Plan my day', 'Surprise me']); return; }
       // A message that is only about how she talks changes the dial and is answered by her own line.
       const cue: Dial | null = SAY_PI.test(q) ? 'pi' : SAY_FULL.test(q.trim()) && !engine?.pi?.strikes ? 'full' : SAY_STRAIGHT.test(q) ? 'straight' : null;
       if (cue) {
         setDial(cue, 'said');
-        if (q.trim().split(/\s+/).length <= 6) { say(DIAL_LINE[cue]); return; }
+        if (q.trim().split(/\s+/).length <= 6) { ephemeral.delete(questionTurn); say(DIAL_LINE[cue]); return; }
       }
 
       const live = el('li', 'pi-msg pi-msg--pi is-live');
@@ -1073,6 +1077,7 @@ const starters = SHOW_ASK_PERSONA
       try {
         const at = requestedStopSwap(q);
         if (at !== null) {
+          ephemeral.delete(questionTurn);
           const plan = latestPlan();
           const before = plan?.plan?.stops[at];
           if (before?.swappable) await swap(at, signal);
@@ -1092,6 +1097,23 @@ const starters = SHOW_ASK_PERSONA
         let result = matchGuides(index, q, engine, context);
         if (!result) throw new Error(READER_ERROR);
 
+        if (isGeneralDiscussion(index, q, result.reply, previous?.kind)) {
+          const response = talkOn ? await voice<{ answer?: string }>('discuss', { question: q, history: recent(3, true) }, signal) : null;
+          if (signal.aborted) { live.remove(); return; }
+          const text = response?.answer || 'I can’t answer that conversation turn right now. You can try again or ask me about the Peninsula guides.';
+          const turn: PiTurn = { role: 'pi', text, places: [], next: [], kind: 'discussion' };
+          ephemeral.add(turn);
+          turns.push(turn);
+          // The local planner is suspended while the reader changes subjects.
+          save();
+          const node = piNode(turn);
+          live.replaceWith(node);
+          scrollToMsg(node);
+          return;
+        }
+        ephemeral.delete(questionTurn);
+        save();
+
         // Conversation first. For an ordinary message she replies as herself,
         // from the thread and the guide pages the site judges relevant: what the
         // matcher found, what was on screen a moment ago, and pages whose words
@@ -1108,7 +1130,7 @@ const starters = SHOW_ASK_PERSONA
         if (!calendarReply && talkOn && !result.reply.plan && !thinPlan && TALKABLE.has(result.reply.kind)) {
           const waited = new AbortController();
           const timer = window.setTimeout(() => waited.abort(), TALK_WAIT_MS);
-          const said = turns.filter((t) => t.role === 'you').slice(0, -1).map((t) => t.text);
+          const said = turns.filter((t) => t.role === 'you' && !ephemeral.has(t)).slice(0, -1).map((t) => t.text);
           const pages = talkPages(index, q, said, result.reply, shownBefore(), context) as string[];
           // Her words appear in the waiting bubble as each sentence arrives.
           let saying: HTMLElement | null = null;
