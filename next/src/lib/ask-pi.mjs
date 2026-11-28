@@ -262,6 +262,12 @@ function planTurn(index, pi, brief, today, leadKey, extra = {}) {
 }
 
 /** "Not that one": the next page our guides have for that part of the day. */
+export function requestedStopSwap(question) {
+  const match = /^(?:please )?swap (?:the )?(?:(first|second|third|fourth) stop|stop ([1-9]\d?))(?: please)?$/.exec(normalise(question));
+  if (!match) return null;
+  return match[2] ? Number(match[2]) - 1 : ['first', 'second', 'third', 'fourth'].indexOf(match[1]);
+}
+
 export function swapStop(index, state, at) {
   const plan = state?.pi?.plan;
   const slot = plan?.slots?.[at];
