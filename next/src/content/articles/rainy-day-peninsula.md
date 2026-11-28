@@ -85,7 +85,7 @@ If you want to build an afternoon around making something, book the workshop fir
 
 **Peachy Keen Ceramics, Mount Eliza.** Choose a one-off workshop if you're curious about clay, or an ongoing class if you want to keep working on your own pieces. You don't need prior experience. The studio is at a private residence and sends the address after booking. If you have access requirements, [contact the studio](https://www.peachykeenceramics.com.au/contact-us) before choosing a session.
 
-**Dromana Creative Hub & Gallery.** If you'd like to see local artists' work as well as try making your own, look for a hands-on workshop at the gallery. [Check the programme](https://www.dromanagallery.com.au/) for a session that suits.
+**Dromana Creative Hub & Gallery.** If you'd like to see local artists' work as well as try making your own, look for a hands-on workshop at the gallery. [Visit the gallery’s website](https://www.dromanagallery.com.au/) for current visitor information.
 
 ## The weekend structure that works
 
