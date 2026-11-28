@@ -165,7 +165,7 @@ const starters = SHOW_ASK_PERSONA
   // things she cannot check keep their own authored paths.
   const TALKABLE = new Set(['results', 'named', 'place', 'none', 'help', 'nightlife', 'with']);
   // Replies that are a step in a conversation, not an answer a reader would open as a page.
-  const NOT_A_PAGE = new Set(['interview', 'plan', 'critique', 'with', 'talk']);
+  const NOT_A_PAGE = new Set(['interview', 'plan', 'critique', 'with', 'talk', 'sources']);
   const FEEDBACK: [string, string][] = [['wrong-place', 'Wrong sort of place'], ['missed-point', 'Missed the point'], ['out-of-date', 'Out of date'], ['not-funny', 'Not funny']];
 
   // Version the session namespace whenever the answer engine's privacy boundary
@@ -1073,7 +1073,8 @@ const starters = SHOW_ASK_PERSONA
       try {
         const index = await loadAskIndex();
         const previous = [...turns].reverse().find((turn): turn is PiTurn => turn.role === 'pi');
-        const context = { pagePath: location.pathname, previousOptions: previous?.places?.map((place) => place.href) || [] };
+        const previousOptions = previous?.kind === 'sources' ? previous.links : previous?.places;
+        const context = { pagePath: location.pathname, previousOptions: previousOptions?.map((item) => item.href) || [] };
         let result = matchGuides(index, q, engine, context);
         if (!result) throw new Error(READER_ERROR);
 
