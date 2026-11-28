@@ -80,6 +80,13 @@ const BARE_COMPARISON = [
   /^(?:(?:can|could|would) you )?compare (?:the two|them|these(?: two)?|those(?: two)?)$/,
   /^which(?: one| of (?:the two|these(?: two)?|those(?: two)?|them))? (?:would|do) you (?:pick|choose|prefer|recommend)$/,
 ];
+// Follow-up only. Named questions about sources continue through ordinary retrieval.
+const ASKS_FOR_SOURCES = [
+  /^(?:whats|what is|what are|wheres) (?:your |the )?sources?(?: for (?:that|this)(?: recommendation| pick| claim)?)?$/,
+  /^what (?:backs|supports) (?:this|that|your|the) (?:recommendation|pick|claim|advice)$/,
+  /^(?:what|which) (?:sources?|guides?|pages?) (?:backs?|supports?) (?:that|this|your|the)(?: recommendation| pick| claim| advice)?$/,
+  /^(?:where did you (?:get|find) (?:that|this)(?: from)?|how do you know(?: that)?|(?:can|could) you (?:cite|show|link)(?: me)? (?:your|the) sources?|sources?)$/,
+];
 const ELSEWHERE = /^(?:somewhere else|another town|a different town)$/;
 const RAINY = /\b(?:rainy day rescue|rainy day plan|its raining|if it rains|wet day|indoor version|under a roof)\b/;
 const CRITIC = /\b(?:talk me out of (?:it|this)|rate my plan|critique my plan|what do you think of (?:my|this|our) plan|is (?:this|that) too much)\b/;
@@ -745,6 +752,14 @@ export function converse(index, question, state = null, context = {}) {
     const flags = parseQuestion(asked, index, context).flags;
     return [MANY_DAYS.test(bare) ? PLAN_NOTES.oneDay : null, flags.price ? pick(REFUSALS.price, daySeed(bare)) : null].filter(Boolean);
   };
+
+  if (ASKS_FOR_SOURCES.some(pattern => pattern.test(bare))) {
+    const links = cardsFor(index, context.previousOptions).map(({ href, title }) => ({ href, label: title }));
+    const lead = !links.length ? 'Which recommendation do you mean? Give me the place or event name so I can look for its guide.'
+      : links.length === 1 ? 'This is the published Peninsula Insider guide for the pick I showed you.'
+      : 'These are the published Peninsula Insider guides for the picks I showed you.';
+    return finish({ pi, reply: { kind: 'sources', lead, notes: [], cards: [], links, chips: [] } });
+  }
 
   // Only the options the reader saw on the preceding reply can ground a bare comparison.
   if (BARE_COMPARISON.some(pattern => pattern.test(bare))) {

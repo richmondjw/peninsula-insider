@@ -499,3 +499,26 @@ test('a plan accepts a two-person headcount without assuming romance or treating
   assert.equal(ask('Plan a morning for 2 people in Flinders').state.pi.plan.brief.who, 'pair');
   assert.equal(ask('Plan a morning in Red Hill for two hours').state.pi.interview.step, 'who');
 });
+
+test('a source follow-up cites only distinct published guides the preceding reply actually showed', () => {
+  const [first, second] = index.records;
+  const previousOptions = [second.u, '/unknown/', first.u, second.u];
+  for (const question of ['What backs that recommendation?', 'What source backs that recommendation?', 'What is your source?', 'Can you cite your sources?', 'Where did you get that from?']) {
+    const { reply } = converse(index, question, null, { today, previousOptions });
+    assert.equal(reply.kind, 'sources');
+    assert.deepEqual(reply.links, [{ href: second.u, label: second.t }, { href: first.u, label: first.t }]);
+    assert.deepEqual(reply.cards, []);
+  }
+  assert.notEqual(converse(index, 'Where can I find local produce in Red Hill?', null, { today }).reply.kind, 'sources');
+});
+
+test('a source follow-up without displayed evidence asks for the reference even if an older search exists', () => {
+  const previous = converse(index, 'Lunch in Flinders', null, { today });
+  for (const previousOptions of [undefined, [], ['/withdrawn-guide/']]) {
+    const { reply } = converse(index, 'What source backs that recommendation?', previous.state, { today, previousOptions });
+    assert.equal(reply.kind, 'sources');
+    assert.match(reply.lead, /Which recommendation/);
+    assert.deepEqual(reply.links, []);
+    assert.deepEqual(reply.cards, []);
+  }
+});
