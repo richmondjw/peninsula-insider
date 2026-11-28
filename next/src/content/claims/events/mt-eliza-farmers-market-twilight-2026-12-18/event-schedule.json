@@ -1,0 +1,19 @@
+{
+  "claimId": "events/mt-eliza-farmers-market-twilight-2026-12-18/event-schedule",
+  "claimClass": "event-schedule",
+  "subject": {
+    "type": "events",
+    "slug": "mt-eliza-farmers-market-twilight-2026-12-18",
+    "field": "nextOccurrence"
+  },
+  "statement": "The organiser schedules the Mt Eliza Farmers' Market twilight edition for Friday 18 December 2026, 3pm to 8pm AEDT.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "mt-eliza-farmers-market-twilight-2026-12-18",
+      "field": "nextOccurrence"
+    }
+  ],
+  "createdAt": "2026-11-26",
+  "origin": "authored"
+}
