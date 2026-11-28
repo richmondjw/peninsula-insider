@@ -1,0 +1,9 @@
+# Ask PI general discussion
+
+**Status** Proposed for release review. Product scope authorised by James on 28 November 2026. Existing published-guide, editorial, privacy and partner responsibilities continue to apply.
+
+James’s Ask PI 2.0 mandate §§3, 13 and 19 includes standalone discussion about Paris, home and other ordinary subjects. His subsequent instructions were “Fully approved” and “push live”. This narrows an earlier editorial rule that redirected every discussion outside the Peninsula. PI may stay with a harmless general question and its follow-ups in her established Local voice. This decision grants no authority to publish local factual recommendations without guide evidence, undertake external actions, search the open web or transact.
+
+The site sends a general turn to the existing platform under the existing voice and talk flags. A dedicated route uses the configured writer and review provider. It returns reviewed text or no answer. No guide citations, calendar lookup, operator actions, database write or provider change belongs to this route. The browser keeps the general thread in memory and excludes it from stored guide history and subsequent guide requests. The provider receives text to process it. The platform’s default request middleware logs request metadata. Provider retention and the deletion timing of the separate legacy guide-transcript store have not been independently verified in this slice. The reader disclosure therefore describes the guide policy as a policy and distinguishes this route’s behaviour.
+
+Independent evidence for release must cover a new general subject, a contextual follow-up, a return to local guide evidence, an operational boundary, absence of invented sources or completed actions, the unavailable-writer state and the separation of conversation records. Release the platform endpoint before the site. A site rollback restores the previous reader path.
