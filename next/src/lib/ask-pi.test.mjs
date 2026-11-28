@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { tokens } from './ask-guide.mjs';
-import { converse, swapStop, occasion, pageOffers, tripLink, composeRequest, applyCompose, talkPages, cardsFor, isFollowUp, hasSubject } from './ask-pi.mjs';
+import { converse, requestedStopSwap, swapStop, occasion, pageOffers, tripLink, composeRequest, applyCompose, talkPages, cardsFor, isFollowUp, hasSubject } from './ask-pi.mjs';
 import * as lines from './pi-lines.mjs';
 
 const today = '2026-11-20';
@@ -521,4 +521,13 @@ test('a source follow-up without displayed evidence asks for the reference even 
     assert.deepEqual(reply.links, []);
     assert.deepEqual(reply.cards, []);
   }
+});
+
+test('a typed single-stop swap accepts an ordinal or a position and preserves unrelated requests', () => {
+  assert.equal(requestedStopSwap('Swap the first stop.'), 0);
+  assert.equal(requestedStopSwap('Please swap stop 2'), 1);
+  assert.equal(requestedStopSwap('Swap the fourth stop please'), 3);
+  assert.equal(requestedStopSwap('Swap stop 12'), 11);
+  assert.equal(requestedStopSwap('Swap the first and second stops'), null);
+  assert.equal(requestedStopSwap('Can I swap tickets?'), null);
 });

@@ -136,7 +136,7 @@ const starters = SHOW_ASK_PERSONA
   import type { TransitionBeforeSwapEvent } from 'astro:transitions/client';
   import { paragraphs, READER_ERROR, sessionId, sse } from '../lib/ask-client';
   import { isGeneralDiscussion } from '../lib/ask-discussion.mjs';
-  import { converse, swapStop, pageOffers, composeRequest, applyCompose, talkPages, cardsFor, hasSubject, declines } from '../lib/ask-pi.mjs';
+  import { converse, requestedStopSwap, swapStop, pageOffers, composeRequest, applyCompose, talkPages, cardsFor, hasSubject, declines } from '../lib/ask-pi.mjs';
   import { loadAskIndex } from '../scripts/ask-guide-ui';
 
   type Place = { href: string; title: string; why: string; section: string; image: string | null; alt: string; credit?: string | null; facts?: [string, string][]; badge?: string | null; note?: string | null; book?: { label: string; href: string } | null; line?: string | null };
@@ -1075,23 +1075,25 @@ const starters = SHOW_ASK_PERSONA
       }, 1800);
 
       try {
+        const at = requestedStopSwap(q);
+        if (at !== null) {
+          ephemeral.delete(questionTurn);
+          const plan = latestPlan();
+          const before = plan?.plan?.stops[at];
+          if (before?.swappable) await swap(at, signal);
+          if (signal.aborted) { live.remove(); return; }
+          live.remove();
+          const after = latestPlan()?.plan?.stops[at];
+          if (!plan) say('Which day would you like to plan first?', ['Plan my day']);
+          else if (!before) say(`This plan has ${plan.plan!.stops.length} stops. Which one would you like to swap?`);
+          else if (after && before.card.href !== after.card.href) say(`That stop is now ${after.card.title}. The updated plan is above.`);
+          else say('I don’t have another guide-backed option for that stop in this plan.');
+          return;
+        }
         const index = await loadAskIndex();
         const previous = [...turns].reverse().find((turn): turn is PiTurn => turn.role === 'pi');
         const previousOptions = previous?.kind === 'sources' ? previous.links : previous?.places;
         const context = { pagePath: location.pathname, previousOptions: previousOptions?.map((item) => item.href) || [] };
-        const resumeSwap = /^swap (?:the )?(first|second|third|fourth) stop[.!?]?$/i.exec(q);
-        if (resumeSwap && latestPlan()) {
-          ephemeral.delete(questionTurn);
-          const at = ['first', 'second', 'third', 'fourth'].indexOf(resumeSwap[1].toLowerCase());
-          const before = latestPlan()!.plan!.stops[at];
-          if (before?.swappable) await swap(at);
-          if (signal.aborted) { live.remove(); return; }
-          live.remove();
-          const after = latestPlan()?.plan?.stops[at];
-          say(after && before?.card.href !== after.card.href ? `That stop is now ${after.card.title}. The updated plan is above.`
-            : 'I don’t have another guide-backed option for that stop in this plan.');
-          return;
-        }
         let result = matchGuides(index, q, engine, context);
         if (!result) throw new Error(READER_ERROR);
 
@@ -1328,11 +1330,11 @@ const starters = SHOW_ASK_PERSONA
       if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
       else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
     });
-    async function swap(at: number) {
+    async function swap(at: number, signal?: AbortSignal) {
       const turn = latestPlan();
       if (!turn) return;
       const swapped = swapStop(await loadAskIndex(), engine, at) as { state: unknown; plan: Plan; remark: string } | null;
-      if (!swapped || latestPlan() !== turn) return;
+      if (!swapped || signal?.aborted || latestPlan() !== turn) return;
       engine = swapped.state;
       turn.plan = swapped.plan;
       turn.places = toPlaces(swapped.plan.stops.map((stop) => stop.card));
