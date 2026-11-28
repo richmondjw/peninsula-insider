@@ -1,44 +1,11 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-28T06:33:41.581Z",
+  "generatedAt": "2026-11-28T07:02:34.313Z",
   "baselineAvailable": true,
-  "fromSnapshot": "0a11a24b7ec243e73eb6fc6c4d33c6d7dffd51bbdd375d2496546fca6d6c2420",
+  "fromSnapshot": "95959d9aad93d65f4034b46fd1ce62195ba9974a3378bc0f4fb1a1463a9c4b27",
   "toSnapshot": "95959d9aad93d65f4034b46fd1ce62195ba9974a3378bc0f4fb1a1463a9c4b27",
-  "previousGeneratedAt": "2026-11-28T06:11:48.341Z",
+  "previousGeneratedAt": "2026-11-28T06:33:41.581Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 4,
-  "changes": [
-    {
-      "id": "https://peninsulainsider.com.au/explore/golf/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/golf/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/golf/index.md",
-      "contentSha256": "4b4710be799066ffceefcb40f8005634592792a1e2acbebfb8a2b2de580966fd",
-      "previousContentSha256": "ff14d64af0d32c6059c7ae0b794b1b957a24d41cccf3504e95d3675c29daa07a"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/places/dromana/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/dromana/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/dromana/index.md",
-      "contentSha256": "279fd334727c27608b5ac5ee0c66ec87f391552c548fc4988c188f069ba6518e",
-      "previousContentSha256": "4826482fc67f4f19dca1e286c0a6bf5ec187e9e9d96ba02bc35f380ee5a059c3"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/things-to-do/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/things-to-do/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/things-to-do/index.md",
-      "contentSha256": "8c6848648c7633fbfc65a248d213b384d6196f1b1604fddba73065186bbfe0b2",
-      "previousContentSha256": "6a67d52e2a7ff140488321f94d020c9413fb09df7e67a16ece0a894a6e04877c"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/the-pub-guide/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/the-pub-guide/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/the-pub-guide/index.md",
-      "contentSha256": "1d138ec5609a0b767d362785e88d19ff7ea3c58c3baa6be6a466ca07d5e93ba4",
-      "previousContentSha256": "2462b5b54ad83e09ac5feac57ddb53fe074fa37920686e38209d51fe9ff9f9da"
-    }
-  ]
+  "count": 0,
+  "changes": []
 }
