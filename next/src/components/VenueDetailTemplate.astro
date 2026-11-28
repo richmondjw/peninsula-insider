@@ -140,6 +140,8 @@ const heroLabel = `${data.name} · ${placeLabel(data.place)}`;
 // Per-venue CMS override consult. If an editor has uploaded a venue-specific
 // hero via the inline editor, it wins over the content-JSON default.
 const venueSlug = venue.id ?? data.slug;
+// The regional photograph is not the public tasting room. Keep the image, disclosure and attribution together.
+const baillieuIllustration = section === 'wine' && venueSlug === 'baillieu-vineyard';
 const isPortPhillipEstate = section === 'wine' && venueSlug === 'port-phillip-estate';
 // Ocean Eight's public contact page is an enquiry, not a reservation flow.
 const isOceanEightContact = section === 'wine' && venueSlug === 'ocean-eight';
@@ -147,7 +149,7 @@ const isOceanEightContact = section === 'wine' && venueSlug === 'ocean-eight';
 const preserveReviewedVenueHero = section === 'wine' && ['ocean-eight', 'paringa-estate'].includes(venueSlug);
 // Stay pages keep the reviewed source image and its matching disclosure together.
 const hero = await resolveHero('venue', venueSlug, data, 'heroImage', {
-  ignoreOverride: section === 'stay' || section === 'eat',
+  ignoreOverride: section === 'stay' || section === 'eat' || baillieuIllustration,
   requireOverrideMetadata: preserveReviewedVenueHero,
 });
 // `hero.alt || heroLabel` was the old line, and it is exactly the bug this
@@ -160,12 +162,20 @@ const { alt: heroAlt, presentation: heroPresentation } = altFor(hero, heroLabel)
 // file, and the record says nothing about it - so pass nothing rather
 // than let one image's disclosure stand in for another's. Capturing
 // provenance at upload is the operator flow, which is gated separately.
-const heroCredit = isArtwork(hero.override ?? data.heroImage) ? undefined : hero.override ? hero.override.credit : data.heroImage?.credit;
+const heroCredit = baillieuIllustration
+  ? 'BrooksieG / Wikimedia Commons, resized and converted to WebP'
+  : isArtwork(hero.override ?? data.heroImage) ? undefined : hero.override ? hero.override.credit : data.heroImage?.credit;
 // Caption rule (lib/image-caption.mjs): place line, then the source.
-const heroPlace = cleanCaption(hero.override ? hero.override.caption : data.heroImage?.caption);
+const heroPlace = baillieuIllustration
+  ? 'Vine rows in Merricks, not the Merricks Store cellar door'
+  : cleanCaption(hero.override ? hero.override.caption : data.heroImage?.caption);
 const flindersCommonsHero = venueSlug === 'flinders-hotel' && !hero.override && hero.hasPhoto;
-const heroSourceUrl = !hero.override && /^https?:\/\/\S+$/.test(String(data.heroImage?.sourceUrl)) ? data.heroImage.sourceUrl : undefined;
-const heroLicenceUrl = !hero.override ? data.heroImage?.licenseUrl ?? (flindersCommonsHero ? 'https://creativecommons.org/licenses/by-sa/3.0/' : undefined) : undefined;
+const heroSourceUrl = baillieuIllustration
+  ? 'https://commons.wikimedia.org/wiki/File:Vineyard_Merricks_Grove_Victoria_Australia.jpg'
+  : !hero.override && /^https?:\/\/\S+$/.test(String(data.heroImage?.sourceUrl)) ? data.heroImage.sourceUrl : undefined;
+const heroLicenceUrl = baillieuIllustration
+  ? 'https://creativecommons.org/licenses/by/4.0/'
+  : !hero.override ? data.heroImage?.licenseUrl ?? (flindersCommonsHero ? 'https://creativecommons.org/licenses/by-sa/3.0/' : undefined) : undefined;
 // The photograph rule (src/lib/photo-set.ts): a stage opens the page when
 // there are three or more verified photographs, and the rest are set into
 // the editor note rather than dumped at the foot of the page.
@@ -434,7 +444,7 @@ const hoursSchema = hasOpeningHours && !isPaused && isCanonicalSurface && sectio
     ) : eatHeroApproved ? (
       <>
         <figure
-          class="venue-detail__hero" data-pi-no-hydrate={ilukaIllustration ? 'true' : undefined}
+          class="venue-detail__hero" data-pi-no-hydrate={ilukaIllustration || baillieuIllustration ? 'true' : undefined}
           {...(section === 'eat' ? {} : editableImage({
             entityType: 'venue',
             entitySlug: venueSlug,
@@ -443,9 +453,9 @@ const hoursSchema = hasOpeningHours && !isPaused && isCanonicalSurface && sectio
             purpose: 'hero',
           }))}
         >
-          <img src={hero.src} alt={heroAlt} role={heroPresentation ? 'presentation' : undefined} data-pi-no-hydrate={section === 'eat' || ilukaIllustration ? 'true' : undefined} fetchpriority="high" decoding="async" />
+          <img src={hero.src} alt={heroAlt} role={heroPresentation ? 'presentation' : undefined} data-pi-no-hydrate={section === 'eat' || ilukaIllustration || baillieuIllustration ? 'true' : undefined} fetchpriority="high" decoding="async" />
           <div class="venue-detail__hero-fog"></div>
-          {!isPaused && !isClosed && <span class="venue-detail__hero-label">{ilukaIllustration ? 'Editorial illustration' : heroLabel}</span>}
+          {!isPaused && !isClosed && <span class="venue-detail__hero-label">{ilukaIllustration ? 'Editorial illustration' : baillieuIllustration ? 'Merricks vineyard scene' : heroLabel}</span>}
         </figure>
         {ilukaIllustration && <p class="venue-detail__hero-credit">Peninsula Insider editorial artwork. Property photography awaiting review.</p>}
         {heroCredit && (
