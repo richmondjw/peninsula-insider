@@ -208,3 +208,18 @@ test('a booking button is carried only as the page marks and prints it', async (
   // A link back to our own site is not a booking.
   assert.equal(bookingOn('<main><a href="https://peninsulainsider.com.au/stay/" data-pi-book="booking" data-pi-surface="venue-booking-bar">Check availability</a></main>'), null);
 });
+
+test('Flinders walk evidence disappears when its published source no longer carries the passage', () => {
+  const path = '/journal/area-guide-flinders/';
+  const passage = 'The coastal reserve walk from the village toward West Head is the most convincing argument for Flinders.';
+  const before = HEAD(path) + '# Flinders: The Peninsula Insider Guide\n\nA village guide to Flinders and its coastal reserve.\n\n';
+  const dist = fixture([], [[path, 'Flinders', before + passage]]);
+  try {
+    const record = () => buildIndex(dist).index.records.find((row) => row.u === path);
+    assert.deepEqual(record().walk, { place: 'flinders', passage });
+    writeFileSync(join(dist, path, 'index.md'), before);
+    assert.equal(record().walk, undefined);
+  } finally {
+    rmSync(dist, { recursive: true, force: true });
+  }
+});

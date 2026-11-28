@@ -186,3 +186,18 @@ test('"start over" clears the conversation', () => {
   assert.equal(cleared.state, null);
   assert.equal(cleared.reply.kind, 'help');
 });
+
+test('a town walk request uses a verified local walking passage or a coverage gap, never a golf card', () => {
+  const golf = venue('/explore/flinders-golf-club/', 'do', 'Flinders Golf Club', 'Golf Course', 'flinders', 'Flinders', 'Golf with coastal views.', 'Morning');
+  const guide = { u: '/journal/area-guide-flinders/', k: 'story', t: 'Flinders guide', kw: 'flinder', walk: { place: 'flinders', passage: 'Our coastal walk runs toward West Head.' } };
+  const local = { ...index, records: [...index.records, golf, guide] };
+  const q = 'I miss home. Could you suggest a quiet morning walk in Flinders?';
+  const answer = ask(local, q, null, { today }).reply;
+  assert.ok(answer.lead.includes('West Head'));
+  assert.deepEqual(answer.cards.map((c) => c.href), [guide.u]);
+  const previousIndex = { ...index, records: [...index.records, golf] };
+  assert.deepEqual(ask(previousIndex, q, null, { today }).reply.cards, []);
+  assert.deepEqual(ask(local, 'Golf in Flinders', null, { today }).reply.cards.map((c) => c.href), [golf.u]);
+  assert.deepEqual(ask(local, 'A quiet walk in Sorrento', null, { today }).reply.cards.map((c) => c.href), ['/explore/coppins-track/']);
+  assert.equal(ask(local, 'Is the Flinders walk safe today?', null, { today }).reply.kind, 'live');
+});
