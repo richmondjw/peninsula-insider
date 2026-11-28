@@ -1,20 +1,68 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-28T00:53:21.494Z",
+  "generatedAt": "2026-11-28T04:16:56.619Z",
   "baselineAvailable": true,
-  "fromSnapshot": "688688215bfd1f14681aa762f1a45918eda7e34e4c429653784cae291796152d",
-  "toSnapshot": "0c653958737a316f4106b3584c741d396108604d308dbf8b934ae669ada99223",
-  "previousGeneratedAt": "2026-11-27T22:24:30.100Z",
+  "fromSnapshot": "0c653958737a316f4106b3584c741d396108604d308dbf8b934ae669ada99223",
+  "toSnapshot": "16f119dc9304112021534e1268ead1319869ab7666f640edf0b79ad725b99d32",
+  "previousGeneratedAt": "2026-11-28T00:53:21.494Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 1,
+  "count": 7,
   "changes": [
     {
       "id": "https://peninsulainsider.com.au/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/",
       "markdownUrl": "https://peninsulainsider.com.au/index.md",
-      "contentSha256": "c2c6824697d3f6321340f9c0bf8dcdd64595bd5729cc823011f2f108f467067a",
-      "previousContentSha256": "c7c04f11a5318027ccaf3a6a9bdb334ec6d01d119c9d2408496d7054d7981924"
+      "contentSha256": "5e976d5ea45e38ae3b780362e0ee67be975156c5d70c2a7e2d79870ab1b4ff0c",
+      "previousContentSha256": "c2c6824697d3f6321340f9c0bf8dcdd64595bd5729cc823011f2f108f467067a"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/boneo/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/boneo/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/boneo/index.md",
+      "contentSha256": "4612692c08a7171513aade728c604a57819b69989ff52aafe220277f1699b09e",
+      "previousContentSha256": "8f9e8db7f12a6804c8b6ca79b7599a797611435e3b93313269d21a9fe2f739cf"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/dromana/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/dromana/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/dromana/index.md",
+      "contentSha256": "4826482fc67f4f19dca1e286c0a6bf5ec187e9e9d96ba02bc35f380ee5a059c3",
+      "previousContentSha256": "dc8825b08172078357c8ecdd063c8ab1a751a10b2c6089a62ad9e74a0e0a0a29"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
+      "contentSha256": "f78bf084fe4542b78ae2f7e6918ab9a0e57772926491ba1c417f164a10037f25",
+      "previousContentSha256": "d2ea1b8a547de9ed21fb179234a4f7d8af17f933b4c4abcf48e8c11af25ad012"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/meet-the-makers-at-hawkes-farm-2026-11-28/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/meet-the-makers-at-hawkes-farm-2026-11-28/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/meet-the-makers-at-hawkes-farm-2026-11-28/index.md",
+      "contentSha256": "8cad72e55a16fb190e0fbc5d59bce15536e6ff70d916f48d18c2d7ec033b751c",
+      "previousContentSha256": "849187b2fc0dd601cdabe56cc300acf83e6eeca355fb2f9fd30beb98fbeddd83"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/month/november-2026/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/month/november-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/month/november-2026/index.md",
+      "contentSha256": "cc25a9574eb0381fc66b9c6dccd0815ac3c783fb6baff93466f7c5062972e5b9",
+      "previousContentSha256": "36e40a24e607354b7adde27f9cac92b534b2db3b49dd661685efa59df6e68163"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/summer-xmas-seafood-class-at-peninsula-gourmet-cooking-school-2026-11-28/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/summer-xmas-seafood-class-at-peninsula-gourmet-cooking-school-2026-11-28/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/summer-xmas-seafood-class-at-peninsula-gourmet-cooking-school-2026-11-28/index.md",
+      "contentSha256": "d51e7f48e94c1322d0a9f328e89a86bd986cddfb3ce85ac36a844f77d4ccc896",
+      "previousContentSha256": "903f019f192be49cadf36385fac2a9dcc01723b7d38438cbeac2262f68581cae"
     }
   ]
 }

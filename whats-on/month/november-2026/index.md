@@ -15,22 +15,6 @@ Events across the Mornington Peninsula in November, day by day, from Sat 28 – 
 
 ## Saturday 28 November
 
-- 10am
-
-[Meet The Makers at Hawkes Farm](<https://peninsulainsider.com.au/whats-on/meet-the-makers-at-hawkes-farm-2026-11-28/>)
-
-Hawkes Farm in Boneo holds its Meet the Makers market on the last Saturday of each month from September to April, with local artisans, makers and small-batch producers.
-
-Boneo · Markets · Checked 9 Nov 2026
-
-- 11am
-
-[Summer Xmas Seafood Class at Peninsula Gourmet Cooking School](<https://peninsulainsider.com.au/whats-on/summer-xmas-seafood-class-at-peninsula-gourmet-cooking-school-2026-11-28/>)
-
-A festive seafood cooking class at Peninsula Gourmet Cooking School in Dromana, from 11am to 2.30pm, with ideas for the holiday table, picnics and summer gatherings.
-
-Dromana · Food & Wine · Checked 9 Nov 2026
-
 - 5pm
 
 [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)

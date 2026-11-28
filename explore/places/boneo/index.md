@@ -57,15 +57,15 @@ Dave Campbell plays an afternoon set at Peninsula Beer Garden in Boneo, from 1pm
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/dave-campbell-live-at-peninsula-beer-garden-2026-11-29/>)
 
-- [Sat, 28 Nov
+- [Sun, 13 Dec
 
-### Meet The Makers at Hawkes Farm
+### "Whippy" Griggs Live for a Crackin' Night at The Ranch
 
 Boneo
 
-Hawkes Farm in Boneo holds its Meet the Makers market on the last Saturday of each month from September to April, with local artisans, makers and small-batch producers.
+Northern Territory whip artist Nathan "Whippy" Griggs brings his touring show of whip-cracking and humour to The Ranch in Boneo, from 6.30pm to 7.30pm.
 
- Event · Markets](<https://peninsulainsider.com.au/whats-on/meet-the-makers-at-hawkes-farm-2026-11-28/>)
+ Event · Arts](<https://peninsulainsider.com.au/whats-on/whippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13/>)
 
 Running an event in Boneo?
 

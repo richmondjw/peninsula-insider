@@ -77,16 +77,6 @@ Olivia Mae plays an afternoon set at Jetty Road Brewery in Dromana from 1pm to 4
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/olivia-mae-live-at-jetty-road-brewery-2026-11-29/>)
 
-- [Sat, 28 Nov
-
-### Summer Xmas Seafood Class at Peninsula Gourmet Cooking School
-
-Dromana
-
-A festive seafood cooking class at Peninsula Gourmet Cooking School in Dromana, from 11am to 2.30pm, with ideas for the holiday table, picnics and summer gatherings.
-
- Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/summer-xmas-seafood-class-at-peninsula-gourmet-cooking-school-2026-11-28/>)
-
 Running an event in Dromana?
 
  [Submit an event](<https://peninsulainsider.com.au/submit/?type=event>)

@@ -77,22 +77,6 @@ Merricks
 
 Swipe or scroll through the picks
 
-- ### [DJ Sophie Joy Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/dj-sophie-joy-live-at-jetty-road-brewery-2026-11-28/>)
-
-DJ Sophie Joy plays Jetty Road Brewery in Dromana from 6pm to 9pm, part of the brewery's regular weekend music.
-
-Sat, 28 Nov   Jetty Road Brewery   Live music
-
-Event details checked 9 Nov 2026 · [Organiser’s page](<https://www.jettyroad.com.au/dromana>)
-
-- ### [Meet The Makers at Hawkes Farm](<https://peninsulainsider.com.au/whats-on/meet-the-makers-at-hawkes-farm-2026-11-28/>)
-
-Hawkes Farm in Boneo holds its Meet the Makers market on the last Saturday of each month from September to April, with local artisans,.
-
-Sat, 28 Nov   Hawkes Farm   Market
-
-Event details checked 9 Nov 2026 · [Organiser’s page](<https://store.hawkesfarm.com.au/blogs/news/meet-the-makers-market>)
-
 - ### [November Cellar Door Opening](<https://peninsulainsider.com.au/whats-on/november-cellar-door-opening-2026-11-28/>)
 
 Taste and purchase wines while enjoying a guided tour of Elgee Park’s sculpture collection. Starts 12pm.
@@ -100,6 +84,22 @@ Taste and purchase wines while enjoying a guided tour of Elgee Park’s sculptur
 Sat, 28 Nov   Elgee Park   Exhibition
 
 Event details checked 9 Nov 2026 · [Organiser’s page](<https://www.elgeeparkwines.com.au/news/november-cellar-door-opening>)
+
+- ### [Dave Campbell Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/dave-campbell-live-at-peninsula-beer-garden-2026-11-29/>)
+
+Dave Campbell plays an afternoon set at Peninsula Beer Garden in Boneo, from 1pm to 4pm.
+
+Sun, 29 Nov   Peninsula Beer Garden   Live music
+
+Event details checked 9 Nov 2026 · [Organiser’s page](<https://peninsulabeergarden.com.au/>)
+
+- ### [Olivia Mae Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/olivia-mae-live-at-jetty-road-brewery-2026-11-29/>)
+
+Olivia Mae plays an afternoon set at Jetty Road Brewery in Dromana from 1pm to 4pm, part of the brewery's regular weekend music.
+
+Sun, 29 Nov   Jetty Road Brewery   Live music
+
+Event details checked 9 Nov 2026 · [Organiser’s page](<https://www.jettyroad.com.au/dromana>)
 
 This season · Spring
 

@@ -23,14 +23,6 @@ Brad Kennedy plays the Spike Bar at Peppers Moonah Links Resort in Fingal, from 
 
 Live Music   Checked 9 Nov 2026
 
-- Sat, 28 Nov · 10am–2pm · Boneo
-
-### [Meet The Makers at Hawkes Farm](<https://peninsulainsider.com.au/whats-on/meet-the-makers-at-hawkes-farm-2026-11-28/>)
-
-Hawkes Farm in Boneo holds its Meet the Makers market on the last Saturday of each month from September to April, with local artisans, makers and small-batch producers.
-
-Markets   Checked 9 Nov 2026
-
 - Sat, 28 Nov · Merricks North
 
 ### [November Cellar Door Opening](<https://peninsulainsider.com.au/whats-on/november-cellar-door-opening-2026-11-28/>)
@@ -39,17 +31,17 @@ Taste and purchase wines while enjoying a guided tour of Elgee Park’s sculptur
 
 Exhibitions   Checked 9 Nov 2026
 
+- Sun, 29 Nov · 1pm–4pm · Boneo
+
+### [Dave Campbell Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/dave-campbell-live-at-peninsula-beer-garden-2026-11-29/>)
+
+Dave Campbell plays an afternoon set at Peninsula Beer Garden in Boneo, from 1pm to 4pm.
+
+Live Music   Checked 9 Nov 2026
+
 ## Day by day
 
 ### Saturday 28 November
-
-- 11am
-
-[Summer Xmas Seafood Class at Peninsula Gourmet Cooking School](<https://peninsulainsider.com.au/whats-on/summer-xmas-seafood-class-at-peninsula-gourmet-cooking-school-2026-11-28/>)
-
-A festive seafood cooking class at Peninsula Gourmet Cooking School in Dromana, from 11am to 2.30pm, with ideas for the holiday table, picnics and summer gatherings.
-
-Dromana · Food & Wine · Checked 9 Nov 2026
 
 - 5pm
 
@@ -68,14 +60,6 @@ DJ Sophie Joy plays Jetty Road Brewery in Dromana from 6pm to 9pm, part of the b
 Dromana · Live Music · Checked 9 Nov 2026
 
 ### Sunday 29 November
-
-- 1pm
-
-[Dave Campbell Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/dave-campbell-live-at-peninsula-beer-garden-2026-11-29/>)
-
-Dave Campbell plays an afternoon set at Peninsula Beer Garden in Boneo, from 1pm to 4pm.
-
-Boneo · Live Music · Checked 9 Nov 2026
 
 - 1pm
 

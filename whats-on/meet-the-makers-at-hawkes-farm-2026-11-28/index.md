@@ -11,8 +11,6 @@ Event     Markets     28 November 2026     One-off date
 
 Hawkes Farm in Boneo holds its Meet the Makers market on the last Saturday of each month from September to April, with local artisans, makers and small-batch producers.
 
-[Book or check details](<https://store.hawkesfarm.com.au/blogs/news/meet-the-makers-market>)
-
 Hosted at
 
 Hawkes Farm
@@ -43,7 +41,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://store.hawkesfarm.com.au/blogs/news/meet-the-makers-market>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Meet+The+Makers+at+Hawkes+Farm&dates=20261127T230000Z%2F20261128T030000Z&details=Hawkes+Farm+in+Boneo+holds+its+Meet+the+Makers+market+on+the+last+Saturday+of+each+month+from+September+to+April%2C+with+local+artisans%2C+makers+and+small-batch+producers.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fmeet-the-makers-at-hawkes-farm-2026-11-28%2F&location=Hawkes+Farm%2C+Boneo%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+Booking and calendar links are withdrawn; this session has finished.
 
 Keep planning
 

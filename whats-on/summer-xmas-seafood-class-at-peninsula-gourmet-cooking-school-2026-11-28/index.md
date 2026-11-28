@@ -11,8 +11,6 @@ Event     Food & Wine     28 November 2026     One-off date
 
 A festive seafood cooking class at Peninsula Gourmet Cooking School in Dromana, from 11am to 2.30pm, with ideas for the holiday table, picnics and summer gatherings.
 
-[Book or check details](<https://peninsulagourmetcookingschool.com.au/classes>)
-
 Hosted at
 
 Peninsula Gourmet Cooking School
@@ -43,7 +41,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://peninsulagourmetcookingschool.com.au/classes>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Summer+Xmas+Seafood+Class+at+Peninsula+Gourmet+Cooking+School&dates=20261128T000000Z%2F20261128T033000Z&details=A+festive+seafood+cooking+class+at+Peninsula+Gourmet+Cooking+School+in+Dromana%2C+from+11am+to+2.30pm%2C+with+ideas+for+the+holiday+table%2C+picnics+and+summer+gatherings.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fsummer-xmas-seafood-class-at-peninsula-gourmet-cooking-school-2026-11-28%2F&location=Peninsula+Gourmet+Cooking+School%2C+Dromana%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+Booking and calendar links are withdrawn; this session has finished.
 
 Keep planning
 
