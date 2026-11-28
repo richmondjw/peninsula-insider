@@ -47,7 +47,7 @@ const hero = await resolveHero('venue', slug, venue.data, 'heroImage', {
 const ogImage = hero.src;
 
 const schemas: any[] = [
-  buildWinerySchema(venue.data, slug),
+  buildWinerySchema(slug === 'baillieu-vineyard' ? { ...venue.data, heroImage: undefined } : venue.data, slug),
 ];
 if (venue.data.restaurant) schemas.push(buildRestaurantSchema(venue.data, slug));
 if (venue.data.accommodation) schemas.push(buildAccommodationSchema(venue.data, slug));
