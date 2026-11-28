@@ -77,6 +77,16 @@ A handful of specific spots turn wet-weather Peninsula weekends from a compromis
 
 **A long lunch followed by a long nap.** Book a two-night stay at a property with a proper room, eat lunch at one of the Red Hill wineries, and spend the afternoon reading a book in the kind of armchair the region specialises in. This is the version of the Peninsula trip that most resembles a real holiday.
 
+### Make something indoors
+
+If you want to build an afternoon around making something, book the workshop first rather than relying on a walk-in.
+
+**Pete Sews, Capel Sound.** Start with [Not Sew Scary](https://www.petesews.com.au/beginner-sewing-class) if you've never used a machine. The class is for adults and teens, and the machine and materials are supplied. If you'd rather learn the machine you already own, choose Sewing Machine Starter and bring it with its pedal and power cord. For a group of three to six, Pete also lists [private sewing sessions](https://www.petesews.com.au/sewing-classes) where you can work on a project of your choice.
+
+**Peachy Keen Ceramics, Mount Eliza.** Choose a one-off workshop if you're curious about clay, or an ongoing class if you want to keep working on your own pieces. You don't need prior experience. The studio is at a private residence and sends the address after booking. If you have access requirements, [contact the studio](https://www.peachykeenceramics.com.au/contact-us) before choosing a session.
+
+**Dromana Creative Hub & Gallery.** If you'd like to see local artists' work as well as try making your own, look for a hands-on workshop at the gallery. [Visit the gallery’s website](https://www.dromanagallery.com.au/) for current visitor information.
+
 ## The weekend structure that works
 
 A forecast-led rainy Peninsula weekend looks roughly like this:
