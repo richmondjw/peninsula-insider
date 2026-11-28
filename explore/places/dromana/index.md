@@ -81,6 +81,20 @@ Running an event in Dromana?
 
  [Submit an event](<https://peninsulainsider.com.au/submit/?type=event>)
 
+## Planning a Dromana beach picnic
+
+Pick up lunch in town before heading to the foreshore.
+
+Small-group picnic
+
+### [Miller's Bread Kitchen](<https://www.millersbread.com.au/>)
+
+For a small group, the bakery suggests choosing from what's in the shop that day rather than ordering a catering tray.
+
+For pastry packs, check catering dates and order ahead.
+
+ [Check catering dates and order ahead →](<https://www.millersbread.com.au/catering>)
+
 The gateway town - more accessible than the hinterland, still genuinely Peninsula.
 
 Peninsula Insider - editor's note

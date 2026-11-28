@@ -401,6 +401,8 @@ Moonah Links Open Course for championship pedigree and full public access. St An
 
 Can you play golf on the Mornington Peninsula without a club membership?
 
+**The Valley, Safety Beach:** Visitors can [book a tee time and pay the green fee online](<https://thevalley.golf/golf-book-a-round/>). The club also has a separate mini-golf course.
+
 Yes. Moonah Links, St Andrews Beach, RACV Cape Schanck, Eagle Ridge, The Dunes, Mornington Golf Club, and Rosebud Country Club list visitor green fees; check current tee times with each club. Flinders welcomes visitors seven days in published time windows, and Portsea offers limited visitor green-fee times. The National is private: Victorian nonmembers need an invitation and must play with a member, while interstate and overseas visitors can request tee times directly.
 
 How much does golf cost on the Mornington Peninsula?

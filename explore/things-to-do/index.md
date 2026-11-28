@@ -185,6 +185,8 @@ Best for: First-time visitors with half a day to orient themselves.
 
 - [Rainy-day plans](<https://peninsulainsider.com.au/explore/rainy-day/>) - when the weather turns
 
+- **The Big Goose, Moorooduc:** If one of the farm shows is the reason you're going, check [The Big Goose's show timetable](<https://www.thebiggoose.com.au/collections/shows>) before you leave. Times vary, so plan the rest of the farm visit around the sessions you want to see.
+
 - [With-kids guide](<https://peninsulainsider.com.au/journal/mornington-peninsula-with-kids/>) - child-tested by category
 
 Researched from published sources. Every entry listed was reviewed April 2026 or later.
