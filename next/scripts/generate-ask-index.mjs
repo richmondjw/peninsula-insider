@@ -288,6 +288,11 @@ export function buildIndex(dist) {
       ...(shownFacts.length ? { f: shownFacts } : {}),
       h: entry.contentSha256.slice(0, 12),
     };
+    // Reuse the area guide's own route description only while the published page carries it.
+    if (pathname === '/journal/area-guide-flinders/') {
+      const passage = 'The coastal reserve walk from the village toward West Head is the most convincing argument for Flinders.';
+      if (pageText.includes(passage)) record.walk = { place: 'flinders', passage };
+    }
     const htmlFile = join(dist, pathname, 'index.html');
     const image = existsSync(htmlFile) ? pageImage(readFileSync(htmlFile, 'utf8')) : null;
     if (image) record.im = { s: image.src, ...(image.credit ? { c: image.credit } : {}) };

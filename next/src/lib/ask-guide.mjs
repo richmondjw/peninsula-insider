@@ -273,6 +273,11 @@ export function select(index, filter, today) {
   pool = pool.filter((record) => (record.k === 'event' ? onInWindow(record, filter.window, today) : true));
   if (filter.place) pool = pool.filter((record) => record.p === filter.place.slug || (record.k === 'place' && record.u.endsWith(`/${filter.place.slug}/`)));
 
+  // A golf course in the requested town cannot stand in for a walking route.
+  if (filter.place && kinds.length === 1 && kinds[0] === 'do' && filter.words.includes('walk')) {
+    pool = pool.filter((record) => record.ty === 'Walk');
+  }
+
   const scored = pool.map((record) => {
     const words = new Set(record.kw.split(' '));
     const hits = filter.words.filter((word) => words.has(word));
@@ -478,6 +483,16 @@ export function ask(index, question, state = null, context = {}) {
   }
 
   let result = select(index, filter, today);
+  if (result.empty && filter.kinds?.[0] === 'do' && filter.place && filter.words.includes('walk') && !result.poolSize) {
+    const guide = index.records.find((record) => record.k === 'story' && record.walk?.place === filter.place.slug);
+    const where = filter.place.name;
+    return {
+      state: { filter, offset: 0, question: asked },
+      reply: { kind: 'walk-guide', lead: guide?.walk.passage || `I don’t have a published walking route for ${where}.`,
+        notes: guide ? [footer] : [], cards: guide ? [card(guide)] : [],
+        links: [searchLink(asked)], chips: [] },
+    };
+  }
   if (result.empty && !filter.kinds) {
     const stories = select(index, { ...filter, kinds: ['story'] }, today);
     if (!stories.empty && !stories.partial) { filter.kinds = ['story']; result = stories; }
