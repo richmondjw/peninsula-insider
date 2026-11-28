@@ -23,14 +23,6 @@ Places chosen by our editors. Never paid for. [How we choose](<https://peninsula
 
  [See all plans](<https://peninsulainsider.com.au/explore/plans/>)
 
-- Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula   Photo: Two Palms Australia, courtesy of Visit Victoria.
-
-### [Ridge to sea](<https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/>)
-
-Red Hill wine country to the southern coast.
-
-3 days   Red Hill & Merricks   Couples
-
 - Arthurs Seat Eagle Gondola Ride, Mornington Peninsula   Photo courtesy of Visit Victoria.
 
 ### [The family day out](<https://peninsulainsider.com.au/explore/plans/the-family-day-out/>)
@@ -38,6 +30,14 @@ Red Hill wine country to the southern coast.
 A gondola, brewery lunch and a bay beach.
 
 One day   Red Hill & Merricks   Family
+
+- Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula   Photo: Two Palms Australia, courtesy of Visit Victoria.
+
+### [Ridge to sea](<https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/>)
+
+Red Hill wine country to the southern coast.
+
+3 days   Red Hill & Merricks   Couples
 
 ## Insider Picks
 
